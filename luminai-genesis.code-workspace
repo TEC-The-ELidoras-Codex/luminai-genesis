@@ -1,0 +1,34 @@
+{
+  "folders": [
+    {
+      "path": "."
+    }
+  ],
+  "settings": {
+    "python.defaultInterpreterPath": "venv/bin/python",
+    "python.analysis.typeCheckingMode": "basic",
+    "python.formatting.provider": "black",
+    "python.linting.enabled": true,
+    "python.linting.pylintEnabled": true,
+
+    "typescript.tsdk": "node_modules/typescript/lib",
+    "editor.formatOnSave": true,
+
+    "github.copilot.enable": {
+      "*": true,
+      "markdown": true,
+      "plaintext": true
+    },
+
+    "files.exclude": {
+      "**/__pycache__": true,
+      "**/.DS_Store": true,
+      "**/.pytest_cache": true
+    },
+
+    "workbench.colorCustomizations": {
+      "editor.background": "#0F0F23",
+      "editor.foreground": "#FFFFFF"
+    }
+  }
+}

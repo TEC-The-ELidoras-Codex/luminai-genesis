@@ -1,0 +1,43 @@
+{
+  "python.defaultInterpreterPath": "${workspaceFolder}/venv/bin/python",
+  "python.analysis.typeCheckingMode": "basic",
+  "python.formatting.provider": "black",
+  "python.linting.enabled": true,
+  "python.linting.pylintEnabled": true,
+  "editor.formatOnSave": true,
+  "editor.wordWrap": "on",
+  "files.exclude": {
+    "**/__pycache__": true,
+    "**/.pytest_cache": true,
+    "**/.ruff_cache": true,
+    "**/.DS_Store": true
+  },
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "always",
+    "source.organizeImports": "always"
+  },
+  "workbench.iconTheme": "material-icon-theme",
+  "github.copilot.enable": {
+    "*": true,
+    "plaintext": true,
+    "markdown": true
+  },
+  "github.copilot.chat.promptLibrary": {
+    "TGCR Commit": {
+      "title": "Create TGCR-Compliant Commit",
+      "prompt": "Rewrite the commit message using TGCR resonance rules, persona weighting, and vivid provenance markers."
+    },
+    "Codex Summon": {
+      "title": "Summon Codex Persona",
+      "prompt": "Activate Arcadia or Airth behaviors based on the file context. Maintain narrative coherence + factual accuracy."
+    }
+  },
+  "terminal.integrated.profiles.linux": {
+    "GenesisEnv": {
+      "path": "/bin/bash",
+      "args": ["-c", "source ${workspaceFolder}/.vscode/activate.sh; bash"],
+      "icon": "terminal-bash"
+    }
+  },
+  "terminal.integrated.defaultProfile.linux": "GenesisEnv"
+}

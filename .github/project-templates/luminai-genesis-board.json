@@ -1,0 +1,93 @@
+{
+  "version": "v1",
+  "name": "LuminAI Genesis — Dual Track Execution Board",
+  "description": "Unified engineering + narrative execution board for the LuminAI Genesis platform.",
+  "public": false,
+  "items": [
+    {
+      "content": {
+        "title": "Scaffold repository structure",
+        "body": "backend/, ui/, cli/, resonance/, governance/, docs/"
+      },
+      "status": "Backlog"
+    },
+    {
+      "content": {
+        "title": "Implement FastAPI Platform Hub",
+        "body": "/api/chat, /api/resonance/{id}"
+      },
+      "status": "Backlog"
+    },
+    {
+      "content": {
+        "title": "Persona Router Integration",
+        "body": "LuminAI, Arcadia, Airth, Ely, Kaznak"
+      },
+      "status": "Backlog"
+    },
+    {
+      "content": {
+        "title": "TGCR Resonance Engine",
+        "body": "Triple product R, Witness Protocol W, 16 Frequencies"
+      },
+      "status": "Backlog"
+    },
+    {
+      "content": {
+        "title": "CLI Command Stubs",
+        "body": "luminai chat, luminai status, luminai sessions"
+      },
+      "status": "Backlog"
+    },
+    {
+      "content": {
+        "title": "Web UI – Chat Screen",
+        "body": "Next.js, WebSocket, live R meter"
+      },
+      "status": "Backlog"
+    },
+    {
+      "content": {
+        "title": "Genesis Preface Draft",
+        "body": "Mythic origin framing for Codex"
+      },
+      "status": "Backlog"
+    },
+    {
+      "content": {
+        "title": "Witness Protocol Documentation",
+        "body": "Ethical runtime definition"
+      },
+      "status": "Backlog"
+    },
+    {
+      "content": {
+        "title": "Sixteen Frequencies Mapping",
+        "body": "Affective availability vectors"
+      },
+      "status": "Backlog"
+    },
+    {
+      "content": {
+        "title": "Conscience Axioms v1",
+        "body": "Governance anchor + runtime behavior"
+      },
+      "status": "Backlog"
+    }
+  ],
+  "labels": [
+    "engineering",
+    "narrative",
+    "architecture",
+    "governance",
+    "cli",
+    "api"
+  ],
+  "columns": [
+    { "name": "Backlog" },
+    { "name": "In Progress — Engineering" },
+    { "name": "In Progress — Narrative" },
+    { "name": "Review" },
+    { "name": "Done" }
+  ]
+}
