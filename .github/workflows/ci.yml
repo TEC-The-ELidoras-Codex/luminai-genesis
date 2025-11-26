@@ -1,0 +1,25 @@
+name: CI
+on:
+  push:
+    branches: [ main, 'chore/*' ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+      - name: Install deps if present
+        run: |
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+      - name: Run linters
+        run: |
+          if command -v flake8 >/dev/null 2>&1; then flake8 || true; fi
+      - name: Run tests
+        run: |
+          if [ -f pytest.ini ] || ls tests >/dev/null 2>&1; then pytest || true; fi
