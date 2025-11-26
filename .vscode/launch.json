@@ -1,0 +1,41 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "FastAPI: Run LuminAI Platform Hub",
+      "type": "python",
+      "request": "launch",
+      "module": "uvicorn",
+      "args": [
+        "luminai_genesis.api:app",
+        "--host",
+        "0.0.0.0",
+        "--port",
+        "8000",
+        "--reload"
+      ],
+      "env": {
+        "ENV": "dev"
+      },
+      "jinja": true
+    },
+    {
+      "name": "Run Pytests (WSL)",
+      "type": "python",
+      "request": "launch",
+      "module": "pytest",
+      "args": ["-q"],
+      "env": {
+        "ENV": "test"
+      }
+    },
+    {
+      "name": "Frontend Dev Server",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/apps/web/node_modules/next/dist/bin/next",
+      "args": ["dev"],
+      "cwd": "${workspaceFolder}/apps/web"
+    }
+  ]
+}

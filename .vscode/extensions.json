@@ -1,0 +1,26 @@
+{
+  "recommendations": [
+    "ms-python.python",
+    "ms-python.vscode-pylance",
+    "charliermarsh.ruff",
+    "ms-toolsai.jupyter",
+    "ms-azuretools.vscode-docker",
+    "github.copilot",
+    "github.copilot-chat",
+    "github.vscode-pull-request-github",
+    "esbenp.prettier-vscode",
+    "dbaeumer.vscode-eslint",
+    "oderwat.indent-rainbow",
+    "formulahendry.code-runner",
+    "ms-vscode.makefile-tools",
+    "ms-vscode-remote.remote-wsl",
+    "bierner.markdown-preview-github-styles",
+    "bungcip.better-toml",
+    "ms-python.black-formatter",
+    "njpwerner.autodocstring",
+    "PKief.material-icon-theme",
+    "ms-vscode.cpptools",
+    "redhat.vscode-yaml",
+    "statnett.vscode-ansible"
+  ]
+}
