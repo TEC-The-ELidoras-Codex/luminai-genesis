@@ -1,0 +1,61 @@
+name: Import labels (idempotent)
+
+on:
+  workflow_dispatch: {}
+  push:
+    branches: ["chore/copilot-instructions", "main", "develop"]
+
+jobs:
+  import_labels:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      issues: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+      - name: Install deps
+        run: |
+          python -m pip install --upgrade pip
+          pip install PyYAML PyGithub
+      - name: (Optional) Install Bitwarden CLI and jq
+        if: ${{ secrets.BW_CLIENTID && secrets.BW_CLIENTSECRET }}
+        run: |
+          sudo apt-get update && sudo apt-get install -y unzip jq
+          curl -sSfL https://vault.bitwarden.com/cli/bw-linux-64.zip -o bw.zip
+          unzip -q bw.zip
+          sudo mv bw /usr/local/bin/
+      - name: (Optional) Login to Bitwarden (client credentials)
+        if: ${{ secrets.BW_CLIENTID && secrets.BW_CLIENTSECRET }}
+        env:
+          BW_CLIENTID: ${{ secrets.BW_CLIENTID }}
+          BW_CLIENTSECRET: ${{ secrets.BW_CLIENTSECRET }}
+        run: |
+          set -e
+          export BW_SESSION=$(bw login --client $BW_CLIENTID --secret $BW_CLIENTSECRET --raw)
+          echo "BW_SESSION=${BW_SESSION}" >> $GITHUB_ENV
+      - name: (Optional) Fetch GITHUB token from Bitwarden item
+        if: ${{ secrets.BW_CLIENTID && secrets.BW_CLIENTSECRET && env.BW_IMPORT_GITHUB_ITEM }}
+        env:
+          BW_SESSION: ${{ env.BW_SESSION }}
+          BW_IMPORT_GITHUB_ITEM: ${{ env.BW_IMPORT_GITHUB_ITEM }}
+        run: |
+          # Fetch an item and extract a field named 'token' or 'password'
+          ITEM_JSON=$(bw get item "$BW_IMPORT_GITHUB_ITEM")
+          TOKEN=$(echo "$ITEM_JSON" | jq -r '.fields[]? | select(.name=="token" or .name=="password") | .value' | head -n1)
+          if [ -n "$TOKEN" ]; then
+            echo "GITHUB_TOKEN_FROM_BW=$TOKEN" >> $GITHUB_ENV
+          fi
+      - name: Run import_labels.py
+        env:
+          GITHUB_TOKEN: ${{ env.GITHUB_TOKEN_FROM_BW || secrets.GITHUB_TOKEN }}
+        run: |
+          if [ ! -f labels.yml ]; then
+            echo "labels.yml not found; skipping";
+            exit 0;
+          fi
+          python import_labels.py

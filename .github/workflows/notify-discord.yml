@@ -1,0 +1,35 @@
+name: Notify Discord on GitHub Events
+
+on:
+    push:
+        branches: [main]
+    pull_request:
+        types: [opened, synchronize, reopened, closed]
+    issues:
+        types: [opened, closed]
+
+jobs:
+    notify:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Build payload
+              id: payload
+              run: |
+                  cat > payload.json <<'EOF'
+                  {
+                    "content": "${{ github.event_name }} event on ${{ github.repository }}\nAction: ${{ github.event.action }}\nBy: ${{ github.actor }}\n$({{ github.event.pull_request && github.event.pull_request.html_url || github.event.issue && github.event.issue.html_url || github.event.head_commit && github.event.head_commit.url }})"
+                  }
+                  EOF
+                  echo "payload<<EOF" >> $GITHUB_ENV
+                  cat payload.json
+                  echo "EOF" >> $GITHUB_ENV
+            - name: Send to Discord webhook
+              env:
+                  DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK_URL }}
+              run: |
+                  if [ -z "$DISCORD_WEBHOOK" ]; then
+                    echo "DISCORD_WEBHOOK_URL secret is not set. Skipping discord notify.";
+                    exit 0;
+                  fi
+                  echo "Sending Discord notification..."
+                  curl -s -H "Content-Type: application/json" -d @payload.json "$DISCORD_WEBHOOK"

@@ -1,0 +1,7 @@
+FROM python:3.11-slim
+WORKDIR /app
+COPY . /app
+ # Slack Dockerfile archived. Original moved to archive/docker/Dockerfile.slack
+
+FROM scratch
+CMD ["/bin/sh", "-c", "echo 'Slack Dockerfile archived. See archive/docker/Dockerfile.slack' && exit 0"]

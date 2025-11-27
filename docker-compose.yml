@@ -1,0 +1,15 @@
+version: "3.8"
+
+services:
+  # slack-bot service archived. See archive/bots/slack/ for the original scaffold.
+
+  discord-bot:
+    image: python:3.11-slim
+    container_name: luminai_discord
+    working_dir: /app
+    volumes:
+      - ./:/app:delegated
+    env_file:
+      - .env
+    command: bash -lc "pip install -r bots/discord/requirements.txt && python bots/discord/bot.py"
+    restart: unless-stopped

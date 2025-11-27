@@ -1,0 +1,4 @@
+Flask>=2.0
+gunicorn>=20.0
+# Optional: slack-sdk if you plan to call Slack APIs from the bot
+slack-sdk>=3.0
