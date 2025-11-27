@@ -30,3 +30,6 @@ dist/
 
 # OS files
 .DS_Store
+
+# private files
+secrets/
