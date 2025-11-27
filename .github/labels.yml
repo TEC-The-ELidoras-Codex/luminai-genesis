@@ -1,25 +1,54 @@
-# Labels for luminai-genesis
-- name: bug
-  color: d73a4a
-  description: Something isn't working
-- name: enhancement
+# Labels for luminai-genesis (Emoji-aligned)
+
+- name: "✨ feature"
   color: a2eeef
-  description: New feature or request
-- name: documentation
-  color: 0075ca
-  description: Improvements or additions to documentation
-- name: infra
+  description: New capability or behavior
+
+- name: "🐛 bug"
+  color: d73a4a
+  description: Something is broken
+
+- name: "🧠 engine"
+  color: 5319e7
+  description: TGCR core, resonance math, backend logic
+
+- name: "🔧 infra"
   color: cfd3d7
-  description: Infrastructure and CI
-- name: security
+  description: CI, Docker, deployment, environment, tooling
+
+- name: "🧹 cleanup"
+  color: fef2c0
+  description: Refactor, re-org, deletion, non-functional changes
+
+- name: "🧪 test"
+  color: fbca04
+  description: Tests, experiments, spikes
+
+- name: "📝 docs"
+  color: 0075ca
+  description: Documentation, guides, READMEs
+
+- name: "📜 lore"
+  color: 0e8a16
+  description: Codex narrative, governance, TGCR memos
+
+- name: "🚑 hotfix"
+  color: b60205
+  description: Urgent fix on main / production
+
+- name: "🛡️ security"
   color: e99695
-  description: Security related issues
-- name: triage
+  description: Secrets, auth, safety, compliance
+
+# Process / triage helpers
+- name: "🧭 triage"
   color: 1d76db
-  description: Needs triage
-- name: help wanted
+  description: Needs review or routing
+
+- name: "🙋 help wanted"
   color: 008672
-  description: Extra attention is needed
-- name: good first issue
+  description: Extra attention or contributions desired
+
+- name: "🌱 good first issue"
   color: 7057ff
-  description: Good for newcomers
+  description: Safe starter task
