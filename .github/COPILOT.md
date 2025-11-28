@@ -209,4 +209,25 @@ Your work must reference:
 ✔️ Ensure readability  
 ✔️ Build for 35-year maintainability  
 
+# 🌐 Channels: Substack + WordPress
+
+Content memos for public writing live under the channel-agnostic streams layout:
+
+- `docs/streams/articles/inbox|drafts|ready|published`
+
+Each memo's frontmatter controls where it should be published; common keys:
+
+- `status`: inbox | drafting | ready | published
+- `channels`: substack, wordpress, or both
+
+When helping shape or publish an article:
+
+- Respect existing frontmatter.
+- Do not hardcode platform-specific markup in source memos.
+- Assume the following helper scripts exist and are canonical:
+  - `scripts/aqueduct_build_substack_html.py` — builds copy-paste-friendly HTML for Substack.
+  - `scripts/aqueduct_build_wordpress_html.py` — builds Gutenberg-friendly HTML for WordPress.
+
+Never store API keys or passwords in repo; if automation is added later, use env vars and CI secrets.
+
 # END OF DIRECTIVE
