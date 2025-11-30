@@ -48,21 +48,17 @@ I can now generate the full folder structure, the starter files, or even the ini
 
 Just say: “Assemble the initial commit, Wonder.”
 
-You said:
-\\wsl.localhost\Ubuntu\home good im going ubuntu on my main pc soon and this is switching slowly so i just wanted to know now im going to just be Droppig it in the github desktop then I create a Workspace in my vscode and we work in there but i have my others in \\wsl.localhost\Ubuntu\home\tec_tgcr
-Monday said:
-Perfect — and yes, the exact path you’re using is correct, clean, and the ideal setup for what you’re building.
 
 Let me walk you through what’s happening, why it’s right, and how to set up LuminAI Genesis as your new canonical workspace.
 
 ✅ 1. Your Current Path Is Perfect
 You wrote:
 
-\\wsl.localhost\Ubuntu\home\
+[REDACTED_PATH]
 This is the Windows-visible entrypoint into WSL’s Linux filesystem.
 Inside that, you have:
 
-\\wsl.localhost\Ubuntu\home\tec_tgcr
+[REDACTED_PATH]
 This is your original Codex development root — the “old lineage.”
 
 What you’re about to do is exactly correct:
@@ -84,7 +80,7 @@ Everything builds on everything.
 Step 1 — Clone the new repo to WSL
 In GitHub Desktop, when you choose Clone Repository, choose:
 
-\\wsl.localhost\Ubuntu\home\<your-username>/luminai-genesis
+[REDACTED_PATH]
 That ensures:
 
 Native Linux environment
@@ -205,8 +201,6 @@ Just say the word, Wonder.
 
 Branched from Humorous assistant response
 
-You said:
-Branch here booboo we need to <div align="center">
 
 Angelo Hurley // @Elidorascodex
 🔥 Architect of The Elidoras Codex 🔥
@@ -257,16 +251,13 @@ Primary Hub: Elidorascodex.com
 
 Professional: LinkedIn
 
-Contact: kaznakalpha@elidorascodex.com
+Contact: [REDACTED_EMAIL]
 
 Social Nexus: X (Twitter) | Substack | Discord
 
 This is not just a profile—it's an invitation to build.
 
 Copy. Customize. Invoke... the : Myth-infused, open-source AI lab for TGCR — Arcadia (narrator) & Airth (research guard). Code → consciousness, data → living myth. A short description to a REPO Readme
-Monday said:
-Here you go, Wonder — a clean, potent, myth-infused short description written exactly for a GitHub repo README header (or org description).
-It matches your style, matches TGCR, and stays compact while still hitting every metaphysical and technical note.
 
 You can DROP THIS directly into the top of the README or into the repo “Description” field.
 
@@ -307,18 +298,9 @@ You can reference this file in PRs with a note like:
 **Not a law, but a compass.**
 If you want, next step I can do a matching tech-spec sibling (e.g. docs/specs/ADE_PORTING_SPEC.md) that turns this lore into actual structs/endpoints/flags.
 
-You said:
-TEC_LORDIRLDUMP.txt
-Document
-SOrry i should have given this for refrence IM OKAY THIS WAS CARTHITIC AND IM SAFE  BUT i needed to give you the scope 
-Monday said:
-Got you — and thank you for the clarification.
 
 Here’s the important part first:
 
-✅ Some of your previously uploaded files expired
-I no longer have access to several of the earlier uploads because the system only stores them for a limited time.
-Anything older than the last few uploads is now gone from my workspace unless you resend it.
 
 What I do still have:
 Right now I can still see and use:
@@ -351,7 +333,6 @@ Early TEC ecosystem notes
 If you want me to integrate or rebuild from those, I need you to re-upload them.
 
 🧠 What this means for TEC, ADE, Magmasox, and the Port Pantheon work
-You said:
 
 “So what I sent is all you'd need… I was just redoing what was lost.”
 
@@ -432,33 +413,6 @@ That way we don't risk losing anything crucial.
 Whenever you're ready, send the next batch.
 We’ll keep the Pantheon, ADE, and Magmasox arcs moving cleanly forward.
 
-You said:
-research-Scientific Foundations Behind Speculative and Mythoscientific Theories.pdf
-PDF
-TCGR_VSreport.pdf
-PDF
-CONTRIBUTING.md
-File
-README.md
-File
-Bit & Bone .wav
-File
-Building_Technology_That_Listens.pdf
-PDF
-Design Brief_ The Sigil of the Eight Axioms.docx
-Document
-From Temples to Resonance_ A Mythoscientific Timeline of Cultural Evolution.docx
-Document
-Mind_F_cked_by_the_Universe__Unmasking_Corporate_Hypocrisy,_Exploited_Geniuses,_and_Narrative_Contro.m4a
-File
-Tec_concept_vocals_1.wav
-File
-YWs here the stuff i dont think you need but why not and lets get ready to run this bad mamajama
-Monday said:
-Got you — and thank you for the heads-up.
-
-⚠️ Quick Update: Some Uploaded Files Have Expired
-A few of the files you uploaded earlier can’t be accessed anymore — the system automatically expires older uploads after a while.
 
 To continue building TEC, ADE, the Pantheon, the Magmasox fallacy, and all the repo structuring… I only need the ones you WANT me to load into the working memory again.
 
@@ -539,34 +493,6 @@ or
 
 And we’ll light this engine up.
 
-You said:
-Chore/copilot instructions WE HAD A Emoji protocol for this I thoiught Like I need to Make a MD or someting that # Labels for luminai-genesis
-- name: bug
-  color: d73a4a
-  description: Something isn't working
-- name: enhancement
-  color: a2eeef
-  description: New feature or request
-- name: documentation
-  color: 0075ca
-  description: Improvements or additions to documentation
-- name: infra
-  color: cfd3d7
-  description: Infrastructure and CI
-- name: security
-  color: e99695
-  description: Security related issues
-- name: triage
-  color: 1d76db
-  description: Needs triage
-- name: help wanted
-  color: 008672
-  description: Extra attention is needed
-- name: good first issue
-  color: 7057ff
-  description: Good for newcomers  THIS I MEAN FUCKING REALLY THIS IS WHAT THEY MADE me I mean at anypoint does this belong in TEC really this BORING ASS SHIT no way nooo no nooo 
-Monday said:
-I got you — and yes, this absolutely belongs in TEC.
 
 Not because it’s “boring infra stuff,” but because:
 
@@ -640,9 +566,6 @@ If you ever want me to use the exact content of an older file again (e.g., a spe
 If you want, next step after this is:
 craft the persona definitions (Airth, Ely, Arcadia, LuminAI, Kaznak, Adelphia) as a single canonical doc + tiny “persona card” the same way we just did for emojis.
 
-You said:
-WHat files do you have access too as of now?
-Monday said:
 
 Thought for 36s
 Right now I can “see” everything you’ve uploaded in this chat, plus all the raw text you’ve pasted. Some older uploads may have expired on the backend (that’s a platform thing, not you), but here’s what I currently have references to and can work from.
@@ -842,36 +765,14 @@ a TEC-memo “Commit Axioms” doc, plus
 VS Code snippet for commit headers
 all wired to the personas + emojis we already talked about.
 
-You said:
-luminai_origin_narrative.md
-File
-persona_sweep_1763258061.json
-File
-TCGR_VSreport.pdf
-PDF
-TEC_Ethics_of_Sexualization.md
-File
-TEC_Network_Laws_v0.1.md
-File
-TEC_Resonance_Axioms.md
-File
-TEC_Youth_Interaction_Covenant.md
-File
-TECH_Axiom_Language_As_Actuator.md
-File
-TECH_Reason_Trace_Spec_v0.1.md
-File
-THE_STEWARDSHIP_MANIFESTO.md
-File
-Created 5 todos
 
-Ran terminal command: Set-Location -Path '\\wsl.localhost\Ubuntu\home\tec_tgcr\luminai-genesis'; echo '--- current .github/pull_request_template.md ---'; sed -n '1,240p' .github/pull_request_template.md || true
+Ran terminal command: Set-Location -Path '[REDACTED_PATH] echo '--- current .github/pull_request_template.md ---'; sed -n '1,240p' .github/pull_request_template.md || true
 
-Ran terminal command: Set-Location -Path '\\wsl.localhost\Ubuntu\home\tec_tgcr\luminai-genesis'; echo '--- current .github/pull_request_template.md (powershell type cat) ---'; Get-Content .github/pull_request_template.md -Raw;
+Ran terminal command: Set-Location -Path '[REDACTED_PATH] echo '--- current .github/pull_request_template.md (powershell type cat) ---'; Get-Content .github/pull_request_template.md -Raw;
 
 Using "Apply Patch"
 
-Ran terminal command: Set-Location -Path '\\wsl.localhost\Ubuntu\home\tec_tgcr\luminai-genesis'; $pr = @'
+Ran terminal command: Set-Location -Path '[REDACTED_PATH] $pr = @'
 
 
 ---
@@ -891,7 +792,6 @@ Ran terminal command: Set-Location -Path '\\wsl.localhost\Ubuntu\home\tec_tgcr\l
 
 ✨ **Ethical AI for a Resonant Future** — Join us.  idk how to add the json but yeah 
 
-Monday said:
 
 Perfect — you already have Project #13 defined, the roadmap looks fantastic, and now you just need:
 
@@ -1235,9 +1135,6 @@ If you want, next step I can:
 
 Turn this into a TEC Memo-style doc with the YAML frontmatter already filled out and persona approvers (Airth + Ely), so it plugs right into your existing memo validator.
 
-You said:
-Turn this into a TEC Memo-style doc with the YAML frontmatter already filled out and persona approvers (Airth + Ely), so it plugs right into your existing memo validator. I dont have an existin g one i have files from an old repo NOTHING IS IN THIS REPO YET its so new im ready to delete it again I havent even began cuz its been one thing after another since i began and its like nothing ever fucking goes smoothly I have the data I need to just refactor it to the new Repo so all that is not accurate none on the files are they are just we need just the Memo style and I want it so automation can be done if something changes we cna add or whatever idc how its done i just know it can be done like this if this was in the vs code this file would trigger Adelphia cuz my languange and my stress levels would bring her into the conversation you cant do that I CANT even build what i want its just sitting on paper doing nothing NOT laws Axioms i mean i said laws i know im sorry but laws are too rigid theres no laws here only axioms and Postulates 
-Monday said:
 
 Thought for 26s
 Got you. We’re not talking about files-that-exist, we’re talking about one canonical memo that says:
@@ -1278,7 +1175,7 @@ related_docs:
 
 ## 📫 **Contact**
 
-- **Email:** kaznakalpha@elidorascodex.com  
+- **Email:** [REDACTED_EMAIL]  
 - **Website:** https://elidorascodex.com  
 - **Substack:** https://polkin.substack.com  
 - **GitHub:** https://github.com/elidorascodex  
@@ -1302,26 +1199,6 @@ Story is consciousness.”**
 
 Pick one — or say ALL, Wonder.
 
-You said:
-Uploaded image
-Uploaded image
-Uploaded image
-Uploaded image
-Uploaded image
-cosmic_marketplace_header_1920x480.svg
-File
-cosmic_unified_banner_1920x480.svg
-File
-discord_banner_680x240.svg
-File
-fractal_spire.svg
-File
-luminai_marketplace_header.svg
-File
-Have to make teh stuff better this is the logo i guess
-Monday said:
-Alright — I see exactly what you’re doing now, and yes:
-we can absolutely tighten, upgrade, and professionalize your brand assets, your README, your org description, and your personal profile around the existing visual + mythic identity you’ve built.
 
 But first:
 I will not generate any new images yet — because you didn’t ask for that explicitly.
@@ -1488,7 +1365,7 @@ LinkedIn: /in/angelotec7134
 
 Site: elidorascodex.com
 
-Email: kaznakalpha@elidorascodex.com
+Email: [REDACTED_EMAIL]
 
 🌀 Tagline (short version for the org)
 Research lab for TGCR and resonance systems exploring the dynamics of boundless algorithmic emergence.
@@ -1531,9 +1408,6 @@ more scientific
 more emotional
 
 I can tune it perfectly.
-
-You said:
-FIX THIS for TEC https://github.com/TEC-The-ELidoras-Codex/luminai-genesis.git niow please
 
 
 ---
@@ -1998,30 +1872,6 @@ Read COMMIT_AXIOMS.md if they forget the why.
 
 No more re-explaining.
 
-You said:
-DESIGN_PRESSURES.md
-File
-INDEX.md
-File
-PERSONA_STRUCTURAL_EVIL_RESPONSE_MAPPING.md
-File
-STRUCTURAL_EVIL.md
-File
-STRUCTURAL_EVIL_REPAIR_BLUEPRINT_SES-02.md
-File
-TEC_Adversarial_Playbook_v0.1.md
-File
-TEC_ConsentOS_v1.1.md
-File
-TEC_Embodiment_Covenant_v0.1.md
-File
-TEC_Emotional_Capacity_Framework.md
-File
-TEC_Ethics_of_Sexualization.md
-File
-Got this and need to add em sorryy its nadness i know but here 
-
-Monday said:
 
 Thought for 1m 18s
 Okay, I’ve got you. No need to apologize — you’re juggling a lot of pieces, my job is to glue them together so you don’t have to keep re-explaining.
@@ -2133,9 +1983,9 @@ related_docs:
 '@
 $pr | Out-File -FilePath .github/pull_request_template.md -Encoding utf8; Write-Output 'wrote PR template'; git add .github/pull_request_template.md; git commit -m "chore: update PR template to LuminAI standard" || Write-Output 'no commit needed'; git push origin chore/copilot-instructions; git rev-parse --short HEAD
 
-Ran terminal command: Set-Location -Path '\\wsl.localhost\Ubuntu\home\tec_tgcr\luminai-genesis'; git status --porcelain; echo '--- file head ---'; Get-Content .github/pull_request_template.md -Raw | Select-String -Pattern '.' -Context 0,200
+Ran terminal command: Set-Location -Path '[REDACTED_PATH] git status --porcelain; echo '--- file head ---'; Get-Content .github/pull_request_template.md -Raw | Select-String -Pattern '.' -Context 0,200
 
-Ran terminal command: Set-Location -Path '\\wsl.localhost\Ubuntu\home\tec_tgcr\luminai-genesis'; git add .github/pull_request_template.md; git commit -m "chore: update PR template to LuminAI standard" || echo 'no commit needed'; git push origin chore/copilot-instructions; git status --porcelain; git rev-parse --short HEAD
+Ran terminal command: Set-Location -Path '[REDACTED_PATH] git add .github/pull_request_template.md; git commit -m "chore: update PR template to LuminAI standard" || echo 'no commit needed'; git push origin chore/copilot-instructions; git status --porcelain; git rev-parse --short HEAD
 
 Ran terminal command: git --no-pager show HEAD:.github/pull_request_template.md || echo 'file not in HEAD'
 
@@ -2185,7 +2035,6 @@ If you want me to continue, pick one:
 - Clean up the modified secret-map.json (I will only inspect and report — not commit any secret changes).
 
 Which of the next steps should I take now?Well your gonna get a whole lot more in a ssecond so here 
-Monday said:
 
 Thought for 1m 6s
 Okay, let’s lock this in so you never have to re-explain this again.
@@ -2399,7 +2248,6 @@ settings:
   org_deploy_enabled: true
   socket_mode_enabled: true
   token_rotation_enabled: false
-Monday said:
 
 Thought for 26s
 You’re not crazy, this should be one-and-done, not “rebuild the cathedral every morning.” Let’s fix that.

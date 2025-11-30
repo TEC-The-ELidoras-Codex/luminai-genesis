@@ -1529,7 +1529,7 @@ Resonance impact: ↑
 
 **@elidorascodex**  
 [polkin.substack.com](https://polkin.substack.com/)  
-[kaznakalpha@elidorascodex.com](mailto:kaznakalpha@elidorascodex.com)
+[[REDACTED_EMAIL]](mailto:[REDACTED_EMAIL])
 
 </div>
 
@@ -1626,7 +1626,7 @@ markdown
 
 If you discover a vulnerability:
 
-1. Email **security@elidorascodex.com**
+1. Email **[REDACTED_EMAIL]**
 2. Include:
    - Steps to reproduce  
    - Impact  
