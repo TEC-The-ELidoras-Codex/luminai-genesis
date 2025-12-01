@@ -1,4 +1,20 @@
-# Local env files (do NOT commit secrets)
+# Ignore sanitizer backups
+docs/canonical/*.bak.*
+
+# Common Python ignores
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Jupyter notebook checkpoints
+.ipynb_checkpoints/# Local env files (do NOT commit secrets)
 .env
 .env.local
 .env.*.local
