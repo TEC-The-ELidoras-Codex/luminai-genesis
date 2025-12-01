@@ -43,8 +43,9 @@ sudo apt install openjdk-17-jdk -y
 ```
 
 Notes:
+
 - For Python projects prefer using a virtualenv: `python3 -m venv .venv && source .venv/bin/activate`.
-- For Node, consider using nvm for per-project Node versions: https://github.com/nvm-sh/nvm
+- For Node, consider using nvm for per-project Node versions: <https://github.com/nvm-sh/nvm>
 
 6) Docker / containers
 
