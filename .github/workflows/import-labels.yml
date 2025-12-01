@@ -11,6 +11,13 @@ jobs:
     permissions:
       contents: write
       issues: write
+    env:
+      # Map secrets to env so step conditions can reference env instead of secrets,
+      # avoiding parser issues when secrets are undefined in certain contexts.
+      BW_CLIENTID: ${{ secrets.BW_CLIENTID }}
+      BW_CLIENTSECRET: ${{ secrets.BW_CLIENTSECRET }}
+      # Optional: name or id of a Bitwarden item holding a GitHub token
+      BW_IMPORT_GITHUB_ITEM: ${{ secrets.BW_IMPORT_GITHUB_ITEM }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -23,17 +30,17 @@ jobs:
           python -m pip install --upgrade pip
           pip install PyYAML PyGithub
       - name: (Optional) Install Bitwarden CLI and jq
-        if: ${{ secrets.BW_CLIENTID != '' && secrets.BW_CLIENTSECRET != '' }}
+        if: ${{ env.BW_CLIENTID != '' && env.BW_CLIENTSECRET != '' }}
         run: |
           sudo apt-get update && sudo apt-get install -y unzip jq
           curl -sSfL https://vault.bitwarden.com/cli/bw-linux-64.zip -o bw.zip
           unzip -q bw.zip
           sudo mv bw /usr/local/bin/
       - name: (Optional) Login to Bitwarden (client credentials)
-        if: ${{ secrets.BW_CLIENTID != '' && secrets.BW_CLIENTSECRET != '' }}
+        if: ${{ env.BW_CLIENTID != '' && env.BW_CLIENTSECRET != '' }}
         env:
-          BW_CLIENTID: ${{ secrets.BW_CLIENTID }}
-          BW_CLIENTSECRET: ${{ secrets.BW_CLIENTSECRET }}
+          BW_CLIENTID: ${{ env.BW_CLIENTID }}
+          BW_CLIENTSECRET: ${{ env.BW_CLIENTSECRET }}
         run: |
           set -e
           export BW_SESSION=$(bw login --client $BW_CLIENTID --secret $BW_CLIENTSECRET --raw)
