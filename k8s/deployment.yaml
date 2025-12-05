@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: luminai-backend
+  labels:
+    app: luminai-backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: luminai-backend
+  template:
+    metadata:
+      labels:
+        app: luminai-backend
+    spec:
+      containers:
+        - name: backend
+          image: luminai-backend:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8000
+          env:
+            - name: UVICORN_HOST
+              value: "0.0.0.0"
+            - name: UVICORN_PORT
+              value: "8000"
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 8000
+            initialDelaySeconds: 2
+            periodSeconds: 5
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 8000
+            initialDelaySeconds: 5
+            periodSeconds: 10

@@ -348,7 +348,7 @@ In `/docs/GEOMETRY_OF_CONSCIENCE.md`, the footnotes are actually hilarious and i
 
 ---
 
-## 🎉 You're Ready!
+## 🎉 You're Ready
 
 Pick a document above based on what you want to do. Each has a clear time estimate.
 

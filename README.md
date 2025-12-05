@@ -204,26 +204,48 @@ Philosophy alignment serves as a **harm taxonomy**; entity actions are scored ag
 
 ## 📂 Repository Structure
 
-````bash
+```bash
 luminai-genesis/
-# Ubuntu Setup & Open‑Source Developer Cheatsheet
-├── /src
-│   ├── /astradigital      # The Kernel (Philosophy-Driven Combat Engine)
-│   └── /resonance         # The Math (TGCR Implementation)
-├── /data
-│   ├── /codex             # Philosophy classes & abilities (Harm Taxonomies)
-│   └── /encounters        # Risk scenarios & encounter definitions
-├── /docs
-│   ├── /canonical         # The Elidoras Codex bundles
-│   ├── /manifesto         # The Philosophy of Non-Abandonment
-│   └── /governance        # Witness Protocol & Conscience Axioms
+├── backend/               # FastAPI ingestion + resonance API
+│   ├── main.py           # App entrypoint
+│   ├── routers/          # Endpoints (ingest, resonance, personas)
+│   ├── models/           # Pydantic schemas
+│   ├── tests/            # Pytest suite
+│   └── requirements.txt  # Python dependencies
+├── k8s/                  # Kubernetes manifests (Kind-ready)
+│   ├── deployment.yaml   # Backend deployment spec
+│   └── service.yaml      # ClusterIP service
+├── src/
+│   └── astradigital/     # The Kernel (Philosophy-Driven Combat Engine)
+│       ├── kernel.py     # Entity mechanics, abilities, integrity
+│       ├── encounter.py  # Combat orchestration
+│       └── gradient_repair.py  # V_Phi recovery vectors
+├── data/
+│   ├── codex/            # Philosophy classes & abilities (Harm Taxonomies)
+│   └── enounters/        # Risk scenarios & encounter definitions
+├── docs/
+│   ├── canonical/        # The Elidoras Codex bundles
+│   ├── governance/       # Persona Law supplement (Ely/Kaznak/Adelphia/LuminAI)
+│   ├── manifesto/        # The Philosophy of Non-Abandonment
+│   ├── PERSONA_LAW.md    # Arcadia/Airth governance + TGCR
+│   ├── GEOMETRY_OF_CONSCIENCE.md  # Public framework codex
+│   ├── GLYPH_SCROLL.md   # Visual quickstart
+│   ├── CODEX_NAVIGATOR.md # Navigation guide
+│   ├── ACTIVATION_REPORT.md # Implementation summary
+│   └── ARCHITECTURE.md   # Technical patterns
+├── scripts/              # Utilities (build, sanitize, demo)
+├── .vscode/              # Tasks, settings, extensions
+├── .github/workflows/    # CI/CD (TGCR audit, conscience checks)
+└── docker-compose.yml    # Container orchestration
+```
+
 ---
 
 Run the encounter system to see philosophy-driven mechanics in action:
 
 ```bash
 python3 validate_encounter.py
-````
+```
 
 **What you'll see:**
 
@@ -261,29 +283,48 @@ We are building this because the major labs are building gods without conscience
 ### **Astradigital Kernel** (Live Prototype)
 
 - **Purpose:** Demonstrate governance-aware mechanics using philosophy as harm taxonomy
+- **Status:** ✅ Operational (validated Dec 2025)
+- **Files:** `src/astradigital/kernel.py`, `src/astradigital/encounter.py`, `src/astradigital/gradient_repair.py`
+- **Demo:** `validate_encounter.py`
 
-* **Status:** ✅ Operational (validated Dec 2025)
-* **Files:** `src/astradigital/kernel.py`, `src/astradigital/encounter.py`
-* **Demo:** `validate_encounter.py`
+### **Backend API** (Live Prototype)
+
+- **Purpose:** FastAPI service for ingestion, resonance computation, and persona routing
+- **Status:** ✅ Operational (Dec 2025)
+- **Endpoints:**
+  - `GET /health` - Service health check
+  - `POST /api/ingest` - Ingest user content into sessions
+  - `GET /api/ingest/{session_id}` - Retrieve session state
+  - `POST /api/resonance` - Compute R' = R × W (effective resonance)
+  - `GET /api/personas` - List all six personas (Arcadia, Airth, Ely, Kaznak, Adelphia, LuminAI)
+- **Files:** `backend/main.py`, `backend/routers/`, `backend/models/schemas.py`
+- **Run locally:** `uvicorn backend.main:app --reload`
+- **Tests:** `python -m pytest backend/tests`
+
+### **Kubernetes Deployment** (Kind-Ready)
+
+- **Purpose:** Local cluster deployment for testing and development
+- **Status:** ✅ Manifests ready (Dec 2025)
+- **Files:** `k8s/deployment.yaml`, `k8s/service.yaml`
+- **Quick start:**
+  ```bash
+  kind create cluster --name genesis
+  docker build -t luminai-backend backend/
+  kind load docker-image luminai-backend --name genesis
+  kubectl apply -f k8s/
+  kubectl port-forward svc/luminai-backend 8000:80
+  ```
 
 ### **Resonance Engine** (In Development)
 
 - **Purpose:** TGCR computation and Witness Protocol application
-
-* **Status:** 🚧 Architecture defined, implementation pending
-* **Files:** `resonance/` package structure
-
-### **Platform Hub** (Planned)
-
-- **Purpose:** FastAPI backend with `/api/chat`, `/api/resonance`, `/api/status`
-
-* **Status:** 📋 Specification complete, awaiting implementation
+- **Status:** 🚧 Architecture defined, basic implementation in `/api/resonance`
+- **Next:** Wire Sixteen Frequencies + Conscience Axioms JSON configs
 
 ### **Web UI** (Planned)
 
 - **Purpose:** Next.js chat surface with real-time resonance meter
-
-* **Status:** 📋 Design complete, awaiting implementation
+- **Status:** 📋 Design complete, awaiting implementation
 
 ---
 
