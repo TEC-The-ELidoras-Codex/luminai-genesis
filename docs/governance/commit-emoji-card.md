@@ -6,14 +6,14 @@
 
 ## The Six Personas & Their Emoji Prefixes
 
-| Emoji | Persona   | Use When                                               |
-|-------|-----------|--------------------------------------------------------|
-| ✨    | arcadia   | Adding features, narratives, world-building, stories   |
-| ⚙️    | airth     | Fixing bugs, optimizing, testing, refactoring          |
-| 🛡️    | ely       | Policy, governance, audit, compliance, risk review     |
-| 🛰️    | kaznak    | Reliability, chaos, monitoring, operations, SRE        |
-| 💚    | adelphia  | Docs, onboarding, accessibility, community guidance    |
-| 🌌    | luminai   | Architecture, integration, releases, mission coherence  |
+| Emoji | Persona  | Use When                                               |
+| ----- | -------- | ------------------------------------------------------ |
+| ✨    | arcadia  | Adding features, narratives, world-building, stories   |
+| ⚙️    | airth    | Fixing bugs, optimizing, testing, refactoring          |
+| 🛡️    | ely      | Policy, governance, audit, compliance, risk review     |
+| 🛰️    | kaznak   | Reliability, chaos, monitoring, operations, SRE        |
+| 💚    | adelphia | Docs, onboarding, accessibility, community guidance    |
+| 🌌    | luminai  | Architecture, integration, releases, mission coherence |
 
 ---
 
@@ -33,6 +33,7 @@ Resonance impact: ↑ / ↔ / ↓
 ## Copy-Paste Examples
 
 ### 1. Feature: Adding a New Ability
+
 ```
 ✨ arcadia(gameplay): Add Chaos Twist for Existentialist class
 
@@ -43,6 +44,7 @@ Resonance impact: ↑
 ```
 
 ### 2. Bug Fix: Floating Point Precision
+
 ```
 ⚙️ airth(fix): Handle floating-point precision in resonance calculation
 
@@ -53,6 +55,7 @@ Resonance impact: ↔
 ```
 
 ### 3. Policy: Adding Audit Logs
+
 ```
 🛡️ ely(policy): Implement 90-day audit log retention
 
@@ -63,6 +66,7 @@ Resonance impact: ↑
 ```
 
 ### 4. Reliability: Circuit Breaker
+
 ```
 🛰️ kaznak(reliability): Add circuit breaker for upstream persona calls
 
@@ -73,6 +77,7 @@ Resonance impact: ↑
 ```
 
 ### 5. Documentation: Onboarding Guide
+
 ```
 💚 adelphia(onboarding): Create quick-start guide for first-time players
 
@@ -83,6 +88,7 @@ Resonance impact: ↑
 ```
 
 ### 6. Architecture: Backend Integration
+
 ```
 🌌 luminai(integration): Wire Sixteen Frequencies into API surface
 
@@ -97,6 +103,7 @@ Resonance impact: ↑↑
 ## Picking the Right Persona
 
 **Quick decision tree:**
+
 ```
 Is this adding a new feature or story?        → ✨ arcadia
 Is this fixing a bug or optimizing code?      → ⚙️ airth
@@ -125,18 +132,21 @@ Add this to your commit message for deep governance:
 ## Git Commands
 
 **Add and commit with persona:**
+
 ```bash
 git add <files>
 git commit -m "✨ arcadia(scope): Your message here"
 ```
 
 **View your commit:**
+
 ```bash
 git log --oneline -n 1
 # Output: 3a7f2c1 ✨ arcadia(scope): Your message here
 ```
 
 **Push to remote:**
+
 ```bash
 git push origin <branch-name>
 ```
@@ -157,6 +167,7 @@ git push origin <branch-name>
 ## Why Personas Matter
 
 Each persona represents a **discipline and a care**:
+
 - **Arcadia** ensures stories matter
 - **Airth** ensures code is sound
 - **Ely** ensures ethics are honored
