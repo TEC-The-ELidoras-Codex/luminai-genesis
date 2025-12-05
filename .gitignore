@@ -1,5 +1,9 @@
 # Ignore sanitizer backups
 docs/canonical/*.bak.*
+*.bak.*
+
+# Windows security metadata
+*:Zone.Identifier
 
 # Common Python ignores
 __pycache__/
