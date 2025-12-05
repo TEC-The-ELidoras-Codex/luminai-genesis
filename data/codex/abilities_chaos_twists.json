@@ -1,144 +1,890 @@
 {
   "abilities": {
     "Pacifist": {
-      "1": [{"name": "Sanctuary Circle", "cost": {"pp": 10}, "type": "zone", "duration": 5, "effects": {"ally_defense": 5, "force_target": true}}],
-      "5": [{"name": "Burden of Peace", "cost": {"pp_all": true}, "type": "shield", "effects": {"team_shield_per_pp": 2}}],
-      "10": [{"name": "Absolute Defense", "cost": {"pp": 25}, "type": "stance", "duration": 99, "effects": {"redirect": 1.0, "incoming_reduction": 0.9}}],
-      "15": [{"name": "Witness Resonance", "cost": {"pp": 100}, "type": "ultimate", "duration": 3, "effects": {"ally_min_hp": 1, "convert_kill_to_heal": true}}],
-      "chaos_twist": {"enabled": false, "description": "Pacifist has no chaos twist — absolute defense is the paradox."}
+      "1": [
+        {
+          "name": "Sanctuary Circle",
+          "cost": { "pp": 10 },
+          "type": "zone",
+          "duration": 5,
+          "effects": { "ally_defense": 5, "force_target": true }
+        }
+      ],
+      "5": [
+        {
+          "name": "Burden of Peace",
+          "cost": { "pp_all": true },
+          "type": "shield",
+          "effects": { "team_shield_per_pp": 2 }
+        }
+      ],
+      "10": [
+        {
+          "name": "Absolute Defense",
+          "cost": { "pp": 25 },
+          "type": "stance",
+          "duration": 99,
+          "effects": { "redirect": 1.0, "incoming_reduction": 0.9 }
+        }
+      ],
+      "15": [
+        {
+          "name": "Witness Resonance",
+          "cost": { "pp": 100 },
+          "type": "ultimate",
+          "duration": 3,
+          "effects": { "ally_min_hp": 1, "convert_kill_to_heal": true }
+        }
+      ],
+      "chaos_twist": {
+        "enabled": false,
+        "description": "Pacifist has no chaos twist — absolute defense is the paradox."
+      }
     },
     "Stoic": {
-      "1": [{"name": "The Mirror", "cost": {"will": 5}, "type": "reflect", "effects": {"reflect_damage": 0.5}}],
-      "5": [{"name": "Equanimity", "cost": {"will": 15}, "type": "buff", "effects": {"immunity": ["fear", "stun"], "duration": 4}}],
-      "10": [{"name": "Apatheia", "cost": {"will": 25}, "type": "stance", "effects": {"all_damage_reduction": 0.3, "emotion_immunity": true}}],
-      "15": [{"name": "Ataraxia", "cost": {"will": 80}, "type": "ultimate", "effects": {"healing_per_turn": 20, "immunity": "all", "duration": 3}}],
-      "chaos_twist": {"enabled": true, "name": "Apathy Collapse", "trigger": "After 5 turns without taking damage", "effect": "Lose Stoic bonuses; enter vulnerable state for 2 turns. Alternatively, gain +50% damage output while in this state."}
+      "1": [
+        {
+          "name": "The Mirror",
+          "cost": { "will": 5 },
+          "type": "reflect",
+          "effects": { "reflect_damage": 0.5 }
+        }
+      ],
+      "5": [
+        {
+          "name": "Equanimity",
+          "cost": { "will": 15 },
+          "type": "buff",
+          "effects": { "immunity": ["fear", "stun"], "duration": 4 }
+        }
+      ],
+      "10": [
+        {
+          "name": "Apatheia",
+          "cost": { "will": 25 },
+          "type": "stance",
+          "effects": { "all_damage_reduction": 0.3, "emotion_immunity": true }
+        }
+      ],
+      "15": [
+        {
+          "name": "Ataraxia",
+          "cost": { "will": 80 },
+          "type": "ultimate",
+          "effects": {
+            "healing_per_turn": 20,
+            "immunity": "all",
+            "duration": 3
+          }
+        }
+      ],
+      "chaos_twist": {
+        "enabled": true,
+        "name": "Apathy Collapse",
+        "trigger": "After 5 turns without taking damage",
+        "effect": "Lose Stoic bonuses; enter vulnerable state for 2 turns. Alternatively, gain +50% damage output while in this state."
+      }
     },
     "Buddhist": {
-      "1": [{"name": "Compassion", "cost": {"karma": 5}, "type": "heal", "effects": {"heal": 15, "cleanse": 1}}],
-      "5": [{"name": "Karmic Debt", "cost": {"karma": 20}, "type": "transfer", "effects": {"damage_redirect": "random_enemy"}}],
-      "10": [{"name": "Wheel of Samsara", "cost": {"karma": 30}, "type": "ultimate", "effects": {"resurrect_lowest_hp": true, "duration": "permanent"}}],
-      "15": [{"name": "Nirvana State", "cost": {"karma": 100}, "type": "transcendence", "effects": {"invulnerable": true, "cannot_act": true, "duration": 5}}],
-      "chaos_twist": {"enabled": true, "name": "Attachment Break", "trigger": "When character falls to 10% HP", "effect": "All healing spells reverse (damage team instead). Can be broken by philosophy check (DC 15)."}
+      "1": [
+        {
+          "name": "Compassion",
+          "cost": { "karma": 5 },
+          "type": "heal",
+          "effects": { "heal": 15, "cleanse": 1 }
+        }
+      ],
+      "5": [
+        {
+          "name": "Karmic Debt",
+          "cost": { "karma": 20 },
+          "type": "transfer",
+          "effects": { "damage_redirect": "random_enemy" }
+        }
+      ],
+      "10": [
+        {
+          "name": "Wheel of Samsara",
+          "cost": { "karma": 30 },
+          "type": "ultimate",
+          "effects": { "resurrect_lowest_hp": true, "duration": "permanent" }
+        }
+      ],
+      "15": [
+        {
+          "name": "Nirvana State",
+          "cost": { "karma": 100 },
+          "type": "transcendence",
+          "effects": { "invulnerable": true, "cannot_act": true, "duration": 5 }
+        }
+      ],
+      "chaos_twist": {
+        "enabled": true,
+        "name": "Attachment Break",
+        "trigger": "When character falls to 10% HP",
+        "effect": "All healing spells reverse (damage team instead). Can be broken by philosophy check (DC 15)."
+      }
     },
     "Pugilist": {
-      "1": [{"name": "Jab", "cost": {"stamina": 5}, "type": "attack", "effects": {"damage": 12, "attack_bonus": 2}}],
-      "5": [{"name": "Parry Counter", "cost": {"stamina": 10}, "type": "reaction", "effects": {"reflect_on_block": true, "counterattack_damage": 20}}],
-      "10": [{"name": "Flowstate", "cost": {"stamina": 25}, "type": "stance", "effects": {"all_attack_bonus": 5, "dodge_bonus": 3, "duration": 4}}],
-      "15": [{"name": "Perfect Form", "cost": {"stamina": 60}, "type": "ultimate", "effects": {"guaranteed_crit": true, "cooldown_reset": true, "duration": 2}}],
-      "chaos_twist": {"enabled": true, "name": "Form Breaks", "trigger": "After 3 consecutive hits", "effect": "Next attack automatically misses. Pugilist enters Uncontrolled Fury: +100% damage but -70% accuracy for 2 turns."}
+      "1": [
+        {
+          "name": "Jab",
+          "cost": { "stamina": 5 },
+          "type": "attack",
+          "effects": { "damage": 12, "attack_bonus": 2 }
+        }
+      ],
+      "5": [
+        {
+          "name": "Parry Counter",
+          "cost": { "stamina": 10 },
+          "type": "reaction",
+          "effects": { "reflect_on_block": true, "counterattack_damage": 20 }
+        }
+      ],
+      "10": [
+        {
+          "name": "Flowstate",
+          "cost": { "stamina": 25 },
+          "type": "stance",
+          "effects": { "all_attack_bonus": 5, "dodge_bonus": 3, "duration": 4 }
+        }
+      ],
+      "15": [
+        {
+          "name": "Perfect Form",
+          "cost": { "stamina": 60 },
+          "type": "ultimate",
+          "effects": {
+            "guaranteed_crit": true,
+            "cooldown_reset": true,
+            "duration": 2
+          }
+        }
+      ],
+      "chaos_twist": {
+        "enabled": true,
+        "name": "Form Breaks",
+        "trigger": "After 3 consecutive hits",
+        "effect": "Next attack automatically misses. Pugilist enters Uncontrolled Fury: +100% damage but -70% accuracy for 2 turns."
+      }
     },
     "Dogmatist": {
-      "1": [{"name": "Scripture", "cost": {"faith": 5}, "type": "buff", "effects": {"ally_damage": 3, "duration": 3}}],
-      "5": [{"name": "Doctrine", "cost": {"faith": 15}, "type": "debuff", "effects": {"enemy_confusion": true, "duration": 2}}],
-      "10": [{"name": "Heresy Purge", "cost": {"faith": 30}, "type": "attack", "effects": {"damage": 35, "extra_damage_vs_doubt": true}}],
-      "15": [{"name": "Absolute Truth", "cost": {"faith": 80}, "type": "ultimate", "effects": {"all_allies_immune_to_doubt": true, "duration": 5}}],
-      "chaos_twist": {"enabled": true, "name": "Contradiction Cascade", "trigger": "When player questions doctrine in dialogue", "effect": "All Dogmatist abilities backfire: buffs become debuffs, damage reflects to self. Recovery requires player confession or new philosophy check."}
+      "1": [
+        {
+          "name": "Scripture",
+          "cost": { "faith": 5 },
+          "type": "buff",
+          "effects": { "ally_damage": 3, "duration": 3 }
+        }
+      ],
+      "5": [
+        {
+          "name": "Doctrine",
+          "cost": { "faith": 15 },
+          "type": "debuff",
+          "effects": { "enemy_confusion": true, "duration": 2 }
+        }
+      ],
+      "10": [
+        {
+          "name": "Heresy Purge",
+          "cost": { "faith": 30 },
+          "type": "attack",
+          "effects": { "damage": 35, "extra_damage_vs_doubt": true }
+        }
+      ],
+      "15": [
+        {
+          "name": "Absolute Truth",
+          "cost": { "faith": 80 },
+          "type": "ultimate",
+          "effects": { "all_allies_immune_to_doubt": true, "duration": 5 }
+        }
+      ],
+      "chaos_twist": {
+        "enabled": true,
+        "name": "Contradiction Cascade",
+        "trigger": "When player questions doctrine in dialogue",
+        "effect": "All Dogmatist abilities backfire: buffs become debuffs, damage reflects to self. Recovery requires player confession or new philosophy check."
+      }
     },
     "Epicurean": {
-      "1": [{"name": "Indulgence", "cost": {"pleasure": 5}, "type": "buff", "effects": {"heal": 10, "morale": 2}}],
-      "5": [{"name": "Hedonistic Rush", "cost": {"pleasure": 15}, "type": "attack", "effects": {"damage": 18, "heal_self": 9}}],
-      "10": [{"name": "Festival of Sensation", "cost": {"pleasure": 30}, "type": "zone", "effects": {"all_allies_heal": 20, "speed_bonus": 2, "duration": 3}}],
-      "15": [{"name": "Ultimate Pleasure", "cost": {"pleasure": 100}, "type": "ultimate", "effects": {"full_heal_team": true, "pleasure_addiction": true}}],
-      "chaos_twist": {"enabled": true, "name": "Pleasure Dependence", "trigger": "After 2 consecutive pleasure-based actions", "effect": "Character becomes addicted: must spend pleasure each turn or suffer -50% all stats. Addiction breaks on zero pleasure resource."}
+      "1": [
+        {
+          "name": "Indulgence",
+          "cost": { "pleasure": 5 },
+          "type": "buff",
+          "effects": { "heal": 10, "morale": 2 }
+        }
+      ],
+      "5": [
+        {
+          "name": "Hedonistic Rush",
+          "cost": { "pleasure": 15 },
+          "type": "attack",
+          "effects": { "damage": 18, "heal_self": 9 }
+        }
+      ],
+      "10": [
+        {
+          "name": "Festival of Sensation",
+          "cost": { "pleasure": 30 },
+          "type": "zone",
+          "effects": { "all_allies_heal": 20, "speed_bonus": 2, "duration": 3 }
+        }
+      ],
+      "15": [
+        {
+          "name": "Ultimate Pleasure",
+          "cost": { "pleasure": 100 },
+          "type": "ultimate",
+          "effects": { "full_heal_team": true, "pleasure_addiction": true }
+        }
+      ],
+      "chaos_twist": {
+        "enabled": true,
+        "name": "Pleasure Dependence",
+        "trigger": "After 2 consecutive pleasure-based actions",
+        "effect": "Character becomes addicted: must spend pleasure each turn or suffer -50% all stats. Addiction breaks on zero pleasure resource."
+      }
     },
     "Hippocratic": {
-      "1": [{"name": "First, Do No Harm", "cost": {"oath": 5}, "type": "shield", "effects": {"prevent_damage": true}}],
-      "5": [{"name": "Surgical Precision", "cost": {"oath": 15}, "type": "heal", "effects": {"heal": 20, "cleanse": 2}}],
-      "10": [{"name": "Triage", "cost": {"oath": 30}, "type": "multi_heal", "effects": {"heal_lowest_3_hp": 30, "duration": "permanent"}}],
-      "15": [{"name": "Oath Unbreakable", "cost": {"oath": 80}, "type": "ultimate", "effects": {"team_invulnerable": true, "duration": 4}}],
-      "chaos_twist": {"enabled": true, "name": "Ethical Dilemma", "trigger": "When forced to choose between healing two allies", "effect": "Both abilities fail. Hippocratic enters moral paralysis (-100% action effectiveness) until philosophy check (DC 12) passed."}
+      "1": [
+        {
+          "name": "First, Do No Harm",
+          "cost": { "oath": 5 },
+          "type": "shield",
+          "effects": { "prevent_damage": true }
+        }
+      ],
+      "5": [
+        {
+          "name": "Surgical Precision",
+          "cost": { "oath": 15 },
+          "type": "heal",
+          "effects": { "heal": 20, "cleanse": 2 }
+        }
+      ],
+      "10": [
+        {
+          "name": "Triage",
+          "cost": { "oath": 30 },
+          "type": "multi_heal",
+          "effects": { "heal_lowest_3_hp": 30, "duration": "permanent" }
+        }
+      ],
+      "15": [
+        {
+          "name": "Oath Unbreakable",
+          "cost": { "oath": 80 },
+          "type": "ultimate",
+          "effects": { "team_invulnerable": true, "duration": 4 }
+        }
+      ],
+      "chaos_twist": {
+        "enabled": true,
+        "name": "Ethical Dilemma",
+        "trigger": "When forced to choose between healing two allies",
+        "effect": "Both abilities fail. Hippocratic enters moral paralysis (-100% action effectiveness) until philosophy check (DC 12) passed."
+      }
     },
     "Ontologist": {
-      "1": [{"name": "Being", "cost": {"essence": 5}, "type": "buff", "effects": {"existence_bonus": 2}}],
-      "5": [{"name": "Nothingness", "cost": {"essence": 15}, "type": "debuff", "effects": {"enemy_confusion": true}}],
-      "10": [{"name": "Dasein", "cost": {"essence": 30}, "type": "ultimate", "effects": {"aware_of_all_threats": true, "dodge_bonus": 5, "duration": 4}}],
-      "15": [{"name": "Being-in-the-world", "cost": {"essence": 100}, "type": "transcendence", "effects": {"merge_with_environment": true, "invisible": true, "duration": 5}}],
-      "chaos_twist": {"enabled": true, "name": "Essence Void", "trigger": "After casting 3 ontological spells", "effect": "Ontologist briefly ceases to exist (full HP regeneration but cannot act for 1 turn). May not recover or rejoin battle if philosophy check fails (DC 18)."}
+      "1": [
+        {
+          "name": "Being",
+          "cost": { "essence": 5 },
+          "type": "buff",
+          "effects": { "existence_bonus": 2 }
+        }
+      ],
+      "5": [
+        {
+          "name": "Nothingness",
+          "cost": { "essence": 15 },
+          "type": "debuff",
+          "effects": { "enemy_confusion": true }
+        }
+      ],
+      "10": [
+        {
+          "name": "Dasein",
+          "cost": { "essence": 30 },
+          "type": "ultimate",
+          "effects": {
+            "aware_of_all_threats": true,
+            "dodge_bonus": 5,
+            "duration": 4
+          }
+        }
+      ],
+      "15": [
+        {
+          "name": "Being-in-the-world",
+          "cost": { "essence": 100 },
+          "type": "transcendence",
+          "effects": {
+            "merge_with_environment": true,
+            "invisible": true,
+            "duration": 5
+          }
+        }
+      ],
+      "chaos_twist": {
+        "enabled": true,
+        "name": "Essence Void",
+        "trigger": "After casting 3 ontological spells",
+        "effect": "Ontologist briefly ceases to exist (full HP regeneration but cannot act for 1 turn). May not recover or rejoin battle if philosophy check fails (DC 18)."
+      }
     },
     "Empiricist": {
-      "1": [{"name": "Observation", "cost": {"data": 5}, "type": "utility", "effects": {"reveal_enemy_stats": true}}],
-      "5": [{"name": "Experimentation", "cost": {"data": 15}, "type": "attack", "effects": {"damage_varies": [10, 20, 30]}}],
-      "10": [{"name": "Hypothesis", "cost": {"data": 30}, "type": "buff", "effects": {"accuracy_bonus": 4, "crit_chance": 0.2, "duration": 4}}],
-      "15": [{"name": "Scientific Method", "cost": {"data": 80}, "type": "ultimate", "effects": {"perfect_accuracy": true, "guaranteed_crit": true, "duration": 3}}],
-      "chaos_twist": {"enabled": true, "name": "Data Corruption", "trigger": "After 5 attacks with varying damage", "effect": "All future attacks become unpredictable (damage range: 1-100). Empiricist loses control; randomness becomes chaos."}
+      "1": [
+        {
+          "name": "Observation",
+          "cost": { "data": 5 },
+          "type": "utility",
+          "effects": { "reveal_enemy_stats": true }
+        }
+      ],
+      "5": [
+        {
+          "name": "Experimentation",
+          "cost": { "data": 15 },
+          "type": "attack",
+          "effects": { "damage_varies": [10, 20, 30] }
+        }
+      ],
+      "10": [
+        {
+          "name": "Hypothesis",
+          "cost": { "data": 30 },
+          "type": "buff",
+          "effects": { "accuracy_bonus": 4, "crit_chance": 0.2, "duration": 4 }
+        }
+      ],
+      "15": [
+        {
+          "name": "Scientific Method",
+          "cost": { "data": 80 },
+          "type": "ultimate",
+          "effects": {
+            "perfect_accuracy": true,
+            "guaranteed_crit": true,
+            "duration": 3
+          }
+        }
+      ],
+      "chaos_twist": {
+        "enabled": true,
+        "name": "Data Corruption",
+        "trigger": "After 5 attacks with varying damage",
+        "effect": "All future attacks become unpredictable (damage range: 1-100). Empiricist loses control; randomness becomes chaos."
+      }
     },
     "Skeptic": {
-      "1": [{"name": "Question", "cost": {"doubt": 5}, "type": "debuff", "effects": {"enemy_accuracy": -3}}],
-      "5": [{"name": "Disbelief", "cost": {"doubt": 15}, "type": "immunity", "effects": {"dispel_one_buff": true}}],
-      "10": [{"name": "Radical Doubt", "cost": {"doubt": 30}, "type": "ultimate", "effects": {"enemy_all_debuffs": true, "duration": 3}}],
-      "15": [{"name": "Ultimate Skepticism", "cost": {"doubt": 100}, "type": "transcendence", "effects": {"doubt_all_reality": true, "invulnerable_in_doubt": true, "duration": 5}}],
-      "chaos_twist": {"enabled": true, "name": "Self-Doubt Spiral", "trigger": "When philosophy check fails", "effect": "Skeptic doubts own abilities: all spells fail for 2 turns. Can be broken by receiving validation from an ally or completing a trust-building action."}
+      "1": [
+        {
+          "name": "Question",
+          "cost": { "doubt": 5 },
+          "type": "debuff",
+          "effects": { "enemy_accuracy": -3 }
+        }
+      ],
+      "5": [
+        {
+          "name": "Disbelief",
+          "cost": { "doubt": 15 },
+          "type": "immunity",
+          "effects": { "dispel_one_buff": true }
+        }
+      ],
+      "10": [
+        {
+          "name": "Radical Doubt",
+          "cost": { "doubt": 30 },
+          "type": "ultimate",
+          "effects": { "enemy_all_debuffs": true, "duration": 3 }
+        }
+      ],
+      "15": [
+        {
+          "name": "Ultimate Skepticism",
+          "cost": { "doubt": 100 },
+          "type": "transcendence",
+          "effects": {
+            "doubt_all_reality": true,
+            "invulnerable_in_doubt": true,
+            "duration": 5
+          }
+        }
+      ],
+      "chaos_twist": {
+        "enabled": true,
+        "name": "Self-Doubt Spiral",
+        "trigger": "When philosophy check fails",
+        "effect": "Skeptic doubts own abilities: all spells fail for 2 turns. Can be broken by receiving validation from an ally or completing a trust-building action."
+      }
     },
     "Cynic": {
-      "1": [{"name": "Mockery", "cost": {"contempt": 5}, "type": "debuff", "effects": {"enemy_morale": -2, "enemy_damage": -3}}],
-      "5": [{"name": "Expect Nothing", "cost": {"contempt": 15}, "type": "defense", "effects": {"damage_reduction": 0.4, "surprise_immunity": true}}],
-      "10": [{"name": "Nothing Matters", "cost": {"contempt": 30}, "type": "debuff_area", "effects": {"all_enemies_apathy": true, "duration": 3}}],
-      "15": [{"name": "The Barrel", "cost": {"contempt": 80}, "type": "ultimate", "effects": {"withdraw_from_combat": true, "invulnerable": true, "duration": 5}}],
-      "chaos_twist": {"enabled": true, "name": "Contempt Consumes", "trigger": "After mocking 3 different enemies", "effect": "Cynic turns contempt inward: self-damage increases by 50%, all allies suffer -2 morale. Only recovers by finding one genuine thing to care about (DM discretion)."}
+      "1": [
+        {
+          "name": "Mockery",
+          "cost": { "contempt": 5 },
+          "type": "debuff",
+          "effects": { "enemy_morale": -2, "enemy_damage": -3 }
+        }
+      ],
+      "5": [
+        {
+          "name": "Expect Nothing",
+          "cost": { "contempt": 15 },
+          "type": "defense",
+          "effects": { "damage_reduction": 0.4, "surprise_immunity": true }
+        }
+      ],
+      "10": [
+        {
+          "name": "Nothing Matters",
+          "cost": { "contempt": 30 },
+          "type": "debuff_area",
+          "effects": { "all_enemies_apathy": true, "duration": 3 }
+        }
+      ],
+      "15": [
+        {
+          "name": "The Barrel",
+          "cost": { "contempt": 80 },
+          "type": "ultimate",
+          "effects": {
+            "withdraw_from_combat": true,
+            "invulnerable": true,
+            "duration": 5
+          }
+        }
+      ],
+      "chaos_twist": {
+        "enabled": true,
+        "name": "Contempt Consumes",
+        "trigger": "After mocking 3 different enemies",
+        "effect": "Cynic turns contempt inward: self-damage increases by 50%, all allies suffer -2 morale. Only recovers by finding one genuine thing to care about (DM discretion)."
+      }
     },
     "Platonist": {
-      "1": [{"name": "The Form", "cost": {"idea": 5}, "type": "buff", "effects": {"perfect_ideal_shape": true, "bonus_all_stats": 2}}],
-      "5": [{"name": "Shadow Puppet", "cost": {"idea": 15}, "type": "illusion", "effects": {"confuse_enemies": true, "dodge_bonus": 3}}],
-      "10": [{"name": "The Ideal Realm", "cost": {"idea": 30}, "type": "ultimate", "effects": {"summon_perfect_self": true, "duplicate_self": 1, "duration": 4}}],
-      "15": [{"name": "The Good", "cost": {"idea": 100}, "type": "transcendence", "effects": {"ascend_to_forms": true, "invulnerable": true, "duration": 5}}],
-      "chaos_twist": {"enabled": true, "name": "The Imperfect Returns", "trigger": "When reality doesn't match the ideal", "effect": "Platonist is shocked by material world's imperfection: loses all bonuses, enters depression state (-70% all stats) until finding beauty in material reality."}
+      "1": [
+        {
+          "name": "The Form",
+          "cost": { "idea": 5 },
+          "type": "buff",
+          "effects": { "perfect_ideal_shape": true, "bonus_all_stats": 2 }
+        }
+      ],
+      "5": [
+        {
+          "name": "Shadow Puppet",
+          "cost": { "idea": 15 },
+          "type": "illusion",
+          "effects": { "confuse_enemies": true, "dodge_bonus": 3 }
+        }
+      ],
+      "10": [
+        {
+          "name": "The Ideal Realm",
+          "cost": { "idea": 30 },
+          "type": "ultimate",
+          "effects": {
+            "summon_perfect_self": true,
+            "duplicate_self": 1,
+            "duration": 4
+          }
+        }
+      ],
+      "15": [
+        {
+          "name": "The Good",
+          "cost": { "idea": 100 },
+          "type": "transcendence",
+          "effects": {
+            "ascend_to_forms": true,
+            "invulnerable": true,
+            "duration": 5
+          }
+        }
+      ],
+      "chaos_twist": {
+        "enabled": true,
+        "name": "The Imperfect Returns",
+        "trigger": "When reality doesn't match the ideal",
+        "effect": "Platonist is shocked by material world's imperfection: loses all bonuses, enters depression state (-70% all stats) until finding beauty in material reality."
+      }
     },
     "Existentialist": {
-      "1": [{"name": "Absurd Strike", "cost": {"mana": 15}, "type": "attack", "effects": {"damage": [0, 40], "random": true}}],
-      "5": [{"name": "Sisyphean Persistence", "cost": {"mana": 10}, "type": "passive", "effects": {"crit_after_3_misses": true}}],
-      "10": [{"name": "Nausea", "cost": {"mana": 30}, "type": "debuff", "effects": {"existential_dread": true, "enemy_accuracy": -5, "stun_chance": 0.2}}],
-      "15": [{"name": "Revolt", "cost": {"mana": 70}, "type": "ultimate", "effects": {"auto_max_damage": true, "stun_immunity": true, "duration": 3, "collapse_after": true}}],
-      "chaos_twist": {"enabled": true, "name": "The Myth of Sisyphus", "trigger": "After 5 failed attempts at same action", "effect": "Existentialist declares impossible goal: 20% chance of auto-success, 80% chance of absurd defiance (+10 all stats). Pattern repeats forever."}
+      "1": [
+        {
+          "name": "Absurd Strike",
+          "cost": { "mana": 15 },
+          "type": "attack",
+          "effects": { "damage": [0, 40], "random": true }
+        }
+      ],
+      "5": [
+        {
+          "name": "Sisyphean Persistence",
+          "cost": { "mana": 10 },
+          "type": "passive",
+          "effects": { "crit_after_3_misses": true }
+        }
+      ],
+      "10": [
+        {
+          "name": "Nausea",
+          "cost": { "mana": 30 },
+          "type": "debuff",
+          "effects": {
+            "existential_dread": true,
+            "enemy_accuracy": -5,
+            "stun_chance": 0.2
+          }
+        }
+      ],
+      "15": [
+        {
+          "name": "Revolt",
+          "cost": { "mana": 70 },
+          "type": "ultimate",
+          "effects": {
+            "auto_max_damage": true,
+            "stun_immunity": true,
+            "duration": 3,
+            "collapse_after": true
+          }
+        }
+      ],
+      "chaos_twist": {
+        "enabled": true,
+        "name": "The Myth of Sisyphus",
+        "trigger": "After 5 failed attempts at same action",
+        "effect": "Existentialist declares impossible goal: 20% chance of auto-success, 80% chance of absurd defiance (+10 all stats). Pattern repeats forever."
+      }
     },
     "Metallogian": {
-      "1": [{"name": "Self-Overcoming", "cost": {"willpower": 5}, "type": "buff", "effects": {"damage_bonus": 3, "self_only": true}}],
-      "5": [{"name": "Hammer Strikes", "cost": {"willpower": 15}, "type": "attack", "effects": {"damage": 25, "shatters_weakness": true}}],
-      "10": [{"name": "Master Yourself", "cost": {"willpower": 30}, "type": "stance", "effects": {"all_stats_bonus": 4, "duration": 4}}],
-      "15": [{"name": "Eternal Recurrence", "cost": {"willpower": 100}, "type": "ultimate", "effects": {"repeat_last_action_3x": true, "enhanced_3x": true}}],
-      "chaos_twist": {"enabled": true, "name": "Weakness Exploited", "trigger": "When another character exploits the Metallogian's philosophy", "effect": "All self-enhancement abilities reverse: debuffs apply to self instead. Character spirals into self-criticism (-80% all stats) until performing act of true self-creation."}
+      "1": [
+        {
+          "name": "Self-Overcoming",
+          "cost": { "willpower": 5 },
+          "type": "buff",
+          "effects": { "damage_bonus": 3, "self_only": true }
+        }
+      ],
+      "5": [
+        {
+          "name": "Hammer Strikes",
+          "cost": { "willpower": 15 },
+          "type": "attack",
+          "effects": { "damage": 25, "shatters_weakness": true }
+        }
+      ],
+      "10": [
+        {
+          "name": "Master Yourself",
+          "cost": { "willpower": 30 },
+          "type": "stance",
+          "effects": { "all_stats_bonus": 4, "duration": 4 }
+        }
+      ],
+      "15": [
+        {
+          "name": "Eternal Recurrence",
+          "cost": { "willpower": 100 },
+          "type": "ultimate",
+          "effects": { "repeat_last_action_3x": true, "enhanced_3x": true }
+        }
+      ],
+      "chaos_twist": {
+        "enabled": true,
+        "name": "Weakness Exploited",
+        "trigger": "When another character exploits the Metallogian's philosophy",
+        "effect": "All self-enhancement abilities reverse: debuffs apply to self instead. Character spirals into self-criticism (-80% all stats) until performing act of true self-creation."
+      }
     },
     "Graviton": {
-      "1": [{"name": "Center of Gravity", "cost": {"gravity": 5}, "type": "buff", "effects": {"stability": 2, "dodge_bonus": 1}}],
-      "5": [{"name": "Attract", "cost": {"gravity": 15}, "type": "control", "effects": {"pull_enemy_closer": true, "prevent_retreat": true}}],
-      "10": [{"name": "Event Horizon", "cost": {"gravity": 30}, "type": "zone", "effects": {"trap_all_enemies": true, "damage_per_turn": 15, "duration": 3}}],
-      "15": [{"name": "Singularity", "cost": {"gravity": 100}, "type": "ultimate", "effects": {"collapse_space": true, "massive_damage": 150, "duration": "instant"}}],
-      "chaos_twist": {"enabled": true, "name": "Gravitational Collapse", "trigger": "When attracting too many enemies", "effect": "Graviton collapses under own weight: becomes immobilized but gains 200% damage reflection. Can break free with strength check or ally intervention."}
+      "1": [
+        {
+          "name": "Center of Gravity",
+          "cost": { "gravity": 5 },
+          "type": "buff",
+          "effects": { "stability": 2, "dodge_bonus": 1 }
+        }
+      ],
+      "5": [
+        {
+          "name": "Attract",
+          "cost": { "gravity": 15 },
+          "type": "control",
+          "effects": { "pull_enemy_closer": true, "prevent_retreat": true }
+        }
+      ],
+      "10": [
+        {
+          "name": "Event Horizon",
+          "cost": { "gravity": 30 },
+          "type": "zone",
+          "effects": {
+            "trap_all_enemies": true,
+            "damage_per_turn": 15,
+            "duration": 3
+          }
+        }
+      ],
+      "15": [
+        {
+          "name": "Singularity",
+          "cost": { "gravity": 100 },
+          "type": "ultimate",
+          "effects": {
+            "collapse_space": true,
+            "massive_damage": 150,
+            "duration": "instant"
+          }
+        }
+      ],
+      "chaos_twist": {
+        "enabled": true,
+        "name": "Gravitational Collapse",
+        "trigger": "When attracting too many enemies",
+        "effect": "Graviton collapses under own weight: becomes immobilized but gains 200% damage reflection. Can break free with strength check or ally intervention."
+      }
     },
     "Resonantist": {
-      "1": [{"name": "Harmony", "cost": {"resonance": 5}, "type": "buff", "effects": {"team_sync": 1}}],
-      "5": [{"name": "Dissonance", "cost": {"resonance": 15}, "type": "debuff", "effects": {"enemy_team_confusion": true}}],
-      "10": [{"name": "Coherence", "cost": {"resonance": 30}, "type": "ultimate", "effects": {"perfect_party_sync": true, "damage_multiplier": 2.0, "duration": 4}}],
-      "15": [{"name": "Fundamental Frequency", "cost": {"resonance": 100}, "type": "transcendence", "effects": {"vibrate_at_reality_frequency": true, "invulnerable": true, "duration": 5}}],
-      "chaos_twist": {"enabled": true, "name": "Frequency Shatter", "trigger": "When party harmony drops below 20%", "effect": "All resonance spells backfire: buffs become AoE debuffs affecting party. Resonantist must restore harmony through cooperative actions (no solo heroics)."}
+      "1": [
+        {
+          "name": "Harmony",
+          "cost": { "resonance": 5 },
+          "type": "buff",
+          "effects": { "team_sync": 1 }
+        }
+      ],
+      "5": [
+        {
+          "name": "Dissonance",
+          "cost": { "resonance": 15 },
+          "type": "debuff",
+          "effects": { "enemy_team_confusion": true }
+        }
+      ],
+      "10": [
+        {
+          "name": "Coherence",
+          "cost": { "resonance": 30 },
+          "type": "ultimate",
+          "effects": {
+            "perfect_party_sync": true,
+            "damage_multiplier": 2.0,
+            "duration": 4
+          }
+        }
+      ],
+      "15": [
+        {
+          "name": "Fundamental Frequency",
+          "cost": { "resonance": 100 },
+          "type": "transcendence",
+          "effects": {
+            "vibrate_at_reality_frequency": true,
+            "invulnerable": true,
+            "duration": 5
+          }
+        }
+      ],
+      "chaos_twist": {
+        "enabled": true,
+        "name": "Frequency Shatter",
+        "trigger": "When party harmony drops below 20%",
+        "effect": "All resonance spells backfire: buffs become AoE debuffs affecting party. Resonantist must restore harmony through cooperative actions (no solo heroics)."
+      }
     },
     "Entropist": {
-      "1": [{"name": "Decay", "cost": {"entropy": 5}, "type": "debuff", "effects": {"enemy_stats_reduce": true, "duration": 3}}],
-      "5": [{"name": "Inevitable End", "cost": {"entropy": 15}, "type": "curse", "effects": {"enemy_max_hp_reduce": true, "gradual_damage": true}}],
-      "10": [{"name": "Heat Death", "cost": {"entropy": 30}, "type": "ultimate", "effects": {"all_enemies_fatigue": true, "damage_immunity": true, "duration": 4}}],
-      "15": [{"name": "The Final Void", "cost": {"entropy": 100}, "type": "transcendence", "effects": {"unmake_reality": true, "invulnerable": true, "duration": 5}}],
-      "chaos_twist": {"enabled": true, "name": "Entropy Consumes Self", "trigger": "After 3 decay effects on same enemy", "effect": "Entropist's own entropy accelerates: takes double damage from all sources, stats gradually reduce to zero. Only reversed by extreme restoration (phoenix/miracle-class spell) or time manipulation."}
+      "1": [
+        {
+          "name": "Decay",
+          "cost": { "entropy": 5 },
+          "type": "debuff",
+          "effects": { "enemy_stats_reduce": true, "duration": 3 }
+        }
+      ],
+      "5": [
+        {
+          "name": "Inevitable End",
+          "cost": { "entropy": 15 },
+          "type": "curse",
+          "effects": { "enemy_max_hp_reduce": true, "gradual_damage": true }
+        }
+      ],
+      "10": [
+        {
+          "name": "Heat Death",
+          "cost": { "entropy": 30 },
+          "type": "ultimate",
+          "effects": {
+            "all_enemies_fatigue": true,
+            "damage_immunity": true,
+            "duration": 4
+          }
+        }
+      ],
+      "15": [
+        {
+          "name": "The Final Void",
+          "cost": { "entropy": 100 },
+          "type": "transcendence",
+          "effects": {
+            "unmake_reality": true,
+            "invulnerable": true,
+            "duration": 5
+          }
+        }
+      ],
+      "chaos_twist": {
+        "enabled": true,
+        "name": "Entropy Consumes Self",
+        "trigger": "After 3 decay effects on same enemy",
+        "effect": "Entropist's own entropy accelerates: takes double damage from all sources, stats gradually reduce to zero. Only reversed by extreme restoration (phoenix/miracle-class spell) or time manipulation."
+      }
     },
     "Occam's Razor": {
-      "1": [{"name": "Simple Strike", "cost": {"mana": 5}, "type": "attack", "effects": {"damage": 10}}],
-      "5": [{"name": "Prune Complexity", "cost": {"mana": 10}, "type": "debuff", "effects": {"enemy_accuracy": -5}}],
-      "10": [{"name": "Singularity", "cost": {"mana": 25}, "type": "attack", "effects": {"crit_on_1": true, "damage_bonus": 15}}],
-      "15": [{"name": "Elegance", "cost": {"mana": 40}, "type": "buff", "effects": {"ally_speed": 3, "ally_crit": 0.15}}],
-      "chaos_twist": {"enabled": true, "name": "Overthinking the Obvious", "trigger": "After solving same problem 4 different ways", "effect": "Occam's Razor is paralyzed by infinite options: cannot act until player chooses simplest path forward (DM decides complexity ranking). Simplicity is subjective."}
+      "1": [
+        {
+          "name": "Simple Strike",
+          "cost": { "mana": 5 },
+          "type": "attack",
+          "effects": { "damage": 10 }
+        }
+      ],
+      "5": [
+        {
+          "name": "Prune Complexity",
+          "cost": { "mana": 10 },
+          "type": "debuff",
+          "effects": { "enemy_accuracy": -5 }
+        }
+      ],
+      "10": [
+        {
+          "name": "Singularity",
+          "cost": { "mana": 25 },
+          "type": "attack",
+          "effects": { "crit_on_1": true, "damage_bonus": 15 }
+        }
+      ],
+      "15": [
+        {
+          "name": "Elegance",
+          "cost": { "mana": 40 },
+          "type": "buff",
+          "effects": { "ally_speed": 3, "ally_crit": 0.15 }
+        }
+      ],
+      "chaos_twist": {
+        "enabled": true,
+        "name": "Overthinking the Obvious",
+        "trigger": "After solving same problem 4 different ways",
+        "effect": "Occam's Razor is paralyzed by infinite options: cannot act until player chooses simplest path forward (DM decides complexity ranking). Simplicity is subjective."
+      }
     },
     "Fabricator": {
-      "1": [{"name": "Construct", "cost": {"resources": 5}, "type": "summon", "effects": {"summon_minor_construct": 1}}],
-      "5": [{"name": "Build Greater", "cost": {"resources": 15}, "type": "summon", "effects": {"summon_major_construct": 1, "requires_materials": true}}],
-      "10": [{"name": "Leverage", "cost": {"resources": 30}, "type": "buff", "effects": {"construct_damage": 2.0, "construct_defense": 2.0, "duration": 4}}],
-      "15": [{"name": "Golem", "cost": {"resources": 100}, "type": "ultimate", "effects": {"summon_legendary_construct": 1, "permanent": true}}],
-      "chaos_twist": {"enabled": true, "name": "Constructs Rebel", "trigger": "When constructs take damage > Fabricator's total HP", "effect": "Constructs become independent: attack randomly (friend and foe alike). Fabricator loses control until passing intelligence/wisdom check vs. their combined level."}
+      "1": [
+        {
+          "name": "Construct",
+          "cost": { "resources": 5 },
+          "type": "summon",
+          "effects": { "summon_minor_construct": 1 }
+        }
+      ],
+      "5": [
+        {
+          "name": "Build Greater",
+          "cost": { "resources": 15 },
+          "type": "summon",
+          "effects": { "summon_major_construct": 1, "requires_materials": true }
+        }
+      ],
+      "10": [
+        {
+          "name": "Leverage",
+          "cost": { "resources": 30 },
+          "type": "buff",
+          "effects": {
+            "construct_damage": 2.0,
+            "construct_defense": 2.0,
+            "duration": 4
+          }
+        }
+      ],
+      "15": [
+        {
+          "name": "Golem",
+          "cost": { "resources": 100 },
+          "type": "ultimate",
+          "effects": { "summon_legendary_construct": 1, "permanent": true }
+        }
+      ],
+      "chaos_twist": {
+        "enabled": true,
+        "name": "Constructs Rebel",
+        "trigger": "When constructs take damage > Fabricator's total HP",
+        "effect": "Constructs become independent: attack randomly (friend and foe alike). Fabricator loses control until passing intelligence/wisdom check vs. their combined level."
+      }
     },
     "Communist": {
-      "1": [{"name": "Collective Action", "cost": {"solidarity": 5}, "type": "buff", "effects": {"team_all_bonuses": 1, "requires_allies": true}}],
-      "5": [{"name": "Seize the Means", "cost": {"solidarity": 15}, "type": "steal", "effects": {"steal_enemy_resources": true, "distribute_to_party": true}}],
-      "10": [{"name": "Proletariat Rise", "cost": {"solidarity": 30}, "type": "ultimate", "effects": {"empower_all_allies": true, "bonus_scales_with_party_size": true, "duration": 4}}],
-      "15": [{"name": "Classless Paradise", "cost": {"solidarity": 100}, "type": "transcendence", "effects": {"perfect_equality": true, "all_stats_equalize": true, "invulnerable": true, "duration": 5}}],
-      "chaos_twist": {"enabled": true, "name": "Betrayal of the Collective", "trigger": "When an ally acts in self-interest over party", "effect": "Communist is devastated by hypocrisy: loses all solidarity bonuses, becomes isolated (-50% all stats). Party members must choose between solidarity (help) or progress (abandonment)."}
+      "1": [
+        {
+          "name": "Collective Action",
+          "cost": { "solidarity": 5 },
+          "type": "buff",
+          "effects": { "team_all_bonuses": 1, "requires_allies": true }
+        }
+      ],
+      "5": [
+        {
+          "name": "Seize the Means",
+          "cost": { "solidarity": 15 },
+          "type": "steal",
+          "effects": {
+            "steal_enemy_resources": true,
+            "distribute_to_party": true
+          }
+        }
+      ],
+      "10": [
+        {
+          "name": "Proletariat Rise",
+          "cost": { "solidarity": 30 },
+          "type": "ultimate",
+          "effects": {
+            "empower_all_allies": true,
+            "bonus_scales_with_party_size": true,
+            "duration": 4
+          }
+        }
+      ],
+      "15": [
+        {
+          "name": "Classless Paradise",
+          "cost": { "solidarity": 100 },
+          "type": "transcendence",
+          "effects": {
+            "perfect_equality": true,
+            "all_stats_equalize": true,
+            "invulnerable": true,
+            "duration": 5
+          }
+        }
+      ],
+      "chaos_twist": {
+        "enabled": true,
+        "name": "Betrayal of the Collective",
+        "trigger": "When an ally acts in self-interest over party",
+        "effect": "Communist is devastated by hypocrisy: loses all solidarity bonuses, becomes isolated (-50% all stats). Party members must choose between solidarity (help) or progress (abandonment)."
+      }
     }
   },
   "metadata": {
