@@ -6,8 +6,9 @@ on:
         branches: [main]
 
 jobs:
-    build_and_push:
-        runs-on: ubuntu-latest
+  build_and_push:
+    if: ${{ secrets.DOCKER_USERNAME != '' && secrets.DOCKER_PASSWORD != '' }}
+    runs-on: ubuntu-latest
         steps:
             - name: Checkout
               uses: actions/checkout@v4
@@ -18,10 +19,18 @@ jobs:
             - name: Set up Docker Buildx
               uses: docker/setup-buildx-action@v2
 
+            - name: Preflight
+              run: |
+                  set -euo pipefail
+                  if [ ! -f ./Dockerfile ]; then
+                    echo "::warning::No Dockerfile found at repo root; skipping build/push."
+                    exit 0
+                  fi
+
             - name: Log in to registry
               uses: docker/login-action@v2
               with:
-                  registry: ${{ env.REGISTRY_HOST || 'docker.io' }}
+                  registry: ${{ secrets.DOCKER_REGISTRY || 'docker.io' }}
                   username: ${{ secrets.DOCKER_USERNAME }}
                   password: ${{ secrets.DOCKER_PASSWORD }}
 
@@ -29,13 +38,14 @@ jobs:
               uses: docker/build-push-action@v4
               with:
                   push: true
-                    tags: |
-                      ${{ env.REGISTRY_HOST || 'docker.io' }}/$GITHUB_REPOSITORY:discord-bot-${{ github.sha }}
+                  tags: |
+                      ${{ secrets.DOCKER_REGISTRY || 'docker.io' }}/${{ github.repository }}:discord-bot-${{ github.sha }}
                   file: ./Dockerfile # placeholder; user should add Dockerfiles or customize this step
 
     deploy:
         runs-on: ubuntu-latest
         needs: build_and_push
+        if: ${{ needs.build_and_push.result == 'success' }}
         steps:
             - name: Notify deploy
               run: echo "Deploy step placeholder — implement target-specific deploy (SSH, cloud provider CLI, etc.)"

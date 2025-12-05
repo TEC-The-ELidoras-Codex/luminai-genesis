@@ -7,6 +7,22 @@ jobs:
   create-webhook:
     runs-on: ubuntu-latest
     steps:
+      - name: Preflight secrets
+        env:
+          GITHUB_TOKEN_PAT: ${{ secrets.GITHUB_MANAGEMENT_PAT }}
+          TARGET_URL: ${{ secrets.WEBHOOK_TARGET_URL }}
+          WEBHOOK_SECRET: ${{ secrets.WEBHOOK_SECRET }}
+        run: |
+          set -euo pipefail
+          missing=0
+          if [ -z "${GITHUB_TOKEN_PAT:-}" ]; then echo "::warning::Missing GITHUB_MANAGEMENT_PAT secret — skipping webhook creation"; missing=1; fi
+          if [ -z "${TARGET_URL:-}" ]; then echo "::warning::Missing WEBHOOK_TARGET_URL secret — skipping webhook creation"; missing=1; fi
+          if [ -z "${WEBHOOK_SECRET:-}" ]; then echo "::warning::Missing WEBHOOK_SECRET secret — skipping webhook creation"; missing=1; fi
+          if [ "$missing" -eq 1 ]; then
+            echo "Secrets not present; exiting without creating webhook."
+            exit 0
+          fi
+
       - name: Ensure jq is available
         run: sudo apt-get update && sudo apt-get install -y jq curl
 
