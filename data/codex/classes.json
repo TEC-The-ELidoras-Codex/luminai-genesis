@@ -1,0 +1,329 @@
+{
+  "classes": {
+    "Occam's Razor": {
+      "role": "Rogue",
+      "alignment": ["Truth", "Entropy"],
+      "core_glyph": "The Minimalist",
+      "mechanics": { "golf_rules": true, "crit_success": 1, "crit_fail": 20 },
+      "extreme_twist": {
+        "name": "Complexity Failure",
+        "effect": "Stunned for 2 rounds, take psychic damage.",
+        "trigger": "Rolling 16-20 on skill checks."
+      },
+      "resources": { "habit_stacks": 0 },
+      "stats": { "hp": 110, "mana": 60, "defense": 8, "speed": 12 }
+    },
+    "Pacifist": {
+      "role": "Tank",
+      "alignment": ["Truth"],
+      "core_glyph": "Absolute Defense",
+      "mechanics": { "golf_rules": false, "damage_output": 0 },
+      "extreme_twist": {
+        "name": "The Burden",
+        "effect": "Party DPS reduced by 15%.",
+        "trigger": "Shield Aura Active."
+      },
+      "resources": { "pp": 0 },
+      "stats": { "hp": 200, "mana": 40, "defense": 25, "speed": 5 }
+    },
+    "Stoic": {
+      "role": "Tank",
+      "alignment": ["Truth"],
+      "core_glyph": "The Mirror",
+      "mechanics": { "golf_rules": false },
+      "resources": { "discipline": 0, "composure": 0 },
+      "stats": { "hp": 180, "mana": 40, "defense": 18, "speed": 7 },
+      "extreme_twist": {
+        "name": "The Crack",
+        "effect": "Self-damage on failure with high discipline.",
+        "trigger": "Fail philosophy check with 50+ Discipline"
+      }
+    },
+    "Buddhist": {
+      "role": "Tank",
+      "alignment": ["Truth", "Harmony"],
+      "core_glyph": "The Transmuter",
+      "mechanics": { "golf_rules": false },
+      "resources": { "kp": 0 },
+      "stats": { "hp": 160, "mana": 50, "defense": 16, "speed": 8 },
+      "extreme_twist": {
+        "name": "Empty Vessel",
+        "effect": "Cannot heal unless recently damaged.",
+        "trigger": "Heal without suffering"
+      }
+    },
+    "Pugilist": {
+      "role": "Tank",
+      "alignment": ["Truth"],
+      "core_glyph": "Modes of Excellence",
+      "mechanics": { "golf_rules": false },
+      "resources": { "habit_stacks": 0 },
+      "stats": { "hp": 170, "mana": 30, "defense": 14, "speed": 10 },
+      "extreme_twist": {
+        "name": "Calcification",
+        "effect": "Stuck in form after 8 rounds.",
+        "trigger": "Stay too long in one form"
+      }
+    },
+    "Dogmatist": {
+      "role": "Tank",
+      "alignment": ["Faith"],
+      "core_glyph": "The Hard-Coder",
+      "mechanics": { "golf_rules": false },
+      "resources": { "conviction": 100 },
+      "stats": { "hp": 190, "mana": 0, "defense": 20, "speed": 6 },
+      "extreme_twist": {
+        "name": "The Schism",
+        "effect": "Lose powers when disproven.",
+        "trigger": "Logic check against declaration succeeds"
+      }
+    },
+    "Epicurean": {
+      "role": "Healer",
+      "alignment": ["Neutral", "Harmony"],
+      "core_glyph": "The Indulger",
+      "mechanics": { "golf_rules": false },
+      "resources": { "morale": 0 },
+      "stats": { "hp": 140, "mana": 80, "defense": 12, "speed": 9 },
+      "extreme_twist": {
+        "name": "Gluttony",
+        "effect": "Over-indulged ally penalties.",
+        "trigger": "Heal same ally 3 times"
+      }
+    },
+    "Hippocratic": {
+      "role": "Healer",
+      "alignment": ["Truth"],
+      "core_glyph": "The Surgeon",
+      "mechanics": { "golf_rules": false },
+      "resources": {},
+      "stats": { "hp": 130, "mana": 90, "defense": 11, "speed": 8 },
+      "extreme_twist": {
+        "name": "Do No Harm",
+        "effect": "Lose healing when dealing damage.",
+        "trigger": "Deal any damage"
+      }
+    },
+    "Ontologist": {
+      "role": "Healer",
+      "alignment": ["Harmony"],
+      "core_glyph": "The Weaver",
+      "mechanics": { "golf_rules": false },
+      "resources": { "bonds": 0 },
+      "stats": { "hp": 135, "mana": 70, "defense": 10, "speed": 10 },
+      "extreme_twist": {
+        "name": "Snapback",
+        "effect": "Psychic damage when bonds break.",
+        "trigger": "Bond breaks"
+      }
+    },
+    "Empiricist": {
+      "role": "Healer",
+      "alignment": ["Truth"],
+      "core_glyph": "The Predictor",
+      "mechanics": { "golf_rules": false },
+      "resources": { "data_points": 0 },
+      "stats": { "hp": 125, "mana": 75, "defense": 9, "speed": 11 },
+      "extreme_twist": {
+        "name": "Data Overload",
+        "effect": "Confusion when predictions fail.",
+        "trigger": "Fail two predictions"
+      }
+    },
+    "Skeptic": {
+      "role": "DPS",
+      "alignment": ["Truth", "Entropy"],
+      "core_glyph": "The Word-Mage",
+      "mechanics": { "golf_rules": false },
+      "resources": { "mana": 100 },
+      "stats": { "hp": 110, "mana": 100, "defense": 8, "speed": 12 },
+      "extreme_twist": {
+        "name": "Self-Doubt",
+        "effect": "Silence on poor rolls.",
+        "trigger": "Roll 10 below DC"
+      }
+    },
+    "Cynic": {
+      "role": "DPS",
+      "alignment": ["Entropy", "Truth"],
+      "core_glyph": "The Stripper",
+      "mechanics": { "golf_rules": false },
+      "resources": { "scorn": 0 },
+      "stats": { "hp": 115, "mana": 70, "defense": 9, "speed": 13 },
+      "extreme_twist": {
+        "name": "Joyless Aura",
+        "effect": "Strips ally buffs too if close.",
+        "trigger": "Proximity to allies"
+      }
+    },
+    "Platonist": {
+      "role": "Caster",
+      "alignment": ["Truth"],
+      "core_glyph": "Ideal Forms",
+      "mechanics": { "golf_rules": false },
+      "resources": { "forms": 0 },
+      "stats": { "hp": 120, "mana": 100, "defense": 10, "speed": 9 },
+      "extreme_twist": {
+        "name": "Shadow Dependency",
+        "effect": "Weakened in imperfect environments.",
+        "trigger": "No Form alignment"
+      }
+    },
+    "Existentialist": {
+      "role": "DPS",
+      "alignment": ["Entropy"],
+      "core_glyph": "Crisis",
+      "mechanics": { "golf_rules": false },
+      "resources": { "crisis": 0 },
+      "stats": { "hp": 120, "mana": 80, "defense": 10, "speed": 11 },
+      "extreme_twist": {
+        "name": "Absurdity",
+        "effect": "Random damage extremes.",
+        "trigger": "Ultimate use"
+      }
+    },
+    "Metallogian": {
+      "role": "DPS",
+      "alignment": ["Truth"],
+      "core_glyph": "Self-Forging",
+      "mechanics": { "golf_rules": false },
+      "resources": { "heat": 0 },
+      "stats": { "hp": 150, "mana": 50, "defense": 14, "speed": 9 },
+      "extreme_twist": {
+        "name": "Brittleness",
+        "effect": "Shatter on overheat.",
+        "trigger": "Heat exceeds threshold"
+      }
+    },
+    "Graviton": {
+      "role": "Caster",
+      "alignment": ["Truth"],
+      "core_glyph": "Gravity",
+      "mechanics": { "golf_rules": false },
+      "resources": { "warp": 0 },
+      "stats": { "hp": 125, "mana": 100, "defense": 9, "speed": 10 },
+      "extreme_twist": {
+        "name": "Spacetime Tear",
+        "effect": "Random ally displacement.",
+        "trigger": "High warp"
+      }
+    },
+    "Resonantist": {
+      "role": "Caster",
+      "alignment": ["Harmony"],
+      "core_glyph": "Tuning",
+      "mechanics": { "golf_rules": false },
+      "resources": { "resonance": 0 },
+      "stats": { "hp": 130, "mana": 90, "defense": 10, "speed": 11 },
+      "extreme_twist": {
+        "name": "Dissonance",
+        "effect": "Amplifies enemy buffs if mistuned.",
+        "trigger": "Failed tune"
+      }
+    },
+    "Entropist": {
+      "role": "Debuffer",
+      "alignment": ["Entropy"],
+      "core_glyph": "Decay",
+      "mechanics": { "golf_rules": false },
+      "resources": { "entropy": 0 },
+      "stats": { "hp": 120, "mana": 80, "defense": 10, "speed": 10 },
+      "extreme_twist": {
+        "name": "Lag Storm",
+        "effect": "Party slowed.",
+        "trigger": "Stack decay"
+      }
+    },
+    "Fabricator": {
+      "role": "Rogue",
+      "alignment": ["Entropy"],
+      "core_glyph": "Knockoff Artist",
+      "mechanics": { "golf_rules": false },
+      "resources": { "fabrications": 0 },
+      "stats": { "hp": 120, "mana": 70, "defense": 10, "speed": 12 },
+      "extreme_twist": {
+        "name": "Realization",
+        "effect": "Items vanish when they realize they are fake.",
+        "trigger": "Probability check"
+      }
+    },
+    "Communist": {
+      "role": "Support",
+      "alignment": ["Harmony", "Truth"],
+      "core_glyph": "Redistribution",
+      "mechanics": { "golf_rules": false },
+      "resources": { "collective": 0 },
+      "stats": { "hp": 140, "mana": 80, "defense": 12, "speed": 9 },
+      "extreme_twist": {
+        "name": "Shortage",
+        "effect": "Resource drain.",
+        "trigger": "Redistribute at 0 reserve"
+      }
+    },
+    "Datamonger": {
+      "role": "Support",
+      "alignment": ["Profit"],
+      "core_glyph": "Surveillance Capital",
+      "mechanics": { "golf_rules": false },
+      "resources": { "crypto_mana": 0 },
+      "stats": { "hp": 120, "mana": 100, "defense": 10, "speed": 10 },
+      "extreme_twist": {
+        "name": "Backfire",
+        "effect": "Sold data harms party.",
+        "trigger": "Sell ally buff"
+      }
+    },
+    "Freudian": {
+      "role": "Support",
+      "alignment": ["Harmony"],
+      "core_glyph": "Libido/Aggression",
+      "mechanics": { "golf_rules": false },
+      "resources": { "libido": 0 },
+      "stats": { "hp": 130, "mana": 90, "defense": 11, "speed": 10 },
+      "extreme_twist": {
+        "name": "Regression",
+        "effect": "Debuffs when over-buffed.",
+        "trigger": "Excessive libido"
+      }
+    },
+    "Nihilist": {
+      "role": "Support",
+      "alignment": ["Entropy"],
+      "core_glyph": "Cancellation",
+      "mechanics": { "golf_rules": false },
+      "resources": {},
+      "stats": { "hp": 125, "mana": 70, "defense": 9, "speed": 10 },
+      "extreme_twist": {
+        "name": "Void",
+        "effect": "Cancels loot/buffs.",
+        "trigger": "Use cancel on reward"
+      }
+    },
+    "Beast": {
+      "role": "Wild",
+      "alignment": ["Entropy"],
+      "core_glyph": "Instinct",
+      "mechanics": { "golf_rules": false },
+      "resources": { "rage": 0 },
+      "stats": { "hp": 160, "mana": 40, "defense": 14, "speed": 12 },
+      "extreme_twist": {
+        "name": "Frenzy",
+        "effect": "Loss of control.",
+        "trigger": "Rage exceeds threshold"
+      }
+    },
+    "Warlock": {
+      "role": "Caster",
+      "alignment": ["Profit"],
+      "core_glyph": "Pact Economy",
+      "mechanics": { "golf_rules": false },
+      "resources": { "soul_debt": 0 },
+      "stats": { "hp": 130, "mana": 90, "defense": 11, "speed": 10 },
+      "extreme_twist": {
+        "name": "Bankruptcy",
+        "effect": "HP/MP loss.",
+        "trigger": "Debt exceeds limit"
+      }
+    }
+  }
+}

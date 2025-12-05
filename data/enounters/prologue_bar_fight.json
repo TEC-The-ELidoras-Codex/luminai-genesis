@@ -1,0 +1,13 @@
+{
+  "name": "Bar Fight at the Datastream Cantina",
+  "max_rounds": 3,
+  "party": [
+    { "name": "Cipher", "class": "Occam's Razor" },
+    { "name": "Aegis", "class": "Pacifist" }
+  ],
+  "enemies": [
+    { "name": "Cultist-1", "class": "Pacifist" },
+    { "name": "Cultist-2", "class": "Pacifist" },
+    { "name": "Cultist-3", "class": "Pacifist" }
+  ]
+}

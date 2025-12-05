@@ -1,0 +1,85 @@
+{
+  "abilities": {
+    "Pacifist": {
+      "1": [
+        {"name": "Sanctuary Circle", "cost": {"pp": 10}, "type": "zone", "duration": 5, "effects": {"ally_defense": 5, "force_target": true}}
+      ],
+      "5": [
+        {"name": "Burden of Peace", "cost": {"pp_all": true}, "type": "shield", "effects": {"team_shield_per_pp": 2}}
+      ],
+      "10": [
+        {"name": "Absolute Defense", "cost": {"pp": 25}, "type": "stance", "duration": 99, "effects": {"redirect": 1.0, "incoming_reduction": 0.9}}
+      ],
+      "15": [
+        {"name": "Witness Resonance", "cost": {"pp": 100}, "type": "ultimate", "duration": 3, "effects": {"ally_min_hp": 1, "convert_kill_to_heal": true}}
+      ]
+    },
+    "Occam's Razor": {
+      "1": [
+        {
+          "name": "Simple Strike",
+          "cost": { "mana": 5 },
+          "type": "attack",
+          "effects": { "damage": 10 }
+        }
+      ],
+      "5": [
+        {
+          "name": "Prune Complexity",
+          "cost": { "mana": 10 },
+          "type": "debuff",
+          "effects": { "enemy_accuracy": -5 }
+        }
+      ],
+      "10": [
+        {
+          "name": "Singularity",
+          "cost": { "mana": 25 },
+          "type": "attack",
+          "effects": { "crit_on_1": true, "damage_bonus": 15 }
+        }
+      ],
+      "15": [
+        {
+          "name": "Elegance",
+          "cost": { "mana": 40 },
+          "type": "buff",
+          "effects": { "ally_speed": 3, "ally_crit": 0.15 }
+        }
+      ]
+    },
+    "Dogmatist": {
+      "1": [
+        {
+          "name": "Decree",
+          "cost": { "conviction": 15 },
+          "type": "declare",
+          "effects": { "logic_dc": 15 }
+        }
+      ],
+      "5": [
+        {
+          "name": "Syllogistic Shield",
+          "cost": { "conviction": 25 },
+          "type": "shield",
+          "effects": { "prevent_damage": true }
+        }
+      ],
+      "10": [
+        {
+          "name": "Infallible Truth",
+          "cost": { "conviction": 40 },
+          "type": "ally_auto_success"
+        }
+      ],
+      "15": [
+        {
+          "name": "Divine Ordinance",
+          "cost": { "conviction": 80 },
+          "type": "ultimate",
+          "effects": { "freeze_enemy": true, "ally_no_fall": true }
+        }
+      ]
+    }
+  }
+}
