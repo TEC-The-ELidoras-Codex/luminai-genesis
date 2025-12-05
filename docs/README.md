@@ -37,7 +37,17 @@ Sanitized canonical bundles and foundational materials:
 
 Persona and commit governance specifications:
 
-- **`persona-law.md`** - Extended persona system (Ely, Kaznak, Adelphia, LuminAI)
+- **`persona-law.md`** - Extended persona system (Ely, Kaznak, Adelphia, LuminAI) with full narrative descriptions, behavioral triggers, and conflict resolution
+- **`commit-emoji-card.md`** - One-page quick reference for TGCR-compliant commit messages
+
+---
+
+## Lore (`lore/`)
+
+World-building, cosmology, and narrative foundations:
+
+- **`NU_ROME_SCHEMA.md`** - Nu-Rome cosmology: information empire as organizing principle, Scholar of Nu-Rome archetype, multibroadcasted consciousness, and TGCR-grounded mythology
+- **`PERSONA_ORIGINS.md`** - (Pending) Origin narratives for the six personas rooted in Nu-Roman pantheon
 
 ---
 
@@ -87,9 +97,10 @@ Active content pipeline:
 
 1. **New to the project?** Start with `ARCHITECTURE.md` and `CODEX_NAVIGATOR.md`
 2. **Understanding TGCR?** See `GEOMETRY_OF_CONSCIENCE.md` and `canonical/TEC_CODEX_DUMP.sanitized.md`
-3. **Working with personas?** Check `PERSONA_LAW.md` and `governance/persona-law.md`
-4. **Making commits?** Review `operations/COMMIT_AXIOMS.md` and `operations/EMOJI_LEGEND_COMMITS.md`
-5. **Checking asset status?** See `INVENTORY_STATUS.md`
+3. **Understanding the world?** See `lore/NU_ROME_SCHEMA.md` for cosmological foundations
+4. **Working with personas?** Check `PERSONA_LAW.md`, `governance/persona-law.md`, and `governance/commit-emoji-card.md`
+5. **Making commits?** Review `operations/COMMIT_AXIOMS.md` and grab `governance/commit-emoji-card.md` for quick reference
+6. **Checking asset status?** See `INVENTORY_STATUS.md`
 
 ---
 

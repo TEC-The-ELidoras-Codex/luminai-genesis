@@ -29,7 +29,7 @@ def test_resonance():
     )
     assert resp.status_code == 200
     data = resp.json()
-    assert data["effective_resonance"] == 0.72
+    assert abs(data["effective_resonance"] - 0.72) < 0.001
     assert data["classification"] == "high"
 
 
@@ -39,3 +39,49 @@ def test_personas():
     personas = resp.json()
     assert any(p["persona"] == "arcadia" for p in personas)
     assert any(p["persona"] == "airth" for p in personas)
+
+
+def test_frequencies():
+    resp = client.get("/api/frequencies")
+    assert resp.status_code == 200
+    data = resp.json()
+    assert "frequencies" in data
+    assert len(data["frequencies"]) == 16
+
+
+def test_frequency_by_id():
+    resp = client.get("/api/frequencies/1")
+    assert resp.status_code == 200
+    data = resp.json()
+    assert data["name"] == "Curiosity"
+
+
+def test_axioms():
+    resp = client.get("/api/axioms")
+    assert resp.status_code == 200
+    data = resp.json()
+    assert "axioms" in data
+    assert len(data["axioms"]) == 12
+
+
+def test_witness_protocol_bindings():
+    resp = client.get("/api/axioms/witness-protocol/bindings")
+    assert resp.status_code == 200
+    data = resp.json()
+    assert data["binding_count"] > 0
+    assert all(a["witness_protocol_binding"] for a in data["axioms"])
+
+
+def test_codex_classes():
+    resp = client.get("/api/codex/classes")
+    assert resp.status_code == 200
+    data = resp.json()
+    assert "classes" in data
+    assert "Pacifist" in data["classes"]
+
+
+def test_codex_abilities():
+    resp = client.get("/api/codex/abilities/Pacifist")
+    assert resp.status_code == 200
+    data = resp.json()
+    assert "Pacifist" in data
