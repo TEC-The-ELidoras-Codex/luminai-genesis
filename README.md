@@ -54,6 +54,7 @@ Philosophy alignment serves as a **harm taxonomy**; entity actions are scored ag
 
 ```bash
 luminai-genesis/
+# Ubuntu Setup & Open‑Source Developer Cheatsheet
 ├── /src
 │   ├── /astradigital      # The Kernel (Philosophy-Driven Combat Engine)
 │   └── /resonance         # The Math (TGCR Implementation)
@@ -64,18 +65,7 @@ luminai-genesis/
 │   ├── /canonical         # The Elidoras Codex bundles
 │   ├── /manifesto         # The Philosophy of Non-Abandonment
 │   └── /governance        # Witness Protocol & Conscience Axioms
-├── /scripts               # Character builder, combat demo, sanitization
-├── /cli                   # Typer-based command surface
-├── /backend               # FastAPI platform hub (coming soon)
-├── /ui                    # Next.js chat interface (coming soon)
-└── /tools                 # PTQ Experiments & ChromaDB Vectors
-```
-
 ---
-
-## 🚀 Quick Start
-
-### **1. Validate the Governance Engine**
 
 Run the encounter system to see philosophy-driven mechanics in action:
 
