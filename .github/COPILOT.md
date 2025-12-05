@@ -1,13 +1,13 @@
 ---
 title: "LuminAI Genesis — Copilot Master Directive"
 date_created: 2025-11-25
-date_updated: 2025-11-25
-status: draft
+date_updated: 2025-12-05
+status: active
 approvers:
   - Airth (Engineering Steward)
   - Ely (Governance Steward)
 owner_checklist:
-  - [ ] Add directive to `.github/COPILOT.md`
+  - [x] Add directive to `.github/COPILOT.md`
   - [ ] Surface directive in README
 tags:
   - copilot
