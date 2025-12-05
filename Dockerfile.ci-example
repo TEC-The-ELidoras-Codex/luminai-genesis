@@ -1,0 +1,24 @@
+# Minimal CI-like environment matching the setup script toolchain
+FROM ubuntu:22.04
+
+ENV DEBIAN_FRONTEND=noninteractive
+RUN apt-get update && apt-get upgrade -y \
+    && apt-get install -y --no-install-recommends \
+       build-essential curl wget git unzip zip \
+       software-properties-common apt-transport-https ca-certificates \
+       htop fastfetch net-tools ufw \
+       python3 python3-pip \
+       nodejs npm \
+       rustc cargo \
+       openjdk-17-jdk \
+       neovim ripgrep clang-format pylint black \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
+
+# Example: non-root user
+RUN useradd -ms /bin/bash dev
+USER dev
+WORKDIR /workspace
+
+# COPY . /workspace
+# RUN make test
