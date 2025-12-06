@@ -62,3 +62,36 @@ def classify_resonance(score: float) -> str:
     if score >= 0.2:
         return "low"
     return "critical"
+
+
+class ChatMessage(BaseModel):
+    """Single message in a chat conversation."""
+    role: str = Field(..., description="Role: 'user', 'assistant', or 'system'")
+    content: str = Field(..., min_length=1, description="Message content")
+
+
+class ChatRequest(BaseModel):
+    """Request for Ollama-backed chat with TGCR integration."""
+    session_id: str = Field(..., description="Session identifier")
+    message: str = Field(..., min_length=1, description="User message")
+    model: str = Field(
+        default="llama3.2",
+        description="Ollama model name (e.g., 'llama3.2', 'luminai-unsloth' for fine-tuned)"
+    )
+    persona_blend: Optional[dict[str, float]] = Field(
+        default=None,
+        description="Persona weights (luminai, adelphia, ely); defaults to crisis blend. "
+                    "Ignored if using fine-tuned model (already trained with persona blend)."
+    )
+    temperature: float = Field(default=0.7, ge=0.0, le=2.0, description="LLM temperature")
+    max_tokens: int = Field(default=512, ge=1, le=4096, description="Max response tokens")
+
+
+class ChatResponse(BaseModel):
+    """Response from Ollama-backed chat."""
+    session_id: str
+    response: str = Field(..., description="Generated response")
+    witness_trace: str = Field(..., description="Audit trace of persona blend and TGCR")
+    effective_resonance: float = Field(..., description="R' computed for this interaction")
+    persona_weights: dict[str, float] = Field(..., description="Applied persona blend")
+    model: str = Field(..., description="Ollama model used")
