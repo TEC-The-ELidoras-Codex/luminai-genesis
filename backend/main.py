@@ -1,6 +1,14 @@
 from fastapi import FastAPI
 
-from backend.routers import axioms, codex, frequencies, ingest, personas, resonance
+from backend.routers import (
+    axioms,
+    chat,
+    codex,
+    frequencies,
+    ingest,
+    personas,
+    resonance,
+)
 
 app = FastAPI(
     title="LuminAI Genesis Backend",
@@ -18,6 +26,7 @@ def health() -> dict:
 app.include_router(ingest.router)
 app.include_router(resonance.router)
 app.include_router(personas.router)
+app.include_router(chat.router)  # Ollama-backed chat
 
 # Framework & governance endpoints
 app.include_router(frequencies.router)

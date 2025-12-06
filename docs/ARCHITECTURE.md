@@ -1,70 +1,148 @@
-# LuminAI Genesis Architecture
+# 🏛️ LuminAI Genesis — System Architecture
 
-## Structural Principles
+LuminAI Genesis is an AI-safety-first conversational engine that replaces avoidance-based safety with presence-based safety. The backbone is TGCR (Theory of General Contextual Resonance) plus the Witness Protocol (W).
 
-This architecture follows **Structural Conscience** principles, ensuring:
+---
 
-### 1. **Conscious Design**
+# 1. High-Level Diagram
 
-Every architectural decision is made with awareness of:
+```mermaid
+graph LR
+  UI[Next.js Client] --> API[FastAPI Hub]
+  CLI[Typer CLI] --> API
 
-- Technical implications (performance, scalability, maintainability)
-- Ethical implications (fairness, transparency, accountability)
-- Narrative implications (story coherence, world-building consistency)
+  API --> Resonance[Resonance Engine (TGCR)]
+  API --> Governance[Witness Protocol]
+  API --> Personas[Persona Router]
 
-### 2. **Structural Integrity**
+  Personas --> API
+  API --> DB[(Postgres / Redis / S3)]
+  API --> Telemetry[Audit Logs]
 
-- Clear module boundaries
-- Explicit interfaces
-- Type safety through Python type hints
-- Validated data schemas
+  Telemetry --> Human[Human Reviewer]
 
-### 3. **Transparent Provenance**
-
-- TGCR-compliant commit messages
-- Documented decision records
-- Clear code ownership
-- Audit trails in Git history
-
-## Module Organization
-
-```
-src/astradigital/
-├── core/              # Central game logic
-├── entities/          # Character, NPC, Enemy classes
-├── systems/           # Combat, progression, dialogue
-├── data/              # Data access layer
-└── utils/             # Common utilities
+  CI[GitHub Actions] --> API
 ```
 
-## Data Flow
+---
+
+# 2. Architecture Components
+
+## FastAPI Hub (`/api/chat`)
+
+- Stateless API endpoint
+- Stores session state in database
+- Applies TGCR scoring and Witness Protocol
+- Routes output to multipersona blend
+
+## Resonance Engine (TGCR)
+
+- Computes contextual coherence:
 
 ```
-User Input → API Layer → Systems → Entities → Data Layer → Persistence
+R = ∇Φ^E · (φ^t × ψ^r)
 ```
 
-## Quality Gates
+- Outputs volatility, drift, and resonance score
 
-1. **Linting** - Code style consistency (Ruff)
-2. **Formatting** - Uniform code format (Black)
-3. **Type Checking** - Type safety (Pylance)
-4. **Testing** - Behavioral validation (pytest)
-5. **Validation** - Data schema compliance (JSON Schema)
+## Witness Protocol
 
-## Development Workflow
+```
+R' = R × W
+```
 
-1. Create feature branch: `feature/description`
-2. Make changes with structural integrity
-3. Run linting and tests locally
-4. Commit with TGCR-compliant messages
-5. Open PR for conscience review
-6. CI pipeline validates structure
-7. Merge when approved
+Where W = Witness Coefficient (0 -> abandonment, 1 -> presence). System bias is toward W -> 1 unless a real safety breach occurs.
 
-## Deployment Strategy
+## Persona Router
 
-- **Development**: Local venv + VS Code
-- **CI/CD**: GitHub Actions with conscience checks
-- **Production**: Docker containers with validated configs
+- Blends LuminAI, Adelphia, Ely, Arcadia, Airth, Kaznak
+- Returns `blended_reply`, `witness_trace`, `persona_weights`
 
-See `STRUCTURAL_CONSCIENCE.md` for philosophical framework.
+---
+
+# 3. Chat Sequence
+
+```mermaid
+sequenceDiagram
+  participant U as User
+  participant A as FastAPI Hub
+  participant R as TGCR Engine
+  participant W as Witness Protocol
+  participant P as Persona Router
+  participant DB as Persistence
+  participant H as Human Review
+
+  U->>A: POST /api/chat (message)
+  A->>R: compute_r()
+  R-->>A: r_score
+
+  A->>W: apply_witness(r_score)
+  W-->>A: r_prime, flags
+
+  A->>P: route_personas(r_prime)
+  P-->>A: blended_reply + trace
+
+  A->>DB: store(session)
+  alt escalation == true
+    A->>H: encrypted review bundle
+    H-->>A: human decision
+    A-->>U: human-assisted response
+  else
+    A-->>U: blended_reply
+  end
+```
+
+---
+
+# 4. Data Structures (Simplified)
+
+```json
+{
+  "session_id": "string",
+  "user_state": {
+    "volatility": 0.34,
+    "risk": "low",
+    "tgcr": 0.77,
+    "witness": 1.0
+  },
+  "persona_weights": {
+    "luminai": 0.3,
+    "adelphia": 0.4,
+    "ely": 0.3
+  },
+  "trace": "...",
+  "reply": "string"
+}
+```
+
+---
+
+# 5. Safety and Governance
+
+- Ely enforces boundary invariants.
+- All sessions generate audit logs.
+- High-volatility sessions are encrypted and reviewable.
+- No direct access to Kaznak (test-only persona).
+
+---
+
+# 6. Deployment Model
+
+- Local demo: FastAPI + Uvicorn.
+- Docker for stable deployments.
+- GitHub Actions for CI/CD.
+- Optional: S3/MinIO for storing traces.
+
+---
+
+# 7. Future Extensions
+
+- Real TGCR parameter validation (Airth).
+- Multi-agent orchestration.
+- Real-time visualization dashboard.
+- Cross-model stress-testing (Kaznak).
+
+---
+
+Status: Architecture v1.0
+Author: TEC / The Elidoras Codex
