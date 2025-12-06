@@ -1,25 +1,45 @@
-name: CI
+name: LuminAI CI
+
 on:
   push:
-    branches: [ main, 'chore/*' ]
+    branches: [ "main", "develop" ]
   pull_request:
-    branches: [ main ]
+    branches: [ "main", "develop" ]
 
 jobs:
-  test:
+  build-test:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
       - name: Set up Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
-          python-version: '3.x'
-      - name: Install deps if present
+          python-version: "3.11"
+
+      - name: Install dependencies
         run: |
-          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-      - name: Run linters
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Lint (flake8)
         run: |
-          if command -v flake8 >/dev/null 2>&1; then flake8 || true; fi
+          pip install flake8
+          flake8 . --max-line-length 100
+
+      - name: Type-check (mypy)
+        run: |
+          pip install mypy
+          mypy backend
+
       - name: Run tests
         run: |
-          if [ -f pytest.ini ] || ls tests >/dev/null 2>&1; then pytest || true; fi
+          pip install pytest
+          pytest -q
+
+      - name: Upload coverage (optional)
+        if: success()
+        run: |
+          echo "Add coverage upload here if needed"

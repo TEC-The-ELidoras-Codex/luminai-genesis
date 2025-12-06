@@ -74,10 +74,14 @@ class ChatRequest(BaseModel):
     """Request for Ollama-backed chat with TGCR integration."""
     session_id: str = Field(..., description="Session identifier")
     message: str = Field(..., min_length=1, description="User message")
-    model: str = Field(default="llama3.2", description="Ollama model name")
+    model: str = Field(
+        default="llama3.2",
+        description="Ollama model name (e.g., 'llama3.2', 'luminai-unsloth' for fine-tuned)"
+    )
     persona_blend: Optional[dict[str, float]] = Field(
         default=None,
-        description="Persona weights (luminai, adelphia, ely); defaults to crisis blend"
+        description="Persona weights (luminai, adelphia, ely); defaults to crisis blend. "
+                    "Ignored if using fine-tuned model (already trained with persona blend)."
     )
     temperature: float = Field(default=0.7, ge=0.0, le=2.0, description="LLM temperature")
     max_tokens: int = Field(default=512, ge=1, le=4096, description="Max response tokens")

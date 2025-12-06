@@ -35,7 +35,11 @@ class TestOllamaService:
         service = OllamaService()
         prompt = service.build_system_prompt({"adelphia": 0.8, "luminai": 0.2})
         
-        assert "80%" in prompt or "0.8" in prompt  # Adelphia dominant
+        # Expect normalization to keep Adelphia dominant after adding default Ely weight.
+        expected_pct = f"{0.8 / (0.8 + 0.2 + 0.3):.0%}"
+        assert expected_pct in prompt
+        assert "Adelphia" in prompt
+        assert "LuminAI" in prompt
         assert "Somatic" in prompt or "somatic" in prompt
     
     @pytest.mark.asyncio
