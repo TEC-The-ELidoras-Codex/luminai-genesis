@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 
+from backend import stripe_webhook
 from backend.routers import (
     axioms,
     chat,
@@ -34,3 +35,6 @@ app.include_router(axioms.router)
 
 # Codex & game mechanics
 app.include_router(codex.router)
+
+# Stripe webhook (local testing + integration)
+app.include_router(stripe_webhook.router)
