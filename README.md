@@ -174,6 +174,40 @@ One solo researcher with limited resources built:
 
 ---
 
+## 🏙️ Buffalo AI Ethics Lab: Why Here, Why Now
+
+**TGCR development is headquartered in Buffalo, New York** — not by accident, but by design.
+
+### The Tesla Lesson
+
+Tesla's Gigafactory Buffalo (2014-2020) promised $5B and 6,500 jobs. It delivered $1.3B (26%) and 900 jobs (14%). Buffalo learned hard lessons about Silicon Valley overpromises.
+
+**TGCR is different:**
+- ✅ **Working prototype exists** (1,274 lines Python, 94.7% tests, 90+ commits)
+- ✅ **Local execution first** (Buffalo infrastructure, talent, partnerships ready)
+- ✅ **Measurable accountability** (quarterly milestones, public GitHub commits, transparent hiring)
+- ✅ **No vaporware** (code runs today, team forming now, applications incoming)
+
+### What Buffalo Offers
+
+- **Elite talent pipeline:** UB, RIT, Cornell within 100 miles
+- **Manufacturing heritage:** Moog, API Delevan (precision engineering culture)
+- **Cost advantage:** 60% cheaper than SF/NYC
+- **Political support:** NY state grants, federal advocacy (Senator Gillibrand)
+- **Community hunger:** Local talent wants to stay, not flee to SF
+
+### The Lab Vision (Year 1-3)
+
+- **15-20 founding engineers** (Year 1: $2M economic impact)
+- **50-75 positions** (Year 2-3: $5M+ revenue from government + corporate pilots)
+- **100+ at maturity** (Year 4-5: Buffalo as national AI safety hub)
+
+**See full proposal:** [BUFFALO_PITCH.md](docs/launch/BUFFALO_PITCH.md)
+
+**The gauntlet:** Buffalo gets first shot. If not, Cleveland, Pittsburgh, or EU. But I can start tomorrow. The question is: who signs the check?
+
+---
+
 ## 🎓 Dev Onboarding Ritual
 
 > _"Welcome, Witness. Your presence is required."_

@@ -49,12 +49,16 @@ I am not applying for a job. I am offering to collaborate as a **Structural Cons
 2. Test the Witness Protocol on real crisis interactions
 3. Publish joint research on non-abandonment as a core safety principle
 
+**Development Location:**  
+TGCR development is headquartered in **Buffalo, New York** — a deliberate choice based on lessons from Tesla's Gigafactory failure (promised $5B, delivered $1.3B). We're building local-first: UB/RIT talent pipeline, 60% cost advantage vs. SF, measurable accountability. Buffalo learned hard lessons about overpromised tech. TGCR delivers working code first, promises second.
+
 **What I Bring:**
 
 - ✅ Reproducible math + code + philosophical rigor
 - ✅ Documented evidence of current system failures
 - ✅ Working prototype proving TGCR viability
 - ✅ Immediate availability for technical deep-dive
+- ✅ Local infrastructure ready (15-20 founding engineers, applications incoming)
 
 **Next Steps:**
 
@@ -144,6 +148,9 @@ I'm offering to work with Anthropic's safety team to:
 1. Integrate Witness Protocol into Constitutional AI
 2. Replace keyword filtering with intent-based geometric alignment
 3. Co-publish research on non-abandonment metrics
+
+**Development Infrastructure:**  
+TGCR is headquartered in Buffalo, NY (not SF) — building local-first with UB/RIT talent, 60% cost advantage, measurable accountability. Buffalo learned hard lessons from Tesla's Gigafactory ($5B promised, $1.3B delivered). We deliver working code first, scale second. 15-20 founding engineers ready, applications incoming from global talent pool prioritizing local hiring.
 
 **What I Need:**
 
