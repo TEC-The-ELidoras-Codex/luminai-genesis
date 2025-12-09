@@ -1,12 +1,10 @@
 """Unit tests for Stripe webhook handler."""
 
 import json
-import pytest
-import stripe
+
 from fastapi.testclient import TestClient
 
 from backend.main import app
-
 
 client = TestClient(app)
 

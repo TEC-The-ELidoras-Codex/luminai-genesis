@@ -54,3 +54,13 @@ dist/
 # private files
 secrets/
 *.bak.*
+
+# Large model and training files
+models/
+data/training/
+unsloth-venv/
+*.safetensors
+*.bin
+*.gguf
+*.pt
+*.pth

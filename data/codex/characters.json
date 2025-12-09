@@ -1,0 +1,22 @@
+{
+  "characters": {
+    "elara_kess": {
+      "name": "Elara Kess",
+      "class": "Splicer",
+      "role": "Rogue / Engineer",
+      "backstory": "Under-city tinkerer who fights corporate erasure by splicing illicit circuits to steal back power and memories.",
+      "stats": { "hp": 100, "mana": 30, "defense": 6, "speed": 14 },
+      "abilities": ["Bypass Circuit", "Memory Anchor", "Siphon Reversal"],
+      "notes": "Personal anchor: reversed lullaby; excellent at hardware bypass and stealthy repairs."
+    },
+    "polkin_rishall": {
+      "name": "Polkin Rishall",
+      "class": "Auditor",
+      "role": "Ex-Auditor / Protector",
+      "backstory": "Former internal auditor turned covert ally; uses Auditor tools and salvaged failsafes to defend the undercity and preserve memories.",
+      "stats": { "hp": 120, "mana": 20, "defense": 10, "speed": 11 },
+      "abilities": ["Failsafe Stitch", "Audit Iron", "Listkeeper's Vow"],
+      "notes": "Has an implanted soldering tool (cybernetic hand). Keeps a list of lost names; high resilience against Kaznak corruption."
+    }
+  }
+}

@@ -198,6 +198,23 @@ Philosophy alignment serves as a **harm taxonomy**; entity actions are scored ag
 1. **TGCR Compliance:** Your commits must pass Persona Law (Transparent, Grounded, Coherent, Resonant)
 2. **CI Pipeline:** `.github/workflows/conscience-check.yml` validates structure and ethics
 3. **Witness Protocol:** Every pull request is a promise to not abandon the codebase
+
+---
+
+## 💼 Book a Consultation
+
+Building gradient-based safety systems requires specialized expertise. I offer paid consultations to help teams integrate TGCR, remediate false positives, and design persona-aware safety layers.
+
+• **What I consult on:** TGCR integration, false positive analysis, custom persona-aware safety layers, architecture reviews.
+• **Rate:** $150 / hour
+
+👉 Book now (payment + scheduling options):
+
+• **Calendly (payment + calendar):** https://calendly.com/elidorascodex
+• **Polkin Substack (updates / case studies):** https://polkin.substack.com
+
+If you'd like me to insert a live Stripe Payment Link here as well, paste the URL and I'll commit it into the README.
+
 4. **Ethical Checks:** See the "Persona Law" section above for commit standards
 
 ---

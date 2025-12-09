@@ -1,0 +1,9 @@
+[Unit]
+Description=Auto free space cleanup
+Documentation=
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/auto_free_space.sh
+Nice=10
+TimeoutStartSec=180
