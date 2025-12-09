@@ -104,7 +104,7 @@ I made framing mistakes. The system made architectural mistakes.
 We can build AI systems that are:
 
 - Safe **and** helpful
-- Robust **and** context-aware  
+- Robust **and** context-aware
 - Protective **and** present
 
 We just have to stop treating safety as refusal and start treating it as **witness**.
@@ -112,6 +112,12 @@ We just have to stop treating safety as refusal and start treating it as **witne
 **The code is open. The framework is live. Let's fix this together.**
 
 👉 **github.com/TEC-The-ELidoras-Codex/luminai-genesis**
+
+## Audio + NotebookLM Deep Dive
+
+- **Podcast / Audio**: Full discussion covering the keyword fallacy, metaphor collapse, TGCR geometry, and the Buffalo execution-first strategy.
+- **NotebookLM**: Public companion notebook with sources, outline, and pull-quotes: <https://notebooklm.google.com/notebook/3bb37c22-fff5-4784-b7e6-a87ccde75492>
+- **Video**: Companion video walkthrough (same narrative, visual-first) — publish-ready link will be added here once live.
 
 ---
 
@@ -123,4 +129,4 @@ Founder, TECLAC (The Elidoras Codex LuminAI Algorithmic Conscience Lab)
 
 ---
 
-*Want to collaborate? Open an issue on the repo or connect here on LinkedIn.*
+_Want to collaborate? Open an issue on the repo or connect here on LinkedIn._

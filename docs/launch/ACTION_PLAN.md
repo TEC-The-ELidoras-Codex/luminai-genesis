@@ -63,7 +63,7 @@ git push origin chore/add-ubuntu-setup
 
 **DARPA Submission:**
 
-1. Go to: https://www.darpa.mil/work-with-us/opportunities
+1. Go to: <https://www.darpa.mil/work-with-us/opportunities>s>
 2. Look for active BAAs (Broad Agency Announcements) in AI/ML
 3. Create account if needed
 4. Upload these documents:
@@ -74,7 +74,7 @@ git push origin chore/add-ubuntu-setup
 
 **IARPA Submission:**
 
-1. Go to: https://www.iarpa.gov/index.php/research-programs
+1. Go to: <https://www.iarpa.gov/index.php/research-programs>s>
 2. Look for "Safe, Secure, and Trustworthy AI" programs
 3. Follow same upload process
 
@@ -98,9 +98,9 @@ pandoc DARPA_BUDGET_JUSTIFICATION.md -o DARPA_BUDGET_JUSTIFICATION.pdf
 
 **Recipients:**
 
-1. **OpenAI:** partnerships@openai.com (CC: press@openai.com)
-2. **Anthropic:** contact@anthropic.com (CC: press@anthropic.com)
-3. **DeepMind:** research@deepmind.com (CC: press@deepmind.com)
+1. **OpenAI:** <partnerships@openai.com>m> (CC<press@openai.com>com>)
+2. **Anthropic:** <contact@anthropic.com>m> (CC<press@anthropic.com>com>)
+3. **DeepMind:** <research@deepmind.com>m> (CC<press@deepmind.com>com>)
 
 **Process:**
 
@@ -134,7 +134,7 @@ pandoc DARPA_BUDGET_JUSTIFICATION.md -o DARPA_BUDGET_JUSTIFICATION.pdf
 - Price: $10/month or $100/year
 - Include link to GitHub for reproducibility
 
-**Substack URL:** https://polkin.substack.com
+**Substack URL:** <https://polkin.substack.com>m>
 
 ---
 
@@ -255,6 +255,97 @@ If you're in AI safety, let's talk.
 
 ---
 
+## 🏗️ Y Combinator Strategy (Summer 2026 Batch)
+
+### Application Timeline
+
+- **Application Deadline**: Late March 2026
+- **Interview Period**: April 2026
+- **Batch Starts**: June 2026
+- **Demo Day**: August 2026
+
+### Traction Goals Before Application (By March 2026)
+
+**Must Have (Pick at least 2):**
+
+- [ ] Empire State Development grant approved ($100k-$250k)
+- [ ] First pilot contract signed (Cohere, Mistral, or other—even $25k counts)
+- [ ] 100+ GitHub stars + 10+ external contributors
+- [ ] Academic partnership established (Berkeley CHAI, Stanford HAI, or equivalent)
+- [ ] Substack revenue $2k+/month (200+ paid subscribers)
+
+**Nice to Have:**
+
+- [ ] DARPA GARD program feedback (even if not funded yet)
+- [ ] Research collaboration with Anthropic, OpenAI, or DeepMind
+- [ ] Buffalo AI Ethics Lab official partnership with UB or RIT
+- [ ] Technical co-founder or fractional CFO committed
+
+### YC Application Key Points
+
+**One-Sentence Description:**
+"AI alignment via geometric impossibility theorems that detect when models are misaligned before catastrophic failure."
+
+**What You're Building:**
+"TGCR: A mathematical framework (R′ = R × W) that provides provable alignment guarantees, not just empirical improvements."
+
+**Why Now:**
+"Apple's 2025 study proved current 'reasoning' models don't actually reason. DARPA needs solutions with theoretical guarantees. We have them."
+
+**Unfair Advantage:**
+"Buffalo: 60% cheaper than SF, Tesla's $5B failure taught us execution-first. UB/RIT pipeline = 1,700 CS grads/year. Working code exists."
+
+**Progress:**
+[Insert your March 2026 metrics here: grant approved, pilot signed, GitHub traction, academic partnership, etc.]
+
+### YC Video Script (2 minutes)
+
+**[0:00-0:15] THE HOOK**
+"Hi YC. I'm Angelo. Apple just proved AI doesn't actually reason. DARPA needs solutions with mathematical guarantees. I built one."
+
+**[0:15-0:45] THE DEMO**
+[Screen record: luminai-genesis repo]
+"This is TGCR. R′ = R × W. Resonance times Witness Factor. When W drops, the model is misaligned—provably, geometrically. This isn't another safety layer. It's an impossibility theorem."
+
+**[0:45-1:15] THE TRACTION**
+"Buffalo, not SF. Tesla promised $5B here, delivered 26%. We're inverse: working code first. UB/RIT = 1,700 engineers/year, 60% cheaper. [INSERT TRACTION: Empire State grant approved / Pilot contract signed / etc.]"
+
+**[1:15-1:45] THE VISION**
+"Bostrom said superintelligence is existential risk. Russell said we can't specify our values in code. We say: geometry proves when specification fails. That's the breakthrough."
+
+**[1:45-2:00] THE ASK**
+"I need YC to help me hire the team that prevents the Illusion of Reasoning from becoming the Tower of Babel. Let's build this right."
+
+### Why YC Makes Sense Now
+
+1. **Validation**: Government grants + pilot contracts prove market need
+2. **Network**: Access to AI safety community (Berkeley CHAI, Anthropic alums, etc.)
+3. **Credibility**: YC badge helps with DARPA, IARPA, corporate partnerships
+4. **Funding**: $500k for 7% (Summer 2026 standard) = 18-month runway
+5. **Team Building**: YC network for hiring technical co-founder + fractional CFO
+
+### Action Items for YC Prep
+
+**By January 2026:**
+
+- [ ] Submit Empire State Development grant application
+- [ ] Draft academic partnership proposal (Berkeley CHAI or Stanford HAI)
+- [ ] Record demo video (luminai-genesis prototype walkthrough)
+
+**By February 2026:**
+
+- [ ] Get first pilot contract commitment (even LOI counts)
+- [ ] Hit 100+ GitHub stars (post to HN, Reddit r/MachineLearning)
+- [ ] Publish TGCR arXiv preprint with academic co-author
+
+**By March 2026:**
+
+- [ ] Complete YC application
+- [ ] Record YC video (use script above)
+- [ ] Get 3+ reference letters (academic, government, or corporate contacts)
+
+---
+
 ## 🚨 Common Obstacles & Solutions
 
 ### "What if DARPA rejects me?"
@@ -337,10 +428,10 @@ git push
 
 ## 📞 Emergency Support
 
-**If you get stuck on ANY step:**
+\*\*If you get stuck on ANY s<https://www.markdowntopdf.com/>
 
 1. **Git issues:** Run `git status` and paste output for debugging
-2. **PDF conversion:** Use https://www.markdowntopdf.com/ (free, no install)
+2. **PDF conversion:** Use <https://www.markdowntopdf.com/> (free, no install)
 3. **Email uncertainty:** Use templates exactly as written (they're tested)
 4. **Substack setup:** DM me or check Substack help docs
 

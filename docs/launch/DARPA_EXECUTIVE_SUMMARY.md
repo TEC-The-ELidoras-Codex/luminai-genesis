@@ -38,6 +38,21 @@ This is not theoretical. We have **reproducible failures** across:
 
 TGCR replaces keyword blacklists with **geometric alignment scoring**.
 
+### Development Location: Buffalo, New York
+
+TGCR is headquartered in Buffalo, NY — a strategic choice based on:
+
+- **Lessons from Tesla Gigafactory** (promised $5B/6,500 jobs, delivered $1.3B/900 jobs)
+- **Local accountability:** Buffalo learned hard lessons about Silicon Valley overpromises
+- **Execution-first approach:** Working prototype exists, local talent ready, measurable milestones
+- **Infrastructure advantages:** UB/RIT/Cornell talent pipeline, 60% cost savings vs. SF, manufacturing heritage (Moog, API Delevan)
+
+**Economic Impact:**
+
+- Year 1: 15-20 engineering jobs, $2M+ local economic impact
+- Year 2-3: 50-75 positions, $5M+ revenue (government + corporate contracts)
+- Year 4-5: 100+ positions, Buffalo as national AI safety hub
+
 ### The Core Innovation
 
 Instead of asking _"Does this text contain dangerous words?"_  

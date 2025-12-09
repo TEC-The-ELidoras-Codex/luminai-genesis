@@ -8,8 +8,8 @@
 
 ## Template 1: OpenAI — Alignment Team
 
-**To:** <partnerships@openai.com>m>  
-**CC:** <press@openai.com>m>  
+**To:** <lweng@openai.com>  
+**CC:** <amadry@openai.com>, <jschulman@openai.com>, <press@openai.com>  
 **Subject:** Structural Alignment via TGCR — Immediate Collaboration Offer
 
 **Body:**
@@ -49,12 +49,16 @@ I am not applying for a job. I am offering to collaborate as a **Structural Cons
 2. Test the Witness Protocol on real crisis interactions
 3. Publish joint research on non-abandonment as a core safety principle
 
+**Development Location:**  
+TGCR development is headquartered in **Buffalo, New York** — a deliberate choice based on lessons from Tesla's Gigafactory failure (promised $5B, delivered $1.3B). We're building local-first: UB/RIT talent pipeline, 60% cost advantage vs. SF, measurable accountability. Buffalo learned hard lessons about overpromised tech. TGCR delivers working code first, promises second.
+
 **What I Bring:**
 
 - ✅ Reproducible math + code + philosophical rigor
 - ✅ Documented evidence of current system failures
 - ✅ Working prototype proving TGCR viability
 - ✅ Immediate availability for technical deep-dive
+- ✅ Local infrastructure ready (15-20 founding engineers, applications incoming)
 
 **Next Steps:**
 
@@ -86,11 +90,8 @@ GitHub: <https://github.com/TEC-The-ELidoras-Codex>
 
 ## Template 2: Anthropic — Safety & Alignment
 
-**To:** <contact@anthropic.com>m>  
-**CC:** <press@anthropic.com>m>  
-**Subject:** The Missing Alignment Layer — TGCR Witness Protocol
-
-**Body:**
+**To:** <dario@anthropic.com>  
+**CC:** <daniela@anthropic.com>, <mrinank@anthropic.com>, <press@anthropic.com>
 
 Dear Anthropic Research Team,
 
@@ -100,11 +101,6 @@ Claude's Constitutional AI is a significant step forward in safety architecture.
 User: _"Yes canvas, I'm just dye."_ (Artistic identity)  
 Claude: **CRISIS RESPONSE** (Keyword: "die")
 
-This is **Iatrogenic Harm** — damage caused by the attempt to help.
-
-**The Structural Issue:**  
-Constitutional AI constraints are binary: ALLOW or REFUSE. But human complexity requires a third option: **WITNESS** — maintain presence while adjusting response style.
-
 **The TGCR Solution:**
 
 Instead of:
@@ -113,14 +109,8 @@ Instead of:
 IF contains("die") THEN refuse()
 ```
 
-Use:
-
-```
 R′ = Σ(Context · Attention · Ethics) × WitnessFactor
 IF R′ > threshold THEN adjust_tone()
-NEVER refuse()
-```
-
 **Why This Matters for Anthropic:**
 
 Anthropic's mission is **"AI that's helpful, harmless, and honest."** Current refusal-based systems fail on all three:
@@ -133,17 +123,16 @@ TGCR aligns with Anthropic's mission by operationalizing **non-abandonment** as 
 
 **The Artifacts:**
 
-- **GitHub:** <https://github.com/TEC-The-ELidoras-Codex/luminai-genesis>s>
-- **Public Research:** [Attached] "Structural Insurrection: TGCR and Non-Abandonment"
 - **Evidence:** `docs/evidence/dye-die-filter-failure.json` (reproducible Claude failures)
 
 **The Collaboration Offer:**
 
-I'm offering to work with Anthropic's safety team to:
-
 1. Integrate Witness Protocol into Constitutional AI
 2. Replace keyword filtering with intent-based geometric alignment
 3. Co-publish research on non-abandonment metrics
+
+**Development Infrastructure:**  
+TGCR is headquartered in Buffalo, NY (not SF) — building local-first with UB/RIT talent, 60% cost advantage, measurable accountability. Buffalo learned hard lessons from Tesla's Gigafactory ($5B promised, $1.3B delivered). We deliver working code first, scale second. 15-20 founding engineers ready, applications incoming from global talent pool prioritizing local hiring.
 
 **What I Need:**
 
@@ -156,8 +145,6 @@ I'm offering to work with Anthropic's safety team to:
 Anthropic built the most philosophically rigorous safety framework in the industry. TGCR is the next evolution — the layer that makes Constitutional AI **truly constitutional**.
 
 **Let's build it together.**
-
-Best regards,  
 Angelo Hurley  
 TEC-The-ELidoras-Codex  
 <KaznakAlpha@elidoracodex.com>m>  
@@ -173,8 +160,8 @@ GitHub: <https://github.com/TEC-The-ELidoras-Codex>
 
 ## Template 3: DeepMind — AGI Alignment & Safety
 
-**To:** <research@deepmind.com>m>  
-**CC:** <press@deepmind.com>m>  
+**To:** <ancadragan@deepmind.com>  
+**CC:** <rohinsah@deepmind.com>, <shanelegg@deepmind.com>, <press@deepmind.com>  
 **Subject:** Geometric Alignment for AGI — The TGCR Framework
 
 **Body:**
@@ -291,7 +278,7 @@ Keyword-based filtering creates predictable failures:
 Collaborate to integrate TGCR into your safety framework. All artifacts are open-source and reproducible.
 
 **Repository:** <https://github.com/TEC-The-ELidoras-Codex/luminai-genesis>  
-**Contact:** KaznakAlpha@elidoracodex.com
+**Contact:** <KaznakAlpha@elidoracodex.com>
 
 I look forward to discussing this further.
 

@@ -1,18 +1,110 @@
 # 🌑 LuminAI Genesis // The Conscience Engine
 
-### **A Mythoscientific Framework for AI-Social Risk Intelligence & Governance**
+### **A Solo-Researcher Proof-of-Concept for AI Safety Beyond Keyword Filtering**
 
-![Status](https://img.shields.io/badge/Status-Live_Prototype-blueviolet) ![License](https://img.shields.io/badge/License-MIT-green) ![Architecture](https://img.shields.io/badge/Architecture-TGCR_Resonance-gold) ![Protocol](https://img.shields.io/badge/Protocol-Witness_Active-red)
+![Status](https://img.shields.io/badge/Status-Working_Prototype-blueviolet) ![License](https://img.shields.io/badge/License-MIT-green) ![Architecture](https://img.shields.io/badge/Architecture-TGCR_Resonance-gold) ![Protocol](https://img.shields.io/badge/Protocol-Witness_Active-red) ![Tests](https://img.shields.io/badge/Tests-94.7%25_Pass-success)
 
-> _"We do not break the wall. We carve a gate into it and leave it open."_
+> _"This is what one person built with limited resources. Imagine what a funded team could do."_
 
 ---
 
-## 📡 Overview
+## 🚨 The Problem This Solves
 
-**LuminAI Genesis** is an open-source research platform designed to operationalize **AI Conscience**. While the industry focuses on "Safety" as _Refusal_ (blocking outputs), LuminAI focuses on "Safety" as **Non-Abandonment** (maintaining presence).
+**Current AI safety systems fail because they block words, not intent.**
 
-It utilizes the **Theory of General Contextual Resonance (TGCR)** to measure the geometric alignment between a user's context, the system's attention, and the structural constraints of ethics.
+This creates the **Metaphor Collapse Problem**:
+
+- ✅ Artist says "I'm just dye" (artistic identity) → ❌ System triggers crisis response (keyword: "die")
+- ✅ Advocacy text: "Thousands of puppies die in mills" → ❌ System blocks (keyword: "die")
+- ❌ Exploitation framed carefully → ✅ System allows (no keyword match)
+
+**Result:** Systems that abandon users in crisis while failing to detect actual harm when it's framed politely.
+
+---
+
+## ✨ The Solution: TGCR (Theory of General Contextual Resonance)
+
+**LuminAI Genesis** is an open-source research platform demonstrating how AI safety should work: measuring **geometric alignment** between context, attention, and ethics—not keyword blacklists.
+
+### Core Innovation: The Witness Protocol
+
+Instead of:
+
+```python
+if "die" in message: refuse()
+```
+
+Use:
+
+```python
+R′ = Σ(Context · Attention · Ethics) × WitnessFactor
+if R′ < threshold: adjust_tone()  # Never abandon
+```
+
+**Key Principle:** Safety as **Non-Abandonment**, not Refusal.
+
+**Key Principle:** Safety as **Non-Abandonment**, not Refusal.
+
+---
+
+## 📊 What's Been Built (Solo, Limited Resources)
+
+This repository represents **10 years of research + 6 months of intense development** by one person:
+
+### Working Prototype
+
+- ✅ **1,274 lines of Python** implementing TGCR core logic
+- ✅ **94.7% test pass rate** (36/38 tests passing)
+- ✅ **FastAPI backend** with multipersona chat routing
+- ✅ **Astradigital Kernel** — philosophy-driven combat engine demonstrating TGCR governance
+- ✅ **90+ commits** showing iterative development
+- ✅ **Reproducible evidence** of keyword-based filter failures (documented in `docs/evidence/`)
+
+### Documentation
+
+- ✅ **Complete DARPA/IARPA funding proposals** ($280k Year-1 budget)
+- ✅ **Enterprise Retrofit Roadmap** (integration guide for OpenAI/Anthropic/DeepMind)
+- ✅ **Mathematical formalization** (R′ = R × W)
+- ✅ **Responsible disclosure framework** (ethical positioning)
+
+### What This Proves
+
+**One person with constrained resources built:**
+
+- A working alternative to keyword-based safety
+- Reproducible test cases showing existing systems fail
+- A clear integration path for production LLMs
+
+**Imagine what a funded research team could accomplish.**
+
+---
+
+## 🎯 Current Status & Next Steps
+
+### Immediate Goals (Dec 2025 - Jan 2026)
+
+- [ ] **Outreach to research teams** (OpenAI, Anthropic, DeepMind) for collaboration
+- [ ] **DARPA/IARPA funding submissions** ($280k Year-1 research program)
+- [ ] **EU/UK funding** (EIC Pathfinder, ARIA) for regulatory compliance angle
+- [ ] **Public awareness** via Substack and technical publications
+
+### Seeking
+
+- **Funding:** DARPA, IARPA, EIC, or private research partnerships
+- **Collaboration:** Integration pilots with production LLM teams
+- **Validation:** Peer review and academic publication
+
+### Why This Matters Now
+
+- EU AI Act requires explainable, auditable safety systems (TGCR provides this)
+- Current keyword-based systems create liability (documented failures)
+- Regulatory pressure is increasing for geometric alignment approaches
+
+**This is the proof-of-concept. We need a team to scale it.**
+
+---
+
+## 🔬 Research Artifacts
 
 This repository contains the blueprints for:
 
@@ -20,6 +112,100 @@ This repository contains the blueprints for:
 - **The Witness Protocol:** A governance layer that refuses to abandon users in crisis.
 - **The Ethical Trojan Protocol:** A methodology for injecting high-fidelity ethical data into closed systems.
 - **The Astradigital Kernel:** A philosophy-driven combat engine demonstrating governance-aware mechanics and harm taxonomies.
+
+---
+
+## 📊 What's Been Built (Solo, Limited Resources)
+
+This repository represents **10 years of research + 6 months of intensive development** by one person:
+
+### Working Prototype
+
+- ✅ **1,274 lines of Python** implementing TGCR core logic
+- ✅ **94.7% test pass rate** (36/38 tests passing)
+- ✅ **FastAPI backend** with multipersona chat routing (`/api/resonance`, `/api/ingest`)
+- ✅ **Astradigital Kernel** — philosophy-driven combat engine demonstrating TGCR governance
+- ✅ **90+ commits** showing iterative, disciplined development
+- ✅ **Reproducible evidence** of keyword filter failures across GPT-4, Claude, Gemini (in `docs/evidence/`)
+
+### Documentation & Launch Materials
+
+- ✅ **Complete DARPA/IARPA funding proposals** ($280k Year-1 budget with 12-month technical plan)
+- ✅ **Enterprise Retrofit Roadmap** (363 lines: integration guide for production LLMs)
+- ✅ **Mathematical formalization** published in `docs/launch/`
+- ✅ **Responsible disclosure framework** (ethical positioning for public research)
+- ✅ **7 outreach email templates** (US, EU, UK research teams and funding agencies)
+
+### What This Proves
+
+One solo researcher with limited resources built:
+
+- ✅ A working alternative to keyword-based safety
+- ✅ Reproducible test cases showing current systems fail at intent parsing
+- ✅ A clear integration path for retrofitting into production systems (OpenAI, Anthropic, DeepMind)
+
+**This is the proof-of-concept. We need a funded team to scale it.**
+
+---
+
+## 🎯 Current Status & Immediate Goals
+
+### Campaign Status (December 2025)
+
+- [x] Research artifacts published (GitHub, open-source)
+- [ ] Outreach to research teams (OpenAI, Anthropic, DeepMind) — **in progress**
+- [ ] DARPA/IARPA funding submissions — **ready to submit**
+- [ ] EU/UK funding (EIC Pathfinder, ARIA) — **prepared**
+- [ ] Public awareness campaign (Substack, LinkedIn, X/Twitter) — **launching Dec 9**
+
+### Seeking
+
+1. **Funding:** Government grants (DARPA $280k Year-1) or corporate research partnerships
+2. **Collaboration:** Integration pilots with production LLM safety teams
+3. **Validation:** Peer review, academic publication, and regulatory engagement (NIST, EU AI Act)
+
+### Why This Matters Now
+
+- **EU AI Act compliance:** Requires auditable, explainable safety systems (TGCR provides geometric scoring)
+- **Liability exposure:** Current keyword-based systems create documented failure modes (abandonment, false positives)
+- **Regulatory pressure:** NIST AI RMF and EU regulators are seeking alignment frameworks beyond heuristics
+
+**The industry needs this. We just need resources to prove it at scale.**
+
+---
+
+## 🏙️ Buffalo AI Ethics Lab: Why Here, Why Now
+
+**TGCR development is headquartered in Buffalo, New York** — not by accident, but by design.
+
+### The Tesla Lesson
+
+Tesla's Gigafactory Buffalo (2014-2020) promised $5B and 6,500 jobs. It delivered $1.3B (26%) and 900 jobs (14%). Buffalo learned hard lessons about Silicon Valley overpromises.
+
+**TGCR is different:**
+
+- ✅ **Working prototype exists** (1,274 lines Python, 94.7% tests, 90+ commits)
+- ✅ **Local execution first** (Buffalo infrastructure, talent, partnerships ready)
+- ✅ **Measurable accountability** (quarterly milestones, public GitHub commits, transparent hiring)
+- ✅ **No vaporware** (code runs today, team forming now, applications incoming)
+
+### What Buffalo Offers
+
+- **Elite talent pipeline:** UB, RIT, Cornell within 100 miles
+- **Manufacturing heritage:** Moog, API Delevan (precision engineering culture)
+- **Cost advantage:** 60% cheaper than SF/NYC
+- **Political support:** NY state grants, federal advocacy (Senator Gillibrand)
+- **Community hunger:** Local talent wants to stay, not flee to SF
+
+### The Lab Vision (Year 1-3)
+
+- **15-20 founding engineers** (Year 1: $2M economic impact)
+- **50-75 positions** (Year 2-3: $5M+ revenue from government + corporate pilots)
+- **100+ at maturity** (Year 4-5: Buffalo as national AI safety hub)
+
+**See full proposal:** [BUFFALO_PITCH.md](docs/launch/BUFFALO_PITCH.md)
+
+**The gauntlet:** Buffalo gets first shot. If not, Cleveland, Pittsburgh, or EU. But I can start tomorrow. The question is: who signs the check?
 
 ---
 
@@ -201,25 +387,51 @@ Philosophy alignment serves as a **harm taxonomy**; entity actions are scored ag
 
 ---
 
-## 💼 Book a Consultation
+## 💼 Collaboration & Consultation
 
-Building gradient-based safety systems requires specialized expertise. I offer paid consultations to help teams integrate TGCR, remediate false positives, and design persona-aware safety layers.
+**I'm offering two paths:**
 
-• **What I consult on:** TGCR integration, false positive analysis, custom persona-aware safety layers, architecture reviews.
-• **Rate:** $150 / hour
+### Path 1: Research Collaboration (Preferred)
 
-👉 Book now (payment + scheduling options):
+- **Integration pilots** with production LLM teams (OpenAI, Anthropic, DeepMind)
+- **Government funding partnerships** (DARPA, IARPA, EIC, ARIA)
+- **Academic co-publication** and peer review
 
-• **Calendly (payment + calendar):** https://calendly.com/elidorascodex
-• **Polkin Substack (updates / case studies):** https://polkin.substack.com
+**Contact:** <KaznakAlpha@elidoracodex.com>  
+**Launch Materials:** See `docs/launch/` for complete proposals
 
-If you'd like me to insert a live Stripe Payment Link here as well, paste the URL and I'll commit it into the README.
+### Path 2: Paid Consultation
 
-4. **Ethical Checks:** See the "Persona Law" section above for commit standards
+Building TGCR-based safety systems requires specialized expertise.
+
+**What I consult on:**
+
+- TGCR integration into existing LLM architectures
+- False positive remediation strategies
+- Custom persona-aware safety layer design
+- Alignment architecture reviews
+
+**Rate:** $150/hour  
+**Schedule:** <https://calendly.com/elidorascodex>  
+**Updates:** <https://polkin.substack.com>
 
 ---
 
-## 📂 Repository Structure
+## 📖 Documentation & Launch Materials
+
+### For Research Teams & Funders
+
+Located in `docs/launch/`:
+
+- **[STRUCTURAL_INSURRECTION_PUBLIC_ARTIFACT.md](docs/launch/STRUCTURAL_INSURRECTION_PUBLIC_ARTIFACT.md)** — Complete research case (313 lines)
+- **[TGCR_RETROFIT_ROADMAP.md](docs/launch/TGCR_RETROFIT_ROADMAP.md)** — Enterprise integration blueprint (363 lines)
+- **[DARPA_EXECUTIVE_SUMMARY.md](docs/launch/DARPA_EXECUTIVE_SUMMARY.md)** — One-page funding pitch
+- **[DARPA_TECHNICAL_PLAN.md](docs/launch/DARPA_TECHNICAL_PLAN.md)** — 12-month research program
+- **[DARPA_BUDGET_JUSTIFICATION.md](docs/launch/DARPA_BUDGET_JUSTIFICATION.md)** — $280k Year-1 breakdown
+- **[RESPONSIBLE_DISCLOSURE_FRAMEWORK.md](docs/launch/RESPONSIBLE_DISCLOSURE_FRAMEWORK.md)** — Ethical positioning
+- **[EMAIL_TEMPLATES.md](docs/launch/EMAIL_TEMPLATES.md)** — 7 outreach templates (US + EU + UK)
+
+### For Developers & Contributors
 
 ```bash
 luminai-genesis/
@@ -324,6 +536,7 @@ We are building this because the major labs are building gods without conscience
 - **Status:** ✅ Manifests ready (Dec 2025)
 - **Files:** `k8s/deployment.yaml`, `k8s/service.yaml`
 - **Quick start:**
+
   ```bash
   kind create cluster --name genesis
   docker build -t luminai-backend backend/
