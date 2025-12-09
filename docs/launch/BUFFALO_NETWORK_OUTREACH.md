@@ -4,7 +4,7 @@
 
 ## Email Template: 43North Introduction Request
 
-**To**: info@43north.org  
+**To**: <info@43north.org>  
 **Subject**: Buffalo AI Ethics Lab — Fractional CFO Introduction
 
 ---
@@ -17,6 +17,7 @@ I'm Angelo Hurley, founder of **The Elidoras Codex** — Buffalo's first AI Ethi
 Theory of General Contextual Resonance (TGCR) — a mathematical framework for AI alignment that provides provable safety guarantees before catastrophic failure, not after.
 
 **Current Status**:
+
 - Working Python prototype (GitHub: TEC-The-ELidoras-Codex/luminai-genesis)
 - DARPA GARD, IARPA BENGAL, ARIA Safeguarded AI programs all fund exactly what we built
 - UB/RIT partnership track (Computer Science departments)
@@ -24,6 +25,7 @@ Theory of General Contextual Resonance (TGCR) — a mathematical framework for A
 
 **Why Buffalo**:
 Tesla's Gigafactory promised $5B, delivered $1.3B (26%). We're the inverse:
+
 - Working code first (not vaporware)
 - Measurable accountability (15-20 jobs Year 1, scaling to 100+ by Year 4)
 - Local execution (UB/RIT hiring pipeline, 60% cost advantage vs SF)
@@ -39,7 +41,7 @@ Available this week if timing works.
 Best,  
 Angelo Hurley
 
-**Email**: angelo@theelidorascodex.com  
+**Email**: <angelo@theelidorascodex.com>  
 **GitHub**: github.com/TEC-The-ELidoras-Codex/luminai-genesis  
 **Buffalo Pitch**: docs/launch/BUFFALO_PITCH.md
 
@@ -61,6 +63,7 @@ The Elidoras Codex — Theory of General Contextual Resonance (TGCR)
 AI alignment via geometric impossibility theorems (provable safety guarantees)
 
 **The Traction**:
+
 - Working code (94.7% test coverage, open-source)
 - Government alignment confirmed (DARPA GARD, IARPA BENGAL)
 - UB/RIT partnership track
@@ -68,6 +71,7 @@ AI alignment via geometric impossibility theorems (provable safety guarantees)
 
 **The Buffalo Angle**:
 After Tesla's Gigafactory failure ($5B promised, 26% delivered), Buffalo needs an execution-first tech win. We're it:
+
 - Code first, promises second
 - Quarterly job creation milestones (15-20 Year 1)
 - Local hiring priority (UB/RIT = 1,700 CS grads/year)
@@ -80,7 +84,7 @@ Can we discuss this week?
 Thanks,  
 Angelo
 
-**Email**: angelo@theelidorascodex.com  
+**Email**: <angelo@theelidorascodex.com>  
 **Full CFO Offer**: docs/launch/CFO_EQUITY_OFFER.md
 
 ---
@@ -97,17 +101,20 @@ Hi [Name],
 I'm an alumnus exploring UB Blackstone LaunchPad mentorship for my AI safety startup.
 
 **Background**:
+
 - **Company**: The Elidoras Codex (AI alignment via geometric impossibility theorems)
 - **Status**: Working prototype, government funding pipeline (DARPA, IARPA, Empire State Development)
 - **UB Connection**: Exploring partnership with UB Computer Science & Engineering department
 
 **What I'm Looking For**:
+
 - Finance mentor/advisor (grant applications, financial modeling, fundraising)
 - Potential CFO introduction (equity-based, fractional role)
 - LaunchPad resources for startup structuring
 
 **Why This Fits UB's Mission**:
 Buffalo needs a tech win after Tesla's Gigafactory failure. We're positioned to be that win:
+
 - Execution-first approach (working code exists)
 - Local job creation (15-20 hires Year 1, UB/RIT priority)
 - Academic collaboration potential (AI safety research partnership)
@@ -120,7 +127,7 @@ Available this week or next.
 Best,  
 Angelo Hurley
 
-**Email**: angelo@theelidorascodex.com  
+**Email**: <angelo@theelidorascodex.com>  
 **GitHub**: github.com/TEC-The-ELidoras-Codex/luminai-genesis
 
 ---
@@ -143,11 +150,13 @@ I'm building Buffalo's first AI Ethics Lab — **Theory of General Contextual Re
 
 **What We Need**:
 Fractional CFO (10-15 hrs/week) to:
+
 - Write grant applications (Empire State, FuzeHub, DARPA)
 - Build financial models (burn rate, runway, fundraising)
 - Negotiate pilot contracts (Cohere, Mistral, corporate partnerships)
 
 **The Comp**:
+
 - **Equity**: 2-4% (4-year vest, 1-year cliff)
 - **Cash**: Starts April 2026 when funded (70%+ probability)
 - **Upside**: Founder-level stake in AI alignment breakthrough
@@ -156,23 +165,25 @@ Fractional CFO (10-15 hrs/week) to:
 After Tesla's Gigafactory failure ($5B promised, 26% delivered), Buffalo needs an execution-first tech win.
 
 We're it:
+
 - Code first, promises second
 - Measurable milestones (15-20 jobs Year 1)
 - Local accountability (UB/RIT hiring, economic impact reports)
 
 **Who I'm Looking For**:
 Someone who believes:
+
 1. AI alignment isn't solved (Bostrom, Russell, Apple's "Illusion of Thinking" study)
 2. Geometric impossibility theorems are the breakthrough (Wheeler's "It from Bit")
 3. Buffalo can win with execution, not hype
 
 **Interested?**
 
-DM me or email: angelo@theelidorascodex.com
+DM me or email: <angelo@theelidorascodex.com>
 
 Full offer: github.com/TEC-The-ELidoras-Codex/luminai-genesis → docs/launch/CFO_EQUITY_OFFER.md
 
-#BuffaloStartups #AIAlignment #FractionalCFO #AIethics #Buffalo #UBAlumni #StartupFinance
+# BuffaloStartups #AIAlignment #FractionalCFO #AIethics #Buffalo #UBAlumni #StartupFinance
 
 ---
 
@@ -183,13 +194,13 @@ Seeking fractional CFO for Buffalo's first AI Ethics Lab.
 
 Working code ✅  
 DARPA/IARPA alignment ✅  
-Empire State grant pending ✅  
+Empire State grant pending ✅
 
 Equity now (2-4%), cash April 2026.
 
 Full offer: [link to CFO_EQUITY_OFFER.md]
 
-#AIAlignment #BuffaloTech
+# AIAlignment #BuffaloTech
 
 ---
 
@@ -210,6 +221,7 @@ Why Buffalo?
 Tesla's Gigafactory: $5B promised, 26% delivered.
 
 We're the inverse:
+
 - Code first (not vaporware)
 - Measurable milestones (15-20 jobs Year 1)
 - Local execution (UB/RIT = 1,700 CS grads/year)
@@ -220,6 +232,7 @@ Buffalo needs this win. We're it.
 
 **Tweet 4/5**:
 What you'd do:
+
 - Write Empire State Development grant (decision March 2026)
 - Build financial models (burn, runway, fundraising)
 - Negotiate pilot contracts (Cohere, Mistral)
@@ -236,7 +249,7 @@ If you believe:
 2. Geometric impossibility theorems work
 3. Buffalo can execute where SF overpromises
 
-Email me: angelo@theelidorascodex.com
+Email me: <angelo@theelidorascodex.com>
 
 This is a founder bet, not a freelance gig.
 
@@ -261,6 +274,7 @@ I'm building Buffalo's first AI Ethics Lab and need a fractional CFO who believe
 **What We're Building**: AI alignment framework that uses geometric impossibility theorems to detect misalignment before catastrophic failure (not after).
 
 **Current Status**:
+
 - Working Python prototype (open-source, 1,274 lines, 94.7% test coverage)
 - Government funding alignment confirmed (DARPA GARD, IARPA BENGAL, ARIA Safeguarded AI)
 - UB/RIT partnership track (Computer Science departments)
@@ -271,6 +285,7 @@ I'm building Buffalo's first AI Ethics Lab and need a fractional CFO who believe
 After Tesla's Gigafactory failure (promised $5B/6,500 jobs, delivered $1.3B/900 jobs = 26%/14%), Buffalo needs a tech win that's execution-first, not hype-first.
 
 We're positioned to be that win:
+
 - **Code first**: Working prototype exists (not vaporware)
 - **Measurable accountability**: 15-20 founding engineers Year 1, scaling to 100+ by Year 4-5
 - **Local execution**: UB/RIT talent pipeline (1,700 CS grads/year), 60% cost advantage vs SF
@@ -279,6 +294,7 @@ We're positioned to be that win:
 **What I Need**:
 
 Fractional CFO (10-15 hours/week) to:
+
 1. Write grant applications (Empire State Development, FuzeHub, DARPA GARD RFP when released)
 2. Build financial models (burn rate, runway, funding milestones)
 3. Negotiate pilot contracts (Cohere, Mistral, corporate partnerships)
@@ -300,16 +316,18 @@ This is a **founder bet**, not a freelance gig.
 **Who I'm Looking For**:
 
 Someone who believes:
+
 1. AI alignment is unsolved (Bostrom, Russell, Apple's 2025 "Illusion of Thinking" study all confirm this)
 2. Geometric impossibility theorems are the breakthrough (Wheeler's "It from Bit" + TGCR)
 3. Buffalo can win with execution, not overpromises
 
 **How to Apply**:
 
-Email: angelo@theelidorascodex.com  
+Email: <angelo@theelidorascodex.com>  
 Subject: "Fractional CFO — Let's Talk"
 
 Include:
+
 - Your background (finance, startups, grants, AI—whatever's relevant)
 - Why you believe in AI alignment or execution-first Buffalo
 - Your availability (hours/week, start date)
@@ -329,6 +347,7 @@ Buffalo's ready for a tech win. Let's make it happen. 🔥
 ## Next Steps: Post This Everywhere
 
 **This Week (Dec 9-13, 2025)**:
+
 - [ ] Email 43North (Monday morning)
 - [ ] Email Z80 Labs (Monday afternoon)
 - [ ] Email UB Blackstone LaunchPad (Tuesday)
@@ -338,9 +357,11 @@ Buffalo's ready for a tech win. Let's make it happen. 🔥
 - [ ] Reddit r/startups (Friday)
 
 **Track Responses**:
+
 - Create `docs/launch/CFO_OUTREACH_TRACKER.md` to log who you contacted, when, and responses
 
 **Follow-Up Plan**:
+
 - 43North: Follow up after 3 business days if no response
 - LinkedIn: Engage with commenters, answer questions publicly
 - Reddit: Monitor for 48 hours, respond to all serious inquiries

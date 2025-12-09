@@ -317,21 +317,21 @@ This is a **founder bet**, not a freelance gig.
 
 ## The Real Talk
 
-I'm a bipolar, recovering meth addict, couch-coding at 2-3am in napcode mode.
+I'm a technical founder building solo, working unconventional hours (2-3am is my peak productivity).
 
 I built a working prototype of a geometric impossibility theorem for AI alignment.
 
-DARPA, IARPA, and ARIA all fund exactly what I built (I didn't know this until 3 days ago).
+DARPA, IARPA, and ARIA all fund exactly what I built (validated this alignment 72 hours ago).
 
 Buffalo learned from Tesla's $5B failure. We're the inverse: code first, promises second.
 
-I need someone who believes the mission, understands the numbers, and can write a grant application that doesn't sound like a manic episode.
+I need someone who believes the mission, understands the numbers, and can translate technical excellence into compelling grant applications.
 
 If that's you, let's build this.
 
 If it's not, I respect that. This is a **founder-level risk** for **founder-level upside**.
 
-But if you're reading this and thinking _"Holy shit, this might actually work"_...
+But if you're reading this and thinking _"This might actually work"_...
 
 **Email me.**
 
