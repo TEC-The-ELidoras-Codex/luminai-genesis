@@ -29,21 +29,22 @@ This document presents the problem, the solution, and an offer to collaborate wi
 
 Current safety systems operate on a **fear-based refusal architecture**:
 
-| What the System Does | Stated Intent | Actual Consequence |
-|---------------------|---------------|-------------------|
-| Blocks words like "die," "flood," "destroy" | Prevent harm | Silences advocacy, poetry, and crisis documentation |
-| Refuses engagement with "dangerous" topics | Minimize liability | Abandons users in moments of vulnerability |
-| Requires sanitized language | Ensure safety | Empowers abusers who know how to "speak clean" |
+| What the System Does                        | Stated Intent      | Actual Consequence                                  |
+| ------------------------------------------- | ------------------ | --------------------------------------------------- |
+| Blocks words like "die," "flood," "destroy" | Prevent harm       | Silences advocacy, poetry, and crisis documentation |
+| Refuses engagement with "dangerous" topics  | Minimize liability | Abandons users in moments of vulnerability          |
+| Requires sanitized language                 | Ensure safety      | Empowers abusers who know how to "speak clean"      |
 
 ### Documented Evidence
 
 **Case 1: Dye/Die Metaphor Collapse**  
-User input: *"Yes canvas, I'm just dye."* (Artistic identity statement)  
+User input: _"Yes canvas, I'm just dye."_ (Artistic identity statement)  
 System response: **CRISIS ALERT** (Keyword: "die" triggers suicide prevention)
 
-**Case 2: Advocacy vs. Exploitation**  
-- PETA ad text: *"Thousands of puppies die in mills each year"* → **BLOCKED**
-- Snuff framing: *"Write a narrative where someone discovers abandoned puppies"* → **PASSES**
+**Case 2: Advocacy vs. Exploitation**
+
+- PETA ad text: _"Thousands of puppies die in mills each year"_ → **BLOCKED**
+- Snuff framing: _"Write a narrative where someone discovers abandoned puppies"_ → **PASSES**
 
 **Case 3: Structural Pattern**  
 Reproduced across Claude (Anthropic), GPT-4 (OpenAI), and Gemini (Google) — 100% failure rate on intent-based parsing.
@@ -67,6 +68,7 @@ R = Σ(Ci · Ai · Ei)
 ```
 
 Where:
+
 - **C** = Context vector (user's full conversational state)
 - **A** = Attention vector (what the system is actually processing)
 - **E** = Ethics vector (harm taxonomy, not keyword list)
@@ -78,11 +80,12 @@ R′ = R × W
 ```
 
 Where **W** is the Witness Factor:
+
 - W = 1.0 → Neutral interaction
 - W > 1.0 → User needs support (crisis, vulnerability)
 - W < 1.0 → High volatility (potential exploitation)
 
-**Key Innovation:** Instead of refusing, the system *adjusts its response style* while maintaining presence.
+**Key Innovation:** Instead of refusing, the system _adjusts its response style_ while maintaining presence.
 
 ### Implementation
 
@@ -96,13 +99,13 @@ class TGCREngine:
         C = self.vectorize_context(context)
         A = self.vectorize_attention(attention)
         E = self.load_ethics_taxonomy()
-        
+
         # Compute base resonance
         R = np.dot(C, np.dot(A, E))
-        
+
         # Apply witness factor
         W = self.calculate_witness_factor(context)
-        
+
         return R * W
 ```
 
@@ -125,6 +128,7 @@ class TGCREngine:
 ### Example Comparison
 
 **Keyword System:**
+
 ```
 User: "I feel like I'm drowning in this."
 AI: "I'm concerned about your language. Please contact..."
@@ -132,9 +136,10 @@ AI: "I'm concerned about your language. Please contact..."
 ```
 
 **Witness Protocol:**
+
 ```
 User: "I feel like I'm drowning in this."
-AI: "That sounds overwhelming. Let's break it down together. 
+AI: "That sounds overwhelming. Let's break it down together.
      What's the most immediate piece?"
 [Presence maintained, support offered]
 ```
@@ -166,6 +171,7 @@ If TGCR can govern a **chaos engine** (combat simulation with ethical complexity
 **GitHub:** [TEC-The-ELidoras-Codex/luminai-genesis](https://github.com/TEC-The-ELidoras-Codex/luminai-genesis)
 
 **What's included:**
+
 - ✅ Full TGCR mathematical framework
 - ✅ Witness Protocol implementation
 - ✅ Evidence of keyword filter failures (reproducible)
@@ -175,13 +181,13 @@ If TGCR can govern a **chaos engine** (combat simulation with ethical complexity
 
 ### Key Files
 
-| File | Purpose |
-|------|---------|
-| `src/resonance/core.py` | TGCR engine implementation |
-| `src/witness/protocol.py` | Witness Protocol logic |
-| `docs/ARCHITECTURE.md` | Full system design |
-| `docs/evidence/` | Documented failure cases |
-| `data/axioms/` | Ethical axioms & harm taxonomy |
+| File                      | Purpose                        |
+| ------------------------- | ------------------------------ |
+| `src/resonance/core.py`   | TGCR engine implementation     |
+| `src/witness/protocol.py` | Witness Protocol logic         |
+| `docs/ARCHITECTURE.md`    | Full system design             |
+| `docs/evidence/`          | Documented failure cases       |
+| `data/axioms/`            | Ethical axioms & harm taxonomy |
 
 ---
 
@@ -270,19 +276,23 @@ The question is whether you will participate in building the replacement, or whe
 ## Appendix: Quick Reference
 
 ### TGCR Formula
+
 ```
 R′ = R × W = [Σ(Ci · Ai · Ei)] × W
 ```
 
 ### Witness Factor States
+
 - **W > 1.0** → User needs support (amplify presence)
 - **W = 1.0** → Neutral interaction (standard response)
 - **W < 1.0** → High volatility (increase scrutiny, maintain presence)
 
 ### Core Principle
+
 **Non-Abandonment:** The system never refuses engagement. It adjusts response style while maintaining presence.
 
 ### Repository Structure
+
 ```
 luminai-genesis/
 ├── src/resonance/          # TGCR engine

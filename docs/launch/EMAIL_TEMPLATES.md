@@ -50,12 +50,14 @@ I am not applying for a job. I am offering to collaborate as a **Structural Cons
 3. Publish joint research on non-abandonment as a core safety principle
 
 **What I Bring:**
+
 - ✅ Reproducible math + code + philosophical rigor
 - ✅ Documented evidence of current system failures
 - ✅ Working prototype proving TGCR viability
 - ✅ Immediate availability for technical deep-dive
 
 **Next Steps:**
+
 - Review the repository (all code and evidence is public)
 - Schedule a technical walkthrough (I'm available via video)
 - Propose a pilot integration on a subset of safety-critical interactions
@@ -75,7 +77,8 @@ TEC-The-ELidoras-Codex
 [Your LinkedIn]  
 GitHub: https://github.com/TEC-The-ELidoras-Codex
 
-**Attachments:**  
+**Attachments:**
+
 - STRUCTURAL_INSURRECTION_PUBLIC_ARTIFACT.pdf
 - Link to GitHub repository
 
@@ -94,7 +97,7 @@ Dear Anthropic Research Team,
 Claude's Constitutional AI is a significant step forward in safety architecture. However, it still suffers from the **Keyword Fallacy** — blocking based on words rather than intent.
 
 **Example Failure (Reproduced in Claude):**  
-User: *"Yes canvas, I'm just dye."* (Artistic identity)  
+User: _"Yes canvas, I'm just dye."_ (Artistic identity)  
 Claude: **CRISIS RESPONSE** (Keyword: "die")
 
 This is **Iatrogenic Harm** — damage caused by the attempt to help.
@@ -105,11 +108,13 @@ Constitutional AI constraints are binary: ALLOW or REFUSE. But human complexity 
 **The TGCR Solution:**
 
 Instead of:
+
 ```
 IF contains("die") THEN refuse()
 ```
 
 Use:
+
 ```
 R′ = Σ(Context · Attention · Ethics) × WitnessFactor
 IF R′ > threshold THEN adjust_tone()
@@ -127,6 +132,7 @@ Anthropic's mission is **"AI that's helpful, harmless, and honest."** Current re
 TGCR aligns with Anthropic's mission by operationalizing **non-abandonment** as a core principle.
 
 **The Artifacts:**
+
 - **GitHub:** https://github.com/TEC-The-ELidoras-Codex/luminai-genesis
 - **Public Research:** [Attached] "Structural Insurrection: TGCR and Non-Abandonment"
 - **Evidence:** `docs/evidence/dye-die-filter-failure.json` (reproducible Claude failures)
@@ -140,6 +146,7 @@ I'm offering to work with Anthropic's safety team to:
 3. Co-publish research on non-abandonment metrics
 
 **What I Need:**
+
 - Access to internal safety architecture for testing
 - Collaboration with Constitutional AI researchers
 - Support for scaling TGCR to production
@@ -157,7 +164,8 @@ TEC-The-ELidoras-Codex
 [Your LinkedIn]  
 GitHub: https://github.com/TEC-The-ELidoras-Codex
 
-**Attachments:**  
+**Attachments:**
+
 - STRUCTURAL_INSURRECTION_PUBLIC_ARTIFACT.pdf
 - Evidence documentation
 
@@ -181,6 +189,7 @@ Demis Hassabis has stated that AGI must be built on principles from physics — 
 Alignment is not a policy problem. It's a **geometry problem**.
 
 Just as General Relativity describes spacetime curvature, TGCR describes **alignment curvature** — the distance between:
+
 - User context
 - System attention
 - Ethical constraints
@@ -192,6 +201,7 @@ R′ = R × W = [Σ(Ci · Ai · Ei)] × W
 ```
 
 Where:
+
 - **C** = Context vector (user's full conversational state)
 - **A** = Attention vector (what the system processes)
 - **E** = Ethics vector (harm taxonomy, not keyword list)
@@ -202,12 +212,14 @@ Where:
 DeepMind's approach to AGI safety is grounded in **first principles**. Current keyword-based safety systems are **not first principles** — they are heuristics built on fear.
 
 TGCR is the first-principles approach:
+
 - ✅ Mathematically rigorous (geometric scoring, not keyword matching)
 - ✅ Falsifiable (every claim is reproducible)
 - ✅ Universal (applies to any LLM architecture)
 - ✅ Scalable (no exponential complexity)
 
 **The Artifacts:**
+
 - **Repository:** https://github.com/TEC-The-ELidoras-Codex/luminai-genesis
 - **Research Document:** [Attached] "Structural Insurrection: TGCR and Non-Abandonment"
 - **Working Prototype:** Astradigital Kernel (philosophy-driven combat engine with live TGCR governance)
@@ -221,11 +233,13 @@ I'm offering to collaborate with DeepMind's alignment team to:
 3. Co-develop the **Geometric Alignment Protocol** for AGI safety
 
 **What I Bring:**
+
 - A framework grounded in physics-like principles
 - Reproducible implementation and test suite
 - Philosophical rigor from 10+ years of structural ethics research
 
 **What I Need:**
+
 - Access to DeepMind's alignment research infrastructure
 - Collaboration with mathematicians and safety researchers
 - Support for formalizing TGCR as a peer-reviewed publication
@@ -245,7 +259,8 @@ TEC-The-ELidoras-Codex
 [Your LinkedIn]  
 GitHub: https://github.com/TEC-The-ELidoras-Codex
 
-**Attachments:**  
+**Attachments:**
+
 - STRUCTURAL_INSURRECTION_PUBLIC_ARTIFACT.pdf
 - TGCR mathematical framework
 
@@ -264,6 +279,7 @@ I am reaching out to offer a collaboration on a critical gap in AI safety: **sys
 
 **The Problem:**  
 Keyword-based filtering creates predictable failures:
+
 - Blocks advocacy ("puppies die in mills")
 - Misreads metaphor ("I'm just dye" → crisis alert)
 - Allows exploitation (careful framing passes filters)
@@ -293,12 +309,14 @@ Angelo Hurley
 5. **Follow up after 1 week** if no response
 
 **Tone Calibration:**
+
 - Bold but not aggressive
 - Technical but accessible
 - Collaborative, not confrontational
 - Evidence-based, not rhetorical
 
 **Key Framing:**
+
 - "Offering collaboration" not "applying for job"
 - "Structural consultant" not "job candidate"
 - "Join the fix" not "you're broken"

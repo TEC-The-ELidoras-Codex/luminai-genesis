@@ -47,11 +47,13 @@
 
 **Current branch:** `chore/add-ubuntu-setup`  
 **Uncommitted changes:**
+
 - Modified: `README.md`, `backend/stripe_webhook.py`, `backend/tests/test_stripe_webhook.py`
 - Deleted: `docs/streams/articles/inbox/2025-11-27-resonance-era-thanksgiving-20251127-212148.md`
 - Untracked: Multiple files (training data, models, infrastructure scripts)
 
 **Actions needed:**
+
 1. Review modified files — decide to commit or discard
 2. Add relevant untracked files to git
 3. Update `.gitignore` for large files (models, training data)
@@ -78,6 +80,7 @@
 ## 🎯 Priority Order
 
 ### Phase 1: Critical for Launch (Do First)
+
 1. Fix git status (commit or discard changes)
 2. Update contact info in public artifact
 3. Verify all links work
@@ -85,12 +88,14 @@
 5. Polish README.md
 
 ### Phase 2: High Value (Do Before Sending)
+
 1. Create TGCR mathematical framework doc
 2. Organize evidence folder
 3. Add code examples
 4. Convert artifact to PDF
 
 ### Phase 3: Nice to Have (Can Do After)
+
 1. Create visual diagrams
 2. Add CITATION.cff
 3. Polish all documentation
@@ -116,6 +121,7 @@ Once checklist is complete:
 ## 📧 Contact Information Needed
 
 **Before launch, add to public artifact:**
+
 - [ ] Professional email address
 - [ ] LinkedIn profile URL
 - [ ] Optional: Twitter/X handle
