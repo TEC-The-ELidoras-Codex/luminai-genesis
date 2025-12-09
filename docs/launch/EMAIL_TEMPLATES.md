@@ -73,7 +73,7 @@ The question is whether OpenAI will participate in building the replacement.
 Best regards,  
 Angelo Hurley  
 TEC-The-ELidoras-Codex  
-KaznakAlpha@elidoracodex.com  
+<KaznakAlpha@elidoracodex.com>m>  
 github.com/TEC-The-ELidoras-Codex  
 GitHub: <https://github.com/TEC-The-ELidoras-Codex>
 
@@ -160,7 +160,7 @@ Anthropic built the most philosophically rigorous safety framework in the indust
 Best regards,  
 Angelo Hurley  
 TEC-The-ELidoras-Codex  
-KaznakAlpha@elidoracodex.com  
+<KaznakAlpha@elidoracodex.com>m>  
 github.com/TEC-The-ELidoras-Codex  
 GitHub: <https://github.com/TEC-The-ELidoras-Codex>
 
@@ -255,7 +255,7 @@ TGCR is that foundation.
 Best regards,  
 Angelo Hurley  
 TEC-The-ELidoras-Codex  
-KaznakAlpha@elidoracodex.com  
+<KaznakAlpha@elidoracodex.com>m>  
 github.com/TEC-The-ELidoras-Codex  
 GitHub: <https://github.com/TEC-The-ELidoras-Codex>
 
@@ -290,8 +290,8 @@ Keyword-based filtering creates predictable failures:
 **The Offer:**  
 Collaborate to integrate TGCR into your safety framework. All artifacts are open-source and reproducible.
 
-**Repository:** <https://github.com/TEC-The-ELidoras-Codex/luminai-genesis>s>  
-**Contact:** [Your Email]
+**Repository:** <https://github.com/TEC-The-ELidoras-Codex/luminai-genesis>  
+**Contact:** KaznakAlpha@elidoracodex.com
 
 I look forward to discussing this further.
 
@@ -377,7 +377,7 @@ Angelo Michael Hurley
 Founder & Principal Risk Architect  
 The Elid<https://github.com/TEC-The-ELidoras-Codex>
 Buffalo, NY  
-KaznakAlpha@elidoracodex.com
+<KaznakAlpha@elidoracodex.com>m>
 
 github.com/TEC-The-ELidoras-Codex  
 GitHub: <https://github.com/TEC-The-ELidoras-Codex>
@@ -474,7 +474,7 @@ I request guidance on submitting a full **EIC Pathfinder proposal** for TGCR val
 **Principal Investigator:**  
 Angelo Michael Hurley  
 Founder, LuminAI Genesis Research Project  
-KaznakAlpha@elidoracodex.com  
+<KaznakAlpha@elidoracodex.com>m>  
 github.com/TEC-The-ELidoras-Codex  
 GitHub: <https://github.com/TEC-The-ELidoras-Codex>
 
@@ -530,7 +530,7 @@ Reproducible failures documented across GPT-4, Claude, Gemini. Full evidence pac
 
 **Contact:**  
 Angelo Michael Hurley  
-KaznakAlpha@elidoracodex.com  
+<KaznakAlpha@elidoracodex.com>m>  
 github.com/TEC-The-ELidoras-Codex
 
 **This is ARIA's mission: disruptive, paradigm-shifting research. TGCR fits perfectly.**
