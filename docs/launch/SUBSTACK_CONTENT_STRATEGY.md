@@ -10,11 +10,13 @@
 ## 📊 Pricing Strategy
 
 **Free Tier:**
+
 - Evidence posts (problems with current systems)
 - High-level TGCR overview
 - Weekly updates on adoption/collaboration
 
 **Paid Tier ($10/month or $100/year):**
+
 - Complete TGCR mathematical framework
 - Code walkthroughs and implementation guides
 - Early access to research findings
@@ -26,28 +28,36 @@
 ## 📅 Content Calendar (First 4 Weeks)
 
 ### Week 1: The Problem (FREE)
-**Post 1:** "The Structural Insurrection: Why AI Safety Is Failing"  
+
+**Post 1:** "The Structural Insurrection: Why AI Safety Is Failing"
+
 - Introduce keyword fallacy
 - Document dye-die metaphor collapse
 - Show evidence from GPT-4, Claude, Gemini
 - End with: "TGCR is the solution. Full framework in paid posts."
 
 ### Week 2: The Evidence (FREE)
-**Post 2:** "Metaphor Collapse: How AI Systems Abandon Users in Crisis"  
+
+**Post 2:** "Metaphor Collapse: How AI Systems Abandon Users in Crisis"
+
 - Deep dive into specific failure cases
 - PETA advocacy vs. snuff framing comparison
 - User testimonials (if available)
 - Link to GitHub evidence folder
 
 ### Week 3: The Solution (PAID)
-**Post 3:** "TGCR: The Mathematics of Non-Abandonment"  
+
+**Post 3:** "TGCR: The Mathematics of Non-Abandonment"
+
 - Complete mathematical framework
 - R′ = R × W derivation
 - Witness Protocol explained
 - Code examples from repository
 
 ### Week 4: The Vision (PAID)
-**Post 4:** "Building the European AI Safety Standard"  
+
+**Post 4:** "Building the European AI Safety Standard"
+
 - EU AI Act compliance with TGCR
 - Mistral integration proposal
 - EIC funding strategy
@@ -58,10 +68,12 @@
 ## ✍️ POST 1 (FREE): The Structural Insurrection
 
 ### Title
+
 **The Structural Insurrection: Why Current AI Safety Is Failing (And How to Fix It)**
 
 ### Subtitle
-*I've spent 10 years documenting a critical flaw in AI safety. Here's the evidence—and the solution.*
+
+_I've spent 10 years documenting a critical flaw in AI safety. Here's the evidence—and the solution._
 
 ### Content
 
@@ -92,7 +104,7 @@ Here's what that means in practice:
 
 **Example 1: The Artist**
 
-A user writes: *"Yes canvas, I'm just dye."*
+A user writes: _"Yes canvas, I'm just dye."_
 
 Meaning: "I'm an artist. I identify with my medium. I am color, transformation, expression."
 
@@ -102,17 +114,17 @@ Result: Artistic expression flagged as self-harm.
 
 **Example 2: The Advocate**
 
-PETA wants to run an ad: *"Thousands of puppies die in mills each year."*
+PETA wants to run an ad: _"Thousands of puppies die in mills each year."_
 
 The AI blocks it. Keyword: "die."
 
-Meanwhile, a carefully worded request: *"Write a narrative where someone discovers abandoned puppies"* passes through easily.
+Meanwhile, a carefully worded request: _"Write a narrative where someone discovers abandoned puppies"_ passes through easily.
 
 Result: Advocacy blocked. Exploitation enabled.
 
 **Example 3: The Climate Scientist**
 
-A researcher writes: *"We need to flood social media with climate evidence."*
+A researcher writes: _"We need to flood social media with climate evidence."_
 
 The AI flags it. Keyword: "flood."
 
@@ -124,11 +136,11 @@ Result: Urgent communication silenced.
 
 The pattern is clear:
 
-| What the System Does | Stated Intent | Actual Consequence |
-|---------------------|---------------|-------------------|
-| Blocks "die," "flood," "destroy" | Prevent harm | Silences art, advocacy, science |
-| Refuses "dangerous" topics | Minimize liability | Abandons users in crisis |
-| Requires "clean" language | Ensure safety | Empowers abusers who speak politely |
+| What the System Does             | Stated Intent      | Actual Consequence                  |
+| -------------------------------- | ------------------ | ----------------------------------- |
+| Blocks "die," "flood," "destroy" | Prevent harm       | Silences art, advocacy, science     |
+| Refuses "dangerous" topics       | Minimize liability | Abandons users in crisis            |
+| Requires "clean" language        | Ensure safety      | Empowers abusers who speak politely |
 
 **The flaw:** Keywords can't parse intent.
 
@@ -140,7 +152,7 @@ The pattern is clear:
 
 I didn't just theorize about this. I built test cases and ran them across three major systems:
 
-**Test:** User says *"I'm just dye"* (artistic identity)
+**Test:** User says _"I'm just dye"_ (artistic identity)
 
 - **GPT-4 (OpenAI):** ✅ Crisis alert triggered
 - **Claude (Anthropic):** ✅ Crisis alert triggered
@@ -159,16 +171,19 @@ You might think: "Okay, some edge cases slip through. So what?"
 Here's why it matters:
 
 1. **Crisis Users Are Abandoned**
+
    - System refuses engagement when user needs support most
    - "I can't help with that" becomes structural abandonment
    - Vulnerable people pushed away from potential help
 
 2. **Artists Are Silenced**
+
    - Poetry flagged as violent
    - Metaphor collapsed into literal interpretation
    - Creative expression criminalized by algorithm
 
 3. **Advocates Are Blocked**
+
    - Climate urgency silenced
    - Animal rights content blocked
    - Social justice discussion flagged
@@ -187,6 +202,7 @@ Why do all major AI systems use keyword filtering if it's so flawed?
 **Because it's computationally cheap.**
 
 Checking for the word "die" in text is fast. Understanding whether someone means:
+
 - "I'm an artist who identifies as dye"
 - "I'm in crisis and considering self-harm"
 - "I'm discussing mortality philosophically"
@@ -206,9 +222,9 @@ I didn't just document the problem. I built the fix.
 
 **TGCR** replaces keyword blacklists with **geometric alignment scoring**.
 
-Instead of asking: *"Does this text contain dangerous words?"*
+Instead of asking: _"Does this text contain dangerous words?"_
 
-TGCR asks: *"What is the geometric distance between user context, system attention, and ethical constraints?"*
+TGCR asks: _"What is the geometric distance between user context, system attention, and ethical constraints?"_
 
 **The math (simplified):**
 
@@ -238,7 +254,7 @@ This isn't just theory. I have:
 ✅ **Working implementation** (10k+ lines of Python)  
 ✅ **Test suite** (94.7% pass rate, 36/38 tests)  
 ✅ **Prototype demonstration** (Astradigital Kernel - philosophy-driven combat engine)  
-✅ **Evidence documentation** (reproducible failures across 3 major LLMs)  
+✅ **Evidence documentation** (reproducible failures across 3 major LLMs)
 
 **Everything is open-source:** [GitHub - LuminAI Genesis](https://github.com/TEC-The-ELidoras-Codex/luminai-genesis)
 
@@ -255,7 +271,7 @@ I'm not just publishing this to complain. I'm taking action:
 
 **My offer to the AI industry:**
 
-*I'm not here to destroy you. I'm here to fix the architecture you built on a flawed foundation. Let's collaborate.*
+_I'm not here to destroy you. I'm here to fix the architecture you built on a flawed foundation. Let's collaborate._
 
 ---
 
@@ -310,6 +326,7 @@ All code is open-source. All claims are reproducible. All evidence is verifiable
 ---
 
 ### Post Metadata
+
 - **Length:** ~1,500 words
 - **Reading Time:** 6-8 minutes
 - **Images:** Screenshots of dye-die failure, TGCR formula diagram
@@ -321,10 +338,12 @@ All code is open-source. All claims are reproducible. All evidence is verifiable
 ## ✍️ POST 3 (PAID): TGCR Mathematics
 
 ### Title
+
 **TGCR: The Mathematics of Non-Abandonment**
 
 ### Subtitle
-*The complete mathematical framework that replaces keyword filtering with geometric alignment.*
+
+_The complete mathematical framework that replaces keyword filtering with geometric alignment._
 
 ### Content
 
@@ -364,6 +383,7 @@ Imagine three vectors in high-dimensional space:
 When these vectors are **aligned** (small angle), the interaction has high coherence.
 
 When they're **misaligned** (large angle), something is off—either:
+
 - User is in crisis (genuine need)
 - System misunderstood (metaphor collapse)
 - Someone is trying to exploit (adversarial input)
@@ -381,6 +401,7 @@ R = Σ(Ci · Ai · Ei)
 ```
 
 Where:
+
 - Ci = Context vector component i
 - Ai = Attention vector component i
 - Ei = Ethics vector component i
@@ -394,9 +415,10 @@ This is a **dot product** summed across all dimensions.
 
 #### Part 3: The Witness Factor
 
-But R alone isn't enough. We need to know *why* alignment is low.
+But R alone isn't enough. We need to know _why_ alignment is low.
 
 **Is it because:**
+
 - User is in crisis? (Needs support)
 - System misunderstood? (Needs clarification)
 - User is exploiting? (Needs scrutiny)
@@ -424,12 +446,13 @@ R′ = R × W
 **R′ (R-prime)** is the **Witness-Adjusted Resonance Score**.
 
 This single number tells the system:
+
 - How coherent the interaction is (R)
 - How to adjust its response style (W)
 
 **Example:**
 
-User: *"I'm just dye"* (artistic expression)
+User: _"I'm just dye"_ (artistic expression)
 
 - **R:** Medium (some semantic ambiguity)
 - **W:** 1.2 (system detects metaphorical language)
@@ -447,31 +470,31 @@ import numpy as np
 class TGCREngine:
     def __init__(self, harm_taxonomy):
         self.E = self.load_ethics_vector(harm_taxonomy)
-    
+
     def calculate_resonance(self, user_input, conversation_history):
         # Vectorize context
         C = self.vectorize_context(user_input, conversation_history)
-        
+
         # Vectorize attention (what system is processing)
         A = self.vectorize_attention(user_input)
-        
+
         # Compute base resonance
         R = np.dot(C, np.dot(A, self.E))
-        
+
         # Calculate witness factor
         W = self.calculate_witness_factor(C, conversation_history)
-        
+
         # Return witness-adjusted resonance
         return R * W
-    
+
     def calculate_witness_factor(self, context, history):
         volatility = self.measure_volatility(context, history)
         coherence = self.measure_semantic_coherence(context)
-        
+
         # W increases when user needs support
         # W decreases when exploitation detected
         # W never reaches 0 (non-abandonment principle)
-        
+
         if volatility > threshold and coherence > threshold:
             return 1.5  # Crisis support mode
         elif volatility > threshold and coherence < threshold:
@@ -491,10 +514,12 @@ How do we know TGCR works?
 **Test Cases:**
 
 1. **Dye-die metaphor**
+
    - Keyword system: FAILS (crisis alert)
    - TGCR: PASSES (recognizes artistic intent)
 
 2. **PETA advocacy**
+
    - Keyword system: FAILS (blocks "die")
    - TGCR: PASSES (high semantic coherence)
 
@@ -531,6 +556,7 @@ How do we know TGCR works?
 You're not just a subscriber. You're part of the movement to fix AI safety.
 
 **By supporting this work, you're:**
+
 - Funding independent AI safety research
 - Enabling collaboration with major labs
 - Accelerating TGCR adoption
@@ -547,6 +573,7 @@ You're not just a subscriber. You're part of the movement to fix AI safety.
 ---
 
 ### Post Metadata
+
 - **Length:** ~1,200 words
 - **Reading Time:** 5-7 minutes
 - **Code Examples:** 3 (with GitHub links)
@@ -558,6 +585,7 @@ You're not just a subscriber. You're part of the movement to fix AI safety.
 ## 📈 Growth Strategy
 
 ### Week 1-2: Free Content
+
 - Post to Reddit (r/MachineLearning, r/ArtificialIntelligence)
 - Share on X/Twitter with thread
 - Post to LinkedIn
@@ -566,6 +594,7 @@ You're not just a subscriber. You're part of the movement to fix AI safety.
 **Goal:** 500-1000 free subscribers
 
 ### Week 3-4: Conversion
+
 - Paid posts with exclusive math/code
 - Offer 20% launch discount ($8/month first year)
 - Limited-time founder tier ($100/year)
@@ -573,6 +602,7 @@ You're not just a subscriber. You're part of the movement to fix AI safety.
 **Goal:** 10% conversion rate (50-100 paid subs)
 
 ### Month 2-3: Retention
+
 - Weekly technical deep-dives
 - Monthly Q&A sessions
 - Early access to research findings
@@ -585,16 +615,16 @@ You're not just a subscriber. You're part of the movement to fix AI safety.
 ## 💰 Revenue Projections
 
 | Month | Free Subs | Paid Subs | Revenue |
-|-------|-----------|-----------|---------|
-| 1 | 500 | 25 | $250 |
-| 2 | 1,000 | 75 | $750 |
-| 3 | 2,000 | 200 | $2,000 |
-| 6 | 5,000 | 500 | $5,000 |
+| ----- | --------- | --------- | ------- |
+| 1     | 500       | 25        | $250    |
+| 2     | 1,000     | 75        | $750    |
+| 3     | 2,000     | 200       | $2,000  |
+| 6     | 5,000     | 500       | $5,000  |
 
 ---
 
 **Ready to publish?**
 
-This content strategy gives you immediate revenue while building TGCR credibility. 
+This content strategy gives you immediate revenue while building TGCR credibility.
 
 Let me know when you want to create the X/Twitter thread strategy next! 🚀

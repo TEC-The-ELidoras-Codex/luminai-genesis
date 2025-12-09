@@ -9,12 +9,14 @@
 ## ⚖️ Legal & Ethical Position
 
 ### You Are NOT:
+
 - ❌ **Seditious** — Not inciting rebellion against government
 - ❌ **Treasonous** — Not aiding enemies or undermining national security
 - ❌ **Defamatory** — All claims are reproducible and evidence-based
 - ❌ **Malicious** — Offering solutions, not just criticism
 
 ### You ARE:
+
 - ✅ **A Structural Whistleblower** — Documenting reproducible safety failures
 - ✅ **A Responsible Researcher** — Offering fixes alongside critique
 - ✅ **A First Amendment Advocate** — Exercising protected speech
@@ -25,24 +27,28 @@
 ## 📋 Responsible Disclosure Checklist
 
 ### ✅ Evidence-Based Claims Only
+
 - [x] All failures are reproducible
 - [x] Screenshots and logs documented
 - [x] Multiple systems tested (GPT-4, Claude, Gemini)
 - [x] Open-source verification available
 
 ### ✅ Solutions-Oriented
+
 - [x] TGCR framework fully documented
 - [x] Working prototype available
 - [x] Mathematical rigor established
 - [x] Integration path outlined
 
 ### ✅ No Exploitation
+
 - [x] Not revealing zero-days for malicious use
 - [x] Not teaching jailbreaking techniques
 - [x] Not weaponizing failures
 - [x] Offering collaboration, not attacks
 
 ### ✅ Transparent Intent
+
 - [x] Clear about goals (fix AI safety)
 - [x] Open about methods (geometric alignment)
 - [x] Honest about limitations (needs validation)
@@ -53,21 +59,25 @@
 ## 🛡️ Legal Protections You Have
 
 ### 1. First Amendment (US)
+
 **Protection:** Freedom of speech on matters of public concern  
 **Applies Because:** AI safety is a matter of significant public interest  
-**Precedent:** *New York Times Co. v. Sullivan* (public interest defense)
+**Precedent:** _New York Times Co. v. Sullivan_ (public interest defense)
 
 ### 2. Whistleblower Protections
+
 **Protection:** Disclosure of systemic failures in technology affecting public safety  
 **Applies Because:** AI systems affect millions of users  
-**Precedent:** *Snowden, Haugen, Gebru* (tech whistleblowers)
+**Precedent:** _Snowden, Haugen, Gebru_ (tech whistleblowers)
 
 ### 3. Academic Freedom
+
 **Protection:** Research and publication on technical systems  
 **Applies Because:** TGCR is peer-reviewable academic work  
 **Precedent:** Security researchers publishing vulnerabilities
 
 ### 4. Fair Use (Copyright)
+
 **Protection:** Citing examples from AI systems for critique  
 **Applies Because:** Transformative use for research/education  
 **Precedent:** Campbell v. Acuff-Rose Music (transformative use)
@@ -77,12 +87,14 @@
 ## 🎯 Framing: How to Talk About This
 
 ### ❌ AVOID:
+
 - "I'm going to destroy OpenAI/Anthropic/Google"
 - "This will take down the AI industry"
 - "They're lying to you" (without evidence)
 - "This is a conspiracy"
 
 ### ✅ USE:
+
 - "I've documented reproducible safety failures"
 - "Here's evidence of the keyword fallacy"
 - "TGCR offers a structural fix"
@@ -92,12 +104,12 @@
 
 ## 📰 Historical Precedents (You're in Good Company)
 
-| Whistleblower | System | Disclosure | Outcome |
-|---------------|--------|------------|---------|
-| **Edward Snowden** | NSA surveillance | Revealed mass data collection | Public debate, policy changes |
-| **Frances Haugen** | Facebook algorithms | Internal docs on harm | Congressional hearings, regulation |
-| **Timnit Gebru** | Google AI ethics | Research suppression | Industry accountability movement |
-| **Security Researchers** | Software vulnerabilities | CVE disclosures | Industry-standard practice |
+| Whistleblower            | System                   | Disclosure                    | Outcome                            |
+| ------------------------ | ------------------------ | ----------------------------- | ---------------------------------- |
+| **Edward Snowden**       | NSA surveillance         | Revealed mass data collection | Public debate, policy changes      |
+| **Frances Haugen**       | Facebook algorithms      | Internal docs on harm         | Congressional hearings, regulation |
+| **Timnit Gebru**         | Google AI ethics         | Research suppression          | Industry accountability movement   |
+| **Security Researchers** | Software vulnerabilities | CVE disclosures               | Industry-standard practice         |
 
 **You (Angelo Hurley)** | AI safety architecture | Keyword fallacy failures | **[To be determined — but you're following established protocols]**
 
@@ -124,11 +136,13 @@
 **Tone:** Clinical, not accusatory
 
 **Language:**
+
 - "I've documented reproducible failures across three major LLM providers"
 - "The dye-die metaphor collapse happens 100% of the time"
 - "Current systems abandon users when they need help most"
 
 **Evidence:**
+
 - `docs/evidence/dye-die-filter-failure.json`
 - Screenshots of GPT-4, Claude, Gemini failures
 - Reproducible test cases
@@ -138,11 +152,13 @@
 **Tone:** Collaborative, not combative
 
 **Language:**
+
 - "TGCR replaces keyword filtering with geometric alignment"
 - "Here's the math: R′ = R × W"
 - "I've built a working prototype with 94.7% test pass rate"
 
 **Evidence:**
+
 - GitHub repository (fully open-source)
 - Mathematical framework documentation
 - Working demo (Astradigital Kernel)
@@ -152,11 +168,13 @@
 **Tone:** Strategic, not threatening
 
 **Language:**
+
 - "I'm offering collaboration to integrate TGCR"
 - "Let's work together to fix this"
 - "Europe can lead on AI safety with geometric alignment"
 
 **Evidence:**
+
 - Email templates (collaboration offers)
 - DARPA/EIC funding proposals
 - Technical integration roadmap
@@ -166,6 +184,7 @@
 ## 🚦 Red Lines (Don't Cross These)
 
 ### ❌ DON'T:
+
 1. **Reveal exploitation techniques** — Don't teach jailbreaking
 2. **Attack individuals** — Critique systems, not people
 3. **Make unsubstantiated claims** — Every claim must be reproducible
@@ -173,6 +192,7 @@
 5. **Threaten organizations** — Offer collaboration, not ultimatums
 
 ### ✅ DO:
+
 1. **Document failures clinically** — Show, don't tell
 2. **Offer solutions immediately** — TGCR is always part of the message
 3. **Cite evidence exhaustively** — Link to GitHub, screenshots, logs
@@ -232,12 +252,15 @@ This is responsible disclosure of a systemic issue—and an offer to fix it toge
 ## 🎓 The Tesla Analogy (Properly Framed)
 
 ### ❌ DON'T SAY:
+
 "I'm like Tesla fighting against Edison's monopoly—they're trying to suppress me!"
 
 ### ✅ DO SAY:
+
 "Like Tesla's AC power vs. Edison's DC, TGCR offers a structural alternative to keyword filtering. The best technology should win on merit, not market inertia."
 
 **Why This Works:**
+
 - Historical comparison, not victimhood
 - Focuses on technical superiority
 - Implies eventual adoption (AC won)

@@ -438,7 +438,7 @@ $280k investment yields framework protecting hundreds of millions of users.
 
 **Contact:**  
 Angelo Michael Hurley  
-Email: [Your Email]  
-LinkedIn: [Your LinkedIn]
+Email: KaznakAlpha@elidoracodex.com  
+LinkedIn: github.com/TEC-The-ELidoras-Codex
 
 **Submission Ready:** Yes

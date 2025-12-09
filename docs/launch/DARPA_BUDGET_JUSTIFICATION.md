@@ -365,9 +365,9 @@ A $280k investment could replace safety systems currently deployed across:
 
 **Principal Investigator:**  
 Angelo Michael Hurley  
-Email: [Your Email]  
+Email: KaznakAlpha@elidoracodex.com  
 GitHub: <https://github.com/TEC-The-ELidoras-Codex>  
-LinkedIn: [Your LinkedIn]  
+LinkedIn: github.com/TEC-The-ELidoras-Codex  
 Repository: <https://github.com/TEC-The-ELidoras-Codex/luminai-genesis>
 
 **Submission Ready:** Yes  

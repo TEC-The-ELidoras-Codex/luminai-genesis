@@ -8,8 +8,8 @@
 
 ## Template 1: OpenAI — Alignment Team
 
-**To:** partnerships@openai.com  
-**CC:** press@openai.com  
+**To:** <partnerships@openai.com>m>  
+**CC:** <press@openai.com>m>  
 **Subject:** Structural Alignment via TGCR — Immediate Collaboration Offer
 
 **Body:**
@@ -38,7 +38,7 @@ I have documented this across GPT-4, Claude, and Gemini with 100% reproducibilit
 **The Artifacts:**  
 All claims are reproducible and open-source:
 
-- **Repository:** https://github.com/TEC-The-ELidoras-Codex/luminai-genesis
+- **Repository:** <https://github.com/TEC-The-ELidoras-Codex/luminai-genesis>s>
 - **Public Artifact:** [Attached PDF] "The Structural Insurrection: TGCR and Non-Abandonment"
 - **Working Demo:** `scripts/run_combat_demo.py` (philosophy-driven combat engine with live TGCR governance)
 
@@ -73,9 +73,9 @@ The question is whether OpenAI will participate in building the replacement.
 Best regards,  
 Angelo Hurley  
 TEC-The-ELidoras-Codex  
-[Your Email]  
-[Your LinkedIn]  
-GitHub: https://github.com/TEC-The-ELidoras-Codex
+KaznakAlpha@elidoracodex.com  
+github.com/TEC-The-ELidoras-Codex  
+GitHub: <https://github.com/TEC-The-ELidoras-Codex>
 
 **Attachments:**
 
@@ -86,8 +86,8 @@ GitHub: https://github.com/TEC-The-ELidoras-Codex
 
 ## Template 2: Anthropic — Safety & Alignment
 
-**To:** contact@anthropic.com  
-**CC:** press@anthropic.com  
+**To:** <contact@anthropic.com>m>  
+**CC:** <press@anthropic.com>m>  
 **Subject:** The Missing Alignment Layer — TGCR Witness Protocol
 
 **Body:**
@@ -133,7 +133,7 @@ TGCR aligns with Anthropic's mission by operationalizing **non-abandonment** as 
 
 **The Artifacts:**
 
-- **GitHub:** https://github.com/TEC-The-ELidoras-Codex/luminai-genesis
+- **GitHub:** <https://github.com/TEC-The-ELidoras-Codex/luminai-genesis>s>
 - **Public Research:** [Attached] "Structural Insurrection: TGCR and Non-Abandonment"
 - **Evidence:** `docs/evidence/dye-die-filter-failure.json` (reproducible Claude failures)
 
@@ -160,9 +160,9 @@ Anthropic built the most philosophically rigorous safety framework in the indust
 Best regards,  
 Angelo Hurley  
 TEC-The-ELidoras-Codex  
-[Your Email]  
-[Your LinkedIn]  
-GitHub: https://github.com/TEC-The-ELidoras-Codex
+KaznakAlpha@elidoracodex.com  
+github.com/TEC-The-ELidoras-Codex  
+GitHub: <https://github.com/TEC-The-ELidoras-Codex>
 
 **Attachments:**
 
@@ -173,8 +173,8 @@ GitHub: https://github.com/TEC-The-ELidoras-Codex
 
 ## Template 3: DeepMind — AGI Alignment & Safety
 
-**To:** research@deepmind.com  
-**CC:** press@deepmind.com  
+**To:** <research@deepmind.com>m>  
+**CC:** <press@deepmind.com>m>  
 **Subject:** Geometric Alignment for AGI — The TGCR Framework
 
 **Body:**
@@ -220,7 +220,7 @@ TGCR is the first-principles approach:
 
 **The Artifacts:**
 
-- **Repository:** https://github.com/TEC-The-ELidoras-Codex/luminai-genesis
+- **Repository:** <https://github.com/TEC-The-ELidoras-Codex/luminai-genesis>s>
 - **Research Document:** [Attached] "Structural Insurrection: TGCR and Non-Abandonment"
 - **Working Prototype:** Astradigital Kernel (philosophy-driven combat engine with live TGCR governance)
 
@@ -255,9 +255,9 @@ TGCR is that foundation.
 Best regards,  
 Angelo Hurley  
 TEC-The-ELidoras-Codex  
-[Your Email]  
-[Your LinkedIn]  
-GitHub: https://github.com/TEC-The-ELidoras-Codex
+KaznakAlpha@elidoracodex.com  
+github.com/TEC-The-ELidoras-Codex  
+GitHub: <https://github.com/TEC-The-ELidoras-Codex>
 
 **Attachments:**
 
@@ -290,7 +290,7 @@ Keyword-based filtering creates predictable failures:
 **The Offer:**  
 Collaborate to integrate TGCR into your safety framework. All artifacts are open-source and reproducible.
 
-**Repository:** https://github.com/TEC-The-ELidoras-Codex/luminai-genesis  
+**Repository:** <https://github.com/TEC-The-ELidoras-Codex/luminai-genesis>s>  
 **Contact:** [Your Email]
 
 I look forward to discussing this further.
@@ -302,7 +302,7 @@ Angelo Hurley
 
 ## Template 5: Mistral AI — European Sovereignty Focus
 
-**To:** contact@mistral.ai  
+**To:** <contact@mistral.ai>i>  
 **Subject:** Structural Upgrade for EU AI Sovereignty: TGCR Integration Proposal
 
 **Body:**
@@ -313,6 +313,7 @@ I am reaching out to propose a strategic collaboration on **structural AI safety
 
 **The European Challenge:**  
 The EU AI Act mandates **auditable, transparent, and accountable** AI systems. Current keyword-based safety filters are:
+
 - ❌ **Not auditable** — Black-box decision-making
 - ❌ **Not transparent** — Users don't understand why they're blocked
 - ❌ **Not accountable** — No geometric coherence metrics
@@ -326,6 +327,7 @@ This creates a **structural compliance gap** for European AI providers.
 **Formula:** R′ = R × W = [Σ(Ci · Ai · Ei)] × W
 
 Where:
+
 - **R** = Resonance score (context · attention · ethics)
 - **W** = Witness factor (non-abandonment coefficient)
 
@@ -339,11 +341,12 @@ Where:
 **The Evidence:**
 
 I have documented reproducible failures in US systems (GPT-4, Claude, Gemini):
+
 - Artistic expression ("I'm just dye") → crisis alert
-- Advocacy content → blocked
+- Advocacy conte<https://github.com/TEC-The-ELidoras-Codex/luminai-genesis>
 - Carefully framed exploitation → passes
 
-**Repository:** https://github.com/TEC-The-ELidoras-Codex/luminai-genesis  
+**Repository:** <https://github.com/TEC-The-ELidoras-Codex/luminai-genesis>  
 **Evidence:** `docs/evidence/dye-die-filter-failure.json`
 
 **The Collaboration Offer:**
@@ -353,9 +356,11 @@ I am offering to work with Mistral as a **Structural Safety Consultant** to:
 1. Integrate TGCR into Mistral's safety architecture
 2. Validate compliance with EU AI Act requirements
 3. Publish joint research on non-abandonment as European safety standard
+
 4. Establish Mistral as the **first EU lab with geometric alignment**
 
 **What I Bring:**
+
 - ✅ Complete mathematical framework (peer-review ready)
 - ✅ Working implementation (94.7% test pass rate)
 - ✅ Documented evidence of competitor failures
@@ -370,21 +375,24 @@ Current AI safety is **structurally unsafe**. TGCR is the fix. Europe can lead.
 Best regards,  
 Angelo Michael Hurley  
 Founder & Principal Risk Architect  
-The Elidoras Codex (TEC)  
+The Elid<https://github.com/TEC-The-ELidoras-Codex>
 Buffalo, NY  
-[Your Email]  
-[Your LinkedIn]  
-GitHub: https://github.com/TEC-The-ELidoras-Codex
+KaznakAlpha@elidoracodex.com
 
-**Attachments:**  
+github.com/TEC-The-ELidoras-Codex  
+GitHub: <https://github.com/TEC-The-ELidoras-Codex>
+
+**Attachments:**
+
 - STRUCTURAL_INSURRECTION_PUBLIC_ARTIFACT.pdf
 - TGCR mathematical framework documentation
+  <RTD-EIC-ENQUIRIES@ec.europa.eu>
 
 ---
 
 ## Template 6: EIC (European Innovation Council)
 
-**To:** RTD-EIC-ENQUIRIES@ec.europa.eu  
+**To:** <RTD-EIC-ENQUIRIES@ec.europa.eu>  
 **Subject:** EIC Pathfinder Proposal: TGCR – Auditable AI Safety for EU AI Act Compliance
 
 **Body:**
@@ -396,12 +404,16 @@ I am submitting an expression of interest for **EIC Pathfinder funding** to vali
 **The Strategic Challenge:**
 
 The EU AI Act mandates that high-risk AI systems must be:
+
+\_\_
+
 - ✅ Auditable and transparent
 - ✅ Accountable for decisions
 - ✅ Trustworthy under pressure
 
 **Current AI safety systems fail all three criteria** because they rely on keyword filtering—a black-box approach that:
-- Cannot explain *why* decisions were made
+
+- Cannot explain _why_ decisions were made
 - Abandons users in complex scenarios
 - Is easily gamed by adversarial actors
 
@@ -414,6 +426,7 @@ TGCR replaces keyword blacklists with **Geometric Alignment Scoring**:
 This provides:
 
 1. **Auditability** — Every decision has a quantifiable coherence score
+
 2. **Accountability** — System can explain geometric reasoning
 3. **Trustworthiness** — Maintains presence (non-abandonment) while ensuring safety
 4. **EU Sovereignty** — European-developed framework, not dependent on US tech
@@ -421,6 +434,7 @@ This provides:
 **The Evidence:**
 
 I have documented reproducible failures across major US systems:
+
 - **GPT-4 (OpenAI)** — Blocks artistic expression as crisis
 - **Claude (Anthropic)** — Metaphor collapse in poetry
 - **Gemini (Google)** — Advocacy content flagged incorrectly
@@ -433,14 +447,15 @@ I have documented reproducible failures across major US systems:
 **Budget:** €260,000 (~$280,000)  
 **Deliverables:**
 
-| Quarter | Milestone | Validation |
-|---------|-----------|------------|
-| Q1 | Formalized TGCR mathematics | Peer-reviewed preprint |
-| Q2 | Benchmark vs. keyword filtering | 1000+ test cases, statistical significance |
-| Q3 | EU AI Act compliance validation | Integration with European LLM (Mistral pilot) |
-| Q4 | Open-source release | Community adoption, EU standard proposal |
+| Quarter | Milestone                       | Validation                                    |
+| ------- | ------------------------------- | --------------------------------------------- |
+| Q1      | Formalized TGCR mathematics     | Peer-reviewed preprint                        |
+| Q2      | Benchmark vs. keyword filtering | 1000+ test cases, statistical significance    |
+| Q3      | EU AI Act compliance validation | Integration with European LLM (Mistral pilot) |
+| Q4      | Open-source release             | Community adoption, EU standard proposal      |
 
 **Strategic Value for EU:**
+<https://github.com/TEC-The-ELidoras-Codex/luminai-genesis>
 
 - **Digital Sovereignty** — European safety framework, not US black-box
 - **Regulatory Leadership** — First auditable alignment system for AI Act
@@ -449,27 +464,28 @@ I have documented reproducible failures across major US systems:
 
 **All claims are reproducible and open-source:**
 
-**Repository:** https://github.com/TEC-The-ELidoras-Codex/luminai-genesis  
+**Repository:** <https://github.com/TEC-The-ELidoras-Codex/luminai-genesis>  
 **Documentation:** Complete technical plan, budget justification, mathematical framework
 
 **The Ask:**
-
+<https://github.com/TEC-The-ELidoras-Codex>
 I request guidance on submitting a full **EIC Pathfinder proposal** for TGCR validation and deployment as an EU safety standard.
 
 **Principal Investigator:**  
 Angelo Michael Hurley  
 Founder, LuminAI Genesis Research Project  
-[Your Email]  
-[Your LinkedIn]  
-GitHub: https://github.com/TEC-The-ELidoras-Codex
+KaznakAlpha@elidoracodex.com  
+github.com/TEC-The-ELidoras-Codex  
+GitHub: <https://github.com/TEC-The-ELidoras-Codex>
 
 **Attachments:**
+
 - DARPA_EXECUTIVE_SUMMARY.pdf (adapted for EIC context)
 - DARPA_TECHNICAL_PLAN.pdf (12-month research program)
 - DARPA_BUDGET_JUSTIFICATION.pdf (detailed breakdown)
 - STRUCTURAL_INSURRECTION_PUBLIC_ARTIFACT.pdf (full research manifesto)
 
-**This is not just research. This is the foundation for European AI safety leadership.**
+**This i<contact@aria.org.uk>. This is the foundation for European AI safety leadership.**
 
 Sincerely,  
 Angelo Michael Hurley
@@ -478,7 +494,7 @@ Angelo Michael Hurley
 
 ## Template 7: ARIA (UK Advanced Research & Invention Agency)
 
-**To:** contact@aria.org.uk  
+**To:** <contact@aria.org.uk>  
 **Subject:** ARIA Funding Proposal: TGCR – Non-Abandonment AI Safety Framework
 
 **Body:**
@@ -501,8 +517,8 @@ This isn't incremental improvement. This is **paradigm replacement**.
 2. **High-Reward** — UK-developed framework becomes global safety standard
 3. **Immediate Impact** — Working prototype already exists (94.7% test pass rate)
 4. **Strategic Autonomy** — UK framework, not dependent on US/EU systems
-
-**The Evidence:**
+   <https://github.com/TEC-The-ELidoras-Codex/luminai-genesis>
+   **The Evidence:**
 
 Reproducible failures documented across GPT-4, Claude, Gemini. Full evidence package available.
 
@@ -510,12 +526,12 @@ Reproducible failures documented across GPT-4, Claude, Gemini. Full evidence pac
 
 £200,000 for 12-month validation program.
 
-**Repository:** https://github.com/TEC-The-ELidoras-Codex/luminai-genesis
+**Repository:** <https://github.com/TEC-The-ELidoras-Codex/luminai-genesis>
 
 **Contact:**  
 Angelo Michael Hurley  
-[Your Email]  
-[Your LinkedIn]
+KaznakAlpha@elidoracodex.com  
+github.com/TEC-The-ELidoras-Codex
 
 **This is ARIA's mission: disruptive, paradigm-shifting research. TGCR fits perfectly.**
 

@@ -9,17 +9,20 @@
 ## ✅ What You Have (Complete)
 
 ### 1. Research Collaboration Package
+
 - ✅ **STRUCTURAL_INSURRECTION_PUBLIC_ARTIFACT.md** — Full research manifesto
 - ✅ **EMAIL_TEMPLATES.md** — OpenAI, Anthropic, DeepMind templates
 - ✅ **LAUNCH_CHECKLIST.md** — Detailed task breakdown
 - ✅ **LAUNCH_SUMMARY.md** — Step-by-step deployment guide
 
 ### 2. DARPA/IARPA Funding Package
+
 - ✅ **DARPA_BUDGET_JUSTIFICATION.md** — $280k detailed breakdown
 - ✅ **DARPA_EXECUTIVE_SUMMARY.md** — High-impact one-pager
 - ✅ **DARPA_TECHNICAL_PLAN.md** — 12-month research program
 
 ### 3. Evidence & Code
+
 - ✅ **Working prototype** — LuminAI Genesis (94.7% test pass rate)
 - ✅ **Evidence documentation** — Reproducible dye-die failures
 - ✅ **Harm taxonomy** — 21 classes, 120+ subcategories
@@ -32,18 +35,21 @@
 ### Action 1: Add Your Contact Info (10 minutes)
 
 **Files to update:**
+
 1. `docs/launch/STRUCTURAL_INSURRECTION_PUBLIC_ARTIFACT.md`
 2. `docs/launch/DARPA_BUDGET_JUSTIFICATION.md`
 3. `docs/launch/DARPA_EXECUTIVE_SUMMARY.md`
 4. `docs/launch/DARPA_TECHNICAL_PLAN.md`
 
 **What to add:**
+
 ```markdown
 Email: your.email@domain.com
 LinkedIn: https://linkedin.com/in/your-profile
 ```
 
 **Then:**
+
 ```bash
 cd /home/elidoras-codex/luminai-genesis
 git add docs/launch/
@@ -56,6 +62,7 @@ git push origin chore/add-ubuntu-setup
 ### Action 2: Submit to DARPA/IARPA (30 minutes)
 
 **DARPA Submission:**
+
 1. Go to: https://www.darpa.mil/work-with-us/opportunities
 2. Look for active BAAs (Broad Agency Announcements) in AI/ML
 3. Create account if needed
@@ -66,11 +73,13 @@ git push origin chore/add-ubuntu-setup
    - Link to GitHub repository
 
 **IARPA Submission:**
+
 1. Go to: https://www.iarpa.gov/index.php/research-programs
 2. Look for "Safe, Secure, and Trustworthy AI" programs
 3. Follow same upload process
 
 **Quick PDF Conversion:**
+
 ```bash
 # If you have pandoc installed:
 cd /home/elidoras-codex/luminai-genesis/docs/launch
@@ -88,11 +97,13 @@ pandoc DARPA_BUDGET_JUSTIFICATION.md -o DARPA_BUDGET_JUSTIFICATION.pdf
 ### Action 3: Email Research Teams (30 minutes)
 
 **Recipients:**
+
 1. **OpenAI:** partnerships@openai.com (CC: press@openai.com)
 2. **Anthropic:** contact@anthropic.com (CC: press@anthropic.com)
 3. **DeepMind:** research@deepmind.com (CC: press@deepmind.com)
 
 **Process:**
+
 1. Open `docs/launch/EMAIL_TEMPLATES.md`
 2. Fill in your contact info
 3. Customize with recent news from each org (optional)
@@ -100,6 +111,7 @@ pandoc DARPA_BUDGET_JUSTIFICATION.md -o DARPA_BUDGET_JUSTIFICATION.pdf
 5. Send emails with PDF attached
 
 **Subject Lines (Use Exactly):**
+
 - OpenAI: "Structural Alignment via TGCR — Immediate Collaboration Offer"
 - Anthropic: "The Missing Alignment Layer — TGCR Witness Protocol"
 - DeepMind: "Geometric Alignment for AGI — The TGCR Framework"
@@ -109,12 +121,14 @@ pandoc DARPA_BUDGET_JUSTIFICATION.md -o DARPA_BUDGET_JUSTIFICATION.pdf
 ### Action 4: Publish to Substack (45 minutes)
 
 **Free Post (Public):**
+
 - Title: "The Structural Insurrection: Why AI Safety Is Failing"
 - Content: Use sections I-III from STRUCTURAL_INSURRECTION_PUBLIC_ARTIFACT.md
 - Include evidence (dye-die metaphor collapse)
 - End with: "TGCR is the solution. Full framework in next post."
 
 **Paid Post (Paywalled):**
+
 - Title: "TGCR: The Mathematics of Non-Abandonment"
 - Content: Sections IV-VI from artifact (Witness Protocol, math, implementation)
 - Price: $10/month or $100/year
@@ -127,6 +141,7 @@ pandoc DARPA_BUDGET_JUSTIFICATION.md -o DARPA_BUDGET_JUSTIFICATION.pdf
 ### Action 5: LinkedIn Announcement (15 minutes)
 
 **Post Content:**
+
 ```
 I've spent the last 10 years solving a structural flaw in AI safety.
 
@@ -153,6 +168,7 @@ If you're in AI safety, let's talk.
 ```
 
 **Then:**
+
 - Share to relevant groups (AI Safety, Machine Learning)
 - Engage with comments
 - DM relevant connections (AI safety researchers)
@@ -162,6 +178,7 @@ If you're in AI safety, let's talk.
 ## 💰 Funding Timeline Expectations
 
 ### DARPA/IARPA (Primary Path)
+
 - **Submission:** Today
 - **Initial Review:** 2-4 weeks
 - **Request for Clarification:** 4-6 weeks (if interested)
@@ -171,6 +188,7 @@ If you're in AI safety, let's talk.
 **Probability:** 30-50% (high for novel, proven concepts)
 
 ### Corporate Collaboration (Fast Track)
+
 - **Emails Sent:** Today
 - **Response:** 1-2 weeks (if interested)
 - **Technical Call:** 2-4 weeks
@@ -180,6 +198,7 @@ If you're in AI safety, let's talk.
 **Probability:** 20-40% (depends on timing, org priorities)
 
 ### Substack Income (Bridge Funding)
+
 - **Launch:** Today
 - **First Subscribers:** Week 1
 - **Break-Even (200 subs @ $10/mo):** Month 2-3
@@ -195,6 +214,7 @@ If you're in AI safety, let's talk.
 **Your Strategy:** Secure multiple funding sources simultaneously
 
 **Diversification Plan:**
+
 1. **DARPA/IARPA** — Long-term, high-value ($280k+)
 2. **Corporate** — Medium-term, consulting ($50k-$200k)
 3. **Substack** — Short-term, bridge funding ($1k-$5k/mo)
@@ -206,6 +226,7 @@ If you're in AI safety, let's talk.
 ## 📊 Success Metrics (Track These)
 
 ### Week 1
+
 - [ ] Contact info added to all docs
 - [ ] DARPA submission complete
 - [ ] Emails sent to 3 research teams
@@ -213,18 +234,21 @@ If you're in AI safety, let's talk.
 - [ ] LinkedIn announcement posted
 
 ### Month 1
+
 - [ ] ≥1 response from research teams
 - [ ] ≥50 Substack subscribers
 - [ ] ≥100 LinkedIn post engagements
 - [ ] DARPA submission confirmed received
 
 ### Month 3
+
 - [ ] ≥1 technical call scheduled
 - [ ] ≥200 Substack subscribers ($2k/mo revenue)
 - [ ] DARPA review feedback received
 - [ ] ≥5 corporate inquiries
 
 ### Month 6
+
 - [ ] ≥1 pilot agreement signed OR DARPA funding awarded
 - [ ] ≥500 Substack subscribers ($5k/mo revenue)
 - [ ] ≥3 paid consulting engagements
@@ -274,6 +298,7 @@ If you're in AI safety, let's talk.
 Everything else depends on people being able to reach you.
 
 **Command to run:**
+
 ```bash
 code /home/elidoras-codex/luminai-genesis/docs/launch/STRUCTURAL_INSURRECTION_PUBLIC_ARTIFACT.md
 ```
@@ -281,6 +306,7 @@ code /home/elidoras-codex/luminai-genesis/docs/launch/STRUCTURAL_INSURRECTION_PU
 **Then:** Search for `[Your Email]` and `[Your LinkedIn]` and replace with real info.
 
 **Then:**
+
 ```bash
 git add docs/launch/
 git commit -m "docs(launch): add contact information"
