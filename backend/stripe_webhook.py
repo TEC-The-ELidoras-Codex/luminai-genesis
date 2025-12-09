@@ -42,8 +42,8 @@ def send_confirmation_email(email: str, session: dict):
     Supports SMTP and SendGrid (via env vars in .env.local).
     """
     import smtplib
-    from email.mime.text import MIMEText
     from email.mime.multipart import MIMEMultipart
+    from email.mime.text import MIMEText
 
     email_backend = os.getenv("EMAIL_BACKEND", "smtp").lower()
     email_from = os.getenv("EMAIL_FROM", "noreply@luminai-genesis.local")

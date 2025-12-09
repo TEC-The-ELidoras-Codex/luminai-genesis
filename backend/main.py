@@ -5,6 +5,7 @@ from backend.routers import (
     axioms,
     chat,
     codex,
+    codex_narrative,
     frequencies,
     ingest,
     personas,
@@ -35,6 +36,7 @@ app.include_router(axioms.router)
 
 # Codex & game mechanics
 app.include_router(codex.router)
+app.include_router(codex_narrative.router)
 
 # Stripe webhook (local testing + integration)
 app.include_router(stripe_webhook.router)
