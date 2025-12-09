@@ -183,6 +183,7 @@ One solo researcher with limited resources built:
 Tesla's Gigafactory Buffalo (2014-2020) promised $5B and 6,500 jobs. It delivered $1.3B (26%) and 900 jobs (14%). Buffalo learned hard lessons about Silicon Valley overpromises.
 
 **TGCR is different:**
+
 - ✅ **Working prototype exists** (1,274 lines Python, 94.7% tests, 90+ commits)
 - ✅ **Local execution first** (Buffalo infrastructure, talent, partnerships ready)
 - ✅ **Measurable accountability** (quarterly milestones, public GitHub commits, transparent hiring)
