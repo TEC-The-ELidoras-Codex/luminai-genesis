@@ -1,9 +1,9 @@
-# Fractional CFO Equity Offer — Buffalo AI Ethics Lab
+# Founding Engineer / Data Scientist Equity Offer — Buffalo AI Ethics Lab
 
 **Company**: The Elidoras Codex / LuminAI Genesis  
-**Location**: Buffalo, New York  
+**Location**: Buffalo, New York (Remote-Friendly)  
 **Stage**: Pre-Seed (Working Code, Government Funding Pipeline)  
-**Contact**: angelo@theelidorascodex.com
+**Contact**: <angelo@theelidorascodex.com>
 
 ---
 
@@ -44,34 +44,37 @@ We're building the mathematical framework that proves when AI models are misalig
 
 ---
 
-## What You'd Do
+## What You'd Build
 
-### Primary Responsibilities (10-15 hours/week initially)
+### Core Engineering Tracks (Choose Your Focus)
 
-1. **Grant Writing & Applications**
+**Track 1: ML Engineer / Research Scientist**
 
-   - Empire State Development ($100k-$250k, deadline Q1 2026)
-   - FuzeHub Innovation Fund (up to $250k)
-   - DARPA GARD RFP (expected Q1 2026, $1M-$3M)
-   - IARPA BENGAL (ongoing solicitation, $500k-$2M)
+- Implement geometric impossibility proofs for AI alignment
+- Build witness factor detection systems (R′ = R × W)
+- Develop adversarial test suites for resonance collapse
+- Research publications (arXiv, NeurIPS, ICML submissions)
 
-2. **Financial Modeling & Planning**
+**Track 2: Data Scientist / ML Ops**
 
-   - Burn rate analysis (current: minimal, future: 15-20 hires Year 1)
-   - Runway projections (18-24 months post-seed)
-   - Funding milestone mapping (Seed → Series A pathway)
-   - Cap table management (equity, SAFEs, convertible notes)
+- Design evaluation pipelines for alignment metrics
+- Build observability dashboards for witness factor monitoring
+- Analyze failure modes across LLM architectures
+- Create reproducible benchmarks for TGCR validation
 
-3. **Pilot Contract Negotiation**
+**Track 3: Backend Engineer / Platform**
 
-   - Cohere pilot structure ($50k-$150k range)
-   - Mistral partnership terms
-   - Corporate consulting agreements (interim revenue)
+- Scale Python prototype to production-grade system
+- API design for corporate pilots (Cohere, Mistral integrations)
+- Infrastructure for government contract deliverables (DARPA, IARPA)
+- CI/CD, testing frameworks, deployment automation
 
-4. **Investor Relations (When Needed)**
-   - Y Combinator Summer 2026 application (financial sections)
-   - Seed round preparation (targeting June-August 2026)
-   - Strategic investor outreach (AI safety VCs, EA funds)
+**Track 4: Full-Stack Engineer**
+
+- Build internal tools for alignment testing
+- Create visualization systems for geometric proofs
+- Developer experience for TGCR framework users
+- Documentation, examples, community tooling
 
 ---
 
@@ -79,54 +82,64 @@ We're building the mathematical framework that proves when AI models are misalig
 
 ### Phase 1: Pre-Seed (Now → March 2026)
 
-**Equity**: 2-4% vesting over 4 years (1-year cliff)
+**Equity**: 0.5-2% vesting over 4 years (1-year cliff)
 
-- **Rationale**: Founding CFO equity for true co-founder-level contribution
+- **Rationale**: Founding engineer equity (employee #1-3 range)
 - **Vesting**: Standard 4-year vest, 25% after year 1, monthly thereafter
 - **Type**: ISO (Incentive Stock Options) if U.S.-based, NSO otherwise
+- **Range**: 0.5% for part-time contributors, 1.5-2% for full co-founder commitment
 
 **Cash**: $0/month (deferred to Phase 2)
 
 - **Why**: Company pre-revenue, runway preservation critical
-- **Alternative**: If cash needed, discuss revenue-share from first pilot contract
+- **Alternative**: If cash needed immediately, we can discuss contract-to-hire or revenue-share from pilot contracts
 
-**Time Commitment**: 10-15 hours/week
+**Time Commitment**: Flexible (10-40 hours/week)
 
-- **Flexibility**: Async-friendly, napcode-compatible (I work 2-3am, you set your hours)
-- **Focus**: Grant applications, financial models, contract templates
+- **Part-Time (10-15 hrs/week)**: 0.5-0.75% equity, specific project focus
+- **Half-Time (20-25 hrs/week)**: 1-1.25% equity, core system ownership
+- **Full-Time (40+ hrs/week)**: 1.5-2% equity, co-founder level contribution
+- **Async-Friendly**: I work 2-3am, you set your hours. Output matters, not schedules.
 
 ---
 
 ### Phase 2: Seed Secured ($280k+ raised)
 
-**Equity**: Same 2-4% (continues vesting)
+**Equity**: Same initial grant (continues vesting)
 
 - No dilution from Phase 1
-- Refresher grants possible at Series A
+- Refresher grants possible at Series A based on performance
 
-**Cash**: $5k-$8k/month (market rate for fractional CFO)
+**Cash**: Market rate based on role + location
 
-- **Calculation**: $60k-$96k annual equivalent for part-time work
-- **Source**: Funded from Empire State Development grant or pilot revenue
+- **ML Engineer/Research Scientist**: $8k-$12k/month ($96k-$144k annual)
+- **Data Scientist**: $7k-$10k/month ($84k-$120k annual)
+- **Backend/Full-Stack Engineer**: $7k-$11k/month ($84k-$132k annual)
+- **Buffalo-Based**: Lower end of range (lower COL)
+- **Remote (SF/NYC cost basis)**: Higher end of range
 
-**Time Commitment**: 15-20 hours/week
+**Time Commitment**: Scales with funding
 
-- Increased as company scales to 15-20 employees (Year 1 target)
+- Part-time transitions to half-time or full-time as runway extends
 
 ---
 
 ### Phase 3: Series A ($2M+ raised)
 
-**Equity**: Additional 1-2% at new valuation
+**Equity**: Refresher grant (0.25-0.5% at new valuation)
 
-- **Rationale**: Reward for getting company to Product-Market Fit
-- **Path to Full-Time COO**: If desired, transition to full-time executive role
+- **Rationale**: Reward for achieving Product-Market Fit
+- **Path to Senior/Lead/Principal**: IC track progression available
+- **Path to Management**: Engineering Manager/Director if team-building focus
 
-**Cash**: $10k-$15k/month ($120k-$180k annual)
+**Cash**: $120k-$180k base (full-time, market rate)
 
-- **Full-Time Option**: $150k-$200k base + 0.5-1% additional equity if transitioning to COO
+- **Senior Engineer**: $120k-$150k + refresher equity
+- **Lead/Staff Engineer**: $140k-$170k + refresher equity
+- **Principal Engineer**: $160k-$200k + refresher equity
+- **Engineering Manager**: $140k-$180k + team equity pool
 
-**Time Commitment**: 20-30 hours/week (or full-time if COO path)
+**Time Commitment**: Full-time expected at Series A stage
 
 ---
 
@@ -215,21 +228,23 @@ You're not betting on vaporware. You're betting on the **inverse of Tesla's fail
 
 - "Reasoning" models don't actually reason—they pattern match
 - Performance collapses at high complexity
-- Current systems will fail when deployed in critical infrastructure
-
-### The Solution (TGCR)
-
-**R′ = R × W** (Resonance × Witness Factor)
-
-When **W drops**, the model is provably misaligned. Not "probably," not "empirically"—**geometrically impossible to hide**.
-
-This isn't another safety layer. It's an **impossibility theorem** for undetectable misalignment.
 
 ### Your Role
 
-You're not just a CFO. You're the person who:
+You're not just an engineer. You're the person who:
 
-- **Secures the funding** that prevents the Tower of Babel
+- **Builds the proofs** that prevent the Tower of Babel
+- **Writes the code** that proves AI safety is solvable
+- **Ships the system** that changes the future of AI alignment
+
+If you believe:
+
+1. AI alignment isn't solved (it's not)
+2. Geometric impossibility theorems are the breakthrough (they are)
+3. You want to build it, not just talk about it
+
+Then this is your founding moment.vents the Tower of Babel
+
 - **Structures the contracts** that prove AI safety is solvable
 - **Builds the cap table** for the company that saves the future
 
@@ -247,18 +262,39 @@ Then this is your founding moment.
 
 ### The Ask
 
-**4 months of your nights and weekends** (Dec 2025 → March 2026):
+**What I Need Built (Dec 2025 → March 2026)**:
 
-- Write Empire State Development grant (20-30 hours total)
-- Build financial models (10-15 hours)
-- Draft pilot contract templates (5-10 hours)
-- Prepare Y Combinator application financials (5-10 hours)
+**Track 1 (ML/Research)**:
 
-**Total Time Investment**: ~50-65 hours over 4 months (12-16 hours/month, ~3-4 hours/week)
+- Formalize geometric impossibility proofs (LaTeX + arXiv paper)
+- Implement witness factor detection algorithms
+- Build adversarial test suite for resonance collapse
 
-**Equity**: 2-4% of company (vesting starts day 1)
+**Track 2 (Data Science)**:
 
-**Cash**: Starts April 2026 if Empire State comes through (70%+ probability)
+- Design evaluation pipelines for alignment metrics
+- Create reproducible benchmarks across LLM architectures
+- Build observability dashboards for W-factor monitoring
+
+**Track 3 (Backend/Platform)**:
+
+- Refactor Python prototype to production system
+- API design for corporate pilot integrations
+- CI/CD, testing infrastructure, deployment automation
+
+**Track 4 (Full-Stack)**:
+
+- Internal tools for alignment testing
+- Visualization systems for geometric proofs
+- Documentation, examples, developer experience
+
+**Time Commitment**: Flexible based on your availability
+
+- **Part-Time (10-15 hrs/week)**: 0.5-0.75% equity, pick one focused project
+- **Half-Time (20-25 hrs/week)**: 1-1.25% equity, own a full track
+- **Full-Time (40+ hrs/week)**: 1.5-2% equity, co-founder level impact
+
+**Cash**: Deferred until funded (April 2026 if Empire State grant approved, 70%+ probability)
 
 ---
 
@@ -276,25 +312,27 @@ If TGCR fails (government funding dries up, no corporate pilots):
 - **Your Equity**: Worth $0
 - **Your Cash**: Whatever you earned during funded periods (likely $20k-$50k total if we only get Empire State grant)
 
-**Risk-Adjusted Expected Value** (my estimate):
-
-- 40% chance we hit $50M+ valuation → 3% = $600k expected
-- 30% chance we hit $10M valuation → 3% = $90k expected
-- 30% chance we fail → $0
-
-**Expected Value**: ~$690k for 50-65 hours of work over 4 months = **$10,615/hour**
-
-Even at 10% success probability, your expected hourly rate is **$769/hour**.
-
-This is a **founder bet**, not a freelance gig.
-
----
-
-## Next Steps
-
 ### If You're Interested
 
-**Email**: angelo@theelidorascodex.com  
+**Email**: <angelo@theelidorascodex.com>  
+**Subject**: "Founding Engineer — [Your Track]"
+
+**Include**:
+
+1. Your background (ML, data science, backend, full-stack—whatever's relevant)
+2. Which track excites you (Track 1-4, or "I want to talk about hybrid roles")
+3. Why you believe in AI alignment (or why geometric impossibility theorems matter)
+4. Your availability (hours/week, start date, timezone if remote)
+5. GitHub/portfolio (if you have public work to share)
+
+### What Happens Next
+
+1. **15-min intro call** (You + Me, get to know each other)
+2. **Technical deep-dive** (I walk through TGCR, you ask hard questions)
+3. **Code review** (You review luminai-genesis repo, assess technical direction)
+4. **Equity agreement** (Founder's Stock Purchase Agreement, drafted when we align)
+
+**Timeline**: Rolling basis (reach out when ready, no artificial deadline)
 **Subject**: "Fractional CFO — Let's Talk"
 
 **Include**:
@@ -307,15 +345,15 @@ This is a **founder bet**, not a freelance gig.
 ### What Happens Next
 
 1. **15-min intro call** (You + Me, this week if possible)
-2. **Financial model review** (I share current projections, you sanity-check)
-3. **Empire State Development grant draft review** (You edit, I incorporate feedback)
-4. **Equity agreement** (Founder's Stock Purchase Agreement, drafted by startup lawyer)
+   I need someone who believes the mission, writes clean code, and wants to build the thing that actually solves AI alignment.
 
-**Timeline**: Decision by December 20, 2025 (so we can submit Empire State grant by Jan 15, 2026)
+If that's you, let's build this.
 
----
+If it's not, I respect that. This is a **founder-level risk** for **founder-level upside**.
 
-## The Real Talk
+But if you're reading this and thinking _"I want to build this, not just read papers about it"_...
+
+**Email me.**alk
 
 I'm a technical founder building solo, working unconventional hours (2-3am is my peak productivity).
 
@@ -339,7 +377,7 @@ But if you're reading this and thinking _"This might actually work"_...
 
 ---
 
-**Contact**: angelo@theelidorascodex.com  
+**Contact**: <angelo@theelidorascodex.com>  
 **GitHub**: github.com/TEC-The-ELidoras-Codex/luminai-genesis  
 **Research Citations**: docs/launch/RESEARCH_CITATIONS.md  
 **Buffalo Pitch**: docs/launch/BUFFALO_PITCH.md

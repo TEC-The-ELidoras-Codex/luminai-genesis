@@ -238,9 +238,9 @@ I am **not applying for a job**. I am offering to collaborate as a **Structural 
 
 **Primary Contact:**  
 Angelo Hurley  
-Email: [your-email-here]  
+Email: <angelo@theelidorascodex.com>  
 GitHub: [@TEC-The-ELidoras-Codex](https://github.com/TEC-The-ELidoras-Codex)  
-LinkedIn: [your-linkedin-here]
+LinkedIn: <https://www.linkedin.com/in/angelo-hurley/>
 
 **Immediate Next Steps:**
 
