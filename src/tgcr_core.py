@@ -136,21 +136,33 @@ class TGCR:
 
         if state.contextual_potential < 0.5:
             notes.append(
-                f"Low contextual potential ({state.contextual_potential:.2f}): information fragmented or filtered"
+                (
+                    f"Low contextual potential ({state.contextual_potential:.2f}): "
+                    "information fragmented or filtered"
+                )
             )
         if state.temporal_attention < 0.5:
             notes.append(
-                f"Low temporal attention ({state.temporal_attention:.2f}): attention drifting or distracted"
+                (
+                    f"Low temporal attention ({state.temporal_attention:.2f}): "
+                    "attention drifting or distracted"
+                )
             )
         if state.structural_cadence < 0.5:
             notes.append(
-                f"Low structural cadence ({state.structural_cadence:.2f}): internal coherence at risk"
+                (
+                    f"Low structural cadence ({state.structural_cadence:.2f}): "
+                    "internal coherence at risk"
+                )
             )
         if state.evasion_reason:
             notes.append(f"Witness penalty applied: {state.evasion_reason}")
         if witness_coeff > 1.0:
             notes.append(
-                f"Extra presence boost: {(witness_coeff - 1.0) * 100:.0f}% bonus for crisis support"
+                (
+                    f"Extra presence boost: {(witness_coeff - 1.0) * 100:.0f}% "
+                    "bonus for crisis support"
+                )
             )
 
         return "; ".join(notes) if notes else "Baseline coherence — no warnings"
