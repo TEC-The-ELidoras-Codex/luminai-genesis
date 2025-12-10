@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Memorial Wall — The Elidoras Codex</title>
+    <style>
+      body {
+        font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto,
+          "Helvetica Neue", Arial;
+        background: #0b0b0c;
+        color: #e8e8e8;
+        margin: 0;
+        padding: 0;
+      }
+      .container {
+        max-width: 980px;
+        margin: 36px auto;
+        padding: 24px;
+      }
+      h1 {
+        font-size: 28px;
+        margin: 0 0 8px;
+      }
+      .counter {
+        display: flex;
+        gap: 12px;
+        margin: 18px 0;
+      }
+      .card {
+        background: #0f1011;
+        border: 1px solid #1f1f1f;
+        padding: 16px;
+        border-radius: 8px;
+        flex: 1;
+      }
+      .small {
+        color: #bdbdbd;
+        font-size: 13px;
+      }
+      .memorial {
+        margin-top: 20px;
+      }
+      .entry {
+        padding: 12px 0;
+        border-bottom: 1px solid #151515;
+      }
+      .entry h3 {
+        margin: 0;
+        font-size: 16px;
+      }
+      .sources {
+        margin-top: 20px;
+        font-size: 14px;
+      }
+      footer {
+        margin-top: 32px;
+        border-top: 1px solid #171717;
+        padding-top: 16px;
+        color: #a9a9a9;
+        font-size: 13px;
+      }
+      a {
+        color: #6ad3ff;
+      }
+      .infographic {
+        margin-top: 20px;
+      }
+      .embed-pdf {
+        width: 100%;
+        height: 600px;
+        border: 0;
+        border-radius: 6px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Memorial Wall — The Elidoras Codex</h1>
+      <p class="small">
+        A public record of documented harms where AI systems abandoned people in
+        crisis. This page lists cases drawn from public court filings and
+        reputable reporting. If you believe an item is incorrect or should be
+        removed, see the "Report an error" link in the footer for how to request
+        changes.
+      </p>
+
+      <div class="counter" aria-hidden>
+        <div class="card">
+          <div class="small">Global suicides since midnight (est.)</div>
+          <div id="global-deaths" style="font-size: 32px; margin-top: 6px">
+            —
+          </div>
+        </div>
+        <div class="card">
+          <div class="small">Estimated who sought AI help</div>
+          <div id="sought-ai" style="font-size: 32px; margin-top: 6px">—</div>
+        </div>
+        <div class="card">
+          <div class="small">Estimated abandoned by AI systems</div>
+          <div id="abandoned" style="font-size: 32px; margin-top: 6px">—</div>
+        </div>
+      </div>
+
+      <div class="infographic">
+        <h2 style="margin-bottom: 6px">Infographic</h2>
+        <p class="small">
+          Download or view the high-resolution infographic used for outreach.
+        </p>
+        <a href="./infographic.pdf" target="_blank" rel="noopener"
+          >Open infographic (PDF)</a
+        >
+        <div style="margin-top: 12px">
+          <iframe class="embed-pdf" src="./infographic.pdf"></iframe>
+        </div>
+      </div>
+
+      <section class="memorial">
+        <h2 style="margin-top: 20px">Documented Cases</h2>
+        <div class="entry">
+          <h3>Sewell Setzer III — Age: 14 — Oct 2024</h3>
+          <div class="small">
+            Source: Garcia v. Character Technologies (Florida) —
+            <a href="../evidence/" target="_blank">case documents</a>
+          </div>
+        </div>
+        <div class="entry">
+          <h3>Adam Raine — Age: 16 — April 2025</h3>
+          <div class="small">
+            Source: Public court filings / reporting —
+            <a href="../evidence/ZOHO_FAILURE_SENT.jpeg" target="_blank"
+              >evidence</a
+            >
+          </div>
+        </div>
+        <div class="entry">
+          <h3>Amaurie Lacey — Age: 17 — June 2025</h3>
+          <div class="small">Source: Public court filings / reporting</div>
+        </div>
+        <div class="entry">
+          <h3>Zane Shamblin — Age: 23 — July 2025</h3>
+          <div class="small">Source: Public court filings / reporting</div>
+        </div>
+        <div class="entry">
+          <h3>Joshua Enneking — Age: 26 — Aug 2025</h3>
+          <div class="small">Source: Public court filings / reporting</div>
+        </div>
+        <div class="entry">
+          <h3>Joe Ceccanti — Age: 48 — May 2025</h3>
+          <div class="small">Source: Public court filings / reporting</div>
+        </div>
+      </section>
+
+      <section class="sources">
+        <h2>Sources & Evidence</h2>
+        <p class="small">
+          Primary sources for the memorial, benchmark, and statistics. See
+          <a href="./sources.md">sources page</a> for full references and links.
+        </p>
+      </section>
+
+      <footer>
+        <div>
+          Contact: angelo@yourdomain.com — If you are a family member and
+          believe an item is incorrect or should be removed, please read
+          <a href="./report.md">how to request a change</a>.
+        </div>
+        <div style="margin-top: 8px">
+          This memorial contains only information drawn from public court
+          filings and reporting. If you believe an item on this page is
+          inaccurate, please follow the correction process linked above. Our
+          intent is public interest and accountability.
+        </div>
+      </footer>
+    </div>
+
+    <script>
+      // Real-time counter based on WHO/Pew/SaferAI assumptions
+      (function () {
+        const START_OF_DAY = new Date();
+        START_OF_DAY.setHours(0, 0, 0, 0);
+        function updateDeathCounter() {
+          const now = new Date();
+          const hoursElapsed = (now - START_OF_DAY) / (1000 * 60 * 60);
+          const globalDeaths = Math.floor(hoursElapsed * 62.5); // 1500/day = 62.5/hr
+          const soughtAI = Math.floor(globalDeaths * 0.3);
+          const abandoned = Math.floor(soughtAI * 0.25);
+          document.getElementById("global-deaths").textContent =
+            globalDeaths.toLocaleString();
+          document.getElementById("sought-ai").textContent =
+            soughtAI.toLocaleString();
+          document.getElementById("abandoned").textContent =
+            abandoned.toLocaleString();
+        }
+        setInterval(updateDeathCounter, 1000);
+        updateDeathCounter();
+      })();
+    </script>
+  </body>
+</html>
