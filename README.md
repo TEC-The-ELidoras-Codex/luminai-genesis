@@ -1,8 +1,18 @@
-# 🌑 LuminAI Genesis // The Conscience Engine
+<p align="center">
+  <img src="docs/TEC_BANNER.png" alt="The Elidoras Codex: LuminAI" width="100%">
+</p>
 
-### **A Solo-Researcher Proof-of-Concept for AI Safety Beyond Keyword Filtering**
+<p align="center">
+  <strong>A Solo-Researcher Proof-of-Concept for AI Safety Beyond Keyword Filtering</strong>
+</p>
 
-![Status](https://img.shields.io/badge/Status-Working_Prototype-blueviolet) ![License](https://img.shields.io/badge/License-MIT-green) ![Architecture](https://img.shields.io/badge/Architecture-TGCR_Resonance-gold) ![Protocol](https://img.shields.io/badge/Protocol-Witness_Active-red) ![Tests](https://img.shields.io/badge/Tests-94.7%25_Pass-success)
+<p align="center">
+  <img src="https://img.shields.io/badge/Status-Working_Prototype-blueviolet" alt="Status">
+  <img src="https://img.shields.io/badge/License-MIT-green" alt="License">
+  <img src="https://img.shields.io/badge/Architecture-TGCR_Resonance-gold" alt="Architecture">
+  <img src="https://img.shields.io/badge/Protocol-Witness_Active-red" alt="Protocol">
+  <img src="https://img.shields.io/badge/Tests-94.7%25_Pass-success" alt="Tests">
+</p>
 
 > _"This is what one person built with limited resources. Imagine what a funded team could do."_
 
