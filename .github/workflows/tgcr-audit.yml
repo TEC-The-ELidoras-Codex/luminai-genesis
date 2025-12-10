@@ -174,6 +174,8 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt 2>/dev/null || echo "requirements.txt not found"
+          # Also install backend dependencies (contains FastAPI and test deps)
+          pip install -r backend/requirements.txt 2>/dev/null || echo "backend/requirements.txt not found"
           pip install pytest pytest-cov pylint black ruff
 
       - name: Check if Python files changed
@@ -186,19 +188,21 @@ jobs:
         if: steps.py-files.outputs.changed > 0
         continue-on-error: true
         run: |
-          pytest --cov=src --cov-report=term-missing --cov-report=xml -v 2>/dev/null || echo "Tests failed or pytest not configured"
+          # Run backend tests (FastAPI) and collect coverage for backend code
+          pytest --cov=backend --cov-report=term-missing --cov-report=xml -v 2>/dev/null || echo "Tests failed or pytest not configured"
 
       - name: Lint with Ruff
         if: steps.py-files.outputs.changed > 0
         continue-on-error: true
         run: |
-          ruff check src/ --select=E,W,F 2>/dev/null || echo "Ruff check completed"
+          # Lint both backend and src directories
+          ruff check backend/ src/ --select=E,W,F 2>/dev/null || echo "Ruff check completed"
 
       - name: Format check with Black
         if: steps.py-files.outputs.changed > 0
         continue-on-error: true
         run: |
-          black --check src/ 2>/dev/null || echo "Black format check completed"
+          black --check backend/ src/ 2>/dev/null || echo "Black format check completed"
 
   schema-validation:
     name: Validate Data Schemas
