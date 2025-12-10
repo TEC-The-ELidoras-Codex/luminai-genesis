@@ -1,9 +1,9 @@
 # Executive Summary: TGCR – Structural Coherence in AI Safety
 
-**Principal Investigator:** Angelo Michael Hurley  
-**Research Program:** Theory of General Contextual Resonance (TGCR)  
-**Duration:** 12 months (Year 1)  
-**Funding Request:** $280,000  
+**Principal Investigator:** Angelo Michael Hurley
+**Research Program:** Theory of General Contextual Resonance (TGCR)
+**Duration:** 12 months (Year 1)
+**Funding Request:** $280,000
 **Strategic Impact:** Replace keyword-based AI safety with geometric alignment
 
 ---
@@ -55,7 +55,7 @@ TGCR is headquartered in Buffalo, NY — a strategic choice based on:
 
 ### The Core Innovation
 
-Instead of asking _"Does this text contain dangerous words?"_  
+Instead of asking _"Does this text contain dangerous words?"_
 TGCR asks _"What is the geometric distance between user context, system attention, and ethical constraints?"_
 
 **Formula:**
@@ -146,10 +146,10 @@ Where:
 
 Like Nikola Tesla's AC power challenging Edison's DC monopoly, TGCR challenges the entrenched but inferior keyword-based safety paradigm.
 
-**Tesla's Problem:**  
+**Tesla's Problem:**
 Superior technology (AC power) but lacked funding and institutional support to scale.
 
-**TGCR's Advantage:**  
+**TGCR's Advantage:**
 Superior technology (geometric alignment) **PLUS** clear funding path through DARPA/IARPA.
 
 ### The Outcome
@@ -187,7 +187,7 @@ If funded, TGCR becomes the **standard framework** for AI safety across:
 | Partner Integration    | $40k | Real-world validation                        |
 | Open-Source Release    | $30k | Enables community adoption                   |
 
-**ROI Analysis:**  
+**ROI Analysis:**
 $280k investment could replace safety systems across platforms serving **billions of users**.
 
 ---
@@ -208,20 +208,20 @@ $280k investment could replace safety systems across platforms serving **billion
 
 ### Technical Risks
 
-**Risk:** Doesn't scale to 100B+ parameter models  
+**Risk:** Doesn't scale to 100B+ parameter models
 **Mitigation:** Algorithmic optimization + partner lab compute access
 
-**Risk:** Mathematical proofs incomplete  
+**Risk:** Mathematical proofs incomplete
 **Mitigation:** Dedicated research assistant (50% FTE)
 
 ### Adoption Risks
 
-**Risk:** Industry doesn't integrate  
+**Risk:** Industry doesn't integrate
 **Mitigation:** Open-source release ensures community can adopt independently
 
 ### Financial Risks
 
-**Risk:** Compute costs exceed estimates  
+**Risk:** Compute costs exceed estimates
 **Mitigation:** $5k contingency + cloud provider flexibility
 
 ---
@@ -265,8 +265,8 @@ If Year 1 succeeds:
 
 ## The Ask
 
-**Funding:** $280,000  
-**Timeline:** 12 months  
+**Funding:** $280,000
+**Timeline:** 12 months
 **Deliverable:** Production-ready TGCR framework with peer-reviewed validation
 
 **Expected Output:**
@@ -276,7 +276,7 @@ If Year 1 succeeds:
 - ✅ Real-world integration (partner lab pilot)
 - ✅ Open-source release (community adoption)
 
-**Strategic Value:**  
+**Strategic Value:**
 Replace keyword-based safety across all major AI systems with geometric alignment that actually works.
 
 ---
@@ -305,10 +305,10 @@ The evidence is undeniable.
 
 ## Contact & Supporting Materials
 
-**Principal Investigator:**  
-Angelo Michael Hurley  
-Email: KaznakAlpha@elidoracodex.com  
-GitHub: https://github.com/TEC-The-ELidoras-Codex  
+**Principal Investigator:**
+Angelo Michael Hurley
+Email: KaznakAlpha@elidoracodex.com
+GitHub: https://github.com/TEC-The-ELidoras-Codex
 LinkedIn: github.com/TEC-The-ELidoras-Codex
 
 **Repository:** https://github.com/TEC-The-ELidoras-Codex/luminai-genesis

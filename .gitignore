@@ -64,3 +64,6 @@ unsloth-venv/
 *.gguf
 *.pt
 *.pth
+scripts/archived/*
+notebooks/archived/*
+assets/archived/*

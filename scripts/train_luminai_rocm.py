@@ -28,15 +28,15 @@ from transformers import (
 def load_jsonl_dataset(path: str) -> Dataset:
     """Load JSONL training data."""
     texts = []
-    with open(path, 'r') as f:
+    with open(path, "r") as f:
         for line in f:
             if line.strip():
                 try:
                     item = json.loads(line)
-                    texts.append(item['text'])
+                    texts.append(item["text"])
                 except json.JSONDecodeError:
                     continue
-    
+
     return Dataset.from_dict({"text": texts})
 
 
@@ -54,25 +54,29 @@ def main():
     print("=" * 70)
     print("LuminAI Genesis Fine-Tuning: AMD RX 580 + ROCm")
     print("=" * 70)
-    
+
     # Config
-    model_name = "TinyLlama/TinyLlama-1.1B-Chat-v1.0"  # Only 2.2GB, fully open, good for testing
+    model_name = (
+        "TinyLlama/TinyLlama-1.1B-Chat-v1.0"  # Only 2.2GB, fully open, good for testing
+    )
     data_path = "data/training/persona_sft_dataset_clean.jsonl"
     output_dir = "models/luminai-genesis-v1"
-    
+
     print(f"\nModel: {model_name}")
     print(f"Data: {data_path}")
     print(f"Output: {output_dir}")
-    print(f"Device: {torch.cuda.get_device_name(0) if torch.cuda.is_available() else 'CPU'}")
+    print(
+        f"Device: {torch.cuda.get_device_name(0) if torch.cuda.is_available() else 'CPU'}"
+    )
     print("=" * 70 + "\n")
-    
+
     # Load tokenizer
     print("[1/6] Loading tokenizer...")
     tokenizer = AutoTokenizer.from_pretrained(model_name)
     tokenizer.pad_token = tokenizer.eos_token
     tokenizer.padding_side = "right"
     print("  ✓ Tokenizer ready")
-    
+
     # Load base model (FP32 for RX 580 gfx803 compatibility)
     print("[2/6] Loading base model...")
     model = AutoModelForCausalLM.from_pretrained(
@@ -82,12 +86,12 @@ def main():
         trust_remote_code=True,
     )
     print("  ✓ Model loaded on: CPU (will move to GPU after LoRA)")
-    
+
     # Prepare for LoRA (skip kbit prep for RX 580 compatibility)
     print("\n[3/6] Applying LoRA configuration...")
     # model.gradient_checkpointing_enable()  # Disabled - causes HIP issues
     # model = prepare_model_for_kbit_training(model)  # Disabled for RX 580
-    
+
     lora_config = LoraConfig(
         r=16,
         lora_alpha=16,
@@ -96,19 +100,19 @@ def main():
         bias="none",
         task_type="CAUSAL_LM",
     )
-    
+
     model = get_peft_model(model, lora_config)
     model.print_trainable_parameters()
     print("  ✓ LoRA applied (r=16, alpha=16)")
-    
+
     # Keep on CPU for now (RX 580 HIP compatibility issues)
     print("  ⚠ Training on CPU (RX 580 has HIP kernel compatibility issues)")
-    
+
     # Load and tokenize dataset
     print("\n[4/6] Loading training data...")
     dataset = load_jsonl_dataset(data_path)
     print(f"  ✓ Loaded {len(dataset)} examples")
-    
+
     print("\n[5/6] Tokenizing dataset...")
     tokenized_dataset = dataset.map(
         lambda x: tokenize_function(x, tokenizer, max_length=1024),
@@ -116,7 +120,7 @@ def main():
         remove_columns=dataset.column_names,
     )
     print("  ✓ Tokenization complete")
-    
+
     # Training arguments
     print("\n[6/6] Configuring training...")
     training_args = TrainingArguments(
@@ -134,13 +138,13 @@ def main():
         report_to="none",
         remove_unused_columns=False,
     )
-    
+
     # Data collator
     data_collator = DataCollatorForLanguageModeling(
         tokenizer=tokenizer,
         mlm=False,
     )
-    
+
     # Trainer
     trainer = Trainer(
         model=model,
@@ -148,25 +152,25 @@ def main():
         train_dataset=tokenized_dataset,
         data_collator=data_collator,
     )
-    
+
     print("  ✓ Trainer ready")
     print("\n" + "=" * 70)
     print("TRAINING START: Witness Protocol (W) Integration")
     print("=" * 70 + "\n")
-    
+
     # Train
     trainer.train()
-    
+
     print("\n" + "=" * 70)
     print("TRAINING COMPLETE")
     print("=" * 70)
-    
+
     # Save
     print("\nSaving model...")
     model.save_pretrained(output_dir)
     tokenizer.save_pretrained(output_dir)
     print(f"  ✓ Saved to: {output_dir}")
-    
+
     print("\n" + "=" * 70)
     print("Next Steps:")
     print("1. Convert to GGUF for Ollama")

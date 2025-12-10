@@ -28,7 +28,7 @@ for candidate in (
 def list_frequencies() -> dict[str, Any]:
     """
     Return all sixteen affective frequency eigenmodes.
-    
+
     Each frequency maps neurochemical axes to emotional archetypes,
     forming the basis for resonance computation and persona responses.
     """
@@ -42,8 +42,5 @@ def get_frequency(frequency_id: int) -> dict[str, Any]:
     for freq in frequencies:
         if freq.get("id") == frequency_id:
             return freq
-    
-    return {
-        "error": f"Frequency {frequency_id} not found",
-        "valid_range": "1-16"
-    }
+
+    return {"error": f"Frequency {frequency_id} not found", "valid_range": "1-16"}

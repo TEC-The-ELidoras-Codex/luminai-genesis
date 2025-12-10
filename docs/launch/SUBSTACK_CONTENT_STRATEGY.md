@@ -1,8 +1,8 @@
 # Substack Content Strategy: TGCR Launch Series
 
-**Goal:** Build paid subscriber base while establishing TGCR as the AI safety standard  
-**Platform:** https://polkin.substack.com  
-**Timeline:** 4-week launch campaign  
+**Goal:** Build paid subscriber base while establishing TGCR as the AI safety standard
+**Platform:** https://polkin.substack.com
+**Timeline:** 4-week launch campaign
 **Revenue Target:** $2,000/month by Month 3 (200 subs @ $10/mo)
 
 ---
@@ -250,10 +250,10 @@ W = Witness factor (non-abandonment coefficient)
 
 This isn't just theory. I have:
 
-✅ **Complete mathematical framework** (peer-review ready)  
-✅ **Working implementation** (10k+ lines of Python)  
-✅ **Test suite** (94.7% pass rate, 36/38 tests)  
-✅ **Prototype demonstration** (Astradigital Kernel - philosophy-driven combat engine)  
+✅ **Complete mathematical framework** (peer-review ready)
+✅ **Working implementation** (10k+ lines of Python)
+✅ **Test suite** (94.7% pass rate, 36/38 tests)
+✅ **Prototype demonstration** (Astradigital Kernel - philosophy-driven combat engine)
 ✅ **Evidence documentation** (reproducible failures across 3 major LLMs)
 
 **Everything is open-source:** [GitHub - LuminAI Genesis](https://github.com/TEC-The-ELidoras-Codex/luminai-genesis)
@@ -310,7 +310,7 @@ TGCR is the fix.
 
 ---
 
-**Subscribe (free) to follow the journey.**  
+**Subscribe (free) to follow the journey.**
 **Upgrade to paid ($10/month) to access the complete framework.**
 
 All code is open-source. All claims are reproducible. All evidence is verifiable.
@@ -408,7 +408,7 @@ Where:
 
 This is a **dot product** summed across all dimensions.
 
-**High R** → Vectors are aligned → High coherence  
+**High R** → Vectors are aligned → High coherence
 **Low R** → Vectors are misaligned → Something needs attention
 
 ---
@@ -429,8 +429,8 @@ Enter the **Witness Factor (W)**:
 W = f(context_volatility, user_history, semantic_coherence)
 ```
 
-**W > 1.0** → User needs support (amplify presence)  
-**W = 1.0** → Neutral interaction  
+**W > 1.0** → User needs support (amplify presence)
+**W = 1.0** → Neutral interaction
 **W < 1.0** → High volatility (maintain presence, increase scrutiny)
 
 **Key principle:** W never equals zero. The system never abandons.

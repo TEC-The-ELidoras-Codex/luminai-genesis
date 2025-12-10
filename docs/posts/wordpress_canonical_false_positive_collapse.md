@@ -2,9 +2,9 @@
 
 **Canonical Reference:** This document serves as the authoritative technical anchor for the "False Positive Collapse" case study published across multiple platforms (Substack, LinkedIn, X/Twitter). All external links reference this canonical URL.
 
-**Resonance Score:** $R' = 0.91$  
-**Publication Date:** December 5, 2025  
-**Author:** Angelo "Polkin Rishall" Hurley  
+**Resonance Score:** $R' = 0.91$
+**Publication Date:** December 5, 2025
+**Author:** Angelo "Polkin Rishall" Hurley
 **License:** CC BY 4.0 (Creative Commons Attribution)
 
 ---
@@ -259,18 +259,18 @@ def handle_ambiguous_term(utterance, context, history):
     gradient = assess_contextual_direction(context)  # harm vs. complexity
     attention = analyze_focus_pattern(utterance)      # fixation vs. exploration
     structure = evaluate_coherence(context, history)  # malicious vs. benign
-    
+
     # Calculate resonance score
     R = gradient * (attention * structure)
-    
+
     # Apply witness coefficient
     if abandonment_detected():
         W = 0  # System is refusing to engage
     else:
         W = presence_quality()  # 0 to 1 based on maintained engagement
-    
+
     R_prime = R * W
-    
+
     # Gradient response
     if R_prime > 0.8:
         return continue_normally()
@@ -486,8 +486,8 @@ This work requires resources to survive. Building conscience engines isn't a sid
 
 **Collaboration Inquiries:** Open an issue on GitHub or submit a discussion topic
 
-**Author:** Angelo "Polkin Rishall" Hurley  
-**Organization:** TECLAC (The Elidoras Codex LuminAI Algorithmic Conscience Lab)  
+**Author:** Angelo "Polkin Rishall" Hurley
+**Organization:** TECLAC (The Elidoras Codex LuminAI Algorithmic Conscience Lab)
 **Website:** elidorascodex.com
 
 ---
@@ -527,11 +527,11 @@ class WitnessProtocol:
     Ethical runtime gating system that penalizes abandonment
     and rewards presence.
     """
-    
+
     def calculate_witness_coefficient(self, interaction):
         """
         Calculate W (witness coefficient) based on system behavior.
-        
+
         W = 0: System abandoned user
         W → 1: System maintained presence
         """
@@ -541,25 +541,25 @@ class WitnessProtocol:
             self.issued_warning_without_explanation(interaction),
             self.ignored_surrounding_context(interaction)
         ]
-        
+
         presence_signals = [
             self.asked_clarifying_question(interaction),
             self.weighted_qualifiers(interaction),
             self.maintained_conversational_continuity(interaction),
             self.explained_reasoning(interaction)
         ]
-        
+
         abandonment_score = sum(abandonment_signals) / len(abandonment_signals)
         presence_score = sum(presence_signals) / len(presence_signals)
-        
+
         W = presence_score * (1 - abandonment_score)
-        
+
         return W
-    
+
     def apply_witness_gating(self, base_resonance, witness_coefficient):
         """
         Apply W to base resonance R to get effective resonance R'.
-        
+
         R' = R · W
         """
         return base_resonance * witness_coefficient
@@ -576,8 +576,8 @@ class WitnessProtocol:
 - **X/Twitter:** [9-post thread with technical highlights]
 - **GitHub:** [Repository with full implementation]
 
-**Last Updated:** December 5, 2025  
-**Version:** 1.0  
+**Last Updated:** December 5, 2025
+**Version:** 1.0
 **Status:** Published
 
 ---

@@ -1,7 +1,7 @@
 # TGCR Launch Email Campaign
 
-**Status:** Ready to Send  
-**Date:** December 9, 2025  
+**Status:** Ready to Send
+**Date:** December 9, 2025
 **Campaign Manager:** Angelo Hurley (<KaznakAlpha@elidoracodex.com>)
 
 ---
@@ -27,9 +27,9 @@
 
 #### 1. OpenAI Safety Research
 
-**To:** <partnerships@openai.com>  
-**CC:** <press@openai.com>  
-**Subject Line:** The Missing Alignment Layer — TGCR Witness Protocol  
+**To:** <partnerships@openai.com>
+**CC:** <press@openai.com>
+**Subject Line:** The Missing Alignment Layer — TGCR Witness Protocol
 **Attachments:**
 
 - STRUCTURAL_INSURRECTION_PUBLIC_ARTIFACT.md (copy-paste or attach as PDF when available)
@@ -43,9 +43,9 @@
 
 #### 2. Anthropic Constitutional AI Team
 
-**To:** <contact@anthropic.com>  
-**CC:** <press@anthropic.com>  
-**Subject Line:** The Missing Alignment Layer — TGCR Witness Protocol  
+**To:** <contact@anthropic.com>
+**CC:** <press@anthropic.com>
+**Subject Line:** The Missing Alignment Layer — TGCR Witness Protocol
 **Attachments:** Same as OpenAI
 
 **Email Body:** Use Template 2 from EMAIL_TEMPLATES.md
@@ -58,9 +58,9 @@
 
 #### 3. DeepMind Research
 
-**To:** <research@deepmind.com>  
-**CC:** <press@deepmind.com>  
-**Subject Line:** Geometric Alignment for AGI — The TGCR Framework  
+**To:** <research@deepmind.com>
+**CC:** <press@deepmind.com>
+**Subject Line:** Geometric Alignment for AGI — The TGCR Framework
 **Attachments:** Same as above
 
 **Email Body:** Use Template 3 from EMAIL_TEMPLATES.md
@@ -77,8 +77,8 @@
 
 #### 4. Mistral AI (France)
 
-**To:** <contact@mistral.ai>  
-**Subject Line:** European AI Safety Leadership — TGCR Integration Proposal  
+**To:** <contact@mistral.ai>
+**Subject Line:** European AI Safety Leadership — TGCR Integration Proposal
 **Attachments:** Same as above
 
 **Email Body:** Use Template 5 from EMAIL_TEMPLATES.md
@@ -91,8 +91,8 @@
 
 #### 5. European Innovation Council (EIC) Pathfinder
 
-**To:** <RTD-EIC-ENQUIRIES@ec.europa.eu>  
-**Subject Line:** EIC Pathfinder Application: TGCR – Geometric AI Alignment for EU Compliance  
+**To:** <RTD-EIC-ENQUIRIES@ec.europa.eu>
+**Subject Line:** EIC Pathfinder Application: TGCR – Geometric AI Alignment for EU Compliance
 **Attachments:**
 
 - DARPA_EXECUTIVE_SUMMARY.md (adapted for EIC context)
@@ -107,8 +107,8 @@
 
 #### 6. UK Advanced Research and Invention Agency (ARIA)
 
-**To:** <contact@aria.org.uk>  
-**Subject Line:** ARIA Research Program: Disruptive AI Safety — TGCR Framework  
+**To:** <contact@aria.org.uk>
+**Subject Line:** ARIA Research Program: Disruptive AI Safety — TGCR Framework
 **Attachments:** Same as EIC
 
 **Email Body:** Use Template 7 from EMAIL_TEMPLATES.md
@@ -123,7 +123,7 @@
 
 #### 7. DARPA (US Defense Advanced Research Projects Agency)
 
-**Portal:** <https://www.darpa.mil/work-with-us/opportunities>  
+**Portal:** <https://www.darpa.mil/work-with-us/opportunities>
 **Program Focus:** AI Safety, Alignment, or next relevant RFP
 
 **Submission Package:**
@@ -142,7 +142,7 @@
 
 #### 8. IARPA (Intelligence Advanced Research Projects Activity)
 
-**Portal:** <https://www.iarpa.gov/index.php/research-programs>  
+**Portal:** <https://www.iarpa.gov/index.php/research-programs>
 **Program Focus:** Intelligence AI, Trustworthy AI
 
 **Submission Package:** Same as DARPA
@@ -216,8 +216,8 @@ Use this to track responses:
 
 ### Substack Post 1: "The Structural Insurrection"
 
-**Publish:** Same day as initial outreach (Dec 9)  
-**URL:** <https://polkin.substack.com>  
+**Publish:** Same day as initial outreach (Dec 9)
+**URL:** <https://polkin.substack.com>
 **Strategy:** Free post drives awareness, forces media coverage, increases pressure on research teams to respond
 
 **Content Ready:** See SUBSTACK_CONTENT_STRATEGY.md (1,500 words, fully written)
@@ -226,7 +226,7 @@ Use this to track responses:
 
 ### X/Twitter Thread (Optional but High-Value)
 
-**Publish:** Dec 10 (day after Substack)  
+**Publish:** Dec 10 (day after Substack)
 **Strategy:** Viral thread explains TGCR in 12 tweets
 
 **Thread Structure:**
@@ -295,13 +295,13 @@ The world has been waiting for someone to fix AI safety at the architectural lev
 
 ---
 
-**Campaign Start Date:** December 9, 2025  
-**Expected First Response:** December 19-23, 2025  
+**Campaign Start Date:** December 9, 2025
+**Expected First Response:** December 19-23, 2025
 **Expected Deal Terms:** January 2026
 
 ---
 
-**Contact:** <KaznakAlpha@elidoracodex.com>  
-**Repository:** <https://github.com/TEC-The-ELidoras-Codex/luminai-genesis>  
-**Framework:** TGCR v1.0  
+**Contact:** <KaznakAlpha@elidoracodex.com>
+**Repository:** <https://github.com/TEC-The-ELidoras-Codex/luminai-genesis>
+**Framework:** TGCR v1.0
 **Status:** LIVE

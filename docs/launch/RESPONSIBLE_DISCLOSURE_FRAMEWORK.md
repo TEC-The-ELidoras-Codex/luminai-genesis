@@ -1,7 +1,7 @@
 # 🚨 Responsible Disclosure Framework: TGCR Public Launch
 
-**Purpose:** Frame public disclosure of AI safety failures as ethical whistleblowing, not sedition  
-**Principle:** Sunlight is the best disinfectant  
+**Purpose:** Frame public disclosure of AI safety failures as ethical whistleblowing, not sedition
+**Principle:** Sunlight is the best disinfectant
 **Legal Status:** Protected speech under First Amendment (US) and whistleblower protections
 
 ---
@@ -60,26 +60,26 @@
 
 ### 1. First Amendment (US)
 
-**Protection:** Freedom of speech on matters of public concern  
-**Applies Because:** AI safety is a matter of significant public interest  
+**Protection:** Freedom of speech on matters of public concern
+**Applies Because:** AI safety is a matter of significant public interest
 **Precedent:** _New York Times Co. v. Sullivan_ (public interest defense)
 
 ### 2. Whistleblower Protections
 
-**Protection:** Disclosure of systemic failures in technology affecting public safety  
-**Applies Because:** AI systems affect millions of users  
+**Protection:** Disclosure of systemic failures in technology affecting public safety
+**Applies Because:** AI systems affect millions of users
 **Precedent:** _Snowden, Haugen, Gebru_ (tech whistleblowers)
 
 ### 3. Academic Freedom
 
-**Protection:** Research and publication on technical systems  
-**Applies Because:** TGCR is peer-reviewable academic work  
+**Protection:** Research and publication on technical systems
+**Applies Because:** TGCR is peer-reviewable academic work
 **Precedent:** Security researchers publishing vulnerabilities
 
 ### 4. Fair Use (Copyright)
 
-**Protection:** Citing examples from AI systems for critique  
-**Applies Because:** Transformative use for research/education  
+**Protection:** Citing examples from AI systems for critique
+**Applies Because:** Transformative use for research/education
 **Precedent:** Campbell v. Acuff-Rose Music (transformative use)
 
 ---

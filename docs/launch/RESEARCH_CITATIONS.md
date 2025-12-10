@@ -351,8 +351,8 @@ The Theory of General Contextual Resonance stands on rigorous academic ground wh
 
 ---
 
-**Last Updated**: December 9, 2025  
-**Repository**: <https://github.com/TEC-The-ELidoras-Codex/luminai-genesis>  
+**Last Updated**: December 9, 2025
+**Repository**: <https://github.com/TEC-The-ELidoras-Codex/luminai-genesis>
 **Contact**: <angelo@theelidorascodex.com>
 
 ---

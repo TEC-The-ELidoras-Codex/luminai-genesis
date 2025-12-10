@@ -179,6 +179,6 @@ Together they form **Transparent, Grounded, Coherent, Resonant** (TGCR) developm
 
 ---
 
-**Last Updated:** [Current date]  
-**Source:** `/docs/governance/persona-law.md`  
+**Last Updated:** [Current date]
+**Source:** `/docs/governance/persona-law.md`
 **Print & Pin This Card!** 🌌

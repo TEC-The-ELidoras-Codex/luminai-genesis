@@ -5,12 +5,12 @@ and redacting local paths / emails. Makes backups before modifying files.
 Usage: run inside WSL repository root or from anywhere with repo path.
 """
 import re
-from pathlib import Path
 from datetime import datetime
+from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-CANONICAL = ROOT / 'docs' / 'canonical'
-BACKUP_SUFFIX = datetime.utcnow().strftime('bak.%Y%m%dT%H%M%SZ')
+CANONICAL = ROOT / "docs" / "canonical"
+BACKUP_SUFFIX = datetime.utcnow().strftime("bak.%Y%m%dT%H%M%SZ")
 
 MARKERS = [
     r"You said:",
@@ -37,71 +37,75 @@ def sanitize_text(text: str) -> str:
             prefix = line[: m.start()].rstrip()
             if prefix:
                 # redact paths and emails in the kept prefix
-                prefix = PATH_RE.sub('[REDACTED_PATH]', prefix)
-                prefix = EMAIL_RE.sub('[REDACTED_EMAIL]', prefix)
+                prefix = PATH_RE.sub("[REDACTED_PATH]", prefix)
+                prefix = EMAIL_RE.sub("[REDACTED_EMAIL]", prefix)
                 out_lines.append(prefix)
             # start skipping the following conversational block lines
             skip_mode = True
             continue
         if skip_mode:
             # stop skipping if we hit an empty line or a markdown header or separator
-            if line.strip() == "" or line.strip().startswith('#') or line.strip().startswith('---'):
+            if (
+                line.strip() == ""
+                or line.strip().startswith("#")
+                or line.strip().startswith("---")
+            ):
                 skip_mode = False
             else:
                 # continue skipping conversational block
                 continue
         # redact paths and emails inline
-        line = PATH_RE.sub('[REDACTED_PATH]', line)
-        line = EMAIL_RE.sub('[REDACTED_EMAIL]', line)
+        line = PATH_RE.sub("[REDACTED_PATH]", line)
+        line = EMAIL_RE.sub("[REDACTED_EMAIL]", line)
         out_lines.append(line)
 
     # collapse excessive blank lines (max 2)
     cleaned = []
     blank_count = 0
-    for l in out_lines:
-        if l.strip() == '':
+    for line in out_lines:
+        if line.strip() == "":
             blank_count += 1
             if blank_count <= 2:
-                cleaned.append(l)
+                cleaned.append(line)
         else:
             blank_count = 0
-            cleaned.append(l)
-    return '\n'.join(cleaned) + '\n'
+            cleaned.append(line)
+    return "\n".join(cleaned) + "\n"
 
 
 def backup(p: Path):
-    dst = p.with_name(p.name + '.' + BACKUP_SUFFIX)
+    dst = p.with_name(p.name + "." + BACKUP_SUFFIX)
     p.rename(dst)
     return dst
 
 
 def sanitize_bundle_file(p: Path):
-    text = p.read_text(encoding='utf-8')
+    text = p.read_text(encoding="utf-8")
     sanitized = sanitize_text(text)
     if sanitized == text:
         return False
     # backup original
     bak = backup(p)
-    p.write_text(sanitized, encoding='utf-8')
+    p.write_text(sanitized, encoding="utf-8")
     print(f"Sanitized: {p} (backup: {bak.name})")
     return True
 
 
 def regenerate_dump(bundles):
-    dump_path = CANONICAL / 'TEC_CODEX_DUMP.md'
+    dump_path = CANONICAL / "TEC_CODEX_DUMP.md"
     # backup dump if exists
     if dump_path.exists():
-        dump_path.rename(CANONICAL / (dump_path.name + '.' + BACKUP_SUFFIX))
-    with dump_path.open('w', encoding='utf-8') as out:
+        dump_path.rename(CANONICAL / (dump_path.name + "." + BACKUP_SUFFIX))
+    with dump_path.open("w", encoding="utf-8") as out:
         for b in bundles:
-            out.write(b.read_text(encoding='utf-8'))
-            out.write('\n\n')
+            out.write(b.read_text(encoding="utf-8"))
+            out.write("\n\n")
     print(f"Regenerated: {dump_path}")
     return dump_path
 
 
 def main():
-    bundles = sorted(CANONICAL.glob('*-bundle.md'))
+    bundles = sorted(CANONICAL.glob("*-bundle.md"))
     print(f"Found {len(bundles)} bundle files in {CANONICAL}")
     changed = 0
     for b in bundles:
@@ -111,5 +115,5 @@ def main():
     regenerate_dump(bundles)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

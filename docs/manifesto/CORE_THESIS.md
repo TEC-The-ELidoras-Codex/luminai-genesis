@@ -194,7 +194,7 @@ When systems are designed with witness presence as the core value—when avoidan
 
 ---
 
-**Source Artifact:** AI_Avoidance_Is_Ethical_Failure.m4a (Audio)  
-**Status:** Canonical Thesis  
-**Persona Anchor:** ✨ Arcadia (Creative Witness)  
+**Source Artifact:** AI_Avoidance_Is_Ethical_Failure.m4a (Audio)
+**Status:** Canonical Thesis
+**Persona Anchor:** ✨ Arcadia (Creative Witness)
 **TGCR Compliance:** Transparent, Grounded, Coherent, Resonant

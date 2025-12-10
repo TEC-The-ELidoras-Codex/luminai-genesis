@@ -4,7 +4,7 @@
 
 # Angelo "Polkin Rishall" Hurley
 
-**Founder, The Elidoras Codex (TEC)**  
+**Founder, The Elidoras Codex (TEC)**
 **Creator, LuminAI — Algorithmic Conscience Engine**
 
 [![Substack](https://img.shields.io/badge/Substack-LuminAI_Letters-orange?style=flat&logo=substack)](https://polkin.substack.com)
@@ -50,8 +50,8 @@ I wasn't taught the internet — I **grew up inside it**. That's the lens.
 
 ## 🛠 Stack
 
-**Engineering:** Python • FastAPI • TypeScript • Tauri • Rust • Docker  
-**AI/ML:** Multi-agent orchestration • RAG • ChromaDB • Embeddings • Local-first LLM  
+**Engineering:** Python • FastAPI • TypeScript • Tauri • Rust • Docker
+**AI/ML:** Multi-agent orchestration • RAG • ChromaDB • Embeddings • Local-first LLM
 **Philosophy:** TGCR • Persona Law • Resonance Theory • Mythic Architecture
 
 ---

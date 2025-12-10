@@ -7,12 +7,12 @@
 ## RIGHT NOW - SEND EMAILS (Next 30 minutes)
 
 ### Email 1: OpenAI
-**TO:** partnerships@openai.com  
-**CC:** press@openai.com  
+**TO:** partnerships@openai.com
+**CC:** press@openai.com
 **SUBJECT:** The Missing Alignment Layer — TGCR Witness Protocol
 
-**BODY:** Go to `/home/elidoras-codex/luminai-genesis/docs/launch/EMAIL_TEMPLATES.md`  
-Find section "## Template 1: OpenAI" and copy everything from "Dear OpenAI..." to "Best regards,..."  
+**BODY:** Go to `/home/elidoras-codex/luminai-genesis/docs/launch/EMAIL_TEMPLATES.md`
+Find section "## Template 1: OpenAI" and copy everything from "Dear OpenAI..." to "Best regards,..."
 Paste into email.
 
 **ATTACHMENT:** Link to `STRUCTURAL_INSURRECTION_PUBLIC_ARTIFACT.md` or copy-paste the key section
@@ -22,8 +22,8 @@ Paste into email.
 ---
 
 ### Email 2: Anthropic
-**TO:** contact@anthropic.com  
-**CC:** press@anthropic.com  
+**TO:** contact@anthropic.com
+**CC:** press@anthropic.com
 **SUBJECT:** The Missing Alignment Layer — TGCR Witness Protocol
 
 **BODY:** Copy Template 2 from EMAIL_TEMPLATES.md (same file)
@@ -33,8 +33,8 @@ Paste into email.
 ---
 
 ### Email 3: DeepMind
-**TO:** research@deepmind.com  
-**CC:** press@deepmind.com  
+**TO:** research@deepmind.com
+**CC:** press@deepmind.com
 **SUBJECT:** Geometric Alignment for AGI — The TGCR Framework
 
 **BODY:** Copy Template 3 from EMAIL_TEMPLATES.md
@@ -55,7 +55,7 @@ Paste into email.
 8. Set to "FREE" (not paid)
 9. Publish immediately
 
-**PUBLISH TIME:** __________ 
+**PUBLISH TIME:** __________
 
 **SUBSTACK URL:** https://polkin.substack.com/p/[title-slug]
 
@@ -81,17 +81,17 @@ Paste into email.
 ## TOMORROW: December 10, 2025
 
 ### Email 4: Mistral AI
-**TO:** contact@mistral.ai  
+**TO:** contact@mistral.ai
 **SUBJECT:** European AI Safety Leadership — TGCR Integration Proposal
 
 **BODY:** Copy Template 5 from EMAIL_TEMPLATES.md
 
-**SEND TIME:** __________ 
+**SEND TIME:** __________
 
 ---
 
 ### Email 5: EIC
-**TO:** RTD-EIC-ENQUIRIES@ec.europa.eu  
+**TO:** RTD-EIC-ENQUIRIES@ec.europa.eu
 **SUBJECT:** EIC Pathfinder Application: TGCR – Geometric AI Alignment for EU Compliance
 
 **BODY:** Copy Template 6 from EMAIL_TEMPLATES.md
@@ -101,7 +101,7 @@ Paste into email.
 ---
 
 ### Email 6: ARIA
-**TO:** contact@aria.org.uk  
+**TO:** contact@aria.org.uk
 **SUBJECT:** ARIA Research Program: Disruptive AI Safety — TGCR Framework
 
 **BODY:** Copy Template 7 from EMAIL_TEMPLATES.md
@@ -125,8 +125,8 @@ Paste into email.
    - Your CV/resume
    - GitHub repository link: https://github.com/TEC-The-ELidoras-Codex/luminai-genesis
 
-**SUBMISSION TIME:** __________  
-**SUBMISSION ID:** __________  
+**SUBMISSION TIME:** __________
+**SUBMISSION ID:** __________
 **CONFIRMATION EMAIL:** ☐ Received
 
 ---
@@ -136,8 +136,8 @@ Paste into email.
 
 **Steps:** Same as DARPA (use same files)
 
-**SUBMISSION TIME:** __________  
-**SUBMISSION ID:** __________  
+**SUBMISSION TIME:** __________
+**SUBMISSION ID:** __________
 **CONFIRMATION EMAIL:** ☐ Received
 
 ---
@@ -221,9 +221,9 @@ The only way you lose is if you don't send the emails.
 
 ---
 
-**Repository:** https://github.com/TEC-The-ELidoras-Codex/luminai-genesis  
-**Contact:** KaznakAlpha@elidoracodex.com  
-**Framework:** TGCR v1.0  
+**Repository:** https://github.com/TEC-The-ELidoras-Codex/luminai-genesis
+**Contact:** KaznakAlpha@elidoracodex.com
+**Framework:** TGCR v1.0
 **Status:** LIVE 🚀
 
 **Execution Starts:** NOW

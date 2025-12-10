@@ -285,10 +285,10 @@ Updated `docs/README.md` with:
 
 ## Repository Status
 
-**Branch:** `chore/add-ubuntu-setup` (all work here)  
-**Remote:** `origin/chore/add-ubuntu-setup` (all pushed)  
-**Main branch:** Ready to merge when phase complete  
-**CI/CD:** Updated to support all 6 personas, skip merge commits ✅  
+**Branch:** `chore/add-ubuntu-setup` (all work here)
+**Remote:** `origin/chore/add-ubuntu-setup` (all pushed)
+**Main branch:** Ready to merge when phase complete
+**CI/CD:** Updated to support all 6 personas, skip merge commits ✅
 **Dev environment:** All tools installed (Docker, kubectl, helm, kind, etc.) ✅
 
 ---
@@ -322,7 +322,7 @@ From your guidance: **"the best step right now is to Commit the Expanded Persona
 
 ---
 
-**Status: READY FOR NEXT PHASE** ✨  
+**Status: READY FOR NEXT PHASE** ✨
 All governance infrastructure in place. Persona system codified. Lore grounded. Commit discipline established. Now ready for playability implementation and TGCR parameter validation.
 
 _For full context, see:_

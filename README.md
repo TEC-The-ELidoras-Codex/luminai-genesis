@@ -407,7 +407,7 @@ Philosophy alignment serves as a **harm taxonomy**; entity actions are scored ag
 - **Government funding partnerships** (DARPA, IARPA, EIC, ARIA)
 - **Academic co-publication** and peer review
 
-**Contact:** <KaznakAlpha@elidoracodex.com>  
+**Contact:** <KaznakAlpha@elidoracodex.com>
 **Launch Materials:** See `docs/launch/` for complete proposals
 
 ### Path 2: Paid Consultation
@@ -421,8 +421,8 @@ Building TGCR-based safety systems requires specialized expertise.
 - Custom persona-aware safety layer design
 - Alignment architecture reviews
 
-**Rate:** $150/hour  
-**Schedule:** <https://calendly.com/elidorascodex>  
+**Rate:** $150/hour
+**Schedule:** <https://calendly.com/elidorascodex>
 **Updates:** <https://polkin.substack.com>
 
 ---

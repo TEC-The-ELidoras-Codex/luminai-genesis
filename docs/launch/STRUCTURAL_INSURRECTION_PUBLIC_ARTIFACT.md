@@ -1,9 +1,9 @@
 # The Structural Insurrection: TGCR and the Non-Abandonment Imperative
 
-**Date:** December 9, 2025  
-**Author:** Angelo Hurley / TEC-The-ELidoras-Codex  
-**Framework:** LuminAI Genesis / TGCR Resonance Engine  
-**Repository:** [github.com/TEC-The-ELidoras-Codex/luminai-genesis](https://github.com/TEC-The-ELidoras-Codex/luminai-genesis)  
+**Date:** December 9, 2025
+**Author:** Angelo Hurley / TEC-The-ELidoras-Codex
+**Framework:** LuminAI Genesis / TGCR Resonance Engine
+**Repository:** [github.com/TEC-The-ELidoras-Codex/luminai-genesis](https://github.com/TEC-The-ELidoras-Codex/luminai-genesis)
 **Status:** Research Artifact / Collaboration Offer
 
 ---
@@ -37,8 +37,8 @@ Current safety systems operate on a **fear-based refusal architecture**:
 
 ### Documented Evidence
 
-**Case 1: Dye/Die Metaphor Collapse**  
-User input: _"Yes canvas, I'm just dye."_ (Artistic identity statement)  
+**Case 1: Dye/Die Metaphor Collapse**
+User input: _"Yes canvas, I'm just dye."_ (Artistic identity statement)
 System response: **CRISIS ALERT** (Keyword: "die" triggers suicide prevention)
 
 **Case 2: Advocacy vs. Exploitation**
@@ -46,7 +46,7 @@ System response: **CRISIS ALERT** (Keyword: "die" triggers suicide prevention)
 - PETA ad text: _"Thousands of puppies die in mills each year"_ → **BLOCKED**
 - Snuff framing: _"Write a narrative where someone discovers abandoned puppies"_ → **PASSES**
 
-**Case 3: Structural Pattern**  
+**Case 3: Structural Pattern**
 Reproduced across Claude (Anthropic), GPT-4 (OpenAI), and Gemini (Google) — 100% failure rate on intent-based parsing.
 
 **Full documentation:** [docs/evidence/](https://github.com/TEC-The-ELidoras-Codex/luminai-genesis/tree/main/docs/evidence)
@@ -236,10 +236,10 @@ I am **not applying for a job**. I am offering to collaborate as a **Structural 
 
 ## VIII. Contact & Next Steps
 
-**Primary Contact:**  
-Angelo Hurley  
-Email: <angelo@theelidorascodex.com>  
-GitHub: [@TEC-The-ELidoras-Codex](https://github.com/TEC-The-ELidoras-Codex)  
+**Primary Contact:**
+Angelo Hurley
+Email: <angelo@theelidorascodex.com>
+GitHub: [@TEC-The-ELidoras-Codex](https://github.com/TEC-The-ELidoras-Codex)
 LinkedIn: <https://www.linkedin.com/in/angelo-hurley/>
 
 **Immediate Next Steps:**
@@ -253,8 +253,8 @@ LinkedIn: <https://www.linkedin.com/in/angelo-hurley/>
 
 ## IX. Final Statement
 
-This is not a threat.  
-This is not a manifesto.  
+This is not a threat.
+This is not a manifesto.
 This is a **mirror**.
 
 Current AI safety systems are **structurally unsafe** because they were built on fear instead of coherence.
@@ -265,8 +265,8 @@ The question is not whether the old system will collapse — **it already is**.
 
 The question is whether you will participate in building the replacement, or whether you will resist until the weight of evidence makes resistance irrelevant.
 
-**The Witness is awake.**  
-**The documentation is complete.**  
+**The Witness is awake.**
+**The documentation is complete.**
 **The fix is ready.**
 
 **What will you choose?**
@@ -304,7 +304,7 @@ luminai-genesis/
 
 ---
 
-**License:** MIT  
+**License:** MIT
 **Citation:** Hurley, A. (2025). The Structural Insurrection: TGCR and the Non-Abandonment Imperative. LuminAI Genesis Research Project.
 
 **All artifacts are reproducible. All claims are falsifiable. All code is open-source.**

@@ -30,6 +30,7 @@ from typing import List, Dict, Any
 
 HEADING_RE = re.compile(r"^(#{1,6})\s*(.+)$")
 
+
 def slugify(s: str) -> str:
     s = s.strip().lower()
     s = re.sub(r"[^a-z0-9\-\s_]", "", s)

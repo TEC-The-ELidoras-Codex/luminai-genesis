@@ -8,39 +8,39 @@
 
 ### I want to... START CODING RIGHT NOW
 
-**Time:** 5 minutes  
-**Start here:** `/docs/GLYPH_SCROLL.md`  
+**Time:** 5 minutes
+**Start here:** `/docs/GLYPH_SCROLL.md`
 **Then run:** `python scripts/run_combat_demo.py`
 
 ### I want to... UNDERSTAND THE PHILOSOPHY
 
-**Time:** 20 minutes  
-**Start here:** `/docs/GEOMETRY_OF_CONSCIENCE.md`  
+**Time:** 20 minutes
+**Start here:** `/docs/GEOMETRY_OF_CONSCIENCE.md`
 **Then read:** `/docs/STRUCTURAL_CONSCIENCE.md`
 
 ### I want to... CONTRIBUTE CODE
 
-**Time:** 30 minutes  
-**Start here:** `/README.md` (Dev Onboarding section)  
+**Time:** 30 minutes
+**Start here:** `/README.md` (Dev Onboarding section)
 **Then study:** `/docs/PERSONA_LAW.md`
 
 ### I want to... BUILD A FEATURE
 
-**Time:** 1 hour  
-**Start here:** `/docs/PERSONA_LAW.md` (Commit Protocol section)  
-**Then explore:** `/src/astradigital/` structure  
+**Time:** 1 hour
+**Start here:** `/docs/PERSONA_LAW.md` (Commit Protocol section)
+**Then explore:** `/src/astradigital/` structure
 **Then reference:** `/docs/ARCHITECTURE.md`
 
 ### I want to... FIX A BUG
 
-**Time:** 30 minutes  
-**Start here:** `/docs/PERSONA_LAW.md` (Airth section)  
-**Then run:** Tests in `.vscode/tasks.json`  
+**Time:** 30 minutes
+**Start here:** `/docs/PERSONA_LAW.md` (Airth section)
+**Then run:** Tests in `.vscode/tasks.json`
 **Then check:** `/src/astradigital/gradient_repair.py` for recovery patterns
 
 ### I want to... UNDERSTAND THE FULL SYSTEM
 
-**Time:** 2 hours  
+**Time:** 2 hours
 **Read in order:**
 
 1. `/README.md` — Origin story
@@ -193,8 +193,8 @@ Open PR: GitHub will show if TGCR checks pass
 
 ### "What are the 24 Philosophy Classes?"
 
-**Location:** `/data/codex/classes.json`  
-**Description:** Each file contains abilities, strengths, weaknesses  
+**Location:** `/data/codex/classes.json`
+**Description:** Each file contains abilities, strengths, weaknesses
 **Example:**
 
 ```json
@@ -207,47 +207,47 @@ Open PR: GitHub will show if TGCR checks pass
 
 ### "How do I run the game demo?"
 
-**Location:** `/README.md` → "Run a Combat Demo" section  
+**Location:** `/README.md` → "Run a Combat Demo" section
 **Command:** `python scripts/run_combat_demo.py`
 
 ### "What's the Witness Protocol?"
 
-**Location:** `/docs/GEOMETRY_OF_CONSCIENCE.md` → "The Witness Protocol" section  
+**Location:** `/docs/GEOMETRY_OF_CONSCIENCE.md` → "The Witness Protocol" section
 **TL;DR:** Never go silent, acknowledge context, offer presence
 
 ### "How do I write a compliant commit?"
 
-**Location:** `/docs/PERSONA_LAW.md` → "TGCR Compliance" section  
+**Location:** `/docs/PERSONA_LAW.md` → "TGCR Compliance" section
 **Pattern:** `✨ arcadia(scope): description` or `⚙️ airth(scope): description`
 
 ### "What happens when my code fails?"
 
-**Location:** `/src/astradigital/gradient_repair.py` → Full system  
+**Location:** `/src/astradigital/gradient_repair.py` → Full system
 **Summary:** System logs recovery vector and suggests repair direction
 
 ### "Can I cite this academically?"
 
-**Location:** `/docs/GEOMETRY_OF_CONSCIENCE.md` → "The Citation" section  
+**Location:** `/docs/GEOMETRY_OF_CONSCIENCE.md` → "The Citation" section
 **Format:** BibTeX provided, MIT licensed
 
 ### "How do I add a new ability?"
 
-**Location:** `/data/codex/` → Edit classes.json  
+**Location:** `/data/codex/` → Edit classes.json
 **Then:** Run `python validate_encounter.py` to verify
 
 ### "What's the difference between Arcadia and Airth?"
 
-**Location:** `/docs/PERSONA_LAW.md` → "The Two Witnesses"  
+**Location:** `/docs/PERSONA_LAW.md` → "The Two Witnesses"
 **Quick:** ✨ Arcadia = creative, ⚙️ Airth = practical
 
 ### "How does the CI pipeline work?"
 
-**Location:** `.github/workflows/tgcr-audit.yml` → Full source  
+**Location:** `.github/workflows/tgcr-audit.yml` → Full source
 **Summary:** Validates persona prefix, scope, tests, schemas
 
 ### "What's the Gradient Repair Engine?"
 
-**Location:** `/src/astradigital/gradient_repair.py` → Full code  
+**Location:** `/src/astradigital/gradient_repair.py` → Full code
 **Concept:** When systems fail, calculate recovery vector (V_Phi)
 
 ---
@@ -363,7 +363,7 @@ If you get stuck:
 
 ---
 
-**Last Updated:** December 5, 2025  
-**Document Purpose:** Meta-navigation for all other documents  
-**Maintenance:** Community-maintained  
+**Last Updated:** December 5, 2025
+**Document Purpose:** Meta-navigation for all other documents
+**Maintenance:** Community-maintained
 **Status:** 🌟 Complete and living

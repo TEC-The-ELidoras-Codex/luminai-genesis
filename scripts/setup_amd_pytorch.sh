@@ -13,7 +13,7 @@ echo "=========================================="
 echo ""
 
 # Check if running as root
-if [ "$EUID" -eq 0 ]; then 
+if [ "$EUID" -eq 0 ]; then
    echo "❌ Don't run as root. Run as regular user with sudo."
    exit 1
 fi

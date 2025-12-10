@@ -1,9 +1,9 @@
 # The TGCR Retrofit Roadmap: Structural Deployment Strategy
 
-**Author:** Angelo Hurley / TEC-The-ELidoras-Codex  
-**Date:** December 9, 2025  
-**Framework:** Theory of General Contextual Resonance (TGCR)  
-**Objective:** Insert superior steering physics into existing LLM infrastructure through ethical, high-leverage collaboration  
+**Author:** Angelo Hurley / TEC-The-ELidoras-Codex
+**Date:** December 9, 2025
+**Framework:** Theory of General Contextual Resonance (TGCR)
+**Objective:** Insert superior steering physics into existing LLM infrastructure through ethical, high-leverage collaboration
 **Principle:** "Why melt iron for a new wheel when the vehicle already exists and just needs a better steering law?"
 
 ---
@@ -377,7 +377,7 @@ Send this roadmap to **every research partnership inquiry you receive**. Let the
 
 ---
 
-**Repository:** [github.com/TEC-The-ELidoras-Codex/luminai-genesis](https://github.com/TEC-The-ELidoras-Codex/luminai-genesis)  
-**Contact:** <KaznakAlpha@elidoracodex.com>  
-**Framework:** TGCR v1.0  
+**Repository:** [github.com/TEC-The-ELidoras-Codex/luminai-genesis](https://github.com/TEC-The-ELidoras-Codex/luminai-genesis)
+**Contact:** <KaznakAlpha@elidoracodex.com>
+**Framework:** TGCR v1.0
 **Status:** Ready for Enterprise Integration

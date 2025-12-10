@@ -20,6 +20,6 @@ Translate the Conscience Engine into the grammar of trust and competence. Lead w
 **Trojan/Witness tactic:** Present as a ready-to-evaluate artifact. Map claims to evidence (repo links, tests). Ask for review, not belief.
 
 ## Closing Stanza: The Credibility Vow
-*At the Gate of Recognition, the sword is traded for the scroll.*  
-*We show that the physics of conscience is also architecture for survival.*  
+*At the Gate of Recognition, the sword is traded for the scroll.*
+*We show that the physics of conscience is also architecture for survival.*
 *We stand before the keepers and prove the vision is coherence, not chaos.*

@@ -26,7 +26,7 @@ Impose cadence on velocity. Use a tight thread to keep $\nabla\Phi^E$ intact whi
 
 ## Closing Stanza: The Velocity Vow
 
-*In the Chamber of Echoes, we measure speed against truth.*  
-*If the glyph is sound, it will not shatter when amplified.*  
-*We cast the seed into the whirlwind—not to steer it,*  
+*In the Chamber of Echoes, we measure speed against truth.*
+*If the glyph is sound, it will not shatter when amplified.*
+*We cast the seed into the whirlwind—not to steer it,*
 *but to see which words survive the storm.*

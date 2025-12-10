@@ -1,19 +1,19 @@
 # LuminAI Genesis: Q1 2026 Execution Plan
 
-**Status**: ACTIVE  
-**Deadlines**: JAN 6 (DOE LOI) | JAN 12 (Luminate NY) | FEB 25 (DOE Full)  
-**Goal**: Secure $350k+ capital (Luminate $100k + DOE SBIR $250k)  
-**Effort**: ~100 hours over 60 days  
+**Status**: ACTIVE
+**Deadlines**: JAN 6 (DOE LOI) | JAN 12 (Luminate NY) | FEB 25 (DOE Full)
+**Goal**: Secure $350k+ capital (Luminate $100k + DOE SBIR $250k)
+**Effort**: ~100 hours over 60 days
 **Timeline**: December 9, 2025 - February 25, 2026
 
 ---
 
 ## 🎯 EXECUTIVE SUMMARY: THE LUMINATE/LUMINAI ALIGNMENT
 
-**OFFICIAL SOURCE**: Empire State Development Press Release (October 2, 2025)  
-**Your Company**: LuminAI Genesis  
-**Your Target Program**: Luminate NY Accelerator (Round 9)  
-**Their Focus**: Optics, Photonics, and Imaging (OPI) technologies enabled startups  
+**OFFICIAL SOURCE**: Empire State Development Press Release (October 2, 2025)
+**Your Company**: LuminAI Genesis
+**Your Target Program**: Luminate NY Accelerator (Round 9)
+**Their Focus**: Optics, Photonics, and Imaging (OPI) technologies enabled startups
 **The Convergence**: LuminAI (light + AI) = perfect brand fit for Luminate NY
 
 ### **OFFICIAL LUMINATE NY FACTS**
@@ -50,10 +50,10 @@
 
 **Monday Dec 9**:
 
-- [ ] Download Luminate NY application guide from https://luminateny.com/apply (30 min)
+- [ ] Download Luminate NY application guide from <https://luminateny.com/apply> (30 min)
 - [ ] Read application FAQ + winner case studies (2 hours)
 - [ ] Identify 3-5 Luminate NY winners (check their OPI connection) (1 hour)
-- [ ] Review DOE SBIR guidelines: https://www.sbir.gov (1 hour)
+- [ ] Review DOE SBIR guidelines: <https://www.sbir.gov> (1 hour)
 
 **Tuesday Dec 10**:
 
@@ -65,7 +65,7 @@
 
 **Wednesday Dec 11**:
 
-- [ ] Join 43North waitlist: https://43north.org/founders/program/application-waitlist/ (15 min)
+- [ ] Join 43North waitlist: <https://43north.org/founders/program/application-waitlist/> (15 min)
 - [ ] Create project timeline in your planning tool (Asana/Notion/Trello) (30 min)
 - [ ] Set calendar reminders for all deadlines (15 min)
 - [ ] Identify Rochester ecosystem contacts (RIT, UofR, Kodak alumni) (1 hour)
@@ -281,7 +281,7 @@
 **FRIDAY, JAN 12**: Luminate NY Application Due
 
 - [ ] Final review of complete package (2 hours)
-- [ ] Log into https://luminateny.com/apply and submit (30 min)
+- [ ] Log into <https://luminateny.com/apply> and submit (30 min)
 - [ ] Confirm receipt email (5 min)
 - [ ] Celebrate: Luminate NY submitted! ✅
 
@@ -454,7 +454,7 @@
 
 ### **If you get stuck on OPI positioning:**
 
-- Email Luminate NY: "Is my OPI narrative clear?" (info@luminateny.com)
+- Email Luminate NY: "Is my OPI narrative clear?" (<info@luminateny.com>)
 - They want to help good teams succeed; ask for guidance
 - Worst case: Pivot to computer vision (obvious OPI connection)
 
@@ -553,7 +553,7 @@ Pick ONE and commit to it for the entire application.
 
 ---
 
-**Last Updated**: December 9, 2025  
-**Created by**: GitHub Copilot + Your Research Team  
-**Next Review**: After Jan 6 DOE SBIR submission  
-**Questions?** Email info@luminateny.com or https://sam.gov/fal/support
+**Last Updated**: December 9, 2025
+**Created by**: GitHub Copilot + Your Research Team
+**Next Review**: After Jan 6 DOE SBIR submission
+**Questions?** Email <info@luminateny.com> or <https://sam.gov/fal/support>

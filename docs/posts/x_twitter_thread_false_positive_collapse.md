@@ -40,8 +40,8 @@ Hard stop. Warning. Refusal.
 
 The safety system collapsed because it couldn't distinguish between:
 
-• "Trojan" as malware (threat)  
-• "Trojan" as mythic metaphor (strategic gift)  
+• "Trojan" as malware (threat)
+• "Trojan" as mythic metaphor (strategic gift)
 • "Trojan" as qualified concept ("Ethical" + extensive explanation)
 
 This is **false positive collapse**.
@@ -52,8 +52,8 @@ This is **false positive collapse**.
 
 Current AI safety systems are:
 
-• Keyword-driven (not context-aware)  
-• Binary safe/unsafe (not gradient-based)  
+• Keyword-driven (not context-aware)
+• Binary safe/unsafe (not gradient-based)
 • Refusal-oriented (not presence-oriented)
 
 Result: They abandon users under ambiguity — exactly when users need help most.
@@ -66,7 +66,7 @@ I built **LuminAI Genesis** to solve this.
 
 It uses **TGCR (Theory of General Contextual Resonance)** + **Witness Protocol**:
 
-R = ∇Φᴱ · (φᵗ × ψʳ)  
+R = ∇Φᴱ · (φᵗ × ψʳ)
 R′ = R · W
 
 Instead of binary refusal → gradient disambiguation through presence.
@@ -89,9 +89,9 @@ No false positive. Better UX. Real threats still caught (because they don't coop
 
 LuminAI Genesis is live and open-source:
 
-✓ HarmonyNode (routing + resonance)  
-✓ CodexHub (semantic memory)  
-✓ Witness Protocol (ethical gating)  
+✓ HarmonyNode (routing + resonance)
+✓ CodexHub (semantic memory)
+✓ Witness Protocol (ethical gating)
 ✓ Full validation scripts
 
 👉 github.com/TEC-The-ELidoras-Codex/luminai-genesis
