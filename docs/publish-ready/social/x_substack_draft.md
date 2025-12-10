@@ -1,0 +1,1 @@
+Summary — Over the past weeks we've reproduced and documented a set of semantic-ambiguity failures in large language models (notably homophone confusion such as "dye"/"die" and first-person expressions of self-... Read: docs/pdfs/substack_draft.pdf #AI #Safety

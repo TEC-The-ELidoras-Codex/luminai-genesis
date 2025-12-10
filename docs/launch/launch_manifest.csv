@@ -1,0 +1,5 @@
+artifact,relative_path,url,notes
+substack_pdf,docs/pdfs/substack_draft.pdf,,Canonical Substack draft PDF to attach to post
+audit_bundle,audit/evidence_bundle.zip,,Audit evidence bundle (checksums in audit/hashes.txt)
+manifest,docs/launch/launch_manifest.csv,,This file
+publish-ready,docs/publish-ready/substack_draft.md,,Excerpt and short summary

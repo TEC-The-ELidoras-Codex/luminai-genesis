@@ -1,0 +1,1 @@
+I Found a Bug in AI Safety Systems (And Here's How to Fix It) — Last week, I participated in AI research about how people envision AI's role in their lives.... Read: docs/pdfs/linkedin_false_positive_collapse.pdf #AI #Safety
