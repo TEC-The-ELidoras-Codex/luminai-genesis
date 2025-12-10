@@ -9,11 +9,19 @@ router = APIRouter(prefix="/api/frequencies", tags=["frequencies"])
 # Load Sixteen Frequencies mapping at module import
 DATA_DIR = Path(__file__).parent.parent.parent / "data" / "frequencies"
 
-try:
-    with open(DATA_DIR / "SIXTEEN_FREQUENCIES_MAPPING.json", "r") as f:
-        FREQUENCIES_DATA = json.load(f)
-except FileNotFoundError:
-    FREQUENCIES_DATA = {"frequencies": [], "metadata": {}}
+# Prefer the merged mapping if available, fall back to the canonical JSON.
+FREQUENCIES_DATA = {"frequencies": [], "metadata": {}}
+for candidate in (
+    DATA_DIR / "SIXTEEN_FREQUENCIES_MAPPING.merged.json",
+    DATA_DIR / "SIXTEEN_FREQUENCIES_MAPPING.json",
+):
+    if candidate.exists():
+        try:
+            with open(candidate, "r") as f:
+                FREQUENCIES_DATA = json.load(f)
+        except Exception:
+            FREQUENCIES_DATA = {"frequencies": [], "metadata": {}}
+        break
 
 
 @router.get("", response_model=dict[str, Any])
