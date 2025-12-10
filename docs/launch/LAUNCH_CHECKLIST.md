@@ -1,7 +1,7 @@
 # Launch Checklist — Structural Insurrection
 
-**Goal:** Prepare LuminAI Genesis repository for professional research team review  
-**Target:** OpenAI, Anthropic, DeepMind safety/alignment teams  
+**Goal:** Prepare LuminAI Genesis repository for professional research team review
+**Target:** OpenAI, Anthropic, DeepMind safety/alignment teams
 **Status:** Pre-launch cleanup phase
 
 ---
@@ -45,7 +45,7 @@
 
 ### Git Cleanup
 
-**Current branch:** `chore/add-ubuntu-setup`  
+**Current branch:** `chore/add-ubuntu-setup`
 **Uncommitted changes:**
 
 - Modified: `README.md`, `backend/stripe_webhook.py`, `backend/tests/test_stripe_webhook.py`

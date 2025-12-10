@@ -1,8 +1,8 @@
 # Buffalo AI Ethics Lab: A Proposal
 
-**Principal Investigator:** Angelo Michael Hurley  
-**Location:** Buffalo, New York  
-**Framework:** TGCR (Theory of General Contextual Resonance)  
+**Principal Investigator:** Angelo Michael Hurley
+**Location:** Buffalo, New York
+**Framework:** TGCR (Theory of General Contextual Resonance)
 **Strategic Positioning:** Anti-Tesla, Pro-Community, Execution-First
 
 ---
@@ -163,13 +163,13 @@ All you have to do is sign the check.
 
 ## Contact
 
-**Angelo Michael Hurley**  
-Principal Investigator, TGCR Research  
+**Angelo Michael Hurley**
+Principal Investigator, TGCR Research
 Buffalo, New York
 
-**Email:** <KaznakAlpha@elidoracodex.com>  
-**GitHub:** <https://github.com/TEC-The-ELidoras-Codex/luminai-genesis>  
-**Repository:** 1,274 lines Python, 94.7% tests, 90+ commits  
+**Email:** <KaznakAlpha@elidoracodex.com>
+**GitHub:** <https://github.com/TEC-The-ELidoras-Codex/luminai-genesis>
+**Repository:** 1,274 lines Python, 94.7% tests, 90+ commits
 **Launch Materials:** docs/launch/ (14 complete documents)
 
 **Next Steps:**
@@ -178,7 +178,7 @@ Buffalo, New York
 2. Schedule technical walkthrough (video available immediately)
 3. Decide: Buffalo or somewhere else
 
-**Buffalo learned hard lessons about broken tech promises.**  
+**Buffalo learned hard lessons about broken tech promises.**
 **TGCR is different: we execute first, promise second.**
 
 ---

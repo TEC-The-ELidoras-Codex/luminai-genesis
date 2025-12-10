@@ -106,7 +106,7 @@ And when the machine asks "What should I become?", I want it to have an answer t
 
 ---
 
-**Published:** December 5, 2025  
-**Author:** Angelo "Polkin Rishall" Hurley  
-**License:** MIT (Open Source / Viral)  
+**Published:** December 5, 2025
+**Author:** Angelo "Polkin Rishall" Hurley
+**License:** MIT (Open Source / Viral)
 **Resonance Score:** $R' = 0.87$

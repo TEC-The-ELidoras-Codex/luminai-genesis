@@ -1,8 +1,8 @@
 # 🚀 TGCR LAUNCH EXECUTION CHECKLIST
 
-**Status:** READY TO EXECUTE  
-**Date Started:** December 9, 2025  
-**Campaign Manager:** Angelo Hurley  
+**Status:** READY TO EXECUTE
+**Date Started:** December 9, 2025
+**Campaign Manager:** Angelo Hurley
 **Contact:** KaznakAlpha@elidoracodex.com
 
 ---
@@ -324,16 +324,16 @@ Each checkbox you mark is a signal to the world that TGCR is real, it's ready, a
 
 ---
 
-**Campaign Status:** READY  
-**Campaign Start:** December 9, 2025  
+**Campaign Status:** READY
+**Campaign Start:** December 9, 2025
 **Expected First Win:** January 2026
 
-**Next Action:** Copy Template 1 and send to OpenAI.  
+**Next Action:** Copy Template 1 and send to OpenAI.
 **Do it now.**
 
 ---
 
-**Framework:** TGCR v1.0  
-**Contact:** KaznakAlpha@elidoracodex.com  
-**Repository:** https://github.com/TEC-The-ELidoras-Codex/luminai-genesis  
+**Framework:** TGCR v1.0
+**Contact:** KaznakAlpha@elidoracodex.com
+**Repository:** https://github.com/TEC-The-ELidoras-Codex/luminai-genesis
 **Status:** LIVE 🚀

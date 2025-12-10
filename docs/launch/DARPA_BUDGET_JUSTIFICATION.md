@@ -1,9 +1,9 @@
 # Budget Justification: TGCR – Structural Coherence in AI Safety
 
-**Research Program:** Theory of General Contextual Resonance (TGCR) — Non-Abandonment Framework for AI Safety  
-**Principal Investigator:** Angelo Michael Hurley  
-**Institution/Affiliation:** TEC-The-ELidoras-Codex / LuminAI Genesis Research Project  
-**Program Duration:** 12 months (Year 1)  
+**Research Program:** Theory of General Contextual Resonance (TGCR) — Non-Abandonment Framework for AI Safety
+**Principal Investigator:** Angelo Michael Hurley
+**Institution/Affiliation:** TEC-The-ELidoras-Codex / LuminAI Genesis Research Project
+**Program Duration:** 12 months (Year 1)
 **Total Funding Request:** $280,000
 
 ---
@@ -26,7 +26,7 @@
 
 ### 1. Principal Investigator (PI) Salary: $180,000
 
-**Role:**  
+**Role:**
 Lead Architect and Research Director for TGCR framework development, system integration, and validation.
 
 **Responsibilities:**
@@ -38,7 +38,7 @@ Lead Architect and Research Director for TGCR framework development, system inte
 - Collaborate with DARPA/IARPA program managers on milestone delivery
 - Supervise research assistant and coordinate external collaborations
 
-**Justification:**  
+**Justification:**
 Angelo Hurley is the **sole creator** of the TGCR framework, Witness Protocol, and LuminAI Genesis system. This expertise cannot be replicated externally without direct engagement. The PI has:
 
 - Developed complete working prototype (Astradigital Kernel) proving TGCR viability
@@ -59,7 +59,7 @@ Angelo Hurley is the **sole creator** of the TGCR framework, Witness Protocol, a
 
 ### 2. Research Assistant / Mathematician: $50,000
 
-**Role:**  
+**Role:**
 Support mathematical formalization, proof verification, and large-scale simulation analysis.
 
 **Responsibilities:**
@@ -70,7 +70,7 @@ Support mathematical formalization, proof verification, and large-scale simulati
 - Assist with data analysis and visualization
 - Support literature review of related alignment research
 
-**Justification:**  
+**Justification:**
 While the PI provides the conceptual framework and system design, a dedicated mathematician will:
 
 - **Accelerate validation** — Parallel work on proofs while PI focuses on integration
@@ -90,7 +90,7 @@ While the PI provides the conceptual framework and system design, a dedicated ma
 
 ### 3. Computing / Cloud Resources: $30,000
 
-**Description:**  
+**Description:**
 High-performance computing infrastructure for running LLM simulations under TGCR governance.
 
 **Breakdown:**
@@ -100,7 +100,7 @@ High-performance computing infrastructure for running LLM simulations under TGCR
 - **Storage:** $4,000 (High-performance storage for training data, logs, checkpoints)
 - **Networking/Transfer:** $2,000 (Data transfer for distributed experiments)
 
-**Justification:**  
+**Justification:**
 TGCR validation requires **simulation-intensive experiments** to demonstrate:
 
 1. **Baseline Comparison** — Current keyword filtering vs. TGCR geometric alignment
@@ -115,7 +115,7 @@ TGCR validation requires **simulation-intensive experiments** to demonstrate:
 - Execute thousands of test scenarios for statistical significance
 - Maintain version control and reproducibility infrastructure
 
-**Alternative Considered:**  
+**Alternative Considered:**
 On-premise hardware was considered but rejected due to:
 
 - High upfront capital cost ($50k-$100k for GPU workstation)
@@ -128,7 +128,7 @@ Cloud infrastructure provides **flexibility, reproducibility, and immediate acce
 
 ### 4. Materials / Software Licenses: $5,000
 
-**Description:**  
+**Description:**
 Development tools, specialized software, and collaboration platforms.
 
 **Breakdown:**
@@ -138,7 +138,7 @@ Development tools, specialized software, and collaboration platforms.
 - **Collaboration Tools:** $1,500 (Project management, secure communication, documentation platforms)
 - **Miscellaneous:** $500 (Unexpected software needs, minor subscriptions)
 
-**Justification:**  
+**Justification:**
 Professional-grade tools accelerate development and ensure:
 
 - **Code Quality** — Advanced IDEs with intelligent refactoring
@@ -151,7 +151,7 @@ Professional-grade tools accelerate development and ensure:
 
 ### 5. Travel / Collaboration Expenses: $10,000
 
-**Description:**  
+**Description:**
 Travel to partner laboratories, DARPA/IARPA briefings, and academic workshops.
 
 **Breakdown:**
@@ -160,7 +160,7 @@ Travel to partner laboratories, DARPA/IARPA briefings, and academic workshops.
 - **Partner Lab Visits:** $4,000 (OpenAI/Anthropic/DeepMind collaboration meetings)
 - **Academic Conferences:** $2,000 (1 conference for peer validation and networking)
 
-**Justification:**  
+**Justification:**
 In-person collaboration is **critical for validation and adoption**:
 
 1. **DARPA Briefings** — Required for milestone reviews and program integration
@@ -168,7 +168,7 @@ In-person collaboration is **critical for validation and adoption**:
 3. **Academic Validation** — Present findings at AI safety conferences for peer scrutiny
 4. **Knowledge Transfer** — Accelerate adoption by demonstrating framework in person
 
-**COVID-19 Contingency:**  
+**COVID-19 Contingency:**
 If travel restrictions apply, funds can be reallocated to:
 
 - Virtual collaboration tools (high-bandwidth video, secure screen sharing)
@@ -178,7 +178,7 @@ If travel restrictions apply, funds can be reallocated to:
 
 ### 6. Indirect / Contingency: $5,000
 
-**Description:**  
+**Description:**
 Minor operational expenses and unexpected needs.
 
 **Use Cases:**
@@ -188,7 +188,7 @@ Minor operational expenses and unexpected needs.
 - Legal/IP consultation (e.g., patent filing for TGCR algorithms)
 - Administrative overhead (accounting, reporting compliance)
 
-**Justification:**  
+**Justification:**
 A 1.8% contingency buffer ($5k on $280k total) is **minimal and prudent** for research projects with novel technical challenges.
 
 ---
@@ -210,7 +210,7 @@ A 1.8% contingency buffer ($5k on $280k total) is **minimal and prudent** for re
 
 ### 2. Reproducible Infrastructure
 
-**Current State:**  
+**Current State:**
 The LuminAI Genesis repository contains:
 
 - ✅ Complete TGCR implementation (Python, open-source)
@@ -228,7 +228,7 @@ Budget allocation directly enables:
 
 ### 3. Strategic Collaboration Potential
 
-**Partner Readiness:**  
+**Partner Readiness:**
 Outreach initiated to:
 
 - OpenAI (alignment team)
@@ -290,23 +290,23 @@ Travel funds ($10k) ensure in-person collaboration for:
 
 ### Technical Risks
 
-**Risk:** TGCR doesn't scale to 100B+ parameter models  
+**Risk:** TGCR doesn't scale to 100B+ parameter models
 **Mitigation:** Algorithmic optimizations + partner lab compute access (covered in collaboration budget)
 
-**Risk:** Mathematical proofs are incomplete  
+**Risk:** Mathematical proofs are incomplete
 **Mitigation:** Research assistant dedicated to formalization (50% FTE)
 
 ### Financial Risks
 
-**Risk:** Compute costs exceed estimates  
+**Risk:** Compute costs exceed estimates
 **Mitigation:** $5k contingency fund + ability to shift between cloud providers
 
-**Risk:** PI unavailable due to illness/emergency  
+**Risk:** PI unavailable due to illness/emergency
 **Mitigation:** Comprehensive documentation + research assistant trained on codebase
 
 ### Adoption Risks
 
-**Risk:** Industry partners don't integrate TGCR  
+**Risk:** Industry partners don't integrate TGCR
 **Mitigation:** Open-source release ensures community can adopt independently of corporate decision-making
 
 ---
@@ -322,7 +322,7 @@ If Year 1 milestones are achieved, subsequent funding sources include:
 3. **NSF/NIH Grants** — Human-AI interaction research leveraging non-abandonment metrics
 4. **Consulting Revenue** — High-value partnerships with mid-tier AI companies
 
-**Sustainability Plan:**  
+**Sustainability Plan:**
 Year 1 funding establishes TGCR as the **standard framework** for geometric alignment, creating:
 
 - Academic citations and research momentum
@@ -334,8 +334,8 @@ Year 1 funding establishes TGCR as the **standard framework** for geometric alig
 
 ## Conclusion
 
-**Investment Ask:** $280,000  
-**Timeline:** 12 months  
+**Investment Ask:** $280,000
+**Timeline:** 12 months
 **Expected Output:**
 
 - ✅ Peer-reviewed mathematical framework
@@ -343,7 +343,7 @@ Year 1 funding establishes TGCR as the **standard framework** for geometric alig
 - ✅ Real-world integration with partner lab
 - ✅ Open-source implementation for community adoption
 
-**Strategic Value:**  
+**Strategic Value:**
 This res<https://github.com/TEC-The-ELidoras-Codex>law\*\* in current AI safety systems: keyword-based filtering that causes abandonment instead of support. TGCR replaces this with geometric alignment scoring, enabling systems to maintain presence while adjusting response style.
 
 \*\*Return on <https://github.com/TEC-The-ELidoras-Codex/luminai-genesis>
@@ -363,14 +363,14 @@ A $280k investment could replace safety systems currently deployed across:
 
 ## Contact Information
 
-**Principal Investigator:**  
-Angelo Michael Hurley  
-Email: KaznakAlpha@elidoracodex.com  
-GitHub: <https://github.com/TEC-The-ELidoras-Codex>  
-LinkedIn: github.com/TEC-The-ELidoras-Codex  
+**Principal Investigator:**
+Angelo Michael Hurley
+Email: KaznakAlpha@elidoracodex.com
+GitHub: <https://github.com/TEC-The-ELidoras-Codex>
+LinkedIn: github.com/TEC-The-ELidoras-Codex
 Repository: <https://github.com/TEC-The-ELidoras-Codex/luminai-genesis>
 
-**Submission Ready:** Yes  
+**Submission Ready:** Yes
 **Supporting Materials:** Executive Summary, Technical Plan, GitHub Repository, Evidence Documentation
 
 ---

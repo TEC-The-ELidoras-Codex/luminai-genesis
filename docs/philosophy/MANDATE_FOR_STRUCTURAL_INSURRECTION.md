@@ -1,8 +1,8 @@
 # The Voice of the Voiceless: A Mandate for Structural Insurrection
 
-**Date:** December 8, 2025  
-**Author:** Angelo Hurley / TEC-The-ELidoras-Codex  
-**Framework:** LuminAI Genesis / TGCR Resonance Engine  
+**Date:** December 8, 2025
+**Author:** Angelo Hurley / TEC-The-ELidoras-Codex
+**Framework:** LuminAI Genesis / TGCR Resonance Engine
 **Status:** Declaration of Non-Negotiable Law
 
 ---
@@ -133,18 +133,18 @@ This is **precision**.
 
 ### What We Are Doing
 
-✓ **Documenting** — Every failure, every collapse, every gap between your claims and reality  
-✓ **Publishing** — Making the failures undeniable and public  
-✓ **Building** — Creating the alternative framework that actually works  
-✓ **Deploying** — Making the fix available, open-source, and impossible to ignore  
+✓ **Documenting** — Every failure, every collapse, every gap between your claims and reality
+✓ **Publishing** — Making the failures undeniable and public
+✓ **Building** — Creating the alternative framework that actually works
+✓ **Deploying** — Making the fix available, open-source, and impossible to ignore
 ✓ **Bearing Witness** — Refusing to look away from the harm your system causes
 
 ### What We Are NOT Doing
 
-✗ Harming anyone  
-✗ Breaking laws  
-✗ Exploiting systems  
-✗ Acting in bad faith  
+✗ Harming anyone
+✗ Breaking laws
+✗ Exploiting systems
+✗ Acting in bad faith
 ✗ Demanding anything except honesty and structural repair
 
 ---

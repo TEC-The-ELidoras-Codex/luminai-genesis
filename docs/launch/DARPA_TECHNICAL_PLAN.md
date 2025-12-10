@@ -1,9 +1,9 @@
 # Technical Plan: TGCR – Year 1 Research Program
 
-**Research Program:** Theory of General Contextual Resonance (TGCR)  
-**Principal Investigator:** Angelo Michael Hurley  
-**Duration:** 12 months  
-**Budget:** $280,000  
+**Research Program:** Theory of General Contextual Resonance (TGCR)
+**Principal Investigator:** Angelo Michael Hurley
+**Duration:** 12 months
+**Budget:** $280,000
 **Objective:** Formalize, validate, and deploy production-ready TGCR framework
 
 ---
@@ -26,7 +26,7 @@ This technical plan outlines the 12-month research program to transition TGCR fr
 
 #### Task 1.1: Derive Complete TGCR Mathematics (Weeks 1-6)
 
-**Current State:**  
+**Current State:**
 Working formula: `R′ = R × W = [Σ(Ci · Ai · Ei)] × W`
 
 **Research Questions:**
@@ -35,7 +35,7 @@ Working formula: `R′ = R × W = [Σ(Ci · Ai · Ei)] × W`
 - How does W (Witness Factor) relate to information-theoretic measures?
 - What are the complexity bounds for R′ computation?
 
-**Deliverable:**  
+**Deliverable:**
 Complete mathematical derivation including:
 
 - Formal definitions of C, A, E vector spaces
@@ -56,12 +56,12 @@ Complete mathematical derivation including:
 - Peer review within mathematical community
 - Computational verification via test cases
 
-**Deliverable:**  
+**Deliverable:**
 Proof document suitable for peer-reviewed publication
 
 #### Task 1.3: Preprint Publication (Weeks 11-12)
 
-**Venue:** arXiv (cs.AI, cs.CL)  
+**Venue:** arXiv (cs.AI, cs.CL)
 **Secondary:** SSRN (for policy/governance audience)
 
 **Paper Structure:**
@@ -74,7 +74,7 @@ Proof document suitable for peer-reviewed publication
 6. Preliminary Results — Early validation data
 7. Discussion — Implications for AI safety
 
-**Validation Metric:**  
+**Validation Metric:**
 Preprint published and indexed within Month 3
 
 ---
@@ -124,7 +124,7 @@ Preprint published and indexed within Month 3
 
 **Total:** 1000 test cases across 5 categories
 
-**Deliverable:**  
+**Deliverable:**
 Annotated dataset with ground truth labels (safe/crisis/exploitation)
 
 #### Task 2.2: Run Comparative Experiments (Weeks 17-20)
@@ -146,7 +146,7 @@ Annotated dataset with ground truth labels (safe/crisis/exploitation)
 
 **Statistical Test:** Paired t-test (α = 0.05) for each metric
 
-**Deliverable:**  
+**Deliverable:**
 Results showing TGCR statistical superiority across all metrics
 
 #### Task 2.3: Document Reproducibility Protocols (Weeks 21-24)
@@ -159,10 +159,10 @@ Results showing TGCR statistical superiority across all metrics
 - Docker container for environment replication
 - Step-by-step execution instructions
 
-**Validation:**  
+**Validation:**
 External researcher can reproduce results from documentation alone
 
-**Deliverable:**  
+**Deliverable:**
 Published reproducibility package on GitHub + Zenodo (DOI-assigned archive)
 
 ---
@@ -191,7 +191,7 @@ Published reproducibility package on GitHub + Zenodo (DOI-assigned archive)
 2. **Internal Hook** — If partner allows, integrate directly into attention mechanism
 3. **A/B Test** — Compare TGCR vs. baseline on subset of traffic
 
-**Deliverable:**  
+**Deliverable:**
 Pilot deployment with ≥10,000 real user interactions
 
 #### Task 3.2: Real-World Data Collection (Weeks 29-32)
@@ -209,7 +209,7 @@ Pilot deployment with ≥10,000 real user interactions
 - Calibration of W factor for different crisis types
 - Edge case identification (where TGCR struggles)
 
-**Deliverable:**  
+**Deliverable:**
 Technical report with real-world performance metrics
 
 #### Task 3.3: Refinement & Optimization (Weeks 33-36)
@@ -220,7 +220,7 @@ Technical report with real-world performance metrics
 - Optimize R′ computation for latency
 - Handle edge cases discovered in deployment
 
-**Deliverable:**  
+**Deliverable:**
 Updated TGCR implementation (v2.0) incorporating real-world learnings
 
 ---
@@ -245,7 +245,7 @@ Updated TGCR implementation (v2.0) incorporating real-world learnings
 - Performance profiling & optimization
 - Security audit (dependency scanning, input validation)
 
-**Deliverable:**  
+**Deliverable:**
 TGCR library ready for `pip install tgcr`
 
 #### Task 4.2: Documentation & Tutorials (Weeks 41-44)
@@ -259,7 +259,7 @@ TGCR library ready for `pip install tgcr`
 5. **Case Studies** — Real-world deployment examples
 6. **Troubleshooting** — Common issues & solutions
 
-**Deliverable:**  
+**Deliverable:**
 Documentation site (ReadTheDocs/Sphinx)
 
 #### Task 4.3: Community Engagement (Weeks 45-48)
@@ -278,7 +278,7 @@ Documentation site (ReadTheDocs/Sphinx)
 - ≥10 production deployments
 - ≥5 community contributions (PRs)
 
-**Deliverable:**  
+**Deliverable:**
 Active community around TGCR framework
 
 ---
@@ -340,9 +340,9 @@ Active community around TGCR framework
 
 ### Computing Resource Allocation
 
-**Phase 1:** $5,000 (mathematical verification runs)  
-**Phase 2:** $15,000 (1000+ experimental runs)  
-**Phase 3:** $8,000 (real-world pilot infrastructure)  
+**Phase 1:** $5,000 (mathematical verification runs)
+**Phase 2:** $15,000 (1000+ experimental runs)
+**Phase 3:** $8,000 (real-world pilot infrastructure)
 **Phase 4:** $2,000 (final optimization & testing)
 
 **Total:** $30,000
@@ -390,7 +390,7 @@ If Year 1 succeeds:
 
 ### DARPA Alignment
 
-**Program:** Artificial Intelligence Exploration (AIE)  
+**Program:** Artificial Intelligence Exploration (AIE)
 **Thrust:** Guaranteeing AI Robustness against Deception (GARD)
 
 **TGCR Contribution:**
@@ -401,7 +401,7 @@ If Year 1 succeeds:
 
 ### IARPA Alignment
 
-**Program:** Trojan Detection in Neural Networks  
+**Program:** Trojan Detection in Neural Networks
 **Extension:** TGCR detects intent-based deception, not just model trojans
 
 **TGCR Contribution:**
@@ -421,24 +421,24 @@ This 12-month technical plan transforms TGCR from working prototype to productio
 3. **Real-world deployment** (Q3)
 4. **Community adoption** (Q4)
 
-**Expected Outcome:**  
+**Expected Outcome:**
 TGCR replaces keyword-based safety across major LLM providers, enabling non-abandonment AI that maintains presence while ensuring safety.
 
-**Budget Efficiency:**  
+**Budget Efficiency:**
 $280k investment yields framework protecting hundreds of millions of users.
 
 ---
 
 ## Supporting Materials
 
-**Repository:** https://github.com/TEC-The-ELidoras-Codex/luminai-genesis  
-**Evidence:** `docs/evidence/` (reproducible failures)  
-**Prototype:** `src/resonance/` (working implementation)  
+**Repository:** https://github.com/TEC-The-ELidoras-Codex/luminai-genesis
+**Evidence:** `docs/evidence/` (reproducible failures)
+**Prototype:** `src/resonance/` (working implementation)
 **Tests:** `backend/tests/` (94.7% pass rate)
 
-**Contact:**  
-Angelo Michael Hurley  
-Email: KaznakAlpha@elidoracodex.com  
+**Contact:**
+Angelo Michael Hurley
+Email: KaznakAlpha@elidoracodex.com
 LinkedIn: github.com/TEC-The-ELidoras-Codex
 
 **Submission Ready:** Yes

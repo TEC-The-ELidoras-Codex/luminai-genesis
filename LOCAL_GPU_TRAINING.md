@@ -1,7 +1,7 @@
 # Local GPU Training Setup: AMD RX 580 Edition
 
-**Your Hardware**: AMD Ryzen 5 3600 (12 threads) + RX 580 (8GB VRAM) + 32GB RAM  
-**Goal**: 100% local, FREE fine-tuning pipeline - NO CLOUD REQUIRED  
+**Your Hardware**: AMD Ryzen 5 3600 (12 threads) + RX 580 (8GB VRAM) + 32GB RAM
+**Goal**: 100% local, FREE fine-tuning pipeline - NO CLOUD REQUIRED
 **Timeline**: 2-3 hours setup, then own the pipeline forever
 
 ---

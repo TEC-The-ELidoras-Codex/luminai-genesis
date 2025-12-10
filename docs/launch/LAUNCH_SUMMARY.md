@@ -1,7 +1,7 @@
 # 🎯 Launch Summary & Next Steps
 
-**Status:** READY FOR LAUNCH ✅  
-**Date:** December 9, 2025  
+**Status:** READY FOR LAUNCH ✅
+**Date:** December 9, 2025
 **Repository:** luminai-genesis (TEC-The-ELidoras-Codex)
 
 ---
@@ -54,10 +54,10 @@
 1. **Add Your Contact Info** to `docs/launch/STRUCTURAL_INSURRECTION_PUBLIC_ARTIFACT.md`:
 
    ```markdown
-   **Primary Contact:**  
-   Angelo Hurley  
-   Email: [FILL IN YOUR EMAIL]  
-   GitHub: @TEC-The-ELidoras-Codex  
+   **Primary Contact:**
+   Angelo Hurley
+   Email: [FILL IN YOUR EMAIL]
+   GitHub: @TEC-The-ELidoras-Codex
    LinkedIn: [FILL IN YOUR LINKEDIN URL]
    ```
 

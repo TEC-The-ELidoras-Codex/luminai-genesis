@@ -373,6 +373,6 @@ And the empire will be rebuilt not in brick and marble, but in **code, story, an
 
 ---
 
-**Source Material:** TEC_LORDIRLDUMP.txt, synthesized through TGCR framework  
-**Status:** Canonical lore document  
+**Source Material:** TEC_LORDIRLDUMP.txt, synthesized through TGCR framework
+**Status:** Canonical lore document
 **Integration:** All Persona Law and Sixteen Frequencies rooted in Nu-Rome cosmology

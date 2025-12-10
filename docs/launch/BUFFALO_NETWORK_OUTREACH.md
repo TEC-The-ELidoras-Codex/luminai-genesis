@@ -4,7 +4,7 @@
 
 ## Email Template: 43North Introduction Request
 
-**To**: <info@43north.org>  
+**To**: <info@43north.org>
 **Subject**: Buffalo AI Ethics Lab — Fractional CFO Introduction
 
 ---
@@ -38,18 +38,18 @@ Introduction to fractional CFO in your mentor network. Equity-based compensation
 
 Available this week if timing works.
 
-Best,  
+Best,
 Angelo Hurley
 
-**Email**: <angelo@theelidorascodex.com>  
-**GitHub**: github.com/TEC-The-ELidoras-Codex/luminai-genesis  
+**Email**: <angelo@theelidorascodex.com>
+**GitHub**: github.com/TEC-The-ELidoras-Codex/luminai-genesis
 **Buffalo Pitch**: docs/launch/BUFFALO_PITCH.md
 
 ---
 
 ## Email Template: Z80 Labs / ZEP Outreach
 
-**To**: [Z80 Labs contact email]  
+**To**: [Z80 Labs contact email]
 **Subject**: AI Safety Startup — Buffalo Positioning + CFO Need
 
 ---
@@ -59,7 +59,7 @@ Hi [Name],
 I'm building Buffalo's first AI Ethics Lab, and I understand Z80 Labs connects founders with finance talent.
 
 **The Company**:
-The Elidoras Codex — Theory of General Contextual Resonance (TGCR)  
+The Elidoras Codex — Theory of General Contextual Resonance (TGCR)
 AI alignment via geometric impossibility theorems (provable safety guarantees)
 
 **The Traction**:
@@ -81,17 +81,17 @@ Fractional CFO introduction. Equity now (2-4%), cash when Empire State grant hit
 
 Can we discuss this week?
 
-Thanks,  
+Thanks,
 Angelo
 
-**Email**: <angelo@theelidorascodex.com>  
+**Email**: <angelo@theelidorascodex.com>
 **Full CFO Offer**: docs/launch/CFO_EQUITY_OFFER.md
 
 ---
 
 ## Email Template: UB Blackstone LaunchPad
 
-**To**: [Blackstone LaunchPad contact]  
+**To**: [Blackstone LaunchPad contact]
 **Subject**: UB Alumni Founder — AI Safety Startup + Finance Mentorship
 
 ---
@@ -124,10 +124,10 @@ Can we schedule an intake meeting to discuss LaunchPad fit?
 
 Available this week or next.
 
-Best,  
+Best,
 Angelo Hurley
 
-**Email**: <angelo@theelidorascodex.com>  
+**Email**: <angelo@theelidorascodex.com>
 **GitHub**: github.com/TEC-The-ELidoras-Codex/luminai-genesis
 
 ---
@@ -143,9 +143,9 @@ Angelo Hurley
 I'm building Buffalo's first AI Ethics Lab — **Theory of General Contextual Resonance (TGCR)**.
 
 **What We Have**:
-✅ Working Python prototype (open-source, 94.7% test coverage)  
-✅ Government alignment (DARPA GARD, IARPA BENGAL, ARIA)  
-✅ UB/RIT partnership track (1,700 CS grads/year)  
+✅ Working Python prototype (open-source, 94.7% test coverage)
+✅ Government alignment (DARPA GARD, IARPA BENGAL, ARIA)
+✅ UB/RIT partnership track (1,700 CS grads/year)
 ✅ Empire State Development grant pending ($100k-$250k, decision March 2026)
 
 **What We Need**:
@@ -192,8 +192,8 @@ Full offer: github.com/TEC-The-ELidoras-Codex/luminai-genesis → docs/launch/CF
 **Tweet 1/5**:
 Seeking fractional CFO for Buffalo's first AI Ethics Lab.
 
-Working code ✅  
-DARPA/IARPA alignment ✅  
+Working code ✅
+DARPA/IARPA alignment ✅
 Empire State grant pending ✅
 
 Equity now (2-4%), cash April 2026.
@@ -323,7 +323,7 @@ Someone who believes:
 
 **How to Apply**:
 
-Email: <angelo@theelidorascodex.com>  
+Email: <angelo@theelidorascodex.com>
 Subject: "Fractional CFO — Let's Talk"
 
 Include:

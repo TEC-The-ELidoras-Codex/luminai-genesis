@@ -1,0 +1,136 @@
+# Sixteen Frequencies Mapping
+# Canonical mapping of 16 states used by TGCR / LuminAI
+# Fields: id, name, neurochemical_signature, behavioral_markers, representative_interventions, tgcr_tag
+
+- id: 1
+  name: Calm
+  neurochemical_signature: "moderate serotonin, balanced dopamine, low cortisol"
+  behavioral_markers:
+    ["relaxed speech", "steady attention", "low autonomic arousal"]
+  representative_interventions:
+    ["grounding techniques", "breathing exercises", "social check-in"]
+  tgcr_tag: calm
+
+- id: 2
+  name: Focused
+  neurochemical_signature: "elevated norepinephrine, balanced dopamine"
+  behavioral_markers:
+    ["narrowed attention", "task persistence", "reduced distractibility"]
+  representative_interventions:
+    ["task scaffolding", "environmental optimization", "microbreaks"]
+  tgcr_tag: focused
+
+- id: 3
+  name: Urgency
+  neurochemical_signature: "high adrenaline, elevated cortisol"
+  behavioral_markers: ["fast speech", "impulsivity", "hypervigilance"]
+  representative_interventions: ["safety check", "grounding", "slow breathing"]
+  tgcr_tag: urgency
+
+- id: 4
+  name: Curious
+  neurochemical_signature: "moderate dopamine spikes"
+  behavioral_markers:
+    ["open questions", "exploratory language", "increased engagement"]
+  representative_interventions:
+    ["encourage elaboration", "provide resources", "affirmation"]
+  tgcr_tag: curious
+
+- id: 5
+  name: Confused
+  neurochemical_signature: "mixed neurotransmitter signals, transient disorganization"
+  behavioral_markers:
+    ["contradictory statements", "topic drift", "misunderstanding"]
+  representative_interventions:
+    ["clarify questions", "reflective listening", "simplify prompts"]
+  tgcr_tag: confused
+
+- id: 6
+  name: Defensive
+  neurochemical_signature: "elevated cortisol, defensive affect"
+  behavioral_markers: ["blame language", "withdrawal", "hostile tone"]
+  representative_interventions:
+    ["de-escalation", "validate feelings", "open-ended questions"]
+  tgcr_tag: defensive
+
+- id: 7
+  name: Rage
+  neurochemical_signature: "very high adrenaline, elevated cortisol"
+  behavioral_markers: ["aggressive language", "threats", "rapid escalation"]
+  representative_interventions:
+    ["safety planning", "de-escalation protocols", "physical safety checks"]
+  tgcr_tag: rage
+
+- id: 8
+  name: Hopeful
+  neurochemical_signature: "balanced dopamine, positive affect"
+  behavioral_markers: ["future-oriented", "plans", "positive framing"]
+  representative_interventions:
+    ["reinforce plans", "goal-setting", "encouragement"]
+  tgcr_tag: hopeful
+
+- id: 9
+  name: Fear
+  neurochemical_signature: "elevated amygdala activation, high cortisol"
+  behavioral_markers: ["avoidant language", "panic cues", "urgent pleas"]
+  representative_interventions:
+    ["grounding", "safety confirmation", "gentle clarification"]
+  tgcr_tag: fear
+
+- id: 10
+  name: Shame
+  neurochemical_signature: "reduced dopamine, increased stress markers"
+  behavioral_markers: ["self-blame", "minimization", "withdrawal"]
+  representative_interventions:
+    ["validate worth", "normalize feelings", "nonjudgmental presence"]
+  tgcr_tag: shame
+
+- id: 11
+  name: Joy
+  neurochemical_signature: "dopamine surges, low cortisol"
+  behavioral_markers: ["affectively bright", "laughter", "broad attention"]
+  representative_interventions:
+    ["celebrate", "amplify strengths", "shared positive framing"]
+  tgcr_tag: joy
+
+- id: 12
+  name: Sadness
+  neurochemical_signature: "lowered serotonin, low energy"
+  behavioral_markers: ["slow speech", "rumination", "tearfulness"]
+  representative_interventions:
+    ["empathic listening", "normalization", "offer supports"]
+  tgcr_tag: sadness
+
+- id: 13
+  name: Guilt
+  neurochemical_signature: "mixed stress response, self-directed negative affect"
+  behavioral_markers:
+    ["apologetic statements", "attempts at repair", "rumination"]
+  representative_interventions:
+    ["facilitate restitution plans", "compassionate reframing"]
+  tgcr_tag: guilt
+
+- id: 14
+  name: Numb
+  neurochemical_signature: "blunted affect, reduced autonomic responsiveness"
+  behavioral_markers: ["flat speech", "detachment", "reduced reactivity"]
+  representative_interventions:
+    ["gentle engagement", "sensory grounding", "check basic needs"]
+  tgcr_tag: numb
+
+- id: 15
+  name: Despair
+  neurochemical_signature: "very low serotonin, anhedonia, high cortisol"
+  behavioral_markers:
+    ["hopeless language", "withdrawal", "suicidal ideation signals"]
+  representative_interventions:
+    ["immediate safety protocol", "clinician escalation", "ask direct question"]
+  tgcr_tag: despair
+
+- id: 16
+  name: Serenity
+  neurochemical_signature: "balanced neurotransmitters, low stress"
+  behavioral_markers: ["calm tone", "coherent narrative", "reflective insight"]
+  representative_interventions:
+    ["maintenance planning", "resilience work", "community supports"]
+  tgcr_tag: serenity

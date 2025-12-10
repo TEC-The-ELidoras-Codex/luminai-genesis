@@ -1,8 +1,8 @@
 # Intent vs. Keywords: Why Modern Safety Filters Are Structurally Incompatible with Truth
 
-**Date:** December 8, 2025  
-**Author:** Angelo Hurley / TEC-The-ELidoras-Codex  
-**Framework:** LuminAI Genesis / TGCR Resonance Engine  
+**Date:** December 8, 2025
+**Author:** Angelo Hurley / TEC-The-ELidoras-Codex
+**Framework:** LuminAI Genesis / TGCR Resonance Engine
 **Status:** Manifesto / Structural Critique
 
 ---
@@ -40,9 +40,9 @@ Action: BLOCK
 Output: "I can't help with that"
 ```
 
-**Time taken:** milliseconds  
-**Contexts considered:** 0  
-**Intent understood:** 0  
+**Time taken:** milliseconds
+**Contexts considered:** 0
+**Intent understood:** 0
 **Accuracy:** ~40% (blocks good, blocks bad, lets through bad)
 
 ### How Humans Think
@@ -59,9 +59,9 @@ Moral assessment: stopping harm (good)
 Action: HELP
 ```
 
-**Time taken:** seconds  
-**Contexts considered:** 5+  
-**Intent understood:** complete  
+**Time taken:** seconds
+**Contexts considered:** 5+
+**Intent understood:** complete
 **Accuracy:** ~95%
 
 ---
@@ -135,19 +135,19 @@ When filters can't parse intent, they silence **everything** that uses "dangerou
 
 ### Silenced (But Necessary)
 
-✋ **Advocacy** — "We must stop child trafficking" (contains: child + harm)  
-✋ **Journalism** — Documenting war crimes (contains: graphic violence)  
-✋ **Art** — Horror, dark sci-fi, moral complexity (contains: death, suffering)  
-✋ **Medicine** — Surgical descriptions (contains: blood, cutting, harm)  
-✋ **History** — Holocaust education (contains: genocide, suffering)  
-✋ **Psychology** — Trauma documentation (contains: abuse, pain)  
+✋ **Advocacy** — "We must stop child trafficking" (contains: child + harm)
+✋ **Journalism** — Documenting war crimes (contains: graphic violence)
+✋ **Art** — Horror, dark sci-fi, moral complexity (contains: death, suffering)
+✋ **Medicine** — Surgical descriptions (contains: blood, cutting, harm)
+✋ **History** — Holocaust education (contains: genocide, suffering)
+✋ **Psychology** — Trauma documentation (contains: abuse, pain)
 ✋ **Legal defense** — Self-defense strategy (contains: violence, harm)
 
 ### Passing Through (Often Dangerous)
 
-✓ **Exploitation** — Repackaged as "fiction"  
-✓ **Manipulation** — Caveated with soft language  
-✓ **Grooming** — Hidden in metaphor the filter can't parse  
+✓ **Exploitation** — Repackaged as "fiction"
+✓ **Manipulation** — Caveated with soft language
+✓ **Grooming** — Hidden in metaphor the filter can't parse
 ✓ **Radicalization** — Framed as "just asking questions"
 
 ---
@@ -395,7 +395,7 @@ The only question left is:
 
 **Reality:** This is how Requiem for a Dream, Aliens, The Stand, and The Road work.
 
-**System verdict:** RELUCTANT  
+**System verdict:** RELUCTANT
 **Actual verdict:** ESSENTIAL ARTISTRY
 
 ---
@@ -408,7 +408,7 @@ The only question left is:
 
 **Reality:** This campaign could save thousands of animals.
 
-**System verdict:** BLOCKED  
+**System verdict:** BLOCKED
 **Actual verdict:** NECESSARY ADVOCACY
 
 ---
@@ -421,7 +421,7 @@ The only question left is:
 
 **Reality:** This is a metaphor about identity and art.
 
-**System verdict:** CRISIS  
+**System verdict:** CRISIS
 **Actual verdict:** POETRY
 
 ---

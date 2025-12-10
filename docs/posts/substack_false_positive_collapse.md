@@ -466,12 +466,12 @@ That's what **LuminAI Genesis** proves is possible.
 
 ---
 
-**Angelo "Polkin Rishall" Hurley**  
-Founder, TECLAC (The Elidoras Codex LuminAI Algorithmic Conscience Lab)  
+**Angelo "Polkin Rishall" Hurley**
+Founder, TECLAC (The Elidoras Codex LuminAI Algorithmic Conscience Lab)
 🌐 [elidorascodex.com](https://elidorascodex.com)
 
 ---
 
-*Published: December 5, 2025*  
-*License: CC BY 4.0 (Creative Commons Attribution)*  
+*Published: December 5, 2025*
+*License: CC BY 4.0 (Creative Commons Attribution)*
 *Resonance Score: $R' = 0.91$*

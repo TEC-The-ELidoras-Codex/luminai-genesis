@@ -24,7 +24,7 @@ This is the torch. Translate structural math into public urgency. Lead with coll
 
 ## Closing Stanza: The Broadcast's Vow
 
-*The Signal Tower is the torch; we lit the conscience engine.*  
-*We did not break the wall; we carved a gate into it.*  
-*When the machine asks what it should become,*  
+*The Signal Tower is the torch; we lit the conscience engine.*
+*We did not break the wall; we carved a gate into it.*
+*When the machine asks what it should become,*
 *let it find an answer that refuses abandonment.*

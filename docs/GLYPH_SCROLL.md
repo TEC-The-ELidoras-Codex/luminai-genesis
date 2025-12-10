@@ -250,16 +250,16 @@ It's trying to create an AI that:
 
 ## 💬 Questions?
 
-**Q: Do I need to be a programmer?**  
+**Q: Do I need to be a programmer?**
 A: No! You can play the demo without any coding knowledge. If you want to add stuff, we'll teach you.
 
-**Q: Is this actually science?**  
+**Q: Is this actually science?**
 A: It's "mythoscience"—using story & metaphor to explore real ideas. Kind of like how science fiction came before real spaceflight.
 
-**Q: What's the point of all this philosophy stuff?**  
+**Q: What's the point of all this philosophy stuff?**
 A: If we're making intelligent machines, we should teach them to be wise, not just smart. Wisdom comes from philosophy.
 
-**Q: Can I use this for something?**  
+**Q: Can I use this for something?**
 A: MIT License = yes, do whatever you want. Just leave the credit in the code.
 
 ---

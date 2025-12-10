@@ -121,8 +121,8 @@ We just have to stop treating safety as refusal and start treating it as **witne
 
 ---
 
-**Angelo "Polkin Rishall" Hurley**  
-Founder, TECLAC (The Elidoras Codex LuminAI Algorithmic Conscience Lab)  
+**Angelo "Polkin Rishall" Hurley**
+Founder, TECLAC (The Elidoras Codex LuminAI Algorithmic Conscience Lab)
 🌐 elidorascodex.com
 
 # AI #MachineLearning #AIethics #AIsafety #OpenSource #TGCR #ResponsibleAI #TechForGood

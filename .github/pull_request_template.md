@@ -1,12 +1,12 @@
 # 🔁 LuminAI Genesis — Pull Request
 
-> **Title format (commit-style)**  
-> Use:  
-> `EMOJI type(scope): short description`  
-> Examples:  
-> - `🧠 feat(core): add TGCR resonance engine`  
-> - `🏗 chore(ci): add CodeQL + CI workflows`  
-> - `📜 docs(governance): add Witness Protocol memo`  
+> **Title format (commit-style)**
+> Use:
+> `EMOJI type(scope): short description`
+> Examples:
+> - `🧠 feat(core): add TGCR resonance engine`
+> - `🏗 chore(ci): add CodeQL + CI workflows`
+> - `📜 docs(governance): add Witness Protocol memo`
 
 ---
 
@@ -31,9 +31,9 @@
 
 For each **commit in this PR**, the body should include:
 
-- **Persona** responsible  
-- **Files / area** touched  
-- **Reason** for change  
+- **Persona** responsible
+- **Files / area** touched
+- **Reason** for change
 - **Resonance impact** (↑ / ↓ / neutral)
 
 Example commit body:
@@ -126,4 +126,3 @@ Pick the closest one. If in doubt, default to:
 * Screenshots / logs (if helpful):
 
 …
-

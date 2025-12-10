@@ -9,21 +9,22 @@ This module implements the foundational classes for the Astradigital Engine:
 Philosophy alignment serves as a harm taxonomy; entity actions are scored
 against integrity as a governance protocol ensuring ethical constraints.
 """
+
 import json
 import random
 from dataclasses import dataclass, field
-from typing import Dict, Any, Optional, List, Union
+from typing import Dict, Any
 
 
 @dataclass
 class Ability:
     """Represents a single codex-defined ability with costs and effects.
-    
+
     Abilities translate narrative intent (e.g., 'Sanctuary Circle') into
     mechanical execution via cost spending, roll resolution, and effect application.
     The ability system serves as a governance layer for action legitimacy:
     entities must pay resources and pass checks to act.
-    
+
     Attributes:
         name: Human-readable ability identifier.
         cost: Resource pool requirements (mana, pp, conviction, etc.).
@@ -31,6 +32,7 @@ class Ability:
         effects: Outcome metadata (damage, ally_defense, debuffs).
         duration: Rounds of persistence for zone/buff effects.
     """
+
     name: str
     cost: Dict[str, int]
     type: str  # attack, heal, buff, zone, ultimate
@@ -38,16 +40,16 @@ class Ability:
     duration: int = 0
 
     @staticmethod
-    def from_json(data: Dict[str, Any]) -> 'Ability':
+    def from_json(data: Dict[str, Any]) -> "Ability":
         """Construct an Ability from codex JSON schema.
-        
+
         This factory method parses ability definitions from abilities.json,
         ensuring that the codex serves as the single source of truth for
         action legality and effect templates.
-        
+
         Args:
             data: JSON object with name, cost, type, effects, duration keys.
-        
+
         Returns:
             An Ability instance ready for use by an AstradigitalEntity.
         """
@@ -56,23 +58,23 @@ class Ability:
             cost=data.get("cost", {}),
             type=data.get("type", "action"),
             effects=data.get("effects", {}),
-            duration=data.get("duration", 0)
+            duration=data.get("duration", 0),
         )
 
 
 @dataclass
 class AstradigitalEntity:
     """Philosophy-aligned combat entity with integrity-based governance.
-    
+
     Entities embody philosophical stances as harm taxonomies: their behaviors,
     resource pools, and action constraints reflect their alignment (Truth, Entropy,
     Harmony, Faith, Profit). Integrity acts as a risk score: low integrity triggers
     extreme twists, enforcing narrative consequences for philosophical failure.
-    
+
     The golf_rule inversion mechanic inverts success thresholds for entropy-aligned
     classes (e.g., Occam\\'s Razor), rewarding simplicity and penalizing complexity.
     This serves as a governance protocol ensuring alignment-appropriate action costs.
-    
+
     Attributes:
         name: Entity identifier.
         philosophy_class: Class name (Pacifist, Occam\\'s Razor, etc.) from codex.
@@ -91,6 +93,7 @@ class AstradigitalEntity:
         known_abilities: Abilities loaded from codex by level.
         level: Determines ability access.
     """
+
     name: str
     philosophy_class: str
     role: str
@@ -112,7 +115,12 @@ class AstradigitalEntity:
         self.integrity = self.max_integrity
 
     @staticmethod
-    def from_codex(name: str, cls_name: str, codex: Dict[str, Any], ability_db: Dict[str, Any] = None) -> "AstradigitalEntity":
+    def from_codex(
+        name: str,
+        cls_name: str,
+        codex: Dict[str, Any],
+        ability_db: Dict[str, Any] = None,
+    ) -> "AstradigitalEntity":
         cls = codex["classes"].get(cls_name)
         if not cls:
             raise ValueError(f"Class '{cls_name}' not found in codex")
@@ -133,7 +141,11 @@ class AstradigitalEntity:
         entity.speed = base.get("speed", entity.speed)
 
         # Load abilities by level if database provided
-        if ability_db and "abilities" in ability_db and cls_name in ability_db["abilities"]:
+        if (
+            ability_db
+            and "abilities" in ability_db
+            and cls_name in ability_db["abilities"]
+        ):
             class_abilities = ability_db["abilities"][cls_name]
             for lvl_str, abs_list in class_abilities.items():
                 try:
@@ -148,15 +160,15 @@ class AstradigitalEntity:
 
     def roll_d20(self, context: str = "action") -> Dict[str, Any]:
         """Execute a d20 roll with golf-rule inversion for entropy alignments.
-        
+
         This method implements the core risk-scoring mechanic: standard rolls
         succeed on high values (10+), while golf-rule classes invert the logic
         to reward simplicity (low rolls). Critical success/failure thresholds
         are alignment-dependent, serving as a governance layer for action legitimacy.
-        
+
         Args:
             context: Descriptive label for the roll (e.g., 'Cast Singularity').
-        
+
         Returns:
             Dict with roll value, status (Success/Failure/Crit), and crit flag.
         """
@@ -189,16 +201,16 @@ class AstradigitalEntity:
 
     def philosophy_check(self, trigger_event: str) -> Dict[str, Any]:
         """Evaluate integrity risk under philosophical stress.
-        
+
         Philosophy checks serve as a harm taxonomy: extreme events (moral dilemmas,
         contradictions) force entities to reconcile actions with core beliefs.
         Low rolls (≤5) yield affirmation (integrity +20); high rolls (≥20) trigger
         disavowal (integrity → 1, twist active). This is a governance protocol
         enforcing narrative consequences for philosophical failure.
-        
+
         Args:
             trigger_event: Description of the philosophical stressor.
-        
+
         Returns:
             Dict with roll, outcome (AFFIRMATION/TOLERANCE/DISAVOWAL), integrity, twist.
         """
@@ -230,7 +242,9 @@ class AstradigitalEntity:
 
     def heal(self, amount: int) -> int:
         before = self.hp
-        self.hp = min(self.max_integrity, self.hp + amount)  # using max_integrity as hp cap for v0.1
+        self.hp = min(
+            self.max_integrity, self.hp + amount
+        )  # using max_integrity as hp cap for v0.1
         return self.hp - before
 
     def spend(self, pool: str, amount: int) -> bool:
@@ -245,23 +259,25 @@ class AstradigitalEntity:
             return True
         return False
 
-    def use_ability(self, ability_name: str, target: 'AstradigitalEntity') -> Dict[str, Any]:
+    def use_ability(
+        self, ability_name: str, target: "AstradigitalEntity"
+    ) -> Dict[str, Any]:
         """Execute a codex-defined ability with cost validation and effect resolution.
-        
+
         This method serves as the primary action resolution layer, linking codex data
         to tactical execution. It enforces governance through cost validation (entities
         must have sufficient resources to act) and applies effects (damage, heal, buffs)
         contingent on roll success. Failure (low golf rolls or high standard rolls)
         can trigger twists, ensuring philosophical alignment constrains behavior.
-        
+
         The ability system acts as a risk-scoring framework: entities pay upfront costs,
         roll against difficulty, and apply effects proportional to success. This ensures
         narrative legitimacy (no free actions) and tactical depth.
-        
+
         Args:
             ability_name: Name of the ability to execute (must be in known_abilities).
             target: The AstradigitalEntity receiving the effect.
-        
+
         Returns:
             Dict with success flag, roll outcome, effects_applied, damage, heal, twist.
         """
@@ -279,7 +295,14 @@ class AstradigitalEntity:
                 self.resources[base_res] = 0
                 # expose drained info in outcome later
                 amount = drained
-            if not self.spend(resource if not resource.endswith("_all") else resource.replace("_all", ""), amount):
+            if not self.spend(
+                (
+                    resource
+                    if not resource.endswith("_all")
+                    else resource.replace("_all", "")
+                ),
+                amount,
+            ):
                 return {"success": False, "reason": f"Insufficient {resource}"}
 
         # 2. Roll Logic
@@ -298,7 +321,9 @@ class AstradigitalEntity:
 
         # Fail conditions (golf vs standard)
         is_crit = roll["crit"]
-        is_fail = (self.is_golf_rule and roll["roll"] >= 16) or (not self.is_golf_rule and roll["roll"] == 1)
+        is_fail = (self.is_golf_rule and roll["roll"] >= 16) or (
+            not self.is_golf_rule and roll["roll"] == 1
+        )
 
         if is_fail:
             outcome["twist_triggered"] = True
@@ -314,7 +339,9 @@ class AstradigitalEntity:
                 dmg *= 2
             actual_dmg = target.take_damage(dmg)
             outcome["damage"] = actual_dmg
-            outcome["effects_applied"].append(f"Dealt {actual_dmg} damage to {target.name}")
+            outcome["effects_applied"].append(
+                f"Dealt {actual_dmg} damage to {target.name}"
+            )
 
         # Heal (self for now; can extend to target)
         if "heal" in effs:
@@ -330,10 +357,12 @@ class AstradigitalEntity:
                 outcome["effects_applied"].append(f"Buff {key}={effs[key]}")
 
         # Debuffs (on target)
-        for key in ("enemy_accuracy", ):
+        for key in ("enemy_accuracy",):
             if key in effs:
                 target.debuffs[key] = effs[key]
-                outcome["effects_applied"].append(f"Debuff {key}={effs[key]} on {target.name}")
+                outcome["effects_applied"].append(
+                    f"Debuff {key}={effs[key]} on {target.name}"
+                )
 
         # Special: crit_on_1 effect for Occam's Razor 'Singularity'
         if effs.get("crit_on_1") and roll["roll"] == 1:
@@ -344,14 +373,14 @@ class AstradigitalEntity:
 
 def load_codex(path: str) -> Dict[str, Any]:
     """Load the class codex JSON (single source of truth for philosophy classes).
-    
+
     The codex defines class mechanics, resources, stats, and extreme twists,
     serving as the authoritative schema for entity initialization. This ensures
     consistency and audit-readiness: all class behavior is data-driven.
-    
+
     Args:
         path: Filesystem path to classes.json.
-    
+
     Returns:
         Dict with 'classes' key mapping class names to definitions.
     """
@@ -361,14 +390,14 @@ def load_codex(path: str) -> Dict[str, Any]:
 
 def initiative_order(entities: Dict[str, AstradigitalEntity]) -> Dict[str, int]:
     """Determine turn order via d20 initiative rolls.
-    
+
     Initiative serves as a risk-scoring mechanic for temporal agency: entities
     with high rolls act first, granting tactical advantage. Future versions may
     incorporate speed modifiers and philosophy-specific bonuses.
-    
+
     Args:
         entities: Dict mapping entity names to AstradigitalEntity instances.
-    
+
     Returns:
         Dict mapping entity names to initiative scores (1-20).
     """
@@ -376,22 +405,26 @@ def initiative_order(entities: Dict[str, AstradigitalEntity]) -> Dict[str, int]:
     return {name: random.randint(1, 20) for name in entities.keys()}
 
 
-def take_turn(entity: AstradigitalEntity, enemies: Dict[str, AstradigitalEntity], party: Dict[str, AstradigitalEntity]) -> Dict[str, Any]:
+def take_turn(
+    entity: AstradigitalEntity,
+    enemies: Dict[str, AstradigitalEntity],
+    party: Dict[str, AstradigitalEntity],
+) -> Dict[str, Any]:
     """Execute entity turn with ability selection and target resolution.
-    
+
     This function serves as the AI layer for combat: entities select their first
     known ability and target the first available opponent. It acts as a governance
     protocol ensuring entities act according to their codex-defined capabilities.
-    
+
     Future versions will implement role-based heuristics (Tanks prioritize protection,
     DPS prioritize damage) and philosophy-aware targeting (e.g., Pacifists redirect
     attacks to themselves).
-    
+
     Args:
         entity: The acting AstradigitalEntity.
         enemies: Dict of hostile entities.
         party: Dict of allied entities.
-    
+
     Returns:
         Dict with type, actor, target, and ability resolution outcome.
     """

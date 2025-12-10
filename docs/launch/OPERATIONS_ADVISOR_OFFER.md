@@ -1,8 +1,8 @@
 # Operations + Grants Advisor — Buffalo AI Ethics Lab
 
-**Company**: The Elidoras Codex / LuminAI Genesis  
-**Location**: Buffalo, NY (or remote)  
-**Stage**: Pre-Seed (Working Code, Seeking First Grant)  
+**Company**: The Elidoras Codex / LuminAI Genesis
+**Location**: Buffalo, NY (or remote)
+**Stage**: Pre-Seed (Working Code, Seeking First Grant)
 **Contact**: <angelo@theelidorascodex.com>
 
 ---
@@ -86,8 +86,8 @@ I need someone to help with the **money/paperwork stuff** I don't know how to do
 
 ### The Timeline
 
-**Jan 15, 2026**: Empire State Development grant submitted  
-**March 2026**: Grant decision ($100k-$250k, 70% probability)  
+**Jan 15, 2026**: Empire State Development grant submitted
+**March 2026**: Grant decision ($100k-$250k, 70% probability)
 **April 2026**: Your cash comp starts ($1k-$2k/month)
 
 ### The Math
@@ -140,7 +140,7 @@ This is a **small bet with big upside**, not a full-time commitment.
 
 ### If You're Interested
 
-**Email**: <angelo@theelidorascodex.com>  
+**Email**: <angelo@theelidorascodex.com>
 **Subject**: "Operations + Grants — Let's Talk"
 
 **Tell me**:
@@ -176,8 +176,8 @@ If it's not, no hard feelings. This is a **small bet** on a **big vision**.
 
 ---
 
-**Contact**: <angelo@theelidorascodex.com>  
-**GitHub**: github.com/TEC-The-ELidoras-Codex/luminai-genesis  
+**Contact**: <angelo@theelidorascodex.com>
+**GitHub**: github.com/TEC-The-ELidoras-Codex/luminai-genesis
 **Buffalo Pitch**: docs/launch/BUFFALO_PITCH.md
 
 **Last Updated**: December 9, 2025

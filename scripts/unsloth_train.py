@@ -26,11 +26,11 @@ from unsloth import FastLanguageModel, is_bfloat16_supported
 def load_training_data(data_path: str) -> Dataset:
     """Load JSONL training data and convert to HuggingFace Dataset."""
     texts = []
-    with open(data_path, 'r') as f:
+    with open(data_path, "r") as f:
         for line in f:
             item = json.loads(line)
-            texts.append(item['text'])
-    
+            texts.append(item["text"])
+
     return Dataset.from_dict({"text": texts})
 
 
@@ -46,7 +46,7 @@ def setup_model_and_tokenizer(
         dtype=None,  # Auto-detect
         load_in_4bit=load_in_4bit,
     )
-    
+
     # Apply LoRA
     model = FastLanguageModel.get_peft_model(
         model,
@@ -59,7 +59,7 @@ def setup_model_and_tokenizer(
         use_rslora=False,  # rank-stabilized LoRA
         target_modules=["q_proj", "k_proj", "v_proj", "o_proj"],
     )
-    
+
     return model, tokenizer
 
 
@@ -74,7 +74,7 @@ def train(
     use_cpu: bool = False,
 ):
     """Fine-tune model using Unsloth with LuminAI persona-aligned data."""
-    
+
     print("\n" + "=" * 70)
     print("UNSLOTH FINE-TUNE: LuminAI Genesis")
     print("=" * 70)
@@ -83,12 +83,12 @@ def train(
     print(f"Output: {output_dir}")
     print(f"Epochs: {num_epochs}, Batch Size: {batch_size}")
     print("=" * 70 + "\n")
-    
+
     # Load data
     print("[1/5] Loading training data...")
     train_dataset = load_training_data(data_path)
     print(f"  ✓ Loaded {len(train_dataset)} examples")
-    
+
     # Setup model and tokenizer
     print("\n[2/5] Initializing Unsloth model with LoRA...")
     model, tokenizer = setup_model_and_tokenizer(
@@ -97,16 +97,16 @@ def train(
     )
     print("  ✓ Model loaded in 4-bit quantization")
     print("  ✓ LoRA applied (rank=16, alpha=16)")
-    
+
     # Training arguments
     print("\n[3/5] Configuring training arguments...")
-    
+
     # CPU mode adjustments
     if use_cpu:
         print("  ⚠️  CPU-only mode enabled (no CUDA available)")
         print("  ⚠️  Training will be significantly slower")
         batch_size = min(batch_size, 1)  # Reduce to 1 for CPU
-    
+
     training_args = TrainingArguments(
         output_dir=output_dir,
         per_device_train_batch_size=batch_size,
@@ -130,7 +130,7 @@ def train(
     print(f"  ✓ Batch size: {batch_size}")
     if not use_cpu:
         print(f"  ✓ Using {'bfloat16' if is_bfloat16_supported() else 'float16'}")
-    
+
     # Create trainer
     print("\n[4/5] Initializing SFT trainer...")
     trainer = SFTTrainer(
@@ -143,20 +143,20 @@ def train(
         packing=True,  # Pack multiple examples into one sequence
     )
     print("  ✓ Trainer ready (packing enabled)")
-    
+
     # Train
     print("\n[5/5] Starting training...")
     print("-" * 70)
     trainer.train()
     print("-" * 70)
     print("  ✓ Training complete!")
-    
+
     # Save
     print("\n[SAVE] Saving LoRA weights...")
     model.save_pretrained(output_dir)
     tokenizer.save_pretrained(output_dir)
     print(f"  ✓ LoRA weights saved to: {output_dir}")
-    
+
     # Merge to full weights (optional, for GGUF conversion)
     print("\n[MERGE] Creating merged model (for GGUF conversion)...")
     merged_output = f"{output_dir}_merged"
@@ -164,7 +164,7 @@ def train(
     model.save_pretrained(merged_output)
     tokenizer.save_pretrained(merged_output)
     print(f"  ✓ Merged weights saved to: {merged_output}")
-    
+
     print("\n" + "=" * 70)
     print("TRAINING COMPLETE")
     print("=" * 70)
@@ -177,62 +177,52 @@ def train(
     print("\n3. Test in API:")
     print("   curl -X POST http://localhost:8000/api/chat \\")
     print("     -H 'Content-Type: application/json' \\")
-    print("     -d '{\"session_id\": \"test\", \"message\": \"Hello\", \"model\": \"luminai-unsloth\"}'")
+    print(
+        '     -d \'{"session_id": "test", "message": "Hello", "model": "luminai-unsloth"}\''
+    )
     print("=" * 70 + "\n")
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Unsloth fine-tune for LuminAI Genesis")
+    parser = argparse.ArgumentParser(
+        description="Unsloth fine-tune for LuminAI Genesis"
+    )
     parser.add_argument(
         "--model_name",
         type=str,
         default="unsloth/llama-3-8b-bnb-4bit",
-        help="HuggingFace model ID to fine-tune"
+        help="HuggingFace model ID to fine-tune",
     )
     parser.add_argument(
         "--data_path",
         type=str,
         default="data/training/persona_sft_dataset_complete.jsonl",
-        help="Path to JSONL training data"
+        help="Path to JSONL training data",
     )
     parser.add_argument(
         "--output_dir",
         type=str,
         default="models/luminai-lora",
-        help="Output directory for LoRA weights"
+        help="Output directory for LoRA weights",
     )
     parser.add_argument(
-        "--num_epochs",
-        type=int,
-        default=3,
-        help="Number of training epochs"
+        "--num_epochs", type=int, default=3, help="Number of training epochs"
     )
     parser.add_argument(
-        "--batch_size",
-        type=int,
-        default=2,
-        help="Training batch size per device"
+        "--batch_size", type=int, default=2, help="Training batch size per device"
     )
     parser.add_argument(
-        "--learning_rate",
-        type=float,
-        default=2e-4,
-        help="Learning rate"
+        "--learning_rate", type=float, default=2e-4, help="Learning rate"
     )
     parser.add_argument(
-        "--max_seq_length",
-        type=int,
-        default=1024,
-        help="Maximum sequence length"
+        "--max_seq_length", type=int, default=1024, help="Maximum sequence length"
     )
     parser.add_argument(
-        "--use_cpu",
-        action="store_true",
-        help="Force CPU-only training (no CUDA)"
+        "--use_cpu", action="store_true", help="Force CPU-only training (no CUDA)"
     )
-    
+
     args = parser.parse_args()
-    
+
     train(
         model_name=args.model_name,
         data_path=args.data_path,

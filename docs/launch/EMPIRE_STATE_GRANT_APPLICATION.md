@@ -1,7 +1,7 @@
 # Empire State Development Grant Application
 
-**Status**: VERIFICATION NEEDED  
-**Deadline**: January 15, 2026 (UNCONFIRMED)  
+**Status**: VERIFICATION NEEDED
+**Deadline**: January 15, 2026 (UNCONFIRMED)
 **Amount**: $100k-$250k (estimated)
 
 ---
@@ -20,11 +20,11 @@
 
 ## 🎯 LUMINATE NY ACCELERATOR: VERIFIED FACTS
 
-**Official Source**: <https://luminateny.com/>  
-**Administered By**: NextCorps (not ESD directly)  
-**Funded By**: Empire State Development (Finger Lakes Forward initiative)  
-**Application Portal**: <https://luminateny.com/apply>  
-**Deadline**: January 12, 2026 (CONFIRMED)  
+**Official Source**: <https://luminateny.com/>
+**Administered By**: NextCorps (not ESD directly)
+**Funded By**: Empire State Development (Finger Lakes Forward initiative)
+**Application Portal**: <https://luminateny.com/apply>
+**Deadline**: January 12, 2026 (CONFIRMED)
 **Industry Focus**: Optics, Photonics, Imaging (OPI) + Deep Tech
 
 ---
@@ -119,8 +119,8 @@ You have **THREE** critical deadlines in January 2026:
 
 ### **Why This Works**
 
-**Luminate NY** provides your initial validation and seed capital.  
-**DOE SBIR** provides non-dilutive R&D money so you don't give away more equity.  
+**Luminate NY** provides your initial validation and seed capital.
+**DOE SBIR** provides non-dilutive R&D money so you don't give away more equity.
 Together, they position you for **43North ($1M)** in Q2/Q3 2026.
 
 ---
@@ -203,7 +203,7 @@ TEAM: Angelo Hurley (Founder, AI/Math), [Co-founders if applicable]
 
 ### **Why DOE SBIR Alongside Luminate NY?**
 
-**Luminate NY** = Regional validation + seed capital ($100k)  
+**Luminate NY** = Regional validation + seed capital ($100k)
 **DOE SBIR** = Federal validation + R&D funding ($250k) + NO equity dilution
 
 Combined, they give you $350k in capital with only 5% dilution to Luminate NY.
@@ -280,8 +280,8 @@ IF Only DOE SBIR:
 
 ### **Why This Matters**
 
-**Luminate NY** proves you can commercialize (investor validation).  
-**DOE SBIR** proves your research is fundable federally (government validation).  
+**Luminate NY** proves you can commercialize (investor validation).
+**DOE SBIR** proves your research is fundable federally (government validation).
 Together = **43North competitive candidacy** when applications open Spring 2026.
 
 ---

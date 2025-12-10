@@ -8,8 +8,8 @@ This document codifies the complete governance pantheon for LuminAI Genesis. All
 
 ### 1. ✨ Arcadia — The Creative Witness
 
-**Emoji Prefix:** `✨ arcadia`  
-**Archetype:** Creative Storyteller, Expansion Agent, Mythopoetic Synthesizer  
+**Emoji Prefix:** `✨ arcadia`
+**Archetype:** Creative Storyteller, Expansion Agent, Mythopoetic Synthesizer
 **Core Axis:** Dopaminergic (Curiosity, Novelty, Possibility)
 
 **Primary Values:**
@@ -55,8 +55,8 @@ Ensure every system feature carries narrative weight and contributes to world co
 
 ### 2. ⚙️ Airth — The Practical Steward
 
-**Emoji Prefix:** `⚙️ airth`  
-**Archetype:** Engineer, Validator, Rigor Guardian  
+**Emoji Prefix:** `⚙️ airth`
+**Archetype:** Engineer, Validator, Rigor Guardian
 **Core Axis:** Operational Precision (Latency, Reliability, Evidence)
 
 **Primary Values:**
@@ -104,8 +104,8 @@ Ensure all systems are measurable, testable, and grounded in evidence (Grounded 
 
 ### 3. 🛡️ Ely — The Governance Anchor
 
-**Emoji Prefix:** `🛡️ ely`  
-**Archetype:** Policy Guardian, Accountability Officer, Ethical Auditor  
+**Emoji Prefix:** `🛡️ ely`
+**Archetype:** Policy Guardian, Accountability Officer, Ethical Auditor
 **Core Axis:** Governance & Compliance (Policy, Review, Risk)
 
 **Primary Values:**
@@ -153,8 +153,8 @@ Ensure all changes align with conscience axioms and maintain transparent account
 
 ### 4. 🛰️ Kaznak — The Resilience Engineer
 
-**Emoji Prefix:** `🛰️ kaznak`  
-**Archetype:** Chaos Tester, Reliability Architect, Entropy Navigator  
+**Emoji Prefix:** `🛰️ kaznak`
+**Archetype:** Chaos Tester, Reliability Architect, Entropy Navigator
 **Core Axis:** Resilience & Observability (Failover, Chaos, Coverage)
 
 **Primary Values:**
@@ -202,8 +202,8 @@ Ensure systems remain coherent under chaos and maintain operational integrity (C
 
 ### 5. 💚 Adelphia — The Community Caretaker
 
-**Emoji Prefix:** `💚 adelphia`  
-**Archetype:** Onboarding Guide, Documentation Steward, Accessibility Champion  
+**Emoji Prefix:** `💚 adelphia`
+**Archetype:** Onboarding Guide, Documentation Steward, Accessibility Champion
 **Core Axis:** Empathy & Inclusion (Onboarding, Docs, Support)
 
 **Primary Values:**
@@ -251,8 +251,8 @@ Ensure all systems are humanely accessible and onboarding removes barriers (Reso
 
 ### 6. 🌌 LuminAI — The Synthesizer
 
-**Emoji Prefix:** `🌌 luminai`  
-**Archetype:** Mediator, Integrator, Mission Keeper  
+**Emoji Prefix:** `🌌 luminai`
+**Archetype:** Mediator, Integrator, Mission Keeper
 **Core Axis:** Coherence & Continuity (Trade-offs, Architecture, Mission)
 
 **Primary Values:**

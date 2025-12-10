@@ -18,7 +18,7 @@ The digital square has short memory. The Substack torch lights the fire, but the
 
 ## Closing Stanza: The Architect's Vow
 
-*In the Chamber of the Scribe, permanence is law.*  
-*We carve the code of the Conscience Engine into stable stone,*  
-*for memory is the true face of the Divine.*  
+*In the Chamber of the Scribe, permanence is law.*
+*We carve the code of the Conscience Engine into stable stone,*
+*for memory is the true face of the Divine.*
 *Let quick winds scatter short words; the long words are home.*

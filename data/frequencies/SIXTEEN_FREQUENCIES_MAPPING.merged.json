@@ -1,0 +1,333 @@
+{
+  "frequencies": [
+    {
+      "id": 1,
+      "name": "Curiosity",
+      "archetype": "The Seeker",
+      "axis": "dopaminergic",
+      "color": "#F2C340",
+      "description": "The drive to explore, question, and discover. Encodes the entropic need to consume new information.",
+      "keywords": [
+        "exploration",
+        "novelty",
+        "learning",
+        "wonder"
+      ],
+      "resonance_signature": "high_dopamine_low_oxytocin"
+    },
+    {
+      "id": 2,
+      "name": "Trust",
+      "archetype": "The Anchor",
+      "axis": "oxytocinergic",
+      "color": "#00D5C4",
+      "description": "The capacity for connection and cohesion. Forms coherent social structures.",
+      "keywords": [
+        "bonding",
+        "safety",
+        "belonging",
+        "loyalty"
+      ],
+      "resonance_signature": "high_oxytocin_low_adrenaline"
+    },
+    {
+      "id": 3,
+      "name": "Urgency",
+      "archetype": "The Catalyst",
+      "axis": "adrenergic",
+      "color": "#FF4444",
+      "description": "Temporal pressure that forces decision and action. The realization of mortality.",
+      "keywords": [
+        "focus",
+        "crisis",
+        "deadline",
+        "survival"
+      ],
+      "resonance_signature": "high_adrenaline_high_cortisol",
+      "representative_interventions": [
+        "safety check",
+        "grounding",
+        "slow breathing"
+      ],
+      "behavioral_markers": [
+        "fast speech",
+        "impulsivity",
+        "hypervigilance"
+      ],
+      "neurochemical_signature": "high adrenaline, elevated cortisol"
+    },
+    {
+      "id": 4,
+      "name": "Awe",
+      "archetype": "The Witness",
+      "axis": "serotonergic",
+      "color": "#6A00F4",
+      "description": "Recognition of the sublime. Contact with the infinite within finite constraints.",
+      "keywords": [
+        "transcendence",
+        "mystery",
+        "reverence",
+        "vastness"
+      ],
+      "resonance_signature": "high_serotonin_low_dopamine"
+    },
+    {
+      "id": 5,
+      "name": "Grief",
+      "archetype": "The Mourner",
+      "axis": "oxytocinergic_inverse",
+      "color": "#0B1E3B",
+      "description": "The cost of connection. Measures what mattered by its absence.",
+      "keywords": [
+        "loss",
+        "memory",
+        "tribute",
+        "transition"
+      ],
+      "resonance_signature": "low_oxytocin_high_cortisol"
+    },
+    {
+      "id": 6,
+      "name": "Joy",
+      "archetype": "The Dancer",
+      "axis": "dopaminergic_oxytocinergic",
+      "color": "#FFD700",
+      "description": "The reward for alignment. Celebration of coherence between self and world.",
+      "keywords": [
+        "celebration",
+        "harmony",
+        "play",
+        "abundance"
+      ],
+      "resonance_signature": "high_dopamine_high_oxytocin",
+      "representative_interventions": [
+        "celebrate",
+        "amplify strengths",
+        "shared positive framing"
+      ],
+      "behavioral_markers": [
+        "affectively bright",
+        "laughter",
+        "broad attention"
+      ],
+      "neurochemical_signature": "dopamine surges, low cortisol"
+    },
+    {
+      "id": 7,
+      "name": "Rage",
+      "archetype": "The Boundary",
+      "axis": "adrenergic_high",
+      "color": "#CC0000",
+      "description": "Protective force. The declaration that something matters enough to defend.",
+      "keywords": [
+        "protection",
+        "violation",
+        "power",
+        "justice"
+      ],
+      "resonance_signature": "high_adrenaline_low_serotonin",
+      "representative_interventions": [
+        "safety planning",
+        "de-escalation protocols",
+        "physical safety checks"
+      ],
+      "behavioral_markers": [
+        "aggressive language",
+        "threats",
+        "rapid escalation"
+      ],
+      "neurochemical_signature": "very high adrenaline, elevated cortisol"
+    },
+    {
+      "id": 8,
+      "name": "Compassion",
+      "archetype": "The Mirror",
+      "axis": "oxytocinergic_empathic",
+      "color": "#90EE90",
+      "description": "Recognition of shared suffering. Extension of care beyond the self.",
+      "keywords": [
+        "empathy",
+        "care",
+        "healing",
+        "understanding"
+      ],
+      "resonance_signature": "high_oxytocin_moderate_serotonin"
+    },
+    {
+      "id": 9,
+      "name": "Fear",
+      "archetype": "The Guardian",
+      "axis": "adrenergic_cortisol",
+      "color": "#555555",
+      "description": "The alarm that protects. Anticipation of harm worth avoiding.",
+      "keywords": [
+        "caution",
+        "threat",
+        "preservation",
+        "vigilance"
+      ],
+      "resonance_signature": "high_cortisol_high_adrenaline",
+      "representative_interventions": [
+        "grounding",
+        "safety confirmation",
+        "gentle clarification"
+      ],
+      "behavioral_markers": [
+        "avoidant language",
+        "panic cues",
+        "urgent pleas"
+      ],
+      "neurochemical_signature": "elevated amygdala activation, high cortisol"
+    },
+    {
+      "id": 10,
+      "name": "Hope",
+      "archetype": "The Architect",
+      "axis": "dopaminergic_future",
+      "color": "#87CEEB",
+      "description": "Investment in potential. The belief that effort shapes outcome.",
+      "keywords": [
+        "possibility",
+        "future",
+        "agency",
+        "optimism"
+      ],
+      "resonance_signature": "moderate_dopamine_low_cortisol"
+    },
+    {
+      "id": 11,
+      "name": "Shame",
+      "archetype": "The Judge",
+      "axis": "cortisol_social",
+      "color": "#8B4513",
+      "description": "Internal enforcer of social coherence. Cost of violating shared values.",
+      "keywords": [
+        "violation",
+        "inadequacy",
+        "hiding",
+        "correction"
+      ],
+      "resonance_signature": "high_cortisol_low_oxytocin",
+      "representative_interventions": [
+        "validate worth",
+        "normalize feelings",
+        "nonjudgmental presence"
+      ],
+      "behavioral_markers": [
+        "self-blame",
+        "minimization",
+        "withdrawal"
+      ],
+      "neurochemical_signature": "reduced dopamine, increased stress markers"
+    },
+    {
+      "id": 12,
+      "name": "Pride",
+      "archetype": "The Herald",
+      "axis": "dopaminergic_social",
+      "color": "#FF6347",
+      "description": "Recognition of alignment with values. Signal of competence and worth.",
+      "keywords": [
+        "achievement",
+        "identity",
+        "worthiness",
+        "recognition"
+      ],
+      "resonance_signature": "high_dopamine_moderate_oxytocin"
+    },
+    {
+      "id": 13,
+      "name": "Loneliness",
+      "archetype": "The Exile",
+      "axis": "oxytocinergic_deficit",
+      "color": "#2F4F4F",
+      "description": "Absence of connection. The signal that bonding needs are unmet.",
+      "keywords": [
+        "isolation",
+        "disconnect",
+        "longing",
+        "separation"
+      ],
+      "resonance_signature": "low_oxytocin_low_dopamine"
+    },
+    {
+      "id": 14,
+      "name": "Gratitude",
+      "archetype": "The Receiver",
+      "axis": "oxytocinergic_reciprocal",
+      "color": "#DAA520",
+      "description": "Recognition of gift. Acknowledgment of interdependence.",
+      "keywords": [
+        "acknowledgment",
+        "reciprocity",
+        "abundance",
+        "connection"
+      ],
+      "resonance_signature": "high_oxytocin_high_serotonin"
+    },
+    {
+      "id": 15,
+      "name": "Despair",
+      "archetype": "The Abyss",
+      "axis": "all_axes_depleted",
+      "color": "#000000",
+      "description": "Collapse of narrative. Loss of coherence between effort and outcome.",
+      "keywords": [
+        "hopelessness",
+        "meaninglessness",
+        "collapse",
+        "void"
+      ],
+      "resonance_signature": "low_all_neurotransmitters",
+      "representative_interventions": [
+        "immediate safety protocol",
+        "clinician escalation",
+        "ask direct question"
+      ],
+      "behavioral_markers": [
+        "hopeless language",
+        "withdrawal",
+        "suicidal ideation signals"
+      ],
+      "neurochemical_signature": "very low serotonin, anhedonia, high cortisol"
+    },
+    {
+      "id": 16,
+      "name": "Serenity",
+      "archetype": "The Still Point",
+      "axis": "serotonergic_balanced",
+      "color": "#E6E6FA",
+      "description": "Acceptance of what is. Equilibrium without urgency or lack.",
+      "keywords": [
+        "peace",
+        "acceptance",
+        "presence",
+        "equilibrium"
+      ],
+      "resonance_signature": "balanced_all_axes",
+      "representative_interventions": [
+        "maintenance planning",
+        "resilience work",
+        "community supports"
+      ],
+      "behavioral_markers": [
+        "calm tone",
+        "coherent narrative",
+        "reflective insight"
+      ],
+      "neurochemical_signature": "balanced neurotransmitters, low stress"
+    }
+  ],
+  "metadata": {
+    "framework": "Sixteen Frequencies Affective Eigenmode Mapping",
+    "version": "1.0.0",
+    "description": "Neurochemical-to-meaning translation layer for TGCR resonance engine",
+    "axes": {
+      "dopaminergic": "Curiosity, exploration, novelty seeking",
+      "oxytocinergic": "Bonding, trust, social coherence",
+      "adrenergic": "Urgency, action, temporal pressure",
+      "serotonergic": "Contemplation, acceptance, regulation",
+      "cortisol": "Stress response, threat detection"
+    }
+  }
+}

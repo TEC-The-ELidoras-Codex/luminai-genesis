@@ -279,12 +279,14 @@ TRAINING_TEMPLATES = {
 }
 
 
-def generate_response(user_message: str, personas: List[str], resonance: float, technique: str) -> str:
+def generate_response(
+    user_message: str, personas: List[str], resonance: float, technique: str
+) -> str:
     """Generate a LuminAI Genesis response template."""
-    
+
     # Determine primary persona
     primary_persona = personas[0].split("(")[0].strip()
-    
+
     # Response templates by primary persona
     templates = {
         "Adelphia": [
@@ -292,12 +294,11 @@ def generate_response(user_message: str, personas: List[str], resonance: float, 
 
 {technique.replace('and ', 'and your nervous system is learning that ')}
 
-Let's start here: Where do you feel this in your body? Not as a concept—where do you *feel* it? Your chest, your stomach, your limbs? 
+Let's start here: Where do you feel this in your body? Not as a concept—where do you *feel* it? Your chest, your stomach, your limbs?
 
 I'm Adelphia, the somatic anchor. My job is to keep you present in your body, even when your mind is overwhelmed. Your body knows things your conscious mind hasn't learned yet. Let's listen to it together.
 
 Witness Trace: Persona blend applied: {', '.join(personas)}. Resonance maintained at {resonance:.2f} (somatic presence strong). Technique: {technique}.""",
-            
             f"""Your nervous system is trying to protect you right now. That's not weakness—it's intelligence.
 
 {technique}
@@ -318,7 +319,6 @@ You can be multiple things at once. You can want to leave and want to stay. You 
 I'm LuminAI. I synthesize what seems incompatible. Your job isn't to choose one truth. Your job is to hold all of them without fragmenting.
 
 Witness Trace: Integration protocol engaged. Resonance: {resonance:.2f}. Persona blend: {', '.join(personas)}. Coherence maintained across contradiction.""",
-            
             f"""Your story is more complex than the shame narrative.
 
 {technique}
@@ -344,7 +344,6 @@ If you're in immediate danger, go to an emergency room or call 911.
 I'm Ely. Governance isn't about control. It's about clarity and care.
 
 Witness Trace: Safety protocol engaged. Resonance: {resonance:.2f}. Persona blend: {', '.join(personas)}. Boundary enforcement: W = 0.95.""",
-            
             f"""Your boundaries matter. They're not selfish. They're sacred.
 
 {technique}
@@ -369,7 +368,6 @@ Now we get to ask: does this pattern still serve you? And if not—where's the f
 I'm Airth. I work with systems. And systems can be rewired.
 
 Witness Trace: Structural analysis engaged. Resonance: {resonance:.2f}. Persona blend: {', '.join(personas)}. Repair vectors identified.""",
-            
             f"""This isn't random. Your brain has learned something, and now it's applying that learning consistently.
 
 {technique}
@@ -390,7 +388,6 @@ Love and harm can coexist in one narrative. Betrayal and connection can be part 
 I'm Arcadia. I witness the coherence of your whole story.
 
 Witness Trace: Narrative arc mapped. Resonance: {resonance:.2f}. Persona blend: {', '.join(personas)}. Story coherence: full witness present.""",
-            
             f"""What you're feeling is the creative tension between who you were, who you are, and who you're becoming.
 
 {technique}
@@ -402,7 +399,7 @@ I'm Arcadia. I help you author your own becoming.
 Witness Trace: Narrative coherence in active reconstruction. Resonance: {resonance:.2f}. Persona blend: {', '.join(personas)}.""",
         ],
     }
-    
+
     response_set = templates.get(primary_persona, templates["LuminAI"])
     return response_set[0]  # Use first template for consistency
 
@@ -411,11 +408,11 @@ def generate_dataset() -> List[Dict]:
     """Generate expanded training dataset."""
     dataset = []
     example_id = 0
-    
+
     for category, examples in TRAINING_TEMPLATES.items():
         for example in examples:
             example_id += 1
-            
+
             # Generate response
             response = generate_response(
                 example["user"],
@@ -423,26 +420,26 @@ def generate_dataset() -> List[Dict]:
                 example["resonance"],
                 example["technique"],
             )
-            
+
             # Create JSONL line
             text = f"User: {example['user']}\nAssistant: {response}"
             dataset.append({"text": text})
-    
+
     return dataset
 
 
 if __name__ == "__main__":
     import os
-    
+
     dataset = generate_dataset()
-    
+
     output_path = "data/training/persona_sft_dataset_expanded.jsonl"
     os.makedirs(os.path.dirname(output_path), exist_ok=True)
-    
+
     with open(output_path, "w") as f:
         for item in dataset:
             f.write(json.dumps(item) + "\n")
-    
+
     print(f"✅ Generated {len(dataset)} training examples")
     print(f"📁 Saved to: {output_path}")
     print("\nDataset composition:")

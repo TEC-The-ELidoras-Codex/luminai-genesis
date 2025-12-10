@@ -1,13 +1,13 @@
 # Simple Outreach: Find Your Operations Advisor
 
-**Goal**: Find ONE person to write Empire State grant + handle paperwork.  
+**Goal**: Find ONE person to write Empire State grant + handle paperwork.
 **NOT**: Find a CFO, build a team, hire employees.
 
 ---
 
 ## Post #1: Indie Hackers Forum
 
-**Where**: https://www.indiehackers.com/post/new  
+**Where**: https://www.indiehackers.com/post/new
 **Category**: Looking for Co-founder
 
 **Title**: [Buffalo, NY / Remote] AI Safety Startup — Need Part-Time Ops/Grants Person (Equity-Based)
@@ -51,14 +51,14 @@ Part-time operations/grants person (5-10 hours/month) to:
 
 **Buffalo angle**: Tesla's Gigafactory promised $5B, delivered 26%. We're inverse: code first, promises second.
 
-Interested? Email: angelo@theelidorascodex.com  
+Interested? Email: angelo@theelidorascodex.com
 Full offer: [link to GitHub OPERATIONS_ADVISOR_OFFER.md]
 
 ---
 
 ## Post #2: Hacker News "Ask HN: Who Wants to Be Hired?"
 
-**Where**: https://news.ycombinator.com (monthly "Who Wants to Be Hired" thread)  
+**Where**: https://news.ycombinator.com (monthly "Who Wants to Be Hired" thread)
 **When**: First of every month
 
 **Format** (HN has character limits, keep it short):
@@ -76,14 +76,14 @@ Need someone to:
 
 Comp: 0.5-1% equity, $0 cash until funded (decision March 2026), then $1k-$2k/mo.
 
-Email: angelo@theelidorascodex.com  
+Email: angelo@theelidorascodex.com
 Details: github.com/TEC-The-ELidoras-Codex/luminai-genesis
 
 ---
 
 ## Post #3: Reddit r/startups
 
-**Where**: https://www.reddit.com/r/startups  
+**Where**: https://www.reddit.com/r/startups
 **Title**: [Buffalo, NY / Remote] AI Safety Startup — Need Part-Time Operations/Grants Advisor (Equity-Based)
 
 **Body**:
@@ -147,7 +147,7 @@ Full offer: github.com/TEC-The-ELidoras-Codex/luminai-genesis → docs/launch/OP
 
 ## Post #4: Effective Altruism Forum
 
-**Where**: https://forum.effectivealtruism.org/posts/new  
+**Where**: https://forum.effectivealtruism.org/posts/new
 **Tags**: AI safety, Startups, Volunteering
 
 **Title**: AI Alignment Startup (Buffalo, NY) — Need Part-Time Operations Advisor (Equity-Based)
@@ -197,8 +197,8 @@ If TGCR becomes standard for AI alignment:
 - OR startup operations experience
 - Willing to work equity-based for high-impact mission
 
-**Contact**: angelo@theelidorascodex.com  
-**Full Offer**: github.com/TEC-The-ELidoras-Codex/luminai-genesis → OPERATIONS_ADVISOR_OFFER.md  
+**Contact**: angelo@theelidorascodex.com
+**Full Offer**: github.com/TEC-The-ELidoras-Codex/luminai-genesis → OPERATIONS_ADVISOR_OFFER.md
 **Research Foundation**: docs/launch/RESEARCH_CITATIONS.md (Wheeler, Bostrom, Apple 2025 study)
 
 ---
@@ -237,10 +237,10 @@ If you take equity, you'd also help with:
 
 Available this week.
 
-Best,  
+Best,
 Angelo
 
-**Email**: angelo@theelidorascodex.com  
+**Email**: angelo@theelidorascodex.com
 **GitHub**: github.com/TEC-The-ELidoras-Codex/luminai-genesis
 
 ---

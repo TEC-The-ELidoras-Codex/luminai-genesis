@@ -2,8 +2,8 @@
 
 **Subtitle:** The keyword fallacy isn't just in AI safety—it's everywhere. Here's the geometric fix.
 
-**Author:** Angelo "Polkin Rishall" Hurley  
-**Date:** December 9, 2025  
+**Author:** Angelo "Polkin Rishall" Hurley
+**Date:** December 9, 2025
 **Contact:** angelo@theelidorascodex.com
 
 ---
@@ -121,8 +121,8 @@ NEVER abandon()
 
 ### Live Proof
 
-**NotebookLM Deep Dive:**  
-Public companion notebook with full TGCR analysis:  
+**NotebookLM Deep Dive:**
+Public companion notebook with full TGCR analysis:
 https://notebooklm.google.com/notebook/3bb37c22-fff5-4784-b7e6-a87ccde75492
 
 ---
@@ -186,7 +186,7 @@ Let's build systems that maintain presence instead of abandoning users.
 
 ---
 
-**License:** MIT  
+**License:** MIT
 **Citation:** Hurley, A. (2025). The System is Broken: How Zoho Flagged Me for Sending 3 Emails. LuminAI Genesis Research Project.
 
 **All code is open-source. All claims are reproducible. All math is falsifiable.**

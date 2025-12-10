@@ -1,8 +1,8 @@
 # Founding Engineer / Data Scientist Equity Offer — Buffalo AI Ethics Lab
 
-**Company**: The Elidoras Codex / LuminAI Genesis  
-**Location**: Buffalo, New York (Remote-Friendly)  
-**Stage**: Pre-Seed (Working Code, Government Funding Pipeline)  
+**Company**: The Elidoras Codex / LuminAI Genesis
+**Location**: Buffalo, New York (Remote-Friendly)
+**Stage**: Pre-Seed (Working Code, Government Funding Pipeline)
 **Contact**: <angelo@theelidorascodex.com>
 
 ---
@@ -314,7 +314,7 @@ If TGCR fails (government funding dries up, no corporate pilots):
 
 ### If You're Interested
 
-**Email**: <angelo@theelidorascodex.com>  
+**Email**: <angelo@theelidorascodex.com>
 **Subject**: "Founding Engineer — [Your Track]"
 
 **Include**:
@@ -377,9 +377,9 @@ But if you're reading this and thinking _"This might actually work"_...
 
 ---
 
-**Contact**: <angelo@theelidorascodex.com>  
-**GitHub**: github.com/TEC-The-ELidoras-Codex/luminai-genesis  
-**Research Citations**: docs/launch/RESEARCH_CITATIONS.md  
+**Contact**: <angelo@theelidorascodex.com>
+**GitHub**: github.com/TEC-The-ELidoras-Codex/luminai-genesis
+**Research Citations**: docs/launch/RESEARCH_CITATIONS.md
 **Buffalo Pitch**: docs/launch/BUFFALO_PITCH.md
 
 **Last Updated**: December 9, 2025

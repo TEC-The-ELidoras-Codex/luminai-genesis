@@ -33,7 +33,8 @@ jobs:
         run: pylint src/ --fail-under=8.0 || true
 
       - name: Validate YAML
-        run: yamllint -c '{extends: relaxed}' .github/ data/ || true
+        run: |
+          yamllint -c "{extends: relaxed}" .github/ data/ || true
 
       - name: Validate JSON schemas
         run: |
