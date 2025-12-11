@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>LuminAI MVP - Client Chat</title>
+    <style>
+      body { font-family: system-ui, Arial; background:#f4f4f6; padding: 20px; }
+      .chat { max-width: 720px; margin: auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+      .messages { border: 1px solid #eee; padding: 10px; min-height: 200px; margin-bottom: 12px; background:#fafafa }
+      .msg { margin-bottom: 8px; }
+      .user { color: #1a1a1a; font-weight: 600 }
+      .bot { color: #333; font-style: italic }
+    </style>
+  </head>
+  <body>
+    <div class="chat">
+      <h2>LuminAI MVP — Client Chat (Prototype)</h2>
+      <div class="messages" id="messages"></div>
+      <div>
+        <input id="clientId" placeholder="client id (e.g., client123)" style="width:30%; margin-right:8px" />
+        <input id="message" placeholder="Type your message..." style="width:55%" />
+        <button id="send">Send</button>
+      </div>
+      <p style="margin-top:8px; font-size:0.9rem; color:#666">Note: This is a proof-of-concept prototype and not a replacement for real care.</p>
+    </div>
+
+    <script>
+      const messagesEl = document.getElementById('messages');
+      const messageInput = document.getElementById('message');
+      const clientIdInput = document.getElementById('clientId');
+      document.getElementById('send').addEventListener('click', async () => {
+        const clientId = clientIdInput.value || 'anon';
+        const message = messageInput.value.trim();
+        if (!message) return;
+        addMessage('You', message, 'user');
+        messageInput.value = '';
+        const resp = await fetch('/api/chat', {
+          method: 'POST', headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ client_id: clientId, message })
+        });
+        const j = await resp.json();
+        if (j.reply) addMessage('LuminAI', j.reply.text, 'bot');
+      });
+      function addMessage(who, text, kind) {
+        const div = document.createElement('div');
+        div.className = 'msg ' + kind;
+        div.innerHTML = `<div class="user">${who}:</div><div>${text}</div>`;
+        messagesEl.appendChild(div);
+        messagesEl.scrollTop = messagesEl.scrollHeight;
+      }
+    </script>
+  </body>
+</html>
