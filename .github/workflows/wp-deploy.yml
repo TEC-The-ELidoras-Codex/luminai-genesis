@@ -1,0 +1,24 @@
+name: Deploy Memorial Site
+
+on:
+  push:
+    branches:
+      - wp-publish
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+      
+    - name: Deploy to WordPress
+      run: |
+        # Copy memorial site files to deployment directory
+        mkdir -p _site
+        cp -r docs/launch/publish_site/* _site/
+        
+        # List files for verification
+        echo "Deploying files:"
+        find _site -type f | head -10
