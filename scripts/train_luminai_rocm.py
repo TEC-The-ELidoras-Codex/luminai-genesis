@@ -11,6 +11,8 @@ Usage:
 import json
 import os
 
+from datasets import Dataset
+
 os.environ["CUDA_VISIBLE_DEVICES"] = ""  # Force CPU only
 
 # Heavy ML imports are done inside `main()` to keep top-level imports clean
@@ -55,6 +57,10 @@ def main():
     data_path = "data/training/persona_sft_dataset_clean.jsonl"
     output_dir = "models/luminai-genesis-v1"
 
+    # Import heavy ML libraries here so environment variables (if any)
+    # can be configured before model libraries initialize.
+    import torch
+
     print(f"\nModel: {model_name}")
     print(f"Data: {data_path}")
     print(f"Output: {output_dir}")
@@ -63,9 +69,6 @@ def main():
     )
     print("=" * 70 + "\n")
 
-    # Import heavy ML libraries here so environment variables (if any)
-    # can be configured before model libraries initialize.
-    import torch
     from peft import LoraConfig, get_peft_model
     from transformers import (
         AutoModelForCausalLM,
