@@ -21,6 +21,7 @@ import argparse
 import base64
 import os
 import re
+import json
 import sys
 from pathlib import Path
 
@@ -57,7 +58,7 @@ def upload_media(base_url, file_path, auth, dry_run=False):
     })
     if dry_run:
         print(f"[DRY-RUN] Would upload media {file_path} to {url}")
-        return {"source_url": f"{base_url.rstrip('/')}/wp-content/uploads/{filename}"}
+        return {"source_url": f"{base_url.rstrip('/')}/wp-content/uploads/{filename}", "id": 0}
     # Use files param for better compatibility with WP
     with open(file_path, "rb") as fh:
         r = requests.post(url, headers=headers, files={"file": (filename, fh)})
@@ -69,12 +70,13 @@ def upload_media(base_url, file_path, auth, dry_run=False):
         raise
 
 
-def create_or_update_post(base_url, slug, title, content, auth, status="publish", dry_run=False):
+def create_or_update_post(base_url, slug, title, content, auth, status="publish", dry_run=False, extra_fields=None):
     existing = get_post_by_slug(base_url, slug, auth, dry_run=dry_run)
     if existing:
         post_id = existing["id"]
         url = f"{base_url.rstrip('/')}/wp-json/wp/v2/posts/{post_id}"
-        payload = {"title": title, "content": content, "status": status}
+        payload = {"title": title, "content": content, "status": status, "slug": slug}
+        # Support excerpt if present in content (first paragraph)
         if dry_run:
             print(f"[DRY-RUN] Would update post id={post_id} (slug={slug}) with payload: {payload}")
             return {"link": f"{base_url.rstrip('/')}/?p={post_id}"}
@@ -87,7 +89,13 @@ def create_or_update_post(base_url, slug, title, content, auth, status="publish"
             raise
     else:
         url = f"{base_url.rstrip('/')}/wp-json/wp/v2/posts"
-        payload = {"title": title, "content": content, "status": status, "slug": slug}
+        payload = {"title": title, "content": content, "status": status}
+        excerpt_match = re.search(r"<p>(.*?)</p>", content, re.DOTALL)
+        if excerpt_match:
+            excerpt = re.sub(r"<[^>]+>", "", excerpt_match.group(1)).strip()
+            payload["excerpt"] = excerpt[:250]
+        if extra_fields:
+            payload.update(extra_fields)
         if dry_run:
             print(f"[DRY-RUN] Would create post (slug={slug}) with payload: {payload}")
             return {"link": f"{base_url.rstrip('/')}/?s={slug}"}
@@ -141,6 +149,46 @@ def find_pdf_for_post(slug):
     return None
 
 
+def get_or_create_category(base_url, category_name, auth, dry_run=False):
+    if not category_name:
+        return None
+    slug = re.sub(r"[^a-z0-9-]", "", category_name.lower().replace(" ", "-"))
+    if dry_run:
+        print(f"[DRY-RUN] Would get/create category '{category_name}' (slug: {slug})")
+        return None
+    # Query categories by slug
+    url = f"{base_url.rstrip('/')}/wp-json/wp/v2/categories?slug={slug}"
+    r = requests.get(url, headers=auth)
+    r.raise_for_status()
+    data = r.json()
+    if data:
+        return data[0]["id"]
+    # Create category
+    url = f"{base_url.rstrip('/')}/wp-json/wp/v2/categories"
+    r = requests.post(url, headers=auth, json={"name": category_name, "slug": slug})
+    r.raise_for_status()
+    return r.json()["id"]
+
+
+def get_or_create_tag(base_url, tag_name, auth, dry_run=False):
+    if not tag_name:
+        return None
+    slug = re.sub(r"[^a-z0-9-]", "", tag_name.lower().replace(" ", "-"))
+    if dry_run:
+        print(f"[DRY-RUN] Would get/create tag '{tag_name}' (slug: {slug})")
+        return None
+    url = f"{base_url.rstrip('/')}/wp-json/wp/v2/tags?slug={slug}"
+    r = requests.get(url, headers=auth)
+    r.raise_for_status()
+    data = r.json()
+    if data:
+        return data[0]["id"]
+    url = f"{base_url.rstrip('/')}/wp-json/wp/v2/tags"
+    r = requests.post(url, headers=auth, json={"name": tag_name, "slug": slug})
+    r.raise_for_status()
+    return r.json()["id"]
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--dir", default="dist/wordpress", help="Directory with HTML files (default: dist/wordpress)")
@@ -149,6 +197,8 @@ def main():
     parser.add_argument("--password", default=os.getenv("WP_APP_PASSWORD"), help="WordPress application password (for Basic Auth)")
     parser.add_argument("--publish", action="store_true", help="Publish immediately. Otherwise posts are created as drafts.")
     parser.add_argument("--dry-run", action="store_true", help="Do not send requests to WP; print actions and payloads only.")
+    parser.add_argument("--category", default=None, help="Optional category name to assign to the posts")
+    parser.add_argument("--tags", default=None, help="Comma-separated tags to add to the posts")
     args = parser.parse_args()
 
     if not args.base_url or not args.user or not args.password:
@@ -171,10 +221,19 @@ def main():
         slug = html_file.stem
         print(f"Processing: {html_file} (slug={slug})")
         html_text = html_file.read_text(encoding="utf-8")
+        # Extract frontmatter JSON embedded by the builder script (if present)
+        fm = {}
+        fm_match = re.search(r"<script[^>]+id=\"frontmatter\"[^>]*>(.*?)</script>", html_text, re.S)
+        if fm_match:
+            try:
+                fm = json.loads(fm_match.group(1))
+            except Exception:
+                fm = {}
 
         soup, images = parse_html_for_images(html_text, base_dir)
 
         media_map = {}
+        first_media_id = None
         # Upload images and replace src with WordPress media link
         for img_tag, file_path in images:
             print(f"Uploading image {file_path}")
@@ -182,6 +241,9 @@ def main():
             if media_resp and media_resp.get("source_url"):
                 media_map[file_path.name] = media_resp["source_url"]
                 img_tag["src"] = media_resp["source_url"]
+                # set first image as featured media
+                if not first_media_id and media_resp.get("id"):
+                    first_media_id = media_resp.get("id")
         # Now rebuild html
         final_html = str(soup)
 
@@ -199,7 +261,32 @@ def main():
 
         # Create or update the post
         status = "publish" if args.publish else "draft"
-        post = create_or_update_post(args.base_url, slug, title, final_html, auth, status=status, dry_run=args.dry_run)
+        # Determine category and tags: CLI args override frontmatter
+        category = args.category if args.category else fm.get("category") or fm.get("categories")
+        tags_cli = args.tags if args.tags else None
+        if not tags_cli and fm.get("tags"):
+            if isinstance(fm.get("tags"), list):
+                tags_cli = ",".join(fm.get("tags"))
+            else:
+                tags_cli = fm.get("tags")
+        extra_fields = {}
+        if first_media_id:
+            extra_fields["featured_media"] = first_media_id
+        # Resolve category/tag IDs if supplied
+        if args.category:
+            cat_id = get_or_create_category(args.base_url, args.category, auth, dry_run=args.dry_run)
+            if cat_id:
+                extra_fields["categories"] = [cat_id]
+        if args.tags:
+            tag_ids = []
+            for t in [x.strip() for x in args.tags.split(',') if x.strip()]:
+                tag_id = get_or_create_tag(args.base_url, t, auth, dry_run=args.dry_run)
+                if tag_id:
+                    tag_ids.append(tag_id)
+            if tag_ids:
+                extra_fields["tags"] = tag_ids
+
+        post = create_or_update_post(args.base_url, slug, title, final_html, auth, status=status, dry_run=args.dry_run, extra_fields=extra_fields)
         print(f"Post published: {post.get('link') if post else 'unknown'}")
 
 

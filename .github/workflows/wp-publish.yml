@@ -1,0 +1,51 @@
+name: WP Publish
+
+on:
+  push:
+    branches:
+      - wp-publish
+
+jobs:
+  build-and-publish:
+    name: Build and Publish to WordPress
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.13"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt || true
+          pip install requests beautifulsoup4 || true
+
+      - name: Build WordPress HTML
+        run: |
+          python3 scripts/aqueduct_build_wordpress_html.py
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: wp-html
+          path: dist/wordpress
+
+      - name: Publish to WordPress (or dry-run)
+        if: github.ref == 'refs/heads/wp-publish'
+        env:
+          WP_BASE_URL: ${{ secrets.WP_BASE_URL }}
+          WP_USER: ${{ secrets.WP_USER }}
+          WP_APP_PASSWORD: ${{ secrets.WP_APP_PASSWORD }}
+        run: |
+          # Safety: if publishing secrets are not present, run a dry-run so artifacts are still validated
+          if [ -z "$WP_BASE_URL" ] || [ -z "$WP_USER" ] || [ -z "$WP_APP_PASSWORD" ]; then
+            echo "WP secrets not set; running dry-run with sample URL"
+            python3 scripts/wp_publish.py --dir dist/wordpress --base-url "https://example.com" --user "admin" --password "xxx" --publish --dry-run
+          else
+            python3 scripts/wp_publish.py --dir dist/wordpress --base-url "$WP_BASE_URL" --user "$WP_USER" --password "$WP_APP_PASSWORD" --publish
+          fi
