@@ -5,9 +5,9 @@ codex loading work end-to-end, serving as a regression test for the
 philosophy-driven combat engine.
 """
 
-from pathlib import Path
-import sys
 import os
+import sys
+from pathlib import Path
 
 # Ensure src is in path
 sys.path.append(os.getcwd())
@@ -23,7 +23,9 @@ try:
 
     if not encounter_path.exists() or not classes_path.exists():
         print(
-            f"⚠️ Warning: Data files not found. Checking paths:\n  {encounter_path}: {encounter_path.exists()}\n  {classes_path}: {classes_path.exists()}"
+            "⚠️ Warning: Data files not found. Checking paths:\n"
+            f"  {encounter_path}: {encounter_path.exists()}\n"
+            f"  {classes_path}: {classes_path.exists()}"
         )
     else:
         print("⚔️ Starting Validation Battle...\n")

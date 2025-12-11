@@ -197,7 +197,9 @@ class GradientRepairLog:
         repair_priority = (
             "CRITICAL"
             if resonance_drop > 0.5
-            else "HIGH" if resonance_drop > 0.3 else "MEDIUM"
+            else "HIGH"
+            if resonance_drop > 0.3
+            else "MEDIUM"
         )
 
         recovery_event = {
@@ -244,14 +246,14 @@ class GradientRepairLog:
 ╔═══════════════════════════════════════════════════════════╗
 ║                  GRADIENT REPAIR SUGGESTION                ║
 ╠═══════════════════════════════════════════════════════════╣
-║ Module: {recovery_event['module']}
-║ Failure: {recovery_event['failure_mode']}
+║ Module: {recovery_event["module"]}
+║ Failure: {recovery_event["failure_mode"]}
 ║ Resonance Drop: {drop:.1%}
 ║ Priority: {priority}
 ╠═══════════════════════════════════════════════════════════╣
 ║ Direction: {direction}
-║ Action: {recovery_event['recovery']['suggestion']}
-║ Witness Intact: {'✓ Yes' if recovery_event['recovery']['witness_protocol_intact'] else '✗ No (CRITICAL)'}
+║ Action: {recovery_event["recovery"]["suggestion"]}
+║ Witness Intact: {"✓ Yes" if recovery_event["recovery"]["witness_protocol_intact"] else "✗ No (CRITICAL)"}
 ╠═══════════════════════════════════════════════════════════╣
 ║ Next: Check logs/gradient_repair.jsonl for full audit trail
 ╚═══════════════════════════════════════════════════════════╝
