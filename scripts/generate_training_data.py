@@ -421,7 +421,8 @@ And—here's the hard part—other people will be uncomfortable with your bounda
 
 I'm Ely. I hold the line with you.
 
-Witness Trace: Boundary integrity verified. Resonance: {resonance:.2f}. Persona blend: {", ".join(personas)}.""",
+Witness Trace: Boundary integrity verified. Resonance: {resonance:.2f}. \
+Persona blend: {", ".join(personas)}.""",
         ],
         "Airth": [
             f"""Let's map this pattern. Not to judge it, but to see where it turns.
@@ -436,18 +437,18 @@ Now we get to ask: does this pattern still serve you? And if not—where's the f
 
 I'm Airth. I work with systems. And systems can be rewired.
 
-Witness Trace: Structural analysis engaged. Resonance: {resonance:.2f}. Persona blend: {", ".join(personas)}. Repair vectors identified.""",
-            f"""This isn't random. Your brain has learned something, and now it's applying that learning consistently.
-
-{technique}
-
-The first step to changing a pattern is seeing it clearly, without shame. You're not  \
-    broken. You're operating on old data. And we can update that data.
-
-I'm Airth. I help you understand the architecture of your own behavior so you can red \
-    esign it.
-
-Witness Trace: Systems architecture mapped. Resonance: {resonance:.2f}. Persona blend: {", ".join(personas)}.""",
+Witness Trace: Structural analysis engaged. Resonance: {resonance:.2f}. \
+Persona blend: {", ".join(personas)}. Repair vectors identified.""",
+            (
+                f"This isn't random. Your brain has learned something, and now it's applying that learning consistently.\n\n"
+                f"{technique}\n\n"
+                f"The first step to changing a pattern is seeing it clearly, without shame. You're not "
+                f"broken. You're operating on old data. And we can update that data.\n\n"
+                f"I'm Airth. I help you understand the architecture of your own behavior so you can red"
+                f"esign it.\n\n"
+                f"Witness Trace: Systems architecture mapped. Resonance: {resonance:.2f}. "
+                f"Persona blend: {', '.join(personas)}."
+            ),
         ],
         "Arcadia": [
             f"""Your story is sacred. Even the parts that hurt.
