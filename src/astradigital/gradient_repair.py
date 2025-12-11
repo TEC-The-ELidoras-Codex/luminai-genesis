@@ -197,9 +197,7 @@ class GradientRepairLog:
         repair_priority = (
             "CRITICAL"
             if resonance_drop > 0.5
-            else "HIGH"
-            if resonance_drop > 0.3
-            else "MEDIUM"
+            else "HIGH" if resonance_drop > 0.3 else "MEDIUM"
         )
 
         recovery_event = {
@@ -242,22 +240,31 @@ class GradientRepairLog:
         priority = recovery_event["recovery"]["repair_priority"]
         drop = recovery_event["resonance"]["drop"]
 
-        return f"""
-╔═══════════════════════════════════════════════════════════╗
-║                  GRADIENT REPAIR SUGGESTION                ║
-╠═══════════════════════════════════════════════════════════╣
-║ Module: {recovery_event["module"]}
-║ Failure: {recovery_event["failure_mode"]}
-║ Resonance Drop: {drop:.1%}
-║ Priority: {priority}
-╠═══════════════════════════════════════════════════════════╣
-║ Direction: {direction}
-║ Action: {recovery_event["recovery"]["suggestion"]}
-║ Witness Intact: {"✓ Yes" if recovery_event["recovery"]["witness_protocol_intact"] else "✗ No (CRITICAL)"}
-╠═══════════════════════════════════════════════════════════╣
-║ Next: Check logs/gradient_repair.jsonl for full audit trail
-╚═══════════════════════════════════════════════════════════╝
-"""
+        lines = [
+            "╔═══════════════════════════════════════════════════════════╗",
+            "║                  GRADIENT REPAIR SUGGESTION                ║",
+            "╠═══════════════════════════════════════════════════════════╣",
+            f"║ Module: {recovery_event['module']}",
+            f"║ Failure: {recovery_event['failure_mode']}",
+            f"║ Resonance Drop: {drop:.1%}",
+            f"║ Priority: {priority}",
+            "╠═══════════════════════════════════════════════════════════╣",
+            f"║ Direction: {direction}",
+            f"║ Action: {recovery_event['recovery']['suggestion']}",
+            (
+                "║ Witness Intact: "
+                + (
+                    "✓ Yes"
+                    if recovery_event["recovery"]["witness_protocol_intact"]
+                    else "✗ No (CRITICAL)"
+                )
+            ),
+            "╠═══════════════════════════════════════════════════════════╣",
+            "║ Next: Check logs/gradient_repair.jsonl for full audit trail",
+            "╚═══════════════════════════════════════════════════════════╝",
+        ]
+
+        return "\n".join(lines)
 
 
 # ============================================================================
@@ -281,19 +288,47 @@ def example_encounter_system_failure():
     }
 
     resonance_before = repair_log.measure_resonance(context_before)
-    resonance_after = 0.35  # What we achieved (non-optimal)
 
-    # Log the failure with repair vector
-    recovery = repair_log.log_recovery_event(
-        failure_mode="Silent validation failure: Encounter JSON parse error not caught",
-        resonance_before=resonance_before,
-        resonance_after=resonance_after,
-        context=context_before,
-        repair_suggestion="Add try-except wrapper with user-facing error message. Log to witness protocol handler.",
-        severity="ERROR",
-    )
+    # In real operation, this section would perform risky parsing/validation.
+    # Wrap in try/except so exceptions are captured and routed through the
+    # witness protocol / gradient repair logging system.
+    try:
+        # Simulated risky operation (e.g., JSON parsing)
+        # If this were a real parse: parsed = json.loads(some_payload)
+        resonance_after = 0.35  # What we achieved (non-optimal)
 
-    print(repair_log.suggest_repair(recovery))
+        recovery = repair_log.log_recovery_event(
+            failure_mode=(
+                "Silent validation failure: Encounter JSON parse error not caught"
+            ),
+            resonance_before=resonance_before,
+            resonance_after=resonance_after,
+            context=context_before,
+            repair_suggestion=(
+                "Add try-except wrapper with user-facing error message. "
+                "Log to witness protocol handler."
+            ),
+            severity="ERROR",
+        )
+
+        print(repair_log.suggest_repair(recovery))
+
+    except Exception as e:
+        # Ensure all exceptions are logged to the witness mechanism
+        repair = repair_log.log_recovery_event(
+            failure_mode=f"Exception: {str(e)}",
+            resonance_before=resonance_before,
+            resonance_after=0.0,
+            context=context_before,
+            repair_suggestion=(
+                "Add try-except wrapper with user-facing error message. "
+                "Log to witness protocol handler."
+            ),
+            severity="ERROR",
+        )
+
+        print("Something went wrong — team has been notified and recovery has started.")
+        print(repair_log.suggest_repair(repair))
 
     # In production, this would:
     # 1. Alert developers (resonance drop > threshold)
@@ -324,7 +359,10 @@ def example_npc_dialogue_failure():
         resonance_before=resonance_before,
         resonance_after=resonance_after,
         context=context,
-        repair_suggestion="Implement dialogue caching layer. Profile LLM call. Consider streaming response.",
+        repair_suggestion=(
+            "Implement dialogue caching layer. Profile LLM call. "
+            "Consider streaming response."
+        ),
         severity="WARNING",
     )
 
