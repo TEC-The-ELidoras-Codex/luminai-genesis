@@ -7,11 +7,13 @@ Hello [Therapist Name],
 I'm Angelo Hurley from TEC — we built LuminAI, a continuity partner that helps therapists and clients preserve crucial context between sessions.
 
 Why this matters:
+
 - Clients often have crises between sessions (3am panic, relapse, overdose risk).
 - Therapists lose 15–20 minutes each session recapping context.
 - LuminAI generates a secure weekly summary so sessions start where they need to: doing therapy.
 
 What the pilot includes:
+
 - 3-month pilot with 5 therapists and 20 clients
 - 1-hour onboarding + technical support
 - Weekly summaries delivered and optional client consent review
@@ -30,6 +32,7 @@ Hi [Client Name],
 We’re running a brief 3-month pilot for LuminAI — a system that helps clients preserve real-time experiences between therapy sessions. If you’ve ever felt like "the moment" happens outside of a session, and the session is just a recap, this pilot is for you.
 
 What you get:
+
 - 24/7 chat with LuminAI for non-urgent support and harm-reduction resources
 - Weekly summary reviewed by your therapist (only if you consent)
 - Safety features and privacy controls (you control what’s shared)
