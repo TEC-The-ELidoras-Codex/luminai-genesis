@@ -39,5 +39,8 @@
       "icon": "terminal-bash"
     }
   },
-  "terminal.integrated.defaultProfile.linux": "GenesisEnv"
+  "terminal.integrated.defaultProfile.linux": "GenesisEnv",
+  "php.validate.executablePath": "/usr/bin/php",
+  "php.validate.run": "onSave",
+  "php.suggest.basic": false
 }
