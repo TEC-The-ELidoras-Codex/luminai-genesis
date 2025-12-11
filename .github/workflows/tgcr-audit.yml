@@ -51,8 +51,9 @@ jobs:
         run: |
           COMMIT_MSG=$(git log -1 --pretty=%B)
 
-          if echo "$COMMIT_MSG" | grep -E "^\(.*\):" > /dev/null; then
-            SCOPE=$(echo "$COMMIT_MSG" | grep -oE "^\([^)]+\)" | tr -d '()')
+          # Look for a parenthesized scope followed by a colon anywhere in the message
+          if echo "$COMMIT_MSG" | grep -E "\([^)]+\):" > /dev/null; then
+            SCOPE=$(echo "$COMMIT_MSG" | grep -oE "\([^)]+\)" | tr -d '()')
             echo "✅ TRANSPARENT: Scope identified: ($SCOPE)"
           else
             echo "❌ TRANSPARENT FAILURE:"
