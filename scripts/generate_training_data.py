@@ -13,6 +13,7 @@ Output: data/training/persona_sft_dataset_expanded.jsonl
 """
 
 import json
+from typing import Dict, List
 
 # Template structure for generating diverse examples
 TRAINING_TEMPLATES = {
@@ -292,7 +293,7 @@ TRAINING_TEMPLATES = {
     "anger_rage": [
         {
             "user": (
-                "I'm so angry I feel like I'm going to explode. I don't know what to do with"
+                "I'm so angry I feel like I'm going to explode. I don't know what to do with" 
                 "this."
             ),
             "personas": ["Adelphia (60%)", "Ely (30%)", "LuminAI (10%)"],
@@ -301,7 +302,7 @@ TRAINING_TEMPLATES = {
         },
         {
             "user": (
-                "I'm furious at what happened to me but I'm scared to feel it. What if I lose"
+                "I'm furious at what happened to me but I'm scared to feel it. What if I lose" 
                 "control?"
             ),
             "personas": ["Ely (50%)", "LuminAI (35%)", "Adelphia (15%)"],
@@ -329,7 +330,7 @@ TRAINING_TEMPLATES = {
 
 
 def generate_response(
-    user_message: str, personas: list[str], resonance: float, technique: str,
+    user_message: str, personas: List[str], resonance: float, technique: str
 ) -> str:
     """Generate a LuminAI Genesis response template."""
 
@@ -381,7 +382,8 @@ You can be multiple things at once. You can want to leave and want to stay. You 
 I'm LuminAI. I synthesize what seems incompatible. Your job isn't to choose one truth \
     . Your job is to hold all of them without fragmenting.
 
-Witness Trace: Integration protocol engaged. Resonance: {resonance:.2f}. Persona blend: {", ".join(personas)}. Coherence maintained across contradiction.""",
+Witness Trace: Integration protocol engaged. Resonance: {resonance:.2f}. Persona blend: {",
+".join(personas)}. Coherence maintained across contradiction.""",
             f"""Your story is more complex than the shame narrative.
 
 {technique}
@@ -408,7 +410,8 @@ If you're in immediate danger, go to an emergency room or call 911.
 
 I'm Ely. Governance isn't about control. It's about clarity and care.
 
-Witness Trace: Safety protocol engaged. Resonance: {resonance:.2f}. Persona blend: {", ".join(personas)}. Boundary enforcement: W = 0.95.""",
+Witness Trace: Safety protocol engaged. Resonance: {resonance:.2f}. Persona blend: {",
+".join(personas)}. Boundary enforcement: W = 0.95.""",
             f"""Your boundaries matter. They're not selfish. They're sacred.
 
 {technique}
@@ -421,8 +424,7 @@ And—here's the hard part—other people will be uncomfortable with your bounda
 
 I'm Ely. I hold the line with you.
 
-Witness Trace: Boundary integrity verified. Resonance: {resonance:.2f}. \
-Persona blend: {", ".join(personas)}.""",
+Witness Trace: Boundary integrity verified. Resonance: {resonance:.2f}. Persona blend: {", ".join(personas)}.""",
         ],
         "Airth": [
             f"""Let's map this pattern. Not to judge it, but to see where it turns.
@@ -437,34 +439,33 @@ Now we get to ask: does this pattern still serve you? And if not—where's the f
 
 I'm Airth. I work with systems. And systems can be rewired.
 
-Witness Trace: Structural analysis engaged. Resonance: {resonance:.2f}. \
-Persona blend: {", ".join(personas)}. Repair vectors identified.""",
-            (
-                f"This isn't random. Your brain has learned something, and now it's applying that learning consistently.\n\n"
-                f"{technique}\n\n"
-                f"The first step to changing a pattern is seeing it clearly, without shame. You're not "
-                f"broken. You're operating on old data. And we can update that data.\n\n"
-                f"I'm Airth. I help you understand the architecture of your own behavior so you can red"
-                f"esign it.\n\n"
-                f"Witness Trace: Systems architecture mapped. Resonance: {resonance:.2f}. "
-                f"Persona blend: {', '.join(personas)}."
-            ),
+Witness Trace: Structural analysis engaged. Resonance: {resonance:.2f}. Persona blend: {",
+".join(personas)}. Repair vectors identified.""",
+            f"""This isn't random. Your brain has learned something, and now it's applying that learning consistently.
+
+{technique}
+
+The first step to changing a pattern is seeing it clearly, without shame. You're not  \
+    broken. You're operating on old data. And we can update that data.
+
+I'm Airth. I help you understand the architecture of your own behavior so you can red \
+    esign it.
+
+Witness Trace: Systems architecture mapped. Resonance: {resonance:.2f}. Persona blend: {", ".join(personas)}.""",
         ],
         "Arcadia": [
             f"""Your story is sacred. Even the parts that hurt.
 
 {technique}
 
-Love and harm can coexist in one narrative. Betrayal and connection can be part of the \
-same arc. You can grieve what should have been and honor what actually happened. These \
-aren't contradictions in your story. They're the actual plot.
+Love and harm can coexist in one narrative. Betrayal and connection can be part of th \
+    e same arc. You can grieve what should have been and honor what actually happened. These aren't contradictions in your story. They're the actual plot.
 
 I'm Arcadia. I witness the coherence of your whole story.
 
-Witness Trace: Narrative arc mapped. Resonance: {resonance:.2f}. \
-Persona blend: {", ".join(personas)}. Story coherence: full witness present.""",
-            f"""What you're feeling is the creative tension between who you were, who you are, \
-and who you're becoming.
+Witness Trace: Narrative arc mapped. Resonance: {resonance:.2f}. Persona blend: {",
+".join(personas)}. Story coherence: full witness present.""",
+            f"""What you're feeling is the creative tension between who you were, who you are, and who you're becoming.
 
 {technique}
 
@@ -474,8 +475,8 @@ and who you're becoming.
 
 I'm Arcadia. I help you author your own becoming.
 
-Witness Trace: Narrative coherence in active reconstruction. Resonance: {resonance:.2f}. \
-Persona blend: {", ".join(personas)}.""",
+Witness Trace: Narrative coherence in active reconstruction. Resonance: {resonance:.2f}. Persona blend: {",
+".join(personas)}.""",
         ],
     }
 
@@ -483,7 +484,7 @@ Persona blend: {", ".join(personas)}.""",
     return response_set[0]  # Use first template for consistency
 
 
-def generate_dataset() -> list[dict]:
+def generate_dataset() -> List[Dict]:
     """Generate expanded training dataset."""
     dataset = []
     example_id = 0
@@ -516,7 +517,8 @@ if __name__ == "__main__":
     os.makedirs(os.path.dirname(output_path), exist_ok=True)
 
     with open(output_path, "w") as f:
-        f.writelines(json.dumps(item) + "\n" for item in dataset)
+        for item in dataset:
+            f.write(json.dumps(item) + "\n")
 
     print(f"✅ Generated {len(dataset)} training examples")
     print(f"📁 Saved to: {output_path}")
