@@ -1,4 +1,5 @@
-"""Astradigital Kernel — Philosophy-driven combat engine with governance-aware entity mechanics.
+"""Astradigital Kernel — Philosophy-driven combat engine with
+governance-aware entity mechanics.
 
 This module implements the foundational classes for the Astradigital Engine:
 - Risk-based resource management via class-specific pools
