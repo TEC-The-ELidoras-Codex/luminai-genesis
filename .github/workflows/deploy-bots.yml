@@ -14,7 +14,7 @@ jobs:
 
       - name: Check Docker secrets
         run: |
-          if [ -z "${{ secrets.DOCKER_USERNAME }}" ] || [ -z "${{ secrets.DOCKER_PASSWORD }}" ]; then
+          if [ -z "${{ secrets.DOCKER_USERNAME }}" ] || [ -z "${{ secrets.DOCKER_PAT }}" ]; then
             echo "::warning::Docker credentials not configured, skipping build/push"
             exit 0
           fi
@@ -38,7 +38,7 @@ jobs:
         with:
           registry: ${{ secrets.DOCKER_REGISTRY || 'docker.io' }}
           username: ${{ secrets.DOCKER_USERNAME }}
-          password: ${{ secrets.DOCKER_PASSWORD }}
+          password: ${{ secrets.DOCKER_PAT }}
 
       - name: Build and push images
         uses: docker/build-push-action@v4
