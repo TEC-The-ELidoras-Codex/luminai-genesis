@@ -2,16 +2,17 @@
 """Sanitize TEC_CODEX_DUMP.md by removing conversational transcripts and PII.
 
 Usage:
-  python3 scripts/sanitize_codex_dump.py --in docs/canonical/TEC_CODEX_DUMP.md --out docs/canonical/TEC_CODEX_DUMP.md
+  python3 scripts/sanitize_codex_dump.py --in docs/canonical/TEC_CODEX_DUMP.md \
+      --out docs/canonical/TEC_CODEX_DUMP.md
 
-This script creates a timestamped backup of the input file before writing the sanitized output.
+This script creates a timestamped backup of the input file before writing the
+sanitized output.
 """
 
 import argparse
-import re
 import datetime
+import re
 from pathlib import Path
-
 
 MARKERS = [
     "you said:",
@@ -60,7 +61,7 @@ def sanitize_text(text: str) -> str:
                 if nxt.strip() == "":
                     i += 1
                     break
-                # if next line looks like a bundle header or markdown section header, stop
+                # if next line is bundle header or markdown section header, stop
                 if re.match(r"^---", nxt) or re.match(r"^#", nxt):
                     break
                 i += 1
