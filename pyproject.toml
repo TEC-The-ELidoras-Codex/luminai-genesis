@@ -3,9 +3,8 @@ line-length = 88
 target-version = "py313"
 
 [tool.ruff.lint]
-# Disable E501 (line too long) for now to allow deployment
-ignore = ["E501"]
+# E501 now properly fixed - re-enable
 select = ["E", "F", "W", "C90", "I", "N", "UP", "YTT", "S", "BLE", "FBT", "B", "A", "COM", "C4", "DTZ", "T10", "DJ", "EM", "EXE", "FA", "ISC", "ICN", "G", "INP", "PIE", "T20", "PYI", "PT", "Q", "RSE", "RET", "SLF", "SLOT", "SIM", "TID", "TCH", "INT", "ARG", "PTH", "ERA", "PD", "PGH", "PL", "TRY", "FLY", "NPY", "AIR", "PERF", "FURB", "LOG", "RUF"]
 
 [tool.ruff.lint.per-file-ignores]
-"scripts/generate_training_data.py" = ["E501"]  # Allow long lines in training data for readability
+"scripts/generate_training_data.py" = ["T201", "E501"]  # Allow print statements and long lines in training data
