@@ -8,6 +8,7 @@ from pathlib import Path
 import sys
 import yaml
 import markdown
+import json
 
 ROOT = Path(__file__).resolve().parents[1]
 READY_DIR = ROOT / "docs" / "streams" / "articles" / "ready"
@@ -46,7 +47,35 @@ def main():
         title = fm.get("title", slug)
 
         # Convert Markdown to HTML; developers can tweak extensions as needed
-        html = markdown.markdown(body, extensions=["extra"])
+        html_body = markdown.markdown(body, extensions=["extra"])
+
+        # Build a simple HTML wrapper so we can preserve metadata like author/orcid
+        author = fm.get("author") or ""
+        orcid = fm.get("orcid") or ""
+        date = fm.get("date") or ""
+
+        # Include frontmatter metadata as JSON for later parsing by the publisher
+        meta_json = json.dumps(fm)
+
+        html = """
+<article>
+  <script type="application/json" id="frontmatter">{meta_json}</script>
+  <header>
+    <h1>{title}</h1>
+    <p class="meta">{date} • {author} {orcid_html}</p>
+  </header>
+  <section class="content">
+{body}
+  </section>
+</article>
+""".format(
+            meta_json=meta_json,
+            title=title,
+            date=date,
+            author=author,
+            orcid_html=f"<a href=\"{orcid}\">{orcid}</a>" if orcid else "",
+            body=html_body,
+        )
 
         out_path = OUT_DIR / f"{slug}.html"
         out_path.write_text(html, encoding="utf-8")

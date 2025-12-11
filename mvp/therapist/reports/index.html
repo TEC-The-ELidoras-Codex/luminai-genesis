@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>LuminAI MVP - Therapist Reports</title>
+    <style>
+      body {
+        font-family: system-ui, Arial;
+        background: #f7f7fb;
+        padding: 20px;
+      }
+      .wrap {
+        max-width: 900px;
+        margin: auto;
+      }
+      textarea {
+        width: 100%;
+        height: 120px;
+      }
+      .report {
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <h2>Therapist Portal - Weekly Summary (Prototype)</h2>
+      <div>
+        <input
+          id="clientId"
+          placeholder="client id (e.g., client123)"
+          style="width: 260px; margin-right: 8px"
+        />
+        <button id="load">Load Summary</button>
+      </div>
+      <div id="report" class="report" style="margin-top: 16px">
+        No report loaded.
+      </div>
+    </div>
+
+    <script>
+      document.getElementById("load").addEventListener("click", async () => {
+        const clientId = document.getElementById("clientId").value || "anon";
+        const resp = await fetch("/api/report/" + encodeURIComponent(clientId));
+        const data = await resp.json();
+        renderReport(data);
+      });
+      function renderReport(data) {
+        const el = document.getElementById("report");
+        el.innerHTML =
+          `<h3>Weekly Summary for ${data.client_id}</h3>` +
+          `<p><strong>Messages:</strong> ${data.messages.length}</p>` +
+          `<p><strong>Cravings recorded:</strong> ${data.cravings.length}</p>` +
+          `<p><strong>Themes:</strong> ${
+            data.themes.map((t) => t.keyword + ":" + t.count).join(", ") ||
+            "none"
+          }</p>` +
+          `<p><strong>Suggested focus:</strong> ${
+            data.suggested_focus.join("; ") || "None"
+          }</p>` +
+          `<h4>Recent messages</h4><div>${data.messages
+            .slice(-10)
+            .map(
+              (m) =>
+                `<div><small>${new Date(
+                  m.created_at
+                ).toLocaleString()}</small>: ${m.message}</div>`
+            )
+            .join("")}</div>`;
+      }
+    </script>
+  </body>
+</html>

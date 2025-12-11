@@ -1,0 +1,28 @@
+name: MVP - Tests
+
+on:
+  push:
+    paths:
+      - 'mvp/**'
+  pull_request:
+    paths:
+      - 'mvp/**'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Use Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Install npm deps
+        working-directory: mvp
+        run: npm ci
+      - name: Setup DB
+        working-directory: mvp
+        run: ./scripts/setup_db.sh
+      - name: Run tests
+        working-directory: mvp
+        run: npm test --silent -- --runInBand --testTimeout=20000
