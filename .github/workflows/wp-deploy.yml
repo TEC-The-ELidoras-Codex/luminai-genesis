@@ -22,3 +22,11 @@ jobs:
           # List files for verification
           echo "Deploying files:"
           find _site -type f | head -10
+
+      - name: Upload the artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: wpcom
+          path: |
+            _site
+            !.git
