@@ -13,16 +13,9 @@ import os
 
 os.environ["CUDA_VISIBLE_DEVICES"] = ""  # Force CPU only
 
-import torch
-from datasets import Dataset
-from peft import LoraConfig, get_peft_model
-from transformers import (
-    AutoModelForCausalLM,
-    AutoTokenizer,
-    DataCollatorForLanguageModeling,
-    Trainer,
-    TrainingArguments,
-)
+# Heavy ML imports are done inside `main()` to keep top-level imports clean
+# and avoid flake8 E402 (module-level import not at top of file) when we
+# need to perform environment configuration before model initialization.
 
 
 def load_jsonl_dataset(path: str) -> Dataset:
@@ -69,6 +62,18 @@ def main():
         f"Device: {torch.cuda.get_device_name(0) if torch.cuda.is_available() else 'CPU'}"
     )
     print("=" * 70 + "\n")
+
+    # Import heavy ML libraries here so environment variables (if any)
+    # can be configured before model libraries initialize.
+    import torch
+    from peft import LoraConfig, get_peft_model
+    from transformers import (
+        AutoModelForCausalLM,
+        AutoTokenizer,
+        DataCollatorForLanguageModeling,
+        Trainer,
+        TrainingArguments,
+    )
 
     # Load tokenizer
     print("[1/6] Loading tokenizer...")

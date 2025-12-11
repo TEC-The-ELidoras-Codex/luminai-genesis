@@ -75,10 +75,12 @@ class TGCR:
         """Compute R = ∇Φ^E · (φ^t × ψ^r) and effective R' = R · W.
 
         Args:
-            state: ContextualState with contextual_potential, temporal_attention, structural_cadence
+            state: ContextualState with contextual_potential, temporal_attention,
+                structural_cadence
 
         Returns:
-            ResonanceResult with raw_resonance, witness_coefficient, and effective_resonance
+            ResonanceResult with raw_resonance, witness_coefficient, and
+                effective_resonance
         """
         # Raw resonance: product of the three dimensions
         raw_r = (

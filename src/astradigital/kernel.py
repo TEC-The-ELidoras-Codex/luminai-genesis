@@ -1,4 +1,5 @@
-"""Astradigital Kernel — Philosophy-driven combat engine with governance-aware entity mechanics.
+"""Astradigital Kernel — Philosophy-driven combat engine with
+governance-aware entity mechanics.
 
 This module implements the foundational classes for the Astradigital Engine:
 - Risk-based resource management via class-specific pools
@@ -13,7 +14,7 @@ against integrity as a governance protocol ensuring ethical constraints.
 import json
 import random
 from dataclasses import dataclass, field
-from typing import Dict, Any
+from typing import Any, Dict
 
 
 @dataclass

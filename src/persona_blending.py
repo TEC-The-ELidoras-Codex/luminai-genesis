@@ -109,7 +109,8 @@ class Adelphia(Persona):
         if volatility > 0.7:
             output = (
                 "[Adelphia] Grounding technique: Notice 5 things you can see, "
-                "4 things you can touch, 3 you can hear, 2 you can smell, 1 you can taste."
+                "4 things you can touch, 3 you can hear, "
+                "2 you can smell, 1 you can taste."
             )
             weight = 0.5  # Higher weight in crisis
         else:
