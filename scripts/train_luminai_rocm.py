@@ -66,7 +66,6 @@ def main():
     # Import heavy ML libraries here so environment variables (if any)
     # can be configured before model libraries initialize.
     import torch
-    from datasets import Dataset
     from peft import LoraConfig, get_peft_model
     from transformers import (
         AutoModelForCausalLM,
