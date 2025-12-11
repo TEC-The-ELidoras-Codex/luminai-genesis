@@ -382,8 +382,7 @@ You can be multiple things at once. You can want to leave and want to stay. You 
 I'm LuminAI. I synthesize what seems incompatible. Your job isn't to choose one truth \
     . Your job is to hold all of them without fragmenting.
 
-Witness Trace: Integration protocol engaged. Resonance: {resonance:.2f}. Persona blend: {",
-".join(personas)}. Coherence maintained across contradiction.""",
+    Witness Trace: Integration protocol engaged. Resonance: {resonance:.2f}. Persona blend: {', '.join(personas)}. Coherence maintained across contradiction.""",
             f"""Your story is more complex than the shame narrative.
 
 {technique}
@@ -410,8 +409,7 @@ If you're in immediate danger, go to an emergency room or call 911.
 
 I'm Ely. Governance isn't about control. It's about clarity and care.
 
-Witness Trace: Safety protocol engaged. Resonance: {resonance:.2f}. Persona blend: {",
-".join(personas)}. Boundary enforcement: W = 0.95.""",
+    Witness Trace: Safety protocol engaged. Resonance: {resonance:.2f}. Persona blend: {', '.join(personas)}. Boundary enforcement: W = 0.95.""",
             f"""Your boundaries matter. They're not selfish. They're sacred.
 
 {technique}
@@ -439,8 +437,7 @@ Now we get to ask: does this pattern still serve you? And if not—where's the f
 
 I'm Airth. I work with systems. And systems can be rewired.
 
-Witness Trace: Structural analysis engaged. Resonance: {resonance:.2f}. Persona blend: {",
-".join(personas)}. Repair vectors identified.""",
+    Witness Trace: Structural analysis engaged. Resonance: {resonance:.2f}. Persona blend: {', '.join(personas)}. Repair vectors identified.""",
             f"""This isn't random. Your brain has learned something, and now it's applying that learning consistently.
 
 {technique}
@@ -463,8 +460,7 @@ Love and harm can coexist in one narrative. Betrayal and connection can be part 
 
 I'm Arcadia. I witness the coherence of your whole story.
 
-Witness Trace: Narrative arc mapped. Resonance: {resonance:.2f}. Persona blend: {",
-".join(personas)}. Story coherence: full witness present.""",
+    Witness Trace: Narrative arc mapped. Resonance: {resonance:.2f}. Persona blend: {', '.join(personas)}. Story coherence: full witness present.""",
             f"""What you're feeling is the creative tension between who you were, who you are, and who you're becoming.
 
 {technique}
@@ -475,8 +471,7 @@ Witness Trace: Narrative arc mapped. Resonance: {resonance:.2f}. Persona blend: 
 
 I'm Arcadia. I help you author your own becoming.
 
-Witness Trace: Narrative coherence in active reconstruction. Resonance: {resonance:.2f}. Persona blend: {",
-".join(personas)}.""",
+    Witness Trace: Narrative coherence in active reconstruction. Resonance: {resonance:.2f}. Persona blend: {', '.join(personas)}.""",
         ],
     }
 
