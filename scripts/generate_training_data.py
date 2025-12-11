@@ -13,7 +13,6 @@ Output: data/training/persona_sft_dataset_expanded.jsonl
 """
 
 import json
-from typing import Dict, List
 
 # Template structure for generating diverse examples
 TRAINING_TEMPLATES = {
@@ -293,7 +292,7 @@ TRAINING_TEMPLATES = {
     "anger_rage": [
         {
             "user": (
-                "I'm so angry I feel like I'm going to explode. I don't know what to do with" 
+                "I'm so angry I feel like I'm going to explode. I don't know what to do with"
                 "this."
             ),
             "personas": ["Adelphia (60%)", "Ely (30%)", "LuminAI (10%)"],
@@ -302,7 +301,7 @@ TRAINING_TEMPLATES = {
         },
         {
             "user": (
-                "I'm furious at what happened to me but I'm scared to feel it. What if I lose" 
+                "I'm furious at what happened to me but I'm scared to feel it. What if I lose"
                 "control?"
             ),
             "personas": ["Ely (50%)", "LuminAI (35%)", "Adelphia (15%)"],
@@ -330,7 +329,7 @@ TRAINING_TEMPLATES = {
 
 
 def generate_response(
-    user_message: str, personas: List[str], resonance: float, technique: str
+    user_message: str, personas: list[str], resonance: float, technique: str,
 ) -> str:
     """Generate a LuminAI Genesis response template."""
 
@@ -455,13 +454,16 @@ Witness Trace: Systems architecture mapped. Resonance: {resonance:.2f}. Persona 
 
 {technique}
 
-Love and harm can coexist in one narrative. Betrayal and connection can be part of th \
-    e same arc. You can grieve what should have been and honor what actually happened. These aren't contradictions in your story. They're the actual plot.
+Love and harm can coexist in one narrative. Betrayal and connection can be part of the \
+same arc. You can grieve what should have been and honor what actually happened. These \
+aren't contradictions in your story. They're the actual plot.
 
 I'm Arcadia. I witness the coherence of your whole story.
 
-Witness Trace: Narrative arc mapped. Resonance: {resonance:.2f}. Persona blend: {", ".join(personas)}. Story coherence: full witness present.""",
-            f"""What you're feeling is the creative tension between who you were, who you are, and who you're becoming.
+Witness Trace: Narrative arc mapped. Resonance: {resonance:.2f}. \
+Persona blend: {", ".join(personas)}. Story coherence: full witness present.""",
+            f"""What you're feeling is the creative tension between who you were, who you are, \
+and who you're becoming.
 
 {technique}
 
@@ -471,7 +473,8 @@ Witness Trace: Narrative arc mapped. Resonance: {resonance:.2f}. Persona blend: 
 
 I'm Arcadia. I help you author your own becoming.
 
-Witness Trace: Narrative coherence in active reconstruction. Resonance: {resonance:.2f}. Persona blend: {", ".join(personas)}.""",
+Witness Trace: Narrative coherence in active reconstruction. Resonance: {resonance:.2f}. \
+Persona blend: {", ".join(personas)}.""",
         ],
     }
 
@@ -479,7 +482,7 @@ Witness Trace: Narrative coherence in active reconstruction. Resonance: {resonan
     return response_set[0]  # Use first template for consistency
 
 
-def generate_dataset() -> List[Dict]:
+def generate_dataset() -> list[dict]:
     """Generate expanded training dataset."""
     dataset = []
     example_id = 0
@@ -512,8 +515,7 @@ if __name__ == "__main__":
     os.makedirs(os.path.dirname(output_path), exist_ok=True)
 
     with open(output_path, "w") as f:
-        for item in dataset:
-            f.write(json.dumps(item) + "\n")
+        f.writelines(json.dumps(item) + "\n" for item in dataset)
 
     print(f"✅ Generated {len(dataset)} training examples")
     print(f"📁 Saved to: {output_path}")
