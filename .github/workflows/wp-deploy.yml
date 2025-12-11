@@ -16,9 +16,9 @@ jobs:
     - name: Deploy to WordPress
       run: |
         # Copy memorial site files to deployment directory
-        mkdir -p deploy
-        cp -r docs/launch/publish_site/* deploy/
+        mkdir -p _site
+        cp -r docs/launch/publish_site/* _site/
         
         # List files for verification
         echo "Deploying files:"
-        find deploy -type f -name "*.html" -o -name "*.pdf" -o -name "*.md" | head -10
+        find _site -type f | head -10
