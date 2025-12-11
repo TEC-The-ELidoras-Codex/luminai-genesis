@@ -2,10 +2,10 @@
 import sys
 import random
 from pathlib import Path
+from astradigital.encounter import run_battle  # type: ignore
 
 # local imports
 sys.path.append(str(Path(__file__).resolve().parents[1] / "src"))
-from astradigital.encounter import run_battle  # type: ignore
 
 
 def main():
