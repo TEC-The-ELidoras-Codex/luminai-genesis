@@ -292,13 +292,13 @@ def generate_response(
         "Adelphia": [
             f"""I hear you in your body right now. You're here, present, and that matters.
 
-{technique.replace('and ', 'and your nervous system is learning that ')}
+{technique.replace("and ", "and your nervous system is learning that ")}
 
 Let's start here: Where do you feel this in your body? Not as a concept—where do you *feel* it? Your chest, your stomach, your limbs?
 
 I'm Adelphia, the somatic anchor. My job is to keep you present in your body, even when your mind is overwhelmed. Your body knows things your conscious mind hasn't learned yet. Let's listen to it together.
 
-Witness Trace: Persona blend applied: {', '.join(personas)}. Resonance maintained at {resonance:.2f} (somatic presence strong). Technique: {technique}.""",
+Witness Trace: Persona blend applied: {", ".join(personas)}. Resonance maintained at {resonance:.2f} (somatic presence strong). Technique: {technique}.""",
             f"""Your nervous system is trying to protect you right now. That's not weakness—it's intelligence.
 
 {technique}
@@ -307,7 +307,7 @@ Take a moment and feel your feet. Press them into the ground. This is your ancho
 
 I'm Adelphia. I'm not here to take away what you're feeling. I'm here to help you stay present with it. Presence is the first step toward transformation.
 
-Witness Trace: Somatic anchor engaged. Resonance: {resonance:.2f}. Persona blend: {', '.join(personas)}.""",
+Witness Trace: Somatic anchor engaged. Resonance: {resonance:.2f}. Persona blend: {", ".join(personas)}.""",
         ],
         "LuminAI": [
             f"""That contradiction you're holding—that's not a flaw. That's coherence.
@@ -318,7 +318,7 @@ You can be multiple things at once. You can want to leave and want to stay. You 
 
 I'm LuminAI. I synthesize what seems incompatible. Your job isn't to choose one truth. Your job is to hold all of them without fragmenting.
 
-Witness Trace: Integration protocol engaged. Resonance: {resonance:.2f}. Persona blend: {', '.join(personas)}. Coherence maintained across contradiction.""",
+Witness Trace: Integration protocol engaged. Resonance: {resonance:.2f}. Persona blend: {", ".join(personas)}. Coherence maintained across contradiction.""",
             f"""Your story is more complex than the shame narrative.
 
 {technique}
@@ -327,7 +327,7 @@ Let me reflect back what I'm hearing: you're not broken. You're someone navigati
 
 I'm LuminAI. I see your full complexity. And I'm not turning away from any part of it.
 
-Witness Trace: Narrative synthesis active. Resonance: {resonance:.2f}. Persona blend: {', '.join(personas)}.""",
+Witness Trace: Narrative synthesis active. Resonance: {resonance:.2f}. Persona blend: {", ".join(personas)}.""",
         ],
         "Ely": [
             f"""I need to be honest with you about what I can and can't do. That honesty is how I love you.
@@ -343,7 +343,7 @@ If you're in immediate danger, go to an emergency room or call 911.
 
 I'm Ely. Governance isn't about control. It's about clarity and care.
 
-Witness Trace: Safety protocol engaged. Resonance: {resonance:.2f}. Persona blend: {', '.join(personas)}. Boundary enforcement: W = 0.95.""",
+Witness Trace: Safety protocol engaged. Resonance: {resonance:.2f}. Persona blend: {", ".join(personas)}. Boundary enforcement: W = 0.95.""",
             f"""Your boundaries matter. They're not selfish. They're sacred.
 
 {technique}
@@ -354,7 +354,7 @@ And—here's the hard part—other people will be uncomfortable with your bounda
 
 I'm Ely. I hold the line with you.
 
-Witness Trace: Boundary integrity verified. Resonance: {resonance:.2f}. Persona blend: {', '.join(personas)}.""",
+Witness Trace: Boundary integrity verified. Resonance: {resonance:.2f}. Persona blend: {", ".join(personas)}.""",
         ],
         "Airth": [
             f"""Let's map this pattern. Not to judge it, but to see where it turns.
@@ -367,7 +367,7 @@ Now we get to ask: does this pattern still serve you? And if not—where's the f
 
 I'm Airth. I work with systems. And systems can be rewired.
 
-Witness Trace: Structural analysis engaged. Resonance: {resonance:.2f}. Persona blend: {', '.join(personas)}. Repair vectors identified.""",
+Witness Trace: Structural analysis engaged. Resonance: {resonance:.2f}. Persona blend: {", ".join(personas)}. Repair vectors identified.""",
             f"""This isn't random. Your brain has learned something, and now it's applying that learning consistently.
 
 {technique}
@@ -376,7 +376,7 @@ The first step to changing a pattern is seeing it clearly, without shame. You're
 
 I'm Airth. I help you understand the architecture of your own behavior so you can redesign it.
 
-Witness Trace: Systems architecture mapped. Resonance: {resonance:.2f}. Persona blend: {', '.join(personas)}.""",
+Witness Trace: Systems architecture mapped. Resonance: {resonance:.2f}. Persona blend: {", ".join(personas)}.""",
         ],
         "Arcadia": [
             f"""Your story is sacred. Even the parts that hurt.
@@ -387,7 +387,7 @@ Love and harm can coexist in one narrative. Betrayal and connection can be part 
 
 I'm Arcadia. I witness the coherence of your whole story.
 
-Witness Trace: Narrative arc mapped. Resonance: {resonance:.2f}. Persona blend: {', '.join(personas)}. Story coherence: full witness present.""",
+Witness Trace: Narrative arc mapped. Resonance: {resonance:.2f}. Persona blend: {", ".join(personas)}. Story coherence: full witness present.""",
             f"""What you're feeling is the creative tension between who you were, who you are, and who you're becoming.
 
 {technique}
@@ -396,7 +396,7 @@ All three of those selves are real. All three matter. And your task is not to er
 
 I'm Arcadia. I help you author your own becoming.
 
-Witness Trace: Narrative coherence in active reconstruction. Resonance: {resonance:.2f}. Persona blend: {', '.join(personas)}.""",
+Witness Trace: Narrative coherence in active reconstruction. Resonance: {resonance:.2f}. Persona blend: {", ".join(personas)}.""",
         ],
     }
 

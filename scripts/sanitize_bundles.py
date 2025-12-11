@@ -4,6 +4,7 @@ and redacting local paths / emails. Makes backups before modifying files.
 
 Usage: run inside WSL repository root or from anywhere with repo path.
 """
+
 import re
 from datetime import datetime
 from pathlib import Path

@@ -3,6 +3,7 @@
 
 Usage: python3 scripts/aqueduct_build_wordpress_html.py
 """
+
 from pathlib import Path
 import sys
 import yaml
