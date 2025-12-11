@@ -4,6 +4,7 @@
 This script produces simple HTML/Markdown output suitable for copy-paste into Substack's composer.
 Usage: python3 scripts/aqueduct_build_substack_html.py
 """
+
 from pathlib import Path
 import sys
 import yaml

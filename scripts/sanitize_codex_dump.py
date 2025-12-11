@@ -6,6 +6,7 @@ Usage:
 
 This script creates a timestamped backup of the input file before writing the sanitized output.
 """
+
 import argparse
 import re
 import datetime
