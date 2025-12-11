@@ -1,0 +1,15 @@
+version: "3.8"
+services:
+  luminai-mvp:
+    build: .
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./database:/app/database
+      - ./client:/app/client:ro
+      - ./therapist:/app/therapist:ro
+    environment:
+      - PORT=3000
+      - JWT_SECRET=dev-secret-key
+    entrypoint: ["/bin/bash", "./scripts/docker_entrypoint.sh"]
+    restart: unless-stopped
