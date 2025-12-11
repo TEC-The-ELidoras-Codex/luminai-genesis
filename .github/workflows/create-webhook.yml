@@ -44,12 +44,15 @@ jobs:
           echo "$resp" | jq .
 
       - name: Trigger import labels workflow (optional)
-        if: ${{ secrets.GITHUB_MANAGEMENT_PAT }}
         env:
           GITHUB_TOKEN_PAT: ${{ secrets.GITHUB_MANAGEMENT_PAT }}
           REPO_FULL: ${{ github.repository }}
         run: |
           # Optionally trigger the import-labels workflow using the Dispatch API
+          if [ -z "${GITHUB_TOKEN_PAT:-}" ]; then
+            echo "::warning::GITHUB_MANAGEMENT_PAT not configured, skipping workflow trigger"
+            exit 0
+          fi
           OWNER=$(echo "$REPO_FULL" | cut -d'/' -f1)
           REPO=$(echo "$REPO_FULL" | cut -d'/' -f2)
           echo "Triggering import-labels workflow_dispatch (if present)"
