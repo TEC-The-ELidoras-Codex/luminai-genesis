@@ -17,10 +17,16 @@
     <div class="chat">
       <h2>LuminAI MVP — Client Chat (Prototype)</h2>
       <div class="messages" id="messages"></div>
-      <div>
-        <input id="clientId" placeholder="client id (e.g., client123)" style="width:30%; margin-right:8px" />
-        <input id="message" placeholder="Type your message..." style="width:55%" />
+      <div style="margin-bottom:8px">
+        <input id="clientId" placeholder="client id (e.g., client123)" style="width:28%; margin-right:8px" />
+        <input id="message" placeholder="Type your message..." style="width:48%" />
+        <label style="margin-left:8px"><input type="checkbox" id="privateMsg"/> private</label>
         <button id="send">Send</button>
+      </div>
+      <div style="margin-top:8px">
+        <button id="logCraving">Log Craving</button>
+        <a href="/resources.html" style="margin-left:12px">Harm reduction resources</a>
+        <a href="/therapist/reports/index.html" style="margin-left:12px">Therapist reports (demo)</a>
       </div>
       <p style="margin-top:8px; font-size:0.9rem; color:#666">Note: This is a proof-of-concept prototype and not a replacement for real care.</p>
     </div>
@@ -35,9 +41,10 @@
         if (!message) return;
         addMessage('You', message, 'user');
         messageInput.value = '';
+        const isPrivate = document.getElementById('privateMsg').checked;
         const resp = await fetch('/api/chat', {
           method: 'POST', headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ client_id: clientId, message })
+          body: JSON.stringify({ client_id: clientId, message, private: isPrivate })
         });
         const j = await resp.json();
         if (j.reply) addMessage('LuminAI', j.reply.text, 'bot');
@@ -49,6 +56,17 @@
         messagesEl.appendChild(div);
         messagesEl.scrollTop = messagesEl.scrollHeight;
       }
+        document.getElementById('logCraving').addEventListener('click', async () => {
+          const clientId = document.getElementById('clientId').value || 'anon';
+          const severity = prompt('Craving severity (1-5)', '3');
+          const note = prompt('Optional note (e.g., trigger/context)', '');
+          const resp = await fetch('/api/craving', {
+            method: 'POST', headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ client_id: clientId, severity: Number(severity), note })
+          });
+          const j = await resp.json();
+          if (j.ok) addMessage('System', 'Craving logged', 'bot');
+        });
     </script>
   </body>
 </html>
