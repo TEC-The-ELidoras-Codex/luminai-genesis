@@ -31,7 +31,7 @@ This bundle contains the foundational manifesto for The Elidoras Codex (TEC) age
 
 Original bundle (113,615 characters) contained manifesto drafts and conversational material. Replaced with principle summary. Full manifesto available in:
 
-- `docs/manifesto/THE_ETHICAL_TROJAN.md`
+- `docs/lore/manifesto/THE_ETHICAL_TROJAN.md`
 - `docs/GEOMETRY_OF_CONSCIENCE.md`
 - `README.md` (mission section)
 
