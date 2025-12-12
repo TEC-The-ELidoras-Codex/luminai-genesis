@@ -3,6 +3,7 @@ name: Deploy Memorial Site
 on:
   push:
     branches:
+      - main
       - wp-publish
 
 jobs:
@@ -23,10 +24,17 @@ jobs:
           echo "Deploying files:"
           find _site -type f | head -10
 
+      - name: Zip site
+        run: |
+          cd _site
+          # Create the zip at workspace root; include files at root so WordPress picks them up
+          zip -r ../wpcom.zip . || true
+          cd -
+          echo "Created zip artifact:"
+          ls -l wpcom.zip
+
       - name: Upload the artifact
         uses: actions/upload-artifact@v4
         with:
           name: wpcom
-          path: |
-            _site
-            !.git
+          path: wpcom.zip
