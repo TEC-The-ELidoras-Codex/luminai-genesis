@@ -63,6 +63,12 @@ ely: fix(backend): correct session lineage hydration
 - Run unit tests and integration tests
 - Include docs for any public API changes
 
+### 7. Private Drafts Policy
+
+- If you have working drafts or sensitive creative content that is not ready for publication, place them in `private/drafts/` or the appropriate `private/` subfolder. This entire `private/` tree is ignored by the repository.
+- Do not commit confidential drafts to any public branch or remote repository.
+- If you would like to share drafts with collaborators, consider using an encrypted artifact store or a private repository, with explicit reviewer ACLs.
+
 ---
 
 Thank you for contributing — the Codex depends on careful stewardship.

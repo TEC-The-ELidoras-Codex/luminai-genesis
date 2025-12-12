@@ -20,6 +20,12 @@ module.exports = (db) => {
       [username, hashed, role, created_at],
       function (err) {
         if (err) {
+          // eslint-disable-next-line no-console
+          console.error(
+            "Register error inserting user:",
+            err && err.message ? err.message : err,
+            err && err.code ? err.code : null
+          );
           // Unique username constraint: return 409 for conflict
           if (
             (err.message && err.message.includes("UNIQUE")) ||
@@ -43,7 +49,15 @@ module.exports = (db) => {
       "SELECT id, username, password, role FROM users WHERE username = ?",
       [username],
       (err, row) => {
-        if (err) return res.status(500).json({ error: err.message });
+        if (err) {
+          // eslint-disable-next-line no-console
+          console.error(
+            "Login db.get error:",
+            err && err.message ? err.message : err,
+            err && err.code ? err.code : null
+          );
+          return res.status(500).json({ error: err.message });
+        }
         if (!row) {
           // Backward demo behavior: if no registered user, allow token with provided role (demo-only)
           const payload = { username, role: roleClaim || "client" };

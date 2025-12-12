@@ -5,13 +5,25 @@ on:
     branches:
       - main
   workflow_dispatch:
+    inputs:
+      sftp:
+        description: 'If set, upload files over SFTP instead of using the REST API (true/false)'
+        required: false
+        default: 'false'
+      production:
+        description: 'Run in production mode (publish rather than draft)'
+        required: false
+        default: 'false'
 
 jobs:
   publish:
     name: Publish to WordPress (dry-run by default)
     runs-on: ubuntu-latest
     env:
-      PRODUCTION: ${{ secrets.PRODUCTION | default('false') }}
+      # Default to 'false' if the PRODUCTION secret is not set.
+      PRODUCTION: ${{ secrets.PRODUCTION || github.event.inputs.production || 'false' }}
+      # Whether to use SFTP to upload HTML, set via workflow input or secrets
+      SFTP: ${{ github.event.inputs.sftp || 'false' }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -35,6 +47,10 @@ jobs:
           WP_BASE_URL: ${{ secrets.WP_BASE_URL }}
           WP_USER: ${{ secrets.WP_USER }}
           WP_APP_PASSWORD: ${{ secrets.WP_APP_PASSWORD }}
+          SFTP_HOST: ${{ secrets.SFTP_HOST }}
+          SFTP_USER: ${{ secrets.SFTP_USER }}
+          # Private SSH key for SFTP fallback
+          WPCOM_SSH_SECRET_KEY: ${{ secrets.WPCOM_SSH_SECRET_KEY }}
         run: |
           set -euo pipefail
           if [ "${PRODUCTION:-false}" = "true" ]; then
@@ -44,4 +60,17 @@ jobs:
             echo "Running in dry-run mode. Set secret PRODUCTION=true to publish."
             DRY='--dry-run'
           fi
+
+          # If SFTP is requested, upload via SSH and place files on the host; otherwise default to REST publish
+          if [ "${SFTP:-false}" = "true" ]; then
+            echo "Using SFTP fallback: will upload files to ${SFTP_HOST}@${SFTP_USER} and leave them in '~/luminai-publish/'"
+            mkdir -p ~/.ssh
+            echo "${WPCOM_SSH_SECRET_KEY}" > ~/.ssh/id_rsa
+            chmod 600 ~/.ssh/id_rsa
+            # Add host to known_hosts to avoid interactive check (use with care)
+            ssh-keyscan -H "${SFTP_HOST}" >> ~/.ssh/known_hosts || true
+            rsync -avz -e "ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=yes" dist/wordpress/ "${SFTP_USER}@${SFTP_HOST}:~/luminai-publish/"
+            rsync -avz -e "ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=yes" papers/tgcr/tgcr.pdf "${SFTP_USER}@${SFTP_HOST}:~/luminai-publish/"
+            echo "Files uploaded to SFTP host; if remote `wp` is available, you can use `ssh -i ~/.ssh/id_rsa ${SFTP_USER}@${SFTP_HOST} wp ...` to create posts."
+          else
           python scripts/wp_publish.py --dir dist/wordpress --base-url "$WP_BASE_URL" --user "$WP_USER" --password "$WP_APP_PASSWORD" $DRY

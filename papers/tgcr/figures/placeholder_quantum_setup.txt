@@ -1,0 +1,7 @@
+Placeholder for quantum setup figure.
+
+To replace: add a high-resolution image file named `quantum_setup.png`.
+
+Suggested content:
+- Diagram showing EEG device measuring W and an arrow to the quantum system
+- A small box showing the equation tau ∝ 1/W

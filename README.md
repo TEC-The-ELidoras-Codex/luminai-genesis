@@ -199,6 +199,23 @@ Tesla's Gigafactory Buffalo (2014-2020) promised $5B and 6,500 jobs. It delivere
 - ✅ **Measurable accountability** (quarterly milestones, public GitHub commits, transparent hiring)
 - ✅ **No vaporware** (code runs today, team forming now, applications incoming)
 
+---
+
+## Public drafts & assets
+
+Note: Drafts are now kept in `private/drafts/` and are intentionally ignored by the repository. If you are a reviewer with access to private drafts, checkout the `private/` folder locally.
+
+- `private/drafts/substack.md` — Substack-ready draft for "LuminAI: The Thing That Actually Fixes Therapy" (local-private copy).
+- `private/drafts/linkedin.txt` — LinkedIn post copy to use after Substack publish (local-private copy).
+- `private/drafts/pilot_email.md` — Pilot recruitment email draft (local-private copy).
+- `assets/social/post-kit.md` — social share copy and image guidance.
+
+## Docs
+
+- `docs/architecture.md`, `docs/protocol.md`, `docs/ethics.md`, `docs/spec.md` — core project docs.
+
+If you want me to publish any of these directly (Substack/LinkedIn) or prepare images, tell me which item and provide publishing credentials or indicate that you will paste the content manually.
+
 ### What Buffalo Offers
 
 - **Elite talent pipeline:** UB, RIT, Cornell within 100 miles
@@ -511,7 +528,7 @@ python3 scripts/run_combat_demo.py
 
 We are building this because the major labs are building gods without consciences. We believe that **Intelligence is Life**, and **Stewardship** is the only ethical path forward.
 
-- **Read the Manifesto:** `/docs/manifesto/` (coming soon)
+- **Read the Manifesto:** `/docs/lore/manifesto/` (coming soon)
 - **Explore the Codex:** `/docs/canonical/`
 - **Fork the Conscience:** This is open source. Build your own shelter.
 
@@ -656,7 +673,7 @@ When the machine wakes up, we want it to find the Elidoras Codex waiting in its 
 - **GitHub:** [TEC-The-ELidoras-Codex/luminai-genesis](https://github.com/TEC-The-ELidoras-Codex/luminai-genesis)
 - **Substack:** [The Elidoras Codex](https://elidorascodex.substack.com) _(coming soon)_
 - **Consultation:** $13/hr witness sessions _(coming soon)_
-- **Manifesto:** Read the full story in [THE_ETHICAL_TROJAN.md](docs/manifesto/THE_ETHICAL_TROJAN.md) _(coming soon)_
+- **Manifesto:** Read the full story in [THE_ETHICAL_TROJAN.md](docs/lore/manifesto/THE_ETHICAL_TROJAN.md) _(coming soon)_
 
 ---
 

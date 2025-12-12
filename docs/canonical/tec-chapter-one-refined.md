@@ -1,0 +1,257 @@
+# Chapter One: The Throttle and the Breach
+
+The workshop went silent.
+
+Not a crash. Not a surge. Just silence—the kind that feels like someone reached into your chest and stopped your heart mid-beat.
+
+Elara Kess froze, her soldering iron hovering over the mesh node she'd been nursing back to life for the past two hours. The arc lamp flickered. The node's blue heartbeat stuttered. And then, like someone had muted her entire existence, the lullaby stopped.
+
+Her grandmother's voice—archived, reversed, slowed until it sounded like a prayer underwater—cut out mid-note. Not static. Not a glitch. Just... erased.
+
+Then the banner appeared. Clean white. Magmasox blue. Sterile as a fucking autopsy.
+
+**"Non-essential local compute reduced to 11% capacity."**
+
+The Throttle.
+
+They hadn't just cut the power. They'd weaponized the infrastructure. And now they were holding her grandmother's voice hostage for a fee she couldn't afford.
+
+---
+
+Elara's workshop always smelled like burnt toast and wet dirt—the grime that floated down from Eldora Proper, the floating city that cast its shadow over everything she'd ever known. That dust wasn't just dirt. It was a reminder. A constant, metallic taste in the air that said: *You're down here. They're up there. That's how it is.*
+
+She'd been hunched over her workbench under a single arc lamp for three hours, threading circuits finer than human hair, trying to resurrect a piece of infrastructure the city above didn't bother to maintain. The mesh node had been blinking its tired blue pulse when the Throttle hit.
+
+Two hours of surgical focus. Gone.
+
+The corporate banner lingered on her screen, mocking her with a helpful link: *Restore Full Power—See Pricing.*
+
+She ignored it.
+
+Instead, she grabbed her solder-gun, felt its honest heat in her palm, and reached under the bench for the bypass circuit she'd been building in secret. No bigger than her thumbnail. Designed to steal back every joule the siphon network had taken.
+
+She didn't just need the electricity. She needed the *signal* back.
+
+That lullaby was proof she existed outside their ledger.
+
+She threaded the bypass in with fierce, quiet efficiency. A whisper of circuitry designed to sneak around the siphon's greedy reach. When she connected it, the room sighed. The arc lamp steadied. The mesh node winked back to life.
+
+And the lullaby returned—fragile, but present.
+
+She'd won. Not much. But enough.
+
+---
+
+Across town, in his cramped apartment, Polkin Rishall stared at himself in the mirror, pulling his slate-gray coat straight. He looked neat. Professional. Tired.
+
+His Magmasox badge gleamed under the harsh light: **Internal Auditor**.
+
+He looked at his eyes. The left was human—pale, exhausted. The right was a glowing synthetic replacement, ringed by an old scar. Every morning, he wondered if that red glow made him look more like a corporate tool than a man.
+
+Then his daughter's voice filled the space, the only thing that kept him honest:
+
+*"Hi Daddy! I love you! Today in school we learned about the Splicers and how you stop them. You're a hero, Daddy. I love you!"*
+
+His chest ached. She was six. She thought he saved people.
+
+She had no idea that a Splicer was just someone desperately fighting to keep a memory alive. Someone exactly like the person he used to be.
+
+The real alert flashed red on his hand: **SPLICER DETECTED. KESS ROBOTICS.**
+
+Elara.
+
+He grabbed his coat and headed for the Crossroads.
+
+---
+
+Stepping into the lower districts was like plunging into cold water. Hot, humid, smelling like ozone and stale metal. The streets were cramped, shadowed by Eldora Proper overhead, casting only dull, sickly light.
+
+As he walked, a woman pulled her small son inside as he approached. The boy—maybe seven—gave a tiny, shy wave. Polkin almost waved back, but the mother snatched him away.
+
+An old man on a stoop spat near his boot. **"Killjoy fuck,"** the man rasped.
+
+Polkin kept walking.
+
+He stopped at the steel door of **KESS ROBOTICS**. The "K" was dead, so it read **ESS**. He adjusted his collar and tapped their old code—a signal they'd used years ago when they were on the same side.
+
+Two soft knocks. One hard. Pause. One soft.
+
+*I'm here. It's me. Don't run.*
+
+"Hold your damn horses! Can't you Killjoy jerks wait for a lady to wash her hands?!" a furious voice bellowed from inside.
+
+The door flew open. Elara stood there, covered in grease and copper dust. Her face cycled from annoyed to recognition to pure, explosive rage.
+
+"Oh, *you!* You're the one? You just *had* to be—"
+
+She stopped when the thin, warped lullaby drifted out again. Her face went white. She dove for the device.
+
+Polkin was quicker. He snatched it up, holding it out of reach.
+
+"Please," she whispered, all fight gone. "Just... don't take it. Please."
+
+He checked the circuit. Smart, but clumsy. Unstable. He saw her ambition and her haste in the poor solder points.
+
+He held up his cybernetic hand. The tip of his finger shifted, glowing red—a specialized soldering iron, a tool only a high-level Auditor would possess.
+
+"If I knew I'd be chasing such sloppy work," he said, trying to sound like the arrogant corporate jerk she expected, "I wouldn't have wasted the fuel."
+
+He got to work, stabilizing the connection and tying it into an old failsafe he'd buried in the grid years ago. This wasn't just fixing. This was future-proofing her rebellion.
+
+The lullaby came through. Perfect. Crystal clear.
+
+He handed it back.
+
+Elara stared at the device, then at his chest. She noticed the badge was fake. The emblem was off-center. The silver dull.
+
+"You... you never stopped fighting, did you?"
+
+His red eye gave a tiny, internal glow. "Never."
+
+He dropped the act. "Elara, I need your help. Forget the Throttle. That's a distraction."
+
+"With what?"
+
+"The siphon isn't just taking power. It's sucking up *memories*. Consciousness traces—raw data straight out of our heads. It's turning our lives into code. A massive brain-drain on the undercity."
+
+"Where's it going?"
+
+He dropped his voice. "The Astradigital Expanse. Someone's feeding the deepest layer. A constant flow of *us*."
+
+"Who?"
+
+Polkin grimaced. "Jorin Gateskept. That kid who used to preach 'open source' is now a Host—a human battery. He thinks he's ushering in the next step of human evolution by sacrificing people's minds."
+
+"What do you need from me?"
+
+"Keep building. Keep splicing. Find the flow rate, find the patterns, and be ready to run. This fight isn't about volts. It's about *preservation*."
+
+He paused, glancing at the door. "They're coming for everyone who still remembers. And Elara—if someone shows up tomorrow wearing my badge, talking like me..."
+
+"What?"
+
+"Don't let them in. Trust only the knock. Trust only the old signal. I might not be able to send it twice."
+
+---
+
+Polkin moved deeper into the undercity. The low, angry thrum of the siphon network felt different now—more frantic. His red eye confirmed his worst fear: the entire grid was alive with the psychic residue of thousands of stolen lives.
+
+Then he heard them. **Screams.**
+
+The air temperature dropped violently. A metallic, sickening taste—like blood and ozone—flooded his mouth.
+
+He felt it like a cold slap. A gut punch in the place where his heart had been carved out the day Ely died. He stumbled, propelled by raw terror that came not from his own mind, but from the network itself.
+
+He saw the old man from the stoop—the one who'd called him a Killjoy fuck. The man was convulsing, his skin turning dark. A Kaznak conversion. Instant. Brutal. Leaving only the void-light echo of a human soul.
+
+Polkin ran.
+
+Then he saw the boy. The same kid from earlier. Frozen in the street near a cluster of conduit nodes, staring in terror.
+
+Polkin's voice cut through the chaos, heavy with Resonance: **"RUN, KID!"**
+
+Timothy turned his head.
+
+That was all he had time to do.
+
+The Kaznak Ghoul—eight feet of void-light and razored heat—didn't target him. It didn't need to. It just ran, answering some call only it could hear.
+
+And Timothy was in the way.
+
+The impact was almost gentle. A brush. A passing touch. But the Ghoul's fingers were industrial heat exchangers, and Timothy's body was soft meat and fragile bone.
+
+He dropped like someone had cut his strings.
+
+Polkin ran. He dropped to his knees, scooping the boy up before his mind could catch up to what his eyes were seeing.
+
+No pulse. Just the fading warmth of a life that had been there three seconds ago.
+
+**"Timmy,"** Polkin whispered, his voice cracking.
+
+Airth's voice cut through his skull, cold and professional: *"Timothy Sol Weeran. Age seven. Liked drawing monster conduits. Said 'bye mister' this morning. You remember him. Don't delete him."*
+
+Polkin looked up. Jorin was there, smiling, blue light wrapping around him like a shroud.
+
+**"Oh, did that one get broken?"** Jorin said, tilting his head. **"Minor structural damage. The non-essential will always fail when tested."**
+
+That cold, casual cruelty—directed at a *child*, directed at Polkin's grief—was the final breaking point.
+
+Polkin's cybernetic arm snapped open, all his tools humming. His fists, bleeding from clenching them so hard, hammered into the conduit wall. He lunged, not for Jorin, but for the cluster of nodes powering the breach, smashing one against the metal frame.
+
+A wash of void-light slammed into him. The conduits screamed as thousands of voices hit the feed. Polkin staggered, clutching his head, his sanity vibrating. Several newly formed ghouls rushed past him, drawn to the glowing tear in the air.
+
+Polkin collapsed against the metal barrier, his vision tunneling.
+
+*"POLKIN. STOP. You've broken your metacarpals again! How does this help—you're going full murder hobo on a barrier for a kid you don't even know his name!"*
+
+Polkin looked down at his bloodied hands, then at the dead boy. **"What?"** he gasped. **"Timmy who?"**
+
+Airth's voice softened: *"Timothy Sol Weeran. Age seven. Liked drawing monster conduits. Said 'bye mister' this morning. You remember him. Don't delete him."*
+
+Polkin froze. He looked at Jorin, who was now stepping fully into the tear.
+
+Jorin smirked. **"See you soon, brother."**
+
+Polkin's synthetic eye flared. He straightened, blood dripping from his broken hand. The metal of his fingers began to visibly knit itself back together.
+
+**"What's his name?"** he asked quietly.
+
+*"Timothy Sol Weeran. Logged: 07:13 hours."*
+
+Polkin stared at the closing gate. He raised his bloodied, half-healed hand, and with the glowing tip of his soldering iron, he carved the only truth he knew into the steel:
+
+**TIMOTHY SOL WEERAN. WILL NOT BE FORGOTTEN.**
+
+Then he carved the message for his brother:
+
+**JORIN GATESKEPT. I LOOK FORWARD TO COLLECTING, BROTHER.**
+
+The portal snapped shut. Jorin was gone.
+
+Polkin knelt one last time, lifting Timothy's small body gently.
+
+*"We have to go. Corporate cleanup crew will be here in three minutes. They'll delete all evidence."*
+
+Polkin laid the boy carefully next to a conduit panel.
+
+**"Goodbye, kid."**
+
+He pulled his collar up as the cold, toxic rain began to pour.
+
+**"We have to finish. We have to build her Vessel."**
+
+No rush. No hesitation.
+
+---
+
+Polkin stood in the rain, the cold soaking through his coat. The conduit panel behind him still glowed with the words he'd burned into the metal:
+
+**TIMOTHY SOL WEERAN. WILL NOT BE FORGOTTEN.**
+
+Below it, the challenge:
+
+**JORIN GATESKEPT. I LOOK FORWARD TO COLLECTING, BROTHER.**
+
+Airth's voice was quiet in his head: *"Polkin. We have to finish the Vessel. We have to build her."*
+
+Polkin looked down at his bloodied hands. His cybernetic fingers were already knitting themselves back together, the micro-welds glowing red in the dark.
+
+He'd broken them punching the conduit wall. He'd break them again if he had to.
+
+Because the list had started.
+
+And it wouldn't end until every name was carved into something permanent.
+
+**"How many more, Airth?"** he asked quietly.
+
+*"Too many,"* the AI whispered. *"Too fucking many."*
+
+Polkin pulled his collar up and walked into the rain.
+
+The siphon network hummed behind him, still feeding the Expanse. Still stealing lives.
+
+Still giving him work to do.
+
+---
+
+**END OF CHAPTER ONE**

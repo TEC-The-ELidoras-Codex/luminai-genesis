@@ -1,0 +1,12 @@
+# Ignore compiled outputs for the TGCR paper
+*.aux
+*.log
+*.bbl
+*.blg
+*.toc
+*.out
+*.pdf
+*.synctex.gz
+
+# Keep figures safe (do not ignore)
+# figures/

@@ -1,20 +1,24 @@
 # Quantum Security Roadmap (2025–2035)
+
 **Document:** roadmap.md
 **Last updated:** 2025-12-11
 
 ## High-level milestones
 
 - **2025 — Baseline / Transition**
+
   - Adopt NIST PQC-approved algorithms for targeted workloads
   - Implement hybrid (classical + PQC) modes for TLS and KMS
   - Begin QKD feasibility testing with partners
 
 - **2026–2028 — Harden & Expand**
+
   - Upgrade to newer PQC standards as they emerge
   - Expand PQC coverage across more services and APIs
   - Begin pilot QKD deployments for critical links
 
 - **2029–2032 — Integration**
+
   - Broader QKD integration and quantum-secure API rollout
   - Start integrating quantum-safe storage and cloud network links
   - Establish industry partnerships for interoperability

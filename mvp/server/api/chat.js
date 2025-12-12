@@ -39,9 +39,16 @@ module.exports = (db) => {
         // do not log replies as private; store as therapist-facing if not private
         db.run(
           "INSERT INTO messages (client_id, message, type, private, created_at) VALUES (?, ?, ?, ?, ?)",
-          [client_id, reply.text, "response", 0, reply.created_at]
+          [client_id, reply.text, "response", 0, reply.created_at],
+          function (err2) {
+            if (err2) {
+              // eslint-disable-next-line no-console
+              console.error("Failed to insert reply message:", err2);
+              // Do not fail the request for the end user, but log the error.
+            }
+            res.json({ reply });
+          }
         );
-        res.json({ reply });
       }
     );
   });

@@ -234,10 +234,10 @@ The backend (`backend/routers/chat.py`) will extract and log this metadata.
 - [Ollama Model Creation](https://github.com/ollama/ollama/blob/main/docs/modelfile.md)
 - [llama.cpp Quantization](https://github.com/ggerganov/llama.cpp#quantization)
 - [LuminAI Genesis Docs](../docs/ARCHITECTURE.md)
-- [TGCR Core Thesis](../docs/manifesto/CORE_THESIS.md)
+- [TGCR Core Thesis](../docs/lore/manifesto/CORE_THESIS.md)
 
 ---
 
 **Status:** Ready to train
 **Last Updated:** December 5, 2025
-**Canonical Reference:** docs/manifesto/CORE_THESIS.md
+**Canonical Reference:** docs/lore/manifesto/CORE_THESIS.md

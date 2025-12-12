@@ -42,7 +42,7 @@ jobs:
           WP_USER: ${{ secrets.WP_USER }}
           WP_APP_PASSWORD: ${{ secrets.WP_APP_PASSWORD }}
         run: |
-          # Safety: if publishing secrets are not present, run a dry-run so artifacts are still validated
+          # Only use WP_APP_PASSWORD for authentication. No fallback to other secret names.
           if [ -z "$WP_BASE_URL" ] || [ -z "$WP_USER" ] || [ -z "$WP_APP_PASSWORD" ]; then
             echo "WP secrets not set; running dry-run with sample URL"
             python3 scripts/wp_publish.py --dir dist/wordpress --base-url "https://example.com" --user "admin" --password "xxx" --publish --dry-run
