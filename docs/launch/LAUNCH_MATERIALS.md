@@ -1,6 +1,6 @@
 # Launch Materials
 
-Ready-to-publish content for Substack and X (Twitter). Anchor all references to `docs/manifesto/CORE_THESIS.md` and repo: <https://github.com/TEC-The-ELidoras-Codex/luminai-genesis>
+Ready-to-publish content for Substack and X (Twitter). Anchor all references to `docs/lore/manifesto/CORE_THESIS.md` and repo: <https://github.com/TEC-The-ELidoras-Codex/luminai-genesis>
 
 ## Substack
 
@@ -22,7 +22,7 @@ Ready-to-publish content for Substack and X (Twitter). Anchor all references to 
 > If you are curious, fork the repo, run the demo, or reach out. I built this because the alternative — more of the same brittle avoidance — is unacceptable.
 >
 > Repo: <https://github.com/TEC-The-ELidoras-Codex/luminai-genesis>
-> Canonical thesis: docs/manifesto/CORE_THESIS.md
+> Canonical thesis: docs/lore/manifesto/CORE_THESIS.md
 
 ## X (Twitter) thread
 
@@ -38,4 +38,4 @@ Ready-to-publish content for Substack and X (Twitter). Anchor all references to 
 
 ## Scheduling tip
 
-- Publish Substack Tuesday/Wednesday morning US Eastern for maximum researcher visibility. Link back to `docs/manifesto/CORE_THESIS.md` in every public post.
+- Publish Substack Tuesday/Wednesday morning US Eastern for maximum researcher visibility. Link back to `docs/lore/manifesto/CORE_THESIS.md` in every public post.
