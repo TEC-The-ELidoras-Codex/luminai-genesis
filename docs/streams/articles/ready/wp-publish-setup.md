@@ -27,8 +27,8 @@ This document describes how to configure the GitHub Action `wp-publish.yml` to a
 
 - You can test the workflow locally by running `python3 scripts/wp_publish.py --dir dist/wordpress --base-url https://example.com --user admin --password secret --dry-run`
 
-Frontmatter metadata support
----------------------------------
+## Frontmatter metadata support
+
 The build script `scripts/aqueduct_build_wordpress_html.py` embeds the original Markdown frontmatter as JSON in the generated HTML. The publishing script parses this data and uses the `category` (or `categories`) and `tags` fields if present. Example frontmatter in `docs/streams/articles/ready/tgcr.md`:
 
 ```yaml

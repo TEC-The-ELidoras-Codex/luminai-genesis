@@ -1,4 +1,5 @@
 # Quantum Security — Technical Specifications
+
 **Document:** technical-specs.md
 **Last updated:** 2025-12-11
 
@@ -7,6 +8,7 @@
 This document describes the technical approach for integrating post-quantum cryptography (PQC), quantum key distribution (QKD) testing, and quantum-resistant system design into LuminAI's systems.
 
 Goals:
+
 - Protect stored and transmitted data against both classical and future quantum attacks
 - Build upgradeable, modular cryptographic stacks
 - Define key-management, APIs, and operational controls for quantum-resistant deployments
@@ -33,10 +35,12 @@ Goals:
 ## Architecture Patterns
 
 1. **Cryptographic Abstraction Layer (CAL)**
+
    - Encapsulates algorithm selection, switching, and hybrid modes
    - Provides feature flags for rolling updates and A/B tests
 
 2. **Hybrid TLS Gateway**
+
    - Accepts both classical and PQC-enabled clients
    - Terminates TLS at an edge appliance that supports PQC KEMs
 

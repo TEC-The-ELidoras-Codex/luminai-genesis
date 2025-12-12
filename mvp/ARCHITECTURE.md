@@ -15,6 +15,8 @@ This file provides a short overview of the MVP architecture so collaborators can
 - GET `/api/report/:clientId` — returns a naive weekly summary of messages & cravings and simple theme extraction based on keyword matches.
 - GET `/api/resources` — returns static curated harm reduction resources (prototype).
 - POST `/api/login` — returns a demo JWT token (username only) for protected endpoints such as `/api/report`.
+- POST `/api/login` — login with `username` + `password` (real users) or fallback to demo-only token with a role parameter if the user is not registered.
+- POST `/api/register` — register a username + password + role (client|therapist) for demo purposes; passwords are hashed using bcryptjs.
 
 ## DB schema
 

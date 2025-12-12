@@ -1,4 +1,5 @@
 # Quantum Security — Legal Clauses (TOS / Privacy Policy additions)
+
 **Document:** legal-clauses.md
 **Last updated:** 2025-12-11
 

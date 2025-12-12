@@ -199,6 +199,21 @@ Tesla's Gigafactory Buffalo (2014-2020) promised $5B and 6,500 jobs. It delivere
 - ✅ **Measurable accountability** (quarterly milestones, public GitHub commits, transparent hiring)
 - ✅ **No vaporware** (code runs today, team forming now, applications incoming)
 
+---
+
+## Public drafts & assets
+
+- `drafts/substack.md` — Substack-ready draft for "LuminAI: The Thing That Actually Fixes Therapy".
+- `drafts/linkedin.txt` — LinkedIn post copy to use after Substack publish.
+- `drafts/pilot_email.md` — Pilot recruitment email draft.
+- `assets/social/post-kit.md` — social share copy and image guidance.
+
+## Docs
+
+- `docs/architecture.md`, `docs/protocol.md`, `docs/ethics.md`, `docs/spec.md` — core project docs.
+
+If you want me to publish any of these directly (Substack/LinkedIn) or prepare images, tell me which item and provide publishing credentials or indicate that you will paste the content manually.
+
 ### What Buffalo Offers
 
 - **Elite talent pipeline:** UB, RIT, Cornell within 100 miles

@@ -28,12 +28,12 @@ def convert_markdown_to_pdf(md_file_path: str, output_path: str = None):
         sys.exit(1)
 
     # Read markdown
-    with open(md_path, "r", encoding="utf-8") as f:
+    with open(md_path, encoding="utf-8") as f:
         md_content = f.read()
 
     # Convert to HTML with extensions
     html_content = markdown.markdown(
-        md_content, extensions=["extra", "codehilite", "toc", "tables"]
+        md_content, extensions=["extra", "codehilite", "toc", "tables"],
     )
 
     # Add CSS styling
@@ -158,7 +158,7 @@ def convert_markdown_to_pdf(md_file_path: str, output_path: str = None):
         em {
             font-style: italic;
         }
-    """
+    """,
     )
 
     # Wrap HTML with proper structure
@@ -192,12 +192,12 @@ def convert_markdown_to_pdf(md_file_path: str, output_path: str = None):
 if __name__ == "__main__":
     if len(sys.argv) < 2:
         print(
-            "Usage: python scripts/convert_markdown_to_pdf.py <markdown_file> [output_pdf]"
+            "Usage: python scripts/convert_markdown_to_pdf.py <markdown_file> [output_pdf]",
         )
         print("\nExample:")
         print(
             "  python scripts/convert_markdown_to_pdf.py "
-            "docs/posts/substack_zoho_keyword_fallacy.md"
+            "docs/posts/substack_zoho_keyword_fallacy.md",
         )
         sys.exit(1)
 
