@@ -11,6 +11,7 @@ ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 DRY_RUN=1
 APPLY=0
 CONFIRM=0
+MOVE_CODE=0
 
 usage() {
   cat <<EOF
@@ -24,6 +25,7 @@ EOF
 while test $# -gt 0; do
   case "$1" in
     --apply) APPLY=1; DRY_RUN=0; shift ;;
+    --move-code) MOVE_CODE=1; shift ;;
     --confirm) CONFIRM=1; shift ;;
     --help) usage; exit 0;;
     *) echo "Unknown arg: $1"; usage; exit 1;;
@@ -109,6 +111,7 @@ MAP_DEST=(
   "docs/launch"
   "docs/launch"
   "docs/launch"
+  "docs/launch"
   "private"
   "private/drafts"
   "assets/branding"
@@ -116,6 +119,9 @@ MAP_DEST=(
   "assets/social"
   "scripts"
 )
+
+# Which items in MAP_SRC are code (controversial to move). Controlled by --move-code flag.
+CODE_ITEMS=("backend" "bots" "src" "models")
 
 # Config & top-level files to move to .configs (but exclude README.md, LICENSE)
 CONFIG_FILES=(
@@ -153,9 +159,32 @@ should_keep_root() {
 }
 
 # Build moves mapping based on MAP_SRC / MAP_DEST
-for i in "${!MAP_SRC[@]}"; do
+  for i in "${!MAP_SRC[@]}"; do
   src="${MAP_SRC[$i]}"
   dst="${MAP_DEST[$i]}"
+    # Skip moving code directories unless MOVE_CODE is enabled
+    if [[ "$MOVE_CODE" -eq 0 ]]; then
+      skip=0
+      for c in "${CODE_ITEMS[@]}"; do
+        if [[ "$src" == "$c" ]]; then
+          skip=1
+          break
+        fi
+      done
+      if [[ "$skip" -eq 1 ]]; then
+        # Keep code entries unchanged and add to skipped list
+        if [ -e "$ROOT_DIR/$src" ]; then
+          for path in "$ROOT_DIR/$src"/*; do
+            if [ -e "$path" ]; then
+              name="$(basename "$path")"
+              rel="$src/$name"
+              SKIPPED+=("$rel")
+            fi
+          done
+        fi
+        continue
+      fi
+    fi
 
   if [ -e "$ROOT_DIR/$src" ]; then
     for path in "$ROOT_DIR/$src"/*; do
