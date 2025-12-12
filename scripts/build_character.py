@@ -31,7 +31,7 @@ def main():
             "integrity": entity.integrity,
             "golf_rule": entity.is_golf_rule,
             "resources": entity.resources,
-        }
+        },
     )
 
 

@@ -18,5 +18,5 @@ Angelo Hurley is the author of the TGCR paper and the lead of the LuminAI Genesi
 
 ### Contact & Website
 
-- Repository: https://github.com/TEC-The-ELidoras-Codex/luminai-genesis
+- Repository: <https://github.com/TEC-The-ELidoras-Codex/luminai-genesis>
 - Contact: Please use the contact form on my website.

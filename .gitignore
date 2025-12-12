@@ -67,4 +67,5 @@ unsloth-venv/
 scripts/archived/*
 notebooks/archived/*
 assets/archived/*
+mvp/database/
 \n# Repository secret patterns (managed by fix-ci.sh)\n.env\n.env.*\n*.pem\n*.key\n*secret*\n*credential*\nconfig/secrets.yml\n\n# Repository secret patterns (managed by fix-ci.sh)\n.env\n.env.*\n*.pem\n*.key\n*secret*\n*credential*\nconfig/secrets.yml\n

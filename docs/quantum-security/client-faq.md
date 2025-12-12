@@ -1,4 +1,5 @@
 # Quantum Security — Client FAQ
+
 **Document:** client-faq.md
 **Last updated:** 2025-12-11
 
