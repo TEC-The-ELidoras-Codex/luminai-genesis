@@ -6,7 +6,7 @@ permissions:
 on:
   push:
     paths:
-      - "docs/canonical/**.md"
+      - "docs/canonical/tec-chapter-one*.md"
       - "scripts/convert_markdown_to_pdf.py"
 
 jobs:
