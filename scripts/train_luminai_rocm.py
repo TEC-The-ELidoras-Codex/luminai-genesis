@@ -23,7 +23,7 @@ os.environ["CUDA_VISIBLE_DEVICES"] = ""  # Force CPU only
 def load_jsonl_dataset(path: str) -> Dataset:
     """Load JSONL training data."""
     texts = []
-    with open(path, "r") as f:
+    with open(path) as f:
         for line in f:
             if line.strip():
                 try:
@@ -65,7 +65,7 @@ def main():
     print(f"Data: {data_path}")
     print(f"Output: {output_dir}")
     print(
-        f"Device: {torch.cuda.get_device_name(0) if torch.cuda.is_available() else 'CPU'}"
+        f"Device: {torch.cuda.get_device_name(0) if torch.cuda.is_available() else 'CPU'}",
     )
     print("=" * 70 + "\n")
 

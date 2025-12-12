@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
-import sys
 import random
+import sys
 from pathlib import Path
+
 from astradigital.encounter import run_battle  # type: ignore
 
 # local imports
