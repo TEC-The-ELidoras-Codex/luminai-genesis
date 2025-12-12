@@ -54,6 +54,8 @@ dist/
 # private files
 secrets/
 *.bak.*
+private/
+private/*
 
 # Large model and training files
 models/
