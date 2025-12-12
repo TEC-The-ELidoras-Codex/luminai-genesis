@@ -11,7 +11,8 @@ jobs:
     name: Publish to WordPress (dry-run by default)
     runs-on: ubuntu-latest
     env:
-      PRODUCTION: ${{ secrets.PRODUCTION | default('false') }}
+      # Default to 'false' if the PRODUCTION secret is not set.
+      PRODUCTION: ${{ secrets.PRODUCTION || 'false' }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
