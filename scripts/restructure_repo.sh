@@ -34,7 +34,7 @@ PATTERNS=(
   "$ROOT_DIR/papers/*draft*"
 )
 
-declare -a MOVES
+MOVES=()
 
 for p in "${PATTERNS[@]}"; do
   # expand the glob safely
@@ -75,7 +75,13 @@ if [ "$APPLY" -eq 1 ]; then
   for m in "${MOVES[@]}"; do
     IFS='|' read -r src tgt <<< "$m"
     mkdir -p "$(dirname "$tgt")"
-    git mv "$src" "$tgt"
+    # If the source is tracked by git, use git mv to preserve history.
+    if git ls-files --error-unmatch "${src#"${ROOT_DIR}"/}" >/dev/null 2>&1; then
+      git mv "$src" "$tgt"
+    else
+      # Source is untracked — do plain move but do not add to git (private files)
+      mv "$src" "$tgt"
+    fi
   done
   echo "Applied ${#MOVES[@]} moves. Please review, run tests, and then push." >&2
   exit 0

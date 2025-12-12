@@ -1,0 +1,7 @@
+Placeholder for TGCR diagram.
+
+To replace: add a high-resolution image file (PNG, JPG, or PDF) named `tgcr_diagram.png` in this directory.
+
+Suggested content:
+- A schematic circle icon for R, W, R' and arrows demonstrating multiplication.
+- Keep text large and clear for small margins.
