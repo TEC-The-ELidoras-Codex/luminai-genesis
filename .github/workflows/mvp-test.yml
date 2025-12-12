@@ -20,9 +20,18 @@ jobs:
       - name: Install npm deps
         working-directory: mvp
         run: npm ci
+      - name: List Node/npm versions and working-directory content
+        working-directory: mvp
+        run: |
+          node --version
+          npm --version
+          ls -la
       - name: Setup DB
         working-directory: mvp
         run: ./scripts/setup_db.sh
-      - name: Run tests
+      - name: Run tests (verbose)
         working-directory: mvp
-        run: npm test --silent -- --runInBand --testTimeout=20000
+        env:
+          CI: true
+        # Remove --silent to surface errors, add detectOpenHandles and verbose for better diagnostics
+        run: npm test -- --runInBand --testTimeout=20000 --detectOpenHandles --verbose

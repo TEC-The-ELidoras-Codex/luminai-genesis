@@ -13,18 +13,27 @@ fi
 # fallback to a small Python script using the stdlib sqlite3 module.
 if command -v node >/dev/null 2>&1; then
   echo "Using node to create DB schema..."
-  node - <<'NODE'
+  # Use node to execute an inline script, passing DB file as the first argument
+  node - "$DB_FILE" <<'NODE'
 const sqlite3 = require('sqlite3').verbose();
-const db = new sqlite3.Database(process.argv[1]);
-db.serialize(()=>{
+const path = process.argv[1];
+if (!path) {
+  console.error('DB path argument missing');
+  process.exit(2);
+}
+const db = new sqlite3.Database(path);
+db.serialize(() => {
   db.run('CREATE TABLE IF NOT EXISTS messages (id INTEGER PRIMARY KEY AUTOINCREMENT, client_id TEXT, message TEXT, type TEXT, private INTEGER DEFAULT 0, created_at INTEGER)');
-  db.run('CREATE TABLE cravings (id INTEGER PRIMARY KEY AUTOINCREMENT, client_id TEXT, severity INTEGER, note TEXT, created_at INTEGER)');
-    db.run('CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY AUTOINCREMENT, username TEXT UNIQUE, password TEXT, role TEXT, created_at INTEGER)');
-  });
-  db.close();
+  db.run('CREATE TABLE IF NOT EXISTS cravings (id INTEGER PRIMARY KEY AUTOINCREMENT, client_id TEXT, severity INTEGER, note TEXT, created_at INTEGER)');
+  db.run('CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY AUTOINCREMENT, username TEXT UNIQUE, password TEXT, role TEXT, created_at INTEGER)');
 });
-db.close();
-console.log('DB created');
+db.close((err) => {
+  if (err) {
+    console.error('Failed to close DB', err);
+    process.exit(1);
+  }
+  console.log('DB created');
+});
 NODE
   true
 elif command -v python3 >/dev/null 2>&1; then
