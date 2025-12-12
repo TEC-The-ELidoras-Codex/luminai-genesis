@@ -45,7 +45,8 @@ def convert_markdown_to_pdf(md_file_path: str, output_path: str = None):
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont,
+                "Segoe UI", Helvetica, Arial, sans-serif;
             font-size: 11pt;
             line-height: 1.6;
             color: #24292e;
@@ -195,7 +196,8 @@ if __name__ == "__main__":
         )
         print("\nExample:")
         print(
-            "  python scripts/convert_markdown_to_pdf.py docs/posts/substack_zoho_keyword_fallacy.md"
+            "  python scripts/convert_markdown_to_pdf.py "
+            "docs/posts/substack_zoho_keyword_fallacy.md"
         )
         sys.exit(1)
 

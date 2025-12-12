@@ -111,6 +111,7 @@ def fix_file(filepath):
 
     print(f"✅ Fixed: {filepath}")
 
+
 # Run fixes
 REPO_ROOT = Path("/home/elidoras-codex/luminai-genesis")
 

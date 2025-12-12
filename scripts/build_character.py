@@ -2,8 +2,10 @@
 import sys
 from pathlib import Path
 
+# Ensure local package can be imported when running scripts from repository
 sys.path.append(str(Path(__file__).resolve().parents[1] / "src"))
-from astradigital.kernel import AstradigitalEntity, load_codex  # type: ignore
+
+# Delay importing local package until after sys.path modification (for scripts execution)
 
 
 def main():
@@ -12,6 +14,9 @@ def main():
         sys.exit(1)
     name = sys.argv[1]
     cls = sys.argv[2]
+
+    # Import project-local modules after ensuring `src` is on sys.path
+    from astradigital.kernel import AstradigitalEntity, load_codex  # type: ignore
 
     root = Path(__file__).resolve().parents[1]
     codex_path = root / "data" / "codex" / "classes.json"
