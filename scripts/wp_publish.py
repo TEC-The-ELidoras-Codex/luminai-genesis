@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 """Publish HTML files in dist/wordpress to a WordPress site via the WP REST API.
 
-Usage: python3 scripts/wp_publish.py --dir dist/wordpress --base-url https://your-wordpress-site.com --user admin --password "app-password"
+Usage: python3 scripts/wp_publish.py --dir dist/wordpress
+    --base-url https://your-wordpress-site.com --user admin
+    --password "app-password"
 
 Expected environment variables if not passed as args:
 - WP_BASE_URL
@@ -14,7 +16,8 @@ The script:
 3) Creates or updates a WordPress post with title, slug, and content
 4) Uploads a PDF (if present) and links it in the post
 
-IMPORTANT: Use an application password (Basic Auth) for the user; store credentials in GitHub secrets for CI.
+IMPORTANT: Use an application password (Basic Auth) for the user; store
+credentials in GitHub secrets for CI.
 """
 
 import argparse
@@ -41,7 +44,7 @@ def auth_header(user, app_password):
 def get_post_by_slug(base_url, slug, auth, dry_run=False):
     if dry_run:
         print(
-            f"[DRY-RUN] Would query for existing post with slug={slug}"
+            f"[DRY-RUN] Would query for existing post with slug={slug}",
         )
         return None
     url = f"{base_url.rstrip('/')}/wp-json/wp/v2/posts?slug={slug}"
@@ -60,7 +63,7 @@ def upload_media(base_url, file_path, auth, dry_run=False):
     })
     if dry_run:
         print(
-            f"[DRY-RUN] Would upload media {file_path} to {url}"
+            f"[DRY-RUN] Would upload media {file_path} to {url}",
         )
         return {
             "source_url": f"{base_url.rstrip('/')}/wp-content/uploads/{filename}",
@@ -77,7 +80,16 @@ def upload_media(base_url, file_path, auth, dry_run=False):
         raise
 
 
-def create_or_update_post(base_url, slug, title, content, auth, status="publish", dry_run=False, extra_fields=None):
+def create_or_update_post(
+    base_url,
+    slug,
+    title,
+    content,
+    auth,
+    status="publish",
+    dry_run=False,
+    extra_fields=None,
+):
     existing = get_post_by_slug(base_url, slug, auth, dry_run=dry_run)
     if existing:
         post_id = existing["id"]
@@ -87,7 +99,7 @@ def create_or_update_post(base_url, slug, title, content, auth, status="publish"
         if dry_run:
             print(
                 f"[DRY-RUN] Would update post id={post_id} (slug={slug}) "
-                f"with payload: {payload}"
+                f"with payload: {payload}",
             )
             return {
                 "link": f"{base_url.rstrip('/')}/?p={post_id}",
@@ -110,7 +122,7 @@ def create_or_update_post(base_url, slug, title, content, auth, status="publish"
             payload.update(extra_fields)
         if dry_run:
             print(
-                f"[DRY-RUN] Would create post (slug={slug}) with payload: {payload}"
+                f"[DRY-RUN] Would create post (slug={slug}) with payload: {payload}",
             )
             return {
                 "link": f"{base_url.rstrip('/')}/?s={slug}",
@@ -171,7 +183,7 @@ def get_or_create_category(base_url, category_name, auth, dry_run=False):
     slug = re.sub(r"[^a-z0-9-]", "", category_name.lower().replace(" ", "-"))
     if dry_run:
         print(
-            f"[DRY-RUN] Would get/create category '{category_name}' (slug: {slug})"
+            f"[DRY-RUN] Would get/create category '{category_name}' (slug: {slug})",
         )
         return None
     # Query categories by slug
@@ -194,7 +206,7 @@ def get_or_create_tag(base_url, tag_name, auth, dry_run=False):
     slug = re.sub(r"[^a-z0-9-]", "", tag_name.lower().replace(" ", "-"))
     if dry_run:
         print(
-            f"[DRY-RUN] Would get/create tag '{tag_name}' (slug: {slug})"
+            f"[DRY-RUN] Would get/create tag '{tag_name}' (slug: {slug})",
         )
         return None
     url = f"{base_url.rstrip('/')}/wp-json/wp/v2/tags?slug={slug}"
@@ -268,7 +280,10 @@ def main():
 
     html_files = list(base_dir.glob("*.html"))
     if not html_files:
-        print("No HTML files found in dist/wordpress; make sure scripts/aqueduct_build_wordpress_html.py has been run first.")
+        print(
+            "No HTML files found in dist/wordpress; make sure "
+            "scripts/aqueduct_build_wordpress_html.py has been run first.",
+        )
         sys.exit(0)
 
     for html_file in html_files:
@@ -277,7 +292,11 @@ def main():
         html_text = html_file.read_text(encoding="utf-8")
         # Extract frontmatter JSON embedded by the builder script (if present)
         fm = {}
-        fm_match = re.search(r"<script[^>]+id=\"frontmatter\"[^>]*>(.*?)</script>", html_text, re.DOTALL)
+        fm_match = re.search(
+            r"<script[^>]+id=\"frontmatter\"[^>]*>(.*?)</script>",
+            html_text,
+            re.DOTALL,
+        )
         if fm_match:
             try:
                 fm = json.loads(fm_match.group(1))
@@ -330,7 +349,9 @@ def main():
             extra_fields["featured_media"] = first_media_id
         # Resolve category/tag IDs if supplied
         if args.category:
-            cat_id = get_or_create_category(args.base_url, args.category, auth, dry_run=args.dry_run)
+            cat_id = get_or_create_category(
+                args.base_url, args.category, auth, dry_run=args.dry_run,
+            )
             if cat_id:
                 extra_fields["categories"] = [cat_id]
         if args.tags:
