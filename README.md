@@ -203,9 +203,11 @@ Tesla's Gigafactory Buffalo (2014-2020) promised $5B and 6,500 jobs. It delivere
 
 ## Public drafts & assets
 
-- `drafts/substack.md` — Substack-ready draft for "LuminAI: The Thing That Actually Fixes Therapy".
-- `drafts/linkedin.txt` — LinkedIn post copy to use after Substack publish.
-- `drafts/pilot_email.md` — Pilot recruitment email draft.
+Note: Drafts are now kept in `private/drafts/` and are intentionally ignored by the repository. If you are a reviewer with access to private drafts, checkout the `private/` folder locally.
+
+- `private/drafts/substack.md` — Substack-ready draft for "LuminAI: The Thing That Actually Fixes Therapy" (local-private copy).
+- `private/drafts/linkedin.txt` — LinkedIn post copy to use after Substack publish (local-private copy).
+- `private/drafts/pilot_email.md` — Pilot recruitment email draft (local-private copy).
 - `assets/social/post-kit.md` — social share copy and image guidance.
 
 ## Docs
