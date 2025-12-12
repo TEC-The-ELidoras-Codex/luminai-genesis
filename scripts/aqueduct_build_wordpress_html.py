@@ -4,11 +4,13 @@
 Usage: python3 scripts/aqueduct_build_wordpress_html.py
 """
 
-from pathlib import Path
-import sys
-import yaml
-import markdown
+import datetime
 import json
+import sys
+from pathlib import Path
+
+import markdown
+import yaml
 
 ROOT = Path(__file__).resolve().parents[1]
 READY_DIR = ROOT / "docs" / "streams" / "articles" / "ready"
@@ -55,7 +57,18 @@ def main():
         date = fm.get("date") or ""
 
         # Include frontmatter metadata as JSON for later parsing by the publisher
-        meta_json = json.dumps(fm)
+        # Normalize date/datetime values to ISO8601 strings to ensure JSON serialization
+        for k, v in list(fm.items()):
+            if isinstance(v, (datetime.date, datetime.datetime)):
+                fm[k] = v.isoformat()
+
+        # Provide a json default fallback for any other non-serializable value
+        def _json_default(obj):
+            if isinstance(obj, (datetime.date, datetime.datetime)):
+                return obj.isoformat()
+            raise TypeError(f"Object of type {obj.__class__.__name__} is not JSON serializable")
+
+        meta_json = json.dumps(fm, default=_json_default)
 
         html = """
 <article>
@@ -73,7 +86,7 @@ def main():
             title=title,
             date=date,
             author=author,
-            orcid_html=f"<a href=\"{orcid}\">{orcid}</a>" if orcid else "",
+            orcid_html=f'<a href="{orcid}">{orcid}</a>' if orcid else "",
             body=html_body,
         )
 
