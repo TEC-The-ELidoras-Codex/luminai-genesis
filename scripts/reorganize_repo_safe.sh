@@ -278,6 +278,10 @@ for m in "${MOVES[@]}"; do
   src="$ROOT_DIR/$s"
   tgt="$ROOT_DIR/$t"
   mkdir -p "$(dirname "$tgt")"
+  if [ "$src" == "$tgt" ]; then
+    echo "Skipping move because source and target are identical: $src"
+    continue
+  fi
   if git ls-files --error-unmatch "$s" >/dev/null 2>&1; then
     git mv "$s" "$tgt"
   else
