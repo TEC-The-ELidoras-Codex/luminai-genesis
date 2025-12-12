@@ -49,11 +49,11 @@ class TestOllamaService:
 
         # Mock the AsyncClient.chat method
         _mock_response = {
-            "message": {"content": "I hear you. Let's take a breath together."}
+            "message": {"content": "I hear you. Let's take a breath together."},
         }
 
         with patch.object(
-            service.client, "chat", new_callable=AsyncMock, return_value=_mock_response
+            service.client, "chat", new_callable=AsyncMock, return_value=_mock_response,
         ):
             messages = [ChatMessage(role="user", content="I'm stressed")]
             response_text, witness_trace = await service.generate_completion(
@@ -80,9 +80,7 @@ class TestChatRouter:
     @pytest.mark.asyncio
     async def test_chat_endpoint_mock(self):
         """Should process chat request with mocked Ollama."""
-        _mock_response = {
-            "message": {"content": "I'm here with you. What do you need right now?"}
-        }
+        # Removed unused `_mock_response` variable to satisfy flake8 F841
 
         # Patch both health check and chat
         with patch("backend.routers.chat.get_ollama_service") as mock_service:
@@ -91,8 +89,10 @@ class TestChatRouter:
             mock_instance.generate_completion = AsyncMock(
                 return_value=(
                     "I'm here with you. What do you need right now?",
-                    "model=llama3.2, persona_weights={'adelphia': 0.4, 'luminai': 0.3, 'ely': 0.3}, temp=0.7, system_prompt_hash=1234",
-                )
+                    "model=llama3.2, "
+                    "persona_weights={'adelphia': 0.4, 'luminai': 0.3, 'ely': 0.3}, "
+                    "temp=0.7, system_prompt_hash=1234",
+                ),
             )
             mock_instance.base_url = "http://localhost:11434"
             mock_service.return_value = mock_instance
