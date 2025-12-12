@@ -1,0 +1,22 @@
+fastapi>=0.115.0
+uvicorn[standard]>=0.30.0
+pydantic>=2.9.0
+pytest>=8.2.0
+pytest-asyncio>=0.23.0
+httpx>=0.26.0
+python-dotenv>=1.0.0
+requests>=2.25.0
+ollama>=0.4.0
+stripe>=5.0.0
+sendgrid>=6.0.0
+
+# Developer tools (optional):
+ruff
+black
+numpy>=1.26
+scipy>=1.11
+matplotlib>=3.8
+PyYAML>=6.0
+Markdown>=3.4
+requests>=2.30
+beautifulsoup4>=4.12
