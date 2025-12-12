@@ -34,10 +34,11 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install weasyprint markdown
 
-      - name: Convert all canonical markdown files to PDF
+      - name: Convert TEC chapter markdown to PDF
         run: |
           set -e
-          for md in docs/canonical/*.md; do
+          # Only convert TEC chapter markdown files to PDF to avoid creating unnecessary PDFs.
+          for md in docs/canonical/tec-chapter-one*.md; do
             if [ -f "$md" ]; then
               python scripts/convert_markdown_to_pdf.py "$md"
             fi
@@ -50,9 +51,10 @@ jobs:
           set -e
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add docs/canonical/*.pdf || true
+          # Only add PDFs matching the TEC chapter pattern to avoid committing other generated files
+          git add docs/canonical/tec-chapter-one*.pdf || true
           if [ -n "$(git status --porcelain)" ]; then
-            git commit -m "docs(ci): auto-generate PDF(s) for canonical docs" || true
+            git commit -m "docs(ci): auto-generate TEC chapter PDF(s)" || true
             git push origin HEAD:$(git rev-parse --abbrev-ref HEAD)
           else
             echo "No PDF changes detected"
