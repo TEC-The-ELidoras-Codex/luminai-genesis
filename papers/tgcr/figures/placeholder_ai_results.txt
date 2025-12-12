@@ -1,0 +1,7 @@
+Placeholder for AI results figure.
+
+To replace: add a high-resolution image file named `ai_results.png`.
+
+Suggested content:
+- Scatter points and a line showing R' vs W with a trendline
+- Error bars for the points and a legend

@@ -4,6 +4,40 @@ const fs = require("fs");
 const app = require("../server/app");
 
 describe("MVP server", () => {
+  beforeAll(async () => {
+    // Make unhandledRejection/uncaughtException visible during tests to help
+    // trace errors such as 'Error in a readable stream'. These handlers will
+    // rethrow so test runner fails instead of silently handling the event.
+    process.on("unhandledRejection", (reason, p) => {
+      // eslint-disable-next-line no-console
+      console.error("[TEST] Unhandled Rejection:", reason, p);
+      throw reason;
+    });
+    process.on("uncaughtException", (err) => {
+      // eslint-disable-next-line no-console
+      console.error("[TEST] Uncaught Exception:", err);
+      throw err;
+    });
+    // wait for db initialization complete if provided by app.locals
+    if (app && app.locals && app.locals.dbReady) {
+      await app.locals.dbReady;
+    }
+  });
+
+  afterAll(() => {
+    // cleanup handlers to avoid side-effects across other test suites
+    process.removeAllListeners("unhandledRejection");
+    process.removeAllListeners("uncaughtException");
+    // Close sqlite DB to prevent Jest open handle warnings
+    if (
+      app &&
+      app.locals &&
+      app.locals.db &&
+      typeof app.locals.db.close === "function"
+    ) {
+      app.locals.db.close();
+    }
+  });
   it("responds to ping", async () => {
     const res = await request(app).get("/api/ping");
     expect(res.statusCode).toBe(200);
