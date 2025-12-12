@@ -1,0 +1,47 @@
+name: Publish WordPress HTML
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  publish:
+    name: Publish to WordPress (dry-run by default)
+    runs-on: ubuntu-latest
+    env:
+      PRODUCTION: ${{ secrets.PRODUCTION | default('false') }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then python -m pip install -r requirements.txt; fi
+
+      - name: Build dist HTML (if builder exists)
+        run: |
+          if [ -f scripts/aqueduct_build_wordpress_html.py ]; then python scripts/aqueduct_build_wordpress_html.py; fi
+
+      - name: Publish (dry-run unless PRODUCTION=true)
+        env:
+          WP_BASE_URL: ${{ secrets.WP_BASE_URL }}
+          WP_USER: ${{ secrets.WP_USER }}
+          WP_APP_PASSWORD: ${{ secrets.WP_APP_PASSWORD }}
+        run: |
+          set -euo pipefail
+          if [ "${PRODUCTION:-false}" = "true" ]; then
+            echo "Running in production mode (will publish)."
+            DRY=''
+          else
+            echo "Running in dry-run mode. Set secret PRODUCTION=true to publish."
+            DRY='--dry-run'
+          fi
+          python scripts/wp_publish.py --dir dist/wordpress --base-url "$WP_BASE_URL" --user "$WP_USER" --password "$WP_APP_PASSWORD" $DRY
