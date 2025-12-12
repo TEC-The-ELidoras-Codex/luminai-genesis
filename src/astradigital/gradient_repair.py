@@ -25,7 +25,7 @@ import logging
 from datetime import datetime
 from enum import Enum
 from pathlib import Path
-from typing import Any, Dict, Optional
+from typing import Any
 
 
 class ResonanceLevel(Enum):
@@ -76,7 +76,7 @@ class GradientRepairLog:
         file_handler.setFormatter(logging.Formatter("%(message)s"))
         self.logger.addHandler(file_handler)
 
-    def measure_resonance(self, context: Dict[str, Any]) -> float:
+    def measure_resonance(self, context: dict[str, Any]) -> float:
         """
         Measure effective resonance R' based on system state.
 
@@ -113,7 +113,7 @@ class GradientRepairLog:
         return max(0.0, min(1.0, resonance))
 
     def identify_repair_direction(
-        self, failure_mode: str, context: Dict[str, Any]
+        self, failure_mode: str, context: dict[str, Any],
     ) -> RepairDirection:
         """
         Identify which principle was violated and suggest repair direction.
@@ -134,41 +134,40 @@ class GradientRepairLog:
         ):
             return RepairDirection.WITNESS_PRESENCE
 
-        elif any(
+        if any(
             word in failure_mode_lower
             for word in ["incoher", "wrong", "bad response", "mismatch"]
         ):
             return RepairDirection.NARRATIVE_COHERENCE
 
-        elif any(
+        if any(
             word in failure_mode_lower
             for word in ["slow", "timeout", "lag", "performance"]
         ):
             return RepairDirection.PERFORMANCE_OPTIMIZATION
 
-        elif any(
+        if any(
             word in failure_mode_lower
             for word in ["confus", "unclear", "undocument", "abstract"]
         ):
             return RepairDirection.DOCUMENTATION_IMPROVE
 
-        elif any(
+        if any(
             word in failure_mode_lower for word in ["access", "barrier", "hard to use"]
         ):
             return RepairDirection.ACCESSIBILITY_ENHANCE
 
-        else:
-            return RepairDirection.ETHICAL_RESONANCE
+        return RepairDirection.ETHICAL_RESONANCE
 
     def log_recovery_event(
         self,
         failure_mode: str,
         resonance_before: float,
         resonance_after: float,
-        context: Dict[str, Any],
-        repair_suggestion: Optional[str] = None,
+        context: dict[str, Any],
+        repair_suggestion: str | None = None,
         severity: str = "ERROR",
-    ) -> Dict[str, Any]:
+    ) -> dict[str, Any]:
         """
         Log a failure event with recovery vector.
 
@@ -231,7 +230,7 @@ class GradientRepairLog:
 
         return recovery_event
 
-    def suggest_repair(self, recovery_event: Dict[str, Any]) -> str:
+    def suggest_repair(self, recovery_event: dict[str, Any]) -> str:
         """
         Convert a recovery event into a human-readable repair suggestion.
         Useful for developers interpreting the gradient repair logs.
@@ -316,7 +315,7 @@ def example_encounter_system_failure():
     except Exception as e:
         # Ensure all exceptions are logged to the witness mechanism
         repair = repair_log.log_recovery_event(
-            failure_mode=f"Exception: {str(e)}",
+            failure_mode=f"Exception: {e!s}",
             resonance_before=resonance_before,
             resonance_after=0.0,
             context=context_before,

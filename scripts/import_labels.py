@@ -16,7 +16,7 @@ g = Github(token)
 repo = g.get_repo("TEC-The-ELidoras-Codex/luminai-genesis")
 
 # Load labels from YAML
-with open(".github/labels.yml", "r") as f:
+with open(".github/labels.yml") as f:
     labels_data = yaml.safe_load(f)
 
 # Import labels

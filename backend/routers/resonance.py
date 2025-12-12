@@ -84,7 +84,7 @@ def compute_physics_resonance(payload: PhysicsResonanceInput) -> PhysicsResonanc
     if payload.mass_kg is not None and payload.stiffness_n_per_m is not None:
         try:
             resonant_freq = mass_spring_natural_frequency(
-                payload.mass_kg, payload.stiffness_n_per_m
+                payload.mass_kg, payload.stiffness_n_per_m,
             )
             notes.append("mass-spring natural frequency computed")
         except Exception as e:
@@ -98,7 +98,7 @@ def compute_physics_resonance(payload: PhysicsResonanceInput) -> PhysicsResonanc
     ):
         try:
             resonant_freq = lc_resonant_frequency(
-                payload.inductance_h, payload.capacitance_f
+                payload.inductance_h, payload.capacitance_f,
             )
             notes.append("LC resonant frequency computed")
         except Exception as e:
@@ -124,7 +124,7 @@ def compute_physics_resonance(payload: PhysicsResonanceInput) -> PhysicsResonanc
     if payload.signal and payload.sample_rate:
         try:
             spectral = dominant_frequencies_from_signal(
-                payload.signal, payload.sample_rate
+                payload.signal, payload.sample_rate,
             )
             notes.append("spectral peaks computed from provided signal")
         except Exception as e:

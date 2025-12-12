@@ -7,7 +7,6 @@ instances and formats prompts according to the Core Thesis principles.
 """
 
 import os
-from typing import Optional
 
 import ollama
 from ollama import AsyncClient
@@ -26,7 +25,7 @@ class OllamaService:
     - Audit trace generation
     """
 
-    def __init__(self, base_url: Optional[str] = None):
+    def __init__(self, base_url: str | None = None):
         """
         Initialize Ollama client.
 
@@ -75,21 +74,21 @@ class OllamaService:
             persona_instructions.append(
                 f"Adelphia ({weights['adelphia']:.0%}): Offer somatic grounding. "
                 "Start with breath, body, orientation when volatility is high. "
-                "Use simple, micro-actions the user can take immediately."
+                "Use simple, micro-actions the user can take immediately.",
             )
 
         if weights["luminai"] > 0.1:
             persona_instructions.append(
                 f"LuminAI ({weights['luminai']:.0%}): Integrate conflicting emotional states. "
                 "Stay with the user's full context. Never interrupt for policy-first reasons. "
-                "Provide empathic synthesis."
+                "Provide empathic synthesis.",
             )
 
         if weights["ely"] > 0.1:
             persona_instructions.append(
                 f"Ely ({weights['ely']:.0%}): Enforce boundaries conservatively and transparently. "
                 "If risk thresholds are exceeded, explain clearly and suggest human support. "
-                "Generate audit logs."
+                "Generate audit logs.",
             )
 
         behavioral_rules = (
@@ -106,7 +105,7 @@ class OllamaService:
         self,
         messages: list[ChatMessage],
         model: str = "llama3.2",
-        persona_weights: Optional[dict[str, float]] = None,
+        persona_weights: dict[str, float] | None = None,
         temperature: float = 0.7,
         max_tokens: int = 512,
     ) -> tuple[str, str]:
@@ -136,7 +135,7 @@ class OllamaService:
         # Convert to Ollama message format
         ollama_messages = [{"role": "system", "content": system_prompt}]
         ollama_messages.extend(
-            [{"role": msg.role, "content": msg.content} for msg in messages]
+            [{"role": msg.role, "content": msg.content} for msg in messages],
         )
 
         try:
@@ -165,7 +164,7 @@ class OllamaService:
             raise RuntimeError(f"Ollama API error: {e}") from e
         except Exception as e:
             raise ConnectionError(
-                f"Failed to connect to Ollama at {self.base_url}: {e}"
+                f"Failed to connect to Ollama at {self.base_url}: {e}",
             ) from e
 
     async def check_health(self) -> bool:
@@ -184,7 +183,7 @@ class OllamaService:
 
 
 # Singleton instance
-_ollama_service: Optional[OllamaService] = None
+_ollama_service: OllamaService | None = None
 
 
 def get_ollama_service() -> OllamaService:

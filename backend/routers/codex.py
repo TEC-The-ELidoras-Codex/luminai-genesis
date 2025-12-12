@@ -10,13 +10,13 @@ router = APIRouter(prefix="/api/codex", tags=["codex"])
 DATA_DIR = Path(__file__).parent.parent.parent / "data" / "codex"
 
 try:
-    with open(DATA_DIR / "classes.json", "r") as f:
+    with open(DATA_DIR / "classes.json") as f:
         CLASSES_DATA = json.load(f)
 except FileNotFoundError:
     CLASSES_DATA = {"classes": {}}
 
 try:
-    with open(DATA_DIR / "abilities.json", "r") as f:
+    with open(DATA_DIR / "abilities.json") as f:
         ABILITIES_DATA = json.load(f)
 except FileNotFoundError:
     ABILITIES_DATA = {"abilities": {}}
@@ -49,6 +49,6 @@ def get_class_abilities(class_name: str) -> dict[str, Any]:
     abilities = ABILITIES_DATA.get("abilities", {})
     if class_name not in abilities:
         raise HTTPException(
-            status_code=404, detail=f"No abilities found for class '{class_name}'"
+            status_code=404, detail=f"No abilities found for class '{class_name}'",
         )
     return {class_name: abilities[class_name]}

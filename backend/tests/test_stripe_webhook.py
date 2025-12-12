@@ -19,9 +19,9 @@ def test_webhook_missing_signature_header():
                 "object": {
                     "id": "cs_test_123",
                     "customer_details": {"email": "test@example.com"},
-                }
+                },
             },
-        }
+        },
     )
 
     response = client.post(
@@ -44,7 +44,7 @@ def test_webhook_checkout_session_completed_dev_mode():
             "object": {
                 "id": "cs_test_123",
                 "customer_details": {"email": "test@example.com"},
-            }
+            },
         },
     }
 
@@ -87,7 +87,7 @@ def test_webhook_signature_verification_mock():
             "object": {
                 "id": "cs_test_123",
                 "customer_details": {"email": "test@example.com"},
-            }
+            },
         },
     }
 
