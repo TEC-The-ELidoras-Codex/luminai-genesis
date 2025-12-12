@@ -28,8 +28,8 @@ done
 ARCHIVE_DIR="$ROOT_DIR/private/archives/canonical_pdf_backup"
 mkdir -p "$ARCHIVE_DIR"
 
-# Find canonical PDFs in repo
-mapfile -t PDFs < <(cd "$ROOT_DIR" && git ls-files "docs/canonical/*.pdf")
+# Find doc PDFs in repo (search under docs/**)
+mapfile -t PDFs < <(cd "$ROOT_DIR" && git ls-files "docs/**/*.pdf")
 
 if [ ${#PDFs[@]} -eq 0 ]; then
   echo "No PDF files found under docs/canonical"
