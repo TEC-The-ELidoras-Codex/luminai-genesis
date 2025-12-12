@@ -130,7 +130,7 @@ async def stripe_webhook(request: Request):
     if webhook_secret:
         if not sig_header:
             raise HTTPException(
-                status_code=400, detail="Missing stripe-signature header"
+                status_code=400, detail="Missing stripe-signature header",
             )
         try:
             event = stripe.Webhook.construct_event(payload, sig_header, webhook_secret)

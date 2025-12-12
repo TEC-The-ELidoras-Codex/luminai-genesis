@@ -131,8 +131,7 @@ async def clear_session(session_id: str) -> dict:
     Returns:
         Success message
     """
-    if session_id in _sessions:
-        del _sessions[session_id]
+    _sessions.pop(session_id, None)
 
     return {"message": f"Session {session_id} cleared"}
 

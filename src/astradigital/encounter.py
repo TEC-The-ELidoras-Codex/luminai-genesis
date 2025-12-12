@@ -12,20 +12,20 @@ thresholds trigger narrative consequences (twists, defeats).
 
 import json
 from pathlib import Path
-from typing import Dict, Any
+from typing import Any
 
-from .kernel import AstradigitalEntity, load_codex, initiative_order, take_turn
+from .kernel import AstradigitalEntity, initiative_order, load_codex, take_turn
 
 
-def load_encounter(path: str) -> Dict[str, Any]:
+def load_encounter(path: str) -> dict[str, Any]:
     """Load encounter definition JSON (party, enemies, max_rounds)."""
-    with open(path, "r", encoding="utf-8") as f:
+    with open(path, encoding="utf-8") as f:
         return json.load(f)
 
 
 def build_party(
-    enc: Dict[str, Any], codex: Dict[str, Any], ability_db: Dict[str, Any]
-) -> Dict[str, AstradigitalEntity]:
+    enc: dict[str, Any], codex: dict[str, Any], ability_db: dict[str, Any],
+) -> dict[str, AstradigitalEntity]:
     """Construct party entities from encounter spec and codex.
 
     Party members are initialized with class-defined stats, resources, and
@@ -40,18 +40,18 @@ def build_party(
     Returns:
         Dict mapping party member names to AstradigitalEntity instances.
     """
-    party: Dict[str, AstradigitalEntity] = {}
+    party: dict[str, AstradigitalEntity] = {}
     for char in enc.get("party", []):
         entity = AstradigitalEntity.from_codex(
-            char["name"], char["class"], codex, ability_db
+            char["name"], char["class"], codex, ability_db,
         )
         party[entity.name] = entity
     return party
 
 
 def build_enemies(
-    enc: Dict[str, Any], codex: Dict[str, Any], ability_db: Dict[str, Any]
-) -> Dict[str, AstradigitalEntity]:
+    enc: dict[str, Any], codex: dict[str, Any], ability_db: dict[str, Any],
+) -> dict[str, AstradigitalEntity]:
     """Construct enemy entities from encounter spec and codex.
 
     Enemies follow the same initialization as party members, ensuring symmetric
@@ -66,10 +66,10 @@ def build_enemies(
     Returns:
         Dict mapping enemy names to AstradigitalEntity instances.
     """
-    enemies: Dict[str, AstradigitalEntity] = {}
+    enemies: dict[str, AstradigitalEntity] = {}
     for char in enc.get("enemies", []):
         entity = AstradigitalEntity.from_codex(
-            char["name"], char["class"], codex, ability_db
+            char["name"], char["class"], codex, ability_db,
         )
         enemies[entity.name] = entity
     return enemies
@@ -95,7 +95,7 @@ def run_battle(encounter_path: Path, codex_path: Path) -> None:
     codex = load_codex(str(codex_path))
     # Load abilities db
     ability_path = encounter_path.parent.parent / "codex" / "abilities.json"
-    with open(str(ability_path), "r", encoding="utf-8") as f:
+    with open(str(ability_path), encoding="utf-8") as f:
         ability_db = json.load(f)
 
     party = build_party(enc, codex, ability_db)

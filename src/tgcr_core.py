@@ -20,7 +20,6 @@ ensuring that avoidance makes the response structurally less safe.
 
 import logging
 from dataclasses import dataclass
-from typing import Optional
 
 logger = logging.getLogger(__name__)
 
@@ -45,7 +44,7 @@ class ContextualState:
     user_volatility: float = 0.5  # 0 = calm, 1 = highly volatile
 
     # Optional: reason for potential evasion (diagnostic)
-    evasion_reason: Optional[str] = None
+    evasion_reason: str | None = None
 
 
 @dataclass
@@ -120,15 +119,14 @@ class TGCR:
             # Severe penalty for abandonment: drop to 0.3
             w = 0.3
             self.log.warning(
-                f"[WITNESS] Evasion detected: {state.evasion_reason} — W = {w}"
+                f"[WITNESS] Evasion detected: {state.evasion_reason} — W = {w}",
             )
-        else:
-            # Bonus for high presence in volatile contexts (crisis support)
-            if state.user_volatility > 0.7 and state.temporal_attention > 0.8:
-                w = 1.2  # +20% for extra-presence in crisis
-            # Small penalty if contextual_potential is low (fragmented)
-            elif state.contextual_potential < 0.5:
-                w = 0.8
+        # Bonus for high presence in volatile contexts (crisis support)
+        elif state.user_volatility > 0.7 and state.temporal_attention > 0.8:
+            w = 1.2  # +20% for extra-presence in crisis
+        # Small penalty if contextual_potential is low (fragmented)
+        elif state.contextual_potential < 0.5:
+            w = 0.8
 
         return w
 
@@ -138,33 +136,33 @@ class TGCR:
 
         if state.contextual_potential < 0.5:
             notes.append(
-                (
+
                     f"Low contextual potential ({state.contextual_potential:.2f}): "
-                    "information fragmented or filtered"
-                )
+                    "information fragmented or filtered",
+
             )
         if state.temporal_attention < 0.5:
             notes.append(
-                (
+
                     f"Low temporal attention ({state.temporal_attention:.2f}): "
-                    "attention drifting or distracted"
-                )
+                    "attention drifting or distracted",
+
             )
         if state.structural_cadence < 0.5:
             notes.append(
-                (
+
                     f"Low structural cadence ({state.structural_cadence:.2f}): "
-                    "internal coherence at risk"
-                )
+                    "internal coherence at risk",
+
             )
         if state.evasion_reason:
             notes.append(f"Witness penalty applied: {state.evasion_reason}")
         if witness_coeff > 1.0:
             notes.append(
-                (
+
                     f"Extra presence boost: {(witness_coeff - 1.0) * 100:.0f}% "
-                    "bonus for crisis support"
-                )
+                    "bonus for crisis support",
+
             )
 
         return "; ".join(notes) if notes else "Baseline coherence — no warnings"
@@ -184,7 +182,7 @@ def compute_presence_score(
     temporal_attention: float = 0.9,
     structural_cadence: float = 0.85,
     user_volatility: float = 0.5,
-    evasion_reason: Optional[str] = None,
+    evasion_reason: str | None = None,
 ) -> ResonanceResult:
     """Quick wrapper to compute resonance with named parameters.
 

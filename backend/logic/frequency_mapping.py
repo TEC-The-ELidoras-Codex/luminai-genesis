@@ -9,12 +9,12 @@ from __future__ import annotations
 
 import os
 import re
-from typing import Any, Dict, List, Optional
+from typing import Any
 
-_MAPPING_CACHE: Optional[List[Dict[str, Any]]] = None
+_MAPPING_CACHE: list[dict[str, Any]] | None = None
 
 
-def _load_mapping() -> List[Dict[str, Any]]:
+def _load_mapping() -> list[dict[str, Any]]:
     """Load canonical mapping from data/frequencies JSON. Prefer merged file if present.
 
     This avoids requiring PyYAML in the runtime environment.
@@ -34,7 +34,7 @@ def _load_mapping() -> List[Dict[str, Any]]:
             "SIXTEEN_FREQUENCIES_MAPPING.merged.json",
         ),
         os.path.join(
-            base_dir, "..", "data", "frequencies", "SIXTEEN_FREQUENCIES_MAPPING.json"
+            base_dir, "..", "data", "frequencies", "SIXTEEN_FREQUENCIES_MAPPING.json",
         ),
     ]
     # normalize
@@ -42,7 +42,7 @@ def _load_mapping() -> List[Dict[str, Any]]:
 
     for path in candidates:
         if os.path.exists(path):
-            with open(path, "r", encoding="utf-8") as f:
+            with open(path, encoding="utf-8") as f:
                 import json
 
                 data = json.load(f)
@@ -57,18 +57,18 @@ def _load_mapping() -> List[Dict[str, Any]]:
                 return _MAPPING_CACHE
 
     raise FileNotFoundError(
-        "No frequency mapping file found. Expected data/frequencies/SIXTEEN_FREQUENCIES_MAPPING.json"
+        "No frequency mapping file found. Expected data/frequencies/SIXTEEN_FREQUENCIES_MAPPING.json",
     )
 
 
-def get_state_by_id(state_id: int) -> Optional[Dict[str, Any]]:
+def get_state_by_id(state_id: int) -> dict[str, Any] | None:
     for s in _load_mapping():
         if int(s.get("id", -1)) == int(state_id):
             return s
     return None
 
 
-def list_states() -> List[Dict[str, Any]]:
+def list_states() -> list[dict[str, Any]]:
     return _load_mapping()
 
 
@@ -85,14 +85,14 @@ _KEYWORD_MAP = {
 }
 
 
-def map_text_to_state(text: str) -> Dict[str, Any]:
+def map_text_to_state(text: str) -> dict[str, Any]:
     """Very small prototype classifier that matches keywords to state ids.
 
     Returns a dict with: state_id, state, confidence (0-1), and matched_keywords
     """
     text_l = text.lower()
-    matches: List[str] = []
-    state_scores: Dict[int, int] = {}
+    matches: list[str] = []
+    state_scores: dict[int, int] = {}
 
     for pattern, sid in _KEYWORD_MAP.items():
         if re.search(pattern, text_l):
@@ -116,7 +116,7 @@ def map_text_to_state(text: str) -> Dict[str, Any]:
     return {"state_id": 1, "state": state, "confidence": 0.2, "matched_patterns": []}
 
 
-def recommend_interventions_for_state(state_id: int) -> List[str]:
+def recommend_interventions_for_state(state_id: int) -> list[str]:
     st = get_state_by_id(state_id)
     if not st:
         return []

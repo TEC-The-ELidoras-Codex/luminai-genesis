@@ -16,10 +16,10 @@ import sys
 ROOT = os.path.normpath(os.path.join(os.path.dirname(__file__), "..", ".."))
 yaml_path = os.path.join(ROOT, "docs", "frequency_mapping.yaml")
 json_path = os.path.join(
-    ROOT, "data", "frequencies", "SIXTEEN_FREQUENCIES_MAPPING.json"
+    ROOT, "data", "frequencies", "SIXTEEN_FREQUENCIES_MAPPING.json",
 )
 out_path = os.path.join(
-    ROOT, "data", "frequencies", "SIXTEEN_FREQUENCIES_MAPPING.merged.json"
+    ROOT, "data", "frequencies", "SIXTEEN_FREQUENCIES_MAPPING.merged.json",
 )
 
 
@@ -28,17 +28,17 @@ def load_yaml_simple(path: str) -> list:
         import yaml
     except Exception:
         print(
-            "PyYAML not available; cannot merge YAML. Install pyyaml or run in env with it."
+            "PyYAML not available; cannot merge YAML. Install pyyaml or run in env with it.",
         )
         sys.exit(2)
-    with open(path, "r", encoding="utf-8") as f:
+    with open(path, encoding="utf-8") as f:
         data = yaml.safe_load(f)
     # YAML shape: list of mappings
     return data
 
 
 def load_json(path: str) -> dict:
-    with open(path, "r", encoding="utf-8") as f:
+    with open(path, encoding="utf-8") as f:
         return json.load(f)
 
 

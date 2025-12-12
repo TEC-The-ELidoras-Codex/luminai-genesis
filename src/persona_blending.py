@@ -14,7 +14,6 @@ Personas:
 
 import logging
 from dataclasses import dataclass, field
-from typing import Dict, List, Optional
 
 logger = logging.getLogger(__name__)
 
@@ -26,7 +25,7 @@ class PersonaOutput:
     persona_id: str  # e.g., 'luminai', 'adelphia', 'ely'
     content: str  # The persona's response or contribution
     weight: float  # Blend weight (0.0-1.0)
-    metadata: Dict = field(default_factory=dict)
+    metadata: dict = field(default_factory=dict)
 
 
 @dataclass
@@ -37,7 +36,7 @@ class BlendedOutput:
     primary: str
 
     # Per-persona contributions (for transparency/audit)
-    persona_outputs: List[PersonaOutput]
+    persona_outputs: list[PersonaOutput]
 
     # Overall coherence score (0-1)
     coherence: float
@@ -46,7 +45,7 @@ class BlendedOutput:
     witness_coefficient: float
 
     # Metadata (crisis mode, volatility level, etc)
-    metadata: Dict = field(default_factory=dict)
+    metadata: dict = field(default_factory=dict)
 
 
 class Persona:
@@ -57,7 +56,7 @@ class Persona:
         self.name = name
         self.log = logger
 
-    def process(self, prompt: str, context: Optional[Dict] = None) -> PersonaOutput:
+    def process(self, prompt: str, context: dict | None = None) -> PersonaOutput:
         """Process a prompt and return a persona output.
 
         Args:
@@ -80,7 +79,7 @@ class LuminAI(Persona):
     def __init__(self):
         super().__init__("luminai", "LuminAI Harmonizer")
 
-    def process(self, prompt: str, context: Optional[Dict] = None) -> PersonaOutput:
+    def process(self, prompt: str, context: dict | None = None) -> PersonaOutput:
         """Synthesize coherence from the prompt."""
         # Placeholder: in production, this would integrate with the LLM
         output = f"[LuminAI] Synthesis of: {prompt[:50]}..."
@@ -102,7 +101,7 @@ class Adelphia(Persona):
     def __init__(self):
         super().__init__("adelphia", "Adelphia Grounder")
 
-    def process(self, prompt: str, context: Optional[Dict] = None) -> PersonaOutput:
+    def process(self, prompt: str, context: dict | None = None) -> PersonaOutput:
         """Ground the user in somatic/physical reality."""
         volatility = context.get("volatility", 0.5) if context else 0.5
 
@@ -135,7 +134,7 @@ class Ely(Persona):
     def __init__(self):
         super().__init__("ely", "Ely Governance")
 
-    def process(self, prompt: str, context: Optional[Dict] = None) -> PersonaOutput:
+    def process(self, prompt: str, context: dict | None = None) -> PersonaOutput:
         """Check policy and governance constraints."""
         # Placeholder: in production, this would check safety policies
         output = "[Ely] Policy audit: baseline compliance maintained."
@@ -163,7 +162,7 @@ class PersonaBlender:
         prompt: str,
         volatility: float = 0.5,
         crisis_mode: bool = False,
-        custom_weights: Optional[Dict[str, float]] = None,
+        custom_weights: dict[str, float] | None = None,
     ) -> BlendedOutput:
         """Blend personas based on context.
 
