@@ -3,6 +3,7 @@
 This file previously contained the system architecture for LuminAI Genesis. The canonical technical content has been moved to `docs/technical/ARCHITECTURE.md`.
 
 Please use the new location (or update links to `docs/technical/ARCHITECTURE.md`) to access the latest architecture documentation.
+
 # 🏛️ LuminAI Genesis — System Architecture
 
 LuminAI Genesis is an AI-safety-first conversational engine that replaces avoidance-based safety with presence-based safety. The backbone is TGCR (Theory of General Contextual Resonance) plus the Witness Protocol (W).

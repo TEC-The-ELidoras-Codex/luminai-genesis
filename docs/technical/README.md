@@ -3,6 +3,7 @@ Technical Documentation
 This directory contains the technical specifications, architecture documents, and engineering guides for LuminAI Genesis.
 
 Files included:
+
 - `ARCHITECTURE.md` — system architecture and module boundaries
 - `spec.md` — API & data model specifications
 

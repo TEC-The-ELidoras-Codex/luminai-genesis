@@ -26,7 +26,7 @@ from unsloth import FastLanguageModel, is_bfloat16_supported
 def load_training_data(data_path: str) -> Dataset:
     """Load JSONL training data and convert to HuggingFace Dataset."""
     texts = []
-    with open(data_path, "r") as f:
+    with open(data_path) as f:
         for line in f:
             item = json.loads(line)
             texts.append(item["text"])
@@ -178,14 +178,14 @@ def train(
     print("   curl -X POST http://localhost:8000/api/chat \\")
     print("     -H 'Content-Type: application/json' \\")
     print(
-        '     -d \'{"session_id": "test", "message": "Hello", "model": "luminai-unsloth"}\''
+        '     -d \'{"session_id": "test", "message": "Hello", "model": "luminai-unsloth"}\'',
     )
     print("=" * 70 + "\n")
 
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
-        description="Unsloth fine-tune for LuminAI Genesis"
+        description="Unsloth fine-tune for LuminAI Genesis",
     )
     parser.add_argument(
         "--model_name",
@@ -206,19 +206,19 @@ if __name__ == "__main__":
         help="Output directory for LoRA weights",
     )
     parser.add_argument(
-        "--num_epochs", type=int, default=3, help="Number of training epochs"
+        "--num_epochs", type=int, default=3, help="Number of training epochs",
     )
     parser.add_argument(
-        "--batch_size", type=int, default=2, help="Training batch size per device"
+        "--batch_size", type=int, default=2, help="Training batch size per device",
     )
     parser.add_argument(
-        "--learning_rate", type=float, default=2e-4, help="Learning rate"
+        "--learning_rate", type=float, default=2e-4, help="Learning rate",
     )
     parser.add_argument(
-        "--max_seq_length", type=int, default=1024, help="Maximum sequence length"
+        "--max_seq_length", type=int, default=1024, help="Maximum sequence length",
     )
     parser.add_argument(
-        "--use_cpu", action="store_true", help="Force CPU-only training (no CUDA)"
+        "--use_cpu", action="store_true", help="Force CPU-only training (no CUDA)",
     )
 
     args = parser.parse_args()
