@@ -34,6 +34,20 @@ PATTERNS=(
   "$ROOT_DIR/papers/*draft*"
 )
 
+# Additional scan for files anywhere with 'draft' (case-insensitive) in the path
+while IFS= read -r f; do
+  # skip node_modules and venv
+  case "$f" in
+    *node_modules*|*.venv/*|*/.venv/*|*/venv/*) continue ;;
+  esac
+  if [ -e "$f" ]; then
+    # copy into MOVES with default private/drafts target
+    base=$(basename "$f")
+    target="$PRIVATE_DIR/drafts/$base"
+    MOVES+=("$f|$target")
+  fi
+done < <(rg --hidden --glob '!node_modules' --glob '!venv' --glob '!.venv' -uu -S -l "draft")
+
 MOVES=()
 
 for p in "${PATTERNS[@]}"; do

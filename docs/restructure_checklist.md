@@ -34,15 +34,17 @@ This checklist documents the planned repository reorganization and provides a sa
 - any `*_draft.md` or `draft_*` files at root or `docs/` -> `private/drafts/`
 
 ## Notes
+
 ## Completed
+
 - Added `docs/restructure_checklist.md` and `scripts/restructure_repo.sh` to automate and plan reorg.
 - Updated `.gitignore` to ignore `private/` and created `private/drafts/` with moved files from root `drafts/`.
 
 ## Next steps
+
 - Review the dry-run candidate moves and check any other draft-like files not found by the script (e.g., `docs/**/draft*`).
 - Decide whether to move additional files into `private/` or keep specific items in public.
 - Create PR and run repo tests after the branch is ready.
-
 
 - This checklist is intentionally conservative. The `scripts/restructure_repo.sh` script will produce a dry-run listing by default and will only make changes with `--apply`.
 - Files in `private/` should remain local-only; if you want to back them up, consider using an encrypted store or a private Git repository.
