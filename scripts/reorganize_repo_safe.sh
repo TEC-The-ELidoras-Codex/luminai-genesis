@@ -282,6 +282,10 @@ for m in "${MOVES[@]}"; do
     echo "Skipping move because source and target are identical: $src"
     continue
   fi
+  if [ ! -e "$src" ]; then
+    echo "Source missing (skipping): $src"
+    continue
+  fi
   if git ls-files --error-unmatch "$s" >/dev/null 2>&1; then
     git mv "$s" "$tgt"
   else
