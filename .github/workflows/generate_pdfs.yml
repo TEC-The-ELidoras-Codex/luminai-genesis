@@ -1,5 +1,8 @@
 name: "Generate PDFs for canonical docs"
 
+permissions:
+  contents: write
+
 on:
   push:
     paths:
@@ -13,11 +16,13 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          persist-credentials: true
 
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.11'
+          python-version: "3.11"
 
       - name: Install system dependencies for WeasyPrint
         run: |

@@ -4,7 +4,8 @@
 Usage:
     export LINKEDIN_ACCESS_TOKEN="..."
     python3 scripts/post_linkedin.py private/drafts/linkedin_to_post.txt
-    # if you still use the old location: python3 scripts/post_linkedin.py drafts/linkedin_to_post.txt
+    # if you still use the old location:
+    # python3 scripts/post_linkedin.py drafts/linkedin_to_post.txt
 
 The script will call the `v2/me` endpoint to learn the member ID and then create an UGC post.
 It requires `requests` to be installed in the venv: `venv/bin/pip install requests`.
@@ -66,12 +67,19 @@ if __name__ == "__main__":
         sys.exit(2)
     token = os.environ.get("LINKEDIN_ACCESS_TOKEN")
     if not token:
-        print("ERROR: Set LINKEDIN_ACCESS_TOKEN environment variable with a valid LinkedIn OAuth access token.")
+        print(
+            "ERROR: Set LINKEDIN_ACCESS_TOKEN environment variable with a valid "
+            "LinkedIn OAuth access token.",
+        )
         sys.exit(2)
     message_file = sys.argv[1]
     # Prefer `private/drafts/` for local, private draft files but keep compatibility
     if not os.path.exists(message_file):
-        alt = message_file.replace('drafts/', 'private/drafts/') if 'drafts/' in message_file else None
+        alt = (
+            message_file.replace("drafts/", "private/drafts/")
+            if "drafts/" in message_file
+            else None
+        )
         if alt and os.path.exists(alt):
             message_file = alt
     message = read_message(message_file)

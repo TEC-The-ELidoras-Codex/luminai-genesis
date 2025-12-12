@@ -40,7 +40,6 @@ except Exception:
     raise
 
 
-
 def parse_html_for_images(html, base_dir: Path):
     soup = BeautifulSoup(html, "html.parser")
     images = []
@@ -263,7 +262,6 @@ def process_file(html_file: Path, args, auth):
     # Now rebuild html
     final_html = str(soup)
 
-
     # Upload PDF if exists
     pdf_path = find_pdf_for_post(slug)
     if pdf_path:
@@ -273,10 +271,10 @@ def process_file(html_file: Path, args, auth):
         )
         pdf_url = pdf_media.get("source_url") if pdf_media else None
         if pdf_url:
-            final_html = (
+            prefix = (
                 f'<p><a href="{pdf_url}" target="_blank">Download full PDF</a></p>\n'
-                + final_html
             )
+            final_html = prefix + final_html
 
     title_match = re.search(r"<h1[^>]*>([^<]+)</h1>", final_html)
     title = title_match.group(1) if title_match else slug
