@@ -5,10 +5,11 @@ This script produces simple HTML/Markdown output suitable for copy-paste into Su
 Usage: python3 scripts/aqueduct_build_substack_html.py
 """
 
-from pathlib import Path
 import sys
-import yaml
+from pathlib import Path
+
 import markdown
+import yaml
 
 ROOT = Path(__file__).resolve().parents[1]
 READY_DIR = ROOT / "docs" / "streams" / "articles" / "ready"

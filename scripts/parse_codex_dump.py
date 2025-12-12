@@ -26,7 +26,7 @@ import hashlib
 import json
 import re
 from pathlib import Path
-from typing import List, Dict, Any
+from typing import Any
 
 HEADING_RE = re.compile(r"^(#{1,6})\s*(.+)$")
 
@@ -39,8 +39,8 @@ def slugify(s: str) -> str:
     return s or "untitled"
 
 
-def parse_dump(text: str, min_level_for_file: int = 2) -> List[Dict[str, Any]]:
-    sections: List[Dict[str, Any]] = []
+def parse_dump(text: str, min_level_for_file: int = 2) -> list[dict[str, Any]]:
+    sections: list[dict[str, Any]] = []
     current = {
         "title": "Document Start",
         "slug": "document-start",
@@ -61,7 +61,7 @@ def parse_dump(text: str, min_level_for_file: int = 2) -> List[Dict[str, Any]]:
                             "slug": current["slug"],
                             "heading_level": current["heading_level"],
                             "content": "\n".join(current["content"]).rstrip() + "\n",
-                        }
+                        },
                     )
                 current = {
                     "title": title,
@@ -81,18 +81,18 @@ def parse_dump(text: str, min_level_for_file: int = 2) -> List[Dict[str, Any]]:
                 "slug": current["slug"],
                 "heading_level": current["heading_level"],
                 "content": "\n".join(current["content"]).rstrip() + "\n",
-            }
+            },
         )
 
     return sections
 
 
 def dedupe_sections(
-    sections: List[Dict[str, Any]], min_chars: int = 0
-) -> List[Dict[str, Any]]:
+    sections: list[dict[str, Any]], min_chars: int = 0,
+) -> list[dict[str, Any]]:
     """Drop sections shorter than min_chars and remove exact duplicates by content."""
     seen_hashes = set()
-    unique: List[Dict[str, Any]] = []
+    unique: list[dict[str, Any]] = []
 
     for s in sections:
         content = s["content"]
@@ -108,8 +108,8 @@ def dedupe_sections(
 
 
 def bundle_sections(
-    sections: List[Dict[str, Any]], max_chars: int = 80000
-) -> List[list]:
+    sections: list[dict[str, Any]], max_chars: int = 80000,
+) -> list[list]:
     """
     Greedy pack sections into bundles capped by max_chars total content length.
 
@@ -117,7 +117,7 @@ def bundle_sections(
     in its own bundle (it will exceed the cap). This keeps logic simple and
     avoids re-splitting large docs for now.
     """
-    bundles: List[list] = []
+    bundles: list[list] = []
     current: list = []
     current_chars = 0
 
@@ -147,7 +147,7 @@ def bundle_sections(
 
 
 def write_bundles(
-    bundles: List[list],
+    bundles: list[list],
     out_dir: Path,
 ) -> None:
     out_dir.mkdir(parents=True, exist_ok=True)
@@ -192,12 +192,12 @@ def write_bundles(
                 "file": filename,
                 "titles": titles,
                 "total_chars": total_chars,
-            }
+            },
         )
 
     manifest_path = out_dir / "manifest.json"
     manifest_path.write_text(
-        json.dumps(manifest, indent=2, ensure_ascii=False), encoding="utf-8"
+        json.dumps(manifest, indent=2, ensure_ascii=False), encoding="utf-8",
     )
 
 
