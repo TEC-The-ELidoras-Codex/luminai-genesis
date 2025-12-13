@@ -1,0 +1,62 @@
+name: Auto post new WordPress dist to LinkedIn
+
+on:
+  push:
+    paths:
+      - "dist/wordpress/**"
+  workflow_dispatch:
+    inputs:
+      production:
+        description: 'Set to true to post instead of dry-run'
+        required: false
+        default: 'false'
+
+jobs:
+  autopost:
+    runs-on: ubuntu-latest
+    env:
+      LINKEDIN_ACCESS_TOKEN: ${{ secrets.LINKEDIN_ACCESS_TOKEN }}
+      LINKEDIN_PERSON_URN: ${{ secrets.LINKEDIN_PERSON_URN }}
+      WP_BASE_URL: ${{ secrets.WP_BASE_URL || '' }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then python -m pip install -r requirements.txt; fi
+
+      - name: Find changed WP dist files and post
+        run: |
+          set -euo pipefail
+          before=${{ github.event.before }}
+          sha=${{ github.sha }}
+          echo "Comparing $before -> $sha"
+          files=$(git diff --name-only "$before" "$sha" || true)
+          echo "Changed files:\n$files"
+          for f in $files; do
+            if echo "$f" | grep -qE '^dist/wordpress/.*\.html$'; then
+              rel=${f#dist/wordpress/}
+              slug=$(echo "$rel" | sed -e 's/index\.html$//' -e 's/\.html$//' )
+              url="$WP_BASE_URL/$slug"
+              # remove double slashes from URL
+              url=$(echo "$url" | sed -E 's|([^:])/+|\1/|g')
+              # try to extract title
+              title=$(grep -oP '(?<=<title>).*?(?=</title>)' "$f" | head -n1 || true)
+              if [ -z "$title" ]; then
+                title=$(basename "$slug")
+              fi
+              echo "Posting new WP article: $title -> $url"
+              if [ "${{ github.event.inputs.production || 'false' }}" = 'true' ]; then
+                python scripts/post_to_linkedin.py --text "New post: $title\nRead: $url" --url "$url"
+              else
+                python scripts/post_to_linkedin.py --text "DRY-RUN: New post: $title\nRead: $url" --url "$url" --dry-run
+              fi
+            fi
+          done
