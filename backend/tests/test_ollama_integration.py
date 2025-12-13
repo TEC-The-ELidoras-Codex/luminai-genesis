@@ -35,7 +35,8 @@ class TestOllamaService:
         service = OllamaService()
         prompt = service.build_system_prompt({"adelphia": 0.8, "luminai": 0.2})
 
-        # Expect normalization to keep Adelphia dominant after adding default Ely weight.
+        # Expect normalization to keep Adelphia dominant after adding default
+        # Ely weight.
         expected_pct = f"{0.8 / (0.8 + 0.2 + 0.3):.0%}"
         assert expected_pct in prompt
         assert "Adelphia" in prompt
@@ -53,7 +54,10 @@ class TestOllamaService:
         }
 
         with patch.object(
-            service.client, "chat", new_callable=AsyncMock, return_value=_mock_response,
+            service.client,
+            "chat",
+            new_callable=AsyncMock,
+            return_value=_mock_response,
         ):
             messages = [ChatMessage(role="user", content="I'm stressed")]
             response_text, witness_trace = await service.generate_completion(

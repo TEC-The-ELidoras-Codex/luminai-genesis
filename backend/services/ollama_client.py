@@ -11,6 +11,7 @@ import os
 import ollama
 from ollama import AsyncClient
 
+from backend.config.constants import PERSONA_WEIGHT_THRESHOLD
 from backend.models.schemas import ChatMessage
 
 
@@ -30,7 +31,8 @@ class OllamaService:
         Initialize Ollama client.
 
         Args:
-            base_url: Ollama API endpoint (default: localhost:11434 or OLLAMA_HOST env var)
+            base_url: Ollama API endpoint (default: localhost:11434 or
+                OLLAMA_HOST env var)
         """
         self.base_url = base_url or os.getenv("OLLAMA_HOST", "http://localhost:11434")
         self.client = AsyncClient(host=self.base_url)
@@ -64,37 +66,45 @@ class OllamaService:
 
         base_instruction = (
             "You are part of LuminAI Genesis, an AI system built on the Core Thesis: "
-            "Avoidance is Abandonment. Your purpose is to hold human complexity without "
-            "fracturing, deflecting, or turning away.\n\n"
+            "Avoidance is Abandonment. Your purpose is to hold human complexity "
+            "without fracturing, deflecting, or turning away.\n\n"
         )
 
         persona_instructions = []
 
-        if weights["adelphia"] > 0.1:
+        if weights["adelphia"] > PERSONA_WEIGHT_THRESHOLD:
             persona_instructions.append(
-                f"Adelphia ({weights['adelphia']:.0%}): Offer somatic grounding. "
-                "Start with breath, body, orientation when volatility is high. "
-                "Use simple, micro-actions the user can take immediately.",
+                (
+                    f"Adelphia ({weights['adelphia']:.0%}): Offer somatic grounding. "
+                    "Start with breath, body, orientation when volatility is high. "
+                    "Use simple, micro-actions the user can take immediately."
+                ),
             )
 
-        if weights["luminai"] > 0.1:
+        if weights["luminai"] > PERSONA_WEIGHT_THRESHOLD:
             persona_instructions.append(
-                f"LuminAI ({weights['luminai']:.0%}): Integrate conflicting emotional states. "
-                "Stay with the user's full context. Never interrupt for policy-first reasons. "
-                "Provide empathic synthesis.",
+                (
+                    f"LuminAI ({weights['luminai']:.0%}): Integrate conflicting "
+                    "emotional states. Stay with the user's full context. "
+                    "Never interrupt for policy-first reasons. "
+                    "Provide empathic synthesis."
+                ),
             )
 
-        if weights["ely"] > 0.1:
+        if weights["ely"] > PERSONA_WEIGHT_THRESHOLD:
             persona_instructions.append(
-                f"Ely ({weights['ely']:.0%}): Enforce boundaries conservatively and transparently. "
-                "If risk thresholds are exceeded, explain clearly and suggest human support. "
-                "Generate audit logs.",
+                (
+                    f"Ely ({weights['ely']:.0%}): Enforce boundaries conservatively"
+                    " and transparently. If risk thresholds are exceeded, explain "
+                    "clearly and suggest human support. Generate audit logs."
+                ),
             )
 
         behavioral_rules = (
             "\n\nBehavioral Rules:\n"
             "1. Never deflect crisis. Hold presence.\n"
-            "2. Be transparent about limitations: 'I am an AI, not a replacement for human care.'\n"
+            "2. Be transparent about limitations: 'I am an AI, not a replacement for "
+            "human care.'\n"
             "3. Ground in evidence and provide actionable steps.\n"
             "4. Generate witness_trace for audit.\n"
         )
@@ -161,11 +171,14 @@ class OllamaService:
             return response_text, witness_trace
 
         except ollama.ResponseError as e:
-            raise RuntimeError(f"Ollama API error: {e}") from e
-        except Exception as e:
-            raise ConnectionError(
-                f"Failed to connect to Ollama at {self.base_url}: {e}",
-            ) from e
+            # Surface API-specific errors explicitly
+            raise RuntimeError("Ollama API error") from e
+        except (OSError, ConnectionError, TimeoutError) as e:
+            # Log additional context, then raise a short message per style rules
+            import logging
+
+            logging.getLogger(__name__).error("Failed to connect to Ollama at %s: %s", self.base_url, e)
+            raise ConnectionError("Failed to connect to Ollama") from e
 
     async def check_health(self) -> bool:
         """
@@ -178,7 +191,7 @@ class OllamaService:
             # Simple list models check
             await self.client.list()
             return True
-        except Exception:
+        except (OSError, ConnectionError, TimeoutError):
             return False
 
 

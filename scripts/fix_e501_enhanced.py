@@ -5,10 +5,17 @@ import re
 import textwrap
 from pathlib import Path
 
+# Config
+MAX_LINE_LEN = 88
+WRAP_WIDTH = 80
+USER_WRAP_WIDTH = 75
+FUNC_ARG_WRAP = 75
+
 
 def fix_file(filepath):
     """Fix line length violations in a Python file"""
-    with open(filepath) as f:
+    p = Path(filepath)
+    with p.open() as f:
         lines = f.readlines()
 
     new_lines = []
@@ -19,7 +26,7 @@ def fix_file(filepath):
         stripped = line.rstrip()
 
         # Skip if already under limit
-        if len(stripped) <= 88:
+        if len(stripped) <= MAX_LINE_LEN:
             new_lines.append(line)
             i += 1
             continue
@@ -33,7 +40,7 @@ def fix_file(filepath):
             # Split at natural sentence boundaries
             wrapped = textwrap.fill(
                 user_text,
-                width=80,
+                width=WRAP_WIDTH,
                 break_long_words=False,
                 break_on_hyphens=False,
             )
@@ -59,10 +66,10 @@ def fix_file(filepath):
 
         # Fix case 3: Long string literals
         string_match = re.search(r'(".*?")', line)
-        if string_match and len(string_match.group(1)) > 80:
+        if string_match and len(string_match.group(1)) > WRAP_WIDTH:
             string_content = string_match.group(1)[1:-1]  # Remove quotes
             # Split into multiple concatenated strings
-            parts = textwrap.wrap(string_content, width=75)
+            parts = textwrap.wrap(string_content, width=USER_WRAP_WIDTH)
             replacement = "(\n"
             for j, part in enumerate(parts):
                 replacement += f'{indent}    "{part}"'
@@ -98,15 +105,15 @@ def fix_file(filepath):
                 continue
 
         # Fallback: Insert line continuation
-        if len(stripped) > 88:
-            new_lines.append(f"{stripped[:85]} \\\n")
-            new_lines.append(f"{indent}    {stripped[85:]}\n")
+        if len(stripped) > MAX_LINE_LEN:
+            new_lines.append(f"{stripped[:(MAX_LINE_LEN-3)]} \\\n+")
+            new_lines.append(f"{indent}    {stripped[(MAX_LINE_LEN-3):]}\n")
         else:
             new_lines.append(line)
 
         i += 1
 
-    with open(filepath, "w") as f:
+    with p.open("w", encoding="utf-8") as f:
         f.writelines(new_lines)
 
     print(f"✅ Fixed: {filepath}")

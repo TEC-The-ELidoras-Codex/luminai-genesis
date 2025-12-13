@@ -28,7 +28,8 @@ async def chat(request: ChatRequest) -> ChatResponse:
         request: ChatRequest with session_id, message, model, persona_blend, etc.
 
     Returns:
-        ChatResponse with generated text, witness_trace, resonance score, persona weights
+        ChatResponse with generated text, witness_trace, resonance score, and
+        persona weights
 
     Raises:
         HTTPException: If Ollama service is unavailable or request fails

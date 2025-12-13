@@ -67,16 +67,20 @@ def frequency_from_energy(energy_j: float) -> float:
 
 
 def dominant_frequencies_from_signal(
-    signal: list[float], sample_rate: float, n_peaks: int = 3,
+    signal: list[float],
+    sample_rate: float,
+    n_peaks: int = 3,
 ) -> list[tuple[float, float]]:
-    """Return the top `n_peaks` dominant frequencies and their magnitudes from a time-series signal.
+    """Return the top `n_peaks` dominant frequencies and their magnitudes from a
+    time-series signal.
 
-    This function requires numpy. It returns a list of tuples (frequency_hz, magnitude).
-    If numpy isn't installed it will raise ImportError with guidance.
+    This function requires numpy. It returns a list of tuples
+    (frequency_hz, magnitude). If numpy isn't installed it will raise ImportError
+    with guidance.
     """
     try:
         import numpy as np
-    except Exception as e:  # pragma: no cover - runtime dependency
+    except ImportError as e:  # pragma: no cover - runtime dependency
         raise ImportError(
             "dominant_frequencies_from_signal requires numpy. "
             "Install it with `pip install numpy` to use this helper.",

@@ -88,7 +88,8 @@ def parse_dump(text: str, min_level_for_file: int = 2) -> list[dict[str, Any]]:
 
 
 def dedupe_sections(
-    sections: list[dict[str, Any]], min_chars: int = 0,
+    sections: list[dict[str, Any]],
+    min_chars: int = 0,
 ) -> list[dict[str, Any]]:
     """Drop sections shorter than min_chars and remove exact duplicates by content."""
     seen_hashes = set()
@@ -108,7 +109,8 @@ def dedupe_sections(
 
 
 def bundle_sections(
-    sections: list[dict[str, Any]], max_chars: int = 80000,
+    sections: list[dict[str, Any]],
+    max_chars: int = 80000,
 ) -> list[list]:
     """
     Greedy pack sections into bundles capped by max_chars total content length.
@@ -197,7 +199,8 @@ def write_bundles(
 
     manifest_path = out_dir / "manifest.json"
     manifest_path.write_text(
-        json.dumps(manifest, indent=2, ensure_ascii=False), encoding="utf-8",
+        json.dumps(manifest, indent=2, ensure_ascii=False),
+        encoding="utf-8",
     )
 
 

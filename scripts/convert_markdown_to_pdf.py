@@ -3,7 +3,7 @@
 Convert Markdown to PDF with clean formatting.
 
 Usage:
-    python scripts/convert_markdown_to_pdf.py docs/posts/substack_zoho_keyword_fallacy.md
+    python scripts/convert_markdown_to_pdf.py docs/posts/example.md
 
 Output:
     Creates PDF in same directory as source file.
@@ -12,11 +12,16 @@ Requirements:
     pip install markdown weasyprint
 """
 
+import logging
 import sys
 from pathlib import Path
 
 import markdown
 from weasyprint import CSS, HTML
+
+# Script arg constants
+MIN_ARGS = 2
+OUTPUT_ARG_INDEX = 2
 
 
 def convert_markdown_to_pdf(md_file_path: str, output_path: str = None):
@@ -28,12 +33,13 @@ def convert_markdown_to_pdf(md_file_path: str, output_path: str = None):
         sys.exit(1)
 
     # Read markdown
-    with open(md_path, encoding="utf-8") as f:
+    with md_path.open(encoding="utf-8") as f:
         md_content = f.read()
 
     # Convert to HTML with extensions
     html_content = markdown.markdown(
-        md_content, extensions=["extra", "codehilite", "toc", "tables"],
+        md_content,
+        extensions=["extra", "codehilite", "toc", "tables"],
     )
 
     # Add CSS styling
@@ -86,7 +92,8 @@ def convert_markdown_to_pdf(md_file_path: str, output_path: str = None):
             background-color: #f6f8fa;
             padding: 2pt 4pt;
             border-radius: 3pt;
-            font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo,
+                monospace;
             font-size: 10pt;
         }
 
@@ -184,24 +191,28 @@ def convert_markdown_to_pdf(md_file_path: str, output_path: str = None):
     # Convert to PDF
     HTML(string=full_html).write_pdf(output_path, stylesheets=[css])
 
-    print(f"✅ PDF created: {output_path}")
-    print(f"   Size: {output_path.stat().st_size / 1024:.1f} KB")
+    logger = logging.getLogger(__name__)
+    logger.info("✅ PDF created: %s", output_path)
+    logger.info("   Size: %.1f KB", output_path.stat().st_size / 1024)
     return output_path
 
 
 if __name__ == "__main__":
-    if len(sys.argv) < 2:
-        print(
-            "Usage: python scripts/convert_markdown_to_pdf.py <markdown_file> [output_pdf]",
+    if len(sys.argv) < MIN_ARGS:
+        logger = logging.getLogger(__name__)
+        logger.error(
+            "Usage: python scripts/convert_markdown_to_pdf.py <markdown_file> "
+            "[output_pdf]",
         )
-        print("\nExample:")
-        print(
-            "  python scripts/convert_markdown_to_pdf.py "
-            "docs/posts/substack_zoho_keyword_fallacy.md",
-        )
+        logger.info("\nExample:")
+        logger.info("  python scripts/convert_markdown_to_pdf.py docs/posts/my-post.md")
         sys.exit(1)
 
     md_file = sys.argv[1]
-    output_file = sys.argv[2] if len(sys.argv) > 2 else None
+    output_file = (
+        sys.argv[OUTPUT_ARG_INDEX]
+        if len(sys.argv) > OUTPUT_ARG_INDEX
+        else None
+    )
 
     convert_markdown_to_pdf(md_file, output_file)

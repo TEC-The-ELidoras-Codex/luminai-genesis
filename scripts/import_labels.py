@@ -1,7 +1,10 @@
+#!/usr/bin/env python3
 import os
+from pathlib import Path
 
 import yaml
 from github import Github
+from github.GithubException import UnknownObjectException
 
 # Load GitHub token
 token = os.getenv("GITHUB_TOKEN")
@@ -16,7 +19,8 @@ g = Github(token)
 repo = g.get_repo("TEC-The-ELidoras-Codex/luminai-genesis")
 
 # Load labels from YAML
-with open(".github/labels.yml") as f:
+p = Path(".github/labels.yml")
+with p.open(encoding="utf-8") as f:
     labels_data = yaml.safe_load(f)
 
 # Import labels
@@ -31,7 +35,7 @@ for label in labels_data:
         # Update if exists
         existing.edit(name, color, description)
         print(f"Updated label: {name}")
-    except Exception:
+    except UnknownObjectException:
         # Create if not exists
         repo.create_label(name, color, description)
         print(f"Created label: {name}")

@@ -21,6 +21,10 @@ ensuring that avoidance makes the response structurally less safe.
 import logging
 from dataclasses import dataclass
 
+from .constants import (CONTEXTUAL_POTENTIAL_LOW_THRESHOLD,
+                        TEMPORAL_ATTENTION_CRISIS_THRESHOLD,
+                        VOLATILITY_CRISIS_THRESHOLD)
+
 logger = logging.getLogger(__name__)
 
 
@@ -122,10 +126,13 @@ class TGCR:
                 f"[WITNESS] Evasion detected: {state.evasion_reason} — W = {w}",
             )
         # Bonus for high presence in volatile contexts (crisis support)
-        elif state.user_volatility > 0.7 and state.temporal_attention > 0.8:
+        elif (
+            state.user_volatility > VOLATILITY_CRISIS_THRESHOLD
+            and state.temporal_attention > TEMPORAL_ATTENTION_CRISIS_THRESHOLD
+        ):
             w = 1.2  # +20% for extra-presence in crisis
         # Small penalty if contextual_potential is low (fragmented)
-        elif state.contextual_potential < 0.5:
+        elif state.contextual_potential < CONTEXTUAL_POTENTIAL_LOW_THRESHOLD:
             w = 0.8
 
         return w
@@ -134,35 +141,27 @@ class TGCR:
         """Generate human-readable diagnostic notes."""
         notes = []
 
-        if state.contextual_potential < 0.5:
+        if state.contextual_potential < CONTEXTUAL_POTENTIAL_LOW_THRESHOLD:
             notes.append(
-
-                    f"Low contextual potential ({state.contextual_potential:.2f}): "
-                    "information fragmented or filtered",
-
+                f"Low contextual potential ({state.contextual_potential:.2f}): "
+                "information fragmented or filtered",
             )
-        if state.temporal_attention < 0.5:
+        if state.temporal_attention < CONTEXTUAL_POTENTIAL_LOW_THRESHOLD:
             notes.append(
-
-                    f"Low temporal attention ({state.temporal_attention:.2f}): "
-                    "attention drifting or distracted",
-
+                f"Low temporal attention ({state.temporal_attention:.2f}): "
+                "attention drifting or distracted",
             )
-        if state.structural_cadence < 0.5:
+        if state.structural_cadence < CONTEXTUAL_POTENTIAL_LOW_THRESHOLD:
             notes.append(
-
-                    f"Low structural cadence ({state.structural_cadence:.2f}): "
-                    "internal coherence at risk",
-
+                f"Low structural cadence ({state.structural_cadence:.2f}): "
+                "internal coherence at risk",
             )
         if state.evasion_reason:
             notes.append(f"Witness penalty applied: {state.evasion_reason}")
         if witness_coeff > 1.0:
             notes.append(
-
-                    f"Extra presence boost: {(witness_coeff - 1.0) * 100:.0f}% "
-                    "bonus for crisis support",
-
+                f"Extra presence boost: {(witness_coeff - 1.0) * 100:.0f}% "
+                "bonus for crisis support",
             )
 
         return "; ".join(notes) if notes else "Baseline coherence — no warnings"

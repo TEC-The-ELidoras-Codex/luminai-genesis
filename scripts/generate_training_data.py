@@ -13,6 +13,7 @@ Output: data/training/persona_sft_dataset_expanded.jsonl
 """
 
 import json
+from pathlib import Path
 
 # Template structure for generating diverse examples
 TRAINING_TEMPLATES = {
@@ -163,8 +164,7 @@ TRAINING_TEMPLATES = {
     "isolation_connection": [
         {
             "user": (
-                "I feel completely alone. Nobody understands what I'm going "
-                "through."
+                "I feel completely alone. Nobody understands what I'm going through."
             ),
             "personas": ["Adelphia (45%)", "LuminAI (40%)", "Ely (15%)"],
             "resonance": 0.71,
@@ -342,7 +342,10 @@ TRAINING_TEMPLATES = {
 
 
 def generate_response(
-    user_message: str, personas: list[str], resonance: float, technique: str,
+    user_message: str,
+    personas: list[str],
+    resonance: float,
+    technique: str,
 ) -> str:
     """Generate a LuminAI Genesis response template."""
 
@@ -526,7 +529,8 @@ if __name__ == "__main__":
     output_path = "data/training/persona_sft_dataset_expanded.jsonl"
     os.makedirs(os.path.dirname(output_path), exist_ok=True)
 
-    with open(output_path, "w") as f:
+    p = Path(output_path)
+    with p.open("w", encoding="utf-8") as f:
         f.writelines(json.dumps(item) + "\n" for item in dataset)
 
     print(f"✅ Generated {len(dataset)} training examples")

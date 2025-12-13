@@ -102,7 +102,10 @@ def get_or_create_category(base_url, category_name, auth, *, dry_run=False):
     # Create category
     url = f"{base_url.rstrip('/')}/wp-json/wp/v2/categories"
     r = requests.post(
-        url, headers=auth, json={"name": category_name, "slug": slug}, timeout=10,
+        url,
+        headers=auth,
+        json={"name": category_name, "slug": slug},
+        timeout=10,
     )
     r.raise_for_status()
     return r.json()["id"]
@@ -122,19 +125,24 @@ def get_or_create_tag(base_url, tag_name, auth, *, dry_run=False):
     if data:
         return data[0]["id"]
     url = f"{base_url.rstrip('/')}/wp-json/wp/v2/tags"
-    r = requests.post(url, headers=auth, json={"name": tag_name, "slug": slug}, timeout=10)
+    r = requests.post(
+        url, headers=auth, json={"name": tag_name, "slug": slug}, timeout=10,
+    )
     r.raise_for_status()
     return r.json()["id"]
 
 
 def upload_images(images, args, auth):
-    """Upload a list of (img_tag, file_path) tuples. Return (media_map, first_media_id)."""
+    """Upload (img_tag, file_path) tuples and return (media_map, first_media_id)."""
     media_map = {}
     first_media_id = None
     for img_tag, file_path in images:
         logger.info("Uploading image %s", file_path)
         media_resp = upload_media(
-            args.base_url, Path(file_path), auth, dry_run=args.dry_run,
+            args.base_url,
+            Path(file_path),
+            auth,
+            dry_run=args.dry_run,
         )
         if media_resp and media_resp.get("source_url"):
             media_map[file_path.name] = media_resp["source_url"]
@@ -167,16 +175,23 @@ def upload_media(base_url, file_path, auth, *, dry_run=False):
     headers.update({"Content-Disposition": f'attachment; filename="{filename}"'})
     if dry_run:
         logger.info("[DRY-RUN] Would upload media %s to %s", file_path, url)
-        return {"source_url": f"{base_url.rstrip('/')}/wp-content/uploads/{filename}", "id": 0}
+        return {
+            "source_url": f"{base_url.rstrip('/')}/wp-content/uploads/{filename}",
+            "id": 0,
+        }
     with Path(file_path).open("rb") as fh:
-        r = requests.post(url, headers=headers, files={"file": (filename, fh)}, timeout=30)
+        r = requests.post(
+            url, headers=headers, files={"file": (filename, fh)}, timeout=30,
+        )
     try:
         r.raise_for_status()
         return r.json()
     except requests.exceptions.RequestException:
         status_code = getattr(r, "status_code", "?")
         text = getattr(r, "text", "")
-        logger.exception("Failed to upload media %s: %s %s", file_path, status_code, text)
+        logger.exception(
+            "Failed to upload media %s: %s %s", file_path, status_code, text,
+        )
         raise
 
 
@@ -207,7 +222,9 @@ def create_or_update_post(slug, title, content, client, opts=None):
         except requests.exceptions.RequestException:
             status_code = getattr(r, "status_code", "?")
             text = getattr(r, "text", "")
-            logger.exception("Failed to update post (slug=%s): %s %s", slug, status_code, text)
+            logger.exception(
+                "Failed to update post (slug=%s): %s %s", slug, status_code, text,
+            )
             raise
     else:
         url = f"{base_url.rstrip('/')}/wp-json/wp/v2/posts"
@@ -232,7 +249,9 @@ def create_or_update_post(slug, title, content, client, opts=None):
         except requests.exceptions.RequestException:
             status_code = getattr(r, "status_code", "?")
             text = getattr(r, "text", "")
-            logger.exception("Failed to create post (slug=%s): %s %s", slug, status_code, text)
+            logger.exception(
+                "Failed to create post (slug=%s): %s %s", slug, status_code, text,
+            )
             raise
 
 
@@ -267,7 +286,10 @@ def process_file(html_file: Path, args, auth):
     if pdf_path:
         logger.info("Uploading PDF %s", pdf_path)
         pdf_media = upload_media(
-            args.base_url, Path(pdf_path), auth, dry_run=args.dry_run,
+            args.base_url,
+            Path(pdf_path),
+            auth,
+            dry_run=args.dry_run,
         )
         pdf_url = pdf_media.get("source_url") if pdf_media else None
         if pdf_url:
@@ -309,7 +331,9 @@ def resolve_extra_fields(args, auth, first_media_id=None):
     if first_media_id:
         ef["featured_media"] = first_media_id
     if args.category:
-        cat_id = get_or_create_category(args.base_url, args.category, auth, dry_run=args.dry_run)
+        cat_id = get_or_create_category(
+            args.base_url, args.category, auth, dry_run=args.dry_run,
+        )
         if cat_id:
             ef["categories"] = [cat_id]
     if args.tags:
@@ -343,9 +367,7 @@ def main():
     parser.add_argument(
         "--password",
         default=os.getenv("WP_APP_PASSWORD"),
-        help=(
-            "WordPress application password (for Basic Auth)"
-        ),
+        help=("WordPress application password (for Basic Auth)"),
     )
     parser.add_argument(
         "--publish",
@@ -371,7 +393,7 @@ def main():
 
     if not args.base_url or not args.user or not args.password:
         logger.error(
-            "WP_BASE_URL, WP_USER and WP_APP_PASSWORD are required (either via env vars or args)",
+            "WP_BASE_URL, WP_USER and WP_APP_PASSWORD are required (env vars or args)",
         )
         sys.exit(1)
 

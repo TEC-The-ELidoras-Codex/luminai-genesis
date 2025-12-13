@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Build Substack-ready HTML from ready memos.
 
-This script produces simple HTML/Markdown output suitable for copy-paste into Substack's composer.
+Produces HTML/Markdown suitable for copy-paste into Substack's composer.
 Usage: python3 scripts/aqueduct_build_substack_html.py
 """
 
@@ -10,6 +10,9 @@ from pathlib import Path
 
 import markdown
 import yaml
+
+# Front-matter constants
+FM_PARTS_EXPECT = 3
 
 ROOT = Path(__file__).resolve().parents[1]
 READY_DIR = ROOT / "docs" / "streams" / "articles" / "ready"
@@ -20,7 +23,7 @@ def split_frontmatter(text: str):
     if not text.startswith("---"):
         return {}, text
     parts = text.split("---", 2)
-    if len(parts) < 3:
+    if len(parts) < FM_PARTS_EXPECT:
         return {}, text
     fm_text = parts[1]
     body = parts[2]

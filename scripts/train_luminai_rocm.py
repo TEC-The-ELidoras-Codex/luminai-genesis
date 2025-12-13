@@ -10,6 +10,7 @@ Usage:
 
 import json
 import os
+from pathlib import Path
 
 from datasets import Dataset
 
@@ -23,7 +24,8 @@ os.environ["CUDA_VISIBLE_DEVICES"] = ""  # Force CPU only
 def load_jsonl_dataset(path: str) -> Dataset:
     """Load JSONL training data."""
     texts = []
-    with open(path) as f:
+    p = Path(path)
+    with p.open() as f:
         for line in f:
             if line.strip():
                 try:
@@ -64,19 +66,16 @@ def main():
     print(f"\nModel: {model_name}")
     print(f"Data: {data_path}")
     print(f"Output: {output_dir}")
-    print(
-        f"Device: {torch.cuda.get_device_name(0) if torch.cuda.is_available() else 'CPU'}",
+    device_str = (
+        torch.cuda.get_device_name(0) if torch.cuda.is_available() else "CPU"
     )
+    print(f"Device: {device_str}")
     print("=" * 70 + "\n")
 
     from peft import LoraConfig, get_peft_model
-    from transformers import (
-        AutoModelForCausalLM,
-        AutoTokenizer,
-        DataCollatorForLanguageModeling,
-        Trainer,
-        TrainingArguments,
-    )
+    from transformers import (AutoModelForCausalLM, AutoTokenizer,
+                              DataCollatorForLanguageModeling, Trainer,
+                              TrainingArguments)
 
     # Load tokenizer
     print("[1/6] Loading tokenizer...")

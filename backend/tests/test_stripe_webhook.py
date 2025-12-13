@@ -10,7 +10,9 @@ client = TestClient(app)
 
 
 def test_webhook_missing_signature_header():
-    """Test that missing signature header returns 400 when STRIPE_WEBHOOK_SECRET is set."""
+    """Test that missing signature header returns 400 when
+    STRIPE_WEBHOOK_SECRET is set.
+    """
     # Simulate a webhook secret being configured
     payload = json.dumps(
         {
@@ -78,7 +80,9 @@ def test_webhook_health_endpoint():
 
 
 def test_webhook_signature_verification_mock():
-    """Test that signature verification is attempted when secret is set."""
+    """Test that signature verification is attempted when
+    secret is set.
+    """
     # This test ensures the code path for signature verification exists
     # In a real environment, you would mock stripe.Webhook.construct_event
     payload = {

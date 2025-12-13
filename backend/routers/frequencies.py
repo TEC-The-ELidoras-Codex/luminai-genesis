@@ -17,9 +17,9 @@ for candidate in (
 ):
     if candidate.exists():
         try:
-            with open(candidate) as f:
+            with candidate.open(encoding="utf-8") as f:
                 FREQUENCIES_DATA = json.load(f)
-        except Exception:
+        except (OSError, json.JSONDecodeError):
             FREQUENCIES_DATA = {"frequencies": [], "metadata": {}}
         break
 

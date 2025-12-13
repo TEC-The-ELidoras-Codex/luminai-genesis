@@ -15,6 +15,8 @@ Personas:
 import logging
 from dataclasses import dataclass, field
 
+from .constants import VOLATILITY_CRISIS_THRESHOLD
+
 logger = logging.getLogger(__name__)
 
 
@@ -105,7 +107,7 @@ class Adelphia(Persona):
         """Ground the user in somatic/physical reality."""
         volatility = context.get("volatility", 0.5) if context else 0.5
 
-        if volatility > 0.7:
+        if volatility > VOLATILITY_CRISIS_THRESHOLD:
             output = (
                 "[Adelphia] Grounding technique: Notice 5 things you can see, "
                 "4 things you can touch, 3 you can hear, "

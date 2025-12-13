@@ -8,6 +8,7 @@ to sys.path at test collection time ensures absolute imports like
 
 This is intentionally minimal and only affects test runs (pytest discovery).
 """
+
 from __future__ import annotations
 
 import sys

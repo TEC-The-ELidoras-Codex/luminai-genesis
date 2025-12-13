@@ -9,6 +9,8 @@ requests>=2.25.0
 ollama>=0.4.0
 stripe>=5.0.0
 sendgrid>=6.0.0
+feedparser==6.0.10
+python-wordpress-xmlrpc==2.3
 
 # Developer tools (optional):
 ruff

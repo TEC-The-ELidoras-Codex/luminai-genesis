@@ -1,6 +1,7 @@
 # Contributing to luminai-genesis
 
 We welcome contributions! Please:
+
 - Fork the repository and create your branch.
 - Ensure all code follows our style guide (see `pyproject.toml` and `ruff` config).
 - Add clear, meaningful commit messages.
@@ -12,6 +13,7 @@ If you're adding functionality, include tests and update documentation where app
 For questions, contact a maintainer or open an issue.
 
 Thanks for contributing!
+
 # Contributing to LuminAI Genesis
 
 Thank you, Steward.

@@ -8,3 +8,13 @@ select = ["E", "F", "W", "C90", "I", "N", "UP", "YTT", "S", "BLE", "FBT", "B", "
 
 [tool.ruff.lint.per-file-ignores]
 "scripts/generate_training_data.py" = ["T201", "E501"]  # Allow print statements and long lines in training data
+"backend/tests/*" = ["S101", "PLR2004"]
+"tests/*" = ["S101", "PLR2004"]
+"src/**/tests/*" = ["S101", "PLR2004"]
+"scripts/*" = ["T201", "EXE001", "PLC0415", "TRY003"]
+"backend/scripts/*" = ["T201", "EXE001", "PLC0415"]
+"backend/stripe_webhook.py" = ["PLC0415"]
+"backend/utils/*" = ["PLC0415", "TRY003"]
+"backend/logic/frequency_mapping.py" = ["TRY003"]
+"backend/services/ollama_client.py" = ["TRY003"]
+"src/astradigital/kernel.py" = ["TRY003"]

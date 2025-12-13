@@ -10,7 +10,7 @@ router = APIRouter(prefix="/api/axioms", tags=["axioms"])
 DATA_DIR = Path(__file__).parent.parent.parent / "data" / "axioms"
 
 try:
-    with open(DATA_DIR / "LUMINAI_CONSCIENCE_AXIOMS.json") as f:
+    with (DATA_DIR / "LUMINAI_CONSCIENCE_AXIOMS.json").open(encoding="utf-8") as f:
         AXIOMS_DATA = json.load(f)
 except FileNotFoundError:
     AXIOMS_DATA = {"axioms": [], "metadata": {}}

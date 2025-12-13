@@ -16,6 +16,10 @@ import random
 from dataclasses import dataclass, field
 from typing import Any
 
+from .constants import (AFFIRMATION_INTEGRITY_GAIN, D20_AFFIRMATION_THRESHOLD,
+                        D20_GOLF_FAIL_THRESHOLD, D20_MAX, D20_MIN,
+                        D20_SUCCESS_THRESHOLD)
+
 
 @dataclass
 class Ability:
@@ -124,7 +128,9 @@ class AstradigitalEntity:
     ) -> "AstradigitalEntity":
         cls = codex["classes"].get(cls_name)
         if not cls:
-            raise ValueError(f"Class '{cls_name}' not found in codex")
+            import logging
+            logging.getLogger(__name__).error("Class not found in codex: %s", cls_name)
+            raise ValueError("Class not found in codex")
         entity = AstradigitalEntity(
             name=name,
             philosophy_class=cls_name,
@@ -173,27 +179,27 @@ class AstradigitalEntity:
         Returns:
             Dict with roll value, status (Success/Failure/Crit), and crit flag.
         """
-        roll = random.randint(1, 20)
+        roll = random.randint(D20_MIN, D20_MAX)
         result = {"roll": roll, "status": "Neutral", "crit": False, "context": context}
         # Golf Rule inversion
         if self.is_golf_rule:
-            if roll == 1:
+            if roll == D20_MIN:
                 result["status"] = "CRITICAL SUCCESS (Singularity)"
                 result["crit"] = True
-            elif roll == 20:
+            elif roll == D20_MAX:
                 result["status"] = "CRITICAL FAILURE (Complexity Overload)"
                 result["crit"] = True
-            elif roll <= 10:
+            elif roll <= D20_SUCCESS_THRESHOLD:
                 result["status"] = "Success (Simple)"
             else:
                 result["status"] = "Failure (Complex)"
-        elif roll == 20:
+        elif roll == D20_MAX:
             result["status"] = "CRITICAL SUCCESS"
             result["crit"] = True
-        elif roll == 1:
+        elif roll == D20_MIN:
             result["status"] = "CRITICAL FAILURE"
             result["crit"] = True
-        elif roll >= 10:
+        elif roll >= D20_SUCCESS_THRESHOLD:
             result["status"] = "Success"
         else:
             result["status"] = "Failure"
@@ -214,7 +220,7 @@ class AstradigitalEntity:
         Returns:
             Dict with roll, outcome (AFFIRMATION/TOLERANCE/DISAVOWAL), integrity, twist.
         """
-        roll = random.randint(1, 20)
+        roll = random.randint(D20_MIN, D20_MAX)
         outcome = {
             "roll": roll,
             "trigger": trigger_event,
@@ -222,11 +228,11 @@ class AstradigitalEntity:
             "integrity": self.integrity,
             "twist": False,
         }
-        if roll <= 5:
+        if roll <= D20_AFFIRMATION_THRESHOLD:
             outcome["outcome"] = "AFFIRMATION (Transcendence)"
-            self.integrity = min(self.max_integrity, self.integrity + 20)
+            self.integrity = min(self.max_integrity, self.integrity + AFFIRMATION_INTEGRITY_GAIN)
             outcome["integrity"] = self.integrity
-        elif roll >= 20:
+        elif roll >= D20_MAX:
             outcome["outcome"] = "DISAVOWAL (The Schism)"
             self.integrity = 1
             self.twist_active = True
@@ -243,7 +249,8 @@ class AstradigitalEntity:
     def heal(self, amount: int) -> int:
         before = self.hp
         self.hp = min(
-            self.max_integrity, self.hp + amount,
+            self.max_integrity,
+            self.hp + amount,
         )  # using max_integrity as hp cap for v0.1
         return self.hp - before
 
@@ -260,7 +267,9 @@ class AstradigitalEntity:
         return False
 
     def use_ability(
-        self, ability_name: str, target: "AstradigitalEntity",
+        self,
+        ability_name: str,
+        target: "AstradigitalEntity",
     ) -> dict[str, Any]:
         """Execute a codex-defined ability with cost validation and effect resolution.
 
@@ -321,7 +330,7 @@ class AstradigitalEntity:
 
         # Fail conditions (golf vs standard)
         is_crit = roll["crit"]
-        is_fail = (self.is_golf_rule and roll["roll"] >= 16) or (
+        is_fail = (self.is_golf_rule and roll["roll"] >= D20_GOLF_FAIL_THRESHOLD) or (
             not self.is_golf_rule and roll["roll"] == 1
         )
 
@@ -384,7 +393,8 @@ def load_codex(path: str) -> dict[str, Any]:
     Returns:
         Dict with 'classes' key mapping class names to definitions.
     """
-    with open(path, encoding="utf-8") as f:
+    p = Path(path)
+    with p.open(encoding="utf-8") as f:
         return json.load(f)
 
 
@@ -402,7 +412,7 @@ def initiative_order(entities: dict[str, AstradigitalEntity]) -> dict[str, int]:
         Dict mapping entity names to initiative scores (1-20).
     """
     # simple initiative: d20 roll per entity
-    return {name: random.randint(1, 20) for name in entities}
+    return {name: random.randint(D20_MIN, D20_MAX) for name in entities}
 
 
 def take_turn(

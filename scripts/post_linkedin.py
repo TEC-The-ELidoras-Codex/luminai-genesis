@@ -7,7 +7,7 @@ Usage:
     # if you still use the old location:
     # python3 scripts/post_linkedin.py drafts/linkedin_to_post.txt
 
-The script will call the `v2/me` endpoint to learn the member ID and then create an UGC post.
+This script calls `v2/me` to learn the member ID, then creates an UGC post.
 It requires `requests` to be installed in the venv: `venv/bin/pip install requests`.
 
 Security: keep your access token private. The script will not store it.
@@ -16,14 +16,20 @@ Security: keep your access token private. The script will not store it.
 import json
 import os
 import sys
+from pathlib import Path
 
 import requests
+
+# Constants
+MIN_ARGS = 2
+EXIT_BAD_ARGS = 2
 
 API_BASE = "https://api.linkedin.com/v2"
 
 
 def read_message(path):
-    with open(path, encoding="utf-8") as f:
+    p = Path(path)
+    with p.open(encoding="utf-8") as f:
         return f.read().strip()
 
 
@@ -62,16 +68,16 @@ def create_ugc_post(token, author_urn, text):
 
 
 if __name__ == "__main__":
-    if len(sys.argv) < 2:
+    if len(sys.argv) < MIN_ARGS:
         print("Usage: python3 scripts/post_linkedin.py <message-file>")
-        sys.exit(2)
+        sys.exit(EXIT_BAD_ARGS)
     token = os.environ.get("LINKEDIN_ACCESS_TOKEN")
     if not token:
         print(
             "ERROR: Set LINKEDIN_ACCESS_TOKEN environment variable with a valid "
             "LinkedIn OAuth access token.",
         )
-        sys.exit(2)
+        sys.exit(EXIT_BAD_ARGS)
     message_file = sys.argv[1]
     # Prefer `private/drafts/` for local, private draft files but keep compatibility
     if not os.path.exists(message_file):

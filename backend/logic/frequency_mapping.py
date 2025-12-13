@@ -7,8 +7,11 @@ research prototype and must not be used as a clinical decision tool.
 
 from __future__ import annotations
 
+import json
+import logging
 import os
 import re
+from pathlib import Path
 from typing import Any
 
 _MAPPING_CACHE: list[dict[str, Any]] | None = None
@@ -34,17 +37,20 @@ def _load_mapping() -> list[dict[str, Any]]:
             "SIXTEEN_FREQUENCIES_MAPPING.merged.json",
         ),
         os.path.join(
-            base_dir, "..", "data", "frequencies", "SIXTEEN_FREQUENCIES_MAPPING.json",
+            base_dir,
+            "..",
+            "data",
+            "frequencies",
+            "SIXTEEN_FREQUENCIES_MAPPING.json",
         ),
     ]
     # normalize
     candidates = [os.path.normpath(p) for p in candidates]
 
     for path in candidates:
-        if os.path.exists(path):
-            with open(path, encoding="utf-8") as f:
-                import json
-
+        p = Path(path)
+        if p.exists():
+            with p.open(encoding="utf-8") as f:
                 data = json.load(f)
                 # My JSON uses top-level key 'frequencies' -> list
                 if isinstance(data, dict) and "frequencies" in data:
@@ -53,12 +59,11 @@ def _load_mapping() -> list[dict[str, Any]]:
                     _MAPPING_CACHE = data
                 else:
                     # unexpected shape
-                    raise ValueError(f"Unexpected mapping file shape: {path}")
+                    logging.getLogger(__name__).error("Unexpected mapping file shape: %s", path)
+                    raise ValueError("Unexpected mapping file shape")
                 return _MAPPING_CACHE
 
-    raise FileNotFoundError(
-        "No frequency mapping file found. Expected data/frequencies/SIXTEEN_FREQUENCIES_MAPPING.json",
-    )
+    raise FileNotFoundError("No frequency mapping file found")
 
 
 def get_state_by_id(state_id: int) -> dict[str, Any] | None:

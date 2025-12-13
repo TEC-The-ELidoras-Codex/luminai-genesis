@@ -12,6 +12,9 @@ from pathlib import Path
 import markdown
 import yaml
 
+# Front-matter constants
+FM_PARTS_EXPECT = 3
+
 ROOT = Path(__file__).resolve().parents[1]
 READY_DIR = ROOT / "docs" / "streams" / "articles" / "ready"
 OUT_DIR = ROOT / "dist" / "wordpress"
@@ -21,7 +24,7 @@ def split_frontmatter(text: str):
     if not text.startswith("---"):
         return {}, text
     parts = text.split("---", 2)
-    if len(parts) < 3:
+    if len(parts) < FM_PARTS_EXPECT:
         return {}, text
     fm_text = parts[1]
     body = parts[2]
@@ -66,7 +69,9 @@ def main():
         def _json_default(obj):
             if isinstance(obj, (datetime.date, datetime.datetime)):
                 return obj.isoformat()
-            raise TypeError(f"Object of type {obj.__class__.__name__} is not JSON serializable")
+            raise TypeError(
+                f"Object of type {obj.__class__.__name__} is not JSON serializable",
+            )
 
         meta_json = json.dumps(fm, default=_json_default)
 

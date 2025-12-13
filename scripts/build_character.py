@@ -2,21 +2,25 @@
 import sys
 from pathlib import Path
 
+# Script argument constants for readability and linting
+MIN_ARGS = 3
+
 # Ensure local package can be imported when running scripts from repository
 sys.path.append(str(Path(__file__).resolve().parents[1] / "src"))
 
-# Delay importing local package until after sys.path modification (for scripts execution)
+# Delay importing local modules until after sys.path modification
 
 
 def main():
-    if len(sys.argv) < 3:
+    if len(sys.argv) < MIN_ARGS:
         print("Usage: build_character.py <Name> <Class>")
         sys.exit(1)
     name = sys.argv[1]
     cls = sys.argv[2]
 
     # Import project-local modules after ensuring `src` is on sys.path
-    from astradigital.kernel import AstradigitalEntity, load_codex  # type: ignore
+    from astradigital.kernel import (AstradigitalEntity,  # type: ignore
+                                     load_codex)
 
     root = Path(__file__).resolve().parents[1]
     codex_path = root / "data" / "codex" / "classes.json"

@@ -25,11 +25,11 @@ def _load_characters():
     )
     try:
         if characters_file.exists():
-            with open(characters_file) as f:
+            with characters_file.open(encoding="utf-8") as f:
                 _characters_cache = json.load(f)
-                logger.info(f"Loaded {len(_characters_cache)} characters from codex")
+                logger.info("Loaded %d characters from codex", len(_characters_cache))
                 return _characters_cache
-    except Exception as e:
+    except (OSError, json.JSONDecodeError) as e:
         logger.error(f"Error loading characters: {e}")
 
     # Fallback: empty dict
@@ -73,7 +73,8 @@ def get_character(character_id: str):
 
     if character_id not in characters:
         raise HTTPException(
-            status_code=404, detail=f"Character '{character_id}' not found",
+            status_code=404,
+            detail=f"Character '{character_id}' not found",
         )
 
     return characters[character_id]
@@ -93,7 +94,8 @@ def get_character_portrait(character_id: str):
 
     if character_id not in characters:
         raise HTTPException(
-            status_code=404, detail=f"Character '{character_id}' not found",
+            status_code=404,
+            detail=f"Character '{character_id}' not found",
         )
 
     char = characters[character_id]
@@ -120,7 +122,8 @@ def get_character_lore(character_id: str):
 
     if character_id not in characters:
         raise HTTPException(
-            status_code=404, detail=f"Character '{character_id}' not found",
+            status_code=404,
+            detail=f"Character '{character_id}' not found",
         )
 
     char = characters[character_id]

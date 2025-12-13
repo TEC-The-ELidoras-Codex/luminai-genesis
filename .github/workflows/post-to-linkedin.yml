@@ -1,0 +1,63 @@
+name: Post to LinkedIn
+
+on:
+  schedule:
+    - cron: "30 */6 * * *"
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/post-to-linkedin.yml"
+      - "scripts/post_to_linkedin.py"
+
+jobs:
+  post-to-linkedin:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          pip install feedparser requests
+
+      - name: Fetch Substack RSS and post to LinkedIn
+        env:
+          LINKEDIN_ACCESS_TOKEN: ${{ secrets.LINKEDIN_ACCESS_TOKEN }}
+          LINKEDIN_PERSON_URN: ${{ secrets.LINKEDIN_PERSON_URN }}
+          SUBSTACK_RSS: ${{ secrets.SUBSTACK_RSS_URL }}
+        run: |
+          python scripts/post_to_linkedin.py
+
+      - name: Commit tracking file
+        if: success()
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add .linkedin_posted.txt || true
+          git commit -m "chore: update LinkedIn posted tracking" || true
+          git push || true
+
+      - name: Notify Discord on success
+        if: success()
+        uses: sarisia/actions-status-discord@v1
+        with:
+          webhook: ${{ secrets.DISCORD_WEBHOOK }}
+          title: "✅ Posted to LinkedIn"
+          description: "New Substack articles shared on LinkedIn"
+          color: 0x0077b5
+
+      - name: Notify Discord on failure
+        if: failure()
+        uses: sarisia/actions-status-discord@v1
+        with:
+          webhook: ${{ secrets.DISCORD_WEBHOOK }}
+          title: "❌ LinkedIn post failed"
+          description: "Check logs for details"
+          color: 0xff0000

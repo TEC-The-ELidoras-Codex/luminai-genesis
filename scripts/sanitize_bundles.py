@@ -9,6 +9,9 @@ import re
 from datetime import datetime
 from pathlib import Path
 
+# Constants
+MAX_BLANKS = 2
+
 ROOT = Path(__file__).resolve().parents[1]
 CANONICAL = ROOT / "docs" / "canonical"
 BACKUP_SUFFIX = datetime.utcnow().strftime("bak.%Y%m%dT%H%M%SZ")
@@ -34,7 +37,7 @@ def sanitize_text(text: str) -> str:
         # if a marker appears anywhere in the line, truncate the line at the marker
         m = MARKER_RE.search(line)
         if m:
-            # keep any preceding content before the marker (if any), otherwise drop the line
+                # keep any preceding content before the marker; otherwise, drop it
             prefix = line[: m.start()].rstrip()
             if prefix:
                 # redact paths and emails in the kept prefix
@@ -60,13 +63,13 @@ def sanitize_text(text: str) -> str:
         line = EMAIL_RE.sub("[REDACTED_EMAIL]", line)
         out_lines.append(line)
 
-    # collapse excessive blank lines (max 2)
+    # collapse excessive blank lines (max MAX_BLANKS)
     cleaned = []
     blank_count = 0
     for line in out_lines:
         if line.strip() == "":
             blank_count += 1
-            if blank_count <= 2:
+            if blank_count <= MAX_BLANKS:
                 cleaned.append(line)
         else:
             blank_count = 0

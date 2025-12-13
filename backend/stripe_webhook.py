@@ -3,7 +3,8 @@
 This module exposes a `router` (FastAPI `APIRouter`) so it can be included
 into the main application without creating a second FastAPI instance.
 
-Supports SMTP and SendGrid email backends. Local testing instructions are in `docs/CONSULTATION.md`.
+Supports SMTP and SendGrid email backends. Local testing instructions are in
+`docs/CONSULTATION.md`.
 
 Example .env.local:
     STRIPE_SECRET_KEY=sk_test_...
@@ -21,7 +22,9 @@ Or use SendGrid:
 """
 
 import json
+import logging
 import os
+from pathlib import Path
 
 import stripe
 from dotenv import load_dotenv
@@ -54,19 +57,17 @@ def send_confirmation_email(email: str, session: dict):
     sendgrid_api_key = os.getenv("SENDGRID_API_KEY")
 
     subject = "LuminAI Genesis Consultation: Booking Confirmed"
-    body = f"""Hi there,
+    body = (
+        f"Hi there,\n\n"
+        "Thank you for purchasing a consultation slot!\n\n"
+        "Next step: Please pick a time here: https://calendly.com/"
+        "elidorascodex/luminai-consultation\n\n"
+        "We look forward to talking with you.\n\n"
+        "— The Elidoras Codex\n\n"
+        f"Session ID: {session.get('id')}\n"
+    )
 
-Thank you for purchasing a consultation slot!
-
-Next step: Please pick a time here: https://calendly.com/elidorascodex/luminai-consultation
-
-We look forward to talking with you.
-
-— The Elidoras Codex
-
-Session ID: {session.get('id')}
-"""
-
+    logger = logging.getLogger(__name__)
     try:
         if sendgrid_api_key:
             # SendGrid integration
@@ -81,7 +82,7 @@ Session ID: {session.get('id')}
             )
             sg = SendGridAPIClient(sendgrid_api_key)
             sg.send(message)
-            print(f"[Webhook] Sent confirmation email to {email} via SendGrid")
+            logger.info("[Webhook] Sent confirmation email to %s via SendGrid", email)
         elif email_backend == "smtp" and email_host and email_user and email_pass:
             # SMTP integration
             msg = MIMEMultipart()
@@ -94,20 +95,28 @@ Session ID: {session.get('id')}
                 server.starttls()
                 server.login(email_user, email_pass)
                 server.send_message(msg)
-            print(f"[Webhook] Sent confirmation email to {email} via SMTP")
+            logger.info("[Webhook] Sent confirmation email to %s via SMTP", email)
         else:
-            # Fallback: print to log (development)
-            print(f"[Webhook] (DEV MODE) Would send email to {email}: {subject}")
+            # Fallback: log (development)
+            logger.info("[Webhook] (DEV MODE) Would send email to %s", email)
+    except ImportError as e:
+        # Missing dependency for SendGrid or SMTP
+        logger.exception("[Webhook] Missing dependency for sending email to %s: %s", email, e)
+    except smtplib.SMTPException as e:
+        logger.exception("[Webhook] SMTP error while sending email to %s: %s", email, e)
     except Exception as e:
-        print(f"[Webhook] Error sending email to {email}: {e}")
+        logger.exception("[Webhook] Error sending email to %s: %s", email, e)
 
 
 def save_session_info(session: dict):
-    # Simple local persistence for bookkeeping (append to a file). Replace with DB as needed.
+    # Simple local persistence for bookkeeping (append to a file). Replace with
+    # DB as needed.
     try:
-        with open("/tmp/stripe_sessions.log", "a") as f:
+        p = Path("/tmp/stripe_sessions.log")
+        with p.open("a", encoding="utf-8") as f:
             f.write(json.dumps(session) + "\n")
-    except Exception:
+    except OSError:
+        # Disk write failure or permission problem; ignore to avoid disrupting webhook
         pass
 
 
@@ -130,7 +139,8 @@ async def stripe_webhook(request: Request):
     if webhook_secret:
         if not sig_header:
             raise HTTPException(
-                status_code=400, detail="Missing stripe-signature header",
+                status_code=400,
+                detail="Missing stripe-signature header",
             )
         try:
             event = stripe.Webhook.construct_event(payload, sig_header, webhook_secret)
@@ -142,7 +152,7 @@ async def stripe_webhook(request: Request):
         # Best-effort parse (development only)
         try:
             event = json.loads(payload.decode("utf-8"))
-        except Exception as e:
+        except json.JSONDecodeError as e:
             raise HTTPException(status_code=400, detail=f"Invalid JSON payload: {e}")
 
     # Handle the event
