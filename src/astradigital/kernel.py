@@ -243,7 +243,8 @@ class AstradigitalEntity:
     def heal(self, amount: int) -> int:
         before = self.hp
         self.hp = min(
-            self.max_integrity, self.hp + amount,
+            self.max_integrity,
+            self.hp + amount,
         )  # using max_integrity as hp cap for v0.1
         return self.hp - before
 
@@ -260,7 +261,9 @@ class AstradigitalEntity:
         return False
 
     def use_ability(
-        self, ability_name: str, target: "AstradigitalEntity",
+        self,
+        ability_name: str,
+        target: "AstradigitalEntity",
     ) -> dict[str, Any]:
         """Execute a codex-defined ability with cost validation and effect resolution.
 
