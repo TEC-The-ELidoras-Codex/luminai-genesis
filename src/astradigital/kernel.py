@@ -14,7 +14,7 @@ against integrity as a governance protocol ensuring ethical constraints.
 import json
 import random
 from dataclasses import dataclass, field
-from typing import Any, Dict
+from typing import Any
 
 
 @dataclass
@@ -35,13 +35,13 @@ class Ability:
     """
 
     name: str
-    cost: Dict[str, int]
+    cost: dict[str, int]
     type: str  # attack, heal, buff, zone, ultimate
-    effects: Dict[str, Any]
+    effects: dict[str, Any]
     duration: int = 0
 
     @staticmethod
-    def from_json(data: Dict[str, Any]) -> "Ability":
+    def from_json(data: dict[str, Any]) -> "Ability":
         """Construct an Ability from codex JSON schema.
 
         This factory method parses ability definitions from abilities.json,
@@ -102,14 +102,14 @@ class AstradigitalEntity:
     integrity: int = field(default=100)
     is_golf_rule: bool = field(default=False)
     twist_active: bool = field(default=False)
-    resources: Dict[str, int] = field(default_factory=dict)
+    resources: dict[str, int] = field(default_factory=dict)
     hp: int = field(default=100)
     mana: int = field(default=50)
     defense: int = field(default=10)
     speed: int = field(default=10)
-    buffs: Dict[str, Any] = field(default_factory=dict)
-    debuffs: Dict[str, Any] = field(default_factory=dict)
-    known_abilities: Dict[str, Ability] = field(default_factory=dict)
+    buffs: dict[str, Any] = field(default_factory=dict)
+    debuffs: dict[str, Any] = field(default_factory=dict)
+    known_abilities: dict[str, Ability] = field(default_factory=dict)
     level: int = 1
 
     def __post_init__(self):
@@ -119,8 +119,8 @@ class AstradigitalEntity:
     def from_codex(
         name: str,
         cls_name: str,
-        codex: Dict[str, Any],
-        ability_db: Dict[str, Any] = None,
+        codex: dict[str, Any],
+        ability_db: dict[str, Any] = None,
     ) -> "AstradigitalEntity":
         cls = codex["classes"].get(cls_name)
         if not cls:
@@ -159,7 +159,7 @@ class AstradigitalEntity:
                     continue
         return entity
 
-    def roll_d20(self, context: str = "action") -> Dict[str, Any]:
+    def roll_d20(self, context: str = "action") -> dict[str, Any]:
         """Execute a d20 roll with golf-rule inversion for entropy alignments.
 
         This method implements the core risk-scoring mechanic: standard rolls
@@ -187,20 +187,19 @@ class AstradigitalEntity:
                 result["status"] = "Success (Simple)"
             else:
                 result["status"] = "Failure (Complex)"
+        elif roll == 20:
+            result["status"] = "CRITICAL SUCCESS"
+            result["crit"] = True
+        elif roll == 1:
+            result["status"] = "CRITICAL FAILURE"
+            result["crit"] = True
+        elif roll >= 10:
+            result["status"] = "Success"
         else:
-            if roll == 20:
-                result["status"] = "CRITICAL SUCCESS"
-                result["crit"] = True
-            elif roll == 1:
-                result["status"] = "CRITICAL FAILURE"
-                result["crit"] = True
-            elif roll >= 10:
-                result["status"] = "Success"
-            else:
-                result["status"] = "Failure"
+            result["status"] = "Failure"
         return result
 
-    def philosophy_check(self, trigger_event: str) -> Dict[str, Any]:
+    def philosophy_check(self, trigger_event: str) -> dict[str, Any]:
         """Evaluate integrity risk under philosophical stress.
 
         Philosophy checks serve as a harm taxonomy: extreme events (moral dilemmas,
@@ -244,7 +243,7 @@ class AstradigitalEntity:
     def heal(self, amount: int) -> int:
         before = self.hp
         self.hp = min(
-            self.max_integrity, self.hp + amount
+            self.max_integrity, self.hp + amount,
         )  # using max_integrity as hp cap for v0.1
         return self.hp - before
 
@@ -261,8 +260,8 @@ class AstradigitalEntity:
         return False
 
     def use_ability(
-        self, ability_name: str, target: "AstradigitalEntity"
-    ) -> Dict[str, Any]:
+        self, ability_name: str, target: "AstradigitalEntity",
+    ) -> dict[str, Any]:
         """Execute a codex-defined ability with cost validation and effect resolution.
 
         This method serves as the primary action resolution layer, linking codex data
@@ -310,7 +309,7 @@ class AstradigitalEntity:
         roll = self.roll_d20(f"Cast {ability_name}")
 
         # 3. Resolve Effects
-        outcome: Dict[str, Any] = {
+        outcome: dict[str, Any] = {
             "ability": ability_name,
             "roll": roll,
             "effects_applied": [],
@@ -341,7 +340,7 @@ class AstradigitalEntity:
             actual_dmg = target.take_damage(dmg)
             outcome["damage"] = actual_dmg
             outcome["effects_applied"].append(
-                f"Dealt {actual_dmg} damage to {target.name}"
+                f"Dealt {actual_dmg} damage to {target.name}",
             )
 
         # Heal (self for now; can extend to target)
@@ -362,7 +361,7 @@ class AstradigitalEntity:
             if key in effs:
                 target.debuffs[key] = effs[key]
                 outcome["effects_applied"].append(
-                    f"Debuff {key}={effs[key]} on {target.name}"
+                    f"Debuff {key}={effs[key]} on {target.name}",
                 )
 
         # Special: crit_on_1 effect for Occam's Razor 'Singularity'
@@ -372,7 +371,7 @@ class AstradigitalEntity:
         return outcome
 
 
-def load_codex(path: str) -> Dict[str, Any]:
+def load_codex(path: str) -> dict[str, Any]:
     """Load the class codex JSON (single source of truth for philosophy classes).
 
     The codex defines class mechanics, resources, stats, and extreme twists,
@@ -385,11 +384,11 @@ def load_codex(path: str) -> Dict[str, Any]:
     Returns:
         Dict with 'classes' key mapping class names to definitions.
     """
-    with open(path, "r", encoding="utf-8") as f:
+    with open(path, encoding="utf-8") as f:
         return json.load(f)
 
 
-def initiative_order(entities: Dict[str, AstradigitalEntity]) -> Dict[str, int]:
+def initiative_order(entities: dict[str, AstradigitalEntity]) -> dict[str, int]:
     """Determine turn order via d20 initiative rolls.
 
     Initiative serves as a risk-scoring mechanic for temporal agency: entities
@@ -403,14 +402,14 @@ def initiative_order(entities: Dict[str, AstradigitalEntity]) -> Dict[str, int]:
         Dict mapping entity names to initiative scores (1-20).
     """
     # simple initiative: d20 roll per entity
-    return {name: random.randint(1, 20) for name in entities.keys()}
+    return {name: random.randint(1, 20) for name in entities}
 
 
 def take_turn(
     entity: AstradigitalEntity,
-    enemies: Dict[str, AstradigitalEntity],
-    party: Dict[str, AstradigitalEntity],
-) -> Dict[str, Any]:
+    enemies: dict[str, AstradigitalEntity],
+    party: dict[str, AstradigitalEntity],
+) -> dict[str, Any]:
     """Execute entity turn with ability selection and target resolution.
 
     This function serves as the AI layer for combat: entities select their first

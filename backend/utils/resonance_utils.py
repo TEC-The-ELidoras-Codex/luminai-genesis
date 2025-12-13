@@ -14,7 +14,6 @@ clear ImportError with guidance if numpy isn't available.
 from __future__ import annotations
 
 import math
-from typing import List, Tuple
 
 # Physical constants
 PLANCK_H = 6.62607015e-34  # Planck constant (J·s)
@@ -68,8 +67,8 @@ def frequency_from_energy(energy_j: float) -> float:
 
 
 def dominant_frequencies_from_signal(
-    signal: List[float], sample_rate: float, n_peaks: int = 3
-) -> List[Tuple[float, float]]:
+    signal: list[float], sample_rate: float, n_peaks: int = 3,
+) -> list[tuple[float, float]]:
     """Return the top `n_peaks` dominant frequencies and their magnitudes from a time-series signal.
 
     This function requires numpy. It returns a list of tuples (frequency_hz, magnitude).
@@ -80,7 +79,7 @@ def dominant_frequencies_from_signal(
     except Exception as e:  # pragma: no cover - runtime dependency
         raise ImportError(
             "dominant_frequencies_from_signal requires numpy. "
-            "Install it with `pip install numpy` to use this helper."
+            "Install it with `pip install numpy` to use this helper.",
         ) from e
 
     if sample_rate <= 0:
