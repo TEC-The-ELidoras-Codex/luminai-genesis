@@ -40,7 +40,8 @@ def html_to_plain(html: str) -> str:
 
 
 def resolve_feed_url(base: str) -> str | None:
-    """Try a few common variations of RSS feed paths and return a URL that returns an RSS XML (status 200).
+    """Try a few common variations of RSS feed paths and return a URL
+    that returns an RSS XML (status 200).
 
     This helps with sites that use /feed, /rss, /rss.xml, or redirect.
     """

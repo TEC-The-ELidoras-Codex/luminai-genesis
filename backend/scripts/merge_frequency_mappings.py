@@ -1,8 +1,10 @@
-"""Merge docs/frequency_mapping.yaml into data/frequencies/SIXTEEN_FREQUENCIES_MAPPING.json.
+"""Merge docs/frequency_mapping.yaml into
+data/frequencies/SIXTEEN_FREQUENCIES_MAPPING.json.
 
-Purpose: enrich the canonical JSON with fields from the YAML prototype (e.g., representative_interventions,
-behavioral_markers, neurochemical_signature). Writes `SIXTEEN_FREQUENCIES_MAPPING.merged.json` as output
-and leaves a backup of the original JSON as `.bak`.
+Purpose: enrich the canonical JSON with fields from the YAML prototype
+(e.g., representative_interventions, behavioral_markers,
+neurochemical_signature). Writes `SIXTEEN_FREQUENCIES_MAPPING.merged.json` as
+output and leaves a backup of the original JSON as `.bak`.
 
 This is a one-off utility to be run by the repo maintainer.
 """

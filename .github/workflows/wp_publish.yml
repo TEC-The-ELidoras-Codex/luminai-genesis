@@ -7,13 +7,13 @@ on:
   workflow_dispatch:
     inputs:
       sftp:
-        description: 'If set, upload files over SFTP instead of using the REST API (true/false)'
+        description: "If set, upload files over SFTP instead of using the REST API (true/false)"
         required: false
-        default: 'false'
+        default: "false"
       production:
-        description: 'Run in production mode (publish rather than draft)'
+        description: "Run in production mode (publish rather than draft)"
         required: false
-        default: 'false'
+        default: "false"
 
 jobs:
   publish:
@@ -31,7 +31,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.11'
+          python-version: "3.11"
 
       - name: Install dependencies
         run: |
@@ -73,4 +73,5 @@ jobs:
             rsync -avz -e "ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=yes" papers/tgcr/tgcr.pdf "${SFTP_USER}@${SFTP_HOST}:~/luminai-publish/"
             echo "Files uploaded to SFTP host; if remote `wp` is available, you can use `ssh -i ~/.ssh/id_rsa ${SFTP_USER}@${SFTP_HOST} wp ...` to create posts."
           else
-          python scripts/wp_publish.py --dir dist/wordpress --base-url "$WP_BASE_URL" --user "$WP_USER" --password "$WP_APP_PASSWORD" $DRY
+            python scripts/wp_publish.py --dir dist/wordpress --base-url "$WP_BASE_URL" --user "$WP_USER" --password "$WP_APP_PASSWORD" $DRY
+          fi

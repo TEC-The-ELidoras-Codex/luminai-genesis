@@ -40,13 +40,23 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PAT }}
 
+      - name: Set lowercase repo name
+        id: lowercase
+        run: |
+          echo "repo_lower=$(echo '${{ github.repository }}' | tr '[:upper:]' '[:lower:]')" >> $GITHUB_OUTPUT
+
       - name: Build and push images
         uses: docker/build-push-action@v4
         with:
           push: true
           tags: |
-            ${{ secrets.DOCKER_REGISTRY || 'docker.io' }}/${{ github.repository }}:discord-bot-${{ github.sha }}
+            ${{ secrets.DOCKER_REGISTRY || 'docker.io' }}/${{ steps.lowercase.outputs.repo_lower }}:discord-bot-${{ github.sha }}
           file: ./Dockerfile # placeholder; user should add Dockerfiles or customize this step
+
+      - name: Set lowercase repo name
+        id: lowercase
+        run: |
+          echo "repo_lower=$(echo '${{ github.repository }}' | tr '[:upper:]' '[:lower:]')" >> $GITHUB_OUTPUT
 
   deploy:
     runs-on: ubuntu-latest
