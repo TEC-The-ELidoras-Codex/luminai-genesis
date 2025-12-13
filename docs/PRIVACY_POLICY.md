@@ -1,6 +1,6 @@
 # Privacy Policy
 
-Last updated: 2025-12-12
+Last updated: 2025-12-13
 
 This Privacy Policy explains how The Elidoras Codex ("we", "us", "our") collects, uses, and shares information when you visit our website or use our services (including LinkedIn / WordPress automation scripts described in the repository).
 
@@ -58,4 +58,4 @@ If you have questions about this policy or wish to exercise your data rights, co
 
 ---
 
-If you want, I can: 1) add this privacy policy to your Substack as a public page (requires Substack access), 2) add a `docs/` GitHub Page with a ready-to-serve HTML page, or 3) create a minimal GitHub Pages workflow that publishes the `docs/` site automatically.
+If you want, I can: 1) add this privacy policy to your Substack as a public page (requires Substack access), 2) publish this `docs/` folder to GitHub Pages so the policy is publicly accessible, or 3) create a minimal GitHub Pages workflow that publishes the `docs/` site automatically.
