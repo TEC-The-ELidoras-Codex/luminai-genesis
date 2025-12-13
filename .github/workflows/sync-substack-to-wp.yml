@@ -1,8 +1,12 @@
 name: Sync Substack to WordPress
 
 on:
+  # webhook trigger for instant dispatch
   repository_dispatch:
     types: [new_substack_post]
+  # scheduled fallback (every 6 hours)
+  schedule:
+    - cron: '0 */6 * * *'
   workflow_dispatch:
 
 jobs:
@@ -88,6 +92,8 @@ jobs:
           git add .published_posts.txt || true
           git commit -m "chore: LuminAI Codex tracked new WordPress post" || true
           git push || true
+        env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
 
       - name: Notify Discord on success
         if: success()
