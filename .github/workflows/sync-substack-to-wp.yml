@@ -44,6 +44,41 @@ jobs:
         run: |
           python scripts/sync_substack_to_wp.py
 
+      # Fallback: If SSH secrets are present, upload HTML to server and create posts using WP-CLI
+      - name: Upload generated posts to server via SCP (optional SSH fallback)
+        if: ${{ secrets.WP_SSH_HOST != '' && secrets.WP_SSH_PRIVATE_KEY != '' }}
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.WP_SSH_HOST }}
+          username: ${{ secrets.WP_SSH_USER }}
+          key: ${{ secrets.WP_SSH_PRIVATE_KEY }}
+          port: ${{ secrets.WP_SSH_PORT || 22 }}
+          source: "dist/substack/*.html"
+          target: "/tmp/luminai_posts/"
+
+      - name: Create posts via WP-CLI on server (optional SSH fallback)
+        if: ${{ secrets.WP_SSH_HOST != '' && secrets.WP_SSH_PRIVATE_KEY != '' }}
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.WP_SSH_HOST }}
+          username: ${{ secrets.WP_SSH_USER }}
+          key: ${{ secrets.WP_SSH_PRIVATE_KEY }}
+          port: ${{ secrets.WP_SSH_PORT || 22 }}
+          script: |
+            set -e
+            mkdir -p /tmp/luminai_posts || true
+            WP_CLI_PATH=${{ secrets.WP_CLI_PATH || 'wp' }}
+            for f in /tmp/luminai_posts/*.html; do
+              [ -f "$f" ] || continue
+              title=$(basename "$f" .html)
+              # If WP path is provided, use it; otherwise rely on wp in PATH
+              if [ -n "${{ secrets.WP_CLI_PATH }}" ]; then
+                ${WP_CLI_PATH} post create "$f" --post_status=publish --post_title="$title" --porcelain || true
+              else
+                wp post create "$f" --post_status=publish --post_title="$title" --porcelain || true
+              fi
+            done
+
       - name: Commit tracking file as LuminAI Codex
         if: success()
         run: |
