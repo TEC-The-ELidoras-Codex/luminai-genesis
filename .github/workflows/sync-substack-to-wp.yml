@@ -1,0 +1,73 @@
+name: Sync Substack to WordPress
+
+on:
+  repository_dispatch:
+    types: [new_substack_post]
+  workflow_dispatch:
+
+jobs:
+  sync-content:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      actions: read
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Get LuminAI Codex Token
+        id: app-token
+        uses: actions/create-github-app-token@v1
+        with:
+          app-id: ${{ secrets.LUMINAI_APP_ID }}
+          private-key: ${{ secrets.LUMINAI_PRIVATE_KEY }}
+          repositories: ${{ github.repository }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          pip install feedparser requests python-wordpress-xmlrpc
+
+      - name: Fetch Substack RSS and publish to WordPress
+        env:
+          WP_URL: ${{ secrets.WP_URL }}
+          WP_USERNAME: ${{ secrets.WP_USERNAME }}
+          WP_PASSWORD: ${{ secrets.WP_PASSWORD }}
+          SUBSTACK_RSS: ${{ secrets.SUBSTACK_RSS_URL }}
+        run: |
+          python scripts/sync_substack_to_wp.py
+
+      - name: Commit tracking file as LuminAI Codex
+        if: success()
+        run: |
+          git config --local user.email "luminai-codex[bot]@users.noreply.github.com"
+          git config --local user.name "luminai-codex[bot]"
+          git remote set-url origin https://x-access-token:${{ steps.app-token.outputs.token }}@github.com/${{ github.repository }}
+          git add .published_posts.txt || true
+          git commit -m "chore: LuminAI Codex tracked new WordPress post" || true
+          git push || true
+
+      - name: Notify Discord on success
+        if: success()
+        uses: sarisia/actions-status-discord@v1
+        with:
+          webhook: ${{ secrets.DISCORD_WEBHOOK }}
+          title: "✅ WordPress synced from Substack"
+          description: "Latest Substack posts are now on WordPress"
+          color: 0x00ff00
+
+      - name: Notify Discord on failure
+        if: failure()
+        uses: sarisia/actions-status-discord@v1
+        with:
+          webhook: ${{ secrets.DISCORD_WEBHOOK }}
+          title: "❌ WordPress sync failed"
+          description: "Check logs for details"
+          color: 0xff0000
