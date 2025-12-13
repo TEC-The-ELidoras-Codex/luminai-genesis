@@ -1,0 +1,33 @@
+-- NY Department of State — Online Filing Copy (prefill)
+
+NONPROFIT (LuminAI Foundation)
+-------------------------------
+Entity Name: LuminAI Foundation
+Jurisdiction: New York
+County: Erie
+Principal Office Address: 542 Birchwood Square, Apt. 8, West Seneca, New York 14224, United States
+Registered Agent: Angelo Hurley
+Registered Agent Address: 542 Birchwood Square, Apt. 8, West Seneca, New York 14224, United States
+Purpose (short): Charitable, educational, and scientific purposes to develop TGCR, run ethically governed AI/mental-health research, and own related IP. (Full purpose in Articles PDF.)
+Incorporator: Angelo Hurley
+Incorporator Address: 542 Birchwood Square, Apt. 8, West Seneca, New York 14224, United States
+Contact Email: KaznakAlpha@elidorascodex.com
+Contact Phone: +1 716-279-5742
+Prepared Date: December 11, 2025
+
+LLC (LuminAI Technologies LLC)
+--------------------------------
+Entity Name: LuminAI Technologies LLC
+Jurisdiction: New York
+County: Erie
+Principal Office Address: 542 Birchwood Square, Apt. 8, West Seneca, New York 14224, United States
+Registered Agent: Angelo Hurley
+Registered Agent Address: 542 Birchwood Square, Apt. 8, West Seneca, New York 14224, United States
+Organizer: Angelo Hurley
+Organizer Address: 542 Birchwood Square, Apt. 8, West Seneca, New York 14224, United States
+Purpose (short): Develop and commercialize AI technologies for mental health and crisis intervention under license from LuminAI Foundation.
+Contact Email: KaznakAlpha@elidorascodex.com
+Contact Phone: +1 716-279-5742
+Prepared Date: December 11, 2025
+
+-- End Prefill

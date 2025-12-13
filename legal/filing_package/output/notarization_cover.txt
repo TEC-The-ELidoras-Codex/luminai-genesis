@@ -1,0 +1,21 @@
+LuminAI Filing Package — Notarization & Signature Cover
+
+Documents to sign and notarize:
+- LuminAI Foundation — Articles of Incorporation (PDF)
+- LuminAI Technologies LLC — Articles of Organization (PDF)
+- LuminAI Technologies LLC — Operating Agreement (PDF)
+- LuminAI Foundation & LuminAI Technologies LLC — IP License Agreement (PDF)
+
+Signers:
+- Angelo Hurley (Incorporator / Organizer / Sole Member)
+
+Suggested steps:
+1. Print each PDF to be signed.
+2. Sign in the presence of a licensed notary public.
+3. Notary date and notarize each signed page as required by NY state practice.
+4. Retain one original signed/notarized copy for each entity in `docs/legal/signed/`.
+5. Upload scanned copies to the bank when opening accounts and keep originals in physical safe storage.
+
+Notes:
+- If using an online notary service, confirm their acceptance with the NY Dept. of State and the bank.
+- Keep the notarized originals for at least seven years along with EIN and bank documents.
