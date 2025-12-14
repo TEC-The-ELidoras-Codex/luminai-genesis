@@ -1,0 +1,6 @@
+https://doi.org/10.17605/OSF.IO/XQ3PE
+
+License: CC-BY 4.0
+
+Notes:
+- This OSF DOI serves as the current scientific anchor for the TGCR exposé and release materials. Replace or supplement with arXiv/Zenodo IDs when those are available.
