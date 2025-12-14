@@ -6,6 +6,9 @@ on:
         paths:
             - "papers/tgcr/ARXIV_SUBMISSION_ID.txt"
     workflow_dispatch:
+permissions:
+  contents: write
+  packages: write
 
 jobs:
     create_release:
