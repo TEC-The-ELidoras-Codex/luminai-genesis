@@ -66,6 +66,7 @@ jobs:
           asset_path: ${{ steps.find_tarball.outputs.tar }}
           asset_name: tgcr_submission_latest.tar.gz
           asset_content_type: application/gzip
+
       - name: Upload tarball as release asset (fallback using gh)
         if: always()
         env:
