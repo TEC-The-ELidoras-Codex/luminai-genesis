@@ -113,7 +113,9 @@ class GradientRepairLog:
         return max(0.0, min(1.0, resonance))
 
     def identify_repair_direction(
-        self, failure_mode: str, context: dict[str, Any],
+        self,
+        failure_mode: str,
+        context: dict[str, Any],
     ) -> RepairDirection:
         """
         Identify which principle was violated and suggest repair direction.

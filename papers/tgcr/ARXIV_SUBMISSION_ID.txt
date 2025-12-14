@@ -1,4 +1,5 @@
 # Place the arXiv submission identifier here after submission.
 # Example: arXiv:2512.01234
 
+# Status: OSF preprint DOI already assigned: https://doi.org/10.17605/OSF.IO/XQ3PE (CC-BY 4.0).
 # After arXiv ID assigned, update this file and create a release linking the TGCR package and the exposé.
