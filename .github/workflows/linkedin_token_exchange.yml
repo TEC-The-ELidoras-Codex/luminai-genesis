@@ -1,0 +1,46 @@
+name: LinkedIn Token Exchange
+
+on:
+  workflow_dispatch:
+    inputs:
+      auth_code:
+        description: 'Authorization code returned by LinkedIn (from callback)'
+        required: true
+
+jobs:
+  exchange:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install jq
+        run: sudo apt-get update && sudo apt-get install -y jq
+
+      - name: Exchange auth code for token
+        id: exchange
+        env:
+          CLIENT_ID: ${{ secrets.LINKEDIN_CLIENT_ID }}
+          CLIENT_SECRET: ${{ secrets.LINKEDIN_CLIENT_SECRET }}
+          REDIRECT_URI: ${{ secrets.LINKEDIN_REDIRECT_URI }}
+          AUTH_CODE: ${{ github.event.inputs.auth_code }}
+        run: |
+          set -euo pipefail
+          echo "Exchanging authorization code for access token..."
+          resp=$(curl -sS -X POST "https://www.linkedin.com/oauth/v2/accessToken" \
+            -d "grant_type=authorization_code" \
+            -d "code=$AUTH_CODE" \
+            -d "redirect_uri=$REDIRECT_URI" \
+            -d "client_id=$CLIENT_ID" \
+            -d "client_secret=$CLIENT_SECRET")
+
+          access_token=$(echo "$resp" | jq -r '.access_token // empty')
+          expires_in=$(echo "$resp" | jq -r '.expires_in // empty')
+
+          if [ -z "$access_token" ]; then
+            echo "ERROR: no access_token in response:" >&2
+            echo "$resp" >&2
+            exit 1
+          fi
+
+          # Mask the token in logs and emit as step output for manual capture
+          echo "::add-mask::$access_token"
+          echo "Obtained access token (masked), expires_in=${expires_in} seconds"
+          echo "access_token=$access_token" >> "$GITHUB_OUTPUT"
