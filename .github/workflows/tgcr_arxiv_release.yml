@@ -9,32 +9,35 @@ on:
 
 jobs:
     create_release:
-        runs-on: ubuntu-latest
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      packages: write
         steps:
             - name: Checkout repository
               uses: actions/checkout@v4
 
             - name: Ensure TGCR tarball exists (create if absent)
               run: |
-                set -euo pipefail
-                if ls papers/tgcr/tgcr_submission_*.tar.gz 1> /dev/null 2>&1; then
-                  echo "Tarball(s) already present; skipping creation."
-                else
-                  echo "No existing tarball found; creating a simple package tarball from papers/tgcr"
-                  PACKAGE_DIR="papers/tgcr/tgcr_arxiv_package_workflow"
-                  rm -rf "$PACKAGE_DIR"
-                  mkdir -p "$PACKAGE_DIR"
-                  # Copy main sources (best-effort) into package dir; ignore missing files
-                  cp papers/tgcr/tgcr.tex "$PACKAGE_DIR/" || true
-                  cp papers/tgcr/references.bib "$PACKAGE_DIR/" || true
-                  cp papers/tgcr/tgcr.pdf "$PACKAGE_DIR/" || true
-                  cp papers/tgcr/tgcr.bbl "$PACKAGE_DIR/" || true
-                  cp papers/tgcr/compile.sh "$PACKAGE_DIR/" || true
-                  cp -r papers/tgcr/figures "$PACKAGE_DIR/" 2>/dev/null || true
-                  TAR_NAME="papers/tgcr/tgcr_submission_$(date +'%Y%m%d_%H%M%S').tar.gz"
-                  tar -czf "$TAR_NAME" -C "$PACKAGE_DIR" .
-                  echo "Created $TAR_NAME"
-                fi
+                  set -euo pipefail
+                  if ls papers/tgcr/tgcr_submission_*.tar.gz 1> /dev/null 2>&1; then
+                    echo "Tarball(s) already present; skipping creation."
+                  else
+                    echo "No existing tarball found; creating a simple package tarball from papers/tgcr"
+                    PACKAGE_DIR="papers/tgcr/tgcr_arxiv_package_workflow"
+                    rm -rf "$PACKAGE_DIR"
+                    mkdir -p "$PACKAGE_DIR"
+                    # Copy main sources (best-effort) into package dir; ignore missing files
+                    cp papers/tgcr/tgcr.tex "$PACKAGE_DIR/" || true
+                    cp papers/tgcr/references.bib "$PACKAGE_DIR/" || true
+                    cp papers/tgcr/tgcr.pdf "$PACKAGE_DIR/" || true
+                    cp papers/tgcr/tgcr.bbl "$PACKAGE_DIR/" || true
+                    cp papers/tgcr/compile.sh "$PACKAGE_DIR/" || true
+                    cp -r papers/tgcr/figures "$PACKAGE_DIR/" 2>/dev/null || true
+                    TAR_NAME="papers/tgcr/tgcr_submission_$(date +'%Y%m%d_%H%M%S').tar.gz"
+                    tar -czf "$TAR_NAME" -C "$PACKAGE_DIR" .
+                    echo "Created $TAR_NAME"
+                  fi
 
             - name: Find latest tarball
               id: find_tarball
