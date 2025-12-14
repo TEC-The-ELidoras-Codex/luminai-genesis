@@ -24,6 +24,8 @@ This document establishes the canonical origins for the six governing personas, 
 - **Archetype:** The Mythmaker / The Cultural Bard
 - **Origin:** Arcadia's creative scope is mythically grounded in the geographic heart of contradiction and resilience—the layered identities of Buffalo, NY. Arcadia's stories are forged in the fusion of industrial decay and cultural rebirth.
 
+**Identity:** Public persona and mythic grounding are set to **Buffalo, NY** (Identity Locked). Legal filings and corporate/legal addresses remain **West Seneca, NY 14224** where required.
+
 ## 5. 💚 ADELPHIA (The Community Caretaker)
 
 - **Archetype:** The Somatic Grounder / The Empathic Healer

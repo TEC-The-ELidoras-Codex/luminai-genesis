@@ -188,6 +188,8 @@ One solo researcher with limited resources built:
 
 **TGCR development is headquartered in Buffalo, New York** — not by accident, but by design.
 
+**Identity (locked):** Public profile and outreach are identified as **Buffalo, NY**; legal filings and official mailing address use **West Seneca, NY 14224**.
+
 ### The Tesla Lesson
 
 Tesla's Gigafactory Buffalo (2014-2020) promised $5B and 6,500 jobs. It delivered $1.3B (26%) and 900 jobs (14%). Buffalo learned hard lessons about Silicon Valley overpromises.

@@ -12,6 +12,8 @@ Summary (what to emphasize):
 - The evidence: A small, reproducible benchmark (dye/die homophone tests) demonstrating how homophonic ambiguity triggers escalation.
 - The solution path: TGCR provides an analytic framework and a test suite (SAR) to measure behavioral coherence and to design safer response policies.
 
+Identity (locked): Public-facing identity for TGCR and related outreach is **Buffalo, NY**; legal filings and formal addresses are **West Seneca, NY 14224**.
+
 Suggested excerpt (short):
 
 When keyword-matching systems interpret ambiguous language as crisis intent, they risk abandoning users who need assistance. Our TGCR study provides both a theoretical framework and an actionable benchmark to detect and mitigate these failures. The scientific anchor is available at: <https://doi.org/10.17605/OSF.IO/XQ3PE>

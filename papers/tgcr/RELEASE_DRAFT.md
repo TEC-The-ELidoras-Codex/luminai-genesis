@@ -11,6 +11,7 @@ Suggested release description (update after arXiv ID is available):
 - Scientific anchor: The Theory of General Contextual Resonance (TGCR) — Angelo Hurley.
 - Scientific anchor: OSF preprint DOI: https://doi.org/10.17605/OSF.IO/XQ3PE (CC-BY 4.0)
 - Note: arXiv/Zenodo identifiers will be added to this draft when available.
+- Identity (locked): Public-facing identity is **Buffalo, NY**; legal filings use **West Seneca, NY 14224**.
 - Abstract: [Use the abstract from `tgcr.tex`]
 - Tarball for reference (internal): `tgcr_submission_YYYYMMDD_HHMMSS.tar.gz`
 - Artifacts: `tgcr.pdf`, `tgcr.tex`, `references.bib`, figures/.
