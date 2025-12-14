@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 """
-Convert Markdown to Substack-optimized PDF with clean formatting.
+Convert Markdown to PDF with clean formatting.
 
 Usage:
-    python convert_markdown_to_pdf.py input.md [output.pdf]
+    python scripts/convert_markdown_to_pdf.py docs/posts/substack_zoho_keyword_fallacy.md
 
-Example:
-    python convert_markdown_to_pdf.py chapter_one.md chapter_one.pdf
+Output:
+    Creates PDF in same directory as source file.
 
 Requirements:
     pip install markdown weasyprint
@@ -14,30 +14,31 @@ Requirements:
 
 import sys
 from pathlib import Path
+
 import markdown
 from weasyprint import CSS, HTML
 
+
 def convert_markdown_to_pdf(md_file_path: str, output_path: str = None):
-    """Convert markdown file to Substack-friendly PDF with styling."""
+    """Convert markdown file to PDF with styling."""
 
-    try:
-        md_path = Path(md_file_path)
-        if not md_path.exists():
-            raise FileNotFoundError(f"File not found: {md_file_path}")
+    md_path = Path(md_file_path)
+    if not md_path.exists():
+        print(f"Error: File not found: {md_file_path}")
+        sys.exit(1)
 
-        # Read markdown
-        with open(md_path, encoding="utf-8") as f:
-            md_content = f.read()
+    # Read markdown
+    with open(md_path, encoding="utf-8") as f:
+        md_content = f.read()
 
-        # Convert to HTML with extensions
-        html_content = markdown.markdown(
-            md_content,
-            extensions=["extra", "codehilite", "toc", "tables"],
-        )
+    # Convert to HTML with extensions
+    html_content = markdown.markdown(
+        md_content, extensions=["extra", "codehilite", "toc", "tables"],
+    )
 
-        # Substack-optimized CSS
-        css = CSS(
-            string="""
+    # Add CSS styling
+    css = CSS(
+        string="""
         @page {
             size: A4;
             margin: 2.5cm;
@@ -158,28 +159,21 @@ def convert_markdown_to_pdf(md_file_path: str, output_path: str = None):
             font-style: italic;
         }
     """,
-            """,
-        )
+    )
 
-        # Wrap HTML with Substack-like structure
-        full_html = f"""
-        <!DOCTYPE html>
-        <html>
-        <head>
-            <meta charset="UTF-8">
-            <title>{md_path.stem.replace('_', ' ').title()}</title>
-        </head>
-        <body>
-            <div class="substack-header">
-                <h1>{md_path.stem.replace('_', ' ').title()}</h1>
-                <p>By Angelo Hurley | LuminAI Codex</p>
-            </div>
-            <div class="substack-body">
-                {html_content}
-            </div>
-        </body>
-        </html>
-        """
+    # Wrap HTML with proper structure
+    full_html = f"""
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{md_path.stem}</title>
+    </head>
+    <body>
+        {html_content}
+    </body>
+    </html>
+    """
 
     # Determine output path
     if output_path is None:
@@ -187,18 +181,12 @@ def convert_markdown_to_pdf(md_file_path: str, output_path: str = None):
     else:
         output_path = Path(output_path)
 
-        # Determine output path
-        if output_path is None:
-            output_path = md_path.with_suffix(".pdf")
-        else:
-            output_path = Path(output_path)
+    # Convert to PDF
+    HTML(string=full_html).write_pdf(output_path, stylesheets=[css])
 
-        # Convert to PDF
-        HTML(string=full_html).write_pdf(output_path, stylesheets=[css])
-
-        print(f"✅ PDF created: {output_path}")
-        print(f"   Size: {output_path.stat().st_size / 1024:.1f} KB")
-        return output_path
+    print(f"✅ PDF created: {output_path}")
+    print(f"   Size: {output_path.stat().st_size / 1024:.1f} KB")
+    return output_path
 
 
 if __name__ == "__main__":
