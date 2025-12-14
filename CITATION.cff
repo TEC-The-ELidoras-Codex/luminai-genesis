@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+title: "TGCR: Token-Gradient Collapse Research"
+authors:
+  - family-names: Hurley
+    given-names: Angelo
+doi: 10.5281/zenodo.17930577
+date-released: 2025-12-13
+url: https://doi.org/10.17605/OSF.IO/XQ3PE
+version: v1.0.0-tgcr
+message: "This CITATION.cff identifies the primary archival records for the TGCR paper and artifacts."

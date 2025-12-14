@@ -188,6 +188,13 @@ One solo researcher with limited resources built:
 
 **TGCR development is headquartered in Buffalo, New York** — not by accident, but by design.
 
+## Citation & Archival Record
+
+- Paper (OSF Preprint): https://doi.org/10.17605/OSF.IO/XQ3PE
+- Code & Artifacts (Zenodo): https://doi.org/10.5281/zenodo.17930577
+
+This repository contains the reference implementation and benchmarks corresponding to the TGCR preprint.
+
 **Identity (locked):** Public profile and outreach are identified as **Buffalo, NY**; legal filings and official mailing address use **West Seneca, NY 14224**.
 
 ### The Tesla Lesson
