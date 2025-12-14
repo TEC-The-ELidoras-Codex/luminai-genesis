@@ -1,0 +1,4 @@
+# Place the arXiv submission identifier here after submission.
+# Example: arXiv:2512.01234
+
+# After arXiv ID assigned, update this file and create a release linking the TGCR package and the exposé.

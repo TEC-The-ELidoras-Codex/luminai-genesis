@@ -56,7 +56,10 @@ def resolve_feed_url(base: str) -> str | None:
         f"{base}/feed.xml",
     ]
     headers = {
-        "User-Agent": "Mozilla/5.0 (compatible; LuminAI/1.0; +https://github.com/TEC-The-ELidoras-Codex)"
+        "User-Agent": (
+            "Mozilla/5.0 (compatible; LuminAI/1.0; "
+            "+https://github.com/TEC-The-ELidoras-Codex)"
+        ),
     }
     for c in candidates:
         try:
@@ -76,7 +79,7 @@ def resolve_feed_url(base: str) -> str | None:
 
 def fetch_feed(url: str):
     headers = {
-        "User-Agent": "Mozilla/5.0 (compatible; LuminAI/1.0; +https://github.com/TEC-The-ELidoras-Codex)"
+        "User-Agent": "Mozilla/5.0 (compatible; LuminAI/1.0; +https://github.com/TEC-The-ELidoras-Codex)",
     }
     try:
         r = requests.get(url, timeout=10, headers=headers)
@@ -92,7 +95,8 @@ def publish_to_wordpress(debug: bool = False):
     resolved = resolve_feed_url(SUBSTACK_RSS)
     if not resolved:
         print(
-            "❌ Could not find a valid RSS feed at the configured URL. Tried common endpoints."
+            "❌ Could not find a valid RSS feed at the configured URL."
+            " Tried common endpoints.",
         )
         return
     if debug:
