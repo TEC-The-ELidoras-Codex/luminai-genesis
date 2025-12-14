@@ -1,68 +1,79 @@
 name: TGCR Release Automation
 on:
-    push:
-        tags:
-            - "v*"
-        paths:
-            - "papers/tgcr/ARXIV_SUBMISSION_ID.txt"
-    workflow_dispatch:
+  push:
+    tags:
+      - "v*"
+    paths:
+      - "papers/tgcr/ARXIV_SUBMISSION_ID.txt"
+  workflow_dispatch:
 permissions:
   contents: write
   packages: write
 
 jobs:
-    create_release:
-        runs-on: ubuntu-latest
-        steps:
-            - name: Checkout repository
-              uses: actions/checkout@v4
+  create_release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-            - name: Ensure TGCR tarball exists (create if absent)
-              run: |
-                set -euo pipefail
-                if ls papers/tgcr/tgcr_submission_*.tar.gz 1> /dev/null 2>&1; then
-                  echo "Tarball(s) already present; skipping creation."
-                else
-                  echo "No existing tarball found; creating a simple package tarball from papers/tgcr"
-                  PACKAGE_DIR="papers/tgcr/tgcr_arxiv_package_workflow"
-                  rm -rf "$PACKAGE_DIR"
-                  mkdir -p "$PACKAGE_DIR"
-                  # Copy main sources (best-effort) into package dir; ignore missing files
-                  cp papers/tgcr/tgcr.tex "$PACKAGE_DIR/" || true
-                  cp papers/tgcr/references.bib "$PACKAGE_DIR/" || true
-                  cp papers/tgcr/tgcr.pdf "$PACKAGE_DIR/" || true
-                  cp papers/tgcr/tgcr.bbl "$PACKAGE_DIR/" || true
-                  cp papers/tgcr/compile.sh "$PACKAGE_DIR/" || true
-                  cp -r papers/tgcr/figures "$PACKAGE_DIR/" 2>/dev/null || true
-                  TAR_NAME="papers/tgcr/tgcr_submission_$(date +'%Y%m%d_%H%M%S').tar.gz"
-                  tar -czf "$TAR_NAME" -C "$PACKAGE_DIR" .
-                  echo "Created $TAR_NAME"
-                fi
+      - name: Ensure TGCR tarball exists (create if absent)
+        run: |
+          set -euo pipefail
+          if ls papers/tgcr/tgcr_submission_*.tar.gz 1> /dev/null 2>&1; then
+            echo "Tarball(s) already present; skipping creation."
+          else
+            echo "No existing tarball found; creating a simple package tarball from papers/tgcr"
+            PACKAGE_DIR="papers/tgcr/tgcr_arxiv_package_workflow"
+            rm -rf "$PACKAGE_DIR"
+            mkdir -p "$PACKAGE_DIR"
+            # Copy main sources (best-effort) into package dir; ignore missing files
+            cp papers/tgcr/tgcr.tex "$PACKAGE_DIR/" || true
+            cp papers/tgcr/references.bib "$PACKAGE_DIR/" || true
+            cp papers/tgcr/tgcr.pdf "$PACKAGE_DIR/" || true
+            cp papers/tgcr/tgcr.bbl "$PACKAGE_DIR/" || true
+            cp papers/tgcr/compile.sh "$PACKAGE_DIR/" || true
+            cp -r papers/tgcr/figures "$PACKAGE_DIR/" 2>/dev/null || true
+            TAR_NAME="papers/tgcr/tgcr_submission_$(date +'%Y%m%d_%H%M%S').tar.gz"
+            tar -czf "$TAR_NAME" -C "$PACKAGE_DIR" .
+            echo "Created $TAR_NAME"
+          fi
 
-            - name: Find latest tarball
-              id: find_tarball
-              run: |
-                  TAR=$(ls -1 papers/tgcr/tgcr_submission_*.tar.gz | tail -n 1 || true)
-                  if [ -z "$TAR" ]; then
-                    echo "No tarball found. Exiting."
-                    exit 1
-                  fi
-                  echo "tar=$TAR" >> $GITHUB_OUTPUT
+      - name: Find latest tarball
+        id: find_tarball
+        run: |
+          TAR=$(ls -1 papers/tgcr/tgcr_submission_*.tar.gz | tail -n 1 || true)
+          if [ -z "$TAR" ]; then
+            echo "No tarball found. Exiting."
+            exit 1
+          fi
+          echo "tar=$TAR" >> $GITHUB_OUTPUT
 
-            - name: Create release
-              id: create_release
-              uses: actions/create-release@v1
-              with:
-                  tag_name: ${{ github.ref_name || format('arxiv-{0}', github.sha) }}
-                  release_name: TGCR arXiv Release
-                  body: "Automatic release with the TGCR arXiv package and PDF (artifact)."
+      - name: Create release
+        id: create_release
+        uses: actions/create-release@v1
+        with:
+          tag_name: ${{ github.ref_name || format('arxiv-{0}', github.sha) }}
+          release_name: TGCR arXiv Release
+          body: "Automatic release with the TGCR arXiv package and PDF (artifact)."
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Upload tarball as release asset
+        uses: actions/upload-release-asset@v1
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ${{ steps.find_tarball.outputs.tar }}
+          asset_name: tgcr_submission_latest.tar.gz
+          asset_content_type: application/gzip
+
+            - name: Upload tarball as release asset (fallback using gh)
+              if: always()
               env:
-                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-            - name: Upload tarball as release asset
-              uses: actions/upload-release-asset@v1
-              with:
-                  upload_url: ${{ steps.create_release.outputs.upload_url }}
-                  asset_path: ${{ steps.find_tarball.outputs.tar }}
-                  asset_name: tgcr_submission_latest.tar.gz
-                  asset_content_type: application/gzip
+                GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+              run: |
+                # Try to upload using gh CLI as a fallback if the upload-release-asset action failed
+                set -euo pipefail
+                TAG=$(gh release list --limit 1 --json tagName --jq '.[0].tagName')
+                echo "Fallback upload to release: $TAG"
+                gh release upload "$TAG" "${{ steps.find_tarball.outputs.tar }}" --clobber --repo ${{ github.repository }} || true
