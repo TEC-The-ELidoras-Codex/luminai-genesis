@@ -1,0 +1,43 @@
+name: TGCR Release Automation
+on:
+  push:
+    tags:
+      - 'v*'
+    paths:
+      - 'papers/tgcr/ARXIV_SUBMISSION_ID.txt'
+  workflow_dispatch:
+
+jobs:
+  create_release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Find latest tarball
+        id: find_tarball
+        run: |
+          TAR=$(ls -1 papers/tgcr/tgcr_submission_*.tar.gz | tail -n 1 || true)
+          if [ -z "$TAR" ]; then
+            echo "No tarball found. Exiting."
+            exit 1
+          fi
+          echo "tar=$TAR" >> $GITHUB_OUTPUT
+
+      - name: Create release
+        id: create_release
+        uses: actions/create-release@v1
+        with:
+          tag_name: ${{ github.ref_name || format('arxiv-{0}', github.sha) }}
+          release_name: TGCR arXiv Release
+          body: "Automatic release with the TGCR arXiv package and PDF (artifact)."
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Upload tarball as release asset
+        uses: actions/upload-release-asset@v1
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ${{ steps.find_tarball.outputs.tar }}
+          asset_name: tgcr_submission_latest.tar.gz
+          asset_content_type: application/gzip
