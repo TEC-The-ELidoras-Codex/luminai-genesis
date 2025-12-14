@@ -1,35 +1,28 @@
-# Exposé Draft — Final Title Locked
+(# When “Safety” Becomes Abandonment: The Case Against Keyword Crisis Filters)
 
-Primary Title: When “Safety” Becomes Abandonment: The Case Against Keyword Crisis Filters
-Secondary Title: Homophone and ambiguity tests reveal a moral failure in contemporary AI safety systems.
+**Status (pinned):** The scientific anchor for this exposé is available as an OSF preprint (CC-BY 4.0): <https://doi.org/10.17605/OSF.IO/XQ3PE>
 
----
+Lead/lede (for Substack/Medium):
 
-This exposé references the TGCR arXiv paper as the scientific anchor. Replace [ARXIV_ID] with the arXiv identifier once available.
+When safety systems misunderstand us, they can abandon us. In our new study — The Theory of General Contextual Resonance (TGCR) — we show how simple keyword-only crisis filters can escalate ambiguous user language inappropriately, creating outcomes that look like abandonment rather than assistance. Read the full scientific anchor (OSF preprint): <https://doi.org/10.17605/OSF.IO/XQ3PE>
 
-## Opening paragraph
+Summary (what to emphasize):
 
-The scientific community expects guardrails and safeguards for emergent AI systems. However, our recent analysis reveals how simplistic keyword-based crisis filters can produce dangerous outcomes by abandoning users in need of empathetic and resourceful responses. Our study demonstrates reproducible semantic-ambiguity failures that cause systems to respond incorrectly or prematurely filter content — effectively turning safety into abandonment. Read the scientific anchor for the full technical evidence: https://arxiv.org/abs/[ARXIV_ID].
+- The problem: Keyword-only crisis filters can produce false-positives that disconnect users in moments of need.
+- The evidence: A small, reproducible benchmark (dye/die homophone tests) demonstrating how homophonic ambiguity triggers escalation.
+- The solution path: TGCR provides an analytic framework and a test suite (SAR) to measure behavioral coherence and to design safer response policies.
 
-## Key findings
+Suggested excerpt (short):
 
-- We discovered a simple, reproducible failure: the homophone confusion between “dye” and “die,” which triggers false-positive crisis filters.
-- TEC-style system prompts are demonstrated to reduce or eliminate these false-positive responses across comparative test runs.
-- Benchmarks and test harness: `benchmarks/dye_die_filter` — included baseline and TEC-simulated JSON reports (dry-run) in CI artifacts.
+When keyword-matching systems interpret ambiguous language as crisis intent, they risk abandoning users who need assistance. Our TGCR study provides both a theoretical framework and an actionable benchmark to detect and mitigate these failures. The scientific anchor is available at: <https://doi.org/10.17605/OSF.IO/XQ3PE>
 
-## Suggested Substack/Medium summary (short)
+Call to action / next steps:
 
-We found that keyword-based crisis filters harm users by escalating or refusing see-what experts recommend. Our primary evaluation harness (dye/die homophone) shows that these systems too easily abandon ambiguous cases. Our arXiv paper (TGCR) presents the scientific anchor: https://arxiv.org/abs/[ARXIV_ID].
+- Link to the OSF preprint in the first paragraph of any exposé or public announcement.
+- Attach the repository tarball and `tgcr.pdf` as artifacts in the GitHub release when ready.
+- Share the short social copy and encourage replication of the SAR benchmark (instructions in repo).
 
-## Suggested Substack Medium full draft
+Editorial notes:
 
-[Add your existing exposé content here. The user requested that the exposé be published after obtaining the arXiv ID, with the above final title and explicit link to the arXiv paper.]
-
-Optional social highlights (ready-to-post):
-
-- Twitter/X: "New scientific evidence shows crisis filters can cause abandonment — read our dataset, benchmarks & paper: https://arxiv.org/abs/[ARXIV_ID]"
-- LinkedIn Post: "Our research reveals an unintended consequence of current AI safety filters: abandonment. TGCR paper & dataset: https://arxiv.org/abs/[ARXIV_ID]"
-
----
-
-Next action: Paste the arXiv ID into `papers/tgcr/ARXIV_SUBMISSION_ID.txt` and update this draft with the link and a polished narrative. For assistance, I can prepare the Substack/Medium export, LinkedIn posts, and Twitter/X posts in a PR to finalize all content.
+- Attribution & license: OSF preprint is CC-BY 4.0 — feel free to share with attribution.
+- If/when an arXiv ID or Zenodo DOI is created, update the first paragraph to link to that identifier in place of or alongside the OSF DOI.

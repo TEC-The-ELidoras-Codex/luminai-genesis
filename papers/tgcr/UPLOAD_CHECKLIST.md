@@ -27,6 +27,7 @@ Use this checklist to complete the manual arXiv submission and to follow the Dua
 - [ ] When arXiv sends the confirmation email with the arXiv ID, paste that ID into `papers/tgcr/ARXIV_SUBMISSION_ID.txt`.
 - [ ] Create a GitHub release for the paper and attach the tarball as an artifact (tag name suggestion: `v1.0.0-arxiv-<ID>`).
 - [ ] Update the `RELEASE_DRAFT.md` description with the arXiv ID and attach the tarball + `tgcr.pdf` as assets.
+- [x] OSF preprint DOI assigned: https://doi.org/10.17605/OSF.IO/XQ3PE (CC-BY 4.0). Include this DOI in release notes and exposé while arXiv/Zenodo IDs are pending.
 
 ## Exposé release (Dual Drop protocol)
 

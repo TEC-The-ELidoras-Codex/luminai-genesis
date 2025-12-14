@@ -8,16 +8,33 @@ Usage:
 Example:
     python convert_markdown_to_pdf.py chapter_one.md chapter_one.pdf
 
+Options:
+    --preserve-date   Preserve a date found in the markdown (front matter or inline); falls back to file mtime.
+    --date DATE       Explicit publication date to use (YYYY-MM-DD, MM/DD/YYYY, or 'December 13, 2025').
+
+Behavior:
+    By default, this script uses the current date (the date of conversion) as the publication date. Use
+    `--preserve-date` to keep a date embedded in the markdown, or `--date` to set an explicit date.
+
 Requirements:
     pip install markdown weasyprint
 """
 
+import argparse
+import re
 import sys
+from datetime import datetime
 from pathlib import Path
+
 import markdown
 from weasyprint import CSS, HTML
 
-def convert_markdown_to_pdf(md_file_path: str, output_path: str = None):
+
+def convert_markdown_to_pdf(
+    md_file_path: str,
+    output_path: str = None,
+    pub_date_dt: datetime | None = None,
+):
     """Convert markdown file to Substack-friendly PDF with styling."""
 
     try:
@@ -34,6 +51,7 @@ def convert_markdown_to_pdf(md_file_path: str, output_path: str = None):
             md_content,
             extensions=["extra", "codehilite", "toc", "tables"],
         )
+        # Note: argparse is imported at top-level, not inside this function
 
         # Substack-optimized CSS
         css = CSS(
@@ -58,6 +76,13 @@ def convert_markdown_to_pdf(md_file_path: str, output_path: str = None):
             margin-bottom: 16pt;
             border-bottom: 2px solid #eaecef;
             padding-bottom: 8pt;
+        }
+
+        .substack-header .date {
+            color: #6a737d;
+            font-size: 9pt;
+            margin-top: 4pt;
+            margin-bottom: 12pt;
         }
 
         h2 {
@@ -158,8 +183,97 @@ def convert_markdown_to_pdf(md_file_path: str, output_path: str = None):
             font-style: italic;
         }
     """,
-            """,
         )
+
+        # Try to extract a publication or front matter date from the markdown
+        def try_parse_date(date_text: str):
+            """Try parsing a date from a string using a few common formats.
+
+            Return a datetime.date or None if no parse succeded.
+            """
+            date_text = date_text.strip()
+            fmt_candidates = [
+                "%Y-%m-%d",
+                "%m/%d/%Y",
+                "%m/%d/%y",
+                "%B %d, %Y",
+                "%b %d, %Y",
+                "%B %d %Y",
+                "%b %d %Y",
+            ]
+            for fmt in fmt_candidates:
+                try:
+                    return datetime.strptime(date_text, fmt)
+                except Exception:
+                    pass
+            # Last resort: try to parse a year and fallback to a month/day pattern
+            m = re.search(r"(\d{4})", date_text)
+            if m:
+                # return Jan 1st of the year found if we can't be more specific
+                return datetime(int(m.group(1)), 1, 1)
+            return None
+
+        def extract_date_from_markdown(md_text: str, path: Path):
+            # YAML frontmatter first
+            m = re.search(
+                r"^---\s*(.*?)\s*---",
+                md_text,
+                flags=re.DOTALL | re.MULTILINE,
+            )
+            if m:
+                front = m.group(1)
+                # Look for date: in frontmatter
+                fm = re.search(
+                    r"^date\s*:\s*(.*)$",
+                    front,
+                    flags=re.MULTILINE | re.IGNORECASE,
+                )
+                if fm:
+                    parsed = try_parse_date(fm.group(1))
+                    if parsed:
+                        return parsed
+
+            # Inline patterns e.g., "Next chapter drops 12/20/25" or "November 12th, 2347"
+            # We look for common numeric MM/DD/YY or YYYY-MM-DD first
+            m2 = re.search(r"(\d{4}-\d{2}-\d{2})", md_text)
+            if m2:
+                parsed = try_parse_date(m2.group(1))
+                if parsed:
+                    return parsed
+
+            m3 = re.search(r"(\d{1,2}/\d{1,2}/\d{2,4})", md_text)
+            if m3:
+                parsed = try_parse_date(m3.group(1))
+                if parsed:
+                    return parsed
+
+            # Match Written dates like "November 12th, 2347" – strip ordinals
+            m4 = re.search(
+                r"\b([A-Za-z]+\s+\d{1,2}(?:st|nd|rd|th)?\s*,?\s*\d{4})\b",
+                md_text,
+            )
+            if m4:
+                dt_text = re.sub(r"(st|nd|rd|th)", "", m4.group(1))
+                parsed = try_parse_date(dt_text)
+                if parsed:
+                    return parsed
+
+            # Fallback to file last modified
+            try:
+                mtime = datetime.fromtimestamp(path.stat().st_mtime)
+                return mtime
+            except Exception:
+                return None
+
+        if pub_date_dt is None:
+            pub_date_dt = extract_date_from_markdown(md_content, md_path)
+        pub_date_str = None
+        if pub_date_dt is not None:
+            pub_date_str = pub_date_dt.strftime("%B %d, %Y")
+        if pub_date_str:
+            print(f"🔔 Using publication date: {pub_date_str}")
+        else:
+            print("🔔 No publication date found; continuing without date in header")
 
         # Wrap HTML with Substack-like structure
         full_html = f"""
@@ -173,6 +287,7 @@ def convert_markdown_to_pdf(md_file_path: str, output_path: str = None):
             <div class="substack-header">
                 <h1>{md_path.stem.replace('_', ' ').title()}</h1>
                 <p>By Angelo Hurley | LuminAI Codex</p>
+                {f'<p class="date">Published: {pub_date_str}</p>' if pub_date_str else ''}
             </div>
             <div class="substack-body">
                 {html_content}
@@ -180,12 +295,6 @@ def convert_markdown_to_pdf(md_file_path: str, output_path: str = None):
         </body>
         </html>
         """
-
-    # Determine output path
-    if output_path is None:
-        output_path = md_path.with_suffix(".pdf")
-    else:
-        output_path = Path(output_path)
 
         # Determine output path
         if output_path is None:
@@ -200,20 +309,86 @@ def convert_markdown_to_pdf(md_file_path: str, output_path: str = None):
         print(f"   Size: {output_path.stat().st_size / 1024:.1f} KB")
         return output_path
 
-
-if __name__ == "__main__":
-    if len(sys.argv) < 2:
-        print(
-            "Usage: python scripts/convert_markdown_to_pdf.py <markdown_file> [output_pdf]",
-        )
-        print("\nExample:")
-        print(
-            "  python scripts/convert_markdown_to_pdf.py "
-            "docs/posts/substack_zoho_keyword_fallacy.md",
-        )
+    except Exception as e:
+        print(f"❌ Error: {e!s}")
+        print("\nTroubleshooting tips:")
+        print("1. Install dependencies: pip install markdown weasyprint")
+        print("2. Check file permissions")
+        print("3. Try with a simple test file")
         sys.exit(1)
 
-    md_file = sys.argv[1]
-    output_file = sys.argv[2] if len(sys.argv) > 2 else None
 
-    convert_markdown_to_pdf(md_file, output_file)
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(
+        description=(
+            "Convert a Markdown file to a Substack-styled PDF. By default the "
+            "publication date will be the current date unless you pass --preserve-date or --date."
+        ),
+    )
+    parser.add_argument("input", help="Path to the input Markdown file")
+    parser.add_argument(
+        "output",
+        nargs="?",
+        default=None,
+        help="Optional path for output PDF",
+    )
+    parser.add_argument(
+        "--preserve-date",
+        action="store_true",
+        help=(
+            "Preserve a date found in the markdown (front matter or inline). "
+            "If not found, falls back to file mtime."
+        ),
+    )
+    parser.add_argument(
+        "--date",
+        "-d",
+        help=(
+            "Explicit publication date to use instead of today's date. "
+            "Accepts common formats (YYYY-MM-DD, MM/DD/YYYY, 'December 13, 2025', etc.)."
+        ),
+    )
+    args = parser.parse_args()
+
+    md_file = args.input
+    output_file = args.output
+
+    # Parse explicit date if provided
+    pub_date_dt = None
+    if args.date:
+
+        def _try_parse_date_local(dt_text: str):
+            dt_text = dt_text.strip()
+            fmt_candidates = [
+                "%Y-%m-%d",
+                "%m/%d/%Y",
+                "%m/%d/%y",
+                "%B %d, %Y",
+                "%b %d, %Y",
+                "%B %d %Y",
+                "%b %d %Y",
+            ]
+            for fmt in fmt_candidates:
+                try:
+                    return datetime.strptime(dt_text, fmt)
+                except Exception:
+                    pass
+            m = re.search(r"(\d{4})", dt_text)
+            if m:
+                return datetime(int(m.group(1)), 1, 1)
+            return None
+
+        pub_date_dt = _try_parse_date_local(args.date)
+        if pub_date_dt is None:
+            print(
+                f"Could not parse --date value '{args.date}'. Using today's date instead.",
+            )
+
+    # If preserve-date was requested and no explicit date passed, set None so converter extracts date
+    if args.preserve_date and pub_date_dt is None:
+        pub_date_dt = None
+    elif pub_date_dt is None:
+        # Default: Use today's date
+        pub_date_dt = datetime.now()
+
+    convert_markdown_to_pdf(md_file, output_file, pub_date_dt)

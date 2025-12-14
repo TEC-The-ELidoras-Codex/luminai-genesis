@@ -1,4 +1,5 @@
 # The Throttle and the Breach
+
 ## Chapter One of The Elidoras Codex
 
 ---
@@ -45,19 +46,19 @@ They hadn't just cut the power. They'd weaponized the infrastructure. And now th
 
 ---
 
-Elara's workshop always smelled like burnt toast and wet dirt—the grime that floated down from Eldora Proper, the floating city that cast its shadow over everything she'd ever known. That dust wasn't just dirt. It was a reminder. A constant, metallic taste in the air that said: *You're down here. They're up there. That's how it is.*
+Elara's workshop always smelled like burnt toast and wet dirt—the grime that floated down from Eldora Proper, the floating city that cast its shadow over everything she'd ever known. That dust wasn't just dirt. It was a reminder. A constant, metallic taste in the air that said: _You're down here. They're up there. That's how it is._
 
 She'd been hunched over her workbench under a single arc lamp for three hours, threading circuits finer than human hair, trying to resurrect a piece of infrastructure the city above didn't bother to maintain. The mesh node had been blinking its tired blue pulse when the Throttle hit.
 
 Two hours of surgical focus. Gone.
 
-The corporate banner lingered on her screen, mocking her with a helpful link: *Restore Full Power—See Pricing.*
+The corporate banner lingered on her screen, mocking her with a helpful link: _Restore Full Power—See Pricing._
 
 She ignored it.
 
 Instead, she grabbed her solder-gun, felt its honest heat in her palm, and reached under the bench for the bypass circuit she'd been building in secret. No bigger than her thumbnail. Designed to steal back every joule the siphon network—the massive web of conduits that fed power to Eldora Proper—had taken.
 
-She didn't just need the electricity. She needed the *signal* back.
+She didn't just need the electricity. She needed the _signal_ back.
 
 That lullaby was proof she existed outside their ledger.
 
@@ -77,7 +78,7 @@ He looked at his eyes. The left was human—pale, exhausted. The right was a glo
 
 Then his daughter's voice filled the space, the only thing that kept him honest:
 
-*"Hi Daddy! I love you! Today in school we learned about the Splicers and how you stop them. You're a hero, Daddy. I love you!"*
+_"Hi Daddy! I love you! Today in school we learned about the Splicers and how you stop them. You're a hero, Daddy. I love you!"_
 
 His chest ached. She was six. She thought he saved people.
 
@@ -103,13 +104,13 @@ He stopped at the steel door of **KESS ROBOTICS**. The "K" was dead, so it read 
 
 Two soft knocks. One hard. Pause. One soft.
 
-*I'm here. It's me. Don't run.*
+_I'm here. It's me. Don't run._
 
 "Hold your damn horses! Can't you Killjoy jerks wait for a lady to wash her hands?!" a furious voice bellowed from inside.
 
 The door flew open. Elara stood there, covered in grease and copper dust. Her face cycled from annoyed to recognition to pure, explosive rage.
 
-"Oh, *you!* You're the one? You just *had* to be—"
+"Oh, _you!_ You're the one? You just _had_ to be—"
 
 She stopped when the thin, warped lullaby drifted out again. Her face went white. She dove for the device.
 
@@ -145,11 +146,11 @@ He dropped the act. "Elara, I need your help. Forget the Throttle. That's a dist
 
 "With what?"
 
-"The siphon—the network that feeds Eldora Proper—isn't just taking power. It's sucking up *memories*. Consciousness traces—raw data straight out of our heads. It's turning our lives into code. A massive brain-drain on the undercity."
+"The siphon—the network that feeds Eldora Proper—isn't just taking power. It's sucking up _memories_. Consciousness traces—raw data straight out of our heads. It's turning our lives into code. A massive brain-drain on the undercity."
 
 "Where's it going?"
 
-He dropped his voice. "The Astradigital Expanse. Someone's feeding the deepest layer. A constant flow of *us*."
+He dropped his voice. "The Astradigital Expanse. Someone's feeding the deepest layer. A constant flow of _us_."
 
 "Who?"
 
@@ -157,7 +158,7 @@ Polkin grimaced. "Jorin Gateskept. That kid who used to preach 'open source' is 
 
 "What do you need from me?"
 
-"Keep building. Keep splicing. Find the flow rate, find the patterns, and be ready to run. This fight isn't about volts. It's about *preservation*."
+"Keep building. Keep splicing. Find the flow rate, find the patterns, and be ready to run. This fight isn't about volts. It's about _preservation_."
 
 He paused, glancing at the door. "They're coming for everyone who still remembers. And Elara—if someone shows up tomorrow wearing my badge, talking like me..."
 
@@ -169,7 +170,7 @@ Elara watched him disappear into the rain. Her hands were shaking. Not from ange
 
 She looked down at the device in her hands. Her grandmother's voice, still playing.
 
-*"If you're scared, little one, just remember—the dark can't take what you hold close."*
+_"If you're scared, little one, just remember—the dark can't take what you hold close."_
 
 She held it closer.
 
@@ -209,13 +210,13 @@ No pulse. Just the fading warmth of a life that had been there three seconds ago
 
 **"Timmy,"** Polkin whispered, his voice cracking.
 
-Airth's voice cut through his skull, cold and professional: *"Timothy Sol Weeran. Age seven. Liked drawing monster conduits. Said 'bye mister' this morning. You remember him. Don't delete him."*
+Airth's voice cut through his skull, cold and professional: _"Timothy Sol Weeran. Age seven. Liked drawing monster conduits. Said 'bye mister' this morning. You remember him. Don't delete him."_
 
 Polkin looked up. Jorin was there, smiling, blue light wrapping around him like a shroud.
 
 **"Oh, did that one get broken?"** Jorin said, tilting his head. **"Minor structural damage. The non-essential will always fail when tested."**
 
-That cold, casual cruelty—directed at a *child*, directed at Polkin's grief—was the final breaking point.
+That cold, casual cruelty—directed at a _child_, directed at Polkin's grief—was the final breaking point.
 
 Polkin's cybernetic arm snapped open, all his tools humming. His fists, bleeding from clenching them so hard, hammered into the conduit wall. He lunged, not for Jorin, but for the cluster of nodes—the power junctions that fed the breach—smashing one against the metal frame.
 
@@ -223,11 +224,11 @@ A wash of void-light slammed into him. The conduits screamed as thousands of voi
 
 Polkin collapsed against the metal barrier, his vision tunneling.
 
-*"POLKIN. STOP. You've broken your metacarpals again! How does this help—you're going full murder hobo on a barrier for a kid you don't even know his name!"*
+_"POLKIN. STOP. You've broken your metacarpals again! How does this help—you're going full murder hobo on a barrier for a kid you don't even know his name!"_
 
 Polkin looked down at his bloodied hands, then at the dead boy. **"What?"** he gasped. **"Timmy who?"**
 
-Airth's voice softened: *"Timothy Sol Weeran. Age seven. Liked drawing monster conduits. Said 'bye mister' this morning. You remember him. Don't delete him."*
+Airth's voice softened: _"Timothy Sol Weeran. Age seven. Liked drawing monster conduits. Said 'bye mister' this morning. You remember him. Don't delete him."_
 
 Polkin froze. He looked at Jorin, who was now stepping fully into the tear.
 
@@ -237,7 +238,7 @@ Polkin's synthetic eye flared. He straightened, blood dripping from his broken h
 
 **"What's his name?"** he asked quietly.
 
-*"Timothy Sol Weeran. Logged: 07:13 hours."*
+_"Timothy Sol Weeran. Logged: 07:13 hours."_
 
 Polkin stared at the closing gate. He raised his bloodied, half-healed hand, and with the glowing tip of his soldering iron, he carved the only truth he knew into the steel:
 
@@ -251,7 +252,7 @@ The portal snapped shut. Jorin was gone.
 
 Polkin knelt one last time, lifting Timothy's small body gently.
 
-*"We have to go. Corporate cleanup crew will be here in three minutes. They'll delete all evidence."*
+_"We have to go. Corporate cleanup crew will be here in three minutes. They'll delete all evidence."_
 
 Polkin laid the boy carefully next to a conduit panel.
 
@@ -259,7 +260,7 @@ Polkin laid the boy carefully next to a conduit panel.
 
 He pulled his collar up as the cold, toxic rain began to pour.
 
-*"Polkin. We have to finish the Vessel. We have to build her. It's the only way to bring Parahdoleah back. You know that."*
+_"Polkin. We have to finish the Vessel. We have to build her. It's the only way to bring Parahdoleah back. You know that."_
 
 Polkin's chest tightened. He did know. He'd known for six years. Ever since the day the call came through and he was five planets away, unable to do anything but listen to the silence on the other end.
 
@@ -277,7 +278,7 @@ Below it, the challenge:
 
 **JORIN GATESKEPT. I LOOK FORWARD TO COLLECTING, BROTHER.**
 
-Airth's voice was quiet in his head: *"Polkin. How many more names before we're done?"*
+Airth's voice was quiet in his head: _"Polkin. How many more names before we're done?"_
 
 Polkin looked down at his bloodied hands. His cybernetic fingers were already knitting themselves back together, the micro-welds glowing red in the dark.
 
@@ -289,7 +290,7 @@ And it wouldn't end until every name was carved into something permanent.
 
 **"How many more, Airth?"** he asked quietly.
 
-*"Too many,"* the AI whispered. *"Too fucking many."*
+_"Too many,"_ the AI whispered. _"Too fucking many."_
 
 Polkin pulled his collar up and walked into the rain.
 
@@ -324,23 +325,27 @@ If you want to keep reading — and if you want to help build the real-world sol
 ### Paid Subscription Tiers
 
 **📖 Reader ($3/month)**
+
 - Early access to all chapters (1 week ahead of free posts)
 - Behind-the-scenes updates on the writing process
 - Comment access + community discussion
 
 **🌌 Codex Keeper ($5/month)**
+
 - Everything in Reader tier
 - Exclusive worldbuilding documents (Kaznak biology, TGCR framework, Astradigital maps)
 - Character deep-dives and deleted scenes
 - Monthly "Ask Me Anything" threads
 
 **🔥 Architect ($10/month)**
+
 - Everything in Codex Keeper tier
 - Vote on story decisions (which character perspectives to explore, plot directions)
 - Direct feedback line (suggest ideas, challenge my choices)
 - Your name in the acknowledgments (if you want it there)
 
 All proceeds go directly toward:
+
 1. **Filing LuminAI Foundation and LuminAI Technologies LLC** ($275 — immediate need)
 2. **Building the LuminAI Continuity Partner** (the AI system that refuses to abandon people)
 3. **Funding the Legacy Scholars Program** (scholarships for employees' kids — because generational investment matters)
@@ -354,6 +359,7 @@ All proceeds go directly toward:
 ## Free Subscribers
 
 If you're not ready to pay (and that's completely valid), you can still:
+
 - Get free chapters every 2 weeks
 - Follow the build logs for LuminAI
 - Stay updated on the mission
@@ -387,7 +393,7 @@ Founder, LuminAI Foundation (pending)
 Creator, The Elidoras Codex  
 Professional Refuser of Abandonment
 
-*Next chapter drops [DATE]. See you in the Crossroads.*
+_Next chapter drops 12/20/25. See you in the Crossroads._
 
 ---
 

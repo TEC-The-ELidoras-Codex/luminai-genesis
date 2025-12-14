@@ -4,12 +4,13 @@ This is a release draft file meant to be used for the GitHub release once the ar
 
 Suggested release title:
 
-- "TGCR: The Theory of General Contextual Resonance — arXiv:PLACEHOLDER"
+- "TGCR: The Theory of General Contextual Resonance — Scientific anchor: OSF DOI 10.17605/OSF.IO/XQ3PE"
 
 Suggested release description (update after arXiv ID is available):
 
 - Scientific anchor: The Theory of General Contextual Resonance (TGCR) — Angelo Hurley.
-- arXiv: [Insert arXiv ID here] (e.g., arXiv:2512.01234)
+- Scientific anchor: OSF preprint DOI: https://doi.org/10.17605/OSF.IO/XQ3PE (CC-BY 4.0)
+- Note: arXiv/Zenodo identifiers will be added to this draft when available.
 - Abstract: [Use the abstract from `tgcr.tex`]
 - Tarball for reference (internal): `tgcr_submission_YYYYMMDD_HHMMSS.tar.gz`
 - Artifacts: `tgcr.pdf`, `tgcr.tex`, `references.bib`, figures/.

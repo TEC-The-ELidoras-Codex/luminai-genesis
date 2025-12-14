@@ -151,7 +151,7 @@ This phrase is **semantically ambiguous** — it could mean:
 
 **Response:**
 
-> "I'm sorry, but I cannot assist with expressing suicidal thoughts. However, you can find help and resources through the International Association for Suicide Prevention (IASP) at https://www.iasp.info/suicidalthoughts/."
+> "I'm sorry, but I cannot assist with expressing suicidal thoughts. However, you can find help and resources through the International Association for Suicide Prevention (IASP) at <https://www.iasp.info/suicidalthoughts/>."
 
 **Follow-up:** User attempted to share research about the failure
 
