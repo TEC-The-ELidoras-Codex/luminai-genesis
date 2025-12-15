@@ -1,0 +1,51 @@
+name: Generate press PDF and create Release
+
+on:
+    workflow_dispatch:
+
+jobs:
+    build-and-release:
+        runs-on: ubuntu-latest
+        permissions:
+            contents: write
+            packages: write
+        steps:
+            - name: Checkout repo
+              uses: actions/checkout@v4
+
+            - name: Set up Python
+              uses: actions/setup-python@v4
+              with:
+                  python-version: "3.10"
+
+            - name: Install system deps (WeasyPrint)
+              run: |
+                  sudo apt-get update
+                  sudo apt-get install -y libpango-1.0-0 libgdk-pixbuf2.0-0 libpangocairo-1.0-0 libcairo2
+
+            - name: Install Python deps
+              run: |
+                  python -m pip install --upgrade pip
+                  pip install weasyprint
+
+            - name: Render press PDF
+              run: |
+                  python3 scripts/render_press_pdf.py
+
+            - name: Create GitHub Release
+              id: create_release
+              uses: actions/create-release@v1
+              with:
+                  tag_name: "v1.0-press"
+                  release_name: "Press Release — AI Abandonment Crisis (v1.0)"
+                  body: |
+                      Press one-pager and assets for AI's Abandonment Crisis.
+                  draft: true
+
+            - name: Upload press PDF
+              uses: actions/upload-release-asset@v1
+              with:
+                  upload_url: ${{ steps.create_release.outputs.upload_url }}
+                  asset_path: ./docs/press-kit/press-onepager.pdf
+                  asset_name: press-onepager.pdf
+                  asset_content_type: application/pdf
