@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>LinkedIn OAuth Callback</title>
+    <style>
+      body {
+        font-family: system-ui, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+        padding: 24px;
+      }
+      pre {
+        background: #0b0b0b;
+        color: #f8f8f2;
+        padding: 12px;
+        border-radius: 6px;
+      }
+      input,
+      button {
+        padding: 8px;
+        margin: 6px 0;
+        font-size: 14px;
+      }
+      .ok {
+        color: green;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>LinkedIn OAuth Callback</h1>
+    <p>
+      This page receives the LinkedIn <code>code</code> and (optionally) posts
+      it to your backend to exchange for an access token.
+    </p>
+
+    <div id="status">Waiting for LinkedIn...</div>
+
+    <h3>Auth Code</h3>
+    <pre id="code">(no code yet)</pre>
+
+    <label for="backend">Backend exchange endpoint (optional):</label><br />
+    <input
+      id="backend"
+      placeholder="https://your-server.example.com/exchange-token"
+      size="60"
+    />
+    <br />
+    <button id="send">Send code to backend</button>
+    <p id="result"></p>
+
+    <script>
+      const params = new URLSearchParams(window.location.search);
+      const code = params.get("code");
+      const state = params.get("state");
+      const error = params.get("error");
+      document.getElementById("status").textContent = error
+        ? "Error: " + error
+        : "Authorization result";
+      const codeEl = document.getElementById("code");
+      if (code) {
+        codeEl.textContent = code;
+        document.getElementById("status").innerHTML +=
+          ' — <span class="ok">Code received</span>';
+      } else {
+        codeEl.textContent =
+          "(no code: ensure you authorized the app and LinkedIn redirected here)";
+      }
+
+      document.getElementById("send").addEventListener("click", async () => {
+        const backend = document.getElementById("backend").value.trim();
+        if (!backend) {
+          alert("Enter backend exchange endpoint URL first");
+          return;
+        }
+        if (!code) {
+          alert("No code to send");
+          return;
+        }
+        document.getElementById("result").textContent = "Sending...";
+        try {
+          const r = await fetch(backend, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ code }),
+          });
+          const j = await r.json();
+          document.getElementById("result").textContent =
+            "Response: " + JSON.stringify(j);
+        } catch (e) {
+          document.getElementById("result").textContent = "Error: " + e;
+        }
+      });
+    </script>
+  </body>
+</html>
