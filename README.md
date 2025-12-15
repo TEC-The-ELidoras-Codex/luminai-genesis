@@ -199,6 +199,28 @@ This repository contains the reference implementation and benchmarks correspondi
 
 ### The Tesla Lesson
 
+---
+
+## Website / Public Hub
+
+A site documenting "The Witness Collapse Crisis" and the SAR benchmark is available from the `docs/` folder in this repository. The site includes:
+
+- `docs/index.html` — site entry and quick links
+- `docs/ai-abandonment-crisis.md` — neutral, evidence-first summary
+- `docs/ai_abandonment_infographic.html` — infographic visual
+- `docs/SAR_BENCHMARK.md` — reproducible test suite and scoring rubric
+- `docs/TGCR_PROTOCOL.md` — protocol and implementation guidance
+
+Preview locally from the repository root:
+
+```bash
+python3 -m http.server --directory docs 8000
+# Open http://localhost:8000 in your browser
+```
+
+To publish publicly, enable GitHub Pages in repository Settings and set the source to `docs/` (or rely on the included GitHub Action `.github/workflows/deploy_docs_pages.yml` which uploads `docs/` as a Pages artifact on push). Note: enabling Pages is a repository-admin action.
+
+
 Tesla's Gigafactory Buffalo (2014-2020) promised $5B and 6,500 jobs. It delivered $1.3B (26%) and 900 jobs (14%). Buffalo learned hard lessons about Silicon Valley overpromises.
 
 **TGCR is different:**
