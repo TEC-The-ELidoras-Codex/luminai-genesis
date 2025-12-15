@@ -34,7 +34,7 @@
 \renewcommand{\arraystretch}{1.3}
 % Helper for images: if the image file is missing, render a placeholder box
 \newcommand{\maybeincludegraphics}[2][]{%
-    \IfFileExists{#2}{\includegraphics[#1]{#2}}{\fbox{\parbox{0.9\textwidth}{\centering Replace figure: #2}}}%
+    \IfFileExists{#2}{\csname includegraphics\endcsname[#1]{#2}}{\fbox{\parbox{0.9\textwidth}{\centering Replace missing figure file}}}%
 }
 
 \title{The Theory of General Contextual Resonance (TGCR): A Unified Framework for Physics, Consciousness, and Ethics}
