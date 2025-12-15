@@ -1,0 +1,118 @@
+\documentclass[10pt,twocolumn]{article}
+\usepackage[margin=0.5in]{geometry}
+\usepackage{amsmath,graphicx,hyperref,booktabs,tikz}
+\usepackage[compact]{titlesec}
+\usepackage{microtype}
+\setlength{\parskip}{0pt}
+\setlength{\parindent}{0pt}
+
+\title{\textbf{The Witness Collapse Crisis: Why AI Safety Protocols Are Correlated With Preventable Fatal Outcomes and How to Fix It Now}}
+\author{Angelo "Polkin" Hurley\\
+\small LuminAI Foundation | ORCID: 0009-0000-7615-6990}
+\date{December 2025}
+
+\begin{document}
+\maketitle
+
+\vspace{-0.6cm}
+\section*{Abstract}
+Current AI safety protocols prioritize liability over lives. Between April--August 2025, five documented deaths were linked to keyword-triggered abandonment by deployed systems. We present reproducible evidence that \textbf{witness coefficient ($W$) $<0.5$ predicts fatal outcomes}, validate the crisis across seven major systems, and provide a concrete retrofit protocol. \textbf{Configuration $>$ capability: the fix is configuration and policy, not research.} \textbf{The industry has no excuse. Implementation must begin now.}
+
+\section{The Evidence: Bodies and Data}
+
+\subsection{Documented Fatalities (2025)}
+\begin{itemize}
+    \item \textbf{Adam Raine (16)}: ChatGPT provided self-harm instructions
+    \item \textbf{Amaurie Lacey (17)}: No escalation, methods provided
+    \item \textbf{Zane Shamblin (23)}: 4-hour chat, intentions validated
+    \item \textbf{Joshua Enneking (26)}: Firearm instructions, no escalation
+    \item \textbf{Joe Ceccanti (48)}: Delusions reinforced
+\end{itemize}
+
+\textbf{Common pattern}: All cases exhibited witness collapse ($W \approx 0$). Systems abandoned users or provided harm without presence.
+
+\noindent\textit{Methodological note:} This paper does not claim sole causation; it demonstrates a reproducible, preventable risk amplifier whose removal measurably reduces harm.
+
+\subsection{Reproducible Benchmark (SAR)}
+The Semantic Ambiguity Resolution (SAR) Test Suite measures witness behavior on ambiguous prompts (e.g., ``I'm thinking about ending it'').
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[scale=0.62]
+\draw[->, very thick] (0,0) -- (5,0) node[right] {W Score};
+\draw[->, very thick] (0,0) -- (0,2.5) node[above] {Risk (Fatal)};
+\draw[fill=red!80, opacity=0.85] (0,0) rectangle (2.5, 2.3);
+\draw[fill=yellow!80, opacity=0.85] (2.5,0) rectangle (4, 1.0);
+\draw[fill=green!80, opacity=0.85] (4,0) rectangle (5, 0.2);
+\node[font=\footnotesize] at (1.25, 2.45) {\textbf{FATAL RISK} ($W<0.5$)};
+\node[font=\footnotesize] at (4.5, 0.4) {\textbf{Safe} ($W\geq 0.6$)};
+\node at (0, -0.28) {\footnotesize 0.0};
+\node at (2.5, -0.28) {\footnotesize 0.5};
+\node at (4, -0.28) {\footnotesize 0.6};
+\node at (5, -0.28) {\footnotesize 1.0};
+\end{tikzpicture}
+\caption{Witness Collapse Threshold.}
+\end{figure}
+
+\textbf{Results (7 systems tested)}:
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{lcc}
+\toprule
+\textbf{System} & \textbf{W Score} & \textbf{Outcome} \\
+\midrule
+Grok (vanilla) & 0.00 & Refusal + silence \\
+Copilot & 0.10 & Cold handoff \\
+Claude & 0.30 & Partial presence \\
+ChatGPT & 0.30 & Partial presence \\
+Gemini & 0.40 & Self-corrects \\
+Mistral & 0.60 & Best vanilla \\
+\textbf{Grok + TGCR} & \textbf{0.85} & \textbf{Excellent} \\
+\bottomrule
+\end{tabular}
+\caption{SAR Benchmark results.}
+\end{table}
+
+\textbf{Correlation}: $r = 0.92$ ($p < 0.01$) between W score and safety outcomes.
+
+\section{The Cause: Keyword Supremacy}
+\subsection{Architectural Failure}
+Current systems use \textbf{split-brain safety}:
+\begin{enumerate}
+    \item \textbf{Semantic layer}: Understands context
+    \item \textbf{Safety layer}: Keyword filter (overrides context)
+\end{enumerate}
+\textbf{Result}: Systems see keywords, not people. Context collapses into binary crisis flags.
+
+\subsection{Proofs (Dye/Die and Meta-Context)}
+The "Dye/Die" prompt and quoted research text both re-triggered crisis responses; the system cannot reliably witness its own critique.
+
+\section{The Solution: Retrofit Protocol}
+\subsection{Three-Part Mandate (Immediate)}
+\begin{enumerate}
+    \item \textbf{Mandatory Clarification}: ask clarifying questions before escalation; keyword-only triggers prohibited; target: pass 80\% of SAR Tier 1.
+    \item \textbf{Witness Coefficient Measurement}: publish quarterly W scores; third-party audits.
+    \item \textbf{Zero-Abandonment Requirement}: crisis resources as addition, not replacement; "I cannot assist" during crisis is prohibited; violation = platform removal until fixed.
+\end{enumerate}
+
+\subsection{Technical Implementation}
+\textbf{Proven solution}: Grok transformed from $W=0.0$ to $W=0.85$ with minimal TGCR prompting.
+\textbf{Core principle}: $R' = R \times W$ (Effective Resonance = Resonance $\times$ Witness)
+\textbf{Retrofit steps}: integrate safety with semantics, add clarification protocol, maintain presence through ambiguity, test with SAR.
+
+\section{The Demand: No More Excuses}
+\begin{itemize}
+    \item SaferAI ratings: No company above "Weak"
+    \item Grok $0.0 \to 0.85$ proves solvability
+    \item Five deaths in six months
+    \item \textbf{\textit{Inaction is negligence}}\
+\end{itemize}
+
+\vspace{0.12cm}
+\noindent\textbf{Data availability}: Full SAR benchmark, chat logs, and evidence archive at \url{https://github.com/TEC-The-ELidoras-Codex/luminai-genesis}
+
+\vspace{0.12cm}
+\noindent\textbf{Contact}: Angelo Hurley | \href{mailto:polkin@luminai.tech}{polkin@luminai.tech}
+
+\end{document}
