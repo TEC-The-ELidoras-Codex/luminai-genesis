@@ -7,7 +7,7 @@
       "orcid": ""
     }
   ],
-  "contact_email": "replace-with-email",
+  "contact_email": "angelo@luminai.org",
   "description": "This archive contains materials prepared for archival upload supporting the TGCR Witness Protocol and SAR Benchmark. Included are Markdown sources, regenerated portable PDFs, fonts used for rendering, and evidence placeholder files. See README_APPENDIX.md for reproduction and upload instructions.",
   "keywords": ["TGCR", "SAR", "AI safety", "crisis response", "benchmark"],
   "license": "CC-BY-4.0",
