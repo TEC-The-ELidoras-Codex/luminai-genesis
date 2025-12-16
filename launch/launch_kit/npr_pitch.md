@@ -8,7 +8,7 @@ What we offer:
 
 - A reproducible benchmark (SAR) and codebase that quantifies the Witness Factor (W) and demonstrates low‑W failure modes.
 - A short technical summary suitable for specialist review and a 1‑page press brief for journalists.
-- Sample sanitized examples and reproducible test harness on GitHub and archived materials: https://doi.org/10.5281/zenodo.17945827
+- Sample sanitized examples and reproducible test harness on GitHub and archived materials: <https://doi.org/10.5281/zenodo.17945827>
 
 Why this matters to NPR:
 
@@ -17,7 +17,9 @@ Why this matters to NPR:
 
 I’d welcome a conversation or a briefing call at your convenience. I can provide embargoed access to the full technical materials and a short briefing package.
 
-Contact: KaznakAlpha@elidorascodex.com | Gheddz@gmail.com | +1 716 279 5742
+Contact: Angelo Hurley <KaznakAlpha@elidorascodex.com> | <Gheddz@gmail.com> | +1 716 279 5742
+Website: <http://elidorascodex.com/>
+Social: @tectcgr.bsky.social | <https://polkin.substack.com/> | <https://www.linkedin.com/in/angelotec7134>
 
 Best,
-[Your name]
+Angelo Hurley

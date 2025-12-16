@@ -23,7 +23,8 @@ Evidence package
 
 Contact
 
-Primary: KaznakAlpha@elidorascodex.com | Gheddz@gmail.com | +1 716 279 5742
+Primary: Angelo Hurley (KaznakAlpha@elidorascodex.com) | Gheddz@gmail.com | +1 716 279 5742
+Website: http://elidorascodex.com/ | @tectcgr.bsky.social | https://polkin.substack.com/
 Website: http://elidorascodex.com/ | @tectcgr.bsky.social | https://polkin.substack.com/
 
 Embargo & access

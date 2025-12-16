@@ -21,4 +21,4 @@ Suggested release title: "TGCR: The Theory of General Contextual Resonance — s
 
 Enable the Zenodo GitHub integration (if not already enabled). Once the release is published, Zenodo will archive the release and mint a DOI. This release has been archived on Zenodo: https://doi.org/10.5281/zenodo.17945827. Record the Zenodo DOI alongside the OSF preprint DOI: https://doi.org/10.17605/OSF.IO/XQ3PE.
 
-Contact: KaznakAlpha@elidorascodex.com | Gheddz@gmail.com | +1 716 279 5742
+Contact: Angelo Hurley (KaznakAlpha@elidorascodex.com) | Gheddz@gmail.com | +1 716 279 5742

@@ -17,3 +17,6 @@ Repository: https://github.com/TEC-The-ELidoras-Codex/luminai-genesis
 #AISafety #ResponsibleAI #AIAbandonment #TGCR #TECR #Policy
 
 Note: Text above uses conservative, evidence‑based language. The cases referenced are documented in lawsuits and press reports; causation has not been adjudicated in court.
+
+—
+Angelo Hurley

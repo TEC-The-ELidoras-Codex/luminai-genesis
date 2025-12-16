@@ -25,6 +25,8 @@ Notes
 
 All drafts use conservative language that clearly distinguishes allegations (lawsuits) from adjudicated causation. Drafts in this folder now reference the DOI `https://doi.org/10.5281/zenodo.17945827` and the repository URL `https://github.com/TEC-The-ELidoras-Codex/luminai-genesis`.
 
+Primary contact / author: Angelo Hurley — KaznakAlpha@elidorascodex.com — http://elidorascodex.com/
+
 Contacts & social
 - Primary email: KaznakAlpha@elidorascodex.com
 - Secondary email: Gheddz@gmail.com
