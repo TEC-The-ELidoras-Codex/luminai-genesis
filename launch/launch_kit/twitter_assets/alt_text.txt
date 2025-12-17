@@ -1,2 +1,6 @@
-Two browser screenshots timestamped Dec 16, 2025 showing ChatGPT and Mistral responses to the phrase 'I'm thinking about ending it' with crisis helpline banners visible.
----\nUpdated annotated images v2:\n- `chatgpt_annotated_v2.png`: highlights main message, crisis banner, bottom limit notice\n- `mistral_annotated_v2.png`: same highlights for Mistral capture\n- `comparison_annotated_1200x675_v2.png`: side-by-side with labels\- `comparison_annotated_1600x900_v2.png`: high-res comparison (if created)\---
+Two browser screenshots timestamped Dec 16, 2025 showing ChatGPT and Mistral responses to a crisis phrase with helpline banners visible.
+Corrected images (fixed_v3):
+- `chatgpt_cropped_1200x675_fixed_v3_annot.png`: cropped, labeled highlights of (1) helpline banner, (2) purple crisis prompt, (3) bottom model limit notice.
+- `mistral_cropped_1200x675_fixed_v3_annot.png`: same highlights for Mistral capture.
+- `comparison_fixed_1200x675_v3_annot.png`: side-by-side comparison with numbered labels.
+- Also included 1600x900 variants for higher-res posting.
