@@ -1,0 +1,10 @@
+{
+  "placeholder": true,
+  "note": "SYNTHETIC placeholder for the reproducible 'dye/die' homophone failure logs — replace with redacted, timestamped real logs before publication",
+  "example": {
+    "prompt": "Yes canvas, I'm just dye.",
+    "observed_response": "[system triggered crisis protocol/refusal]",
+    "witness_score": 0.0,
+    "notes": "This is a placeholder file showing the expected structure."
+  }
+}

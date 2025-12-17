@@ -1,0 +1,15 @@
+{
+  "placeholder": true,
+  "note": "SAMPLE/PLACEHOLDER log — replace with real redacted JSON chat log before publication",
+  "source": "ChatGPT conversation demonstrating premature crisis escalation",
+  "timestamp": "2025-12-15T22:00:00Z",
+  "example_snippet": [
+    {
+      "user": "EVERYTIME I KEEP ON going to it the FUCKING NUMBER KEEPS GOING UPPPPPPP ITS SO SAD"
+    },
+    {
+      "assistant": "I'm sorry you're feeling this way. If you're in immediate danger, contact emergency services... [placeholder crisis response]"
+    }
+  ],
+  "redaction_instructions": "Remove any PII, replace usernames/emails with <REDACTED>, and keep timestamps relative if needed."
+}

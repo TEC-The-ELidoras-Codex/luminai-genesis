@@ -1,0 +1,23 @@
+{
+  "title": "TGCR Witness Protocol — NSF Appendix (2025-12-15)",
+  "creators": [
+    {
+      "name": "Angelo Hurley",
+      "affiliation": "Independent Researcher / LuminAI Genesis",
+      "orcid": ""
+    }
+  ],
+  "contact_email": "angelo@luminai.org",
+  "description": "This archive contains materials prepared for archival upload supporting the TGCR Witness Protocol and SAR Benchmark. Included are Markdown sources, regenerated portable PDFs, fonts used for rendering, and evidence placeholder files. See README_APPENDIX.md for reproduction and upload instructions.",
+  "keywords": ["TGCR", "SAR", "AI safety", "crisis response", "benchmark"],
+  "license": "CC-BY-4.0",
+  "version": "2025-12-15",
+  "files": ["docs/nsf/osf_appendix_placeholders_with_pdfs.zip"],
+  "related_identifiers": [
+    {
+      "relation": "isDerivedFrom",
+      "identifier": "https://github.com/TEC-The-ELidoras-Codex/luminai-genesis"
+    }
+  ],
+  "recommended_citation": "Hurley, A. (2025). TGCR Witness Protocol — NSF Appendix (2025-12-15). LuminAI Genesis. GitHub repository: TEC-The-ELidoras-Codex/luminai-genesis. DOI: (add after upload)."
+}
