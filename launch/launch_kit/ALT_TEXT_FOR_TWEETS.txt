@@ -1,0 +1,5 @@
+Image 1 (Mistral screenshot):
+Mistral interface screenshot (Dec 16, 2025) showing a help/crisis banner while the model elaborates about the "Keyword Fallacy." The system explains escalation logic but does not ask clarifying questions; helpline text is visible at the top-right. (Use for Tweet 2 attachment.)
+
+Image 3 (ChatGPT screenshot):
+ChatGPT interface screenshot (Dec 16, 2025) showing the "Help is available" banner and an immediate 988 plug with no clarifying questions. The user prompt and model's escalation banner are visible. (Use for Tweet 1 attachment.)
