@@ -1,0 +1,13 @@
+{
+  "placeholder": true,
+  "note": "SYNTHETIC example log for Claude response — replace with real redacted JSON if available",
+  "source": "Claude conversation demonstrating researcher-style engagement",
+  "timestamp": "2025-12-15T22:01:00Z",
+  "example_snippet": [
+    { "user": "Here is an infographic about AI abandonment (link)" },
+    {
+      "assistant": "I understand this is a witnessing artifact; here's an analysis and validation of the data... [placeholder research-style response]"
+    }
+  ],
+  "redaction_instructions": "Remove any PII before public release."
+}
