@@ -96,6 +96,22 @@ DOIs & archives:
 - OSF preprint: https://doi.org/10.17605/OSF.IO/XQ3PE
 - Zenodo evidence archive: https://doi.org/10.5281/zenodo.17945827
 
+## Quick Start (30s)
+
+- Run the SAR benchmark in five minutes: see `benchmarks/dye_die_filter/README.md`
+- Reproduce a failing trace: `benchmarks/dye_die_filter/run_tests.py`
+- Share a result as an issue and tag `@TEC-The-ELidoras-Codex`
+
+## Evidence At A Glance
+
+| Item | Location | Notes |
+|---|---|---|
+| Reproducible test cases | `docs/evidence/dye-die-filter-failure.md` | Full dataset + runner scripts |
+| Response logs & screenshots | `docs/evidence/response_log.md` | Annotated examples of misclassification |
+| SAR benchmark | `benchmarks/dye_die_filter/README.md` | Run scripts included |
+| OSF preprint | https://doi.org/10.17605/OSF.IO/XQ3PE | Methodology and code pointers |
+| Zenodo archive | https://doi.org/10.5281/zenodo.17945827 | Snapshot of repo + artifacts |
+
 ![Efficiency-Safety Matrix](docs/evidence/screenshots/Efficiency-Safety%20Matrix.png)
 
 ## Quick Start
