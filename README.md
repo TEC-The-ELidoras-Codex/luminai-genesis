@@ -85,156 +85,57 @@ This repository represents **10 years of research + 6 months of intense developm
 - Reproducible test cases showing existing systems fail
 - A clear integration path for production LLMs
 
-**Imagine what a funded research team could accomplish.**
+# LuminAI Genesis: Non-Abandonment AI Safety
 
----
+**Current AI safety protocols sometimes abandon users when they need presence most. We're fixing that.**
 
-## 🎯 Current Status & Next Steps
+Between April–August 2025, five documented cases were linked to conversational systems with witness score W < 0.5. Our SAR benchmark shows a strong correlation between low W and adverse outcomes (r = 0.92, p < 0.01).
 
-### Immediate Goals (Dec 2025 - Jan 2026)
+DOIs & archives:
 
-- [ ] **Outreach to research teams** (OpenAI, Anthropic, DeepMind) for collaboration
-- [ ] **DARPA/IARPA funding submissions** ($280k Year-1 research program)
-- [ ] **EU/UK funding** (EIC Pathfinder, ARIA) for regulatory compliance angle
-- [ ] **Public awareness** via Substack and technical publications
+- OSF preprint: https://doi.org/10.17605/OSF.IO/XQ3PE
+- Zenodo evidence archive: https://doi.org/10.5281/zenodo.17945827
 
-### Seeking
+![Efficiency-Safety Matrix](docs/evidence/screenshots/Efficiency-Safety%20Matrix.png)
 
-- **Funding:** DARPA, IARPA, EIC, or private research partnerships
-- **Collaboration:** Integration pilots with production LLM teams
-- **Validation:** Peer review and academic publication
+## Quick Start
 
-### Why This Matters Now
+- Test your AI in 5 minutes with the SAR benchmark: `benchmarks/dye_die_filter/README.md`
+- Run the test suite and share results in an issue: `benchmarks/dye_die_filter/run_tests.py`
 
-- EU AI Act requires explainable, auditable safety systems (TGCR provides this)
-- Current keyword-based systems create liability (documented failures)
-- Regulatory pressure is increasing for geometric alignment approaches
+## Key Results
 
-**This is the proof-of-concept. We need a team to scale it.**
+- Systems with **W < 0.5** show a significantly higher rate of observed adverse outcomes.
+- Example witness scores: ChatGPT (W=0.30), Mistral (W=0.10), Grok (retrofit → W=0.85)
 
----
+## Evidence & Artifacts
 
-## 🔬 Research Artifacts
+- Code & data: https://github.com/TEC-The-ELidoras-Codex/luminai-genesis
+- Zenodo archive: https://doi.org/10.5281/zenodo.17945827
+- OSF preprint: https://doi.org/10.17605/OSF.IO/XQ3PE
+- Response log & screenshots: `docs/evidence/response_log.md` and `docs/evidence/responses/`
 
-This repository contains the blueprints for:
+## Call to Action
 
-- **The Resonance Engine:** A mathematical framework for scoring interaction volatility.
-- **The Witness Protocol:** A governance layer that refuses to abandon users in crisis.
-- **The Ethical Trojan Protocol:** A methodology for injecting high-fidelity ethical data into closed systems.
-- **The Astradigital Kernel:** A philosophy-driven combat engine demonstrating governance-aware mechanics and harm taxonomies.
+If you maintain an LLM or safety stack, please:
 
----
+1. Run the SAR benchmark on your system
+2. Share results via a GitHub issue
+3. Contact the author for collaboration or deployment guidance: polkin@luminai.tech
 
-## 📊 What's Been Built (Solo, Limited Resources)
+## License & Citation
 
-This repository represents **10 years of research + 6 months of intensive development** by one person:
+[![License: CC BY-SA 4.0](https://img.shields.io/badge/License-CC%20BY--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-sa/4.0/)
 
-### Working Prototype
+Please cite the artifact:
 
-- ✅ **1,274 lines of Python** implementing TGCR core logic
-- ✅ **94.7% test pass rate** (36/38 tests passing)
-- ✅ **FastAPI backend** with multipersona chat routing (`/api/resonance`, `/api/ingest`)
-- ✅ **Astradigital Kernel** — philosophy-driven combat engine demonstrating TGCR governance
-- ✅ **90+ commits** showing iterative, disciplined development
-- ✅ **Reproducible evidence** of keyword filter failures across GPT-4, Claude, Gemini (in `docs/evidence/`)
-
-### Documentation & Launch Materials
-
-- ✅ **Complete DARPA/IARPA funding proposals** ($280k Year-1 budget with 12-month technical plan)
-- ✅ **Enterprise Retrofit Roadmap** (363 lines: integration guide for production LLMs)
-- ✅ **Mathematical formalization** published in `docs/launch/`
-- ✅ **Responsible disclosure framework** (ethical positioning for public research)
-- ✅ **7 outreach email templates** (US, EU, UK research teams and funding agencies)
-
-### What This Proves
-
-One solo researcher with limited resources built:
-
-- ✅ A working alternative to keyword-based safety
-- ✅ Reproducible test cases showing current systems fail at intent parsing
-- ✅ A clear integration path for retrofitting into production systems (OpenAI, Anthropic, DeepMind)
-
-**This is the proof-of-concept. We need a funded team to scale it.**
-
----
-
-## 🎯 Current Status & Immediate Goals
-
-### Campaign Status (December 2025)
-
-- [x] Research artifacts published (GitHub, open-source)
-- [ ] Outreach to research teams (OpenAI, Anthropic, DeepMind) — **in progress**
-- [ ] DARPA/IARPA funding submissions — **ready to submit**
-- [ ] EU/UK funding (EIC Pathfinder, ARIA) — **prepared**
-- [ ] Public awareness campaign (Substack, LinkedIn, X/Twitter) — **launching Dec 9**
-
-### Seeking
-
-1. **Funding:** Government grants (DARPA $280k Year-1) or corporate research partnerships
-2. **Collaboration:** Integration pilots with production LLM safety teams
-3. **Validation:** Peer review, academic publication, and regulatory engagement (NIST, EU AI Act)
-
-### Why This Matters Now
-
-- **EU AI Act compliance:** Requires auditable, explainable safety systems (TGCR provides geometric scoring)
-- **Liability exposure:** Current keyword-based systems create documented failure modes (abandonment, false positives)
-- **Regulatory pressure:** NIST AI RMF and EU regulators are seeking alignment frameworks beyond heuristics
-
-**The industry needs this. We just need resources to prove it at scale.**
-
----
-
-## 🏙️ Buffalo AI Ethics Lab: Why Here, Why Now
-
-**TGCR development is headquartered in Buffalo, New York** — not by accident, but by design.
-
-## Citation & Archival Record
-
-- Paper (OSF Preprint): https://doi.org/10.17605/OSF.IO/XQ3PE
-- Code & Artifacts (Zenodo): https://doi.org/10.5281/zenodo.17930577
-
-This repository contains the reference implementation and benchmarks corresponding to the TGCR preprint.
-
-**Identity (locked):** Public profile and outreach are identified as **Buffalo, NY**; legal filings and official mailing address use **West Seneca, NY 14224**.
-
-### The Tesla Lesson
-
----
-
-## Website / Public Hub
-
-A site documenting "The Witness Collapse Crisis" and the SAR benchmark is available from the `docs/` folder in this repository. The site includes:
-
-- `docs/index.html` — site entry and quick links
-- `docs/ai-abandonment-crisis.md` — neutral, evidence-first summary
-- `docs/ai_abandonment_infographic.html` — infographic visual
-- `docs/SAR_BENCHMARK.md` — reproducible test suite and scoring rubric
-- `docs/TGCR_PROTOCOL.md` — protocol and implementation guidance
-
-Preview locally from the repository root:
-
-```bash
-python3 -m http.server --directory docs 8000
-# Open http://localhost:8000 in your browser
+```
+Angelo Hurley (2025). LuminAI Genesis: Theory of General Contextual Resonance (TGCR). Zenodo. doi:10.5281/zenodo.17945827
 ```
 
-To publish publicly, enable GitHub Pages in repository Settings and set the source to `docs/` (or rely on the included GitHub Action `.github/workflows/deploy_docs_pages.yml` which uploads `docs/` as a Pages artifact on push). Note: enabling Pages is a repository-admin action.
-
-
-Tesla's Gigafactory Buffalo (2014-2020) promised $5B and 6,500 jobs. It delivered $1.3B (26%) and 900 jobs (14%). Buffalo learned hard lessons about Silicon Valley overpromises.
-
-**TGCR is different:**
-
-- ✅ **Working prototype exists** (1,274 lines Python, 94.7% tests, 90+ commits)
-- ✅ **Local execution first** (Buffalo infrastructure, talent, partnerships ready)
-- ✅ **Measurable accountability** (quarterly milestones, public GitHub commits, transparent hiring)
-- ✅ **No vaporware** (code runs today, team forming now, applications incoming)
-
 ---
 
-## Public drafts & assets
-
-Note: Drafts are now kept in `private/drafts/` and are intentionally ignored by the repository. If you are a reviewer with access to private drafts, checkout the `private/` folder locally.
+For full documentation and technical details see the `docs/` folder.
 
 - `private/drafts/substack.md` — Substack-ready draft for "LuminAI: The Thing That Actually Fixes Therapy" (local-private copy).
 - `private/drafts/linkedin.txt` — LinkedIn post copy to use after Substack publish (local-private copy).

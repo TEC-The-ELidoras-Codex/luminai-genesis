@@ -28,6 +28,7 @@ All drafts use conservative language that clearly distinguishes allegations (law
 Primary contact / author: Angelo Hurley — KaznakAlpha@elidorascodex.com — http://elidorascodex.com/
 
 Contacts & social
+
 - Primary email: KaznakAlpha@elidorascodex.com
 - Secondary email: Gheddz@gmail.com
 - Phone: +1 716 279 5742

@@ -9,6 +9,7 @@ Our contributions are threefold. First, we formalize TGCR: a minimal, deployable
 We provide an open, archival evidence package (OSF and Zenodo DOIs), a working prototype demonstrating feasibility of the TGCR retrofit, and reproducible instructions enabling independent replication. Our findings show that modest policy and architectural changes—mandating clarification, instrumenting W audits, and enforcing zero‑abandonment tolerances—can materially reduce false positives and, critically, prevent abandonment‑driven harms without retraining base models. We propose TGCR as a candidate safety certification layer for conversational systems, and describe pathways for validation, pilot deployment, and regulatory audit.
 
 DOIs & Links
+
 - OSF preprint: https://doi.org/10.17605/OSF.IO/XQ3PE
 - Release & evidence: https://doi.org/10.5281/zenodo.17945827
 - Code & benchmark: https://github.com/TEC-The-ELidoras-Codex/luminai-genesis
