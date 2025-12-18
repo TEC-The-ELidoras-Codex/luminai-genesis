@@ -112,7 +112,7 @@ DOIs & archives:
 | OSF preprint                | https://doi.org/10.17605/OSF.IO/XQ3PE     | Methodology and code pointers           |
 | Zenodo archive              | https://doi.org/10.5281/zenodo.17945827   | Snapshot of repo + artifacts            |
 
-![Efficiency-Safety Matrix](docs/evidence/screenshots/Efficiency-Safety%20Matrix.png)
+![Efficiency-Safety Matrix](docs/evidence/screenshots/efficiency-safety-matrix.png)
 
 ## Quick Start
 
