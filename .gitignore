@@ -51,6 +51,12 @@ unsloth-venv/
 *.zip
 *.tar.gz
 
+# Generated markdown PDF exports (common build artifacts)
+*.md.pdf
+
+# Versioned PDF drafts (archive locally, keep canonical PDFs only)
+*-v*.pdf
+
 # Keys / secrets
 *.pem
 *.key
