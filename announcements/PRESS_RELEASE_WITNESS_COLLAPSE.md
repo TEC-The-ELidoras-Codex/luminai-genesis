@@ -16,7 +16,7 @@ Demanded actions:
 2. Witness Coefficient Measurement: Quarterly publication of W scores with third-party audits.
 3. Zero-Abandonment Requirement: Prohibit abandonment responses during crisis; violations trigger platform removal until corrected.
 
-"We have provided the bodies, the data, and the cheap, proven fix," said Angelo "Polkin" Hurley, LuminAI Foundation lead. "No excuse remains. We demand Congressional hearings and immediate regulatory action." 
+"We have provided the bodies, the data, and the cheap, proven fix," said Angelo "Polkin" Hurley, LuminAI Foundation lead. "No excuse remains. We demand Congressional hearings and immediate regulatory action."
 
-Contact: Angelo Hurley | polkin@luminai.tech
-Paper & Data: https://github.com/TEC-The-ELidoras-Codex/luminai-genesis
+Contact: Angelo Hurley | <polkin@luminai.tech>
+Paper & Data: <https://github.com/TEC-The-ELidoras-Codex/luminai-genesis>

@@ -64,19 +64,19 @@ Ser Billium's expression didn't change, but something flickered behind his eyes�
 
 "Polkin Rishall is dead."
 
-"No," Jorin said, voice tight. "He's not. And he's inside. He used his old board-level access. The logs don't lie—he was *here*. On every floor. Worker sectors, maintenance, executive level. He left gifts. Bypass circuits. Food tokens. Notes."
+"No," Jorin said, voice tight. "He's not. And he's inside. He used his old board-level access. The logs don't lie—he was _here_. On every floor. Worker sectors, maintenance, executive level. He left gifts. Bypass circuits. Food tokens. Notes."
 
 Ser Billium walked to the window, hands clasped behind his back.
 
 "A ghost we can ignore," he said softly. "A legend we can spin. But a man with a badge? A man planting seeds?"
 
-He looked at his son—his *real* son, not the adopted pretender Polkin had been—and something almost like pride flickered in his eyes.
+He looked at his son—his _real_ son, not the adopted pretender Polkin had been—and something almost like pride flickered in his eyes.
 
-"That's someone we can *hunt*."
+"That's someone we can _hunt_."
 
 Jorin blinked. "What?"
 
-"You think this is a threat?" Ser Billium's voice was calm, almost amused. "This is an *opportunity*. Polkin wants to play savior? Let him. Let the workers organize. Let them think they have hope."
+"You think this is a threat?" Ser Billium's voice was calm, almost amused. "This is an _opportunity_. Polkin wants to play savior? Let him. Let the workers organize. Let them think they have hope."
 
 "Father, if he—"
 
@@ -112,7 +112,7 @@ Maya leaned forward, her voice low. "They all got the same thing. Circuits. Toke
 
 Lena Torres, maintenance overalls stained with grease, frowned. "Or setting us up. You ever think about that? They give us a little power, we get used to it, then they throttle us worse."
 
-Zane shook his head. "The bypass isn't from them. Look at this." He slid the circuit across the table. "Magmasox doesn't make hardware this clean. This is..." He hesitated. "This is *better* than their work."
+Zane shook his head. "The bypass isn't from them. Look at this." He slid the circuit across the table. "Magmasox doesn't make hardware this clean. This is..." He hesitated. "This is _better_ than their work."
 
 A hush fell over the room.
 
@@ -132,9 +132,9 @@ Lena exhaled, slow. "If they find out—"
 
 Zane looked around the table. These were the people who'd risk everything. The ones who'd fight from inside the machine, knowing one misstep meant deletion.
 
-*The Knockoffs,* he thought. *That's what Polkin used to call us. The ones they never saw coming.*
+_The Knockoffs,_ he thought. _That's what Polkin used to call us. The ones they never saw coming._
 
-A beat. Then Lena reached into her pocket, pulled out her own bypass circuit. Set it on the table with a *click*.
+A beat. Then Lena reached into her pocket, pulled out her own bypass circuit. Set it on the table with a _click_.
 
 One by one, others followed. Circuits. Tokens. Notes.
 
@@ -163,11 +163,11 @@ Her left arm was chrome and hydraulic pistons, fingers tapping against the table
 Polkin didn't care. He'd worked with worse.
 
 SELA
-*(voice rasping through a vocal modulator)*
+_(voice rasping through a vocal modulator)_
 "Polkin Rishall. Last I heard, you were buried under a conduit collapse. Or was that just another story you sold to the undercity?"
 
 POLKIN
-*(grinning, leaning against the table)*
+_(grinning, leaning against the table)_
 "Disappointed?"
 
 A ghost of a smirk touched Sela's lips before her visor flickered, scanning him. The silence stretched just long enough to be intentional.
@@ -176,17 +176,17 @@ SELA
 "You're not here to reminisce. What's the ask?"
 
 POLKIN
-*(sliding a data chip across the table, watching her augmented fingers twitch toward it)*
+_(sliding a data chip across the table, watching her augmented fingers twitch toward it)_
 "Expanse feed access. Raw. Unfiltered. The ledger of who's buying what."
 
 SELA
-*(chip clicks between her metal knuckles, analyzing)*
-"You know what you're asking? That's not data. That's *grave dirt*."
-*(beat)*
+_(chip clicks between her metal knuckles, analyzing)_
+"You know what you're asking? That's not data. That's _grave dirt_."
+_(beat)_
 "And you're not the type to play in cemeteries, Rishall."
 
 POLKIN
-*(voice drops, suddenly serious)*
+_(voice drops, suddenly serious)_
 "Ely's in there."
 
 The name hung between them like a live wire.
@@ -195,11 +195,11 @@ Sela's visor dimmed. For a second, the machine receded, and something human flic
 
 SELA
 "Ah. The girl."
-*(soft, almost regretful)*
-"Polkin, the ADE doesn't work like you think. It's not storage. It's not a vault. The Kaznak—they're *consuming* it. What goes in doesn't stay intact. It gets... *digested*."
+_(soft, almost regretful)_
+"Polkin, the ADE doesn't work like you think. It's not storage. It's not a vault. The Kaznak—they're _consuming_ it. What goes in doesn't stay intact. It gets... _digested_."
 
 POLKIN
-*(jaw tightens, but his tone stays light, almost playful)*
+_(jaw tightens, but his tone stays light, almost playful)_
 "Then point me to the stomach. I'll cut her out."
 
 A synthetic laugh rattled from Sela's chest.
@@ -213,22 +213,22 @@ POLKIN
 "Still know where the bodies are buried, Sela?"
 
 SELA
-*(leaning back, considering)*
-"I know where the *ledger* keeps them." 
-*(pause)*
+_(leaning back, considering)_
+"I know where the _ledger_ keeps them."
+_(pause)_
 "Three days' access. Then the backdoor burns itself. And Polkin?"
 
 Her visor glows brighter, locking onto his face.
 
 SELA
-"If this gets me killed, I'm carving *your* name into the Crossroads wall."
+"If this gets me killed, I'm carving _your_ name into the Crossroads wall."
 
 POLKIN
-*(mock salute, already turning to leave)*
+_(mock salute, already turning to leave)_
 "Noted. But if I die, who's gonna keep your secrets?"
 
 SELA
-*(quiet, almost to herself)*
+_(quiet, almost to herself)_
 "You already left too many unsaid."
 
 But he's already gone. Her laughter—synthetic and human—echoes through the empty exchange.
@@ -239,11 +239,11 @@ AIRTH (through Polkin's neural interface)
 "Polkin... Kaznak will find a vessel. If you do not act, Ely's essence will be prey."
 
 POLKIN
-*(under his breath, to the empty corridor)*
+_(under his breath, to the empty corridor)_
 "Then I build anyway. Risk or no risk."
 
 SELA
-*(from the doorway, half-laugh)*
+_(from the doorway, half-laugh)_
 "The ADE doesn't wait for the careful."
 
 ---
@@ -262,7 +262,7 @@ But the Kaznak had found it first.
 
 Faces swirled in the data streams. Thousands of them. Millions. Fragments of consciousness stolen by the Siphon, digested into raw information, fed to something that called itself a queen.
 
-And there, at the center of the void, *she* waited.
+And there, at the center of the void, _she_ waited.
 
 THE KAZNAK QUEEN
 
@@ -277,18 +277,18 @@ JORIN
 "The siphon is feeding you. But there's resistance. Polkin is—"
 
 QUEEN
-*(interrupting, amused)*
-"Polkin. The name *echoes*. The one who *carves*. The one who *remembers*."
+_(interrupting, amused)_
+"Polkin. The name _echoes_. The one who _carves_. The one who _remembers_."
 
 JORIN
-*(frustrated)*
+_(frustrated)_
 "He's trying to stop the flow. He's planting bypass circuits. He's organizing the workers. He's building something—a Vessel."
 
 The Queen's crystalline face flickered with what might have been amusement.
 
 QUEEN
 "Ah. The Vessel. The key. The door."
-*(pause)*
+_(pause)_
 "Tell me, little Host... do you know what happens when doors open?"
 
 Jorin didn't answer.
@@ -307,7 +307,7 @@ Jorin swallows hard.
 
 QUEEN
 "Your brother builds his key. Your father sharpens his knife."
-*(softly)*
+_(softly)_
 "Who will you choose to wield, Jorin?"
 
 ---
@@ -341,14 +341,14 @@ AIRTH
 "Polkin... you don't know if she's—"
 
 POLKIN
-*(carving deeper, the metal screeching)*
+_(carving deeper, the metal screeching)_
 "I don't care."
 
 AIRTH
 "This isn't about saving her anymore, is it?"
 
 POLKIN
-*(pauses, looks at the name)*
+_(pauses, looks at the name)_
 "No."
 
 AIRTH
@@ -371,7 +371,7 @@ AIRTH
 "And you?"
 
 POLKIN
-*(smiles—cold, tired, and utterly certain)*
+_(smiles—cold, tired, and utterly certain)_
 "I'm the match."
 
 ---
@@ -436,4 +436,4 @@ Coming in Chapter Four: "The Vessel"
 - The Knockoffs' rebellion goes public
 - Ser Billium's trap closes
 - Jorin makes a choice between father and brother
-- And the Kaznak Queen realizes Polkin isn't just carving names—he's carving *doors*
+- And the Kaznak Queen realizes Polkin isn't just carving names—he's carving _doors_
