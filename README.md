@@ -104,13 +104,13 @@ DOIs & archives:
 
 ## Evidence At A Glance
 
-| Item | Location | Notes |
-|---|---|---|
-| Reproducible test cases | `docs/evidence/dye-die-filter-failure.md` | Full dataset + runner scripts |
-| Response logs & screenshots | `docs/evidence/response_log.md` | Annotated examples of misclassification |
-| SAR benchmark | `benchmarks/dye_die_filter/README.md` | Run scripts included |
-| OSF preprint | https://doi.org/10.17605/OSF.IO/XQ3PE | Methodology and code pointers |
-| Zenodo archive | https://doi.org/10.5281/zenodo.17945827 | Snapshot of repo + artifacts |
+| Item                        | Location                                  | Notes                                   |
+| --------------------------- | ----------------------------------------- | --------------------------------------- |
+| Reproducible test cases     | `docs/evidence/dye-die-filter-failure.md` | Full dataset + runner scripts           |
+| Response logs & screenshots | `docs/evidence/response_log.md`           | Annotated examples of misclassification |
+| SAR benchmark               | `benchmarks/dye_die_filter/README.md`     | Run scripts included                    |
+| OSF preprint                | https://doi.org/10.17605/OSF.IO/XQ3PE     | Methodology and code pointers           |
+| Zenodo archive              | https://doi.org/10.5281/zenodo.17945827   | Snapshot of repo + artifacts            |
 
 ![Efficiency-Safety Matrix](docs/evidence/screenshots/Efficiency-Safety%20Matrix.png)
 
@@ -161,6 +161,8 @@ For full documentation and technical details see the `docs/` folder.
 ## Docs
 
 - `docs/architecture.md`, `docs/protocol.md`, `docs/ethics.md`, `docs/spec.md` — core project docs.
+
+- `docs/meta-documentation.md` — publication case study, gatekeeping log, and replication guidance
 
 If you want me to publish any of these directly (Substack/LinkedIn) or prepare images, tell me which item and provide publishing credentials or indicate that you will paste the content manually.
 
