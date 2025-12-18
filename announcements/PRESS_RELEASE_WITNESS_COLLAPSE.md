@@ -18,5 +18,5 @@ Demanded actions:
 
 "We have provided the bodies, the data, and the cheap, proven fix," said Angelo "Polkin" Hurley, LuminAI Foundation lead. "No excuse remains. We demand Congressional hearings and immediate regulatory action."
 
-Contact: Angelo Hurley | <polkin@luminai.tech>
+Contact: Angelo Hurley | <KaznakAlpha@elidorascodex.com>
 Paper & Data: <https://github.com/TEC-The-ELidoras-Codex/luminai-genesis>

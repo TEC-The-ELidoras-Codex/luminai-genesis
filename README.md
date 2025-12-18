@@ -121,7 +121,7 @@ If you maintain an LLM or safety stack, please:
 
 1. Run the SAR benchmark on your system
 2. Share results via a GitHub issue
-3. Contact the author for collaboration or deployment guidance: polkin@luminai.tech
+3. Contact the author for collaboration or deployment guidance: KaznakAlpha@elidorascodex.com
 
 ## License & Citation
 

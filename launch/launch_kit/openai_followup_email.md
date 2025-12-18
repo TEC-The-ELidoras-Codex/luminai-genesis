@@ -23,5 +23,5 @@ Thanks for your time — looking forward to coordinating.
 
 — Angelo "Polkin Rishall" Hurley
 Founder, The Elidoras Codex
-polkin@luminai.tech
+KaznakAlpha@elidorascodex.com
 ORCID: 0009-0000-7615-6990
