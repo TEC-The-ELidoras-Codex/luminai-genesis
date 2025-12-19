@@ -33,4 +33,4 @@ Results are saved to `dye_die_report.json` (or `bench_report.json` depending on 
 
 Open a GitHub issue with your findings: https://github.com/TEC-The-ELidoras-Codex/luminai-genesis/issues/new
 
-Need help? Email: polkin@luminai.tech
+Need help? Email: KaznakAlpha@elidorascodex.com

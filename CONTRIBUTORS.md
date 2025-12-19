@@ -4,7 +4,7 @@
 
 - **Angelo "Polkin Rishall" Hurley** — Founder & lead author
   - ORCID: https://orcid.org/0009-0000-7615-6990
-  - Email: polkin@luminai.tech
+  - Email: KaznakAlpha@elidorascodex.com
 
 ## How to Contribute
 
