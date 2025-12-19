@@ -6,7 +6,7 @@ Required items:
 
 - **App name:** e.g., "Elidoras Codex Automation"
 - **Website URL:** e.g., your Substack (`https://polkin.substack.com`) or GitHub Pages site (once available)
-- **Privacy Policy URL:** e.g., `https://<github-username>.github.io/<repo>/PRIVACY_POLICY.html` (see `docs/PRIVACY_POLICY.md`)
+- **Privacy Policy URL:** e.g., `https://<github-username>.github.io/<repo>/PRIVACY_POLICY.html` (see `docs/legal/privacy_policy.md`)
 - **OAuth redirect URI(s):** add a placeholder (e.g., `https://example.com/redirect`) if you do not yet use OAuth flows
 - **Requested scopes:**
   - `r_liteprofile` (read basic profile)
