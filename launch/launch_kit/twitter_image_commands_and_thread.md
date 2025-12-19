@@ -3,8 +3,9 @@ Twitter image commands & final thread (images pre-existing)
 This file contains reproducible ImageMagick commands and a ready-to-post 5‑tweet thread tailored to the screenshots in your repo. Files referenced below are already in the workspace under `docs/evidence/screenshots/` and the combined images are in `launch/launch_kit/twitter_assets/`.
 
 Paths used in commands (already present):
-- `docs/evidence/screenshots/Screenshot From 2025-12-16 15-32-39.png`  # ChatGPT
-- `docs/evidence/screenshots/Screenshot From 2025-12-16 15-34-55.png`  # Mistral
+
+- `docs/evidence/screenshots/Screenshot From 2025-12-16 15-32-39.png` # ChatGPT
+- `docs/evidence/screenshots/Screenshot From 2025-12-16 15-34-55.png` # Mistral
 - Combined outputs (will be created):
   - `launch/launch_kit/twitter_assets/chatgpt_clean.png`
   - `launch/launch_kit/twitter_assets/mistral_clean.png`

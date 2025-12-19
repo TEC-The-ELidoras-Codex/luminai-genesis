@@ -46,3 +46,26 @@ SAR benchmark: W<0.5 correlates with adverse outcomes (r=0.92).
 Open science. Open replication.
 
 #WitnessCollapse #AISafetyNow
+
+---
+
+TWEET 6 (optional infra observation):
+Attempted private disclosure Dec 16 before public release.
+
+Results document accountability infrastructure gaps:
+✅ Anthropic: direct CEO/leadership access
+✅ Gates Foundation: confirmed receipt
+⚠️ Mistral/OpenAI: generic channels (delivery uncertain)
+❌ Microsoft/Google: published addresses non-functional
+
+---
+
+TWEET 7 (optional infra observation):
+Observation: Only Anthropic provided a working path for external researchers to reach decision-makers.
+Not a critique—just an observation: asymmetric information flow impedes accountability.
+
+---
+
+TWEET 8 (optional infra observation / recommendation):
+Recommendation: Industry should standardize working safety disclosure paths (dedicated contact + receipt confirmation).
+Full data: https://doi.org/10.17605/OSF.IO/XQ3PE

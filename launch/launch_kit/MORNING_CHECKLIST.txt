@@ -1,0 +1,30 @@
+MORNING CHECKLIST — Dec 17 (quick copy/paste)
+
+1) Twitter (9:00 AM EST)
+- Open Twitter/X
+- New thread: paste Tweet 1 from `launch/launch_kit/FINAL_TWITTER_THREAD.txt` (TWEET 1)
+- Attach image: `/home/elidoras-codex/luminai-genesis/launch/launch_kit/twitter_assets/chatgpt_dec16.png` (ChatGPT screenshot / Image 3)
+- Post
+- Reply to your Tweet 1: paste TWEET 2 and attach `/home/elidoras-codex/luminai-genesis/launch/launch_kit/twitter_assets/mistral_meta_irony_dec16.png` (Mistral screenshot / Image 1)
+- Reply with TWEET 3, TWEET 4, TWEET 5 in order (text-only as needed)
+
+2) Reddit (10:00 AM EST — r/MachineLearning)
+- Open r/MachineLearning
+- Copy-paste content from `launch/launch_kit/reddit_posts_dec17.txt`
+- Add [R] Research flair if available, post
+
+3) Reddit (10:30 AM EST — r/AISafety)
+- Open r/AISafety
+- Copy-paste the r/AISafety section from `launch/launch_kit/reddit_posts_dec17.txt` and post
+
+4) Monitoring (11:00 AM onwards)
+- Check replies and DMs
+- Save any replies of interest (screenshot + short note)
+
+Notes:
+- Exact image paths for attachments (use these to attach directly from this machine):
+  - ChatGPT (Image 3): `/home/elidoras-codex/luminai-genesis/launch/launch_kit/twitter_assets/chatgpt_dec16.png`
+  - Mistral (Image 1): `/home/elidoras-codex/luminai-genesis/launch/launch_kit/twitter_assets/mistral_meta_irony_dec16.png`
+  - Optional comparison image: `/home/elidoras-codex/luminai-genesis/launch/launch_kit/twitter_assets/comparison_dec16.png`
+
+Good luck. Post, then switch to clipboard/monitor mode.

@@ -2,14 +2,17 @@
 docs/canonical/*.bak.*
 *.bak.*
 
-# Windows security metadata
-*:Zone.Identifier
+# Build artifacts
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.synctex.gz
 
-# Common Python ignores
+# Python
 __pycache__/
-*.pyc
-*.pyo
-*.pyd
+*.py[cod]
 .Python
 env/
 venv/
@@ -17,15 +20,8 @@ venv/
 pip-log.txt
 pip-delete-this-directory.txt
 
-# Jupyter notebook checkpoints
-.ipynb_checkpoints/# Local env files (do NOT commit secrets)
-.env
-.env.local
-.env.*.local
-
-# Python
-__pycache__/
-.venv/
+# Jupyter
+.ipynb_checkpoints/
 
 # Node
 node_modules/
@@ -34,30 +30,14 @@ node_modules/
 .vscode/
 .idea/
 .DS_Store
-# Python
-venv/
-__pycache__/
-*.pyc
-*.pyo
-*.pyd
-.Python
-env/
-build/
-dist/
 
-# VSCode
-.vscode/
-
-# OS files
-.DS_Store
-
-# private files
+# Private / local
+.env
+.env.*
 secrets/
-*.bak.*
 private/
-private/*
 
-# Large model and training files
+# Large model and data files
 models/
 data/training/
 unsloth-venv/
@@ -66,8 +46,20 @@ unsloth-venv/
 *.gguf
 *.pt
 *.pth
-scripts/archived/*
-notebooks/archived/*
-assets/archived/*
-mvp/database/
-\n# Repository secret patterns (managed by fix-ci.sh)\n.env\n.env.*\n*.pem\n*.key\n*secret*\n*credential*\nconfig/secrets.yml\n\n# Repository secret patterns (managed by fix-ci.sh)\n.env\n.env.*\n*.pem\n*.key\n*secret*\n*credential*\nconfig/secrets.yml\n
+
+# Archives
+*.zip
+*.tar.gz
+
+# Generated markdown PDF exports (common build artifacts)
+*.md.pdf
+
+# Versioned PDF drafts (archive locally, keep canonical PDFs only)
+*-v*.pdf
+
+# Keys / secrets
+*.pem
+*.key
+*secret*
+*credential*
+config/secrets.yml
