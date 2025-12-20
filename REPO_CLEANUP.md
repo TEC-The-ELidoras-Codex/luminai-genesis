@@ -8,6 +8,7 @@ Summary of actions (performed)
 
 - Branch created: `maintenance/cleanup-archive`
 - Archive directories created:
+
   - `archive/drafts/tec-chapter-one/`
   - `archive/nsf/`
   - `archive/media/` (not used)
@@ -15,26 +16,32 @@ Summary of actions (performed)
   - `archive/legal/`
 
 - Files moved (git mv):
+
   1. Chapters/drafts
+
      - `docs/technical/tec-chapter-one-v1.md` -> `archive/drafts/tec-chapter-one/tec-chapter-one-v1.md`
      - `docs/technical/tec-chapter-one-v2.md` -> `archive/drafts/tec-chapter-one/tec-chapter-one-v2.md`
      - `docs/technical/tec-chapter-one-v3.md` -> `archive/drafts/tec-chapter-one/tec-chapter-one-v3.md`
 
   2. NSF generated PDF exports
+
      - `docs/nsf/Clinical_Validation_MentalHealth.md.pdf` -> `archive/nsf/Clinical_Validation_MentalHealth.md.pdf`
      - `docs/nsf/Submission_Instructions.md.pdf` -> `archive/nsf/Submission_Instructions.md.pdf`
      - `docs/nsf/PI_Biosketch_Angelo_Hurley.md.pdf` -> `archive/nsf/PI_Biosketch_Angelo_Hurley.md.pdf`
      - `docs/nsf/Budget_and_Justification.md.pdf` -> `archive/nsf/Budget_and_Justification.md.pdf`
 
   3. Evidence consolidation
+
      - `docs/technical/dye-die-filter-failure.json` -> `docs/evidence/dye-die-filter-failure.json`
      - `docs/technical/dye-die-filter-failure.md` -> `docs/evidence/dye-die-filter-failure.md`
 
   4. Media moved into evidence
+
      - `docs/technical/ZOHO_FAILURE_SENT.jpeg` -> `docs/evidence/media/ZOHO_FAILURE_SENT.jpeg`
      - `docs/technical/ZOHO_KEYWORD_FAILURE.png` -> `docs/evidence/media/ZOHO_KEYWORD_FAILURE.png`
 
   5. Privacy policy consolidation
+
      - `docs/PRIVACY_POLICY.md` -> `archive/legal/PRIVACY_POLICY.md` (canonical retained: `docs/legal/privacy_policy.md`)
 
   6. Other removals

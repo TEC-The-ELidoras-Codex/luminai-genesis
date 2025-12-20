@@ -63,3 +63,5 @@ unsloth-venv/
 *secret*
 *credential*
 config/secrets.yml
+// Local archive snapshot created by cleanup script
+archive/2025-12-20-pre-consolidation/

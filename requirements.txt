@@ -20,3 +20,6 @@ PyYAML>=6.0
 Markdown>=3.4
 requests>=2.30
 beautifulsoup4>=4.12
+praw>=8.4.0
+psaw>=0.1.1
+

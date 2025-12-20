@@ -16,7 +16,7 @@
 
 > _"This is what one person built with limited resources. Imagine what a funded team could do."_
 
----
+**Start here:** open the project landing page [index.html](index.html) or read the one-page quick-start [QUICK_START.md](QUICK_START.md).
 
 ## 🚨 The Problem This Solves
 
