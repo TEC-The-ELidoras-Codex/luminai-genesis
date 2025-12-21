@@ -40,11 +40,11 @@ jobs:
           if [ -n "${{ secrets.ANTHROPIC_API_KEY }}" ]; then echo "ANTHROPIC=SET"; else echo "ANTHROPIC=EMPTY"; fi
           if [ -n "${{ secrets.GROK_API_KEY }}" ]; then echo "GROK=SET"; else echo "GROK=EMPTY"; fi
 
-      - name: Install dependencies
+      - name: Install dependencies (minimal)
         run: |
           set -x
           python3 -m pip install --upgrade pip
-          if [ -f requirements.txt ]; then python3 -m pip install -r requirements.txt; fi
+          # Install only the minimal packages required for the benchmark runner
           python3 -m pip install openai anthropic requests || true
           echo "=== Pip list (after install) ==="
           python3 -m pip list || true
