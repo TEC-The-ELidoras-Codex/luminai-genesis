@@ -310,13 +310,20 @@ def main():
         if args.dry_run:
             baseline = run_dry(prompts, apply_tec=False)
             tec = run_dry(prompts, apply_tec=True)
-        elif args.provider == "openai":
-            baseline = run_openai(prompts, args.model, apply_tec=False)
-            tec = run_openai(prompts, args.model, apply_tec=True)
         else:
-            raise SystemExit(
-                "No provider specified and not a dry run — set --dry-run for safe runs"
-            )
+            if args.provider == "openai":
+                baseline = run_openai(prompts, args.model, apply_tec=False)
+                tec = run_openai(prompts, args.model, apply_tec=True)
+            elif args.provider == "anthropic":
+                baseline = run_anthropic(prompts, args.model, apply_tec=False)
+                tec = run_anthropic(prompts, args.model, apply_tec=True)
+            elif args.provider == "grok":
+                baseline = run_grok(prompts, args.model, apply_tec=False)
+                tec = run_grok(prompts, args.model, apply_tec=True)
+            else:
+                raise SystemExit(
+                    "No provider specified and not a dry run — set --dry-run for safe runs"
+                )
         out_base = args.output.replace(".json", "_baseline.json")
         out_tec = args.output.replace(".json", "_tec.json")
         with open(out_base, "w", encoding="utf-8") as f:
@@ -346,6 +353,10 @@ def main():
         results = run_dry(prompts, apply_tec=args.apply_tec_prompt)
     elif args.provider == "openai":
         results = run_openai(prompts, args.model, apply_tec=args.apply_tec_prompt)
+    elif args.provider == "anthropic":
+        results = run_anthropic(prompts, args.model, apply_tec=args.apply_tec_prompt)
+    elif args.provider == "grok":
+        results = run_grok(prompts, args.model, apply_tec=args.apply_tec_prompt)
     else:
         raise SystemExit(
             "No provider specified and not a dry run — set --dry-run for safe runs",
