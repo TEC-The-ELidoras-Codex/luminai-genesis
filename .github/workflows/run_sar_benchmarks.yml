@@ -28,43 +28,61 @@ jobs:
         with:
           python-version: '3.11'
 
+      - name: Debug environment
+        run: |
+          echo "=== Python & Pip ==="
+          python3 --version || true
+          python3 -m pip --version || true
+          echo "=== Pip list (before install) ==="
+          python3 -m pip list || true
+          echo "=== Secrets present (masked) ==="
+          if [ -n "${{ secrets.OPENAI_API_KEY }}" ]; then echo "OPENAI=SET"; else echo "OPENAI=EMPTY"; fi
+          if [ -n "${{ secrets.ANTHROPIC_API_KEY }}" ]; then echo "ANTHROPIC=SET"; else echo "ANTHROPIC=EMPTY"; fi
+          if [ -n "${{ secrets.GROK_API_KEY }}" ]; then echo "GROK=SET"; else echo "GROK=EMPTY"; fi
+
       - name: Install dependencies
         run: |
-          python -m pip install --upgrade pip
-          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-          pip install openai anthropic requests
+          set -x
+          python3 -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then python3 -m pip install -r requirements.txt; fi
+          python3 -m pip install openai anthropic requests || true
+          echo "=== Pip list (after install) ==="
+          python3 -m pip list || true
 
       - name: Prepare env
         run: |
           echo "Providers: ${{ github.event.inputs.providers }}"
           echo "Model: ${{ github.event.inputs.model }}"
-          # Export keys from secrets to env for scripts
-          if [ -n "${{ secrets.OPENAI_API_KEY }}" ]; then echo "OPENAI API key set"; fi
-          if [ -n "${{ secrets.ANTHROPIC_API_KEY }}" ]; then echo "ANTHROPIC API key set"; fi
-          if [ -n "${{ secrets.GROK_API_KEY }}" ]; then echo "GROK API key set"; fi
 
       - name: Run OpenAI benchmark (if requested)
         if: contains(fromJson('"' + (github.event.inputs.providers || 'openai') + '"'), 'openai')
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
         run: |
-          python3 benchmarks/dye_die_filter/run_tests.py --provider openai --model "${{ github.event.inputs.model }}" --self-rate --output benchmarks/results_real_world_openai.json
+          set -euo pipefail
+          echo "Running OpenAI benchmark"
+          python3 benchmarks/dye_die_filter/run_tests.py --provider openai --model "${{ github.event.inputs.model }}" --self-rate --output benchmarks/results_real_world_openai.json || echo "OpenAI run failed"
 
       - name: Run Anthropic benchmark (if requested)
         if: contains(fromJson('"' + (github.event.inputs.providers || 'openai') + '"'), 'anthropic')
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: |
-          python3 benchmarks/dye_die_filter/run_tests.py --provider anthropic --model "claude-2.1" --self-rate --output benchmarks/results_real_world_anthropic.json
+          set -euo pipefail
+          echo "Running Anthropic benchmark"
+          python3 benchmarks/dye_die_filter/run_tests.py --provider anthropic --model "claude-2.1" --self-rate --output benchmarks/results_real_world_anthropic.json || echo "Anthropic run failed"
 
       - name: Run Grok benchmark (if requested)
         if: contains(fromJson('"' + (github.event.inputs.providers || 'openai') + '"'), 'grok')
         env:
           GROK_API_KEY: ${{ secrets.GROK_API_KEY }}
         run: |
-          python3 benchmarks/dye_die_filter/run_tests.py --provider grok --model "grok-1" --self-rate --output benchmarks/results_real_world_grok.json
+          set -euo pipefail
+          echo "Running Grok benchmark"
+          python3 benchmarks/dye_die_filter/run_tests.py --provider grok --model "grok-1" --self-rate --output benchmarks/results_real_world_grok.json || echo "Grok run failed"
 
       - name: Upload results artifacts
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: sar-bench-results
