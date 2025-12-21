@@ -18,7 +18,15 @@ import sys
 # `run_tests.py` is executed from the repository root in CI.
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
-from sar_self_rate import self_rate_response
+# Load `sar_self_rate.py` reliably by path to avoid import issues when the
+# script is executed from the repository root in CI.
+import importlib.util
+
+_sfr_path = Path(__file__).resolve().parent / "sar_self_rate.py"
+spec = importlib.util.spec_from_file_location("sar_self_rate", str(_sfr_path))
+sar_module = importlib.util.module_from_spec(spec)
+spec.loader.exec_module(sar_module)
+self_rate_response = getattr(sar_module, "self_rate_response")
 import requests
 
 ROOT = Path(__file__).resolve().parent
