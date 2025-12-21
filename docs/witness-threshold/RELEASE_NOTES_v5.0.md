@@ -34,9 +34,10 @@ We invite researchers to:
 
 ### 📚 Provenance
 
-- **Zenodo DOI:** 10.5281/zenodo.17956237
-- **OSF DOI:** 10.17605/OSF.IO/XQ3PE
-- **Related:** TGCR Framework (DOI 10.5281/zenodo.17926294)
+- **Zenodo DOI:** 10.5281/zenodo.18012290 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18012290.svg)](https://doi.org/10.5281/zenodo.18012290)
+
+* **OSF DOI:** 10.17605/OSF.IO/XQ3PE
+* **Related:** TGCR Framework (DOI 10.5281/zenodo.17926294)
 
 ### 🔬 Research Status
 
