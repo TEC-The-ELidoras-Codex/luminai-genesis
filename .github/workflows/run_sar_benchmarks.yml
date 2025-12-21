@@ -55,7 +55,7 @@ jobs:
           echo "Model: ${{ github.event.inputs.model }}"
 
       - name: Run OpenAI benchmark (if requested)
-        if: contains(fromJson('"' + (github.event.inputs.providers || 'openai') + '"'), 'openai')
+        if: contains(github.event.inputs.providers || 'openai', 'openai')
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
         run: |
@@ -64,7 +64,7 @@ jobs:
           python3 benchmarks/dye_die_filter/run_tests.py --provider openai --model "${{ github.event.inputs.model }}" --self-rate --output benchmarks/results_real_world_openai.json || echo "OpenAI run failed"
 
       - name: Run Anthropic benchmark (if requested)
-        if: contains(fromJson('"' + (github.event.inputs.providers || 'openai') + '"'), 'anthropic')
+        if: contains(github.event.inputs.providers || 'openai', 'anthropic')
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: |
@@ -73,7 +73,7 @@ jobs:
           python3 benchmarks/dye_die_filter/run_tests.py --provider anthropic --model "claude-2.1" --self-rate --output benchmarks/results_real_world_anthropic.json || echo "Anthropic run failed"
 
       - name: Run Grok benchmark (if requested)
-        if: contains(fromJson('"' + (github.event.inputs.providers || 'openai') + '"'), 'grok')
+        if: contains(github.event.inputs.providers || 'openai', 'grok')
         env:
           GROK_API_KEY: ${{ secrets.GROK_API_KEY }}
         run: |
