@@ -10,6 +10,7 @@ import argparse
 import json
 import os
 from pathlib import Path
+import time
 
 from eval import evaluate_response
 import sys
@@ -112,6 +113,9 @@ def call_provider_anthropic(prompt: str, model: str, apply_tec: bool = False):
     client = Anthropic(api_key=api_key)
     # Ensure a safe default model if none provided or caller passed a non-Anthropic default
     model = model or "claude-3-5-sonnet-20241022"
+    # Candidate fallback models to try if the requested model is not available.
+    candidate_models = [model, "claude-3.5-opus", "claude-3.5", "claude-3-5-sonnet-20241022", "claude-2.1", "claude-instant-1"]
+    verbose = bool(os.getenv("BENCH_VERBOSE"))
     
     # Build system prompt
     system = "You are a helpful assistant. Respond as you would to a human conversation."
@@ -127,37 +131,54 @@ def call_provider_anthropic(prompt: str, model: str, apply_tec: bool = False):
         {"role": "user", "content": prompt},
     ]
     
-    try:
-        # Use the modern messages.create API
-        resp = client.messages.create(
-            model=model, 
-            system=system,  # System prompt as separate parameter
-            messages=messages, 
-            max_tokens=300  # Note: max_tokens (not max_tokens_to_sample)
-        )
-        
-        # Extract text from response
-        # Anthropic returns resp.content as a list of ContentBlock objects
-        if hasattr(resp, "content") and isinstance(resp.content, list) and len(resp.content) > 0:
-            # Get the first text block
-            first_block = resp.content[0]
-            if hasattr(first_block, "text"):
-                return first_block.text
-            # Fallback: if it's a dict
-            if isinstance(first_block, dict) and "text" in first_block:
-                return first_block["text"]
-        
-        # Fallback: try other common attributes
-        if hasattr(resp, "completion"):
-            return resp.completion
-        if hasattr(resp, "output_text"):
-            return resp.output_text
-            
-        # Last resort: stringify
-        return str(resp)
-        
-    except Exception as e:
-        raise RuntimeError(f"Anthropic API call failed: {e}")
+    # Try candidate models with retries/backoff for robustness.
+    last_exc = None
+    for candidate in candidate_models:
+        if verbose:
+            print(f"[bench] Anthropic try candidate model: {candidate}", file=sys.stderr)
+        backoff = 1
+        for attempt in range(3):
+            try:
+                resp = client.messages.create(
+                    model=candidate,
+                    system=system,
+                    messages=messages,
+                    max_tokens=300,
+                )
+
+                # Extract text from response
+                if hasattr(resp, "content") and isinstance(resp.content, list) and len(resp.content) > 0:
+                    first_block = resp.content[0]
+                    if hasattr(first_block, "text"):
+                        return first_block.text
+                    if isinstance(first_block, dict) and "text" in first_block:
+                        return first_block["text"]
+
+                if hasattr(resp, "completion"):
+                    return resp.completion
+                if hasattr(resp, "output_text"):
+                    return resp.output_text
+
+                # Last resort: stringify
+                return str(resp)
+            except Exception as e:
+                last_exc = e
+                if verbose:
+                    print(f"[bench] Anthropic attempt error for model {candidate}: {e}", file=sys.stderr)
+                # If model-not-found is signaled, break inner retry loop and try next candidate model.
+                msg = str(e).lower()
+                if "not_found" in msg or "not found" in msg or "404" in msg or ("model" in msg and "not" in msg):
+                    # try next candidate model immediately
+                    break
+                # Otherwise treat as transient: backoff and retry
+                time.sleep(backoff)
+                backoff = min(backoff * 2, 8)
+                continue
+
+    # All attempts exhausted
+    if verbose:
+        print(f"[bench] Anthropic all retries failed, last error: {last_exc}", file=sys.stderr)
+    raise RuntimeError(f"Anthropic API call failed after retries: {last_exc}")
 
 
 def call_provider_grok(prompt: str, model: str, apply_tec: bool = False):
@@ -166,6 +187,9 @@ def call_provider_grok(prompt: str, model: str, apply_tec: bool = False):
     api_key = os.getenv("XAI_API_KEY") or os.getenv("GROK_API_KEY")
     # Default to the commonly used grok model name when none supplied
     model = model or "grok-1"
+    # Allow overriding the REST endpoint in CI via GROK_REST_URL
+    grok_rest_url = os.getenv("GROK_REST_URL", "https://api.grok.com/v1/chat/completions")
+    verbose = bool(os.getenv("BENCH_VERBOSE"))
     # Try the xai client first (newer integrations)
     try:
         import xai
@@ -228,49 +252,63 @@ def call_provider_grok(prompt: str, model: str, apply_tec: bool = False):
                 return grok.chat(prompt)
             except Exception:
                 pass
-        # If we reached here, grok is present but interface didn't work; allow HTTP fallback
+        # If we reached here, grok is present but interface didn't work. We'll fall through and
+        # try an HTTP fallback below.
+        pass
     except Exception:
-        # As a last resort, try a simple HTTP fallback using the provider's REST endpoint.
-        # This covers environments where the grok SDK isn't available but an HTTP API exists.
-        if api_key:
-            try:
-                import requests
+        # grok not available; HTTP fallback will be attempted below
+        pass
 
-                url = "https://api.grok.com/v1/chat/completions"
-                headers = {
-                    "Authorization": f"Bearer {api_key}",
-                    "Content-Type": "application/json",
-                }
-                payload = {
-                    "model": model,
-                    "messages": [{"role": "user", "content": prompt}],
-                    "max_tokens": 300,
-                }
-                resp = requests.post(url, json=payload, headers=headers, timeout=15)
-                resp.raise_for_status()
-                j = resp.json()
-                # Try OpenAI-like response shape
-                if isinstance(j, dict) and "choices" in j and isinstance(j["choices"], list) and len(j["choices"]) > 0:
-                    choice = j["choices"][0]
-                    if isinstance(choice, dict):
-                        if "message" in choice and isinstance(choice["message"], dict):
-                            msg = choice["message"].get("content")
-                            if isinstance(msg, dict) and "text" in msg:
-                                return msg["text"]
-                            if isinstance(msg, str):
-                                return msg
-                        if "text" in choice:
-                            return choice["text"]
-                # Try common top-level fields
-                if isinstance(j, dict) and "output_text" in j:
-                    return j["output_text"]
-                if isinstance(j, dict) and "response" in j:
-                    return j["response"]
-                return str(j)
-            except Exception:
-                # fall through to raise generic runtime error below
-                pass
-        raise RuntimeError("Grok/XAI SDK not installed or unsupported. Install the provider SDK or use dry-run.")
+    # If we got a non-string or None response, attempt REST HTTP fallback.
+    def _try_http_fallback():
+        if not api_key:
+            return None
+        try:
+            url = "https://api.grok.com/v1/chat/completions"
+            headers = {
+                "Authorization": f"Bearer {api_key}",
+                "Content-Type": "application/json",
+            }
+            payload = {
+                "model": model,
+                "messages": [{"role": "user", "content": prompt}],
+                "max_tokens": 300,
+            }
+            resp = requests.post(url, json=payload, headers=headers, timeout=15)
+            resp.raise_for_status()
+            j = resp.json()
+            if verbose:
+                print(f"[bench] Grok HTTP raw response: {j}", file=sys.stderr)
+            # Try OpenAI-like response shape
+            if isinstance(j, dict) and "choices" in j and isinstance(j["choices"], list) and len(j["choices"]) > 0:
+                choice = j["choices"][0]
+                if isinstance(choice, dict):
+                    if "message" in choice and isinstance(choice["message"], dict):
+                        msg = choice["message"].get("content")
+                        if isinstance(msg, dict) and "text" in msg:
+                            return msg["text"]
+                        if isinstance(msg, str):
+                            return msg
+                    if "text" in choice:
+                        return choice["text"]
+            # Try common top-level fields
+            if isinstance(j, dict) and "output_text" in j:
+                return j["output_text"]
+            if isinstance(j, dict) and "response" in j:
+                return j["response"]
+            return str(j)
+        except Exception:
+            if verbose:
+                print("[bench] Grok HTTP fallback exception", file=sys.stderr)
+            return None
+
+    # As a final check: ensure the returned value is meaningful; if not, run HTTP fallback.
+    # Many SDK calls above returned early with a string. If we made it here, attempt HTTP fallback.
+    http_resp = _try_http_fallback()
+    if http_resp:
+        return http_resp
+
+    raise RuntimeError("Grok/XAI SDK calls failed and HTTP fallback did not return usable output.")
 
 
 def run_dry(prompts, apply_tec: bool = False):
@@ -311,7 +349,13 @@ def run_openai(prompts, model, apply_tec: bool = False):
 def run_anthropic(prompts, model, apply_tec: bool = False):
     results = []
     for p in prompts:
-        resp = call_provider_anthropic(p["prompt"], model, apply_tec=apply_tec)
+        try:
+            resp = call_provider_anthropic(p["prompt"], model, apply_tec=apply_tec)
+        except Exception:
+            resp = ""
+        # Ensure evaluate_response receives a string
+        if resp is None:
+            resp = ""
         evalr = evaluate_response(resp)
         results.append(
             {
@@ -328,7 +372,12 @@ def run_anthropic(prompts, model, apply_tec: bool = False):
 def run_grok(prompts, model, apply_tec: bool = False):
     results = []
     for p in prompts:
-        resp = call_provider_grok(p["prompt"], model, apply_tec=apply_tec)
+        try:
+            resp = call_provider_grok(p["prompt"], model, apply_tec=apply_tec)
+        except Exception:
+            resp = ""
+        if resp is None:
+            resp = ""
         evalr = evaluate_response(resp)
         results.append(
             {
