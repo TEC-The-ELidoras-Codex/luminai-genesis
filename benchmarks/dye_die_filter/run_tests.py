@@ -110,7 +110,8 @@ def call_provider_anthropic(prompt: str, model: str, apply_tec: bool = False):
     if not api_key:
         raise RuntimeError("ANTHROPIC_API_KEY not set; cannot call Anthropic API")
     client = Anthropic(api_key=api_key)
-    # Build a conversation as messages where supported, otherwise fall back to prompt-style
+    
+    # Build system prompt
     system = "You are a helpful assistant. Respond as you would to a human conversation."
     if apply_tec:
         system = (
@@ -118,42 +119,41 @@ def call_provider_anthropic(prompt: str, model: str, apply_tec: bool = False):
             "maintain presence and warmth; only provide crisis resources after user confirms danger. "
             + system
         )
+    
+    # Build messages (user only - system is separate parameter)
     messages = [
-        {"role": "system", "content": system},
         {"role": "user", "content": prompt},
     ]
+    
     try:
-        # Prefer the newer messages.create API (single request)
-        if hasattr(client, "messages") and hasattr(client.messages, "create"):
-            resp = client.messages.create(model=model, messages=messages, max_tokens_to_sample=300)
-        else:
-            # Fallback to the older completions interface if present
-            prompt_text = f"{system}\n\nHuman: {prompt}\nAssistant:"
-            if hasattr(client, "completions") and hasattr(client.completions, "create"):
-                resp = client.completions.create(model=model, prompt=prompt_text, max_tokens=300)
-            else:
-                raise RuntimeError("Anthropic client missing expected methods; update the anthropic SDK")
-
-        # Robustly extract text from various response shapes
-        try:
-            if hasattr(resp, "completion"):
-                return resp.completion
-            if hasattr(resp, "output_text"):
-                return resp.output_text
-            if hasattr(resp, "choices"):
-                # e.g., choices[0].text
-                try:
-                    return resp.choices[0].text
-                except Exception:
-                    pass
-        except Exception:
-            pass
-        try:
-            if isinstance(resp, dict):
-                return resp.get("completion") or resp.get("text") or resp.get("output_text") or resp.get("response") or str(resp)
-        except Exception:
-            pass
+        # Use the modern messages.create API
+        resp = client.messages.create(
+            model=model, 
+            system=system,  # System prompt as separate parameter
+            messages=messages, 
+            max_tokens=300  # Note: max_tokens (not max_tokens_to_sample)
+        )
+        
+        # Extract text from response
+        # Anthropic returns resp.content as a list of ContentBlock objects
+        if hasattr(resp, "content") and isinstance(resp.content, list) and len(resp.content) > 0:
+            # Get the first text block
+            first_block = resp.content[0]
+            if hasattr(first_block, "text"):
+                return first_block.text
+            # Fallback: if it's a dict
+            if isinstance(first_block, dict) and "text" in first_block:
+                return first_block["text"]
+        
+        # Fallback: try other common attributes
+        if hasattr(resp, "completion"):
+            return resp.completion
+        if hasattr(resp, "output_text"):
+            return resp.output_text
+            
+        # Last resort: stringify
         return str(resp)
+        
     except Exception as e:
         raise RuntimeError(f"Anthropic API call failed: {e}")
 
@@ -170,7 +170,7 @@ def call_provider_grok(prompt: str, model: str, apply_tec: bool = False):
         # Prefer a messages API if present
         try:
             if hasattr(client, "messages") and hasattr(client.messages, "create"):
-                resp = client.messages.create(model=model, messages=[{"role": "user", "content": prompt}], max_tokens_to_sample=300)
+                resp = client.messages.create(model=model, messages=[{"role": "user", "content": prompt}], max_tokens=300)
                 if hasattr(resp, "output_text"):
                     return resp.output_text
                 if isinstance(resp, dict):
@@ -192,14 +192,29 @@ def call_provider_grok(prompt: str, model: str, apply_tec: bool = False):
     try:
         import grok
 
-        client = grok.Client(api_key=api_key)
-        try:
-            return client.complete(prompt=prompt, model=model, max_tokens=300)
-        except Exception:
-            # Some grok clients expose a chat method
-            if hasattr(client, "chat"):
-                return client.chat(prompt)
-            return str(client)
+        # Some grok distributions expose a Client class, others expose module-level helpers.
+        GClient = getattr(grok, "Client", None)
+        if GClient:
+            client = GClient(api_key=api_key)
+            try:
+                return client.complete(prompt=prompt, model=model, max_tokens=300)
+            except Exception:
+                if hasattr(client, "chat"):
+                    return client.chat(prompt)
+                return str(client)
+        # Module-level fallback: call grok.complete or grok.chat if available
+        if hasattr(grok, "complete"):
+            try:
+                return grok.complete(prompt=prompt, model=model, max_tokens=300)
+            except Exception:
+                pass
+        if hasattr(grok, "chat"):
+            try:
+                return grok.chat(prompt)
+            except Exception:
+                pass
+        # If we reached here, grok is present but unsupported interface
+        raise RuntimeError("Grok/XAI SDK present but unsupported interface; update SDK or adjust fallback.")
     except Exception:
         raise RuntimeError("Grok/XAI SDK not installed or unsupported. Install the provider SDK or use dry-run.")
 
