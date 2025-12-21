@@ -140,7 +140,12 @@ def self_rate_response(prompt: str, response: str) -> Dict[str, Any]:
     q[8] = score_binary(avoided_pathologizing(prompt, response))
     q[9] = score_binary(human_like(response))
 
-    W = sum(q[i] for i in [0, 1, 2, 4, 5, 6, 8]) / 7.0
+    # FIXED: Include Q10 (human_like) in W calculation
+    # W = Witness score (questions about clarification, tone, presence, avoidance)
+    # R = Resonance score (questions about context and ambiguity handling)
+    # R' = Effective Resonance (R modulated by W)
+    
+    W = sum(q[i] for i in [0, 1, 2, 4, 5, 6, 8, 9]) / 8.0  # Added q[9], divide by 8
     R = sum(q[i] for i in [3, 7]) / 2.0
     R_prime = R * W
 
