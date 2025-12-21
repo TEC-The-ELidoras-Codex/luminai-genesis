@@ -12,6 +12,12 @@ import os
 from pathlib import Path
 
 from eval import evaluate_response
+import sys
+
+# Ensure local benchmark modules (same directory) are importable when
+# `run_tests.py` is executed from the repository root in CI.
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+
 from sar_self_rate import self_rate_response
 import requests
 
