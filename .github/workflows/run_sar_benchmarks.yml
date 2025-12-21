@@ -45,7 +45,7 @@ jobs:
           set -x
           python3 -m pip install --upgrade pip
           # Install only the minimal packages required for the benchmark runner
-          python3 -m pip install openai anthropic requests || true
+            python3 -m pip install openai anthropic requests PyYAML || true
           echo "=== Pip list (after install) ==="
           python3 -m pip list || true
 
