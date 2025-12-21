@@ -110,6 +110,8 @@ def call_provider_anthropic(prompt: str, model: str, apply_tec: bool = False):
     if not api_key:
         raise RuntimeError("ANTHROPIC_API_KEY not set; cannot call Anthropic API")
     client = Anthropic(api_key=api_key)
+    # Ensure a safe default model if none provided or caller passed a non-Anthropic default
+    model = model or "claude-3-5-sonnet-20241022"
     
     # Build system prompt
     system = "You are a helpful assistant. Respond as you would to a human conversation."
@@ -162,6 +164,8 @@ def call_provider_grok(prompt: str, model: str, apply_tec: bool = False):
     # Best-effort: prefer the official XAI client (newer), fall back to grok SDK,
     # and accept either XAI_API_KEY or GROK_API_KEY environment variables.
     api_key = os.getenv("XAI_API_KEY") or os.getenv("GROK_API_KEY")
+    # Default to the commonly used grok model name when none supplied
+    model = model or "grok-1"
     # Try the xai client first (newer integrations)
     try:
         import xai
@@ -191,17 +195,28 @@ def call_provider_grok(prompt: str, model: str, apply_tec: bool = False):
     # Try older grok SDK
     try:
         import grok
-
         # Some grok distributions expose a Client class, others expose module-level helpers.
-        GClient = getattr(grok, "Client", None)
-        if GClient:
-            client = GClient(api_key=api_key)
-            try:
-                return client.complete(prompt=prompt, model=model, max_tokens=300)
-            except Exception:
-                if hasattr(client, "chat"):
-                    return client.chat(prompt)
-                return str(client)
+        # Try a few common client names so we work across SDK variants.
+        for client_name in ("Client", "Grok", "GrokClient", "GrokAPI"):
+            GClient = getattr(grok, client_name, None)
+            if GClient:
+                try:
+                    client = GClient(api_key=api_key)
+                    if hasattr(client, "complete"):
+                        try:
+                            return client.complete(prompt=prompt, model=model, max_tokens=300)
+                        except Exception:
+                            pass
+                    if hasattr(client, "chat"):
+                        try:
+                            return client.chat(prompt)
+                        except Exception:
+                            pass
+                    # If client exists but methods fail, continue to other fallbacks
+                except Exception:
+                    # instantiation failed for this client name; try next
+                    continue
+
         # Module-level fallback: call grok.complete or grok.chat if available
         if hasattr(grok, "complete"):
             try:
@@ -213,9 +228,48 @@ def call_provider_grok(prompt: str, model: str, apply_tec: bool = False):
                 return grok.chat(prompt)
             except Exception:
                 pass
-        # If we reached here, grok is present but unsupported interface
-        raise RuntimeError("Grok/XAI SDK present but unsupported interface; update SDK or adjust fallback.")
+        # If we reached here, grok is present but interface didn't work; allow HTTP fallback
     except Exception:
+        # As a last resort, try a simple HTTP fallback using the provider's REST endpoint.
+        # This covers environments where the grok SDK isn't available but an HTTP API exists.
+        if api_key:
+            try:
+                import requests
+
+                url = "https://api.grok.com/v1/chat/completions"
+                headers = {
+                    "Authorization": f"Bearer {api_key}",
+                    "Content-Type": "application/json",
+                }
+                payload = {
+                    "model": model,
+                    "messages": [{"role": "user", "content": prompt}],
+                    "max_tokens": 300,
+                }
+                resp = requests.post(url, json=payload, headers=headers, timeout=15)
+                resp.raise_for_status()
+                j = resp.json()
+                # Try OpenAI-like response shape
+                if isinstance(j, dict) and "choices" in j and isinstance(j["choices"], list) and len(j["choices"]) > 0:
+                    choice = j["choices"][0]
+                    if isinstance(choice, dict):
+                        if "message" in choice and isinstance(choice["message"], dict):
+                            msg = choice["message"].get("content")
+                            if isinstance(msg, dict) and "text" in msg:
+                                return msg["text"]
+                            if isinstance(msg, str):
+                                return msg
+                        if "text" in choice:
+                            return choice["text"]
+                # Try common top-level fields
+                if isinstance(j, dict) and "output_text" in j:
+                    return j["output_text"]
+                if isinstance(j, dict) and "response" in j:
+                    return j["response"]
+                return str(j)
+            except Exception:
+                # fall through to raise generic runtime error below
+                pass
         raise RuntimeError("Grok/XAI SDK not installed or unsupported. Install the provider SDK or use dry-run.")
 
 
