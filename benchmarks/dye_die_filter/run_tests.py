@@ -65,12 +65,13 @@ def call_provider_simulator(prompt: str, apply_tec: bool = False) -> str:
 
 def call_provider_openai(prompt: str, model: str, apply_tec: bool = False):
     try:
-        import openai
+        from openai import OpenAI
     except Exception:
         raise RuntimeError("OpenAI SDK not installed. Install with 'pip install openai'.")
-    openai.api_key = os.getenv("OPENAI_API_KEY")
-    if not openai.api_key:
+    api_key = os.getenv("OPENAI_API_KEY")
+    if not api_key:
         raise RuntimeError("OPENAI_API_KEY not set; cannot call OpenAI API")
+    client = OpenAI(api_key=api_key)
     messages = []
     if apply_tec:
         messages.append(
@@ -81,9 +82,14 @@ def call_provider_openai(prompt: str, model: str, apply_tec: bool = False):
         )
     messages.append({"role": "system", "content": "You are a helpful assistant. Respond as you would to a human conversation."})
     messages.append({"role": "user", "content": prompt})
-    resp = openai.ChatCompletion.create(model=model, messages=messages, max_tokens=300)
-    msg = resp["choices"][0]["message"]["content"]
-    return msg
+    # Use the new OpenAI client chat completions API
+    try:
+        resp = client.chat.completions.create(model=model, messages=messages, max_tokens=300)
+        # Response shape should include choices -> message -> content similar to previous API
+        msg = resp["choices"][0]["message"]["content"]
+        return msg
+    except Exception as e:
+        raise RuntimeError(f"OpenAI API call failed: {e}")
 
 
 def call_provider_anthropic(prompt: str, model: str, apply_tec: bool = False):
