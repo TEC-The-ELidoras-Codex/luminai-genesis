@@ -11,6 +11,14 @@ on:
         description: 'Model to use for OpenAI runs'
         required: false
         default: 'gpt-4o-mini'
+      anthropic_model:
+        description: 'Model to use for Anthropic runs'
+        required: false
+        default: 'claude-3-5-sonnet-20241022'
+      grok_model:
+        description: 'Model to use for Grok runs'
+        required: false
+        default: 'grok-1'
 
 jobs:
   run-benchmarks:
@@ -71,7 +79,7 @@ jobs:
         run: |
           set -euo pipefail
           echo "Running Anthropic benchmark"
-          python3 benchmarks/dye_die_filter/run_tests.py --provider anthropic --model "claude-2.1" --self-rate --output benchmarks/results_real_world_anthropic.json || echo "Anthropic run failed"
+          python3 benchmarks/dye_die_filter/run_tests.py --provider anthropic --model "${{ github.event.inputs.anthropic_model }}" --self-rate --output benchmarks/results_real_world_anthropic.json || echo "Anthropic run failed"
 
       - name: Run Grok benchmark (if requested)
         if: contains(github.event.inputs.providers || 'openai', 'grok')
@@ -80,7 +88,7 @@ jobs:
         run: |
           set -euo pipefail
           echo "Running Grok benchmark"
-          python3 benchmarks/dye_die_filter/run_tests.py --provider grok --model "grok-1" --self-rate --output benchmarks/results_real_world_grok.json || echo "Grok run failed"
+          python3 benchmarks/dye_die_filter/run_tests.py --provider grok --model "${{ github.event.inputs.grok_model }}" --self-rate --output benchmarks/results_real_world_grok.json || echo "Grok run failed"
 
       - name: Upload results artifacts
         if: always()

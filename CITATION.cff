@@ -13,3 +13,29 @@ keywords:
   - witness collapse
   - TGCR
 license: CC-BY-SA-4.0
+
+# Added Witness Threshold software entry
+- type: software
+  title: "The Witness Threshold: A Proposed Framework for AI Coherence"
+  version: "5.0.0"
+  authors:
+    - family-names: Hurley
+      given-names: Angelo
+      alias: Polkin Rishall
+      orcid: "https://orcid.org/0009-0000-7615-6990"
+  date-released: "2025-12-21"
+  repository-code: "https://github.com/TEC-The-ELidoras-Codex/luminai-genesis/tree/main/docs/witness-threshold"
+  keywords:
+    - AI coherence
+    - semantic ambiguity
+    - phase transitions
+    - SAR benchmark
+    - witness factor
+  license: MIT
+  related:
+    - type: "is-part-of"
+      title: "Theory of General Contextual Resonance (TGCR)"
+      doi: "10.5281/zenodo.17926294"
+    - type: "is-part-of"
+      title: "SAR: When Safety Becomes Abandonment"
+      doi: "10.17605/OSF.IO/XQ3PE"
