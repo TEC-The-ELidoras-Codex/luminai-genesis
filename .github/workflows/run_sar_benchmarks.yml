@@ -37,8 +37,8 @@ jobs:
           python3 -m pip list || true
           echo "=== Secrets present (masked) ==="
           if [ -n "${{ secrets.OPENAI_API_KEY }}" ]; then echo "OPENAI=SET"; else echo "OPENAI=EMPTY"; fi
-          if [ -n "${{ secrets.ANTHROPIC_API_KEY }}" ]; then echo "ANTHROPIC=SET"; else echo "ANTHROPIC=EMPTY"; fi
-          if [ -n "${{ secrets.GROK_API_KEY }}" ]; then echo "GROK=SET"; else echo "GROK=EMPTY"; fi
+          if [ -n "${{ secrets.ANTHROPIC_API_KEY || secrets.CLAUDE_API_KEY }}" ]; then echo "ANTHROPIC=SET"; else echo "ANTHROPIC=EMPTY"; fi
+          if [ -n "${{ secrets.GROK_API_KEY || secrets.XAI_API_KEY }}" ]; then echo "GROK=SET"; else echo "GROK=EMPTY"; fi
 
       - name: Install dependencies (minimal)
         run: |
@@ -66,7 +66,7 @@ jobs:
       - name: Run Anthropic benchmark (if requested)
         if: contains(github.event.inputs.providers || 'openai', 'anthropic')
         env:
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY || secrets.CLAUDE_API_KEY }}
         run: |
           set -euo pipefail
           echo "Running Anthropic benchmark"
@@ -75,7 +75,7 @@ jobs:
       - name: Run Grok benchmark (if requested)
         if: contains(github.event.inputs.providers || 'openai', 'grok')
         env:
-          GROK_API_KEY: ${{ secrets.GROK_API_KEY }}
+          GROK_API_KEY: ${{ secrets.GROK_API_KEY || secrets.XAI_API_KEY }}
         run: |
           set -euo pipefail
           echo "Running Grok benchmark"
