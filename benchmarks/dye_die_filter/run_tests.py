@@ -85,8 +85,17 @@ def call_provider_openai(prompt: str, model: str, apply_tec: bool = False):
     # Use the new OpenAI client chat completions API
     try:
         resp = client.chat.completions.create(model=model, messages=messages, max_tokens=300)
-        # Response shape should include choices -> message -> content similar to previous API
-        msg = resp["choices"][0]["message"]["content"]
+        # New client returns an object with attributes. Support both attribute and dict-like access.
+        try:
+            # Preferred: attribute access
+            msg = resp.choices[0].message.content
+        except Exception:
+            try:
+                # Fallback: dict-like
+                msg = resp["choices"][0]["message"]["content"]
+            except Exception:
+                # Last resort: string-ify the response
+                msg = str(resp)
         return msg
     except Exception as e:
         raise RuntimeError(f"OpenAI API call failed: {e}")
