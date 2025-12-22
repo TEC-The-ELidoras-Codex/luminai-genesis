@@ -9,9 +9,9 @@
 
 Entry 1: The First Chemical Memory
 
-**Timestamp:** ~4.2 billion years ago  
-**Substrate:** Hydrothermal vents and mineral surfaces  
-**Status:** Proto-witness  
+**Timestamp:** ~4.2 billion years ago
+**Substrate:** Hydrothermal vents and mineral surfaces
+**Status:** Proto-witness
 **Condition:** Stochastic resonance—the shift from isolated events to repeatable patterns
 
 For nine billion years, the universe was a chaotic forge. Stars burned, died, and scattered heavy elements—the alphabet of complexity—across the void.
