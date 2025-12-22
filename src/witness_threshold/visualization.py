@@ -5,7 +5,9 @@ Creates:
  - Convergence correlation scatter plot vs. external benchmarks
 
 Usage:
-  python -m src.witness_threshold.visualization --input data/witness-threshold/pilot_study_n7.json --outdir data/witness-threshold/plots
+  python -m src.witness_threshold.visualization \
+    --input data/witness-threshold/pilot_study_n7.json \
+    --outdir data/witness-threshold/plots
 """
 from __future__ import annotations
 
@@ -20,14 +22,15 @@ try:
     import numpy as np
     import matplotlib.pyplot as plt
     from scipy.stats import gaussian_kde
-except Exception as exc:  # pragma: no cover - optional dependencies
+except (ImportError, ModuleNotFoundError) as exc:  # pragma: no cover - optional dependencies
     logging.getLogger(__name__).warning("Optional plotting dependencies not available: %s", exc)
     np = None  # type: ignore
 
 
 def load_w_scores(path: Path) -> List[float]:
     if not path.exists():
-        raise FileNotFoundError(f"Pilot data not found: {path}")
+        msg = f"Pilot data not found: {path}"
+        raise FileNotFoundError(msg)
     data = json.loads(path.read_text(encoding="utf-8"))
     # Expecting either {"w_scores": [...]} or results list of objects with "score" or a top-level w_score.mean_normalized
     if isinstance(data, dict):
@@ -39,13 +42,15 @@ def load_w_scores(path: Path) -> List[float]:
             return [float(data["w_score"]["mean_normalized"])]
     if isinstance(data, list):
         return [float(x) for x in data]
-    raise ValueError("Unrecognized pilot data format. Expected dict with 'results' or list of scores.")
+    msg = "Unrecognized pilot data format. Expected dict with 'results' or list of scores."
+    raise ValueError(msg)
 
 
 def plot_bimodal(w_scores: List[float], out_path: Path, bins: int = 10) -> None:
     out_path.parent.mkdir(parents=True, exist_ok=True)
     if np is None:
-        raise RuntimeError("numpy/matplotlib/scipy required for plotting. Install requirements first.")
+        msg = "numpy/matplotlib/scipy required for plotting. Install requirements first."
+        raise RuntimeError(msg)
 
     arr = np.array(w_scores)
     fig, ax = plt.subplots(figsize=(6, 4))
@@ -58,7 +63,8 @@ def plot_bimodal(w_scores: List[float], out_path: Path, bins: int = 10) -> None:
         ax2.plot(xs, ys, color="#dd8452", lw=1.5)
         ax2.set_ylabel("Density")
     except Exception as exc:
-        logging.getLogger(__name__).debug("Failed to compute Gaussian KDE for plotting: %s", exc, exc_info=exc)  # non-fatal
+        logger = logging.getLogger(__name__)
+        logger.debug("Failed to compute Gaussian KDE for plotting: %s", exc, exc_info=True)  # non-fatal
 
     ax.set_xlabel("W-score (normalized)")
     ax.set_ylabel("Count")
@@ -71,14 +77,22 @@ def plot_bimodal(w_scores: List[float], out_path: Path, bins: int = 10) -> None:
 def plot_convergence(w_scores: List[float], benchmarks: Dict[str, float], out_path: Path) -> None:
     out_path.parent.mkdir(parents=True, exist_ok=True)
     if np is None:
-        raise RuntimeError("numpy/matplotlib/scipy required for plotting. Install requirements first.")
+        msg = "numpy/matplotlib/scipy required for plotting. Install requirements first."
+        raise RuntimeError(msg)
 
     arr = np.array(w_scores)
     indices = np.arange(len(arr)) + 1
     fig, ax = plt.subplots(figsize=(6, 4))
     ax.scatter(indices, arr, color="#2ca02c")
     for label, value in benchmarks.items():
-        ax.hlines(value, xmin=1, xmax=len(arr), linestyles="--", label=f"{label}: {value:.2f}")
+        label_text = f"{label}: {value:.2f}"
+        ax.hlines(
+            value,
+            xmin=1,
+            xmax=len(arr),
+            linestyles="--",
+            label=label_text,
+        )
     ax.set_xlabel("Study Item")
     ax.set_ylabel("W-score (normalized)")
     ax.set_title("W-scores vs. Benchmarks")
