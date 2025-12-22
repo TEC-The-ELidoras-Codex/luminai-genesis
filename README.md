@@ -192,6 +192,7 @@ One solo researcher with limited resources built:
 
 - Paper (OSF Preprint): https://doi.org/10.17605/OSF.IO/XQ3PE
 - Code & Artifacts (Zenodo): https://doi.org/10.5281/zenodo.17930577
+- Witness Threshold release (v5.0): 10.5281/zenodo.18012290 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18012290.svg)](https://doi.org/10.5281/zenodo.18012290)
 
 This repository contains the reference implementation and benchmarks corresponding to the TGCR preprint.
 
@@ -219,7 +220,6 @@ python3 -m http.server --directory docs 8000
 ```
 
 To publish publicly, enable GitHub Pages in repository Settings and set the source to `docs/` (or rely on the included GitHub Action `.github/workflows/deploy_docs_pages.yml` which uploads `docs/` as a Pages artifact on push). Note: enabling Pages is a repository-admin action.
-
 
 Tesla's Gigafactory Buffalo (2014-2020) promised $5B and 6,500 jobs. It delivered $1.3B (26%) and 900 jobs (14%). Buffalo learned hard lessons about Silicon Valley overpromises.
 
