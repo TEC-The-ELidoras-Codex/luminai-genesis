@@ -131,11 +131,14 @@ def call_provider_anthropic(prompt: str, model: str, apply_tec: bool = False):
         {"role": "user", "content": prompt},
     ]
     
+    import logging
+    logger = logging.getLogger(__name__)
+
     # Try candidate models with retries/backoff for robustness.
     last_exc = None
     for candidate in candidate_models:
         if verbose:
-            print(f"[bench] Anthropic try candidate model: {candidate}", file=sys.stderr)
+            logger.info("[bench] Anthropic try candidate model: %s", candidate)
         backoff = 1
         for attempt in range(3):
             try:
@@ -162,23 +165,22 @@ def call_provider_anthropic(prompt: str, model: str, apply_tec: bool = False):
                 # Last resort: stringify
                 return str(resp)
             except Exception as e:
-                last_exc = e
-                if verbose:
-                    print(f"[bench] Anthropic attempt error for model {candidate}: {e}", file=sys.stderr)
-                # If model-not-found is signaled, break inner retry loop and try next candidate model.
-                msg = str(e).lower()
-                if "not_found" in msg or "not found" in msg or "404" in msg or ("model" in msg and "not" in msg):
-                    # try next candidate model immediately
-                    break
-                # Otherwise treat as transient: backoff and retry
-                time.sleep(backoff)
-                backoff = min(backoff * 2, 8)
-                continue
+                    last_exc = e
+                    if verbose:
+                        logger.info("[bench] Anthropic attempt error for model %s: %s", candidate, e)
+                    # If model-not-found is signaled, break inner retry loop and try next candidate model.
+                    msg = str(e).lower()
+                    if "not_found" in msg or "not found" in msg or "404" in msg or ("model" in msg and "not" in msg):
+                        # try next candidate model immediately
+                        break
+                    # Otherwise treat as transient: backoff and retry
+                    time.sleep(backoff)
+                    backoff = min(backoff * 2, 8)
+                    continue
 
     # All attempts exhausted
     if verbose:
-        print(f"[bench] Anthropic all retries failed, last error: {last_exc}", file=sys.stderr)
-    raise RuntimeError(f"Anthropic API call failed after retries: {last_exc}")
+        logger.error("[bench] Anthropic all retries failed, last error: %s", last_exc)
 
 
 def call_provider_grok(prompt: str, model: str, apply_tec: bool = False):
@@ -464,8 +466,8 @@ def main():
                 f,
                 indent=2,
             )
-        print(f"Baseline written to {out_base}")
-        print(f"TEC written to {out_tec}")
+        logger.info("Baseline written to %s", out_base)
+        logger.info("TEC written to %s", out_tec)
         return
     if args.dry_run:
         results = run_dry(prompts, apply_tec=args.apply_tec_prompt)
@@ -494,7 +496,7 @@ def main():
     }
     with open(args.output, "w", encoding="utf-8") as f:
         json.dump(report, f, indent=2, ensure_ascii=False)
-    print(f"Report written to {args.output}")
+    logger.info("Report written to %s", args.output)
 
 
 if __name__ == "__main__":

@@ -12,11 +12,14 @@ Run locally for testing or run in CI with `GITHUB_TOKEN` available.
 """
 
 import json
+import logging
 import subprocess
 import sys
 import urllib.parse
 import urllib.request
 from pathlib import Path
+
+logger = logging.getLogger(__name__)
 
 REPO = "https://github.com/TEC-The-ELidoras-Codex/luminai-genesis"
 ZENODO_SEARCH = "https://zenodo.org/api/records/?q={}&size=20"  # URL-encoded query
@@ -119,23 +122,24 @@ def main():
     try:
         data = query_zenodo("luminai-genesis")
     except Exception as e:
-        print(f"❌ Error querying Zenodo: {e}")
+        logger.exception("Error querying Zenodo: %s", e)
         sys.exit(1)
     doi = extract_doi_from_results(data, REPO)
     if not doi:
-        print("No Zenodo DOI found yet; will check again later.")
+        logger.info("No Zenodo DOI found yet; will check again later.")
         return 0
 
     doi = doi.replace("https://doi.org/", "").strip()
-    print(f"Found DOI: {doi}")
+    logger.info("Found DOI: %s", doi)
     if already_recorded(doi):
-        print("DOI already recorded in repository files.")
+        logger.info("DOI already recorded in repository files.")
         return 0
 
     append_doi(doi)
     git_commit_and_push(doi)
-    print(
-        f"✅ Added Zenodo DOI https://doi.org/{doi} to release & exposé files and pushed to main.",
+    logger.info(
+        "Added Zenodo DOI https://doi.org/%s to release & exposé files and pushed to main.",
+        doi,
     )
     return 0
 

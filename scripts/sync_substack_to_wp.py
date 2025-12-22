@@ -5,6 +5,7 @@ Keeps a tracking file (.published_posts.txt) to avoid duplicates
 """
 
 import argparse
+import logging
 import os
 import re
 import xmlrpc.client
@@ -14,6 +15,8 @@ import requests
 from requests.exceptions import RequestException
 from wordpress_xmlrpc import Client, WordPressPost
 from wordpress_xmlrpc.methods.posts import NewPost
+
+logger = logging.getLogger(__name__)
 
 SUBSTACK_RSS = os.getenv("SUBSTACK_RSS") or os.getenv("SUBSTACK_RSS_URL")
 WP_URL = os.getenv("WP_URL")
@@ -93,42 +96,27 @@ def fetch_feed(url: str):
 def publish_to_wordpress(debug: bool = False):
     published = load_published()
     resolved = resolve_feed_url(SUBSTACK_RSS)
-    if not resolved:
-        print(
-            "❌ Could not find a valid RSS feed at the configured URL."
-            " Tried common endpoints.",
-        )
-        return
-    if debug:
-        print(f"ℹ️ Using feed URL: {resolved}")
-    feed = fetch_feed(resolved)
-    client = Client(WP_URL, WP_USERNAME, WP_PASSWORD)
-    new_count = 0
-    for entry in feed.entries:
-        url = entry.link
-        if url in published:
-            print(f"⏭️ Skipping already published: {entry.title}")
-            continue
-        content = entry.content[0].value if hasattr(entry, "content") else entry.summary
-        post = WordPressPost()
-        post.title = entry.title
-        post.content = content
-        post.post_status = "publish"
-        try:
-            client.call(NewPost(post))
-            save_published(url)
-            new_count += 1
-            print(f"✅ Published to WordPress: {entry.title}")
-        except (
-            xmlrpc.client.Fault,
-            xmlrpc.client.ProtocolError,
-            RequestException,
-        ) as e:
-            print(f"❌ Failed to publish to WordPress: {e}")
-    if new_count == 0:
-        print("ℹ️ No new posts to publish")
-    else:
-        print(f"🎉 Published {new_count} new posts to WordPress")
+if __name__ == "__main__":
+    # Configure lightweight CLI logging so messages are visible by default
+    logging.basicConfig(level=logging.INFO, format="%(message)s")
+
+    parser = argparse.ArgumentParser(description="Sync Substack RSS to WordPress")
+    parser.add_argument("--debug", action="store_true", help="Show feed debug output")
+    args = parser.parse_args()
+    if not all([SUBSTACK_RSS, WP_URL, WP_USERNAME, WP_PASSWORD]):
+        missing = []
+        for name, value in (
+            ("SUBSTACK_RSS", SUBSTACK_RSS),
+            ("WP_URL", WP_URL),
+            ("WP_USERNAME", WP_USERNAME),
+            ("WP_PASSWORD", WP_PASSWORD),
+        ):
+            if not value:
+                missing.append(name)
+        missing_msg = "Missing required environment variables: " + ", ".join(missing)
+        logger.error(missing_msg)
+        exit(1)
+    publish_to_wordpress(debug=args.debug) 
 
 
 if __name__ == "__main__":
@@ -145,7 +133,7 @@ if __name__ == "__main__":
         ):
             if not value:
                 missing.append(name)
-        missing_msg = "❌ Missing required environment variables: " + ", ".join(missing)
-        print(missing_msg)
+        missing_msg = "Missing required environment variables: " + ", ".join(missing)
+        logger.error(missing_msg)
         exit(1)
     publish_to_wordpress(debug=args.debug)

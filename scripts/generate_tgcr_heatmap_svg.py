@@ -68,7 +68,9 @@ def make_svg(rows, outpath: Path):
     svg.append("</svg>")
     outpath.parent.mkdir(parents=True, exist_ok=True)
     outpath.write_text("\n".join(svg), encoding="utf-8")
-    print("Saved", outpath)
+    import logging
+    logger = logging.getLogger(__name__)
+    logger.info("Saved %s", outpath)
 
 
 def main():

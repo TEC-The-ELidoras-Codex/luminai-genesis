@@ -1,12 +1,16 @@
 import os
+import logging
 
 import yaml
 from github import Github
 
+logger = logging.getLogger(__name__)
+logging.basicConfig(level=logging.INFO, format="%(message)s")
+
 # Load GitHub token
 token = os.getenv("GITHUB_TOKEN")
 if not token:
-    print("GITHUB_TOKEN not set")
+    logger.error("GITHUB_TOKEN not set")
     exit(1)
 
 # Initialize GitHub client
@@ -30,10 +34,11 @@ for label in labels_data:
         existing = repo.get_label(name)
         # Update if exists
         existing.edit(name, color, description)
-        print(f"Updated label: {name}")
-    except Exception:
+        logger.info("Updated label: %s", name)
+    except Exception as exc:
+        logger.debug("Label update failed for %s: %s", name, exc, exc_info=exc)
         # Create if not exists
         repo.create_label(name, color, description)
-        print(f"Created label: {name}")
+        logger.info("Created label: %s", name)
 
-print("Labels imported successfully")
+logger.info("Labels imported successfully")

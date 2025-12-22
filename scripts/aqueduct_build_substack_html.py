@@ -6,10 +6,13 @@ Usage: python3 scripts/aqueduct_build_substack_html.py
 """
 
 import sys
+import logging
 from pathlib import Path
 
 import markdown
 import yaml
+
+logger = logging.getLogger(__name__)
 
 ROOT = Path(__file__).resolve().parents[1]
 READY_DIR = ROOT / "docs" / "streams" / "articles" / "ready"
@@ -33,7 +36,7 @@ def main():
 
     files = sorted(READY_DIR.glob("*.md"))
     if not files:
-        print("No ready memos found in docs/streams/articles/ready", file=sys.stderr)
+        logger.warning("No ready memos found in docs/streams/articles/ready")
         return
 
     for md_path in files:
@@ -52,8 +55,9 @@ def main():
         out_path = OUT_DIR / f"{slug}.html"
         out_path.write_text(html, encoding="utf-8")
 
-        print(f"✨ Built HTML for Substack: {out_path} (title: {title})")
+        logger.info("Built HTML for Substack: %s (title: %s)", out_path, title)
 
 
 if __name__ == "__main__":
+    logging.basicConfig(level=logging.INFO, format="%(message)s")
     main()
