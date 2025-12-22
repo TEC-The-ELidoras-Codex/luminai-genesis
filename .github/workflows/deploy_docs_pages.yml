@@ -2,7 +2,7 @@ name: Deploy docs to GitHub Pages
 
 on:
   push:
-    branches: [ main, chore/latex-cleanup ]
+    branches: [main, chore/latex-cleanup]
 
 jobs:
   deploy:
@@ -18,7 +18,7 @@ jobs:
       - name: Setup Node (for optional build)
         uses: actions/setup-node@v4
         with:
-          node-version: '18'
+          node-version: "18"
 
       - name: Deploy to GitHub Pages
         uses: actions/configure-pages@v3
@@ -30,7 +30,6 @@ jobs:
 
       - name: Deploy
         uses: actions/deploy-pages@v1
-
 # Notes:
 # This workflow deploys the `docs/` folder to GitHub Pages on push to `main` or
 # other deployment branches. It intentionally keeps a minimal set of steps and
