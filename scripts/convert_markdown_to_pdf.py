@@ -207,7 +207,8 @@ def convert_markdown_to_pdf(
             for fmt in fmt_candidates:
                 try:
                     return datetime.strptime(date_text, fmt)
-                except Exception:
+                except ValueError:
+                    # Not matching this format, try next
                     pass
             # Last resort: try to parse a year and fallback to a month/day pattern
             m = re.search(r"(\d{4})", date_text)
