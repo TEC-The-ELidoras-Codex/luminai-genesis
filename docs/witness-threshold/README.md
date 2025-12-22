@@ -9,8 +9,8 @@ The Witness Threshold framework unifies theory, benchmarks (SAR), and pilot evid
 
 ## Contact & Collaboration
 
-Angelo "Polkin Rishall" Hurley  
-KaznakAlpha@elidorascodex.com  
+Angelo "Polkin Rishall" Hurley
+KaznakAlpha@elidorascodex.com
 ORCID: https://orcid.org/0009-0000-7615-6990
 
 ## Citation

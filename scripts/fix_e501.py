@@ -19,7 +19,9 @@ def fix_file(filepath):
                     wrapped = textwrap.wrap(user_text, width=50)
                     new_user = '"\n            "'.join(wrapped) + '"'
                     indent = " " * (len(line) - len(line.lstrip()))
-                    new_line = line.replace(f'"user": "{user_text}"', f'"user": {new_user}')
+                    new_line = line.replace(
+                        f'"user": "{user_text}"', f'"user": {new_user}',
+                    )
                     new_lines.append(new_line)
                     continue
             # Handle other long lines by splitting at natural breaks

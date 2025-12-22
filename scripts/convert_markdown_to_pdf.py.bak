@@ -33,7 +33,8 @@ def convert_markdown_to_pdf(md_file_path: str, output_path: str = None):
 
     # Convert to HTML with extensions
     html_content = markdown.markdown(
-        md_content, extensions=["extra", "codehilite", "toc", "tables"],
+        md_content,
+        extensions=["extra", "codehilite", "toc", "tables"],
     )
 
     # Add CSS styling

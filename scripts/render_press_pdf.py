@@ -15,7 +15,7 @@ try:
     from weasyprint import HTML
 except Exception:
     raise SystemExit(
-        "WeasyPrint is required. Install with `pip install weasyprint` and ensure system libs are available."
+        "WeasyPrint is required. Install with `pip install weasyprint` and ensure system libs are available.",
     )
 
 BASE = Path(__file__).resolve().parent.parent

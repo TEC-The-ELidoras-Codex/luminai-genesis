@@ -323,7 +323,7 @@ Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
 Type X to quit or <RETURN> to proceed,
 or enter new name. (Default extension: sty)
 
-Enter file name: 
+Enter file name:
 (/usr/share/texlive/texmf-dist/tex/latex/natbib/natbib.sty
 Package: natbib 2010/09/13 8.31b (PWD, AO)
 \bibhang=\skip55
@@ -738,12 +738,12 @@ File: pgflibraryplotmarks.code.tex 2023-01-15 v3.1.10 (3.1.10)
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
- ...                                              
-                                                  
+ ...
+
 l.16 	i
        tle{The Theory of General Contextual Resonance (TGCR): A Unified Fram...
 
-? 
+?
 (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2024-05-08 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count331
@@ -806,7 +806,7 @@ Package hyperref Info: Link coloring OFF on input line 29.
 * paper: letterpaper
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
-* modes: 
+* modes:
 * h-part:(L,W,R)=(72.26999pt, 469.75502pt, 72.26999pt)
 * v-part:(T,H,B)=(72.26999pt, 650.43001pt, 72.26999pt)
 * \paperwidth=614.295pt
@@ -846,11 +846,11 @@ s been generated with the most recent feature set (\pgfplotsset{compat=1.18}).
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.32 
-     
-? 
+ ...
+
+l.32
+
+?
 LaTeX Font Info:    Trying to load font information for U+msa on input line 32.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
@@ -867,233 +867,233 @@ Package natbib Warning: Citation `penrose1989' on page 2 undefined on input lin
 e 46.
 
 
-Package natbib Warning: Citation `stapp1993' on page 2 undefined on input line 
+Package natbib Warning: Citation `stapp1993' on page 2 undefined on input line
 46.
 
 ! Undefined control sequence.
 l.57 ...m $R$ is the base resonance frequency (\si
                                                   {\hertz})
-? 
+?
 ! Undefined control sequence.
 l.57 ...s the base resonance frequency (\si{\hertz
                                                   })
-? 
+?
 
 
 [2]
 ! Undefined control sequence.
 l.59 ...\item $R'$ is the effective resonance (\si
                                                   {\hertz})
-? 
+?
 ! Undefined control sequence.
 l.59 ...R'$ is the effective resonance (\si{\hertz
                                                   })
-? 
+?
 ! Undefined control sequence.
 l.65     \item $[R] = [R'] = \si
                                 {T^{-1}}$ (inverse time)
-? 
+?
 ! Undefined control sequence.
 l.72 \hat{W} = \sum_i w_i \ket
                               {i}\bra{i}
-? 
+?
 ! Undefined control sequence.
 l.72 \hat{W} = \sum_i w_i \ket{i}\bra
                                      {i}
-? 
+?
 
-Package natbib Warning: Citation `vonneumann1932' on page 3 undefined on input 
+Package natbib Warning: Citation `vonneumann1932' on page 3 undefined on input
 line 75.
 
 ! Missing $ inserted.
-<inserted text> 
+<inserted text>
                 $
 l.79 ...h=0.7\textwidth]{figures/tgcr_diagram.png}
-                                                  
-? 
+
+?
 ! Missing $ inserted.
-<inserted text> 
+<inserted text>
                 $
 l.79 ...h=0.7\textwidth]{figures/tgcr_diagram.png}
-                                                  
-? 
+
+?
 ! Undefined control sequence.
 l.89     \item R: input data resonance (\si
                                            {100\hertz})
-? 
+?
 ! Undefined control sequence.
 l.89 ...tem R: input data resonance (\si{100\hertz
                                                   })
-? 
+?
 ! Undefined control sequence.
 l.90     \item R\': measured output coherence (\si
                                                   {\hertz})
-? 
+?
 ! Undefined control sequence.
 l.90 ...R\': measured output coherence (\si{\hertz
                                                   })
-? 
+?
 ! Undefined control sequence.
 l.100 W Value & Predicted R\' (\si
                                   {\hertz}) & Observed R\' (\si{\hertz}) \\
-? 
+?
 ! Undefined control sequence.
 l.100 W Value & Predicted R\' (\si{\hertz
                                          }) & Observed R\' (\si{\hertz}) \\
-? 
+?
 ! Undefined control sequence.
 l.100 ...ted R\' (\si{\hertz}) & Observed R\' (\si
                                                   {\hertz}) \\
-? 
+?
 ! Undefined control sequence.
 l.100 ... (\si{\hertz}) & Observed R\' (\si{\hertz
                                                   }) \\
-? 
+?
 ! Undefined control sequence.
-<argument> ...s Experiment Results. Input R = \SI 
+<argument> ...s Experiment Results. Input R = \SI
                                                   {100}{\hertz }. The correl...
 l.107 ... observed values is 0.92, with p < 0.01.}
-                                                  
-? 
+
+?
 ! Undefined control sequence.
-<argument> ...Results. Input R = \SI {100}{\hertz 
+<argument> ...Results. Input R = \SI {100}{\hertz
                                                   }. The correlation coeffic...
 l.107 ... observed values is 0.92, with p < 0.01.}
-                                                  
-? 
+
+?
 ! Undefined control sequence.
-<argument> ...s Experiment Results. Input R = \SI 
+<argument> ...s Experiment Results. Input R = \SI
                                                   {100}{\hertz }. The correl...
 l.107 ... observed values is 0.92, with p < 0.01.}
-                                                  
-? 
+
+?
 ! Undefined control sequence.
-<argument> ...Results. Input R = \SI {100}{\hertz 
+<argument> ...Results. Input R = \SI {100}{\hertz
                                                   }. The correlation coeffic...
 l.107 ... observed values is 0.92, with p < 0.01.}
-                                                  
-? 
+
+?
 ! Undefined control sequence.
-<argument> ...s Experiment Results. Input R = \SI 
+<argument> ...s Experiment Results. Input R = \SI
                                                   {100}{\hertz }. The correl...
 l.107 ... observed values is 0.92, with p < 0.01.}
-                                                  
-? 
+
+?
 ! Undefined control sequence.
-<argument> ...Results. Input R = \SI {100}{\hertz 
+<argument> ...Results. Input R = \SI {100}{\hertz
                                                   }. The correlation coeffic...
 l.107 ... observed values is 0.92, with p < 0.01.}
-                                                  
-? 
+
+?
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 ! Missing $ inserted.
-<inserted text> 
+<inserted text>
                 $
 l.113 ...th=0.8\textwidth]{figures/ai_results.png}
-                                                  
-? 
+
+?
 ! Missing $ inserted.
-<inserted text> 
+<inserted text>
                 $
 l.113 ...th=0.8\textwidth]{figures/ai_results.png}
-                                                  
-? 
+
+?
 
 
 [3
 pdfTeX warning (ext4): destination with the same identifier (name{figure.1}) ha
 s been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
+<argument> ...shipout:D \box_use:N \l_shipout_box
                                                   \__shipout_drop_firstpage_...
-l.117 
+l.117
       ]
 ! Undefined control sequence.
 l.122     \item Measure W via EEG coherence in \si
                                                   {\hertz} bands
-? 
+?
 ! Undefined control sequence.
 l.122 ...Measure W via EEG coherence in \si{\hertz
                                                   } bands
-? 
+?
 ! Undefined control sequence.
 l.123 ...elate with quantum decoherence rates (\si
                                                   {\second})
-? 
+?
 ! Undefined control sequence.
 l.123 ...th quantum decoherence rates (\si{\second
                                                   })
-? 
+?
 
 Package natbib Warning: Citation `wheeler1983' on page 4 undefined on input lin
 e 131.
 
 ! Missing $ inserted.
-<inserted text> 
+<inserted text>
                 $
 l.135 ...0.6\textwidth]{figures/quantum_setup.png}
-                                                  
-? 
+
+?
 ! Missing $ inserted.
-<inserted text> 
+<inserted text>
                 $
 l.135 ...0.6\textwidth]{figures/quantum_setup.png}
-                                                  
-? 
+
+?
 
 
 [4
 pdfTeX warning (ext4): destination with the same identifier (name{table.1}) has
  been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
+<argument> ...shipout:D \box_use:N \l_shipout_box
                                                   \__shipout_drop_firstpage_...
 l.144     \item H
                  eart rate variability (\si{\millisecond})
 pdfTeX warning (ext4): destination with the same identifier (name{figure.2}) ha
 s been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
+<argument> ...shipout:D \box_use:N \l_shipout_box
                                                   \__shipout_drop_firstpage_...
 l.144     \item H
                  eart rate variability (\si{\millisecond})
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3}) ha
 s been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
+<argument> ...shipout:D \box_use:N \l_shipout_box
                                                   \__shipout_drop_firstpage_...
 l.144     \item H
                  eart rate variability (\si{\millisecond})]
 ! Undefined control sequence.
 l.144     \item Heart rate variability (\si
                                            {\millisecond})
-? 
+?
 ! Undefined control sequence.
 l.144 ... Heart rate variability (\si{\millisecond
                                                   })
-? 
+?
 ! Undefined control sequence.
 l.145     \item Cortisol levels (\si
                                     {\micro\gram\per\deci\liter})
-? 
+?
 ! Undefined control sequence.
 l.145     \item Cortisol levels (\si{\micro
                                            \gram\per\deci\liter})
-? 
+?
 ! Undefined control sequence.
 l.145     \item Cortisol levels (\si{\micro\gram
                                                 \per\deci\liter})
-? 
+?
 ! Undefined control sequence.
 l.145 ...item Cortisol levels (\si{\micro\gram\per
                                                   \deci\liter})
-? 
+?
 ! Undefined control sequence.
 l.145 ...Cortisol levels (\si{\micro\gram\per\deci
                                                   \liter})
-? 
+?
 ! Undefined control sequence.
 l.145 ...ol levels (\si{\micro\gram\per\deci\liter
                                                   })
-? 
+?
 
 Package natbib Warning: Citation `chalmers1995' on page 5 undefined on input li
 ne 156.
@@ -1102,15 +1102,15 @@ ne 156.
 l.162 ...Cosmic microwave background patterns (\si
                                                   {\micro\kelvin} fluctuations)
 
-? 
+?
 ! Undefined control sequence.
 l.162 ...microwave background patterns (\si{\micro
                                                   \kelvin} fluctuations)
-? 
+?
 ! Undefined control sequence.
 l.162 ...ve background patterns (\si{\micro\kelvin
                                                   } fluctuations)
-? 
+?
 
 Package natbib Warning: Citation `susskind1995' on page 5 undefined on input li
 ne 166.
@@ -1129,29 +1129,29 @@ Package natbib Warning: Citation `aspect1982' on page 5 undefined on input line
 ! Undefined control sequence.
 l.193 ...ency associated with a system. Units: \si
                                                   {\hertz}.
-? 
+?
 ! Undefined control sequence.
 l.193 ...sociated with a system. Units: \si{\hertz
                                                   }.
-? 
+?
 ! Undefined control sequence.
 l.195 ...resonance once modulated by W. Units: \si
                                                   {\hertz}. Defined by Equat...
 
-? 
+?
 ! Undefined control sequence.
 l.195 ...ce once modulated by W. Units: \si{\hertz
                                                   }. Defined by Equation \re...
 
-? 
+?
 ! Undefined control sequence.
 l.196 ...quation \ref{eq:decoherence}). Units: \si
                                                   {\second}.
-? 
+?
 ! Undefined control sequence.
 l.196 ...\ref{eq:decoherence}). Units: \si{\second
                                                   }.
-? 
+?
 No file tgcr.bbl.
 
 Package natbib Warning: There were undefined citations.
@@ -1165,7 +1165,7 @@ L3 programming layer <2025-01-18>
  ***********
 Package rerunfilecheck Info: File `tgcr.out' has not changed.
 (rerunfilecheck)             Checksum: 242E957453259BCE57E0176E68D5FF53;2787.
- ) 
+ )
 Here is how much of TeX's memory you used:
  31121 strings out of 475178
  724775 string characters out of 5766538
@@ -1192,4 +1192,3 @@ PDF statistics:
  160 compressed objects within 2 object streams
  35 named destinations out of 1000 (max. 500000)
  165 words of extra memory for PDF output out of 10000 (max. 10000000)
-

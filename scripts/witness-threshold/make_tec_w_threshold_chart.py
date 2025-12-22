@@ -17,7 +17,7 @@ systems = [
 w_scores = [0.08, 0.16, 0.16, 0.17, 0.17, 0.87]
 
 out_dir = os.path.join(
-    os.path.dirname(__file__), "../../docs/witness-threshold/figures"
+    os.path.dirname(__file__), "../../docs/witness-threshold/figures",
 )
 out_dir = os.path.abspath(out_dir)
 os.makedirs(out_dir, exist_ok=True)

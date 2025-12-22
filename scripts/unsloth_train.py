@@ -206,19 +206,33 @@ if __name__ == "__main__":
         help="Output directory for LoRA weights",
     )
     parser.add_argument(
-        "--num_epochs", type=int, default=3, help="Number of training epochs",
+        "--num_epochs",
+        type=int,
+        default=3,
+        help="Number of training epochs",
     )
     parser.add_argument(
-        "--batch_size", type=int, default=2, help="Training batch size per device",
+        "--batch_size",
+        type=int,
+        default=2,
+        help="Training batch size per device",
     )
     parser.add_argument(
-        "--learning_rate", type=float, default=2e-4, help="Learning rate",
+        "--learning_rate",
+        type=float,
+        default=2e-4,
+        help="Learning rate",
     )
     parser.add_argument(
-        "--max_seq_length", type=int, default=1024, help="Maximum sequence length",
+        "--max_seq_length",
+        type=int,
+        default=1024,
+        help="Maximum sequence length",
     )
     parser.add_argument(
-        "--use_cpu", action="store_true", help="Force CPU-only training (no CUDA)",
+        "--use_cpu",
+        action="store_true",
+        help="Force CPU-only training (no CUDA)",
     )
 
     args = parser.parse_args()

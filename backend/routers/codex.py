@@ -49,6 +49,7 @@ def get_class_abilities(class_name: str) -> dict[str, Any]:
     abilities = ABILITIES_DATA.get("abilities", {})
     if class_name not in abilities:
         raise HTTPException(
-            status_code=404, detail=f"No abilities found for class '{class_name}'",
+            status_code=404,
+            detail=f"No abilities found for class '{class_name}'",
         )
     return {class_name: abilities[class_name]}

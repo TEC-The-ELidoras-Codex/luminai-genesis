@@ -9,8 +9,9 @@ If no input file is provided, the script will generate a demo heatmap to illustr
 """
 
 import argparse
-from pathlib import Path
 import csv
+from pathlib import Path
+
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -27,7 +28,12 @@ def read_csv(path: Path):
 def make_heatmap(rows, outpath: Path):
     # Simple layout: each system is a row, columns: R, W, R'
     labels = [r["system"] for r in rows]
-    metrics = np.array([[float(r.get("R", 0)), float(r.get("W", 0)), float(r.get("R_prime", 0))] for r in rows])
+    metrics = np.array(
+        [
+            [float(r.get("R", 0)), float(r.get("W", 0)), float(r.get("R_prime", 0))]
+            for r in rows
+        ],
+    )
 
     fig, ax = plt.subplots(figsize=(6, max(2, len(rows) * 0.5)))
     im = ax.imshow(metrics, cmap="RdYlBu_r", aspect="auto")
@@ -37,7 +43,15 @@ def make_heatmap(rows, outpath: Path):
     ax.set_xticklabels(["R", "W", "R'"], fontsize=12)
     for i in range(metrics.shape[0]):
         for j in range(metrics.shape[1]):
-            ax.text(j, i, f"{metrics[i,j]:.2f}", ha="center", va="center", color="black", fontsize=8)
+            ax.text(
+                j,
+                i,
+                f"{metrics[i,j]:.2f}",
+                ha="center",
+                va="center",
+                color="black",
+                fontsize=8,
+            )
 
     fig.colorbar(im, ax=ax, label="Value")
     fig.tight_layout()

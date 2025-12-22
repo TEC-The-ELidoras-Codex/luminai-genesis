@@ -1,0 +1,7 @@
+numpy>=1.26
+scipy>=1.11
+matplotlib>=3.8
+PyYAML>=6.0
+Markdown>=3.4
+requests>=2.30
+beautifulsoup4>=4.12

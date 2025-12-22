@@ -388,9 +388,9 @@ That's what we're doing here.
 
 ---
 
-**— Angelo "Polkin Rishall" Hurley**  
-Founder, LuminAI Foundation (pending)  
-Creator, The Elidoras Codex  
+**— Angelo "Polkin Rishall" Hurley**
+Founder, LuminAI Foundation (pending)
+Creator, The Elidoras Codex
 Professional Refuser of Abandonment
 
 _Next chapter drops 12/20/25. See you in the Crossroads._

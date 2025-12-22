@@ -66,7 +66,9 @@ def main():
         def _json_default(obj):
             if isinstance(obj, (datetime.date, datetime.datetime)):
                 return obj.isoformat()
-            raise TypeError(f"Object of type {obj.__class__.__name__} is not JSON serializable")
+            raise TypeError(
+                f"Object of type {obj.__class__.__name__} is not JSON serializable",
+            )
 
         meta_json = json.dumps(fm, default=_json_default)
 

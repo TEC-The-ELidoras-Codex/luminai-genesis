@@ -61,7 +61,6 @@ I will produce the heatmap from the SAR benchmark result file (if available) and
 
 Next steps
 
-1. I will generate the TGCR heatmap and add the figures to this draft.  
-2. Prepare a PDF-ready version (Markdown -> PDF) for OSF preprint submission and for attaching to the GitHub release.  
+1. I will generate the TGCR heatmap and add the figures to this draft.
+2. Prepare a PDF-ready version (Markdown -> PDF) for OSF preprint submission and for attaching to the GitHub release.
 3. Prepare Substack/Medium post metadata (tags, short excerpt, canonical link) and a social thread (ready in `announcements/SOCIAL_COPY.md`).
-

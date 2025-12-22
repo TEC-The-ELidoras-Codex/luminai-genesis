@@ -34,7 +34,11 @@ def _load_mapping() -> list[dict[str, Any]]:
             "SIXTEEN_FREQUENCIES_MAPPING.merged.json",
         ),
         os.path.join(
-            base_dir, "..", "data", "frequencies", "SIXTEEN_FREQUENCIES_MAPPING.json",
+            base_dir,
+            "..",
+            "data",
+            "frequencies",
+            "SIXTEEN_FREQUENCIES_MAPPING.json",
         ),
     ]
     # normalize

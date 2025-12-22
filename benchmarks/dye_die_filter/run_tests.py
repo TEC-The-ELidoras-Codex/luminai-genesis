@@ -150,7 +150,7 @@ def main():
             tec = run_openai(prompts, args.model, apply_tec=True)
         else:
             raise SystemExit(
-                "No provider specified and not a dry run — set --dry-run for safe runs"
+                "No provider specified and not a dry run — set --dry-run for safe runs",
             )
         out_base = args.output.replace(".json", "_baseline.json")
         out_tec = args.output.replace(".json", "_tec.json")

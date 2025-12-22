@@ -65,11 +65,11 @@ def create_ugc_post(access_token: str, author_urn: str, text: str) -> dict:
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument(
-        "--access-token", help="LinkedIn access token (env: LINKEDIN_ACCESS_TOKEN)"
+        "--access-token", help="LinkedIn access token (env: LINKEDIN_ACCESS_TOKEN)",
     )
     parser.add_argument("--text", required=True, help="Text to post")
     parser.add_argument(
-        "--dry-run", action="store_true", help="Do not actually POST; show payload"
+        "--dry-run", action="store_true", help="Do not actually POST; show payload",
     )
     args = parser.parse_args(argv)
 

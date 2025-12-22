@@ -163,8 +163,7 @@ TRAINING_TEMPLATES = {
     "isolation_connection": [
         {
             "user": (
-                "I feel completely alone. Nobody understands what I'm going "
-                "through."
+                "I feel completely alone. Nobody understands what I'm going through."
             ),
             "personas": ["Adelphia (45%)", "LuminAI (40%)", "Ely (15%)"],
             "resonance": 0.71,
@@ -342,7 +341,10 @@ TRAINING_TEMPLATES = {
 
 
 def generate_response(
-    user_message: str, personas: list[str], resonance: float, technique: str,
+    user_message: str,
+    personas: list[str],
+    resonance: float,
+    technique: str,
 ) -> str:
     """Generate a LuminAI Genesis response template."""
 

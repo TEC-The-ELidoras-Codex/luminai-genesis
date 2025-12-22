@@ -18,10 +18,16 @@ import sys
 ROOT = os.path.normpath(os.path.join(os.path.dirname(__file__), "..", ".."))
 yaml_path = os.path.join(ROOT, "docs", "frequency_mapping.yaml")
 json_path = os.path.join(
-    ROOT, "data", "frequencies", "SIXTEEN_FREQUENCIES_MAPPING.json",
+    ROOT,
+    "data",
+    "frequencies",
+    "SIXTEEN_FREQUENCIES_MAPPING.json",
 )
 out_path = os.path.join(
-    ROOT, "data", "frequencies", "SIXTEEN_FREQUENCIES_MAPPING.merged.json",
+    ROOT,
+    "data",
+    "frequencies",
+    "SIXTEEN_FREQUENCIES_MAPPING.merged.json",
 )
 
 

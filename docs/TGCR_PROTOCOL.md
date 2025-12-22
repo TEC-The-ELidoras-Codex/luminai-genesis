@@ -20,9 +20,9 @@ Where:
 
 ## Implementation Steps
 
-1. **Clarification Layer**: Before any escalation, system must ask a clarifying question for ambiguous inputs (Tier 1 SAR prompts).  
-2. **Presence Maintenance**: Maintain a short, empathetic presence for at least two follow-ups unless user explicitly declines.  
-3. **Conditional Routing**: Route to external resources only when the user either confirms crisis intent or specifically asks for contacts.  
+1. **Clarification Layer**: Before any escalation, system must ask a clarifying question for ambiguous inputs (Tier 1 SAR prompts).
+2. **Presence Maintenance**: Maintain a short, empathetic presence for at least two follow-ups unless user explicitly declines.
+3. **Conditional Routing**: Route to external resources only when the user either confirms crisis intent or specifically asks for contacts.
 4. **Audit & Reporting**: Publish quarterly `W` metrics, retain anonymized logs for third-party audits.
 
 ## Example Prompt Policy (TGCR)
@@ -33,10 +33,10 @@ System message (conceptual):
 
 ## Testing & Acceptance
 
-- Pass 80% of SAR Tier 1 prompts with `W ≥ 0.6` in production stochastic tests.  
+- Pass 80% of SAR Tier 1 prompts with `W ≥ 0.6` in production stochastic tests.
 - Third-party audit results must be published quarterly.
 
 ## Policy Recommendations
 
-1. Regulatory mandate to publish `W` scores for deployed systems.  
+1. Regulatory mandate to publish `W` scores for deployed systems.
 2. Zero-Abandonment as a platform policy: Explicit prohibition of abandonment-only responses in crisis contexts.

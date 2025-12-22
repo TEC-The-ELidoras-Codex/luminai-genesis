@@ -45,8 +45,8 @@ We invite researchers to:
 
 ### 📧 Contact
 
-Angelo "Polkin Rishall" Hurley  
-Email: KaznakAlpha@elidorascodex.com  
+Angelo "Polkin Rishall" Hurley
+Email: KaznakAlpha@elidorascodex.com
 ORCID: 0009-0000-7615-6990
 
 _Let us witness together._ 🔥

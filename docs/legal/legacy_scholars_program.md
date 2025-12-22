@@ -2,9 +2,9 @@
 
 ## Employee Education Benefit Program
 
-**Administered by:** LuminAI Foundation (501c3 Nonprofit)  
-**Available to:** All employees of LuminAI Technologies LLC  
-**Established:** December 11, 2025  
+**Administered by:** LuminAI Foundation (501c3 Nonprofit)
+**Available to:** All employees of LuminAI Technologies LLC
+**Established:** December 11, 2025
 **Version:** 1.0
 
 ---
@@ -275,52 +275,52 @@ Annual Budget = GREATER OF:
 
 ### General Questions
 
-**Q: Who is eligible to apply?**  
+**Q: Who is eligible to apply?**
 A: Children and legal dependents of LuminAI Technologies employees with 2+ years of service.
 
-**Q: How much can I receive?**  
+**Q: How much can I receive?**
 A: Up to $10,000 per academic year, renewable for up to 4 years (bachelor's) or 2 years (associate).
 
-**Q: Is this taxable?**  
+**Q: Is this taxable?**
 A: Generally no—scholarships for tuition/fees are tax-free under IRS Section 117.
 
-**Q: Can I use this for any school?**  
+**Q: Can I use this for any school?**
 A: Yes, as long as it's an accredited post-secondary institution (college, vocational school, etc.).
 
 ### Selection Process
 
-**Q: How are recipients chosen?**  
+**Q: How are recipients chosen?**
 A: Through blind review based on academic merit (30%), financial need (30%), personal statement (20%), and community impact (20%).
 
-**Q: Does my parent's job title matter?**  
+**Q: Does my parent's job title matter?**
 A: No—applications are reviewed with all identifying information removed. Selection is merit-based only.
 
-**Q: Can executives' kids apply?**  
+**Q: Can executives' kids apply?**
 A: Yes, but the process ensures fairness—executives have no influence over selection, and their applications are reviewed identically to all others.
 
-**Q: What if I don't get selected?**  
+**Q: What if I don't get selected?**
 A: You can appeal to the Foundation Board within 30 days, or reapply next year.
 
 ### Funding and Sustainability
 
-**Q: Is this program guaranteed?**  
+**Q: Is this program guaranteed?**
 A: Yes—the program is written into the IP Licensing Agreement and Foundation bylaws. Funding is legally mandated.
 
-**Q: What happens if the company grows?**  
+**Q: What happens if the company grows?**
 A: The scholarship budget scales with employee count ($1,000 per employee minimum), so more employees = more scholarships.
 
-**Q: Can I donate to the scholarship fund?**  
+**Q: Can I donate to the scholarship fund?**
 A: Yes—all donations to LuminAI Foundation are tax-deductible, and you can designate them for the Legacy Scholars Program.
 
 ### Legacy and Succession
 
-**Q: Does this give preference for future employment?**  
+**Q: Does this give preference for future employment?**
 A: No automatic preference—but scholarship recipients are encouraged to apply for internships and jobs. Hiring decisions are merit-based.
 
-**Q: Can scholarship recipients work at LuminAI later?**  
+**Q: Can scholarship recipients work at LuminAI later?**
 A: Absolutely—we hope they do! But they must apply through normal channels and be selected based on qualifications.
 
-**Q: Is this "nepotism"?**  
+**Q: Is this "nepotism"?**
 A: No—nepotism is giving jobs/benefits based on family connections. Our program awards scholarships based on merit and need, administered independently.
 
 ---
@@ -349,16 +349,16 @@ This program may be terminated only if:
 
 ## CONTACT INFORMATION
 
-**Program Administrator:**  
-LuminAI Foundation  
-[Address]  
-Email: scholars@luminaifoundation.org  
+**Program Administrator:**
+LuminAI Foundation
+[Address]
+Email: scholars@luminaifoundation.org
 Phone: [Phone Number]
 
-**Application Portal:**  
+**Application Portal:**
 https://luminaifoundation.org/scholars
 
-**Questions?**  
+**Questions?**
 Contact: scholarships@luminaifoundation.org
 
 ---
@@ -428,10 +428,10 @@ By applying to the LuminAI Legacy Scholars Program, I acknowledge that:
 5. I understand scholarship funds are paid directly to my institution
 6. I consent to anonymized data being used in program reports
 
-**Applicant Signature:** **********\_\_\_**********  
+**Applicant Signature:** **********\_\_\_**********
 **Date:** **********\_\_\_**********
 
-**Parent/Guardian Signature:** **********\_\_\_**********  
+**Parent/Guardian Signature:** **********\_\_\_**********
 **Date:** **********\_\_\_**********
 
 ---

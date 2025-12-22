@@ -53,7 +53,10 @@ class TestOllamaService:
         }
 
         with patch.object(
-            service.client, "chat", new_callable=AsyncMock, return_value=_mock_response,
+            service.client,
+            "chat",
+            new_callable=AsyncMock,
+            return_value=_mock_response,
         ):
             messages = [ChatMessage(role="user", content="I'm stressed")]
             response_text, witness_trace = await service.generate_completion(

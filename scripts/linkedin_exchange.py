@@ -39,8 +39,8 @@ def exchange_token():
         return (
             jsonify(
                 {
-                    "error": "missing server configuration (set LINKEDIN_CLIENT_ID/SECRET/REDIRECT_URI)"
-                }
+                    "error": "missing server configuration (set LINKEDIN_CLIENT_ID/SECRET/REDIRECT_URI)",
+                },
             ),
             500,
         )

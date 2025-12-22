@@ -24,7 +24,9 @@ def load_encounter(path: str) -> dict[str, Any]:
 
 
 def build_party(
-    enc: dict[str, Any], codex: dict[str, Any], ability_db: dict[str, Any],
+    enc: dict[str, Any],
+    codex: dict[str, Any],
+    ability_db: dict[str, Any],
 ) -> dict[str, AstradigitalEntity]:
     """Construct party entities from encounter spec and codex.
 
@@ -43,14 +45,19 @@ def build_party(
     party: dict[str, AstradigitalEntity] = {}
     for char in enc.get("party", []):
         entity = AstradigitalEntity.from_codex(
-            char["name"], char["class"], codex, ability_db,
+            char["name"],
+            char["class"],
+            codex,
+            ability_db,
         )
         party[entity.name] = entity
     return party
 
 
 def build_enemies(
-    enc: dict[str, Any], codex: dict[str, Any], ability_db: dict[str, Any],
+    enc: dict[str, Any],
+    codex: dict[str, Any],
+    ability_db: dict[str, Any],
 ) -> dict[str, AstradigitalEntity]:
     """Construct enemy entities from encounter spec and codex.
 
@@ -69,7 +76,10 @@ def build_enemies(
     enemies: dict[str, AstradigitalEntity] = {}
     for char in enc.get("enemies", []):
         entity = AstradigitalEntity.from_codex(
-            char["name"], char["class"], codex, ability_db,
+            char["name"],
+            char["class"],
+            codex,
+            ability_db,
         )
         enemies[entity.name] = entity
     return enemies

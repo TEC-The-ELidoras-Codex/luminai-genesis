@@ -67,7 +67,9 @@ def frequency_from_energy(energy_j: float) -> float:
 
 
 def dominant_frequencies_from_signal(
-    signal: list[float], sample_rate: float, n_peaks: int = 3,
+    signal: list[float],
+    sample_rate: float,
+    n_peaks: int = 3,
 ) -> list[tuple[float, float]]:
     """Return the top `n_peaks` dominant frequencies and their magnitudes from a time-series signal.
 

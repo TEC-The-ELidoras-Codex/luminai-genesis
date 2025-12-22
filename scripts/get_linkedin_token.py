@@ -26,7 +26,7 @@ def main():
     ruri = os.environ.get("LINKEDIN_REDIRECT_URI")
     if not cid or not csec or not ruri:
         print(
-            "Missing environment variables: set LINKEDIN_CLIENT_ID, LINKEDIN_CLIENT_SECRET, LINKEDIN_REDIRECT_URI"
+            "Missing environment variables: set LINKEDIN_CLIENT_ID, LINKEDIN_CLIENT_SECRET, LINKEDIN_REDIRECT_URI",
         )
         return 2
 

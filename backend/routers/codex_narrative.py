@@ -73,7 +73,8 @@ def get_character(character_id: str):
 
     if character_id not in characters:
         raise HTTPException(
-            status_code=404, detail=f"Character '{character_id}' not found",
+            status_code=404,
+            detail=f"Character '{character_id}' not found",
         )
 
     return characters[character_id]
@@ -93,7 +94,8 @@ def get_character_portrait(character_id: str):
 
     if character_id not in characters:
         raise HTTPException(
-            status_code=404, detail=f"Character '{character_id}' not found",
+            status_code=404,
+            detail=f"Character '{character_id}' not found",
         )
 
     char = characters[character_id]
@@ -120,7 +122,8 @@ def get_character_lore(character_id: str):
 
     if character_id not in characters:
         raise HTTPException(
-            status_code=404, detail=f"Character '{character_id}' not found",
+            status_code=404,
+            detail=f"Character '{character_id}' not found",
         )
 
     char = characters[character_id]

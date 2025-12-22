@@ -32,7 +32,9 @@ def is_marker_line(line: str) -> bool:
 def redact_pii_line(line: str) -> str:
     # redact emails
     line = re.sub(
-        r"\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\b", "[REDACTED EMAIL]", line,
+        r"\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\b",
+        "[REDACTED EMAIL]",
+        line,
     )
     # redact UNC/Windows paths and wsl.localhost paths
     line = re.sub(r"\\\\wsl\.localhost\\[^\s`\n]+", "[REDACTED PATH]", line)
@@ -80,7 +82,10 @@ def sanitize_text(text: str) -> str:
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument(
-        "--in", dest="infile", required=True, help="Input TEC_CODEX_DUMP.md path",
+        "--in",
+        dest="infile",
+        required=True,
+        help="Input TEC_CODEX_DUMP.md path",
     )
     parser.add_argument(
         "--out",
