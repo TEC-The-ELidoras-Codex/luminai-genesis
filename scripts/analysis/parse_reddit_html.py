@@ -17,6 +17,7 @@ import logging
 import os
 import re
 from datetime import datetime
+from pathlib import Path
 
 logger = logging.getLogger(__name__)
 
@@ -106,14 +107,15 @@ def main():
         )
         raise SystemExit(1)
 
-    html = open(args.infile, encoding="utf-8", errors="replace").read()
+    html = Path(args.infile).read_text(encoding="utf-8", errors="replace")
 
     comments = extract_comments_from_html(html)
     auth_time = extract_author_and_time(html)
 
     # Prepare output CSV
-    os.makedirs(os.path.dirname(args.outfile), exist_ok=True)
-    with open(args.outfile, "w", encoding="utf-8", newline="") as fh:
+    out_path = Path(args.outfile)
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+    with out_path.open("w", encoding="utf-8", newline="") as fh:
         writer = csv.writer(fh)
         writer.writerow(["date", "user", "id", "failure_type", "SAR", "comment"])
 

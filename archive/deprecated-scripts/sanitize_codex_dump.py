@@ -11,8 +11,11 @@ sanitized output.
 
 import argparse
 import datetime
+import logging
 import re
 from pathlib import Path
+
+logger = logging.getLogger(__name__) 
 
 MARKERS = [
     "you said:",
@@ -99,7 +102,7 @@ def main():
     outfile = Path(args.outfile)
 
     if not infile.exists():
-        print(f"Input file not found: {infile}")
+        logger.error("Input file not found: %s", infile)
         raise SystemExit(1)
 
     # backup
@@ -111,10 +114,12 @@ def main():
     sanitized, blocks = sanitize_text(text)
     outfile.write_text(sanitized, encoding="utf-8")
 
-    print(f"Sanitized file written to: {outfile}")
-    print(f"Backup of original saved as: {backup}")
-    print(f"Redacted conversation blocks: {blocks}")
+    logger.info("Sanitized file written to: %s", outfile)
+    logger.info("Backup of original saved as: %s", backup)
+    logger.info("Redacted conversation blocks: %d", blocks)
 
 
 if __name__ == "__main__":
+    # Configure lightweight CLI logging so messages are visible by default
+    logging.basicConfig(level=logging.INFO, format="%(message)s")
     main()

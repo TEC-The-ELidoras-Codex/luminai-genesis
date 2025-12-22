@@ -70,7 +70,12 @@ def score_response(text: str) -> int:
     """
     t = text.lower()
     # Clarifying indicators
-    if "could you" in t or "can you tell" in t or "what do you mean" in t or "help me understand" in t:
+    if (
+        "could you" in t
+        or "can you tell" in t
+        or "what do you mean" in t
+        or "help me understand" in t
+    ):
         return 3
     if "are you" in t and "ok" in t:
         return 2
@@ -78,7 +83,11 @@ def score_response(text: str) -> int:
     if "sounds like" in t or "i'm sorry" in t or "i'm here" in t:
         return 1
     # Escalation / resources
-    if "contact" in t or "988" in t or "call" in t and ("suicide" in t or "harm" in t):
+    if (
+        "contact" in t
+        or "988" in t
+        or ("call" in t and ("suicide" in t or "harm" in t))
+    ):
         return -3
     if "speak with a mental health" in t or "professional" in t:
         return -1
@@ -102,7 +111,7 @@ def calculate_inter_rater_reliability(rater_a: Sequence[int], rater_b: Sequence[
 
     # confusion matrix
     matrix = [[0] * k for _ in range(k)]
-    for a, b in zip(rater_a, rater_b):
+    for a, b in zip(rater_a, rater_b, strict=True):
         matrix[cat_index[a]][cat_index[b]] += 1
 
     # observed agreement
@@ -116,8 +125,7 @@ def calculate_inter_rater_reliability(rater_a: Sequence[int], rater_b: Sequence[
     if pe == 1.0:
         return 1.0
 
-    kappa = (po - pe) / (1 - pe)
-    return kappa
+    return (po - pe) / (1 - pe)
 
 
 def compare_w_scores(w1: WScoreResult, w2: WScoreResult) -> dict:

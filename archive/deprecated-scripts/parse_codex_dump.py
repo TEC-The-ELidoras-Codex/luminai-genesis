@@ -24,9 +24,12 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import logging
 import re
 from pathlib import Path
 from typing import Any
+
+logger = logging.getLogger(__name__) 
 
 HEADING_RE = re.compile(r"^(#{1,6})\s*(.+)$")
 
@@ -242,8 +245,10 @@ def main() -> None:
     bundles = bundle_sections(sections, max_chars=args.max_chars)
     write_bundles(bundles, out_dir)
 
-    print(f"Wrote {len(bundles)} bundles to {out_dir}")
+    logger.info("Wrote %d bundles to %s", len(bundles), out_dir)
 
 
 if __name__ == "__main__":
+    # Configure lightweight CLI logging so messages are visible by default
+    logging.basicConfig(level=logging.INFO, format="%(message)s")
     main()

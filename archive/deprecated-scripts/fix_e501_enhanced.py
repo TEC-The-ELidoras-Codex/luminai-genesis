@@ -1,9 +1,13 @@
 #!/usr/bin/env python3
 """Fix E501 line length violations in TEC scripts"""
 
+import logging
 import re
 import textwrap
 from pathlib import Path
+
+logger = logging.getLogger(__name__)
+logging.basicConfig(level=logging.INFO, format="%(message)s")
 
 
 def fix_file(filepath):
@@ -109,7 +113,7 @@ def fix_file(filepath):
     with open(filepath, "w") as f:
         f.writelines(new_lines)
 
-    print(f"✅ Fixed: {filepath}")
+    logger.info("✅ Fixed: %s", filepath)
 
 
 # Run fixes
@@ -125,7 +129,7 @@ for filepath in files_to_fix:
     if filepath.exists():
         fix_file(filepath)
     else:
-        print(f"⚠️  Not found: {filepath}")
+        logger.warning("⚠️  Not found: %s", filepath)
 
-print("\n✅ All E501 fixes applied!")
-print("Run: ruff check --select E501 scripts/ to verify")
+logger.info("\n✅ All E501 fixes applied!")
+logger.info("Run: ruff check --select E501 scripts/ to verify")
