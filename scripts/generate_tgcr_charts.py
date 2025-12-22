@@ -12,8 +12,11 @@ import argparse
 import csv
 from pathlib import Path
 
+import logging
 import matplotlib.pyplot as plt
 import numpy as np
+
+logger = logging.getLogger(__name__)
 
 
 def read_csv(path: Path):
@@ -57,7 +60,7 @@ def make_heatmap(rows, outpath: Path):
     fig.tight_layout()
     outpath.parent.mkdir(parents=True, exist_ok=True)
     fig.savefig(outpath)
-    print("Saved", outpath)
+    logger.info("Saved %s", outpath)
 
 
 def demo(outpath: Path):
@@ -81,7 +84,7 @@ def main():
         rows = read_csv(args.input)
         make_heatmap(rows, outpath)
     else:
-        print("No input found; creating demo heatmap")
+        logger.info("No input found; creating demo heatmap")
         demo(outpath)
 
 

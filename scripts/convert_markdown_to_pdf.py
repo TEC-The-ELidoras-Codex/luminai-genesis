@@ -21,6 +21,7 @@ Requirements:
 """
 
 import argparse
+import logging
 import re
 import sys
 from datetime import datetime
@@ -28,6 +29,8 @@ from pathlib import Path
 
 import markdown
 from weasyprint import CSS, HTML
+
+logger = logging.getLogger(__name__)
 
 
 def convert_markdown_to_pdf(
@@ -271,9 +274,9 @@ def convert_markdown_to_pdf(
         if pub_date_dt is not None:
             pub_date_str = pub_date_dt.strftime("%B %d, %Y")
         if pub_date_str:
-            print(f"🔔 Using publication date: {pub_date_str}")
+            logger.info("Using publication date: %s", pub_date_str)
         else:
-            print("🔔 No publication date found; continuing without date in header")
+            logger.info("No publication date found; continuing without date in header")
 
         # Wrap HTML with Substack-like structure
         full_html = f"""
@@ -305,16 +308,16 @@ def convert_markdown_to_pdf(
         # Convert to PDF
         HTML(string=full_html).write_pdf(output_path, stylesheets=[css])
 
-        print(f"✅ PDF created: {output_path}")
-        print(f"   Size: {output_path.stat().st_size / 1024:.1f} KB")
+        logger.info("PDF created: %s", output_path)
+        logger.info("Size: %.1f KB", output_path.stat().st_size / 1024)
         return output_path
 
-    except Exception as e:
-        print(f"❌ Error: {e!s}")
-        print("\nTroubleshooting tips:")
-        print("1. Install dependencies: pip install markdown weasyprint")
-        print("2. Check file permissions")
-        print("3. Try with a simple test file")
+    except Exception as exc:
+        logger.exception("Error converting markdown to PDF: %s", exc)
+        logger.info("Troubleshooting tips:")
+        logger.info("1. Install dependencies: pip install markdown weasyprint")
+        logger.info("2. Check file permissions")
+        logger.info("3. Try with a simple test file")
         sys.exit(1)
 
 
@@ -380,8 +383,8 @@ if __name__ == "__main__":
 
         pub_date_dt = _try_parse_date_local(args.date)
         if pub_date_dt is None:
-            print(
-                f"Could not parse --date value '{args.date}'. Using today's date instead.",
+            logger.warning(
+                "Could not parse --date value '%s'. Using today's date instead.", args.date
             )
 
     # If preserve-date was requested and no explicit date passed, set None so converter extracts date

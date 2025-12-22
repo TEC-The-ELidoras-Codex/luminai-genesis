@@ -14,11 +14,14 @@ import json
 from pathlib import Path
 from typing import List, Dict
 
+import logging
+
 try:
     import numpy as np
     import matplotlib.pyplot as plt
     from scipy.stats import gaussian_kde
-except Exception:
+except Exception as exc:  # pragma: no cover - optional dependencies
+    logging.getLogger(__name__).warning("Optional plotting dependencies not available: %s", exc)
     np = None  # type: ignore
 
 
@@ -54,8 +57,9 @@ def plot_bimodal(w_scores: List[float], out_path: Path, bins: int = 10) -> None:
         ax2 = ax.twinx()
         ax2.plot(xs, ys, color="#dd8452", lw=1.5)
         ax2.set_ylabel("Density")
-    except Exception:
-        pass
+    except Exception as exc:
+        logging.getLogger(__name__).debug("Failed to compute Gaussian KDE for plotting: %s", exc, exc_info=exc)  # non-fatal
+
     ax.set_xlabel("W-score (normalized)")
     ax.set_ylabel("Count")
     ax.set_title("Bimodal Distribution of W-scores")
@@ -109,7 +113,7 @@ def main(argv: List[str] | None = None) -> None:
             except ValueError:
                 continue
     plot_convergence(w_scores, benches, convergence_path)
-    print(f"Saved plots to {outdir}")
+    logging.getLogger(__name__).info("Saved plots to %s", outdir)
 
 
 if __name__ == "__main__":

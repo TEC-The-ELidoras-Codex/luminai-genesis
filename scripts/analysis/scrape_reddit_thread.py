@@ -20,6 +20,9 @@ import json
 import re
 
 import requests
+import logging
+
+logger = logging.getLogger(__name__)
 
 HEADERS = [
     "date",
@@ -67,8 +70,9 @@ def load_comments_from_json(path: str) -> list[dict]:
                     d = c.get("data", {})
                     comments.append(d)
                 return comments
-            except Exception:
-                pass
+            except Exception as exc:
+                logger.debug("Failed to parse Reddit JSON export children: %s", exc, exc_info=exc)
+
         # Otherwise assume it's a list of comment objects
         return j
     if isinstance(j, dict) and "data" in j:
@@ -102,7 +106,8 @@ def to_witness_rows(comments: list[dict]) -> list[dict]:
                     .date()
                     .isoformat()
                 )
-            except Exception:
+            except Exception as exc:
+                logger.debug("Failed to parse created_utc timestamp: %s", exc, exc_info=exc)
                 created = None
         if not created and c.get("created"):
             try:
@@ -175,7 +180,7 @@ def main():
 
     rows = to_witness_rows(comments)
     write_csv(args.out, rows)
-    print(f"Wrote {len(rows)} extracted comments to {args.out}")
+    logger.info("Wrote %d extracted comments to %s", len(rows), args.out)
 
 
 if __name__ == "__main__":

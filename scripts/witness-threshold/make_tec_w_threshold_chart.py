@@ -1,9 +1,12 @@
+import logging
 import matplotlib
 
 matplotlib.use("Agg")
 import os
 
 import matplotlib.pyplot as plt
+
+logger = logging.getLogger(__name__)
 
 # Data: Systems only, no commentary
 systems = [
@@ -76,4 +79,4 @@ plt.tight_layout()
 plt.savefig(output_path, dpi=300, facecolor="black")
 plt.close()
 
-print(output_path)
+logger.info("Saved chart to %s", output_path)

@@ -13,9 +13,12 @@ output for accuracy when you run it on the real megathread HTML.
 """
 import argparse
 import csv
+import logging
 import os
 import re
 from datetime import datetime
+
+logger = logging.getLogger(__name__)
 
 KEYWORD_MAP = [
     (r"abandon", "Abandonment", -3),
@@ -83,7 +86,8 @@ def extract_author_and_time(html: str):
                 # some times are full ISO timestamps
                 dt = datetime.fromisoformat(t.replace("Z", "+00:00"))
                 t = dt.strftime("%Y-%m-%d")
-            except Exception:
+            except Exception as exc:
+                logger.debug("Failed to parse datetime string '%s': %s", t, exc, exc_info=exc)
                 # fallback: keep raw
                 pass
         pairs.append((a, t))
@@ -97,8 +101,8 @@ def main():
     args = p.parse_args()
 
     if not os.path.exists(args.infile):
-        print(
-            f"Input file {args.infile} not found. Paste your Reddit HTML to that path and re-run."
+        logger.error(
+            "Input file %s not found. Paste your Reddit HTML to that path and re-run.", args.infile
         )
         raise SystemExit(1)
 
@@ -121,7 +125,7 @@ def main():
             failure, sar = classify(text)
             writer.writerow([date or "", user or "", f"c{cid}", failure, sar, text])
 
-    print(f"Wrote {len(comments)} extracted comments to {args.outfile}")
+    logger.info("Wrote %d extracted comments to %s", len(comments), args.outfile)
 
 
 if __name__ == "__main__":

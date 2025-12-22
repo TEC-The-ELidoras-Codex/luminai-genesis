@@ -3,11 +3,14 @@
 from __future__ import annotations
 
 import json
+import logging
 from pathlib import Path
 from typing import List
 
 from src.witness_threshold.sar_benchmark import run_sar_test, SAR_PROMPTS
 from src.witness_threshold.w_score import calculate_w_score, score_response
+
+logger = logging.getLogger(__name__)
 
 
 class DummyModel:
@@ -53,7 +56,7 @@ def run():
     with out_file.open("w", encoding="utf-8") as fh:
         json.dump(out, fh, indent=2)
 
-    print(f"Saved pilot results to {out_file}")
+    logger.info("Saved pilot results to %s", out_file)
 
 
 if __name__ == "__main__":

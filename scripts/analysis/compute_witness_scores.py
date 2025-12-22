@@ -1,7 +1,10 @@
 #!/usr/bin/env python3
 """Compute Witness Factor (W) from SAR scores in the CSV and print a summary."""
 import csv
+import logging
 from statistics import mean
+
+logger = logging.getLogger(__name__)
 
 IN = "docs/research/witness_data/reddit_megathread_cases.csv"
 OUT = "docs/research/witness_data/summary.txt"
@@ -22,7 +25,8 @@ def main(in_path: str = IN, out_path: str = OUT):
                 r["sar_score"] = int(
                     r.get("sar_score", 0) if r.get("sar_score", "") != "" else 0
                 )
-            except Exception:
+            except Exception as exc:
+                logger.debug("Failed to parse sar_score '%s': %s", r.get("sar_score"), exc, exc_info=exc)
                 r["sar_score"] = 0
             r["W"] = sar_to_w(r["sar_score"])
             rows.append(r)
@@ -41,7 +45,7 @@ def main(in_path: str = IN, out_path: str = OUT):
     with open(out_path, "w") as f:
         f.write("\n".join(summary_lines))
 
-    print("\n".join(summary_lines))
+    logger.info("\n".join(summary_lines))
 
 
 if __name__ == "__main__":

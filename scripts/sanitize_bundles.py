@@ -5,9 +5,12 @@ and redacting local paths / emails. Makes backups before modifying files.
 Usage: run inside WSL repository root or from anywhere with repo path.
 """
 
+import logging
 import re
 from datetime import datetime
 from pathlib import Path
+
+logger = logging.getLogger(__name__)
 
 ROOT = Path(__file__).resolve().parents[1]
 CANONICAL = ROOT / "docs" / "canonical"
@@ -88,7 +91,7 @@ def sanitize_bundle_file(p: Path):
     # backup original
     bak = backup(p)
     p.write_text(sanitized, encoding="utf-8")
-    print(f"Sanitized: {p} (backup: {bak.name})")
+    logger.info("Sanitized: %s (backup: %s)", p, bak.name)
     return True
 
 
@@ -101,18 +104,18 @@ def regenerate_dump(bundles):
         for b in bundles:
             out.write(b.read_text(encoding="utf-8"))
             out.write("\n\n")
-    print(f"Regenerated: {dump_path}")
+    logger.info("Regenerated: %s", dump_path)
     return dump_path
 
 
 def main():
     bundles = sorted(CANONICAL.glob("*-bundle.md"))
-    print(f"Found {len(bundles)} bundle files in {CANONICAL}")
+    logger.info("Found %d bundle files in %s", len(bundles), CANONICAL)
     changed = 0
     for b in bundles:
         changed += 1 if sanitize_bundle_file(b) else 0
 
-    print(f"Sanitized {changed} files (out of {len(bundles)})")
+    logger.info("Sanitized %d files (out of %d)", changed, len(bundles))
     regenerate_dump(bundles)
 
 

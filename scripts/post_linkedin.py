@@ -15,10 +15,13 @@ from __future__ import annotations
 
 import argparse
 import json
+import logging
 import os
 import sys
 
 import requests
+
+logger = logging.getLogger(__name__)
 
 API_ME = "https://api.linkedin.com/v2/me"
 API_UGC_POSTS = "https://api.linkedin.com/v2/ugcPosts"
@@ -78,31 +81,35 @@ def main(argv: list[str] | None = None) -> int:
 
     token = args.access_token or os.getenv("LINKEDIN_ACCESS_TOKEN")
     if not token:
-        print(
-            "ERROR: provide --access-token or set LINKEDIN_ACCESS_TOKEN environment variable",
-            file=sys.stderr,
+        logger.error(
+            "Provide --access-token or set LINKEDIN_ACCESS_TOKEN environment variable"
         )
         return 2
 
     try:
         author = get_person_urn(token)
         if args.dry_run:
+            logger.info("Dry run: would create post with payload:")
+            payload = json.dumps({"author": author, "text": args.text}, indent=2)
+            logger.info(payload)
             print("Dry run: would create post with payload:")
-            print(json.dumps({"author": author, "text": args.text}, indent=2))
+            print(payload)
             return 0
 
         result = create_ugc_post(token, author, args.text)
+        logger.info("Post created: %s", json.dumps(result, indent=2))
         print("Post created:")
         print(json.dumps(result, indent=2))
         return 0
     except requests.HTTPError as e:
-        print(
-            f"HTTP error during LinkedIn API call: {e}\nResponse: {getattr(e.response, 'text', '<no body>')}",
-            file=sys.stderr,
+        logger.error(
+            "HTTP error during LinkedIn API call: %s. Response: %s",
+            e,
+            getattr(e.response, "text", "<no body>"),
         )
         return 3
     except Exception as e:  # pragma: no cover - surface errors
-        print(f"Error: {e}", file=sys.stderr)
+        logger.exception("Error: %s", e)
         return 1
 
 
@@ -168,13 +175,12 @@ def create_ugc_post(token, author_urn, text):
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:
-        print("Usage: python3 scripts/post_linkedin.py <message-file>")
+        logger.error("Usage: python3 scripts/post_linkedin.py <message-file>")
         sys.exit(2)
     token = os.environ.get("LINKEDIN_ACCESS_TOKEN")
     if not token:
-        print(
-            "ERROR: Set LINKEDIN_ACCESS_TOKEN environment variable with a valid "
-            "LinkedIn OAuth access token.",
+        logger.error(
+            "Set LINKEDIN_ACCESS_TOKEN environment variable with a valid LinkedIn OAuth access token."
         )
         sys.exit(2)
     message_file = sys.argv[1]
@@ -188,9 +194,8 @@ if __name__ == "__main__":
         if alt and os.path.exists(alt):
             message_file = alt
     message = read_message(message_file)
-    print("Obtaining LinkedIn member URN via /me...")
+    logger.info("Obtaining LinkedIn member URN via /me...")
     author = get_member_urn(token)
-    print(f"Posting as {author[:40]}...")
+    logger.info("Posting as %s...", author[:40])
     resp = create_ugc_post(token, author, message)
-    print("Post created:")
-    print(json.dumps(resp, indent=2))
+    logger.info("Post created: %s", json.dumps(resp, indent=2))

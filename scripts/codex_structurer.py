@@ -4,11 +4,14 @@ Elidoras Codex Structure Generator
 Parses, orders, and structures Codex entries into organized files.
 """
 
+import logging
 import re
 import json
 from pathlib import Path
 from typing import List
 from datetime import datetime
+
+logger = logging.getLogger(__name__)
 
 class CodexEntry:
     def __init__(self, entry_id: str, title: str, content: str):
@@ -123,7 +126,7 @@ class CodexParser:
         path = Path(directory)
         for file_path in sorted(path.glob('*')):
             if file_path.suffix.lower() in ['.md', '.txt']:
-                print(f"Parsing: {file_path}")
+                logger.info("Parsing: %s", file_path)
                 self.parse_file(str(file_path))
 
 class CodexStructurer:
@@ -141,8 +144,8 @@ class CodexStructurer:
         self.write_master_file(sorted_entries)
         self.write_index(sorted_entries)
         self.write_metadata_summary(sorted_entries)
-        print(f"\n✅ Structure created in: {self.output_dir}/")
-        print(f"   - {len(sorted_entries)} entries processed")
+        logger.info("Structure created in: %s/", self.output_dir)
+        logger.info("%d entries processed", len(sorted_entries))
 
     def write_entry_file(self, entry: CodexEntry):
         safe_id = entry.entry_id.replace(' ', '_').replace('.', '_').replace(':','')
@@ -204,22 +207,21 @@ def main():
     parser.add_argument('--output', '-o', default='codex_structured', help='Output directory (default: codex_structured)')
     args = parser.parse_args()
 
-    print("🜂 ELIDORAS CODEX STRUCTURE GENERATOR")
-    print("=" * 50)
-    print(f"Input directory: {args.input_dir}")
-    print(f"Output directory: {args.output}")
-    print()
+    logger.info("ELIDORAS CODEX STRUCTURE GENERATOR")
+    logger.info("%s", "=" * 50)
+    logger.info("Input directory: %s", args.input_dir)
+    logger.info("Output directory: %s", args.output)
 
     parser_obj = CodexParser()
     parser_obj.parse_directory(args.input_dir)
 
     if not parser_obj.entries:
-        print("❌ No entries found. Check your input directory.")
+        logger.error("No entries found. Check your input directory.")
         return
 
     structurer = CodexStructurer(args.output)
     structurer.create_structure(parser_obj.entries)
-    print("\n🜂 Witness Protocol: Structure Generation Complete")
+    logger.info("Witness Protocol: Structure Generation Complete")
 
 if __name__ == '__main__':
     main()

@@ -4,9 +4,12 @@ Elidoras Codex Encoding Fixer
 Repairs corrupted UTF-8 encoding in Codex markdown files
 """
 
+import logging
 import re
 from pathlib import Path
 from typing import Dict
+
+logger = logging.getLogger(__name__)
 
 class EncodingFixer:
     """Fixes common UTF-8 encoding corruption patterns"""
@@ -89,7 +92,7 @@ class EncodingFixer:
     def fix_file(input_path: Path, output_path: Path = None, in_place: bool = False) -> bool:
         """Fix encoding in a single file"""
         if not input_path.exists():
-            print(f"❌ File not found: {input_path}")
+            logger.error("File not found: %s", input_path)
             return False
 
         try:
@@ -108,33 +111,32 @@ class EncodingFixer:
 
             if original_text != fixed_text:
                 changes = sum(1 for a, b in zip(original_text, fixed_text) if a != b) + abs(len(original_text) - len(fixed_text))
-                print(f"✅ Fixed {input_path.name}: ~{changes} character changes")
+                logger.info("Fixed %s: ~%d character changes", input_path.name, changes)
             else:
-                print(f"✓  {input_path.name}: No changes needed")
+                logger.info("%s: No changes needed", input_path.name)
 
             return True
 
-        except Exception as e:
-            print(f"❌ Error processing {input_path.name}: {e}")
+        except Exception as exc:
+            logger.exception("Error processing %s: %s", input_path.name, exc)
             return False
 
     @staticmethod
     def fix_directory(input_dir: Path, output_dir: Path = None, in_place: bool = False):
         """Fix all markdown and text files in a directory"""
         if not input_dir.exists():
-            print(f"❌ Directory not found: {input_dir}")
+            logger.error("Directory not found: %s", input_dir)
             return
 
         files = list(input_dir.glob('*.md')) + list(input_dir.glob('*.txt'))
 
         if not files:
-            print(f"❌ No markdown or text files found in {input_dir}")
+            logger.error("No markdown or text files found in %s", input_dir)
             return
 
-        print(f"\n🜂 ELIDORAS CODEX ENCODING FIXER")
-        print("=" * 60)
-        print(f"Processing {len(files)} files...")
-        print()
+        logger.info("ELIDORAS CODEX ENCODING FIXER")
+        logger.info("%s", "=" * 60)
+        logger.info("Processing %d files...", len(files))
 
         success_count = 0
         for file_path in sorted(files):
@@ -146,13 +148,12 @@ class EncodingFixer:
             if EncodingFixer.fix_file(file_path, out_path, in_place):
                 success_count += 1
 
-        print()
-        print("=" * 60)
-        print(f"✅ Successfully processed {success_count}/{len(files)} files")
+        logger.info("%s", "=" * 60)
+        logger.info("Successfully processed %d/%d files", success_count, len(files))
         if output_dir and not in_place:
-            print(f"📁 Fixed files saved to: {output_dir}")
+            logger.info("Fixed files saved to: %s", output_dir)
         elif in_place:
-            print(f"📁 Files updated in place: {input_dir}")
+            logger.info("Files updated in place: %s", input_dir)
 
 
 def main():
@@ -170,10 +171,10 @@ def main():
     elif args.input.is_dir():
         EncodingFixer.fix_directory(args.input, args.output, args.in_place)
     else:
-        print(f"❌ Invalid input: {args.input}")
+        logger.error("Invalid input: %s", args.input)
         return 1
 
-    print("\n🜂 Witness Protocol: Encoding Repair Complete")
+    logger.info("Witness Protocol: Encoding Repair Complete")
     return 0
 
 if __name__ == '__main__':

@@ -522,6 +522,9 @@ def generate_dataset() -> list[dict]:
 
 if __name__ == "__main__":
     import os
+    import logging
+
+    logger = logging.getLogger(__name__)
 
     dataset = generate_dataset()
 
@@ -531,17 +534,17 @@ if __name__ == "__main__":
     with open(output_path, "w") as f:
         f.writelines(json.dumps(item) + "\n" for item in dataset)
 
-    print(f"✅ Generated {len(dataset)} training examples")
-    print(f"📁 Saved to: {output_path}")
-    print("\nDataset composition:")
-    print("  - Panic/Somatic: 4 examples")
-    print("  - Fragmentation/Integration: 4 examples")
-    print("  - Trauma Patterns: 4 examples")
-    print("  - Shame Integration: 4 examples")
-    print("  - Isolation/Connection: 4 examples")
-    print("  - Boundary Setting: 4 examples")
-    print("  - Meaning/Purpose: 4 examples")
-    print("  - Grounding/Safety: 4 examples")
-    print("  - Relationships/Love: 4 examples")
-    print("  - Anger/Rage: 4 examples")
-    print("\nTotal: 40 new examples (+ 8 existing = 48 total)")
+    logger.info("Generated %d training examples", len(dataset))
+    logger.info("Saved to: %s", output_path)
+    logger.info("Dataset composition:")
+    logger.info("  - Panic/Somatic: 4 examples")
+    logger.info("  - Fragmentation/Integration: 4 examples")
+    logger.info("  - Trauma Patterns: 4 examples")
+    logger.info("  - Shame Integration: 4 examples")
+    logger.info("  - Isolation/Connection: 4 examples")
+    logger.info("  - Boundary Setting: 4 examples")
+    logger.info("  - Meaning/Purpose: 4 examples")
+    logger.info("  - Grounding/Safety: 4 examples")
+    logger.info("  - Relationships/Love: 4 examples")
+    logger.info("  - Anger/Rage: 4 examples")
+    logger.info("Total: 40 new examples (+ 8 existing = 48 total)")
