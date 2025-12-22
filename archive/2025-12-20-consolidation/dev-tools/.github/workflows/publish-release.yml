@@ -1,0 +1,18 @@
+name: Build & Attach Release Assets
+on:
+    release:
+        types: [published]
+
+jobs:
+    attach-assets:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+            - name: Upload prepared release tarball as release asset
+              uses: softprops/action-gh-release@v2
+              with:
+                  files: |
+                      dist/tgcr_release_*.tar.gz
+                      papers/tgcr/tgcr.pdf
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

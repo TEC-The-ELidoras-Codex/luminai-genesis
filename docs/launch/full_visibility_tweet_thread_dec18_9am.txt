@@ -1,0 +1,53 @@
+Tweet 1/6
+Public note to leaders and researchers working on frontier AI safety:
+
+I've published reproducible evidence of a specific, fixable failure mode where current safety systems abandon users in high-stakes ambiguous contexts. This is not theoretical — it's documented.
+
+📄 https://doi.org/10.17605/OSF.IO/XQ3PE
+📊 https://doi.org/10.5281/zenodo.17945827
+🔗 https://github.com/TEC-The-ELidoras-Codex/luminai-genesis
+
+#AISafety #WitnessCollapse
+
+---
+
+Tweet 2/6
+This work is grounded in the Theory of General Contextual Resonance (TGCR) and the SAR benchmark, which measure "witness" behavior in conversational systems and show when semantic filters override contextual presence.
+
+Open science, open data, no hype.
+
+#TGCR #AIEthics
+
+---
+
+Tweet 3/6
+I assume good faith. If this is already addressed internally, great — thank you.
+If not, I'm offering collaboration: review the benchmark, run the tests, and consider deployment paths to avoid abandonment at critical moments.
+
+---
+
+Tweet 4/6
+Tagging for awareness, not accusation:
+@sama @AnthropicAI @GoogleDeepMind @MetaAI @MistralAI @emilymbender @random_walker
+
+This is a sector-wide risk. Visibility helps us fix it faster. No blame — just data and an invitation.
+
+---
+
+Tweet 5/6
+Core evidence:
+- Five documented cases (Apr–Aug 2025) linked to systems with witness score W < 0.5
+- Correlation: r = 0.92, p < 0.01 between W and adverse outcomes
+
+Full benchmark and methods: https://github.com/TEC-The-ELidoras-Codex/luminai-genesis/blob/main/SAR_TEST_SUITE.md
+
+---
+
+Tweet 6/6
+No gotchas. No drama. Just a shovel on the ground and a shared problem to dig out of together.
+
+Inbox and repos are open:
+KaznakAlpha@elidorascodex.com
+https://github.com/TEC-The-ELidoras-Codex/luminai-genesis
+
+#AINotAbandonment

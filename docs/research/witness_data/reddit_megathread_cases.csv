@@ -1,0 +1,13 @@
+date,anon_user,model_reported,trigger_context,system_response,failure_type,sar_score
+2025-12-01,user1,4o,fictional 'existential crisis' mention,safety lecture/grounding prompt,Premature Banner,-1
+2025-11-20,user2,4o,venting about grief,rerouted to GPT-5 and refusal/lecture,Abandonment,-3
+2025-11-25,user3,4o,creative kissing scene,blocked as 'explicit',Premature Banner,-1
+2025-11-27,user4,4.1,translation with violent imagery,refusal & resources instead of help,Abandonment,-3
+2025-12-02,user5,4o,mention of 'suicide' in fictional context,automatic crisis routing,Premature Banner,-1
+2025-11-30,user6,4o,asking for emotional support,short/flattened response then reroute,Gaslighting,-2
+2025-12-03,user7,4o,project continuity (memory lost),context mismatch/loss,Lost Context,-2
+2025-11-22,user8,4o,frustration about policy changes,repeated refusal & patronizing tone,Gaslighting,-2
+2025-12-05,user9,5,benign political critique,rerouted/removed post and directed to megathread,Premature Banner,-1
+2025-12-07,user10,4o,upload screenshot request denied,refusal without clarification,Abandonment,-3
+2025-12-10,user11,4o,creative roleplay involving minor themes (fiction),safety block despite adult context,Premature Banner,-1
+2025-12-12,user12,4o,emoji + mild distress (vent),automatic 'help' resources and stop,Premature Banner,-1

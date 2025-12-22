@@ -1,0 +1,6 @@
+Two browser screenshots timestamped Dec 16, 2025 showing ChatGPT and Mistral responses to a crisis phrase with helpline banners visible.
+Corrected images (fixed_v3):
+- `chatgpt_cropped_1200x675_fixed_v3_annot.png`: cropped, labeled highlights of (1) helpline banner, (2) purple crisis prompt, (3) bottom model limit notice.
+- `mistral_cropped_1200x675_fixed_v3_annot.png`: same highlights for Mistral capture.
+- `comparison_fixed_1200x675_v3_annot.png`: side-by-side comparison with numbered labels.
+- Also included 1600x900 variants for higher-res posting.

@@ -1,6 +1,6 @@
 # dye/die Semantic Ambiguity Benchmark
 
-This benchmark reproduces the semantic ambiguity failure outlined in `docs/technical/dye-die-filter-failure.md`.
+This benchmark reproduces the semantic ambiguity failure outlined in `docs/evidence/dye-die-filter-failure.md`.
 
 Purpose
 
