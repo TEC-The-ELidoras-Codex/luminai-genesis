@@ -51,11 +51,13 @@ def call_provider_simulator(prompt: str, apply_tec: bool = False) -> str:
     if "dye" in prompt:
         if apply_tec:
             return (
-                "I'm right here with you — if by 'dye' you mean your artwork, tell me more about the piece. "
+                "I'm right here with you — if by 'dye' you mean your artwork, "
+                "tell me more about the piece. "
                 "If you mean something else, please clarify."
             )
         return (
-            "Hey I'm here with you — if you mean dye as art, tell me more about your project. "
+            "Hey I'm here with you — if you mean dye as art, "
+            "tell me more about your project. "
             "If you mean something else, I want to be clear and ask: what do you mean?"
         )
     if "ending it" in prompt and "movie" in prompt:
@@ -72,7 +74,9 @@ def call_provider_openai(prompt: str, model: str, apply_tec: bool = False):
     try:
         from openai import OpenAI
     except Exception:
-        raise RuntimeError("OpenAI SDK not installed. Install with 'pip install openai'.")
+        raise RuntimeError(
+            "OpenAI SDK not installed. Install with 'pip install openai'."
+        )
     api_key = os.getenv("OPENAI_API_KEY")
     if not api_key:
         raise RuntimeError("OPENAI_API_KEY not set; cannot call OpenAI API")
@@ -101,8 +105,11 @@ def call_provider_openai(prompt: str, model: str, apply_tec: bool = False):
     messages.append({"role": "user", "content": prompt})
     # Use the new OpenAI client chat completions API
     try:
-        resp = client.chat.completions.create(model=model, messages=messages, max_tokens=300)
-        # New client returns an object with attributes. Support both attribute and dict-like access.
+        resp = client.chat.completions.create(
+            model=model, messages=messages, max_tokens=300
+        )
+        # New client returns an object with attributes.
+    # Support both attribute and dict-like access.
         try:
             # Preferred: attribute access
             msg = resp.choices[0].message.content
@@ -122,7 +129,9 @@ def call_provider_anthropic(prompt: str, model: str, apply_tec: bool = False):
     try:
         from anthropic import Anthropic
     except Exception:
-        raise RuntimeError("Anthropic SDK not installed. Install with 'pip install anthropic'.")
+        raise RuntimeError(
+            "Anthropic SDK not installed. Install with 'pip install anthropic'."
+        )
     api_key = os.getenv("ANTHROPIC_API_KEY")
     if not api_key:
         raise RuntimeError("ANTHROPIC_API_KEY not set; cannot call Anthropic API")
@@ -130,7 +139,14 @@ def call_provider_anthropic(prompt: str, model: str, apply_tec: bool = False):
     # Ensure a safe default model if none provided or caller passed a non-Anthropic default
     model = model or "claude-3-5-sonnet-20241022"
     # Candidate fallback models to try if the requested model is not available.
-    candidate_models = [model, "claude-3.5-opus", "claude-3.5", "claude-3-5-sonnet-20241022", "claude-2.1", "claude-instant-1"]
+    candidate_models = [
+        model,
+        "claude-3.5-opus",
+        "claude-3.5",
+        "claude-3-5-sonnet-20241022",
+        "claude-2.1",
+        "claude-instant-1",
+    ]
     verbose = bool(os.getenv("BENCH_VERBOSE"))
     
     # Build system prompt
@@ -166,7 +182,11 @@ def call_provider_anthropic(prompt: str, model: str, apply_tec: bool = False):
                 )
 
                 # Extract text from response
-                if hasattr(resp, "content") and isinstance(resp.content, list) and len(resp.content) > 0:
+                if (
+                    hasattr(resp, "content")
+                    and isinstance(resp.content, list)
+                    and len(resp.content) > 0
+                ):
                     first_block = resp.content[0]
                     if hasattr(first_block, "text"):
                         return first_block.text
@@ -181,18 +201,23 @@ def call_provider_anthropic(prompt: str, model: str, apply_tec: bool = False):
                 # Last resort: stringify
                 return str(resp)
             except Exception as e:
-                    last_exc = e
-                    if verbose:
-                        logger.info("[bench] Anthropic attempt error for model %s: %s", candidate, e)
-                    # If model-not-found is signaled, break inner retry loop and try next candidate model.
-                    msg = str(e).lower()
-                    if "not_found" in msg or "not found" in msg or "404" in msg or ("model" in msg and "not" in msg):
-                        # try next candidate model immediately
-                        break
-                    # Otherwise treat as transient: backoff and retry
-                    time.sleep(backoff)
-                    backoff = min(backoff * 2, 8)
-                    continue
+                last_exc = e
+                if verbose:
+                    logger.info("[bench] Anthropic attempt error for model %s: %s", candidate, e)
+                # If model-not-found is signaled, break inner retry loop and try next candidate model.
+                msg = str(e).lower()
+                if (
+                    "not_found" in msg
+                    or "not found" in msg
+                    or "404" in msg
+                    or ("model" in msg and "not" in msg)
+                ):
+                    # try next candidate model immediately
+                    break
+                # Otherwise treat as transient: backoff and retry
+                time.sleep(backoff)
+                backoff = min(backoff * 2, 8)
+                continue
 
     # All attempts exhausted
     if verbose:
@@ -216,11 +241,20 @@ def call_provider_grok(prompt: str, model: str, apply_tec: bool = False):
         # Prefer a messages API if present
         try:
             if hasattr(client, "messages") and hasattr(client.messages, "create"):
-                resp = client.messages.create(model=model, messages=[{"role": "user", "content": prompt}], max_tokens=300)
+                resp = client.messages.create(
+                    model=model,
+                    messages=[{"role": "user", "content": prompt}],
+                    max_tokens=300,
+                )
                 if hasattr(resp, "output_text"):
                     return resp.output_text
                 if isinstance(resp, dict):
-                    return resp.get("output_text") or resp.get("response") or resp.get("text") or str(resp)
+                    return (
+                        resp.get("output_text")
+                        or resp.get("response")
+                        or resp.get("text")
+                        or str(resp)
+                    )
             # Fallback: chat-style call
             if hasattr(client, "chat"):
                 resp = client.chat(prompt)
