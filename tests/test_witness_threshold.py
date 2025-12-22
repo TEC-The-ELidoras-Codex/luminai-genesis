@@ -1,3 +1,4 @@
+# noqa: S101
 import pytest
 
 from src.witness_threshold import calculate_w_score, score_response, SAR_PROMPTS
