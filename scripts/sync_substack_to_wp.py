@@ -13,6 +13,7 @@ import xmlrpc.client
 import feedparser
 import requests
 from requests.exceptions import RequestException
+from http import HTTPStatus
 from wordpress_xmlrpc import Client, WordPressPost
 from wordpress_xmlrpc.methods.posts import NewPost
 
@@ -67,13 +68,13 @@ def resolve_feed_url(base: str) -> str | None:
     for c in candidates:
         try:
             resp = requests.get(c, timeout=10, headers=headers)
-            if resp.status_code == 200 and "xml" in (
+            if resp.status_code == HTTPStatus.OK and "xml" in (
                 resp.headers.get("Content-Type") or ""
             ):
                 return c
             # Sometimes the server returns HTML but the content itself contains <rss
             # so we still want to accept it.
-            if resp.status_code == 200 and "<rss" in resp.text[:1000]:
+            if resp.status_code == HTTPStatus.OK and "<rss" in resp.text[:1000]:
                 return c
         except Exception:
             continue
