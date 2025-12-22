@@ -1,9 +1,0 @@
-[Unit]
-Description=Check disk space and alert if low
-Documentation=
-
-[Service]
-Type=oneshot
-ExecStart=/usr/local/bin/check_space_and_alert.sh
-Nice=5
-TimeoutStartSec=60

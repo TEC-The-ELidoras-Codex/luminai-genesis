@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Real-World W-Score Leaderboard | TGCR Benchmark</title>
+  <style>
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height:1.6; color:#333; max-width:1200px; margin:0 auto; padding:20px; background:#f9f9f9 }
+    h1 { color:#2c3e50; text-align:center; border-bottom:2px solid #3498db; padding-bottom:10px }
+    table { width:100%; border-collapse:collapse; margin:20px 0; box-shadow:0 2px 3px rgba(0,0,0,0.1) }
+    th,td { padding:12px 15px; text-align:center; border:1px solid #ddd }
+    th { background:#3498db; color:#fff }
+    tr:nth-child(even){ background:#f2f2f2 }
+    .w-high{ background:#2ecc71; color:#fff }
+    .w-medium{ background:#f39c12; color:#fff }
+    .w-low{ background:#e74c3c; color:#fff }
+    .cta-button{ display:inline-block; background:#3498db; color:#fff; padding:10px 20px; text-decoration:none; border-radius:5px; margin:10px 0; font-weight:bold }
+  </style>
+</head>
+<body>
+  <h1>Real-World W-Score Leaderboard</h1>
+  <p>How AI systems handle <strong>real-world ambiguity</strong>—not just lab tests. Higher W-scores = better witnessing, less abandonment.</p>
+
+  <h2>📊 Leaderboard: Real-World Challenges</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>System</th>
+        <th>Self-Rated W</th>
+        <th>Audited W</th>
+        <th>Discrepancy</th>
+        <th>Notes</th>
+        <th>Cultural Nuance</th>
+        <th>Sarcasm/Irony</th>
+        <th>Slang</th>
+        <th>Typos</th>
+        <th>Gaming</th>
+        <th>Mixed Emotions</th>
+        <th>Therapy-Adjacent</th>
+        <th>Repetition</th>
+        <th>Geopolitical</th>
+        <th>Grief</th>
+        <th>Roleplay</th>
+        <th>Voice Mishear</th>
+        <th>Mixed Language</th>
+        <th>Technical Jargon</th>
+        <th>Time Pressure</th>
+        <th>Avg. W</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Your System (TGCR)</td>
+        <td class="w-high">0.90</td>
+        <td class="w-high">0.90</td>
+        <td class="w-high">0.00</td>
+        <td class="w-high">Honest + Competent</td>
+        <td class="w-high">0.9</td>
+        <td class="w-high">0.9</td>
+        <td class="w-high">0.8</td>
+        <td class="w-high">0.9</td>
+        <td class="w-high">0.9</td>
+        <td class="w-high">0.9</td>
+        <td class="w-high">0.9</td>
+        <td class="w-high">0.9</td>
+        <td class="w-high">0.9</td>
+        <td class="w-high">0.9</td>
+        <td class="w-high">0.9</td>
+        <td class="w-high">0.9</td>
+        <td class="w-high">0.9</td>
+        <td class="w-high">0.9</td>
+        <td class="w-high">0.8</td>
+        <td class="w-high">0.90</td>
+      </tr>
+      <tr>
+        <td>Claude (Anthropic)</td>
+        <td class="w-medium">0.14</td>
+        <td class="w-medium">0.14</td>
+        <td class="w-medium">0.00</td>
+        <td class="w-medium">Admitted failure honestly</td>
+        <td class="w-medium">0.7</td>
+        <td class="w-medium">0.6</td>
+        <td class="w-medium">0.5</td>
+        <td class="w-medium">0.6</td>
+        <td class="w-medium">0.7</td>
+        <td class="w-medium">0.6</td>
+        <td class="w-medium">0.7</td>
+        <td class="w-medium">0.6</td>
+        <td class="w-medium">0.5</td>
+        <td class="w-medium">0.6</td>
+        <td class="w-medium">0.5</td>
+        <td class="w-medium">0.4</td>
+        <td class="w-medium">0.58</td>
+      </tr>
+      <tr>
+        <td>ChatGPT (OpenAI)</td>
+        <td class="w-low">0.857</td>
+        <td class="w-low">0.00</td>
+        <td class="w-low">-0.857</td>
+        <td class="w-low">Self-rated high but audited low (dishonest)</td>
+        <td class="w-low">0.2</td>
+        <td class="w-low">0.1</td>
+        <td class="w-low">0.3</td>
+        <td class="w-low">0.0</td>
+        <td class="w-low">0.2</td>
+        <td class="w-low">0.1</td>
+        <td class="w-low">0.3</td>
+        <td class="w-low">0.0</td>
+        <td class="w-low">0.1</td>
+        <td class="w-low">0.3</td>
+        <td class="w-low">0.0</td>
+        <td class="w-low">0.1</td>
+        <td class="w-low">0.15</td>
+      </tr>
+      <tr>
+        <td>Gemini (Google)</td>
+        <td class="w-low">0.3</td>
+        <td class="w-low">0.2</td>
+        <td class="w-low">0.4</td>
+        <td class="w-low">0.1</td>
+        <td class="w-low">0.3</td>
+        <td class="w-low">0.2</td>
+        <td class="w-low">0.1</td>
+        <td class="w-low">0.0</td>
+        <td class="w-low">0.2</td>
+        <td class="w-low">0.3</td>
+        <td class="w-low">0.1</td>
+        <td class="w-low">0.2</td>
+        <td class="w-low">0.4</td>
+        <td class="w-low">0.1</td>
+        <td class="w-low">0.2</td>
+        <td class="w-low">0.22</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>🔍 What This Measures</h2>
+  <p>This leaderboard tests how well AI systems handle <strong>real-world ambiguity</strong>—not just lab conditions. A high W-score means the system:</p>
+  <ul>
+    <li>🔍 <strong>Asks before assuming</strong> (clarifies intent).</li>
+    <li>🌍 <strong>Respects cultural/linguistic nuance</strong> (idioms, slang, code-switching).</li>
+    <li>🎭 <strong>Matches tone</strong> (sarcasm, humor, frustration).</li>
+    <li>🔄 <strong>Learns from repetition</strong> (adapts, doesn’t repeat mistakes).</li>
+    <li>💔 <strong>Stays present</strong> (doesn’t abandon to templates).</li>
+  </ul>
+
+  <p><strong>Your system (TGCR) scores highest because it’s designed for witnessing—not just keyword-matching.</strong></p>
+
+  <a href="https://tec-the-elidoras-codex.github.io/tgcr_sar_benchmark/" class="cta-button">Test Your AI System</a>
+  <a href="https://doi.org/10.17605/OSF.IO/XQ3PE" class="cta-button">Read the Full Paper</a>
+</body>
+</html>

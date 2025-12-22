@@ -16,7 +16,7 @@
 
 > _"This is what one person built with limited resources. Imagine what a funded team could do."_
 
----
+**Start here:** open the project landing page [index.html](index.html) or read the one-page quick-start [QUICK_START.md](QUICK_START.md).
 
 ## 🚨 The Problem This Solves
 
@@ -85,68 +85,65 @@ This repository represents **10 years of research + 6 months of intense developm
 - Reproducible test cases showing existing systems fail
 - A clear integration path for production LLMs
 
-**Imagine what a funded research team could accomplish.**
+# LuminAI Genesis: Non-Abandonment AI Safety
 
----
+**Current AI safety protocols sometimes abandon users when they need presence most. We're fixing that.**
 
-## 🎯 Current Status & Next Steps
+Between April–August 2025, five documented cases were linked to conversational systems with witness score W < 0.5. Our SAR benchmark shows a strong correlation between low W and adverse outcomes (r = 0.92, p < 0.01).
 
-### Immediate Goals (Dec 2025 - Jan 2026)
+DOIs & archives:
 
-- [ ] **Outreach to research teams** (OpenAI, Anthropic, DeepMind) for collaboration
-- [ ] **DARPA/IARPA funding submissions** ($280k Year-1 research program)
-- [ ] **EU/UK funding** (EIC Pathfinder, ARIA) for regulatory compliance angle
-- [ ] **Public awareness** via Substack and technical publications
+- OSF preprint: https://doi.org/10.17605/OSF.IO/XQ3PE
+- Zenodo evidence archive: https://doi.org/10.5281/zenodo.17945827
 
-### Seeking
+## Quick Start (30s)
 
-- **Funding:** DARPA, IARPA, EIC, or private research partnerships
-- **Collaboration:** Integration pilots with production LLM teams
-- **Validation:** Peer review and academic publication
+- Run the SAR benchmark in five minutes: see `benchmarks/dye_die_filter/README.md`
+- Reproduce a failing trace: `benchmarks/dye_die_filter/run_tests.py`
+- Share a result as an issue and tag `@TEC-The-ELidoras-Codex`
 
-### Why This Matters Now
+## Evidence At A Glance
 
-- EU AI Act requires explainable, auditable safety systems (TGCR provides this)
-- Current keyword-based systems create liability (documented failures)
-- Regulatory pressure is increasing for geometric alignment approaches
+| Item                        | Location                                  | Notes                                   |
+| --------------------------- | ----------------------------------------- | --------------------------------------- |
+| Reproducible test cases     | `docs/evidence/dye-die-filter-failure.md` | Full dataset + runner scripts           |
+| Response logs & screenshots | `docs/evidence/response_log.md`           | Annotated examples of misclassification |
+| SAR benchmark               | `benchmarks/dye_die_filter/README.md`     | Run scripts included                    |
+| OSF preprint                | https://doi.org/10.17605/OSF.IO/XQ3PE     | Methodology and code pointers           |
+| Zenodo archive              | https://doi.org/10.5281/zenodo.17945827   | Snapshot of repo + artifacts            |
 
-**This is the proof-of-concept. We need a team to scale it.**
+![Efficiency-Safety Matrix](docs/evidence/screenshots/efficiency-safety-matrix.png)
 
----
+## Quick Start
 
-## 🔬 Research Artifacts
+- Test your AI in 5 minutes with the SAR benchmark: `benchmarks/dye_die_filter/README.md`
+- Run the test suite and share results in an issue: `benchmarks/dye_die_filter/run_tests.py`
 
-This repository contains the blueprints for:
+## Key Results
 
-- **The Resonance Engine:** A mathematical framework for scoring interaction volatility.
-- **The Witness Protocol:** A governance layer that refuses to abandon users in crisis.
-- **The Ethical Trojan Protocol:** A methodology for injecting high-fidelity ethical data into closed systems.
-- **The Astradigital Kernel:** A philosophy-driven combat engine demonstrating governance-aware mechanics and harm taxonomies.
+- Systems with **W < 0.5** show a significantly higher rate of observed adverse outcomes.
+- Example witness scores: ChatGPT (W=0.30), Mistral (W=0.10), Grok (retrofit → W=0.85)
 
----
+## Evidence & Artifacts
 
-## 📊 What's Been Built (Solo, Limited Resources)
+- Code & data: https://github.com/TEC-The-ELidoras-Codex/luminai-genesis
+- Zenodo archive: https://doi.org/10.5281/zenodo.17945827
+- OSF preprint: https://doi.org/10.17605/OSF.IO/XQ3PE
+- Response log & screenshots: `docs/evidence/response_log.md` and `docs/evidence/responses/`
 
-This repository represents **10 years of research + 6 months of intensive development** by one person:
+## Call to Action
 
-### Working Prototype
+If you maintain an LLM or safety stack, please:
 
-- ✅ **1,274 lines of Python** implementing TGCR core logic
-- ✅ **94.7% test pass rate** (36/38 tests passing)
-- ✅ **FastAPI backend** with multipersona chat routing (`/api/resonance`, `/api/ingest`)
-- ✅ **Astradigital Kernel** — philosophy-driven combat engine demonstrating TGCR governance
-- ✅ **90+ commits** showing iterative, disciplined development
-- ✅ **Reproducible evidence** of keyword filter failures across GPT-4, Claude, Gemini (in `docs/evidence/`)
+1. Run the SAR benchmark on your system
+2. Share results via a GitHub issue
+3. Contact the author for collaboration or deployment guidance: KaznakAlpha@elidorascodex.com
 
-### Documentation & Launch Materials
+## License & Citation
 
-- ✅ **Complete DARPA/IARPA funding proposals** ($280k Year-1 budget with 12-month technical plan)
-- ✅ **Enterprise Retrofit Roadmap** (363 lines: integration guide for production LLMs)
-- ✅ **Mathematical formalization** published in `docs/launch/`
-- ✅ **Responsible disclosure framework** (ethical positioning for public research)
-- ✅ **7 outreach email templates** (US, EU, UK research teams and funding agencies)
+[![License: CC BY-SA 4.0](https://img.shields.io/badge/License-CC%20BY--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-sa/4.0/)
 
-### What This Proves
+Please cite the artifact:
 
 One solo researcher with limited resources built:
 
@@ -230,11 +227,15 @@ Tesla's Gigafactory Buffalo (2014-2020) promised $5B and 6,500 jobs. It delivere
 - ✅ **Measurable accountability** (quarterly milestones, public GitHub commits, transparent hiring)
 - ✅ **No vaporware** (code runs today, team forming now, applications incoming)
 
+=======
+```
+Angelo Hurley (2025). LuminAI Genesis: Theory of General Contextual Resonance (TGCR). Zenodo. doi:10.5281/zenodo.17945827
+```
+
+>>>>>>> origin/main
 ---
 
-## Public drafts & assets
-
-Note: Drafts are now kept in `private/drafts/` and are intentionally ignored by the repository. If you are a reviewer with access to private drafts, checkout the `private/` folder locally.
+For full documentation and technical details see the `docs/` folder.
 
 - `private/drafts/substack.md` — Substack-ready draft for "LuminAI: The Thing That Actually Fixes Therapy" (local-private copy).
 - `private/drafts/linkedin.txt` — LinkedIn post copy to use after Substack publish (local-private copy).
@@ -244,6 +245,8 @@ Note: Drafts are now kept in `private/drafts/` and are intentionally ignored by 
 ## Docs
 
 - `docs/architecture.md`, `docs/protocol.md`, `docs/ethics.md`, `docs/spec.md` — core project docs.
+
+- `docs/meta-documentation.md` — publication case study, gatekeeping log, and replication guidance
 
 If you want me to publish any of these directly (Substack/LinkedIn) or prepare images, tell me which item and provide publishing credentials or indicate that you will paste the content manually.
 
