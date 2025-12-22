@@ -14,7 +14,7 @@ keywords:
   - TGCR
 license: CC-BY-SA-4.0
 
-# Added Witness Threshold software entry
+# Witness Threshold software entry (v5.0)
 - type: software
   title: "The Witness Threshold: A Proposed Framework for AI Coherence"
   version: "5.0.0"
@@ -24,7 +24,38 @@ license: CC-BY-SA-4.0
       alias: Polkin Rishall
       orcid: "https://orcid.org/0009-0000-7615-6990"
   date-released: "2025-12-21"
+  doi: "10.5281/zenodo.18012290"
+  repository-code: "https://zenodo.org/records/18012290"
+  keywords:
+    - AI coherence
+    - semantic ambiguity
+    - phase transitions
+    - SAR benchmark
+    - witness factor
+  license: MIT
+  related:
+    - type: "is-part-of"
+      title: "Theory of General Contextual Resonance (TGCR)"
+      doi: "10.5281/zenodo.17926294"
+    - type: "is-part-of"
+      title: "SAR: When Safety Becomes Abandonment"
+      doi: "10.17605/OSF.IO/XQ3PE"
+
+- type: software
+  title: "The Witness Threshold: A Proposed Framework for AI Coherence"
+  version: "5.0.0"
+  authors:
+    - family-names: Hurley
+      given-names: Angelo
+      alias: Polkin Rishall
+      orcid: "https://orcid.org/0009-0000-7615-6990"
+  date-released: "2025-12-21"
+<<<<<<< HEAD
+  doi: "10.5281/zenodo.18012290"
+  repository-code: "https://zenodo.org/records/18012290"
+=======
   repository-code: "https://github.com/TEC-The-ELidoras-Codex/luminai-genesis/tree/main/docs/witness-threshold"
+>>>>>>> origin/main
   keywords:
     - AI coherence
     - semantic ambiguity

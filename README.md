@@ -145,10 +145,94 @@ If you maintain an LLM or safety stack, please:
 
 Please cite the artifact:
 
+One solo researcher with limited resources built:
+
+- ✅ A working alternative to keyword-based safety
+- ✅ Reproducible test cases showing current systems fail at intent parsing
+- ✅ A clear integration path for retrofitting into production systems (OpenAI, Anthropic, DeepMind)
+
+**This is the proof-of-concept. We need a funded team to scale it.**
+
+---
+
+## 🎯 Current Status & Immediate Goals
+
+### Campaign Status (December 2025)
+
+- [x] Research artifacts published (GitHub, open-source)
+- [ ] Outreach to research teams (OpenAI, Anthropic, DeepMind) — **in progress**
+- [ ] DARPA/IARPA funding submissions — **ready to submit**
+- [ ] EU/UK funding (EIC Pathfinder, ARIA) — **prepared**
+- [ ] Public awareness campaign (Substack, LinkedIn, X/Twitter) — **launching Dec 9**
+
+### Seeking
+
+1. **Funding:** Government grants (DARPA $280k Year-1) or corporate research partnerships
+2. **Collaboration:** Integration pilots with production LLM safety teams
+3. **Validation:** Peer review, academic publication, and regulatory engagement (NIST, EU AI Act)
+
+### Why This Matters Now
+
+- **EU AI Act compliance:** Requires auditable, explainable safety systems (TGCR provides geometric scoring)
+- **Liability exposure:** Current keyword-based systems create documented failure modes (abandonment, false positives)
+- **Regulatory pressure:** NIST AI RMF and EU regulators are seeking alignment frameworks beyond heuristics
+
+**The industry needs this. We just need resources to prove it at scale.**
+
+---
+
+## 🏙️ Buffalo AI Ethics Lab: Why Here, Why Now
+
+**TGCR development is headquartered in Buffalo, New York** — not by accident, but by design.
+
+## Citation & Archival Record
+
+- Paper (OSF Preprint): https://doi.org/10.17605/OSF.IO/XQ3PE
+- Code & Artifacts (Zenodo): https://doi.org/10.5281/zenodo.17930577
+- Witness Threshold release (v5.0): 10.5281/zenodo.18012290 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18012290.svg)](https://doi.org/10.5281/zenodo.18012290)
+
+This repository contains the reference implementation and benchmarks corresponding to the TGCR preprint.
+
+**Identity (locked):** Public profile and outreach are identified as **Buffalo, NY**; legal filings and official mailing address use **West Seneca, NY 14224**.
+
+### The Tesla Lesson
+
+---
+
+## Website / Public Hub
+
+A site documenting "The Witness Collapse Crisis" and the SAR benchmark is available from the `docs/` folder in this repository. The site includes:
+
+- `docs/index.html` — site entry and quick links
+- `docs/ai-abandonment-crisis.md` — neutral, evidence-first summary
+- `docs/ai_abandonment_infographic.html` — infographic visual
+- `docs/SAR_BENCHMARK.md` — reproducible test suite and scoring rubric
+- `docs/TGCR_PROTOCOL.md` — protocol and implementation guidance
+
+Preview locally from the repository root:
+
+```bash
+python3 -m http.server --directory docs 8000
+# Open http://localhost:8000 in your browser
+```
+
+To publish publicly, enable GitHub Pages in repository Settings and set the source to `docs/` (or rely on the included GitHub Action `.github/workflows/deploy_docs_pages.yml` which uploads `docs/` as a Pages artifact on push). Note: enabling Pages is a repository-admin action.
+
+Tesla's Gigafactory Buffalo (2014-2020) promised $5B and 6,500 jobs. It delivered $1.3B (26%) and 900 jobs (14%). Buffalo learned hard lessons about Silicon Valley overpromises.
+
+**TGCR is different:**
+
+- ✅ **Working prototype exists** (1,274 lines Python, 94.7% tests, 90+ commits)
+- ✅ **Local execution first** (Buffalo infrastructure, talent, partnerships ready)
+- ✅ **Measurable accountability** (quarterly milestones, public GitHub commits, transparent hiring)
+- ✅ **No vaporware** (code runs today, team forming now, applications incoming)
+
+=======
 ```
 Angelo Hurley (2025). LuminAI Genesis: Theory of General Contextual Resonance (TGCR). Zenodo. doi:10.5281/zenodo.17945827
 ```
 
+>>>>>>> origin/main
 ---
 
 For full documentation and technical details see the `docs/` folder.
