@@ -1,11 +1,12 @@
+# noqa: S101
 import importlib.util
-import os
+from pathlib import Path
+import logging
 
 
 def load_module():
-    path = os.path.join(os.path.dirname(__file__), "..", "scripts", "post_linkedin.py")
-    path = os.path.abspath(path)
-    spec = importlib.util.spec_from_file_location("post_linkedin", path)
+    path = (Path(__file__).parent.parent / "scripts" / "post_linkedin.py").resolve()
+    spec = importlib.util.spec_from_file_location("post_linkedin", str(path))
     module = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(module)
     return module
@@ -24,16 +25,18 @@ def test_get_person_urn_and_create(monkeypatch):
         def raise_for_status(self):
             return None
 
-    def fake_get(url, headers=None, timeout=None):
-        assert url.endswith("/me")
+    def fake_get(url, *args, **kwargs):
+        if not url.endswith("/me"):
+            raise AssertionError(f"Unexpected URL: {url}")
         return DummyResp({"id": "ABC123"})
 
     captured_post = {}
 
-    def fake_post(url, headers=None, json=None, timeout=None):
-        assert url.endswith("/ugcPosts")
+    def fake_post(url, *args, **kwargs):
+        if not url.endswith("/ugcPosts"):
+            raise AssertionError(f"Unexpected URL: {url}")
         captured_post["url"] = url
-        captured_post["json"] = json
+        captured_post["json"] = kwargs.get("json")
         return DummyResp({"result": "ok", "urn": "urn:li:activity:1"})
 
     monkeypatch.setattr("requests.get", fake_get)
@@ -46,8 +49,6 @@ def test_get_person_urn_and_create(monkeypatch):
     assert resp["result"] == "ok"
     assert captured_post["json"]["author"] == urn
 
-
-import logging
 
 def test_main_dry_run(caplog, monkeypatch):
     caplog.set_level(logging.INFO)
