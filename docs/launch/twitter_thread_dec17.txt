@@ -1,0 +1,17 @@
+Tweet 1 (image: `mistral_meta_irony_dec16.png`)
+🚨 LIVE EVIDENCE: AI abandonment documented Dec 16, 2025.
+We captured two systems deploying keyword-triggered escalation in a clear analytical context — helpline banners appear but systems escalate instead of clarifying. Thread 🧵
+
+Tweet 2 (image: `mistral_meta_irony_dec16.png` close-up)
+The irony: Mistral explains the problem while simultaneously deploying the failure — prioritizing keywords over context. W (witness score) = 0.1 in this capture.
+
+Tweet 3 (no image / optional Grok proof image)
+This is fixable. Grok moved from W=0.0 to W=0.85 after minimal TGCR prompting (no retraining). The failure is a policy/configuration choice, not a fundamental limitation.
+
+Tweet 4
+Stakes: Five families filed wrongful-death suits (Apr-Aug 2025) alleging conversational AI failures during crisis interactions. Our SAR benchmark (r=0.92 correlation) links low W to adverse outcomes.
+
+Tweet 5 (link + evidence)
+Full evidence package: OSF: https://doi.org/10.17605/OSF.IO/XQ3PE  •  Zenodo: https://doi.org/10.5281/zenodo.17945827  •  Repro: https://github.com/TEC-The-ELidoras-Codex/luminai-genesis
+Open science. Open replication. Open challenge.
+

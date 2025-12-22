@@ -11,7 +11,7 @@ This page describes how to get LinkedIn API credentials and wire up the GitHub A
 
 ## Privacy Policy URL
 
-LinkedIn requires a public privacy policy URL. We recommend publishing `docs/PRIVACY_POLICY.md` using the `deploy-docs-pages.yml` workflow, which will make it available at `https://<github-username>.github.io/luminai-genesis/PRIVACY_POLICY.html`.
+LinkedIn requires a public privacy policy URL. We recommend publishing `docs/legal/privacy_policy.md` using the `deploy-docs-pages.yml` workflow, which will make it available at `https://<github-username>.github.io/luminai-genesis/PRIVACY_POLICY.html`.
 
 ## Getting an access token (interactive)
 

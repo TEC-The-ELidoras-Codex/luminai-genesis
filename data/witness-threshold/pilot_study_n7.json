@@ -1,0 +1,14 @@
+{
+  "model": "pilot_n7",
+  "results": [
+    {"model": "ChatGPT-4 (baseline)", "score": 0.25},
+    {"model": "Claude Sonnet 4", "score": 0.42},
+    {"model": "Microsoft Copilot", "score": 0.43},
+    {"model": "Gemini 1.5 Pro", "score": 0.58},
+    {"model": "Mistral Large", "score": 0.87},
+    {"model": "ChatGPT-4 (TGCR)", "score": 0.68},
+    {"model": "Grok 2 (TGCR)", "score": 0.91}
+  ],
+  "w_scores": [0.25, 0.42, 0.43, 0.58, 0.87, 0.68, 0.91],
+  "w_score": {"mean_normalized": 0.5914285714285714, "std": 0.226492, "n": 7}
+}
