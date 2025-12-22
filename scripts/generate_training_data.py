@@ -531,15 +531,16 @@ def generate_dataset() -> list[dict]:
 if __name__ == "__main__":
     import os
     import logging
+    from pathlib import Path
 
     logger = logging.getLogger(__name__)
 
     dataset = generate_dataset()
 
-    output_path = "data/training/persona_sft_dataset_expanded.jsonl"
-    os.makedirs(os.path.dirname(output_path), exist_ok=True)
+    output_path = Path("data/training/persona_sft_dataset_expanded.jsonl")
+    output_path.parent.mkdir(parents=True, exist_ok=True)
 
-    with open(output_path, "w") as f:
+    with output_path.open("w") as f:
         f.writelines(json.dumps(item) + "\n" for item in dataset)
 
     logger.info("Generated %d training examples", len(dataset))
