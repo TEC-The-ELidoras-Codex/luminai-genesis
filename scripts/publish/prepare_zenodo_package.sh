@@ -64,7 +64,10 @@ out_dir = os.path.dirname(out)
 os.makedirs(out_dir, exist_ok=True)
 base = os.path.splitext(os.path.basename(out))[0]
 shutil.make_archive(os.path.join(out_dir, base), 'zip', tmp)
-print('Created package:', out)
+import logging
+logging.basicConfig(level=logging.INFO, format='%(message)s')
+logger = logging.getLogger(__name__)
+logger.info('Created package: %s', out)
 PYCODE
 
 echo "Created package: $OUT_ABS"

@@ -312,7 +312,8 @@ def example_encounter_system_failure():
             severity="ERROR",
         )
 
-        print(repair_log.suggest_repair(recovery))
+        logger = logging.getLogger(__name__)
+        logger.info(repair_log.suggest_repair(recovery))
 
     except Exception as e:
         # Ensure all exceptions are logged to the witness mechanism
@@ -328,8 +329,9 @@ def example_encounter_system_failure():
             severity="ERROR",
         )
 
-        print("Something went wrong — team has been notified and recovery has started.")
-        print(repair_log.suggest_repair(repair))
+        logger = logging.getLogger(__name__)
+        logger.error("Something went wrong — team has been notified and recovery has started.")
+        logger.info(repair_log.suggest_repair(repair))
 
     # In production, this would:
     # 1. Alert developers (resonance drop > threshold)
@@ -367,24 +369,30 @@ def example_npc_dialogue_failure():
         severity="WARNING",
     )
 
-    print(repair_log.suggest_repair(recovery))
+    logger = logging.getLogger(__name__)
+    logger.info(repair_log.suggest_repair(recovery))
 
 
 if __name__ == "__main__":
-    print("=" * 70)
-    print("GRADIENT REPAIR ENGINE (V_Φ) - System Recovery Vector Prototype")
-    print("=" * 70)
-    print()
+    import logging
 
-    print("SCENARIO 1: Encounter Validation Failure")
-    print("-" * 70)
+    logging.basicConfig(level=logging.INFO, format="%(message)s")
+    logger = logging.getLogger(__name__)
+
+    logger.info("%s", "=" * 70)
+    logger.info("GRADIENT REPAIR ENGINE (V_Φ) - System Recovery Vector Prototype")
+    logger.info("%s", "=" * 70)
+    logger.info("")
+
+    logger.info("SCENARIO 1: Encounter Validation Failure")
+    logger.info("%s", "-" * 70)
     example_encounter_system_failure()
 
-    print()
-    print("SCENARIO 2: NPC Dialogue Performance Degradation")
-    print("-" * 70)
+    logger.info("")
+    logger.info("SCENARIO 2: NPC Dialogue Performance Degradation")
+    logger.info("%s", "-" * 70)
     example_npc_dialogue_failure()
 
-    print()
-    print("Log file location: logs/gradient_repair.jsonl")
-    print("Use this for batch analysis, alerting, and recovery planning.")
+    logger.info("")
+    logger.info("Log file location: logs/gradient_repair.jsonl")
+    logger.info("Use this for batch analysis, alerting, and recovery planning.")

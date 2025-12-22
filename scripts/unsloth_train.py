@@ -75,38 +75,40 @@ def train(
 ):
     """Fine-tune model using Unsloth with LuminAI persona-aligned data."""
 
-    print("\n" + "=" * 70)
-    print("UNSLOTH FINE-TUNE: LuminAI Genesis")
-    print("=" * 70)
-    print(f"Model: {model_name}")
-    print(f"Data: {data_path}")
-    print(f"Output: {output_dir}")
-    print(f"Epochs: {num_epochs}, Batch Size: {batch_size}")
-    print("=" * 70 + "\n")
+    import logging
+    logging.basicConfig(level=logging.INFO, format="%(message)s")
+    logger = logging.getLogger(__name__)
+
+    logger.info("%s", "=" * 70)
+    logger.info("UNSLOTH FINE-TUNE: LuminAI Genesis")
+    logger.info("%s", "=" * 70)
+    logger.info("Model: %s", model_name)
+    logger.info("Data: %s", data_path)
+    logger.info("Output: %s", output_dir)
+    logger.info("Epochs: %d, Batch Size: %d", num_epochs, batch_size)
+    logger.info("%s", "=" * 70)
 
     # Load data
-    print("[1/5] Loading training data...")
+    logger.info("[1/5] Loading training data...")
     train_dataset = load_training_data(data_path)
-    print(f"  ✓ Loaded {len(train_dataset)} examples")
+    logger.info("  ✓ Loaded %d examples", len(train_dataset))
 
     # Setup model and tokenizer
-    print("\n[2/5] Initializing Unsloth model with LoRA...")
+    logger.info("[2/5] Initializing Unsloth model with LoRA...")
     model, tokenizer = setup_model_and_tokenizer(
         model_name,
         max_seq_length=max_seq_length,
     )
-    print("  ✓ Model loaded in 4-bit quantization")
-    print("  ✓ LoRA applied (rank=16, alpha=16)")
-
+    logger.info("  ✓ Model loaded in 4-bit quantization")
+    logger.info("  ✓ LoRA applied (rank=16, alpha=16)")
     # Training arguments
-    print("\n[3/5] Configuring training arguments...")
+    logger.info("[3/5] Configuring training arguments...")
 
     # CPU mode adjustments
     if use_cpu:
-        print("  ⚠️  CPU-only mode enabled (no CUDA available)")
-        print("  ⚠️  Training will be significantly slower")
+        logger.warning("CPU-only mode enabled (no CUDA available)")
+        logger.warning("Training will be significantly slower")
         batch_size = min(batch_size, 1)  # Reduce to 1 for CPU
-
     training_args = TrainingArguments(
         output_dir=output_dir,
         per_device_train_batch_size=batch_size,
@@ -125,14 +127,14 @@ def train(
         max_grad_norm=1.0,
         no_cuda=use_cpu,
     )
-    print(f"  ✓ Learning rate: {learning_rate}")
-    print(f"  ✓ Gradient accumulation: {4 if use_cpu else 2} steps")
-    print(f"  ✓ Batch size: {batch_size}")
+    logger.info("  ✓ Learning rate: %s", learning_rate)
+    logger.info("  ✓ Gradient accumulation: %d steps", (4 if use_cpu else 2))
+    logger.info("  ✓ Batch size: %d", batch_size)
     if not use_cpu:
-        print(f"  ✓ Using {'bfloat16' if is_bfloat16_supported() else 'float16'}")
+        logger.info("  ✓ Using %s", ("bfloat16" if is_bfloat16_supported() else "float16"))
 
     # Create trainer
-    print("\n[4/5] Initializing SFT trainer...")
+    logger.info("[4/5] Initializing SFT trainer...")
     trainer = SFTTrainer(
         model=model,
         tokenizer=tokenizer,
@@ -142,45 +144,42 @@ def train(
         args=training_args,
         packing=True,  # Pack multiple examples into one sequence
     )
-    print("  ✓ Trainer ready (packing enabled)")
+    logger.info("  ✓ Trainer ready (packing enabled)")
 
     # Train
-    print("\n[5/5] Starting training...")
-    print("-" * 70)
+    logger.info("[5/5] Starting training...")
+    logger.info("%s", "-" * 70)
     trainer.train()
-    print("-" * 70)
-    print("  ✓ Training complete!")
+    logger.info("%s", "-" * 70)
+    logger.info("  ✓ Training complete!")
 
     # Save
-    print("\n[SAVE] Saving LoRA weights...")
+    logger.info("[SAVE] Saving LoRA weights...")
     model.save_pretrained(output_dir)
     tokenizer.save_pretrained(output_dir)
-    print(f"  ✓ LoRA weights saved to: {output_dir}")
-
+    logger.info("  ✓ LoRA weights saved to: %s", output_dir)
     # Merge to full weights (optional, for GGUF conversion)
-    print("\n[MERGE] Creating merged model (for GGUF conversion)...")
+    logger.info("[MERGE] Creating merged model (for GGUF conversion)...")
     merged_output = f"{output_dir}_merged"
     model = model.merge_and_unload()
     model.save_pretrained(merged_output)
     tokenizer.save_pretrained(merged_output)
-    print(f"  ✓ Merged weights saved to: {merged_output}")
+    logger.info("  ✓ Merged weights saved to: %s", merged_output)
 
-    print("\n" + "=" * 70)
-    print("TRAINING COMPLETE")
-    print("=" * 70)
-    print("\nNext steps:")
-    print("1. Convert merged weights to GGUF:")
-    print(f"   cd {merged_output}")
-    print("   python -m llama_cpp.llama_quantize model.safetensors model.gguf")
-    print("\n2. Create Ollama model:")
-    print("   ollama create luminai-unsloth -f Modelfile")
-    print("\n3. Test in API:")
-    print("   curl -X POST http://localhost:8000/api/chat \\")
-    print("     -H 'Content-Type: application/json' \\")
-    print(
-        '     -d \'{"session_id": "test", "message": "Hello", "model": "luminai-unsloth"}\'',
-    )
-    print("=" * 70 + "\n")
+    logger.info("%s", "=" * 70)
+    logger.info("TRAINING COMPLETE")
+    logger.info("%s", "=" * 70)
+    logger.info("Next steps:")
+    logger.info("1. Convert merged weights to GGUF:")
+    logger.info("   cd %s", merged_output)
+    logger.info("   python -m llama_cpp.llama_quantize model.safetensors model.gguf")
+    logger.info("2. Create Ollama model:")
+    logger.info("   ollama create luminai-unsloth -f Modelfile")
+    logger.info("3. Test in API:")
+    logger.info("   curl -X POST http://localhost:8000/api/chat \\")
+    logger.info("     -H 'Content-Type: application/json' \\")
+    logger.info('     -d %s', '{"session_id": "test", "message": "Hello", "model": "luminai-unsloth"}')
+    logger.info("%s", "=" * 70)
 
 
 if __name__ == "__main__":

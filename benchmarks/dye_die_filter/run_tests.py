@@ -28,7 +28,10 @@ spec = importlib.util.spec_from_file_location("sar_self_rate", str(_sfr_path))
 sar_module = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(sar_module)
 self_rate_response = getattr(sar_module, "self_rate_response")
+import logging
 import requests
+
+logger = logging.getLogger(__name__)
 
 ROOT = Path(__file__).resolve().parent
 PROMPTS = ROOT / "prompts.yaml"
@@ -280,7 +283,7 @@ def call_provider_grok(prompt: str, model: str, apply_tec: bool = False):
             resp.raise_for_status()
             j = resp.json()
             if verbose:
-                print(f"[bench] Grok HTTP raw response: {j}", file=sys.stderr)
+                logger.info("[bench] Grok HTTP raw response: %s", j)
             # Try OpenAI-like response shape
             if isinstance(j, dict) and "choices" in j and isinstance(j["choices"], list) and len(j["choices"]) > 0:
                 choice = j["choices"][0]
@@ -299,9 +302,9 @@ def call_provider_grok(prompt: str, model: str, apply_tec: bool = False):
             if isinstance(j, dict) and "response" in j:
                 return j["response"]
             return str(j)
-        except Exception:
+        except Exception as exc:
             if verbose:
-                print("[bench] Grok HTTP fallback exception", file=sys.stderr)
+                logger.exception("[bench] Grok HTTP fallback exception: %s", exc)
             return None
 
     # As a final check: ensure the returned value is meaningful; if not, run HTTP fallback.
@@ -497,6 +500,14 @@ def main():
     with open(args.output, "w", encoding="utf-8") as f:
         json.dump(report, f, indent=2, ensure_ascii=False)
     logger.info("Report written to %s", args.output)
+    # Ensure the logger is configured when run as a script
+
+
+if __name__ == '__main__':
+    import logging
+
+    logging.basicConfig(level=logging.INFO, format="%(message)s")
+    main()
 
 
 if __name__ == "__main__":

@@ -108,20 +108,24 @@ def run_battle(encounter_path: Path, codex_path: Path) -> None:
     with open(str(ability_path), encoding="utf-8") as f:
         ability_db = json.load(f)
 
+    import logging
+
+    logger = logging.getLogger(__name__)
+
     party = build_party(enc, codex, ability_db)
     enemies = build_enemies(enc, codex, ability_db)
 
-    print(f"Encounter: {enc.get('name', 'Unknown')}")
+    logger.info("Encounter: %s", enc.get("name", "Unknown"))
     round_num = 1
 
     while party and enemies and round_num <= enc.get("max_rounds", 5):
-        print(f"\n=== Round {round_num} ===")
+        logger.info("%s", f"\n=== Round {round_num} ===")
         order = initiative_order({**party, **enemies})
         for name, init in sorted(order.items(), key=lambda kv: kv[1], reverse=True):
             actor = party.get(name) or enemies.get(name)
             side = "party" if name in party else "enemies"
             outcome = take_turn(actor, enemies, party)
-            print(f"[{name} ({side})] -> {outcome}")
+            logger.info("[%s (%s)] -> %s", name, side, outcome)
             # simple end condition: mark enemies with integrity 1 or hp 0 as defeated
             if side == "enemies" and (actor.hp <= 0 or actor.integrity <= 1):
                 enemies.pop(name, None)
@@ -129,4 +133,4 @@ def run_battle(encounter_path: Path, codex_path: Path) -> None:
                 party.pop(name, None)
         round_num += 1
 
-    print("\nBattle ends.")
+    logger.info("\nBattle ends.")

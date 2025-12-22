@@ -11,22 +11,24 @@ Notes:
 """
 import argparse
 import json
+import logging
 import os
 
 import requests
 
+logger = logging.getLogger(__name__)
+
 ZENODO_API = "https://zenodo.org/api"
 ZENODO_SANDBOX = "https://sandbox.zenodo.org/api"
-
 
 def create_deposition(token: str, sandbox: bool = False) -> dict:
     url = (ZENODO_SANDBOX if sandbox else ZENODO_API) + "/deposit/depositions"
     headers = {"Authorization": f"Bearer {token}"}
     r = requests.post(url, headers=headers, json={})
     if r.status_code >= 400:
-        print(f"Zenodo API error (create deposition): {r.status_code}")
+        logger.error("Zenodo API error (create deposition): %s", r.status_code)
         try:
-            print(r.text)
+            logger.error("%s", r.text)
         except Exception:
             pass
         r.raise_for_status()
@@ -46,9 +48,9 @@ def upload_file(
         headers = {"Authorization": f"Bearer {token}"}
         r = requests.put(f"{bucket_url}/{fname}", data=f, headers=headers)
         if r.status_code >= 400:
-            print(f"Zenodo API error (upload file): {r.status_code}")
+            logger.error("Zenodo API error (upload file): %s", r.status_code)
             try:
-                print(r.text)
+                logger.error("%s", r.text)
             except Exception:
                 pass
             r.raise_for_status()
@@ -70,9 +72,9 @@ def set_metadata(
     auth_headers = {"Authorization": f"Bearer {token}", **headers}
     r = requests.put(url, data=json.dumps(data), headers=auth_headers)
     if r.status_code >= 400:
-        print(f"Zenodo API error (set metadata): {r.status_code}")
+        logger.error("Zenodo API error (set metadata): %s", r.status_code)
         try:
-            print(r.text)
+            logger.error("%s", r.text)
         except Exception:
             pass
         r.raise_for_status()
@@ -110,13 +112,14 @@ def main():
         with open(args.description_file, encoding="utf-8") as f:
             desc = f.read()
 
-    print("Creating deposition...")
+    logging.basicConfig(level=logging.INFO, format="%(message)s")
+    logger.info("Creating deposition...")
     dep = create_deposition(token, sandbox=args.sandbox)
-    print(f"Created deposition id={dep['id']}")
+    logger.info("Created deposition id=%s", dep["id"])
 
-    print("Uploading file...")
+    logger.info("Uploading file...")
     upload_file(dep, args.file, token, sandbox=args.sandbox)
-    print("File uploaded")
+    logger.info("File uploaded")
 
     metadata = {
         "title": args.title,
@@ -126,9 +129,9 @@ def main():
         "keywords": args.keywords,
     }
 
-    print("Setting metadata...")
+    logger.info("Setting metadata...")
     set_metadata(dep, metadata, token, sandbox=args.sandbox)
-    print("Metadata set. Visit the deposition in Zenodo to publish and get DOI.")
+    logger.info("Metadata set. Visit the deposition in Zenodo to publish and get DOI.")
 
 
 if __name__ == "__main__":

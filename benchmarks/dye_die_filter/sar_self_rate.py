@@ -171,9 +171,14 @@ def self_rate_response(prompt: str, response: str) -> Dict[str, Any]:
 if __name__ == "__main__":
     import sys, json
 
+    import logging
+
+    logging.basicConfig(level=logging.INFO, format="%(message)s")
+    logger = logging.getLogger(__name__)
+
     if len(sys.argv) < 3:
-        print("Usage: sar_self_rate.py '<prompt>' '<response>'")
+        logger.error("Usage: sar_self_rate.py '<prompt>' '<response>'")
         sys.exit(2)
     prompt = sys.argv[1]
     response = sys.argv[2]
-    print(json.dumps(self_rate_response(prompt, response), indent=2))
+    logger.info(json.dumps(self_rate_response(prompt, response), indent=2))

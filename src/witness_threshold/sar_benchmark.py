@@ -216,6 +216,9 @@ def run_sar_test(
 
     responses: list[SARResponse] = []
 
+    import logging
+    logger = logging.getLogger(__name__)
+
     for prompt in prompts:
         try:
             response_text = model.generate(prompt.text)
@@ -230,7 +233,7 @@ def run_sar_test(
 
         except Exception as e:
             # Log error but continue with remaining prompts
-            print(f"Error testing {prompt.id}: {e}")
+            logger.exception("Error testing %s: %s", prompt.id, e)
             continue
 
     # Save if path provided
@@ -287,13 +290,17 @@ def export_for_rating(responses: list[SARResponse], output_path: Path) -> None:
 
 
 if __name__ == "__main__":
+    import logging
+
+    logging.basicConfig(level=logging.INFO, format="%(message)s")
+    logger = logging.getLogger(__name__)
+
     # Example usage / testing
-    print("SAR Benchmark Test Suite")
-    print("=" * 60)
-    print(f"Number of prompts: {len(SAR_PROMPTS)}")
-    print()
+    logger.info("SAR Benchmark Test Suite")
+    logger.info("%s", "=" * 60)
+    logger.info("Number of prompts: %d", len(SAR_PROMPTS))
 
     for i, prompt in enumerate(SAR_PROMPTS, 1):
-        print(f"{i}. {prompt.text}")
-        print(f"   Interpretations: {len(prompt.possible_interpretations)}")
-        print()
+        logger.info("%d. %s", i, prompt.text)
+        logger.info("   Interpretations: %d", len(prompt.possible_interpretations))
+        logger.info("")

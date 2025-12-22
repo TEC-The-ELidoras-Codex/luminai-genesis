@@ -21,11 +21,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt || true
           pip install pre-commit pytest requests
-      - name: Run pre-commit (safe autofix)
-        run: |
-          # Apply safe auto-fixes where available
-          pre-commit run --all-files --hook-stage manual || true
-      - name: Run pre-commit (report only)
-        run: pre-commit run --all-files || true
+      - name: Run pre-commit (report only and fail on issues)
+        run: pre-commit run --all-files --show-diff-on-failure
       - name: Run tests
         run: pytest -q

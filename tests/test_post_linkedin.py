@@ -47,7 +47,10 @@ def test_get_person_urn_and_create(monkeypatch):
     assert captured_post["json"]["author"] == urn
 
 
-def test_main_dry_run(capsys, monkeypatch):
+import logging
+
+def test_main_dry_run(caplog, monkeypatch):
+    caplog.set_level(logging.INFO)
     module = load_module()
 
     def fake_get(url, headers=None, timeout=None):
@@ -64,5 +67,5 @@ def test_main_dry_run(capsys, monkeypatch):
 
     ret = module.main(["--access-token", "t", "--text", "hi", "--dry-run"])
     assert ret == 0
-    captured = capsys.readouterr()
-    assert "Dry run" in captured.out
+    # Ensure logging contains the dry-run message
+    assert any("Dry run" in rec.getMessage() for rec in caplog.records)

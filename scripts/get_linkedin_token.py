@@ -24,8 +24,12 @@ def main():
     cid = os.environ.get("LINKEDIN_CLIENT_ID")
     csec = os.environ.get("LINKEDIN_CLIENT_SECRET")
     ruri = os.environ.get("LINKEDIN_REDIRECT_URI")
+    import logging
+    logger = logging.getLogger(__name__)
+    logging.basicConfig(level=logging.INFO, format="%(message)s")
+
     if not cid or not csec or not ruri:
-        print(
+        logger.error(
             "Missing environment variables: set LINKEDIN_CLIENT_ID, LINKEDIN_CLIENT_SECRET, LINKEDIN_REDIRECT_URI",
         )
         return 2
@@ -38,8 +42,8 @@ def main():
         "client_secret": csec,
     }
     r = requests.post(TOKEN_URL, data=payload)
-    print("Status:", r.status_code)
-    print(r.text)
+    logger.info("Status: %s", r.status_code)
+    logger.info("%s", r.text)
 
 
 if __name__ == "__main__":

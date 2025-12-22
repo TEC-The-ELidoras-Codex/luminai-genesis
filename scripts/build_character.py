@@ -9,8 +9,13 @@ sys.path.append(str(Path(__file__).resolve().parents[1] / "src"))
 
 
 def main():
+    import logging
+
+    logging.basicConfig(level=logging.INFO, format="%(message)s")
+    logger = logging.getLogger(__name__)
+
     if len(sys.argv) < 3:
-        print("Usage: build_character.py <Name> <Class>")
+        logger.error("Usage: build_character.py <Name> <Class>")
         sys.exit(1)
     name = sys.argv[1]
     cls = sys.argv[2]
@@ -23,7 +28,7 @@ def main():
     codex = load_codex(str(codex_path))
 
     entity = AstradigitalEntity.from_codex(name, cls, codex)
-    print(
+    logger.info(
         {
             "name": entity.name,
             "class": entity.philosophy_class,

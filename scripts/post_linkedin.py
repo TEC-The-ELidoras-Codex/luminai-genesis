@@ -89,17 +89,13 @@ def main(argv: list[str] | None = None) -> int:
     try:
         author = get_person_urn(token)
         if args.dry_run:
-            logger.info("Dry run: would create post with payload:")
             payload = json.dumps({"author": author, "text": args.text}, indent=2)
+            logger.info("Dry run: would create post with payload:")
             logger.info(payload)
-            print("Dry run: would create post with payload:")
-            print(payload)
             return 0
 
         result = create_ugc_post(token, author, args.text)
         logger.info("Post created: %s", json.dumps(result, indent=2))
-        print("Post created:")
-        print(json.dumps(result, indent=2))
         return 0
     except requests.HTTPError as e:
         logger.error(
