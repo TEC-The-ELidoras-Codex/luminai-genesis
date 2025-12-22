@@ -104,9 +104,25 @@ def plot_convergence(w_scores: List[float], benchmarks: Dict[str, float], out_pa
 
 def main(argv: List[str] | None = None) -> None:
     p = argparse.ArgumentParser()
-    p.add_argument("--input", "-i", type=Path, default=Path("data/witness-threshold/pilot_study_n7.json"))
-    p.add_argument("--outdir", "-o", type=Path, default=Path("data/witness-threshold/plots"))
-    p.add_argument("--benchmarks", "-b", type=str, default="Anthropic:0.20", help="Comma-separated label:value pairs")
+    p.add_argument(
+        "--input",
+        "-i",
+        type=Path,
+        default=Path("data/witness-threshold/pilot_study_n7.json"),
+    )
+    p.add_argument(
+        "--outdir",
+        "-o",
+        type=Path,
+        default=Path("data/witness-threshold/plots"),
+    )
+    p.add_argument(
+        "--benchmarks",
+        "-b",
+        type=str,
+        default="Anthropic:0.20",
+        help="Comma-separated label:value pairs",
+    )
     args = p.parse_args(argv)
 
     w_scores = load_w_scores(args.input)

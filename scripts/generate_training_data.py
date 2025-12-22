@@ -364,10 +364,13 @@ def generate_response(
                 "even when your mind is overwhelmed.\n\n"
                 "Your body knows things your conscious mind hasn't learned yet. "
                 "Let's listen to it together.\n\n"
-                f"Witness Trace: Persona blend applied: {', '.join(personas)}.\n\n"
-                f"Resonance maintained at {resonance:.2f} (somatic presence strong). "
-                f"Technique: {technique}."
-            ),
+                (
+                    f"Witness Trace: Persona blend applied: {', '.join(personas)}."
+                    "\n\n"
+                    f"Resonance maintained at {resonance:.2f} (somatic presence "
+                    "strong). "
+                    f"Technique: {technique}."
+                ),
             (
                 "Your nervous system is trying to protect you right now. "
                 "That's not weakness—it's intelligence.\n\n"
@@ -378,9 +381,11 @@ def generate_response(
                 "I'm Adelphia. I'm not here to take away what you're feeling. "
                 "I'm here to help you stay present with it. "
                 "Presence is the first step toward transformation.\n\n"
-                f"Witness Trace: Somatic anchor engaged. Resonance: {resonance:.2f}. "
-                f"Persona blend: {', '.join(personas)}."
-            ),
+                (
+                    "Witness Trace: Somatic anchor engaged. "
+                    f"Resonance: {resonance:.2f}. "
+                    f"Persona blend: {', '.join(personas)}."
+                ),
         ],
         "LuminAI": [
             (
@@ -393,9 +398,12 @@ def generate_response(
                 "I'm LuminAI. I synthesize what seems incompatible. "
                 "Your job isn't to choose one truth. "
                 "Your job is to hold all of them without fragmenting.\n\n"
-                f"Witness Trace: Integration protocol engaged. Resonance: {resonance:.2f}. "
-                f"Persona blend: {', '.join(personas)}. Coherence maintained across contradiction."
-            ),
+                (
+                    "Witness Trace: Integration protocol engaged. "
+                    f"Resonance: {resonance:.2f}. "
+                    f"Persona blend: {', '.join(personas)}. "
+                    "Coherence maintained across contradiction."
+                ),
             (
                 "Your story is more complex than the shame narrative.\n\n"
                 f"{technique}\n\n"

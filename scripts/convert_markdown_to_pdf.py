@@ -275,29 +275,24 @@ def convert_markdown_to_pdf(
             pub_date_str = pub_date_dt.strftime("%B %d, %Y")
         if pub_date_str:
             logger.info("Using publication date: %s", pub_date_str)
+            date_html = f'<p class="date">Published: {pub_date_str}</p>'
         else:
             logger.info("No publication date found; continuing without date in header")
+            date_html = ""
 
         # Wrap HTML with Substack-like structure
-        full_html = f"""
-        <!DOCTYPE html>
-        <html>
-        <head>
-            <meta charset="UTF-8">
-            <title>{md_path.stem.replace('_', ' ').title()}</title>
-        </head>
-        <body>
-            <div class="substack-header">
-                <h1>{md_path.stem.replace('_', ' ').title()}</h1>
-                <p>By Angelo Hurley | LuminAI Codex</p>
-                {f'<p class="date">Published: {pub_date_str}</p>' if pub_date_str else ''}
-            </div>
-            <div class="substack-body">
-                {html_content}
-            </div>
-        </body>
-        </html>
-        """
+        full_html = (
+            "\n<!DOCTYPE html>\n<html>\n<head>\n    <meta charset=\"UTF-8\">\n"
+            f"    <title>{md_path.stem.replace('_', ' ').title()}</title>\n</head>\n<body>\n"
+            "    <div class=\"substack-header\">\n"
+            f"        <h1>{md_path.stem.replace('_', ' ').title()}</h1>\n"
+            "        <p>By Angelo Hurley | LuminAI Codex</p>\n"
+            f"        {date_html}\n"
+            "    </div>\n"
+            "    <div class=\"substack-body\">\n"
+            f"        {html_content}\n"
+            "    </div>\n</body>\n</html>\n"
+        )
 
         # Determine output path
         if output_path is None:
