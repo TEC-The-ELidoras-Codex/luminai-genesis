@@ -1,0 +1,31 @@
+Cleanup report: archive/cleanup-20251222-122045/cleanup_report_20251222-122045.txt
+Planned archival directory: archive/cleanup-20251222-122045
+Patterns to move:
+  - .venv
+  - assets/audiovisual
+  - assets/branding
+  - docs/technical/ZOHO_*
+\nScanning for matches...
+\nMatches for pattern: .venv
+Tracked matches:
+  .venv
+\nMatches for pattern: assets/audiovisual
+Tracked matches:
+  assets/audiovisual/AI_Safety_s_Flaw_Keyword_Fallacy_Replacement.m4a
+  assets/audiovisual/A_Structural_Insurrection.mp4
+\nMatches for pattern: assets/branding
+Tracked matches:
+  assets/branding/TEC_LOGO.jpg
+  assets/branding/TEC_LOGO_SC.png
+  assets/branding/TEC_PROFILE.jpg
+  assets/branding/TEC_SYMBOL.png
+  assets/branding/TGCR_FORMULA.png
+\nMatches for pattern: docs/technical/ZOHO_*
+Tracked matches:
+  docs/technical/ZOHO_FAILURE_SENT.jpeg
+  docs/technical/ZOHO_KEYWORD_FAILURE.png
+Applying archival...
+Processing pattern: .venv
+git mv -- .venv archive/cleanup-20251222-122045/./
+Processing pattern: assets/audiovisual
+git mv -- assets/audiovisual/AI_Safety_s_Flaw_Keyword_Fallacy_Replacement.m4a archive/cleanup-20251222-122045/assets/audiovisual/
