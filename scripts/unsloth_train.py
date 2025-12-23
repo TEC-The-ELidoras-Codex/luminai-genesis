@@ -16,6 +16,8 @@ Usage:
 
 import argparse
 import json
+import logging
+from pathlib import Path
 
 from datasets import Dataset
 from transformers import TrainingArguments
@@ -25,7 +27,6 @@ from unsloth import FastLanguageModel, is_bfloat16_supported
 
 def load_training_data(data_path: str) -> Dataset:
     """Load JSONL training data and convert to HuggingFace Dataset."""
-    from pathlib import Path
 
     texts = []
     with Path(data_path).open(encoding="utf-8") as f:
@@ -77,10 +78,8 @@ def train(
 ):
     """Fine-tune model using Unsloth with LuminAI persona-aligned data."""
 
-    import logging
-
-    logging.basicConfig(level=logging.INFO, format="%(message)s")
     logger = logging.getLogger(__name__)
+    logging.basicConfig(level=logging.INFO, format="%(message)s")
 
     logger.info("%s", "=" * 70)
     logger.info("UNSLOTH FINE-TUNE: LuminAI Genesis")
