@@ -244,7 +244,7 @@ luminai-genesis/
 │       ├── scores.csv              # Rater scores
 │       └── analysis.ipynb          # Statistical analysis
 ├── docs/
-│   ├── witness-threshold-v5.md     # Core paper
+│   ├── witness-threshold/README.md  # Core paper
 │   ├── replication-protocol.md     # How to test
 │   ├── falsification.md            # How to prove wrong
 │   └── lore/                       # Narrative content (separate)
@@ -257,7 +257,7 @@ luminai-genesis/
 ## Documentation
 
 ### Core Research
-- **[Witness Threshold v5.0](docs/witness-threshold-v5.md)** - Full theoretical framework
+- **[Witness Threshold v5.0](docs/witness-threshold/README.md)** - Full theoretical framework
 - **[SAR Benchmark Spec](benchmarks/sar_benchmark/README.md)** - Measurement methodology
 - **[Pilot Data](data/pilot_study/README.md)** - N=7 exploratory results
 
