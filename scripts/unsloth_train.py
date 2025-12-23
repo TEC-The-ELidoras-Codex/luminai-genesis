@@ -25,8 +25,10 @@ from unsloth import FastLanguageModel, is_bfloat16_supported
 
 def load_training_data(data_path: str) -> Dataset:
     """Load JSONL training data and convert to HuggingFace Dataset."""
+    from pathlib import Path
+
     texts = []
-    with open(data_path) as f:
+    with Path(data_path).open(encoding="utf-8") as f:
         for line in f:
             item = json.loads(line)
             texts.append(item["text"])
