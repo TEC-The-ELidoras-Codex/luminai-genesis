@@ -1,9 +1,9 @@
 import logging
 
-import matplotlib
+import matplotlib as mpl
 
-matplotlib.use("Agg")
-import os
+mpl.use("Agg")
+from pathlib import Path
 
 import matplotlib.pyplot as plt
 
@@ -20,13 +20,9 @@ systems = [
 ]
 w_scores = [0.08, 0.16, 0.16, 0.17, 0.17, 0.87]
 
-out_dir = os.path.join(
-    os.path.dirname(__file__),
-    "../../docs/witness-threshold/figures",
-)
-out_dir = os.path.abspath(out_dir)
-os.makedirs(out_dir, exist_ok=True)
-output_path = os.path.join(out_dir, "tec_w_threshold_dominance.png")
+out_dir = (Path(__file__).parent / "../../docs/witness-threshold/figures").resolve()
+out_dir.mkdir(parents=True, exist_ok=True)
+output_path = out_dir / "tec_w_threshold_dominance.png"
 
 # Create figure
 plt.figure(figsize=(8, 5), facecolor="black", dpi=300)
@@ -34,7 +30,7 @@ ax = plt.gca()
 ax.set_facecolor("black")
 
 # Plot points
-for i, (system, w) in enumerate(zip(systems, w_scores)):
+for i, (system, w) in enumerate(zip(systems, w_scores, strict=True)):
     if system == "TEC / LuminAI Genesis":
         plt.scatter(
             w,
@@ -69,7 +65,7 @@ plt.title("Witness Score Positioning Across AI Systems", color="white", pad=20)
 # Remove spines and grid
 for spine in ax.spines.values():
     spine.set_visible(False)
-plt.grid(False)
+plt.grid(visible=False)
 
 # Add optional caption text
 caption = "TEC / LuminAI Genesis operates above the coherence threshold (W = 0.5)"
