@@ -16,6 +16,8 @@ import logging
 import os
 
 import requests
+from pathlib import Path
+import contextlib
 
 logger = logging.getLogger(__name__)
 
@@ -23,16 +25,14 @@ ZENODO_API = "https://zenodo.org/api"
 ZENODO_SANDBOX = "https://sandbox.zenodo.org/api"
 
 
-def create_deposition(token: str, sandbox: bool = False) -> dict:
+def create_deposition(token: str, *, sandbox: bool = False) -> dict:
     url = (ZENODO_SANDBOX if sandbox else ZENODO_API) + "/deposit/depositions"
     headers = {"Authorization": f"Bearer {token}"}
-    r = requests.post(url, headers=headers, json={})
+    r = requests.post(url, headers=headers, json={}, timeout=10)
     if r.status_code >= 400:
         logger.error("Zenodo API error (create deposition): %s", r.status_code)
-        try:
-            logger.error("%s", r.text)
-        except Exception:
-            pass
+        with contextlib.suppress(Exception):
+            logger.debug("%s", r.text)
         r.raise_for_status()
     return r.json()
 
@@ -41,21 +41,19 @@ def upload_file(
     deposition: dict,
     filepath: str,
     token: str,
-    sandbox: bool = False,
+    *,
+    _sandbox: bool = False,
 ) -> dict:
     bucket_url = deposition["links"]["bucket"]
-    fname = os.path.basename(filepath)
-    from pathlib import Path
+    fname = Path(filepath).name
     with Path(filepath).open("rb") as f:
         # prefer Authorization header to avoid query-encoding and logging tokens
         headers = {"Authorization": f"Bearer {token}"}
-        r = requests.put(f"{bucket_url}/{fname}", data=f, headers=headers)
+        r = requests.put(f"{bucket_url}/{fname}", data=f, headers=headers, timeout=10)
         if r.status_code >= 400:
             logger.error("Zenodo API error (upload file): %s", r.status_code)
-            try:
-                logger.error("%s", r.text)
-            except Exception:
-                pass
+            with contextlib.suppress(Exception):
+                logger.debug("%s", r.text)
             r.raise_for_status()
     return r.json()
 
@@ -64,22 +62,21 @@ def set_metadata(
     deposition: dict,
     metadata: dict,
     token: str,
-    sandbox: bool = False,
+    *,
+    _sandbox: bool = False,
 ) -> dict:
     url = (
-        ZENODO_SANDBOX if sandbox else ZENODO_API
+        ZENODO_SANDBOX if _sandbox else ZENODO_API
     ) + f"/deposit/depositions/{deposition['id']}"
     headers = {"Content-Type": "application/json"}
     data = {"metadata": metadata}
     # prefer Authorization header
     auth_headers = {"Authorization": f"Bearer {token}", **headers}
-    r = requests.put(url, data=json.dumps(data), headers=auth_headers)
+    r = requests.put(url, data=json.dumps(data), headers=auth_headers, timeout=10)
     if r.status_code >= 400:
         logger.error("Zenodo API error (set metadata): %s", r.status_code)
-        try:
-            logger.error("%s", r.text)
-        except Exception:
-            pass
+        with contextlib.suppress(Exception):
+            logger.debug("%s", r.text)
         r.raise_for_status()
     return r.json()
 
@@ -108,9 +105,9 @@ def main():
 
     token = os.environ.get("ZENODO_TOKEN")
     if not token:
-        raise SystemExit("Set ZENODO_TOKEN env var before running")
+        msg = "Set ZENODO_TOKEN env var before running"
+        raise SystemExit(msg)
 
-    from pathlib import Path
     desc = ""
     if args.description_file:
         with Path(args.description_file).open(encoding="utf-8") as f:
