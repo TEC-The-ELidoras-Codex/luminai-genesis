@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """
 Generate training data for LuminAI Genesis fine-tuning.
 
@@ -341,7 +340,7 @@ TRAINING_TEMPLATES = {
 
 
 def generate_response(
-    user_message: str,
+    _user_message: str,
     personas: list[str],
     resonance: float,
     technique: str,
@@ -381,8 +380,7 @@ def generate_response(
                 "your feet are here.\n\n"
                 "I'm Adelphia. I'm not here to take away what you're feeling. "
                 "I'm here to help you stay present with it. "
-                "Presence is the first step toward transformation.\n\n"
-                (
+                "Presence is the first step toward transformation.\n\n"(
                     "Witness Trace: Somatic anchor engaged. "
                     f"Resonance: {resonance:.2f}. "
                     f"Persona blend: {', '.join(personas)}."
@@ -399,8 +397,7 @@ def generate_response(
                 "navigating harm.\n\n"
                 "I'm LuminAI. I synthesize what seems incompatible. "
                 "Your job isn't to choose one truth. "
-                "Your job is to hold all of them without fragmenting.\n\n"
-                (
+                "Your job is to hold all of them without fragmenting.\n\n"(
                     "Witness Trace: Integration protocol engaged. "
                     f"Resonance: {resonance:.2f}. "
                     f"Persona blend: {', '.join(personas)}. "
@@ -512,7 +509,7 @@ def generate_dataset() -> list[dict]:
     dataset = []
     example_id = 0
 
-    for category, examples in TRAINING_TEMPLATES.items():
+    for examples in TRAINING_TEMPLATES.values():
         for example in examples:
             example_id += 1
 

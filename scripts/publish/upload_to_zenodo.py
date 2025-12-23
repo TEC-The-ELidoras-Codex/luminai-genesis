@@ -1,19 +1,23 @@
-#!/usr/bin/env python3
 """Upload a prepared archive to Zenodo via the REST API.
 
 Usage:
   export ZENODO_TOKEN=your_token_here
-  python3 scripts/publish/upload_to_zenodo.py --file /path/to/luminai-genesis-zenodo.zip --title "LuminAI Genesis: Witness dataset + analysis" --description-file scripts/publish/zenodo_description.md
+  python3 scripts/publish/upload_to_zenodo.py --file /path/to/luminai-genesis-zenodo.zip
+    --title "LuminAI Genesis: Witness dataset + analysis"
+    --description-file scripts/publish/zenodo_description.md
 
 Notes:
- - This script uses the Zenodo REST API (sandbox or production). Set --sandbox to use sandbox.
+ - This script uses the Zenodo REST API (sandbox or production).
+   Set --sandbox to use sandbox.
  - You must set the environment variable ZENODO_TOKEN with a personal access token.
 """
 
 import argparse
+import contextlib
 import json
 import logging
 import os
+from pathlib import Path
 
 import requests
 
@@ -23,16 +27,18 @@ ZENODO_API = "https://zenodo.org/api"
 ZENODO_SANDBOX = "https://sandbox.zenodo.org/api"
 
 
-def create_deposition(token: str, sandbox: bool = False) -> dict:
+# HTTP status constants
+HTTP_BAD_REQUEST = 400
+
+
+def create_deposition(token: str, *, sandbox: bool = False) -> dict:
     url = (ZENODO_SANDBOX if sandbox else ZENODO_API) + "/deposit/depositions"
     headers = {"Authorization": f"Bearer {token}"}
-    r = requests.post(url, headers=headers, json={})
-    if r.status_code >= 400:
+    r = requests.post(url, headers=headers, json={}, timeout=10)
+    if r.status_code >= HTTP_BAD_REQUEST:
         logger.error("Zenodo API error (create deposition): %s", r.status_code)
-        try:
-            logger.error("%s", r.text)
-        except Exception:
-            pass
+        with contextlib.suppress(Exception):
+            logger.debug("%s", r.text)
         r.raise_for_status()
     return r.json()
 
@@ -41,20 +47,19 @@ def upload_file(
     deposition: dict,
     filepath: str,
     token: str,
-    sandbox: bool = False,
+    *,
+    _sandbox: bool = False,
 ) -> dict:
     bucket_url = deposition["links"]["bucket"]
-    fname = os.path.basename(filepath)
-    with open(filepath, "rb") as f:
+    fname = Path(filepath).name
+    with Path(filepath).open("rb") as f:
         # prefer Authorization header to avoid query-encoding and logging tokens
         headers = {"Authorization": f"Bearer {token}"}
-        r = requests.put(f"{bucket_url}/{fname}", data=f, headers=headers)
-        if r.status_code >= 400:
+        r = requests.put(f"{bucket_url}/{fname}", data=f, headers=headers, timeout=10)
+        if r.status_code >= HTTP_BAD_REQUEST:
             logger.error("Zenodo API error (upload file): %s", r.status_code)
-            try:
-                logger.error("%s", r.text)
-            except Exception:
-                pass
+            with contextlib.suppress(Exception):
+                logger.debug("%s", r.text)
             r.raise_for_status()
     return r.json()
 
@@ -63,22 +68,21 @@ def set_metadata(
     deposition: dict,
     metadata: dict,
     token: str,
-    sandbox: bool = False,
+    *,
+    _sandbox: bool = False,
 ) -> dict:
     url = (
-        ZENODO_SANDBOX if sandbox else ZENODO_API
+        ZENODO_SANDBOX if _sandbox else ZENODO_API
     ) + f"/deposit/depositions/{deposition['id']}"
     headers = {"Content-Type": "application/json"}
     data = {"metadata": metadata}
     # prefer Authorization header
     auth_headers = {"Authorization": f"Bearer {token}", **headers}
-    r = requests.put(url, data=json.dumps(data), headers=auth_headers)
-    if r.status_code >= 400:
+    r = requests.put(url, data=json.dumps(data), headers=auth_headers, timeout=10)
+    if r.status_code >= HTTP_BAD_REQUEST:
         logger.error("Zenodo API error (set metadata): %s", r.status_code)
-        try:
-            logger.error("%s", r.text)
-        except Exception:
-            pass
+        with contextlib.suppress(Exception):
+            logger.debug("%s", r.text)
         r.raise_for_status()
     return r.json()
 
@@ -107,11 +111,12 @@ def main():
 
     token = os.environ.get("ZENODO_TOKEN")
     if not token:
-        raise SystemExit("Set ZENODO_TOKEN env var before running")
+        msg = "Set ZENODO_TOKEN env var before running"
+        raise SystemExit(msg)
 
     desc = ""
     if args.description_file:
-        with open(args.description_file, encoding="utf-8") as f:
+        with Path(args.description_file).open(encoding="utf-8") as f:
             desc = f.read()
 
     logging.basicConfig(level=logging.INFO, format="%(message)s")

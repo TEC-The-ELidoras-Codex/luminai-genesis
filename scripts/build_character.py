@@ -1,20 +1,18 @@
 #!/usr/bin/env python3
+import logging
 import sys
 from pathlib import Path
 
 # Ensure local package can be imported when running scripts from repository
 sys.path.append(str(Path(__file__).resolve().parents[1] / "src"))
 
-# Delay importing local package until after sys.path modification (for scripts execution)
-
+MIN_ARGS = 3  # Minimum number of arguments required
 
 def main():
-    import logging
-
     logging.basicConfig(level=logging.INFO, format="%(message)s")
     logger = logging.getLogger(__name__)
 
-    if len(sys.argv) < 3:
+    if len(sys.argv) < MIN_ARGS:
         logger.error("Usage: build_character.py <Name> <Class>")
         sys.exit(1)
     name = sys.argv[1]

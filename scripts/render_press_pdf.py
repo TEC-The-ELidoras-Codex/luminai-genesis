@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """
 Render `docs/press-kit/press-onepager.html` to `docs/press-kit/press-onepager.pdf`.
 
@@ -15,10 +14,12 @@ from pathlib import Path
 
 try:
     from weasyprint import HTML
-except Exception:
-    raise SystemExit(
-        "WeasyPrint is required. Install with `pip install weasyprint` and ensure system libs are available.",
+except ImportError:
+    msg = (
+        "WeasyPrint is required. Install with `pip install weasyprint` "
+        "and ensure system libs are available."
     )
+    raise SystemExit(msg)
 
 logger = logging.getLogger(__name__)
 logging.basicConfig(level=logging.INFO, format="%(message)s")
@@ -28,7 +29,8 @@ SRC = BASE / "docs" / "press-kit" / "press-onepager.html"
 OUT = BASE / "docs" / "press-kit" / "press-onepager.pdf"
 
 if not SRC.exists():
-    raise SystemExit(f"Source {SRC} not found")
+    msg = f"Source {SRC} not found"
+    raise SystemExit(msg)
 
 logger.info("Rendering %s → %s", SRC, OUT)
 HTML(filename=str(SRC)).write_pdf(str(OUT))

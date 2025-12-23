@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """
 Post to LinkedIn UGC endpoint.
 

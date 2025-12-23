@@ -161,10 +161,12 @@ class OllamaService:
             return response_text, witness_trace
 
         except ollama.ResponseError as e:
-            raise RuntimeError(f"Ollama API error: {e}") from e
+            msg = f"Ollama API error: {e}"
+            raise RuntimeError(msg) from e
         except Exception as e:
+            msg = f"Failed to connect to Ollama at {self.base_url}: {e}"
             raise ConnectionError(
-                f"Failed to connect to Ollama at {self.base_url}: {e}",
+                msg,
             ) from e
 
     async def check_health(self) -> bool:

@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """
 LinkedIn OAuth helper
 
@@ -33,7 +32,11 @@ DEFAULT_REDIRECT_PORT = 8080
 DEFAULT_REDIRECT_PATH = "/callback"
 
 AUTH_URL = "https://www.linkedin.com/oauth/v2/authorization"
-TOKEN_URL = "https://www.linkedin.com/oauth/v2/accessToken"
+TOKEN_URL = "https://www.linkedin.com/oauth/v2/accessToken"  # noqa: S105 - OAuth endpoint, not password
+
+# HTTP status constants
+HTTP_OK = 200
+
 ME_URL = "https://api.linkedin.com/v2/me"
 
 
@@ -50,7 +53,9 @@ class CallbackHandler(BaseHTTPRequestHandler):
         if "error" in qs:
             self.wfile.write(b"OAuth returned error, check the console for details.")
             logger.error(
-                "OAuth error: %s %s", qs.get("error"), qs.get("error_description"),
+                "OAuth error: %s %s",
+                qs.get("error"),
+                qs.get("error_description"),
             )
             sys.exit(1)
         code = qs.get("code", [None])[0]
@@ -106,7 +111,8 @@ if __name__ == "__main__":
 
     if not args.client_id or not args.client_secret:
         logger.error(
-            "Please provide --client-id and --client-secret (or set env vars LINKEDIN_CLIENT_ID/LINKEDIN_CLIENT_SECRET)",
+            "Provide --client-id and --client-secret or set "
+            "LINKEDIN_CLIENT_ID/LINKEDIN_CLIENT_SECRET",
         )
         sys.exit(2)
 
@@ -128,14 +134,14 @@ if __name__ == "__main__":
     )
 
     logger.info(
-        "Open the following URL in your browser (or wait; the browser will open automatically):",
+        "Open the following URL in your browser (browser may open automatically):",
     )
     logger.info("%s", auth_url)
     if not args.no_open:
-        try:
+        import contextlib
+
+        with contextlib.suppress(Exception):
             webbrowser.open(auth_url)
-        except Exception:
-            pass
 
     # start local HTTP server to collect redirect and parse code
     server = HTTPServer((args.redirect_host, args.redirect_port), CallbackHandler)
@@ -157,7 +163,7 @@ if __name__ == "__main__":
     headers = {"Content-Type": "application/x-www-form-urlencoded"}
 
     r = requests.post(TOKEN_URL, data=data, headers=headers, timeout=10)
-    if r.status_code != 200:
+    if r.status_code != HTTP_OK:
         logger.error("Failed to get access token: %s %s", r.status_code, r.text)
         sys.exit(1)
     token_data = r.json()
@@ -169,14 +175,15 @@ if __name__ == "__main__":
     # Get member id
     me_headers = {"Authorization": f"Bearer {access_token}"}
     me = requests.get(ME_URL, headers=me_headers, timeout=10)
-    if me.status_code != 200:
+    if me.status_code != HTTP_OK:
         logger.error("Failed to fetch profile: %s %s", me.status_code, me.text)
         sys.exit(1)
     me_json = me.json()
     person_id = me_json.get("id")
     if not person_id:
         logger.error(
-            "Could not determine the person URN from profile response: %s", me_json,
+            "Could not determine the person URN from profile response: %s",
+            me_json,
         )
         sys.exit(1)
 
@@ -186,11 +193,14 @@ if __name__ == "__main__":
     logger.info("ACCESS_TOKEN= %s", access_token)
     logger.info("PERSON_URN= %s", urn)
     # optionally write to a file for copy-paste convenience
+    from pathlib import Path
+
     out_path = os.getenv("LINKEDIN_OAUTH_OUT") or "linkedin_token.json"
-    with open(out_path, "w", encoding="utf-8") as f:
+    with Path(out_path).open("w", encoding="utf-8") as f:
         json.dump({"access_token": access_token, "urn": urn}, f, indent=2)
         logger.info("Wrote token info to %s", out_path)
 
     logger.info(
-        "\nAdd the access token and urn to your GitHub repository secrets as LINKEDIN_ACCESS_TOKEN and LINKEDIN_PERSON_URN",
+        "Add the access token and urn to your GitHub repository secrets: "
+        "LINKEDIN_ACCESS_TOKEN and LINKEDIN_PERSON_URN",
     )
