@@ -58,7 +58,8 @@ def fetch_comments_pushshift(submission_id: str, size: int = 5000) -> list[dict]
 
 
 def load_comments_from_json(path: str) -> list[dict]:
-    with open(path, encoding="utf-8") as f:
+    from pathlib import Path
+    with Path(path).open(encoding="utf-8") as f:
         j = json.load(f)
     # Accept either a list of comment dicts or Reddit "json" export (list with two elements)
     if isinstance(j, list):
@@ -145,7 +146,8 @@ def to_witness_rows(comments: list[dict]) -> list[dict]:
 
 
 def write_csv(path: str, rows: list[dict]):
-    with open(path, "w", newline="", encoding="utf-8") as f:
+    from pathlib import Path
+    with Path(path).open("w", newline="", encoding="utf-8") as f:
         writer = csv.DictWriter(f, fieldnames=HEADERS)
         writer.writeheader()
         for r in rows:

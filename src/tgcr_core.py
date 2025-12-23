@@ -119,7 +119,9 @@ class TGCR:
             # Severe penalty for abandonment: drop to 0.3
             w = 0.3
             self.log.warning(
-                f"[WITNESS] Evasion detected: {state.evasion_reason} — W = {w}",
+                "[WITNESS] Evasion detected: %s — W = %s",
+                state.evasion_reason,
+                w,
             )
         # Bonus for high presence in volatile contexts (crisis support)
         elif state.user_volatility > 0.7 and state.temporal_attention > 0.8:

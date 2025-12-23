@@ -3,6 +3,7 @@ import os
 
 import yaml
 from github import Github
+from pathlib import Path
 
 logger = logging.getLogger(__name__)
 logging.basicConfig(level=logging.INFO, format="%(message)s")
@@ -20,7 +21,7 @@ g = Github(token)
 repo = g.get_repo("TEC-The-ELidoras-Codex/luminai-genesis")
 
 # Load labels from YAML
-with open(".github/labels.yml") as f:
+with Path('.github/labels.yml').open(encoding='utf-8') as f:
     labels_data = yaml.safe_load(f)
 
 # Import labels

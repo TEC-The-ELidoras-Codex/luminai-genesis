@@ -132,7 +132,8 @@ API_BASE = "https://api.linkedin.com/v2"
 
 
 def read_message(path):
-    with open(path, encoding="utf-8") as f:
+    from pathlib import Path
+    with Path(path).open(encoding="utf-8") as f:
         return f.read().strip()
 
 

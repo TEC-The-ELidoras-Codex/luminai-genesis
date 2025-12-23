@@ -45,7 +45,8 @@ def upload_file(
 ) -> dict:
     bucket_url = deposition["links"]["bucket"]
     fname = os.path.basename(filepath)
-    with open(filepath, "rb") as f:
+    from pathlib import Path
+    with Path(filepath).open("rb") as f:
         # prefer Authorization header to avoid query-encoding and logging tokens
         headers = {"Authorization": f"Bearer {token}"}
         r = requests.put(f"{bucket_url}/{fname}", data=f, headers=headers)
@@ -109,9 +110,10 @@ def main():
     if not token:
         raise SystemExit("Set ZENODO_TOKEN env var before running")
 
+    from pathlib import Path
     desc = ""
     if args.description_file:
-        with open(args.description_file, encoding="utf-8") as f:
+        with Path(args.description_file).open(encoding="utf-8") as f:
             desc = f.read()
 
     logging.basicConfig(level=logging.INFO, format="%(message)s")

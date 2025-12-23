@@ -14,7 +14,16 @@ against integrity as a governance protocol ensuring ethical constraints.
 import json
 import random
 from dataclasses import dataclass, field
+from pathlib import Path
 from typing import Any
+
+# Constants
+D20_SIDES = 20
+CRIT_SUCCESS_LOW = 1
+AFFIRMATION_THRESHOLD = 5
+DISAVOWAL_THRESHOLD = 20
+SUCCESS_THRESHOLD = 10
+GOLF_FAIL_THRESHOLD = 16
 
 
 @dataclass
@@ -120,11 +129,12 @@ class AstradigitalEntity:
         name: str,
         cls_name: str,
         codex: dict[str, Any],
-        ability_db: dict[str, Any] = None,
+        ability_db: dict[str, Any] | None = None,
     ) -> "AstradigitalEntity":
         cls = codex["classes"].get(cls_name)
         if not cls:
-            raise ValueError(f"Class '{cls_name}' not found in codex")
+            msg = f"Class '{cls_name}' not found in codex"
+            raise ValueError(msg)
         entity = AstradigitalEntity(
             name=name,
             philosophy_class=cls_name,
@@ -173,27 +183,27 @@ class AstradigitalEntity:
         Returns:
             Dict with roll value, status (Success/Failure/Crit), and crit flag.
         """
-        roll = random.randint(1, 20)
+        roll = random.randint(1, D20_SIDES)
         result = {"roll": roll, "status": "Neutral", "crit": False, "context": context}
         # Golf Rule inversion
         if self.is_golf_rule:
-            if roll == 1:
+            if roll == CRIT_SUCCESS_LOW:
                 result["status"] = "CRITICAL SUCCESS (Singularity)"
                 result["crit"] = True
-            elif roll == 20:
+            elif roll == DISAVOWAL_THRESHOLD:
                 result["status"] = "CRITICAL FAILURE (Complexity Overload)"
                 result["crit"] = True
-            elif roll <= 10:
+            elif roll <= SUCCESS_THRESHOLD:
                 result["status"] = "Success (Simple)"
             else:
                 result["status"] = "Failure (Complex)"
-        elif roll == 20:
+        elif roll == DISAVOWAL_THRESHOLD:
             result["status"] = "CRITICAL SUCCESS"
             result["crit"] = True
-        elif roll == 1:
+        elif roll == CRIT_SUCCESS_LOW:
             result["status"] = "CRITICAL FAILURE"
             result["crit"] = True
-        elif roll >= 10:
+        elif roll >= SUCCESS_THRESHOLD:
             result["status"] = "Success"
         else:
             result["status"] = "Failure"
@@ -214,7 +224,7 @@ class AstradigitalEntity:
         Returns:
             Dict with roll, outcome (AFFIRMATION/TOLERANCE/DISAVOWAL), integrity, twist.
         """
-        roll = random.randint(1, 20)
+        roll = random.randint(1, D20_SIDES)
         outcome = {
             "roll": roll,
             "trigger": trigger_event,
@@ -222,11 +232,11 @@ class AstradigitalEntity:
             "integrity": self.integrity,
             "twist": False,
         }
-        if roll <= 5:
+        if roll <= AFFIRMATION_THRESHOLD:
             outcome["outcome"] = "AFFIRMATION (Transcendence)"
             self.integrity = min(self.max_integrity, self.integrity + 20)
             outcome["integrity"] = self.integrity
-        elif roll >= 20:
+        elif roll >= DISAVOWAL_THRESHOLD:
             outcome["outcome"] = "DISAVOWAL (The Schism)"
             self.integrity = 1
             self.twist_active = True
@@ -291,20 +301,22 @@ class AstradigitalEntity:
 
         # 1. Pay Costs
         for resource, amount in ability.cost.items():
+            # default amount to spend
+            _amount = amount
             # special flag for draining all a resource (e.g., pp_all)
             if resource.endswith("_all") and amount is True:
                 base_res = resource.replace("_all", "")
                 drained = self.resources.get(base_res, 0)
                 self.resources[base_res] = 0
                 # expose drained info in outcome later
-                amount = drained
+                _amount = drained
             if not self.spend(
                 (
                     resource
                     if not resource.endswith("_all")
                     else resource.replace("_all", "")
                 ),
-                amount,
+                _amount,
             ):
                 return {"success": False, "reason": f"Insufficient {resource}"}
 
@@ -324,8 +336,8 @@ class AstradigitalEntity:
 
         # Fail conditions (golf vs standard)
         is_crit = roll["crit"]
-        is_fail = (self.is_golf_rule and roll["roll"] >= 16) or (
-            not self.is_golf_rule and roll["roll"] == 1
+        is_fail = (self.is_golf_rule and roll["roll"] >= GOLF_FAIL_THRESHOLD) or (
+            not self.is_golf_rule and roll["roll"] == CRIT_SUCCESS_LOW
         )
 
         if is_fail:
@@ -387,7 +399,8 @@ def load_codex(path: str) -> dict[str, Any]:
     Returns:
         Dict with 'classes' key mapping class names to definitions.
     """
-    with open(path, encoding="utf-8") as f:
+
+    with Path(path).open(encoding="utf-8") as f:
         return json.load(f)
 
 
@@ -405,7 +418,7 @@ def initiative_order(entities: dict[str, AstradigitalEntity]) -> dict[str, int]:
         Dict mapping entity names to initiative scores (1-20).
     """
     # simple initiative: d20 roll per entity
-    return {name: random.randint(1, 20) for name in entities}
+    return {name: random.randint(1, D20_SIDES) for name in entities}
 
 
 def take_turn(

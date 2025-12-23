@@ -186,8 +186,9 @@ if __name__ == "__main__":
     logger.info("ACCESS_TOKEN= %s", access_token)
     logger.info("PERSON_URN= %s", urn)
     # optionally write to a file for copy-paste convenience
+    from pathlib import Path
     out_path = os.getenv("LINKEDIN_OAUTH_OUT") or "linkedin_token.json"
-    with open(out_path, "w", encoding="utf-8") as f:
+    with Path(out_path).open("w", encoding="utf-8") as f:
         json.dump({"access_token": access_token, "urn": urn}, f, indent=2)
         logger.info("Wrote token info to %s", out_path)
 

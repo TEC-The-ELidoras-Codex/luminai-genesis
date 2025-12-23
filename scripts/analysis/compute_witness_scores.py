@@ -17,8 +17,9 @@ def sar_to_w(sar):
 
 
 def main(in_path: str = IN, out_path: str = OUT):
+    from pathlib import Path
     rows = []
-    with open(in_path, newline="") as f:
+    with Path(in_path).open(newline="") as f:
         reader = csv.DictReader(f)
         for r in reader:
             # allow empty sar_score (skipped rows)
@@ -48,7 +49,7 @@ def main(in_path: str = IN, out_path: str = OUT):
             f"{r.get('date', '')},{r.get('anon_user', '')},{r.get('model_reported', '')},{r.get('failure_type', '')},SAR={r.get('sar_score', '')},W={r['W']:.3f}",
         )
 
-    with open(out_path, "w") as f:
+    with Path(out_path).open("w", newline="") as f:
         f.write("\n".join(summary_lines))
 
     logger.info("\n".join(summary_lines))

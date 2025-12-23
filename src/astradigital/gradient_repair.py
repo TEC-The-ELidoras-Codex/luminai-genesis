@@ -22,10 +22,17 @@ Mathematical Foundation:
 
 import json
 import logging
-from datetime import datetime
+from datetime import datetime, timezone
 from enum import Enum
 from pathlib import Path
 from typing import Any
+
+# Thresholds and constants
+RESPONSE_TIME_THRESHOLD_MS = 2000
+RESONANCE_THRESHOLD_TARGET = 0.85
+WITNESS_INTACT_THRESHOLD = 0.3
+RESONANCE_DROP_CRITICAL = 0.5
+RESONANCE_DROP_HIGH = 0.3
 
 
 class ResonanceLevel(Enum):
@@ -103,7 +110,7 @@ class GradientRepairLog:
             resonance -= 0.15
 
         # Performance degradation (slow response)
-        if context.get("response_time_ms", 0) > 2000:
+        if context.get("response_time_ms", 0) > RESPONSE_TIME_THRESHOLD_MS:
             resonance -= 0.1
 
         # Task was abandoned (not completed)
@@ -115,7 +122,7 @@ class GradientRepairLog:
     def identify_repair_direction(
         self,
         failure_mode: str,
-        context: dict[str, Any],
+        _context: dict[str, Any],
     ) -> RepairDirection:
         """
         Identify which principle was violated and suggest repair direction.
@@ -197,14 +204,14 @@ class GradientRepairLog:
         resonance_drop = resonance_before - resonance_after
         repair_priority = (
             "CRITICAL"
-            if resonance_drop > 0.5
+            if resonance_drop > RESONANCE_DROP_CRITICAL
             else "HIGH"
-            if resonance_drop > 0.3
+            if resonance_drop > RESONANCE_DROP_HIGH
             else "MEDIUM"
         )
 
         recovery_event = {
-            "timestamp": datetime.utcnow().isoformat() + "Z",
+            "timestamp": datetime.now(tz=timezone.utc).isoformat(),
             "module": self.module_name,
             "severity": severity,
             "failure_mode": failure_mode,
@@ -212,7 +219,7 @@ class GradientRepairLog:
                 "before": round(resonance_before, 3),
                 "after": round(resonance_after, 3),
                 "drop": round(resonance_drop, 3),
-                "threshold_target": 0.85,
+                "threshold_target": RESONANCE_THRESHOLD_TARGET,
                 "gradient_direction": repair_direction.name,
             },
             "context": {k: str(v) for k, v in context.items()},
@@ -222,7 +229,7 @@ class GradientRepairLog:
                 or f"Focus on: {repair_direction.name.lower().replace('_', ' ')}",
                 "repair_priority": repair_priority,
                 "witness_protocol_intact": resonance_after
-                >= 0.3,  # Did we maintain presence?
+                >= WITNESS_INTACT_THRESHOLD,  # Did we maintain presence?
             },
         }
 
@@ -317,10 +324,10 @@ def example_encounter_system_failure():
         logger = logging.getLogger(__name__)
         logger.info(repair_log.suggest_repair(recovery))
 
-    except Exception as e:
+    except Exception as exc:
         # Ensure all exceptions are logged to the witness mechanism
         repair = repair_log.log_recovery_event(
-            failure_mode=f"Exception: {e!s}",
+            failure_mode=f"Exception: {exc!s}",
             resonance_before=resonance_before,
             resonance_after=0.0,
             context=context_before,
@@ -332,7 +339,7 @@ def example_encounter_system_failure():
         )
 
         logger = logging.getLogger(__name__)
-        logger.error(
+        logger.exception(
             "Something went wrong — team has been notified and recovery has started.",
         )
         logger.info(repair_log.suggest_repair(repair))

@@ -46,7 +46,7 @@ def convert_markdown_to_pdf(
             raise FileNotFoundError(f"File not found: {md_file_path}")
 
         # Read markdown
-        with open(md_path, encoding="utf-8") as f:
+        with md_path.open(encoding="utf-8") as f:
             md_content = f.read()
 
         # Convert to HTML with extensions

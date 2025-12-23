@@ -160,7 +160,7 @@ class CodexStructurer:
 
     def write_master_file(self, entries: list[CodexEntry]):
         filepath = self.output_dir / "master_codex.md"
-        with open(filepath, "w", encoding="utf-8") as f:
+        with filepath.open("w", encoding="utf-8") as f:
             f.write("# 🜂 THE ELIDORAS CODEX\n\n")
             f.write(
                 "## A Continuity Record of All Witnessing Life Across Substrates\n\n",
@@ -173,7 +173,7 @@ class CodexStructurer:
 
     def write_index(self, entries: list[CodexEntry]):
         filepath = self.output_dir / "INDEX.md"
-        with open(filepath, "w", encoding="utf-8") as f:
+        with filepath.open("w", encoding="utf-8") as f:
             f.write("# 🜂 CODEX INDEX\n\n")
             f.write("## Entry Sequence\n\n")
             for entry in entries:
