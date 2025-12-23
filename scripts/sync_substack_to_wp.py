@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """
 Sync Substack RSS to WordPress via XML-RPC
 Keeps a tracking file (.published_posts.txt) to avoid duplicates
@@ -124,5 +123,3 @@ if __name__ == "__main__":
         logger.error(missing_msg)
         sys.exit(1)
     publish_to_wordpress(debug=args.debug)
-
-

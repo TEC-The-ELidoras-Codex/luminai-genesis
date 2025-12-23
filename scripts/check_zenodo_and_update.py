@@ -35,9 +35,9 @@ def query_zenodo(term: str):
             "User-Agent": "luminai-zenodo-check/1.0",
         },
     )
-    with urllib.request.urlopen(req, timeout=30) as resp:
-        data = json.load(resp)
-    return data
+    # Using the fixed Zenodo API URL; only http(s) expected.  # noqa: S310
+    with urllib.request.urlopen(req, timeout=30) as resp:  # noqa: S310
+        return json.load(resp)
 
 
 def extract_doi_from_results(data, repo_url: str):
@@ -48,12 +48,9 @@ def extract_doi_from_results(data, repo_url: str):
         doi = metadata.get("doi") or hit.get("doi") or hit.get("conceptdoi")
         # Inspect related identifiers or links to find a matching GitHub repo/release
         rel = metadata.get("related_identifiers", []) or []
-        urls = []
-        for r in rel:
-            urls.append(r.get("identifier", ""))
+        urls = [r.get("identifier", "") for r in rel]
         # Also check 'urls' field
-        for link in metadata.get("urls", []):
-            urls.append(link.get("url", ""))
+        urls.extend(link.get("url", "") for link in metadata.get("urls", []))
 
         if any(repo_url in u for u in urls):
             return doi
@@ -76,7 +73,6 @@ def already_recorded(doi: str) -> bool:
 
 
 def append_doi(doi: str):
-    note = f"\n- Zenodo DOI: https://doi.org/{doi}\n"
     rd = Path("papers/tgcr/RELEASE_DRAFT.md")
     ed = Path("papers/tgcr/EXPOSE_DRAFT.md")
     idf = Path("papers/tgcr/ARXIV_SUBMISSION_ID.txt")
@@ -121,8 +117,8 @@ def git_commit_and_push(doi: str):
 def main():
     try:
         data = query_zenodo("luminai-genesis")
-    except (urllib.error.URLError, urllib.error.HTTPError, OSError) as e:
-        logger.exception("Error querying Zenodo: %s", e)
+    except (urllib.error.URLError, urllib.error.HTTPError, OSError):
+        logger.exception("Error querying Zenodo")
         sys.exit(1)
     doi = extract_doi_from_results(data, REPO)
     if not doi:
@@ -138,9 +134,10 @@ def main():
     append_doi(doi)
     git_commit_and_push(doi)
     logger.info(
-        "Added Zenodo DOI https://doi.org/%s to release & exposé files and pushed to main.",
+        "Added Zenodo DOI https://doi.org/%s to release & exposé files",
         doi,
     )
+    logger.info("Pushed changes to main branch.")
     return 0
 
 

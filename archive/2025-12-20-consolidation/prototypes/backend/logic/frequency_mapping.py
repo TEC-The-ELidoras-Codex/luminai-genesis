@@ -57,11 +57,13 @@ def _load_mapping() -> list[dict[str, Any]]:
                     _MAPPING_CACHE = data
                 else:
                     # unexpected shape
-                    raise ValueError(f"Unexpected mapping file shape: {path}")
+                    msg = f"Unexpected mapping file shape: {path}"
+                    raise ValueError(msg)
                 return _MAPPING_CACHE
 
+    msg = "No frequency mapping file found. Expected data/frequencies/SIXTEEN_FREQUENCIES_MAPPING.json"
     raise FileNotFoundError(
-        "No frequency mapping file found. Expected data/frequencies/SIXTEEN_FREQUENCIES_MAPPING.json",
+        msg,
     )
 
 

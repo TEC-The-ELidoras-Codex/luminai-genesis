@@ -30,7 +30,7 @@ def _load_characters():
                 logger.info(f"Loaded {len(_characters_cache)} characters from codex")
                 return _characters_cache
     except Exception as e:
-        logger.error(f"Error loading characters: {e}")
+        logger.exception(f"Error loading characters: {e}")
 
     # Fallback: empty dict
     _characters_cache = {}

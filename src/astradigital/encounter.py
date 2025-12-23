@@ -112,7 +112,6 @@ def run_battle(encounter_path: Path, codex_path: Path) -> None:
     with ability_path.open(encoding="utf-8") as f:
         ability_db = json.load(f)
 
-
     party = build_party(enc, codex, ability_db)
     enemies = build_enemies(enc, codex, ability_db)
 

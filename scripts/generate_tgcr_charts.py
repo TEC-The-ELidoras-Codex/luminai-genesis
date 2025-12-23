@@ -1,11 +1,8 @@
-#!/usr/bin/env python3
 """Generate TGCR visualizations from SAR benchmark results.
 
-This script expects a CSV/TSV with columns: system, R, W, R_prime
-Example usage:
-  python scripts/generate_tgcr_charts.py --input benchmarks/dye_die_filter/results.csv --outdir figures
-
-If no input file is provided, the script will generate a demo heatmap to illustrate the expected visual.
+This script expects a CSV/TSV with columns: system, R, W, R_prime.
+Example: python scripts/generate_tgcr_charts.py --input benchmarks/dye_die_filter/results.csv
+Set --outdir to control output location.
 """
 
 import argparse
@@ -20,12 +17,10 @@ logger = logging.getLogger(__name__)
 
 
 def read_csv(path: Path):
-    rows = []
+    """Read a CSV/TSV file and return a list of rows as dicts."""
     with path.open(encoding="utf-8") as f:
         reader = csv.DictReader(f)
-        for r in reader:
-            rows.append(r)
-    return rows
+        return list(reader)
 
 
 def make_heatmap(rows, outpath: Path):

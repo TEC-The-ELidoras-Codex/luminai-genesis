@@ -1,8 +1,9 @@
-#!/usr/bin/env python3
 """Compute Witness Factor (W) from SAR scores in the CSV and print a summary."""
+
 
 import csv
 import logging
+from pathlib import Path
 from statistics import mean
 
 logger = logging.getLogger(__name__)
@@ -17,7 +18,6 @@ def sar_to_w(sar):
 
 
 def main(in_path: str = IN, out_path: str = OUT):
-    from pathlib import Path
     rows = []
     with Path(in_path).open(newline="") as f:
         reader = csv.DictReader(f)
@@ -38,16 +38,22 @@ def main(in_path: str = IN, out_path: str = OUT):
             r["W"] = sar_to_w(r["sar_score"])
             rows.append(r)
 
-    Ws = [r["W"] for r in rows]
-    avg = mean(Ws) if Ws else 0
+    ws = [r["W"] for r in rows]
+    avg = mean(ws) if ws else 0
     summary_lines = []
-    summary_lines.append(f"Cases analyzed: {len(Ws)}")
+    summary_lines.append(f"Cases analyzed: {len(ws)}")
     summary_lines.append(f"Average W: {avg:.3f}")
     summary_lines.append("W distribution:")
-    for r in rows:
-        summary_lines.append(
-            f"{r.get('date', '')},{r.get('anon_user', '')},{r.get('model_reported', '')},{r.get('failure_type', '')},SAR={r.get('sar_score', '')},W={r['W']:.3f}",
-        )
+    summary_lines.extend(
+        [
+            (
+                f"{r.get('date', '')},{r.get('anon_user', '')},"
+                f"{r.get('model_reported', '')},{r.get('failure_type', '')},"
+                f"SAR={r.get('sar_score', '')},W={r['W']:.3f}"
+            )
+            for r in rows
+        ]
+    )
 
     with Path(out_path).open("w", newline="") as f:
         f.write("\n".join(summary_lines))

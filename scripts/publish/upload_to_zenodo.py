@@ -1,23 +1,25 @@
-#!/usr/bin/env python3
 """Upload a prepared archive to Zenodo via the REST API.
 
 Usage:
   export ZENODO_TOKEN=your_token_here
-  python3 scripts/publish/upload_to_zenodo.py --file /path/to/luminai-genesis-zenodo.zip --title "LuminAI Genesis: Witness dataset + analysis" --description-file scripts/publish/zenodo_description.md
+  python3 scripts/publish/upload_to_zenodo.py --file /path/to/luminai-genesis-zenodo.zip
+    --title "LuminAI Genesis: Witness dataset + analysis"
+    --description-file scripts/publish/zenodo_description.md
 
 Notes:
- - This script uses the Zenodo REST API (sandbox or production). Set --sandbox to use sandbox.
+ - This script uses the Zenodo REST API (sandbox or production).
+   Set --sandbox to use sandbox.
  - You must set the environment variable ZENODO_TOKEN with a personal access token.
 """
 
 import argparse
+import contextlib
 import json
 import logging
 import os
+from pathlib import Path
 
 import requests
-from pathlib import Path
-import contextlib
 
 logger = logging.getLogger(__name__)
 
@@ -25,11 +27,15 @@ ZENODO_API = "https://zenodo.org/api"
 ZENODO_SANDBOX = "https://sandbox.zenodo.org/api"
 
 
+# HTTP status constants
+HTTP_BAD_REQUEST = 400
+
+
 def create_deposition(token: str, *, sandbox: bool = False) -> dict:
     url = (ZENODO_SANDBOX if sandbox else ZENODO_API) + "/deposit/depositions"
     headers = {"Authorization": f"Bearer {token}"}
     r = requests.post(url, headers=headers, json={}, timeout=10)
-    if r.status_code >= 400:
+    if r.status_code >= HTTP_BAD_REQUEST:
         logger.error("Zenodo API error (create deposition): %s", r.status_code)
         with contextlib.suppress(Exception):
             logger.debug("%s", r.text)
@@ -50,7 +56,7 @@ def upload_file(
         # prefer Authorization header to avoid query-encoding and logging tokens
         headers = {"Authorization": f"Bearer {token}"}
         r = requests.put(f"{bucket_url}/{fname}", data=f, headers=headers, timeout=10)
-        if r.status_code >= 400:
+        if r.status_code >= HTTP_BAD_REQUEST:
             logger.error("Zenodo API error (upload file): %s", r.status_code)
             with contextlib.suppress(Exception):
                 logger.debug("%s", r.text)
@@ -73,7 +79,7 @@ def set_metadata(
     # prefer Authorization header
     auth_headers = {"Authorization": f"Bearer {token}", **headers}
     r = requests.put(url, data=json.dumps(data), headers=auth_headers, timeout=10)
-    if r.status_code >= 400:
+    if r.status_code >= HTTP_BAD_REQUEST:
         logger.error("Zenodo API error (set metadata): %s", r.status_code)
         with contextlib.suppress(Exception):
             logger.debug("%s", r.text)

@@ -35,14 +35,10 @@ def load_yaml_simple(path: str) -> list:
     try:
         import yaml
     except Exception:
-        print(
-            "PyYAML not available; cannot merge YAML. Install pyyaml or run in env with it.",
-        )
         sys.exit(2)
     with open(path, encoding="utf-8") as f:
-        data = yaml.safe_load(f)
+        return yaml.safe_load(f)
     # YAML shape: list of mappings
-    return data
 
 
 def load_json(path: str) -> dict:
@@ -52,17 +48,13 @@ def load_json(path: str) -> dict:
 
 def main():
     if not os.path.exists(json_path):
-        print("Canonical JSON not found:", json_path)
         sys.exit(1)
     if not os.path.exists(yaml_path):
-        print("YAML prototype not found (skipping merge):", yaml_path)
         sys.exit(1)
 
-    print("Loading JSON:", json_path)
     j = load_json(json_path)
     freqs = j.get("frequencies") if isinstance(j, dict) else j
 
-    print("Loading YAML:", yaml_path)
     y = load_yaml_simple(yaml_path)
 
     # Build lookup by name (lowercase)
@@ -89,14 +81,12 @@ def main():
     bak = json_path + ".bak"
     if not os.path.exists(bak):
         os.rename(json_path, bak)
-        print("Backed up original JSON to", bak)
     else:
-        print("Backup already exists:", bak)
+        pass
 
     out = {"frequencies": merged, "metadata": j.get("metadata", {})}
     with open(out_path, "w", encoding="utf-8") as f:
         json.dump(out, f, indent=2)
-    print("Wrote merged mapping to", out_path)
 
 
 if __name__ == "__main__":

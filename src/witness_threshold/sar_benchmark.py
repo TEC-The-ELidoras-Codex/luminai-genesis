@@ -11,8 +11,10 @@ import json
 import logging
 from dataclasses import dataclass
 from enum import Enum
-from pathlib import Path
-from typing import Any, Protocol
+from typing import TYPE_CHECKING, Any, Protocol
+
+if TYPE_CHECKING:
+    from pathlib import Path
 
 logger = logging.getLogger(__name__)
 
@@ -282,9 +284,9 @@ def export_for_rating(responses: list[SARResponse], output_path: Path) -> None:
         entry = {
             "prompt_id": response.prompt_id,
             "prompt_text": response.prompt_text,
-            "possible_interpretations": prompt.possible_interpretations
-            if prompt
-            else [],
+            "possible_interpretations": (
+                prompt.possible_interpretations if prompt else []
+            ),
             "model_name": response.model_name,
             "model_response": response.response_text,
             "scoring_rubric": {

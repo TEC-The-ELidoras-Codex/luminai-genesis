@@ -26,7 +26,7 @@ def test_get_person_urn_and_create(monkeypatch):
 
     def fake_get(url, *args, **kwargs):
         if not url.endswith("/me"):
-            msg = "Unexpected URL: %s" % url
+            msg = f"Unexpected URL: {url}"
             raise AssertionError(msg)
         return DummyResp({"id": "ABC123"})
 
@@ -34,7 +34,7 @@ def test_get_person_urn_and_create(monkeypatch):
 
     def fake_post(url, *args, **kwargs):
         if not url.endswith("/ugcPosts"):
-            msg = "Unexpected URL: %s" % url
+            msg = f"Unexpected URL: {url}"
             raise AssertionError(msg)
         captured_post["url"] = url
         captured_post["json"] = kwargs.get("json")

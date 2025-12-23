@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """
 Fine-tune LuminAI Genesis on AMD RX 580 with ROCm.
 Pure Transformers + PEFT approach (no Unsloth dependency).
@@ -18,6 +17,7 @@ from datasets import Dataset
 os.environ["CUDA_VISIBLE_DEVICES"] = ""  # Force CPU only
 
 logger = logging.getLogger(__name__)
+
 
 
 # Heavy ML imports are done inside `main()` to keep top-level imports clean

@@ -22,7 +22,7 @@ Mathematical Foundation:
 
 import json
 import logging
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from enum import Enum
 from pathlib import Path
 from typing import Any
@@ -205,13 +205,11 @@ class GradientRepairLog:
         repair_priority = (
             "CRITICAL"
             if resonance_drop > RESONANCE_DROP_CRITICAL
-            else "HIGH"
-            if resonance_drop > RESONANCE_DROP_HIGH
-            else "MEDIUM"
+            else "HIGH" if resonance_drop > RESONANCE_DROP_HIGH else "MEDIUM"
         )
 
         recovery_event = {
-            "timestamp": datetime.now(tz=timezone.utc).isoformat(),
+            "timestamp": datetime.now(tz=UTC).isoformat(),
             "module": self.module_name,
             "severity": severity,
             "failure_mode": failure_mode,
