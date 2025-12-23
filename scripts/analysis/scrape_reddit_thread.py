@@ -72,7 +72,7 @@ def load_comments_from_json(path: str) -> list[dict]:
                     d = c.get("data", {})
                     comments.append(d)
                 return comments
-            except Exception as exc:
+            except (KeyError, TypeError) as exc:
                 logger.debug(
                     "Failed to parse Reddit JSON export children: %s", exc, exc_info=exc,
                 )
@@ -110,7 +110,7 @@ def to_witness_rows(comments: list[dict]) -> list[dict]:
                     .date()
                     .isoformat()
                 )
-            except Exception as exc:
+            except (ValueError, TypeError) as exc:
                 logger.debug(
                     "Failed to parse created_utc timestamp: %s", exc, exc_info=exc,
                 )
@@ -120,7 +120,7 @@ def to_witness_rows(comments: list[dict]) -> list[dict]:
                 created = (
                     datetime.datetime.fromisoformat(c.get("created")).date().isoformat()
                 )
-            except Exception:
+            except ValueError:
                 created = None
 
         # Heuristics: attempt to detect reported model or trigger phrases in the body

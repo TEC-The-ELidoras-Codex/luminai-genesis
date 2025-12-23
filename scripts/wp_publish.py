@@ -33,7 +33,7 @@ logger = logging.getLogger(__name__)
 try:
     import requests
     from bs4 import BeautifulSoup
-except Exception:
+except (ImportError, ModuleNotFoundError) as exc:
     logger.exception(
         "Missing Python dependencies: requests, beautifulsoup4. Install them with pip.",
     )

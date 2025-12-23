@@ -16,8 +16,11 @@ Warning: keep client secret in environment and do not commit it. Use HTTPS in pr
 
 import os
 
+import logging
 import requests
 from flask import Flask, jsonify, request
+
+logger = logging.getLogger(__name__)
 
 app = Flask(__name__)
 
@@ -65,7 +68,8 @@ def exchange_token():
 
     try:
         resp.raise_for_status()
-    except Exception:
+    except requests.HTTPError as exc:
+        logger.exception("LinkedIn token exchange failed: %s", exc)
         return (
             jsonify({"status": "error", "code": resp.status_code, "body": resp.text}),
             resp.status_code,

@@ -15,7 +15,7 @@ from pathlib import Path
 
 try:
     from weasyprint import HTML
-except Exception:
+except ImportError:
     raise SystemExit(
         "WeasyPrint is required. Install with `pip install weasyprint` and ensure system libs are available.",
     )

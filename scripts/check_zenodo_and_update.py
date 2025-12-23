@@ -121,7 +121,7 @@ def git_commit_and_push(doi: str):
 def main():
     try:
         data = query_zenodo("luminai-genesis")
-    except Exception as e:
+    except (urllib.error.URLError, urllib.error.HTTPError, OSError) as e:
         logger.exception("Error querying Zenodo: %s", e)
         sys.exit(1)
     doi = extract_doi_from_results(data, REPO)

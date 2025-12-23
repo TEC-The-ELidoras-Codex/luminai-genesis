@@ -88,7 +88,7 @@ def extract_author_and_time(html: str):
                 # some times are full ISO timestamps
                 dt = datetime.fromisoformat(t.replace("Z", "+00:00"))
                 t = dt.strftime("%Y-%m-%d")
-            except Exception as exc:
+            except ValueError as exc:
                 logger.debug(
                     "Failed to parse datetime string '%s': %s", t, exc, exc_info=exc,
                 )

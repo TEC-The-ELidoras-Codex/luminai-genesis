@@ -266,7 +266,7 @@ def convert_markdown_to_pdf(
             try:
                 mtime = datetime.fromtimestamp(path.stat().st_mtime)
                 return mtime
-            except Exception:
+            except OSError:
                 return None
 
         if pub_date_dt is None:
@@ -370,7 +370,7 @@ if __name__ == "__main__":
             for fmt in fmt_candidates:
                 try:
                     return datetime.strptime(dt_text, fmt)
-                except Exception:
+                except ValueError:
                     pass
             m = re.search(r"(\d{4})", dt_text)
             if m:

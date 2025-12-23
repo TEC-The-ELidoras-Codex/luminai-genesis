@@ -81,7 +81,7 @@ class EncodingFixer:
 
     @staticmethod
     def fix_file(
-        input_path: Path, output_path: Path = None, in_place: bool = False,
+        input_path: Path, output_path: Path = None, *, in_place: bool = False,
     ) -> bool:
         """Fix encoding in a single file"""
         if not input_path.exists():
@@ -114,12 +114,12 @@ class EncodingFixer:
 
             return True
 
-        except Exception as exc:
+        except OSError as exc:
             logger.exception("Error processing %s: %s", input_path.name, exc)
             return False
 
     @staticmethod
-    def fix_directory(input_dir: Path, output_dir: Path = None, in_place: bool = False):
+    def fix_directory(input_dir: Path, output_dir: Path = None, *, in_place: bool = False):
         """Fix all markdown and text files in a directory"""
         if not input_dir.exists():
             logger.error("Directory not found: %s", input_dir)

@@ -40,6 +40,7 @@ def load_training_data(data_path: str) -> Dataset:
 def setup_model_and_tokenizer(
     model_name: str,
     max_seq_length: int = 2048,
+    *,
     load_in_4bit: bool = True,
 ):
     """Initialize Unsloth FastLanguageModel with LoRA config."""
@@ -74,6 +75,7 @@ def train(
     batch_size: int = 2,
     learning_rate: float = 2e-4,
     max_seq_length: int = 1024,
+    *,
     use_cpu: bool = False,
 ):
     """Fine-tune model using Unsloth with LuminAI persona-aligned data."""

@@ -27,7 +27,7 @@ def main(in_path: str = IN, out_path: str = OUT):
                 r["sar_score"] = int(
                     r.get("sar_score", 0) if r.get("sar_score", "") != "" else 0,
                 )
-            except Exception as exc:
+            except (ValueError, TypeError) as exc:
                 logger.debug(
                     "Failed to parse sar_score '%s': %s",
                     r.get("sar_score"),
