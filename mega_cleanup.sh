@@ -36,7 +36,7 @@ find . -type f -name "Thumbs.db" -delete 2>/dev/null || true
 
 # 3) Fix Codex encoding in-place if script exists
 if [ -f "scripts/codex_encoding_fixer.py" ]; then
-  python3 scripts/codex_encoding_fixer.py docs/codex --in-place || true
+  python3 scripts/codex_encoding_fixer.py docs/lore/entries --in-place || true
 fi
 
 # Consolidate codex_fixed if present

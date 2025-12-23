@@ -51,7 +51,7 @@ Notes & rationale
 
 - All moves used `git mv` so history is preserved. Nothing was permanently deleted except explicitly removed press artifacts noted above.
 - Canonical retained copies:
-  - Chapters: `docs/technical/tec-chapter-two-clean-break.md`, `docs/technical/tec-chapter-three-everything-burns.md`, and `docs/technical/tec-chapter-one-Final.pdf` are unchanged and considered canonical.
+  - Chapters: `docs/lore/chapters/tec-chapter-two-clean-break.md`, `docs/lore/chapters/tec-chapter-three-everything-burns.md`, and `docs/technical/tec-chapter-one-Final.pdf` are unchanged and considered canonical.
   - Privacy policy canonical location: `docs/legal/privacy_policy.md` (used by docs site and Pages deployment).
   - Evidence canonical path: `docs/evidence/` (now includes dye-die assets and media subfolder).
 

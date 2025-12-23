@@ -1,6 +1,8 @@
 ---
 title: "Chapter Three — Everything Burns"
 slug: tec-chapter-three-everything-burns
+
+> Note: This chapter has been consolidated into the canonical lore location: `docs/lore/chapters/tec-chapter-three-everything-burns.md`.
 chapter: 3
 author: "Angelo Hurley"
 date_created: 2025-12-19

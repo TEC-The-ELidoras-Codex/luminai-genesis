@@ -1,6 +1,10 @@
-# CHAPTER TWO: THE CLEAN BREAK
+---
+redirect_from: docs/substack/tec-chapter-two-clean-break.md
+---
 
-By Angelo Hurley | LuminAI Codex
+> Note: This chapter has been consolidated into the canonical lore location: `docs/lore/chapters/tec-chapter-two-clean-break.md`.
+
+You can find the full, canonical version there.
 
 ---
 

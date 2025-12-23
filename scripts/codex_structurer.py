@@ -203,7 +203,7 @@ class CodexStructurer:
 def main():
     import argparse
     parser = argparse.ArgumentParser(description='Structure and organize Elidoras Codex entries')
-    parser.add_argument('input_dir', nargs='?', default='docs/codex', help='Directory containing Codex files (default: docs/codex)')
+    parser.add_argument('input_dir', nargs='?', default='docs/lore/entries', help='Directory containing Codex files (default: docs/lore/entries)')
     parser.add_argument('--output', '-o', default='codex_structured', help='Output directory (default: codex_structured)')
     args = parser.parse_args()
 
