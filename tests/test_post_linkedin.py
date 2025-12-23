@@ -1,7 +1,6 @@
-# noqa: S101
 import importlib.util
-from pathlib import Path
 import logging
+from pathlib import Path
 
 
 def load_module():

@@ -75,7 +75,9 @@ if __name__ == "__main__":
     person_urn = os.getenv("LINKEDIN_PERSON_URN") or os.getenv("LINKEDIN_ORG_URN")
 
     if not access_token or not person_urn:
-        logger.error("Please set LINKEDIN_ACCESS_TOKEN and LINKEDIN_PERSON_URN environment variables.")
+        logger.error(
+            "Please set LINKEDIN_ACCESS_TOKEN and LINKEDIN_PERSON_URN environment variables.",
+        )
         sys.exit(2)
 
     payload = build_ugc_payload(person_urn, args.text, args.url)

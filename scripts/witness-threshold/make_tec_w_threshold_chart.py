@@ -1,4 +1,5 @@
 import logging
+
 import matplotlib
 
 matplotlib.use("Agg")

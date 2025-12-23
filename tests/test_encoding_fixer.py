@@ -1,7 +1,5 @@
-# coding: utf-8
-# noqa: RUF001,S101
-from pathlib import Path
 from scripts.codex_encoding_fixer import EncodingFixer
+
 
 def test_fix_co2_and_degree():
     # Use corrupted sequences to ensure fixer normalizes them

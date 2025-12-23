@@ -5,7 +5,6 @@ This script produces simple HTML/Markdown output suitable for copy-paste into Su
 Usage: python3 scripts/aqueduct_build_substack_html.py
 """
 
-import sys
 import logging
 from pathlib import Path
 

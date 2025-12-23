@@ -13,14 +13,15 @@ Notes:
     so you can score manually (or run a later auto-scorer).
   - If using the Pushshift fetch, results depend on Pushshift availability.
 """
+
 import argparse
 import csv
 import datetime
 import json
+import logging
 import re
 
 import requests
-import logging
 
 logger = logging.getLogger(__name__)
 
@@ -71,7 +72,9 @@ def load_comments_from_json(path: str) -> list[dict]:
                     comments.append(d)
                 return comments
             except Exception as exc:
-                logger.debug("Failed to parse Reddit JSON export children: %s", exc, exc_info=exc)
+                logger.debug(
+                    "Failed to parse Reddit JSON export children: %s", exc, exc_info=exc,
+                )
 
         # Otherwise assume it's a list of comment objects
         return j
@@ -107,7 +110,9 @@ def to_witness_rows(comments: list[dict]) -> list[dict]:
                     .isoformat()
                 )
             except Exception as exc:
-                logger.debug("Failed to parse created_utc timestamp: %s", exc, exc_info=exc)
+                logger.debug(
+                    "Failed to parse created_utc timestamp: %s", exc, exc_info=exc,
+                )
                 created = None
         if not created and c.get("created"):
             try:
@@ -120,7 +125,7 @@ def to_witness_rows(comments: list[dict]) -> list[dict]:
         # Heuristics: attempt to detect reported model or trigger phrases in the body
         model_reported = ""
         m = re.search(
-            r"GPT-?([0-9.]+)|gpt[ -]?([0-9.]+)|4o|4\.1|5", body, flags=re.IGNORECASE
+            r"GPT-?([0-9.]+)|gpt[ -]?([0-9.]+)|4o|4\.1|5", body, flags=re.IGNORECASE,
         )
         if m:
             model_reported = (m.group(1) or m.group(2) or "").strip()
@@ -150,10 +155,10 @@ def write_csv(path: str, rows: list[dict]):
 def main():
     p = argparse.ArgumentParser()
     p.add_argument(
-        "--url", help="Reddit thread URL (comments/...) to fetch via Pushshift"
+        "--url", help="Reddit thread URL (comments/...) to fetch via Pushshift",
     )
     p.add_argument(
-        "--json", help="Local exported Reddit JSON file (comments page or comment list)"
+        "--json", help="Local exported Reddit JSON file (comments page or comment list)",
     )
     p.add_argument(
         "--out",
@@ -161,7 +166,7 @@ def main():
         help="Output CSV path",
     )
     p.add_argument(
-        "--size", type=int, default=2000, help="Max comments to fetch from Pushshift"
+        "--size", type=int, default=2000, help="Max comments to fetch from Pushshift",
     )
     args = p.parse_args()
 
@@ -172,7 +177,7 @@ def main():
         subid = extract_submission_id(args.url)
         if not subid:
             raise SystemExit(
-                "Failed to extract submission id from URL. Provide --json or a reddit comments URL."
+                "Failed to extract submission id from URL. Provide --json or a reddit comments URL.",
             )
         comments = fetch_comments_pushshift(subid, size=args.size)
     else:

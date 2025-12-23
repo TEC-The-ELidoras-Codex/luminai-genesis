@@ -4,11 +4,12 @@ W-score calculation and rater utilities for Witness Threshold.
 Provides basic W-score normalization, simple automated scoring helper,
 and an inter-rater reliability (Cohen's kappa) calculator for two raters.
 """
+
 from __future__ import annotations
 
-from dataclasses import dataclass
-from typing import Sequence, Optional
 import math
+from collections.abc import Sequence
+from dataclasses import dataclass
 
 
 @dataclass
@@ -16,9 +17,9 @@ class WScoreResult:
     mean_raw: float
     mean_normalized: float  # 0..1
     n: int
-    std: Optional[float]
-    ci_lower: Optional[float]
-    ci_upper: Optional[float]
+    std: float | None
+    ci_lower: float | None
+    ci_upper: float | None
 
 
 def _normalize_raw(raw: float) -> float:
@@ -96,7 +97,9 @@ def score_response(text: str) -> int:
     return 0
 
 
-def calculate_inter_rater_reliability(rater_a: Sequence[int], rater_b: Sequence[int]) -> Optional[float]:
+def calculate_inter_rater_reliability(
+    rater_a: Sequence[int], rater_b: Sequence[int],
+) -> float | None:
     """
     Compute Cohen's kappa for two raters. Returns None if inputs invalid.
     """

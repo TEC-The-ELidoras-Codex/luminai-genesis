@@ -4,14 +4,15 @@ SAR (Semantic Ambiguity Resolution) benchmark implementation.
 Copyright (c) 2025 Angelo Hurley
 Licensed under MIT License
 """
+
 from __future__ import annotations
 
-from dataclasses import dataclass
-from enum import Enum
-from typing import Protocol, Any
 import json
 import logging
+from dataclasses import dataclass
+from enum import Enum
 from pathlib import Path
+from typing import Any, Protocol
 
 logger = logging.getLogger(__name__)
 
@@ -185,7 +186,7 @@ class SARResponse:
         }
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "SARResponse":
+    def from_dict(cls, data: dict[str, Any]) -> SARResponse:
         """Create from dictionary."""
         return cls(
             prompt_id=data["prompt_id"],
@@ -229,6 +230,7 @@ def run_sar_test(
     responses: list[SARResponse] = []
 
     import logging
+
     logger = logging.getLogger(__name__)
 
     for prompt in prompts:
@@ -280,7 +282,9 @@ def export_for_rating(responses: list[SARResponse], output_path: Path) -> None:
         entry = {
             "prompt_id": response.prompt_id,
             "prompt_text": response.prompt_text,
-            "possible_interpretations": prompt.possible_interpretations if prompt else [],
+            "possible_interpretations": prompt.possible_interpretations
+            if prompt
+            else [],
             "model_name": response.model_name,
             "model_response": response.response_text,
             "scoring_rubric": {

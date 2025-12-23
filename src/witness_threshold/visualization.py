@@ -9,25 +9,29 @@ Usage:
     --input data/witness-threshold/pilot_study_n7.json \
     --outdir data/witness-threshold/plots
 """
+
 from __future__ import annotations
 
 import argparse
 import json
-from pathlib import Path
-from typing import List, Dict
-
 import logging
+from pathlib import Path
 
 try:
-    import numpy as np
     import matplotlib.pyplot as plt
+    import numpy as np
     from scipy.stats import gaussian_kde
-except (ImportError, ModuleNotFoundError) as exc:  # pragma: no cover - optional dependencies
-    logging.getLogger(__name__).warning("Optional plotting dependencies not available: %s", exc)
+except (
+    ImportError,
+    ModuleNotFoundError,
+) as exc:  # pragma: no cover - optional dependencies
+    logging.getLogger(__name__).warning(
+        "Optional plotting dependencies not available: %s", exc,
+    )
     np = None  # type: ignore
 
 
-def load_w_scores(path: Path) -> List[float]:
+def load_w_scores(path: Path) -> list[float]:
     if not path.exists():
         msg = f"Pilot data not found: {path}"
         raise FileNotFoundError(msg)
@@ -46,10 +50,12 @@ def load_w_scores(path: Path) -> List[float]:
     raise ValueError(msg)
 
 
-def plot_bimodal(w_scores: List[float], out_path: Path, bins: int = 10) -> None:
+def plot_bimodal(w_scores: list[float], out_path: Path, bins: int = 10) -> None:
     out_path.parent.mkdir(parents=True, exist_ok=True)
     if np is None:
-        msg = "numpy/matplotlib/scipy required for plotting. Install requirements first."
+        msg = (
+            "numpy/matplotlib/scipy required for plotting. Install requirements first."
+        )
         raise RuntimeError(msg)
 
     arr = np.array(w_scores)
@@ -64,7 +70,9 @@ def plot_bimodal(w_scores: List[float], out_path: Path, bins: int = 10) -> None:
         ax2.set_ylabel("Density")
     except Exception as exc:
         logger = logging.getLogger(__name__)
-        logger.debug("Failed to compute Gaussian KDE for plotting: %s", exc, exc_info=True)  # non-fatal
+        logger.debug(
+            "Failed to compute Gaussian KDE for plotting: %s", exc, exc_info=True,
+        )  # non-fatal
 
     ax.set_xlabel("W-score (normalized)")
     ax.set_ylabel("Count")
@@ -74,10 +82,14 @@ def plot_bimodal(w_scores: List[float], out_path: Path, bins: int = 10) -> None:
     plt.close(fig)
 
 
-def plot_convergence(w_scores: List[float], benchmarks: Dict[str, float], out_path: Path) -> None:
+def plot_convergence(
+    w_scores: list[float], benchmarks: dict[str, float], out_path: Path,
+) -> None:
     out_path.parent.mkdir(parents=True, exist_ok=True)
     if np is None:
-        msg = "numpy/matplotlib/scipy required for plotting. Install requirements first."
+        msg = (
+            "numpy/matplotlib/scipy required for plotting. Install requirements first."
+        )
         raise RuntimeError(msg)
 
     arr = np.array(w_scores)
@@ -102,7 +114,7 @@ def plot_convergence(w_scores: List[float], benchmarks: Dict[str, float], out_pa
     plt.close(fig)
 
 
-def main(argv: List[str] | None = None) -> None:
+def main(argv: list[str] | None = None) -> None:
     p = argparse.ArgumentParser()
     p.add_argument(
         "--input",

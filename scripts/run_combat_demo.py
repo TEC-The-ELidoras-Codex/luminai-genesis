@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
+import logging
 import random
 import sys
-import logging
 from pathlib import Path
 
 from astradigital.encounter import run_battle  # type: ignore

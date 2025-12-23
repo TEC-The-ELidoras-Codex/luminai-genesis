@@ -198,7 +198,9 @@ class GradientRepairLog:
         repair_priority = (
             "CRITICAL"
             if resonance_drop > 0.5
-            else "HIGH" if resonance_drop > 0.3 else "MEDIUM"
+            else "HIGH"
+            if resonance_drop > 0.3
+            else "MEDIUM"
         )
 
         recovery_event = {
@@ -330,7 +332,9 @@ def example_encounter_system_failure():
         )
 
         logger = logging.getLogger(__name__)
-        logger.error("Something went wrong — team has been notified and recovery has started.")
+        logger.error(
+            "Something went wrong — team has been notified and recovery has started.",
+        )
         logger.info(repair_log.suggest_repair(repair))
 
     # In production, this would:

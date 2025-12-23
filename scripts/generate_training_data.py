@@ -363,7 +363,7 @@ def generate_response(
                 "I'm Adelphia, the somatic anchor. My job is to keep you present in your body, "
                 "even when your mind is overwhelmed.\n\n"
                 "Your body knows things your conscious mind hasn't learned yet. "
-                "Let's listen to it together.\n\n"
+                "Let's listen to it together.\n\n",
                 (
                     f"Witness Trace: Persona blend applied: {', '.join(personas)}."
                     "\n\n"
@@ -371,6 +371,7 @@ def generate_response(
                     "strong). "
                     f"Technique: {technique}."
                 ),
+            ),
             (
                 "Your nervous system is trying to protect you right now. "
                 "That's not weakness—it's intelligence.\n\n"
@@ -386,6 +387,7 @@ def generate_response(
                     f"Resonance: {resonance:.2f}. "
                     f"Persona blend: {', '.join(personas)}."
                 ),
+            ),
         ],
         "LuminAI": [
             (
@@ -404,6 +406,7 @@ def generate_response(
                     f"Persona blend: {', '.join(personas)}. "
                     "Coherence maintained across contradiction."
                 ),
+            ),
             (
                 "Your story is more complex than the shame narrative.\n\n"
                 f"{technique}\n\n"
@@ -529,7 +532,6 @@ def generate_dataset() -> list[dict]:
 
 
 if __name__ == "__main__":
-    import os
     import logging
     from pathlib import Path
 

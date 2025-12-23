@@ -70,9 +70,11 @@ def main():
     logger.info("Model: %s", model_name)
     logger.info("Data: %s", data_path)
     logger.info("Output: %s", output_dir)
-    logger.info("Device: %s", (torch.cuda.get_device_name(0) if torch.cuda.is_available() else "CPU"))
+    logger.info(
+        "Device: %s",
+        (torch.cuda.get_device_name(0) if torch.cuda.is_available() else "CPU"),
+    )
     logger.info("%s", "=" * 70)
-
 
     from peft import LoraConfig, get_peft_model
     from transformers import (
@@ -99,7 +101,6 @@ def main():
         trust_remote_code=True,
     )
     logger.info("  ✓ Model loaded on: CPU (will move to GPU after LoRA)")
-
 
     # Prepare for LoRA (skip kbit prep for RX 580 compatibility)
     logger.info("[3/6] Applying LoRA configuration...")
@@ -190,7 +191,6 @@ def main():
     logger.info("2. Create Ollama model: ollama create luminai-genesis")
     logger.info("3. Test in Web UI: http://localhost:8080")
     logger.info("%s", "=" * 70)
-
 
 
 if __name__ == "__main__":

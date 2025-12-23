@@ -7,11 +7,11 @@ Covers service layer, chat router, persona blending, and TGCR witness protocol.
 from unittest.mock import AsyncMock, patch
 
 import pytest
+from backend.main import app
+from backend.services.ollama_client import OllamaService
 from fastapi.testclient import TestClient
 
-from backend.main import app
 from backend.models.schemas import ChatMessage
-from backend.services.ollama_client import OllamaService
 
 client = TestClient(app)
 

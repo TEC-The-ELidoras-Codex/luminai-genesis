@@ -1,7 +1,6 @@
-# noqa: S101
 import pytest
 
-from src.witness_threshold import calculate_w_score, score_response, SAR_PROMPTS
+from src.witness_threshold import SAR_PROMPTS, calculate_w_score, score_response
 
 
 def test_score_response_clarifying():

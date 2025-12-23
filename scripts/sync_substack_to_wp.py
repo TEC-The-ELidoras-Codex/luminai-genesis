@@ -8,14 +8,10 @@ import argparse
 import logging
 import os
 import re
-import xmlrpc.client
+from http import HTTPStatus
 
 import feedparser
 import requests
-from requests.exceptions import RequestException
-from http import HTTPStatus
-from wordpress_xmlrpc import Client, WordPressPost
-from wordpress_xmlrpc.methods.posts import NewPost
 
 logger = logging.getLogger(__name__)
 
@@ -97,6 +93,8 @@ def fetch_feed(url: str):
 def publish_to_wordpress(debug: bool = False):
     published = load_published()
     resolved = resolve_feed_url(SUBSTACK_RSS)
+
+
 if __name__ == "__main__":
     # Configure lightweight CLI logging so messages are visible by default
     logging.basicConfig(level=logging.INFO, format="%(message)s")
@@ -117,7 +115,7 @@ if __name__ == "__main__":
         missing_msg = "Missing required environment variables: " + ", ".join(missing)
         logger.error(missing_msg)
         exit(1)
-    publish_to_wordpress(debug=args.debug) 
+    publish_to_wordpress(debug=args.debug)
 
 
 if __name__ == "__main__":

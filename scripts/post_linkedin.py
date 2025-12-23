@@ -11,6 +11,7 @@ python scripts/post_linkedin.py --access-token "..." --text "Test"
 
 Be careful: this will publish to the authenticated user's feed. Prefer using a test account.
 """
+
 from __future__ import annotations
 
 import argparse
@@ -82,7 +83,7 @@ def main(argv: list[str] | None = None) -> int:
     token = args.access_token or os.getenv("LINKEDIN_ACCESS_TOKEN")
     if not token:
         logger.error(
-            "Provide --access-token or set LINKEDIN_ACCESS_TOKEN environment variable"
+            "Provide --access-token or set LINKEDIN_ACCESS_TOKEN environment variable",
         )
         return 2
 
@@ -176,7 +177,7 @@ if __name__ == "__main__":
     token = os.environ.get("LINKEDIN_ACCESS_TOKEN")
     if not token:
         logger.error(
-            "Set LINKEDIN_ACCESS_TOKEN environment variable with a valid LinkedIn OAuth access token."
+            "Set LINKEDIN_ACCESS_TOKEN environment variable with a valid LinkedIn OAuth access token.",
         )
         sys.exit(2)
     message_file = sys.argv[1]

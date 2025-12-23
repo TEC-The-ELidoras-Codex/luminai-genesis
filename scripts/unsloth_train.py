@@ -76,6 +76,7 @@ def train(
     """Fine-tune model using Unsloth with LuminAI persona-aligned data."""
 
     import logging
+
     logging.basicConfig(level=logging.INFO, format="%(message)s")
     logger = logging.getLogger(__name__)
 
@@ -131,7 +132,9 @@ def train(
     logger.info("  ✓ Gradient accumulation: %d steps", (4 if use_cpu else 2))
     logger.info("  ✓ Batch size: %d", batch_size)
     if not use_cpu:
-        logger.info("  ✓ Using %s", ("bfloat16" if is_bfloat16_supported() else "float16"))
+        logger.info(
+            "  ✓ Using %s", ("bfloat16" if is_bfloat16_supported() else "float16"),
+        )
 
     # Create trainer
     logger.info("[4/5] Initializing SFT trainer...")
@@ -178,7 +181,10 @@ def train(
     logger.info("3. Test in API:")
     logger.info("   curl -X POST http://localhost:8000/api/chat \\")
     logger.info("     -H 'Content-Type: application/json' \\")
-    logger.info('     -d %s', '{"session_id": "test", "message": "Hello", "model": "luminai-unsloth"}')
+    logger.info(
+        "     -d %s",
+        '{"session_id": "test", "message": "Hello", "model": "luminai-unsloth"}',
+    )
     logger.info("%s", "=" * 70)
 
 

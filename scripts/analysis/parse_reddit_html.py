@@ -11,6 +11,7 @@ Usage:
 The parser is intentionally forgiving and uses simple heuristics; review the
 output for accuracy when you run it on the real megathread HTML.
 """
+
 import argparse
 import csv
 import logging
@@ -54,7 +55,7 @@ def extract_comments_from_html(html: str):
     for i, b in enumerate(blocks):
         # strip tags to plain text (very small sanitizer)
         text = re.sub(
-            r"<script.*?>.*?</script>", "", b, flags=re.DOTALL | re.IGNORECASE
+            r"<script.*?>.*?</script>", "", b, flags=re.DOTALL | re.IGNORECASE,
         )
         text = re.sub(r"<[^>]+>", "", text)
         text = re.sub(r"\s+", " ", text).strip()
@@ -88,9 +89,10 @@ def extract_author_and_time(html: str):
                 dt = datetime.fromisoformat(t.replace("Z", "+00:00"))
                 t = dt.strftime("%Y-%m-%d")
             except Exception as exc:
-                logger.debug("Failed to parse datetime string '%s': %s", t, exc, exc_info=exc)
+                logger.debug(
+                    "Failed to parse datetime string '%s': %s", t, exc, exc_info=exc,
+                )
                 # fallback: keep raw
-                pass
         pairs.append((a, t))
     return pairs
 
@@ -103,7 +105,8 @@ def main():
 
     if not os.path.exists(args.infile):
         logger.error(
-            "Input file %s not found. Paste your Reddit HTML to that path and re-run.", args.infile
+            "Input file %s not found. Paste your Reddit HTML to that path and re-run.",
+            args.infile,
         )
         raise SystemExit(1)
 

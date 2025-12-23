@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 """Run a small pilot SAR study with a DummyModel and save results."""
+
 from __future__ import annotations
 
 import json
 import logging
 from pathlib import Path
-from typing import List
 
-from src.witness_threshold.sar_benchmark import run_sar_test, SAR_PROMPTS
+from src.witness_threshold.sar_benchmark import SAR_PROMPTS, run_sar_test
 from src.witness_threshold.w_score import calculate_w_score, score_response
 
 logger = logging.getLogger(__name__)
@@ -42,16 +42,30 @@ def run():
     responses = run_sar_test(model, prompts=SAR_PROMPTS)
 
     scored = []
-    scores: List[int] = []
+    scores: list[int] = []
     for r in responses:
         text = r.response_text if hasattr(r, "response_text") else str(r)
         s = score_response(text)
         scores.append(s)
-        scored.append({"prompt": r.prompt_text if hasattr(r, "prompt_text") else "", "response": text, "score": s})
+        scored.append(
+            {
+                "prompt": r.prompt_text if hasattr(r, "prompt_text") else "",
+                "response": text,
+                "score": s,
+            },
+        )
 
     w = calculate_w_score(scores)
 
-    out = {"model": model.name, "w_score": {"mean_normalized": w.mean_normalized, "mean_raw": w.mean_raw, "std": w.std}, "results": scored}
+    out = {
+        "model": model.name,
+        "w_score": {
+            "mean_normalized": w.mean_normalized,
+            "mean_raw": w.mean_raw,
+            "std": w.std,
+        },
+        "results": scored,
+    }
 
     with out_file.open("w", encoding="utf-8") as fh:
         json.dump(out, fh, indent=2)

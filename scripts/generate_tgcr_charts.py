@@ -10,9 +10,9 @@ If no input file is provided, the script will generate a demo heatmap to illustr
 
 import argparse
 import csv
+import logging
 from pathlib import Path
 
-import logging
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -49,7 +49,7 @@ def make_heatmap(rows, outpath: Path):
             ax.text(
                 j,
                 i,
-                f"{metrics[i,j]:.2f}",
+                f"{metrics[i, j]:.2f}",
                 ha="center",
                 va="center",
                 color="black",

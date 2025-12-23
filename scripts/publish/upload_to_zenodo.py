@@ -9,6 +9,7 @@ Notes:
  - This script uses the Zenodo REST API (sandbox or production). Set --sandbox to use sandbox.
  - You must set the environment variable ZENODO_TOKEN with a personal access token.
 """
+
 import argparse
 import json
 import logging
@@ -20,6 +21,7 @@ logger = logging.getLogger(__name__)
 
 ZENODO_API = "https://zenodo.org/api"
 ZENODO_SANDBOX = "https://sandbox.zenodo.org/api"
+
 
 def create_deposition(token: str, sandbox: bool = False) -> dict:
     url = (ZENODO_SANDBOX if sandbox else ZENODO_API) + "/deposit/depositions"

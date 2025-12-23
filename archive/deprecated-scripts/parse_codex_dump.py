@@ -29,7 +29,7 @@ import re
 from pathlib import Path
 from typing import Any
 
-logger = logging.getLogger(__name__) 
+logger = logging.getLogger(__name__)
 
 HEADING_RE = re.compile(r"^(#{1,6})\s*(.+)$")
 

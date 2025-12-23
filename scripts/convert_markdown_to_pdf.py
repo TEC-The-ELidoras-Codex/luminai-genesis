@@ -283,14 +283,14 @@ def convert_markdown_to_pdf(
 
         # Wrap HTML with Substack-like structure
         full_html = (
-            "\n<!DOCTYPE html>\n<html>\n<head>\n    <meta charset=\"UTF-8\">\n"
+            '\n<!DOCTYPE html>\n<html>\n<head>\n    <meta charset="UTF-8">\n'
             f"    <title>{md_path.stem.replace('_', ' ').title()}</title>\n</head>\n<body>\n"
-            "    <div class=\"substack-header\">\n"
+            '    <div class="substack-header">\n'
             f"        <h1>{md_path.stem.replace('_', ' ').title()}</h1>\n"
             "        <p>By Angelo Hurley | LuminAI Codex</p>\n"
             f"        {date_html}\n"
             "    </div>\n"
-            "    <div class=\"substack-body\">\n"
+            '    <div class="substack-body">\n'
             f"        {html_content}\n"
             "    </div>\n</body>\n</html>\n"
         )
@@ -380,7 +380,8 @@ if __name__ == "__main__":
         pub_date_dt = _try_parse_date_local(args.date)
         if pub_date_dt is None:
             logger.warning(
-                "Could not parse --date value '%s'. Using today's date instead.", args.date
+                "Could not parse --date value '%s'. Using today's date instead.",
+                args.date,
             )
 
     # If preserve-date was requested and no explicit date passed, set None so converter extracts date

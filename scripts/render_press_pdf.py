@@ -9,6 +9,7 @@ Usage:
 
 This script is included so CI or maintainers can reproducibly generate the press PDF.
 """
+
 import logging
 from pathlib import Path
 

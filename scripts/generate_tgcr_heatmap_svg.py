@@ -52,23 +52,24 @@ def make_svg(rows, outpath: Path):
     for i, (name, R, W, Rp) in enumerate(rows):
         y = 40 + i * cell_h
         svg.append(
-            f'<text x="10" y="{y + cell_h/2}" dominant-baseline="middle">{name}</text>',
+            f'<text x="10" y="{y + cell_h / 2}" dominant-baseline="middle">{name}</text>',
         )
         vals = [R, W, Rp]
         for j, v in enumerate(vals):
             x = margin + j * cell_w
             col = color_for_value(v)
             svg.append(
-                f'<rect x="{x}" y="{y}" width="{cell_w}" height="{cell_h -2}" fill="{col}" stroke="#222"/>',
+                f'<rect x="{x}" y="{y}" width="{cell_w}" height="{cell_h - 2}" fill="{col}" stroke="#222"/>',
             )
             svg.append(
-                f'<text x="{x + cell_w/2}" y="{y + cell_h/2}" text-anchor="middle" dominant-baseline="middle">{v:.2f}</text>',
+                f'<text x="{x + cell_w / 2}" y="{y + cell_h / 2}" text-anchor="middle" dominant-baseline="middle">{v:.2f}</text>',
             )
 
     svg.append("</svg>")
     outpath.parent.mkdir(parents=True, exist_ok=True)
     outpath.write_text("\n".join(svg), encoding="utf-8")
     import logging
+
     logger = logging.getLogger(__name__)
     logger.info("Saved %s", outpath)
 

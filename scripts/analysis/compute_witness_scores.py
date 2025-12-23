@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Compute Witness Factor (W) from SAR scores in the CSV and print a summary."""
+
 import csv
 import logging
 from statistics import mean
@@ -23,10 +24,15 @@ def main(in_path: str = IN, out_path: str = OUT):
             # allow empty sar_score (skipped rows)
             try:
                 r["sar_score"] = int(
-                    r.get("sar_score", 0) if r.get("sar_score", "") != "" else 0
+                    r.get("sar_score", 0) if r.get("sar_score", "") != "" else 0,
                 )
             except Exception as exc:
-                logger.debug("Failed to parse sar_score '%s': %s", r.get("sar_score"), exc, exc_info=exc)
+                logger.debug(
+                    "Failed to parse sar_score '%s': %s",
+                    r.get("sar_score"),
+                    exc,
+                    exc_info=exc,
+                )
                 r["sar_score"] = 0
             r["W"] = sar_to_w(r["sar_score"])
             rows.append(r)
@@ -39,7 +45,7 @@ def main(in_path: str = IN, out_path: str = OUT):
     summary_lines.append("W distribution:")
     for r in rows:
         summary_lines.append(
-            f"{r.get('date','')},{r.get('anon_user','')},{r.get('model_reported','')},{r.get('failure_type','')},SAR={r.get('sar_score', '')},W={r['W']:.3f}",
+            f"{r.get('date', '')},{r.get('anon_user', '')},{r.get('model_reported', '')},{r.get('failure_type', '')},SAR={r.get('sar_score', '')},W={r['W']:.3f}",
         )
 
     with open(out_path, "w") as f:

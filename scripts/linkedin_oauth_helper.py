@@ -49,7 +49,9 @@ class CallbackHandler(BaseHTTPRequestHandler):
         self.end_headers()
         if "error" in qs:
             self.wfile.write(b"OAuth returned error, check the console for details.")
-            logger.error("OAuth error: %s %s", qs.get("error"), qs.get("error_description"))
+            logger.error(
+                "OAuth error: %s %s", qs.get("error"), qs.get("error_description"),
+            )
             sys.exit(1)
         code = qs.get("code", [None])[0]
         if not code:
@@ -104,7 +106,7 @@ if __name__ == "__main__":
 
     if not args.client_id or not args.client_secret:
         logger.error(
-            "Please provide --client-id and --client-secret (or set env vars LINKEDIN_CLIENT_ID/LINKEDIN_CLIENT_SECRET)"
+            "Please provide --client-id and --client-secret (or set env vars LINKEDIN_CLIENT_ID/LINKEDIN_CLIENT_SECRET)",
         )
         sys.exit(2)
 
@@ -125,7 +127,9 @@ if __name__ == "__main__":
         + "&".join([f"{k}={requests.utils.quote(v)}" for k, v in params.items()])
     )
 
-    logger.info("Open the following URL in your browser (or wait; the browser will open automatically):")
+    logger.info(
+        "Open the following URL in your browser (or wait; the browser will open automatically):",
+    )
     logger.info("%s", auth_url)
     if not args.no_open:
         try:
@@ -171,7 +175,9 @@ if __name__ == "__main__":
     me_json = me.json()
     person_id = me_json.get("id")
     if not person_id:
-        logger.error("Could not determine the person URN from profile response: %s", me_json)
+        logger.error(
+            "Could not determine the person URN from profile response: %s", me_json,
+        )
         sys.exit(1)
 
     urn = f"urn:li:person:{person_id}"
@@ -186,5 +192,5 @@ if __name__ == "__main__":
         logger.info("Wrote token info to %s", out_path)
 
     logger.info(
-        "\nAdd the access token and urn to your GitHub repository secrets as LINKEDIN_ACCESS_TOKEN and LINKEDIN_PERSON_URN"
+        "\nAdd the access token and urn to your GitHub repository secrets as LINKEDIN_ACCESS_TOKEN and LINKEDIN_PERSON_URN",
     )

@@ -25,6 +25,7 @@ def main():
     csec = os.environ.get("LINKEDIN_CLIENT_SECRET")
     ruri = os.environ.get("LINKEDIN_REDIRECT_URI")
     import logging
+
     logger = logging.getLogger(__name__)
     logging.basicConfig(level=logging.INFO, format="%(message)s")
 

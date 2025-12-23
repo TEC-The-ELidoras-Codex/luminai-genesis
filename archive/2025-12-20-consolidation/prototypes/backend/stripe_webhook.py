@@ -64,7 +64,7 @@ We look forward to talking with you.
 
 — The Elidoras Codex
 
-Session ID: {session.get('id')}
+Session ID: {session.get("id")}
 """
 
     try:

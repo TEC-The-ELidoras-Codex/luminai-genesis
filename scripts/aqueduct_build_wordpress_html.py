@@ -6,10 +6,9 @@ Usage: python3 scripts/aqueduct_build_wordpress_html.py
 
 import datetime
 import json
-import sys
+import logging
 from pathlib import Path
 
-import logging
 import markdown
 import yaml
 
