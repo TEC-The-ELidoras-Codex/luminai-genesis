@@ -1,0 +1,27 @@
+name: CI — Codex checks
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+      - chore/mega-cleanup
+
+jobs:
+  precommit-and-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.13'
+      - name: Install dev tooling
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt || true
+          pip install pre-commit pytest requests
+      - name: Run pre-commit (report only and fail on issues)
+        run: pre-commit run --all-files --show-diff-on-failure
+      - name: Run tests
+        run: pytest -q

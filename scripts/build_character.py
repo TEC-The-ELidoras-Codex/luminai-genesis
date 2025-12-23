@@ -1,16 +1,19 @@
 #!/usr/bin/env python3
+import logging
 import sys
 from pathlib import Path
 
 # Ensure local package can be imported when running scripts from repository
 sys.path.append(str(Path(__file__).resolve().parents[1] / "src"))
 
-# Delay importing local package until after sys.path modification (for scripts execution)
-
+MIN_ARGS = 3  # Minimum number of arguments required
 
 def main():
-    if len(sys.argv) < 3:
-        print("Usage: build_character.py <Name> <Class>")
+    logging.basicConfig(level=logging.INFO, format="%(message)s")
+    logger = logging.getLogger(__name__)
+
+    if len(sys.argv) < MIN_ARGS:
+        logger.error("Usage: build_character.py <Name> <Class>")
         sys.exit(1)
     name = sys.argv[1]
     cls = sys.argv[2]
@@ -23,7 +26,7 @@ def main():
     codex = load_codex(str(codex_path))
 
     entity = AstradigitalEntity.from_codex(name, cls, codex)
-    print(
+    logger.info(
         {
             "name": entity.name,
             "class": entity.philosophy_class,

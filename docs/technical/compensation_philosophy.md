@@ -131,13 +131,13 @@ Employees are encouraged to discuss compensation; retaliation for sharing salary
 
 ## FREQUENTLY ASKED QUESTIONS
 
-**Q: Will I lose pay if I relocate?**  
+**Q: Will I lose pay if I relocate?**
 A: Pay may be adjusted according to published regional multipliers; employees can opt into equivalency.
 
-**Q: How are raises decided?**  
+**Q: How are raises decided?**
 A: Through performance reviews, market data, and band positioning—transparent and calibrated.
 
-**Q: Is my salary public?**  
+**Q: Is my salary public?**
 A: Salary bands are internal. Individual salaries are private, but employees may share them freely.
 
 ---

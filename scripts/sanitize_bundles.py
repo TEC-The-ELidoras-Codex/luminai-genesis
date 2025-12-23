@@ -1,17 +1,21 @@
-#!/usr/bin/env python3
 """Sanitize canonical bundle files by removing conversational transcript markers
 and redacting local paths / emails. Makes backups before modifying files.
 
 Usage: run inside WSL repository root or from anywhere with repo path.
 """
 
+import logging
 import re
-from datetime import datetime
+from datetime import UTC, datetime
 from pathlib import Path
+
+logger = logging.getLogger(__name__)
 
 ROOT = Path(__file__).resolve().parents[1]
 CANONICAL = ROOT / "docs" / "canonical"
-BACKUP_SUFFIX = datetime.utcnow().strftime("bak.%Y%m%dT%H%M%SZ")
+BACKUP_SUFFIX = datetime.now(tz=UTC).strftime("bak.%Y%m%dT%H%M%SZ")
+
+MAX_CONSECUTIVE_BLANK_LINES = 2
 
 MARKERS = [
     r"You said:",
@@ -34,7 +38,8 @@ def sanitize_text(text: str) -> str:
         # if a marker appears anywhere in the line, truncate the line at the marker
         m = MARKER_RE.search(line)
         if m:
-            # keep any preceding content before the marker (if any), otherwise drop the line
+            # keep any preceding content before the marker (if any),
+            # otherwise drop the line
             prefix = line[: m.start()].rstrip()
             if prefix:
                 # redact paths and emails in the kept prefix
@@ -56,9 +61,9 @@ def sanitize_text(text: str) -> str:
                 # continue skipping conversational block
                 continue
         # redact paths and emails inline
-        line = PATH_RE.sub("[REDACTED_PATH]", line)
-        line = EMAIL_RE.sub("[REDACTED_EMAIL]", line)
-        out_lines.append(line)
+        redacted_line = PATH_RE.sub("[REDACTED_PATH]", line)
+        redacted_line = EMAIL_RE.sub("[REDACTED_EMAIL]", redacted_line)
+        out_lines.append(redacted_line)
 
     # collapse excessive blank lines (max 2)
     cleaned = []
@@ -66,7 +71,7 @@ def sanitize_text(text: str) -> str:
     for line in out_lines:
         if line.strip() == "":
             blank_count += 1
-            if blank_count <= 2:
+            if blank_count <= MAX_CONSECUTIVE_BLANK_LINES:
                 cleaned.append(line)
         else:
             blank_count = 0
@@ -88,7 +93,7 @@ def sanitize_bundle_file(p: Path):
     # backup original
     bak = backup(p)
     p.write_text(sanitized, encoding="utf-8")
-    print(f"Sanitized: {p} (backup: {bak.name})")
+    logger.info("Sanitized: %s (backup: %s)", p, bak.name)
     return True
 
 
@@ -101,18 +106,18 @@ def regenerate_dump(bundles):
         for b in bundles:
             out.write(b.read_text(encoding="utf-8"))
             out.write("\n\n")
-    print(f"Regenerated: {dump_path}")
+    logger.info("Regenerated: %s", dump_path)
     return dump_path
 
 
 def main():
     bundles = sorted(CANONICAL.glob("*-bundle.md"))
-    print(f"Found {len(bundles)} bundle files in {CANONICAL}")
+    logger.info("Found %d bundle files in %s", len(bundles), CANONICAL)
     changed = 0
     for b in bundles:
         changed += 1 if sanitize_bundle_file(b) else 0
 
-    print(f"Sanitized {changed} files (out of {len(bundles)})")
+    logger.info("Sanitized %d files (out of %d)", changed, len(bundles))
     regenerate_dump(bundles)
 
 

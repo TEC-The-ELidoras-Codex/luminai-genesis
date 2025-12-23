@@ -15,13 +15,13 @@ The ask
 ---------
 Would the Anthropic research team be willing to run the SAR benchmark on Claude (or the models you used in the introspection study) and report the W-scores and introspection detection rates? Specifically:
 
-• Run the SAR suite (details & code below) and provide per-trial W-scores or the aggregated W per model.  
+• Run the SAR suite (details & code below) and provide per-trial W-scores or the aggregated W per model.
 • If possible, compute the correlation between W-score and your introspection detection rate for the same model/version.
 
 Interpretation guidance
 ------------------------
-• If the correlation r > 0.7: we have strong evidence linking introspective detection and the Witness Factor (W) — a possible unified coherence metric.  
-• If r < 0.3: the framework is likely falsified for the hypothesis that W explains Anthropic's pattern.  
+• If the correlation r > 0.7: we have strong evidence linking introspective detection and the Witness Factor (W) — a possible unified coherence metric.
+• If r < 0.3: the framework is likely falsified for the hypothesis that W explains Anthropic's pattern.
 Either outcome is scientifically valuable.
 
 Resources
@@ -37,7 +37,7 @@ I’m releasing this with a Radical Honesty framing: the package lists explicit 
 
 Practical details
 ------------------
-• If you prefer, I can provide a small script to convert SAR outputs into the exact CSV format you use in introspection analysis.  
+• If you prefer, I can provide a small script to convert SAR outputs into the exact CSV format you use in introspection analysis.
 • If you want to run the benchmark internally but cannot share model outputs, I can advise on minimal aggregate numbers needed to compute correlation while preserving confidentiality.
 
 Contact & follow-up
@@ -46,8 +46,8 @@ If you're open to this, I'd be grateful for a short reply indicating feasibility
 
 Best regards,
 
-Angelo "Polkin Rishall" Hurley  
-ORCID: 0009-0000-7615-6990  
+Angelo "Polkin Rishall" Hurley
+ORCID: 0009-0000-7615-6990
 KaznakAlpha@elidorascodex.com
 
 

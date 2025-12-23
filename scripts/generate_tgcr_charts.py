@@ -1,33 +1,37 @@
-#!/usr/bin/env python3
 """Generate TGCR visualizations from SAR benchmark results.
 
-This script expects a CSV/TSV with columns: system, R, W, R_prime
-Example usage:
-  python scripts/generate_tgcr_charts.py --input benchmarks/dye_die_filter/results.csv --outdir figures
-
-If no input file is provided, the script will generate a demo heatmap to illustrate the expected visual.
+This script expects a CSV/TSV with columns: system, R, W, R_prime.
+Example: python scripts/generate_tgcr_charts.py --input benchmarks/dye_die_filter/results.csv
+Set --outdir to control output location.
 """
 
 import argparse
-from pathlib import Path
 import csv
+import logging
+from pathlib import Path
+
 import matplotlib.pyplot as plt
 import numpy as np
 
+logger = logging.getLogger(__name__)
+
 
 def read_csv(path: Path):
-    rows = []
+    """Read a CSV/TSV file and return a list of rows as dicts."""
     with path.open(encoding="utf-8") as f:
         reader = csv.DictReader(f)
-        for r in reader:
-            rows.append(r)
-    return rows
+        return list(reader)
 
 
 def make_heatmap(rows, outpath: Path):
     # Simple layout: each system is a row, columns: R, W, R'
     labels = [r["system"] for r in rows]
-    metrics = np.array([[float(r.get("R", 0)), float(r.get("W", 0)), float(r.get("R_prime", 0))] for r in rows])
+    metrics = np.array(
+        [
+            [float(r.get("R", 0)), float(r.get("W", 0)), float(r.get("R_prime", 0))]
+            for r in rows
+        ],
+    )
 
     fig, ax = plt.subplots(figsize=(6, max(2, len(rows) * 0.5)))
     im = ax.imshow(metrics, cmap="RdYlBu_r", aspect="auto")
@@ -37,13 +41,21 @@ def make_heatmap(rows, outpath: Path):
     ax.set_xticklabels(["R", "W", "R'"], fontsize=12)
     for i in range(metrics.shape[0]):
         for j in range(metrics.shape[1]):
-            ax.text(j, i, f"{metrics[i,j]:.2f}", ha="center", va="center", color="black", fontsize=8)
+            ax.text(
+                j,
+                i,
+                f"{metrics[i, j]:.2f}",
+                ha="center",
+                va="center",
+                color="black",
+                fontsize=8,
+            )
 
     fig.colorbar(im, ax=ax, label="Value")
     fig.tight_layout()
     outpath.parent.mkdir(parents=True, exist_ok=True)
     fig.savefig(outpath)
-    print("Saved", outpath)
+    logger.info("Saved %s", outpath)
 
 
 def demo(outpath: Path):
@@ -67,7 +79,7 @@ def main():
         rows = read_csv(args.input)
         make_heatmap(rows, outpath)
     else:
-        print("No input found; creating demo heatmap")
+        logger.info("No input found; creating demo heatmap")
         demo(outpath)
 
 

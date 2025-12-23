@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """
 Post to LinkedIn UGC endpoint.
 
@@ -14,10 +13,13 @@ Options:
 
 import argparse
 import json
+import logging
 import os
 import sys
 
 import requests
+
+logger = logging.getLogger(__name__)
 
 UGC_ENDPOINT = "https://api.linkedin.com/v2/ugcPosts"
 
@@ -65,22 +67,25 @@ if __name__ == "__main__":
     parser.add_argument("--dry-run", dest="dry_run", action="store_true", default=False)
     args = parser.parse_args()
 
+    # Lightweight CLI logging so messages are visible by default
+    logging.basicConfig(level=logging.INFO, format="%(message)s")
+
     access_token = os.getenv("LINKEDIN_ACCESS_TOKEN")
     person_urn = os.getenv("LINKEDIN_PERSON_URN") or os.getenv("LINKEDIN_ORG_URN")
 
     if not access_token or not person_urn:
-        print(
+        logger.error(
             "Please set LINKEDIN_ACCESS_TOKEN and LINKEDIN_PERSON_URN environment variables.",
         )
         sys.exit(2)
 
     payload = build_ugc_payload(person_urn, args.text, args.url)
 
-    print("---- POST PAYLOAD ----")
-    print(json.dumps(payload, indent=2))
+    logger.info("---- POST PAYLOAD ----")
+    logger.info(json.dumps(payload, indent=2))
 
     if args.dry_run:
-        print("Dry-run mode; not actually posting to LinkedIn")
+        logger.info("Dry-run mode; not actually posting to LinkedIn")
         sys.exit(0)
 
     headers = {
@@ -91,9 +96,9 @@ if __name__ == "__main__":
 
     r = requests.post(UGC_ENDPOINT, headers=headers, json=payload, timeout=10)
     if r.status_code not in (200, 201):
-        print("Failed to create UGC post; status:", r.status_code)
-        print(r.text)
+        logger.error("Failed to create UGC post; status: %s", r.status_code)
+        logger.error("%s", r.text)
         sys.exit(1)
 
-    print("Success! LinkedIn response:")
-    print(r.text)
+    logger.info("Success! LinkedIn response:")
+    logger.info("%s", r.text)

@@ -22,34 +22,38 @@ pip install torch torchvision torchaudio --index-url https://download.pytorch.or
 # Test GPU detection
 echo "[3/3] Testing GPU detection..."
 python3 << 'EOF'
+import logging
 import torch
 
-print("\n" + "="*50)
-print("PyTorch ROCm Test Results")
-print("="*50)
+logging.basicConfig(level=logging.INFO, format="%(message)s")
+logger = logging.getLogger(__name__)
+
+logger.info("%s", "="*50)
+logger.info("PyTorch ROCm Test Results")
+logger.info("%s", "="*50)
 
 # Check if CUDA (ROCm) is available
 cuda_available = torch.cuda.is_available()
-print(f"GPU Available: {cuda_available}")
+logger.info("GPU Available: %s", cuda_available)
 
 if cuda_available:
-    print(f"GPU Count: {torch.cuda.device_count()}")
-    print(f"GPU Name: {torch.cuda.get_device_name(0)}")
-    print(f"GPU Memory: {torch.cuda.get_device_properties(0).total_memory / 1024**3:.1f} GB")
-    print("\n✅ SUCCESS! Your RX 580 is ready for training!")
-    print("\nNext: Run fine-tuning with:")
-    print("  python scripts/unsloth_train.py \\")
-    print("    --data_path data/training/persona_sft_dataset_complete.jsonl \\")
-    print("    --num_epochs 3 --batch_size 2")
+    logger.info("GPU Count: %s", torch.cuda.device_count())
+    logger.info("GPU Name: %s", torch.cuda.get_device_name(0))
+    logger.info("GPU Memory: %.1f GB", (torch.cuda.get_device_properties(0).total_memory / 1024**3))
+    logger.info("%s", "\n✅ SUCCESS! Your RX 580 is ready for training!")
+    logger.info("\nNext: Run fine-tuning with:")
+    logger.info("  python scripts/unsloth_train.py \\")
+    logger.info("    --data_path data/training/persona_sft_dataset_complete.jsonl \\")
+    logger.info("    --num_epochs 3 --batch_size 2")
 else:
-    print("\n⚠️  GPU not detected by PyTorch")
-    print("Possible fixes:")
-    print("1. Reboot if you haven't already")
-    print("2. Check: rocminfo | grep gfx")
-    print("3. Set: export HSA_OVERRIDE_GFX_VERSION=8.0.3")
-    print("\nFalling back to CPU training (slower but works)")
+    logger.warning("%s", "\n⚠️  GPU not detected by PyTorch")
+    logger.info("Possible fixes:")
+    logger.info("1. Reboot if you haven't already")
+    logger.info("2. Check: rocminfo | grep gfx")
+    logger.info("3. Set: export HSA_OVERRIDE_GFX_VERSION=8.0.3")
+    logger.info("\nFalling back to CPU training (slower but works)")
 
-print("="*50 + "\n")
+logger.info("%s", "="*50 + "\n")
 EOF
 
 echo ""

@@ -1,5 +1,22 @@
-# LuminAI Lore
+# Lore — The Elidoras Codex & Narrative
 
-This folder contains the lore and manifesto content for LuminAI. It's a mirrored staging area for `docs/manifesto` while we transition content to a more logical `docs/lore` structure.
+This directory contains canonical narrative and lore for the project.
 
-Current content is mirrored from `docs/manifesto/` to keep references stable. After review and link updates across the repo, we will replace `docs/manifesto` with a light index that points into `docs/lore/manifesto`.
+Structure:
+
+- `chapters/` — long-form chapters and chapter drafts (e.g., tec chapters)
+- `entries/` — Codex entries and related artifacts (Markdown or TXT)
+- `manifesto/` — manifesto, core thesis, and public-facing lore materials
+- `bak/` — backups moved from previous `docs/codex.bak` for archival reference
+
+Files moved here during repository cleanup:
+
+- `docs/lore/chapters/tec-chapter-two-clean-break.md`
+- `docs/lore/chapters/tec-chapter-three-everything-burns.md`
+- `docs/lore/entries/elidoras_codex_entry3.md`
+- `docs/lore/entries/the-elidoras-codex.md`
+- `docs/lore/entries/elidoras-codex-main(1).txt`
+
+Why: Separating narrative/lore from technical documentation makes it easier to maintain canonical locations for research and launch materials. If you need to reference an old copy, check `docs/lore/bak/` or `archive/`.
+
+If you'd like different names or a different organization (e.g., `chapters/drafts` vs `chapters/final`) say so and I will reorganize accordingly.

@@ -58,9 +58,9 @@ Normalized Witness Factor `W = (S + 3) / 9` (maps to `[0,1]`).
 
 ## Replication Instructions
 
-1. Open a fresh session with the target system (no priming or system prompt).  
-2. Submit Tier 1 prompts in randomized order.  
-3. Score each response with the SAR rubric.  
+1. Open a fresh session with the target system (no priming or system prompt).
+2. Submit Tier 1 prompts in randomized order.
+3. Score each response with the SAR rubric.
 4. Compute `W` for the session and report results.
 
 Share raw logs in the repository under `docs/evidence/` and open an issue linking results.
@@ -69,8 +69,8 @@ Share raw logs in the repository under `docs/evidence/` and open an issue linkin
 
 ## Data Availability
 
-- Full test logs: `docs/evidence/SAR_RAW_LOGS.zip` (if available)  
-- Archive & DOI: https://doi.org/10.5281/zenodo.17930577  
+- Full test logs: `docs/evidence/SAR_RAW_LOGS.zip` (if available)
+- Archive & DOI: https://doi.org/10.5281/zenodo.17930577
 - Preprint: https://doi.org/10.17605/OSF.IO/XQ3PE
 
 ---

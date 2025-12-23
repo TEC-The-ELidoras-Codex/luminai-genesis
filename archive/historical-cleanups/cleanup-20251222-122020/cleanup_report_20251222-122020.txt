@@ -1,0 +1,27 @@
+Cleanup report: archive/cleanup-20251222-122020/cleanup_report_20251222-122020.txt
+Planned archival directory: archive/cleanup-20251222-122020
+Patterns to move:
+  - .venv
+  - assets/audiovisual
+  - assets/branding
+  - docs/technical/ZOHO_*
+\nScanning for matches...
+\nMatches for pattern: .venv
+Tracked matches:
+  .venv
+\nMatches for pattern: assets/audiovisual
+Tracked matches:
+  assets/audiovisual/AI_Safety_s_Flaw_Keyword_Fallacy_Replacement.m4a
+  assets/audiovisual/A_Structural_Insurrection.mp4
+\nMatches for pattern: assets/branding
+Tracked matches:
+  assets/branding/TEC_LOGO.jpg
+  assets/branding/TEC_LOGO_SC.png
+  assets/branding/TEC_PROFILE.jpg
+  assets/branding/TEC_SYMBOL.png
+  assets/branding/TGCR_FORMULA.png
+\nMatches for pattern: docs/technical/ZOHO_*
+Tracked matches:
+  docs/technical/ZOHO_FAILURE_SENT.jpeg
+  docs/technical/ZOHO_KEYWORD_FAILURE.png
+\nDry-run complete. Review archive/cleanup-20251222-122020/cleanup_report_20251222-122020.txt and run with --apply to perform archival.

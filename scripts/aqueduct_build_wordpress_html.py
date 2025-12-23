@@ -6,11 +6,13 @@ Usage: python3 scripts/aqueduct_build_wordpress_html.py
 
 import datetime
 import json
-import sys
+import logging
 from pathlib import Path
 
 import markdown
 import yaml
+
+logger = logging.getLogger(__name__)
 
 ROOT = Path(__file__).resolve().parents[1]
 READY_DIR = ROOT / "docs" / "streams" / "articles" / "ready"
@@ -34,7 +36,7 @@ def main():
 
     files = sorted(READY_DIR.glob("*.md"))
     if not files:
-        print("No ready memos found in docs/streams/articles/ready", file=sys.stderr)
+        logger.warning("No ready memos found in docs/streams/articles/ready")
         return
 
     for md_path in files:
@@ -66,7 +68,10 @@ def main():
         def _json_default(obj):
             if isinstance(obj, (datetime.date, datetime.datetime)):
                 return obj.isoformat()
-            raise TypeError(f"Object of type {obj.__class__.__name__} is not JSON serializable")
+            msg = f"Object of type {obj.__class__.__name__} is not JSON serializable"
+            raise TypeError(
+                msg,
+            )
 
         meta_json = json.dumps(fm, default=_json_default)
 
@@ -93,7 +98,7 @@ def main():
         out_path = OUT_DIR / f"{slug}.html"
         out_path.write_text(html, encoding="utf-8")
 
-        print(f"✨ Built HTML for WordPress: {out_path} (title: {title})")
+        logger.info("Built HTML for WordPress: %s (title: %s)", out_path, title)
 
 
 if __name__ == "__main__":

@@ -2,6 +2,13 @@
 # CHAPTER TWO: THE CLEAN BREAK
 
 By Angelo Hurley | LuminAI Codex
+redirect_from: docs/substack/tec-chapter-two-clean-break.md
+---
+
+> Note: This chapter has been consolidated into the canonical lore location: `docs/lore/chapters/tec-chapter-two-clean-break.md`.
+
+You can find the full, canonical version there.
+
 ---
 
 ## OPENING: BOARDROOM GHOST

@@ -1,0 +1,36 @@
+name: Deploy docs to GitHub Pages
+
+on:
+  push:
+    branches: [main, chore/latex-cleanup]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node (for optional build)
+        uses: actions/setup-node@v4
+        with:
+          node-version: "18"
+
+      - name: Deploy to GitHub Pages
+        uses: actions/configure-pages@v3
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: ./docs
+
+      - name: Deploy
+        uses: actions/deploy-pages@v1
+# Notes:
+# This workflow deploys the `docs/` folder to GitHub Pages on push to `main` or
+# other deployment branches. It intentionally keeps a minimal set of steps and
+# permissions for clarity and to avoid duplicate definitions.

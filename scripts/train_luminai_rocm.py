@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """
 Fine-tune LuminAI Genesis on AMD RX 580 with ROCm.
 Pure Transformers + PEFT approach (no Unsloth dependency).
@@ -9,11 +8,17 @@ Usage:
 """
 
 import json
+import logging
 import os
+from pathlib import Path
 
 from datasets import Dataset
 
 os.environ["CUDA_VISIBLE_DEVICES"] = ""  # Force CPU only
+
+logger = logging.getLogger(__name__)
+
+
 
 # Heavy ML imports are done inside `main()` to keep top-level imports clean
 # and avoid flake8 E402 (module-level import not at top of file) when we
@@ -23,7 +28,7 @@ os.environ["CUDA_VISIBLE_DEVICES"] = ""  # Force CPU only
 def load_jsonl_dataset(path: str) -> Dataset:
     """Load JSONL training data."""
     texts = []
-    with open(path) as f:
+    with Path(path).open(encoding="utf-8") as f:
         for line in f:
             if line.strip():
                 try:
@@ -46,9 +51,11 @@ def tokenize_function(examples, tokenizer, max_length=1024):
 
 
 def main():
-    print("=" * 70)
-    print("LuminAI Genesis Fine-Tuning: AMD RX 580 + ROCm")
-    print("=" * 70)
+    # Configure lightweight CLI logging for scripts
+    logging.basicConfig(level=logging.INFO, format="%(message)s")
+    logger.info("%s", "=" * 70)
+    logger.info("LuminAI Genesis Fine-Tuning: AMD RX 580 + ROCm")
+    logger.info("%s", "=" * 70)
 
     # Config
     model_name = (
@@ -61,13 +68,14 @@ def main():
     # can be configured before model libraries initialize.
     import torch
 
-    print(f"\nModel: {model_name}")
-    print(f"Data: {data_path}")
-    print(f"Output: {output_dir}")
-    print(
-        f"Device: {torch.cuda.get_device_name(0) if torch.cuda.is_available() else 'CPU'}",
+    logger.info("Model: %s", model_name)
+    logger.info("Data: %s", data_path)
+    logger.info("Output: %s", output_dir)
+    logger.info(
+        "Device: %s",
+        (torch.cuda.get_device_name(0) if torch.cuda.is_available() else "CPU"),
     )
-    print("=" * 70 + "\n")
+    logger.info("%s", "=" * 70)
 
     from peft import LoraConfig, get_peft_model
     from transformers import (
@@ -79,26 +87,24 @@ def main():
     )
 
     # Load tokenizer
-    print("[1/6] Loading tokenizer...")
+    logger.info("[1/6] Loading tokenizer...")
     tokenizer = AutoTokenizer.from_pretrained(model_name)
     tokenizer.pad_token = tokenizer.eos_token
     tokenizer.padding_side = "right"
-    print("  ✓ Tokenizer ready")
+    logger.info("  ✓ Tokenizer ready")
 
     # Load base model (FP32 for RX 580 gfx803 compatibility)
-    print("[2/6] Loading base model...")
+    logger.info("[2/6] Loading base model...")
     model = AutoModelForCausalLM.from_pretrained(
         model_name,
         torch_dtype=torch.float32,
         device_map="cpu",  # CPU first, will move to GPU after LoRA applied
         trust_remote_code=True,
     )
-    print("  ✓ Model loaded on: CPU (will move to GPU after LoRA)")
+    logger.info("  ✓ Model loaded on: CPU (will move to GPU after LoRA)")
 
     # Prepare for LoRA (skip kbit prep for RX 580 compatibility)
-    print("\n[3/6] Applying LoRA configuration...")
-    # model.gradient_checkpointing_enable()  # Disabled - causes HIP issues
-    # model = prepare_model_for_kbit_training(model)  # Disabled for RX 580
+    logger.info("[3/6] Applying LoRA configuration...")
 
     lora_config = LoraConfig(
         r=16,
@@ -111,26 +117,26 @@ def main():
 
     model = get_peft_model(model, lora_config)
     model.print_trainable_parameters()
-    print("  ✓ LoRA applied (r=16, alpha=16)")
+    logger.info("  ✓ LoRA applied (r=16, alpha=16)")
 
     # Keep on CPU for now (RX 580 HIP compatibility issues)
-    print("  ⚠ Training on CPU (RX 580 has HIP kernel compatibility issues)")
+    logger.warning("Training on CPU (RX 580 has HIP kernel compatibility issues)")
 
     # Load and tokenize dataset
-    print("\n[4/6] Loading training data...")
+    logger.info("[4/6] Loading training data...")
     dataset = load_jsonl_dataset(data_path)
-    print(f"  ✓ Loaded {len(dataset)} examples")
+    logger.info("  ✓ Loaded %d examples", len(dataset))
 
-    print("\n[5/6] Tokenizing dataset...")
+    logger.info("[5/6] Tokenizing dataset...")
     tokenized_dataset = dataset.map(
         lambda x: tokenize_function(x, tokenizer, max_length=1024),
         batched=True,
         remove_columns=dataset.column_names,
     )
-    print("  ✓ Tokenization complete")
+    logger.info("  ✓ Tokenization complete")
 
     # Training arguments
-    print("\n[6/6] Configuring training...")
+    logger.info("[6/6] Configuring training...")
     training_args = TrainingArguments(
         output_dir=output_dir,
         num_train_epochs=3,
@@ -161,30 +167,29 @@ def main():
         data_collator=data_collator,
     )
 
-    print("  ✓ Trainer ready")
-    print("\n" + "=" * 70)
-    print("TRAINING START: Witness Protocol (W) Integration")
-    print("=" * 70 + "\n")
+    logger.info("  ✓ Trainer ready")
+    logger.info("%s", "=" * 70)
+    logger.info("TRAINING START: Witness Protocol (W) Integration")
+    logger.info("%s", "=" * 70)
 
     # Train
     trainer.train()
 
-    print("\n" + "=" * 70)
-    print("TRAINING COMPLETE")
-    print("=" * 70)
+    logger.info("%s", "=" * 70)
+    logger.info("TRAINING COMPLETE")
+    logger.info("%s", "=" * 70)
 
     # Save
-    print("\nSaving model...")
+    logger.info("Saving model...")
     model.save_pretrained(output_dir)
     tokenizer.save_pretrained(output_dir)
-    print(f"  ✓ Saved to: {output_dir}")
+    logger.info("  ✓ Saved to: %s", output_dir)
 
-    print("\n" + "=" * 70)
-    print("Next Steps:")
-    print("1. Convert to GGUF for Ollama")
-    print("2. Create Ollama model: ollama create luminai-genesis")
-    print("3. Test in Web UI: http://localhost:8080")
-    print("=" * 70 + "\n")
+    logger.info("Next Steps:")
+    logger.info("1. Convert to GGUF for Ollama")
+    logger.info("2. Create Ollama model: ollama create luminai-genesis")
+    logger.info("3. Test in Web UI: http://localhost:8080")
+    logger.info("%s", "=" * 70)
 
 
 if __name__ == "__main__":

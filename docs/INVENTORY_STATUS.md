@@ -7,6 +7,7 @@ This ledger captures the current state of critical assets so we can see gaps at 
 - Governance: `docs/PERSONA_LAW.md` (Arcadia/Airth), `.github/COPILOT.md`, PR template, labels (`.github/labels.yml`), `docs/operations/*` commit rules, CI conscience checks (`.github/workflows/tgcr-audit.yml`, `conscience-check.yml`).
 - Framework texts: `docs/GEOMETRY_OF_CONSCIENCE.md`, `docs/STRUCTURAL_CONSCIENCE.md`, `docs/ACTIVATION_REPORT.md`, `docs/CODEX_NAVIGATOR.md`, `docs/GLYPH_SCROLL.md`, `docs/ARCHITECTURE.md`, `docs/PERSONA_LAW.md`, `docs/GLYPH_SCROLL.md`, `docs/GEOMETRY_OF_CONSCIENCE.md`.
 - Narrative kernel: `src/astradigital/` (encounter system, class system), `src/astradigital/gradient_repair.py` (V_Phi recovery vectors), data codex (`data/codex/*`, `data/enounters/*`).
+- Lore & codex canonical location: `docs/lore/` (chapters: `docs/lore/chapters/`, entries: `docs/lore/entries/`).
 - Repo infrastructure: `.vscode/*`, `luminai-genesis.code-workspace`, `scripts/bootstrap_dev.sh`, `CONTRIBUTING.md`, `.env.example`, `setup.sh`, `requirements.txt`, `Dockerfile.discord`, `docker-compose.yml`.
 - Canonical bundles (large, unsanitized): `docs/canonical/01-bundle.md` … `08-bundle.md`, `10-bundle.md`, `11-bundle.md`, `12-bundle.md` (per `manifest.json`).
 

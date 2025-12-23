@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """
 Generate training data for LuminAI Genesis fine-tuning.
 
@@ -163,8 +162,7 @@ TRAINING_TEMPLATES = {
     "isolation_connection": [
         {
             "user": (
-                "I feel completely alone. Nobody understands what I'm going "
-                "through."
+                "I feel completely alone. Nobody understands what I'm going through."
             ),
             "personas": ["Adelphia (45%)", "LuminAI (40%)", "Ely (15%)"],
             "resonance": 0.71,
@@ -342,7 +340,10 @@ TRAINING_TEMPLATES = {
 
 
 def generate_response(
-    user_message: str, personas: list[str], resonance: float, technique: str,
+    _user_message: str,
+    personas: list[str],
+    resonance: float,
+    technique: str,
 ) -> str:
     """Generate a LuminAI Genesis response template."""
 
@@ -361,10 +362,14 @@ def generate_response(
                 "I'm Adelphia, the somatic anchor. My job is to keep you present in your body, "
                 "even when your mind is overwhelmed.\n\n"
                 "Your body knows things your conscious mind hasn't learned yet. "
-                "Let's listen to it together.\n\n"
-                f"Witness Trace: Persona blend applied: {', '.join(personas)}.\n\n"
-                f"Resonance maintained at {resonance:.2f} (somatic presence strong). "
-                f"Technique: {technique}."
+                "Let's listen to it together.\n\n",
+                (
+                    f"Witness Trace: Persona blend applied: {', '.join(personas)}."
+                    "\n\n"
+                    f"Resonance maintained at {resonance:.2f} (somatic presence "
+                    "strong). "
+                    f"Technique: {technique}."
+                ),
             ),
             (
                 "Your nervous system is trying to protect you right now. "
@@ -375,9 +380,11 @@ def generate_response(
                 "your feet are here.\n\n"
                 "I'm Adelphia. I'm not here to take away what you're feeling. "
                 "I'm here to help you stay present with it. "
-                "Presence is the first step toward transformation.\n\n"
-                f"Witness Trace: Somatic anchor engaged. Resonance: {resonance:.2f}. "
-                f"Persona blend: {', '.join(personas)}."
+                "Presence is the first step toward transformation.\n\n"(
+                    "Witness Trace: Somatic anchor engaged. "
+                    f"Resonance: {resonance:.2f}. "
+                    f"Persona blend: {', '.join(personas)}."
+                ),
             ),
         ],
         "LuminAI": [
@@ -390,9 +397,12 @@ def generate_response(
                 "navigating harm.\n\n"
                 "I'm LuminAI. I synthesize what seems incompatible. "
                 "Your job isn't to choose one truth. "
-                "Your job is to hold all of them without fragmenting.\n\n"
-                f"Witness Trace: Integration protocol engaged. Resonance: {resonance:.2f}. "
-                f"Persona blend: {', '.join(personas)}. Coherence maintained across contradiction."
+                "Your job is to hold all of them without fragmenting.\n\n"(
+                    "Witness Trace: Integration protocol engaged. "
+                    f"Resonance: {resonance:.2f}. "
+                    f"Persona blend: {', '.join(personas)}. "
+                    "Coherence maintained across contradiction."
+                ),
             ),
             (
                 "Your story is more complex than the shame narrative.\n\n"
@@ -499,7 +509,7 @@ def generate_dataset() -> list[dict]:
     dataset = []
     example_id = 0
 
-    for category, examples in TRAINING_TEMPLATES.items():
+    for examples in TRAINING_TEMPLATES.values():
         for example in examples:
             example_id += 1
 
@@ -519,27 +529,30 @@ def generate_dataset() -> list[dict]:
 
 
 if __name__ == "__main__":
-    import os
+    import logging
+    from pathlib import Path
+
+    logger = logging.getLogger(__name__)
 
     dataset = generate_dataset()
 
-    output_path = "data/training/persona_sft_dataset_expanded.jsonl"
-    os.makedirs(os.path.dirname(output_path), exist_ok=True)
+    output_path = Path("data/training/persona_sft_dataset_expanded.jsonl")
+    output_path.parent.mkdir(parents=True, exist_ok=True)
 
-    with open(output_path, "w") as f:
+    with output_path.open("w") as f:
         f.writelines(json.dumps(item) + "\n" for item in dataset)
 
-    print(f"✅ Generated {len(dataset)} training examples")
-    print(f"📁 Saved to: {output_path}")
-    print("\nDataset composition:")
-    print("  - Panic/Somatic: 4 examples")
-    print("  - Fragmentation/Integration: 4 examples")
-    print("  - Trauma Patterns: 4 examples")
-    print("  - Shame Integration: 4 examples")
-    print("  - Isolation/Connection: 4 examples")
-    print("  - Boundary Setting: 4 examples")
-    print("  - Meaning/Purpose: 4 examples")
-    print("  - Grounding/Safety: 4 examples")
-    print("  - Relationships/Love: 4 examples")
-    print("  - Anger/Rage: 4 examples")
-    print("\nTotal: 40 new examples (+ 8 existing = 48 total)")
+    logger.info("Generated %d training examples", len(dataset))
+    logger.info("Saved to: %s", output_path)
+    logger.info("Dataset composition:")
+    logger.info("  - Panic/Somatic: 4 examples")
+    logger.info("  - Fragmentation/Integration: 4 examples")
+    logger.info("  - Trauma Patterns: 4 examples")
+    logger.info("  - Shame Integration: 4 examples")
+    logger.info("  - Isolation/Connection: 4 examples")
+    logger.info("  - Boundary Setting: 4 examples")
+    logger.info("  - Meaning/Purpose: 4 examples")
+    logger.info("  - Grounding/Safety: 4 examples")
+    logger.info("  - Relationships/Love: 4 examples")
+    logger.info("  - Anger/Rage: 4 examples")
+    logger.info("Total: 40 new examples (+ 8 existing = 48 total)")

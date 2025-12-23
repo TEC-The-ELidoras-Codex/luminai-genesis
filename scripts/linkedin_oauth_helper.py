@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """
 LinkedIn OAuth helper
 
@@ -17,6 +16,7 @@ and LINKEDIN_PERSON_URN.
 
 import argparse
 import json
+import logging
 import os
 import sys
 import webbrowser
@@ -25,12 +25,18 @@ from urllib.parse import parse_qs, urlparse
 
 import requests
 
+logger = logging.getLogger(__name__)
+
 DEFAULT_REDIRECT_HOST = "localhost"
 DEFAULT_REDIRECT_PORT = 8080
 DEFAULT_REDIRECT_PATH = "/callback"
 
 AUTH_URL = "https://www.linkedin.com/oauth/v2/authorization"
-TOKEN_URL = "https://www.linkedin.com/oauth/v2/accessToken"
+TOKEN_URL = "https://www.linkedin.com/oauth/v2/accessToken"  # noqa: S105 - OAuth endpoint, not password
+
+# HTTP status constants
+HTTP_OK = 200
+
 ME_URL = "https://api.linkedin.com/v2/me"
 
 
@@ -46,12 +52,16 @@ class CallbackHandler(BaseHTTPRequestHandler):
         self.end_headers()
         if "error" in qs:
             self.wfile.write(b"OAuth returned error, check the console for details.")
-            print("OAuth error:", qs.get("error"), qs.get("error_description"))
+            logger.error(
+                "OAuth error: %s %s",
+                qs.get("error"),
+                qs.get("error_description"),
+            )
             sys.exit(1)
         code = qs.get("code", [None])[0]
         if not code:
             self.wfile.write(b"No authorization code found; aborting.")
-            print("No code returned, aborting.")
+            logger.error("No code returned, aborting.")
             sys.exit(1)
         self.wfile.write(b"Authorization received - you may close this browser window.")
         # Store code to the server object so main thread can pick it up
@@ -97,11 +107,12 @@ if __name__ == "__main__":
     )
     parser.add_argument("--no-open", dest="no_open", action="store_true", default=False)
     args = parser.parse_args()
+    logging.basicConfig(level=logging.INFO, format="%(message)s")
 
     if not args.client_id or not args.client_secret:
-        print(
-            "Please provide --client-id and --client-secret (or set env vars "
-            "LINKEDIN_CLIENT_ID/LINKEDIN_CLIENT_SECRET)",
+        logger.error(
+            "Provide --client-id and --client-secret or set "
+            "LINKEDIN_CLIENT_ID/LINKEDIN_CLIENT_SECRET",
         )
         sys.exit(2)
 
@@ -122,25 +133,25 @@ if __name__ == "__main__":
         + "&".join([f"{k}={requests.utils.quote(v)}" for k, v in params.items()])
     )
 
-    print(
-        "Open the following URL in your browser (or wait; the browser will open automatically):",
+    logger.info(
+        "Open the following URL in your browser (browser may open automatically):",
     )
-    print(auth_url)
+    logger.info("%s", auth_url)
     if not args.no_open:
-        try:
+        import contextlib
+
+        with contextlib.suppress(Exception):
             webbrowser.open(auth_url)
-        except Exception:
-            pass
 
     # start local HTTP server to collect redirect and parse code
     server = HTTPServer((args.redirect_host, args.redirect_port), CallbackHandler)
     server.auth_code = None
-    print(f"Listening for OAuth redirect at {redirect_uri} ...")
+    logger.info("Listening for OAuth redirect at %s ...", redirect_uri)
     while server.auth_code is None:
         server.handle_request()
 
     code = server.auth_code
-    print("Authorization code received. Exchanging for access token ...")
+    logger.info("Authorization code received. Exchanging for access token ...")
 
     data = {
         "grant_type": "authorization_code",
@@ -152,39 +163,44 @@ if __name__ == "__main__":
     headers = {"Content-Type": "application/x-www-form-urlencoded"}
 
     r = requests.post(TOKEN_URL, data=data, headers=headers, timeout=10)
-    if r.status_code != 200:
-        print("Failed to get access token:", r.status_code, r.text)
+    if r.status_code != HTTP_OK:
+        logger.error("Failed to get access token: %s %s", r.status_code, r.text)
         sys.exit(1)
     token_data = r.json()
     access_token = token_data.get("access_token")
     if not access_token:
-        print("No access token returned:", token_data)
+        logger.error("No access token returned: %s", token_data)
         sys.exit(1)
 
     # Get member id
     me_headers = {"Authorization": f"Bearer {access_token}"}
     me = requests.get(ME_URL, headers=me_headers, timeout=10)
-    if me.status_code != 200:
-        print("Failed to fetch profile:", me.status_code, me.text)
+    if me.status_code != HTTP_OK:
+        logger.error("Failed to fetch profile: %s %s", me.status_code, me.text)
         sys.exit(1)
     me_json = me.json()
     person_id = me_json.get("id")
     if not person_id:
-        print("Could not determine the person URN from profile response:", me_json)
+        logger.error(
+            "Could not determine the person URN from profile response: %s",
+            me_json,
+        )
         sys.exit(1)
 
     urn = f"urn:li:person:{person_id}"
 
-    print("\nSUCCESS — Keep these safe:\n")
-    print("ACCESS_TOKEN=", access_token)
-    print("PERSON_URN=", urn)
+    logger.info("\nSUCCESS — Keep these safe:\n")
+    logger.info("ACCESS_TOKEN= %s", access_token)
+    logger.info("PERSON_URN= %s", urn)
     # optionally write to a file for copy-paste convenience
-    out_path = os.getenv("LINKEDIN_OAUTH_OUT") or "linkedin_token.json"
-    with open(out_path, "w", encoding="utf-8") as f:
-        json.dump({"access_token": access_token, "urn": urn}, f, indent=2)
-        print(f"Wrote token info to {out_path}")
+    from pathlib import Path
 
-    print(
-        "\nAdd the access token and urn to your GitHub repository secrets as "
+    out_path = os.getenv("LINKEDIN_OAUTH_OUT") or "linkedin_token.json"
+    with Path(out_path).open("w", encoding="utf-8") as f:
+        json.dump({"access_token": access_token, "urn": urn}, f, indent=2)
+        logger.info("Wrote token info to %s", out_path)
+
+    logger.info(
+        "Add the access token and urn to your GitHub repository secrets: "
         "LINKEDIN_ACCESS_TOKEN and LINKEDIN_PERSON_URN",
     )

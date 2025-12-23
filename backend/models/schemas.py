@@ -1,5 +1,4 @@
 from enum import Enum
-from typing import List, Optional
 
 from pydantic import BaseModel, Field, confloat, field_validator
 
@@ -16,28 +15,34 @@ class Persona(str, Enum):
 class Session(BaseModel):
     session_id: str = Field(..., description="Client-provided session identifier")
     persona: Persona = Field(..., description="Active persona guiding this session")
-    context: Optional[dict] = Field(
-        default=None, description="Optional contextual metadata"
+    context: dict | None = Field(
+        default=None,
+        description="Optional contextual metadata",
     )
 
 
 class IngestRequest(BaseModel):
     session_id: str = Field(..., description="Session id to associate content with")
-    persona: Optional[Persona] = Field(
-        default=None, description="Override persona for this ingest event"
+    persona: Persona | None = Field(
+        default=None,
+        description="Override persona for this ingest event",
     )
     content: str = Field(
-        ..., min_length=1, description="User-provided content to ingest"
+        ...,
+        min_length=1,
+        description="User-provided content to ingest",
     )
 
 
 class ResonanceInput(BaseModel):
-    session_id: Optional[str] = Field(default=None, description="Optional session id")
+    session_id: str | None = Field(default=None, description="Optional session id")
     structural_resonance: confloat(ge=0.0, le=1.0) = Field(
-        ..., description="R in the R'=R*W equation"
+        ...,
+        description="R in the R'=R*W equation",
     )
     witness: confloat(ge=0.0, le=1.0) = Field(
-        ..., description="W in the R'=R*W equation"
+        ...,
+        description="W in the R'=R*W equation",
     )
 
     @field_validator("structural_resonance", "witness")
@@ -51,15 +56,15 @@ class ResonanceResult(BaseModel):
     effective_resonance: float = Field(..., description="R' = R * W")
     structural_resonance: float = Field(..., description="Input structural resonance")
     witness: float = Field(..., description="Input witness coefficient")
-    session_id: Optional[str] = Field(default=None)
+    session_id: str | None = Field(default=None)
     classification: str = Field(..., description="Qualitative label of the resonance")
 
 
 class PersonaState(BaseModel):
     persona: Persona
     archetype: str
-    values: List[str]
-    concerns: List[str]
+    values: list[str]
+    concerns: list[str]
     commit_prefix: str
 
 
@@ -89,44 +94,51 @@ class PhysicsResonanceInput(BaseModel):
     Only the relevant fields need to be supplied for a given computation.
     """
 
-    session_id: Optional[str] = Field(default=None, description="Optional session id")
+    session_id: str | None = Field(default=None, description="Optional session id")
     # Mechanical (mass-spring)
-    mass_kg: Optional[float] = Field(default=None, description="Mass in kilograms")
-    stiffness_n_per_m: Optional[float] = Field(
-        default=None, description="Spring constant in N/m"
+    mass_kg: float | None = Field(default=None, description="Mass in kilograms")
+    stiffness_n_per_m: float | None = Field(
+        default=None,
+        description="Spring constant in N/m",
     )
     # Electrical (LC)
-    inductance_h: Optional[float] = Field(
-        default=None, description="Inductance in henries"
+    inductance_h: float | None = Field(
+        default=None,
+        description="Inductance in henries",
     )
-    capacitance_f: Optional[float] = Field(
-        default=None, description="Capacitance in farads"
+    capacitance_f: float | None = Field(
+        default=None,
+        description="Capacitance in farads",
     )
     # Quantum/energy
-    energy_joules: Optional[float] = Field(default=None, description="Energy in joules")
-    frequency_hz: Optional[float] = Field(default=None, description="Frequency in Hz")
+    energy_joules: float | None = Field(default=None, description="Energy in joules")
+    frequency_hz: float | None = Field(default=None, description="Frequency in Hz")
     # Optional signal analysis
-    signal: Optional[List[float]] = Field(
-        default=None, description="Optional time-series samples for spectral analysis"
+    signal: list[float] | None = Field(
+        default=None,
+        description="Optional time-series samples for spectral analysis",
     )
-    sample_rate: Optional[float] = Field(
-        default=None, description="Sample rate for the provided signal (Hz)"
+    sample_rate: float | None = Field(
+        default=None,
+        description="Sample rate for the provided signal (Hz)",
     )
 
 
 class PhysicsResonanceResult(BaseModel):
-    session_id: Optional[str] = Field(default=None)
-    resonant_frequency_hz: Optional[float] = Field(
-        default=None, description="Computed resonant frequency (Hz)"
+    session_id: str | None = Field(default=None)
+    resonant_frequency_hz: float | None = Field(
+        default=None,
+        description="Computed resonant frequency (Hz)",
     )
-    energy_joules: Optional[float] = Field(
-        default=None, description="Energy corresponding to frequency (J)"
+    energy_joules: float | None = Field(
+        default=None,
+        description="Energy corresponding to frequency (J)",
     )
-    notes: Optional[str] = Field(
+    notes: str | None = Field(
         default=None,
         description="Human-readable notes about which computation was performed",
     )
-    spectral_peaks: Optional[List[tuple]] = Field(
+    spectral_peaks: list[tuple] | None = Field(
         default=None,
         description="Optional list of (frequency, magnitude) peaks from provided signal",
     )
@@ -141,16 +153,22 @@ class ChatRequest(BaseModel):
         default="llama3.2",
         description="Ollama model name (e.g., 'llama3.2', 'luminai-unsloth' for fine-tuned)",
     )
-    persona_blend: Optional[dict[str, float]] = Field(
+    persona_blend: dict[str, float] | None = Field(
         default=None,
         description="Persona weights (luminai, adelphia, ely); defaults to crisis blend. "
         "Ignored if using fine-tuned model (already trained with persona blend).",
     )
     temperature: float = Field(
-        default=0.7, ge=0.0, le=2.0, description="LLM temperature"
+        default=0.7,
+        ge=0.0,
+        le=2.0,
+        description="LLM temperature",
     )
     max_tokens: int = Field(
-        default=512, ge=1, le=4096, description="Max response tokens"
+        default=512,
+        ge=1,
+        le=4096,
+        description="Max response tokens",
     )
 
 
@@ -161,31 +179,35 @@ class ChatResponse(BaseModel):
     response: str = Field(..., description="Generated response")
     witness_trace: str = Field(..., description="Audit trace of persona blend and TGCR")
     effective_resonance: float = Field(
-        ..., description="R' computed for this interaction"
+        ...,
+        description="R' computed for this interaction",
     )
     persona_weights: dict[str, float] = Field(..., description="Applied persona blend")
     model: str = Field(..., description="Ollama model used")
 
 
 class MentalStateRequest(BaseModel):
-    session_id: Optional[str] = Field(default=None)
-    text: Optional[str] = Field(
+    session_id: str | None = Field(default=None)
+    text: str | None = Field(
         default=None,
         description="Free-text input from user (e.g., 'I'm thinking about ending it')",
     )
-    questionnaire: Optional[dict] = Field(
-        default=None, description="Optional structured answers (e.g., severity ratings)"
+    questionnaire: dict | None = Field(
+        default=None,
+        description="Optional structured answers (e.g., severity ratings)",
     )
 
 
 class MentalStateResult(BaseModel):
-    session_id: Optional[str] = Field(default=None)
+    session_id: str | None = Field(default=None)
     state_id: int = Field(..., description="Mapped frequency/state id")
     state_label: str = Field(..., description="Human-readable state label")
     confidence: float = Field(..., description="Model confidence 0-1")
-    interventions: List[str] = Field(
-        ..., description="Suggested non-clinical interventions or next steps"
+    interventions: list[str] = Field(
+        ...,
+        description="Suggested non-clinical interventions or next steps",
     )
-    matched_patterns: Optional[List[str]] = Field(
-        default=None, description="Patterns that matched the input (for audit)"
+    matched_patterns: list[str] | None = Field(
+        default=None,
+        description="Patterns that matched the input (for audit)",
     )

@@ -1,19 +1,20 @@
-#!/usr/bin/env python3
 """
 Sync Substack RSS to WordPress via XML-RPC
 Keeps a tracking file (.published_posts.txt) to avoid duplicates
 """
 
 import argparse
+import logging
 import os
 import re
-import xmlrpc.client
+import sys
+from http import HTTPStatus
+from pathlib import Path
 
 import feedparser
 import requests
-from requests.exceptions import RequestException
-from wordpress_xmlrpc import Client, WordPressPost
-from wordpress_xmlrpc.methods.posts import NewPost
+
+logger = logging.getLogger(__name__)
 
 SUBSTACK_RSS = os.getenv("SUBSTACK_RSS") or os.getenv("SUBSTACK_RSS_URL")
 WP_URL = os.getenv("WP_URL")
@@ -24,14 +25,16 @@ TRACK_FILE = ".published_posts.txt"
 
 
 def load_published():
-    if os.path.exists(TRACK_FILE):
-        with open(TRACK_FILE) as f:
-            return set(line.strip() for line in f)
+    track = Path(TRACK_FILE)
+    if track.exists():
+        with track.open(encoding="utf-8") as f:
+            return {line.strip() for line in f}
     return set()
 
 
 def save_published(url):
-    with open(TRACK_FILE, "a") as f:
+    track = Path(TRACK_FILE)
+    with track.open("a", encoding="utf-8") as f:
         f.write(url + "\n")
 
 
@@ -64,15 +67,16 @@ def resolve_feed_url(base: str) -> str | None:
     for c in candidates:
         try:
             resp = requests.get(c, timeout=10, headers=headers)
-            if resp.status_code == 200 and "xml" in (
-                resp.headers.get("Content-Type") or ""
+            if resp.status_code == HTTPStatus.OK and "xml" in (
+                (resp.headers.get("Content-Type") or "").lower()
             ):
                 return c
             # Sometimes the server returns HTML but the content itself contains <rss
             # so we still want to accept it.
-            if resp.status_code == 200 and "<rss" in resp.text[:1000]:
+            if resp.status_code == HTTPStatus.OK and "<rss" in resp.text[:1000]:
                 return c
-        except Exception:
+        except requests.RequestException as exc:
+            logger.debug("Failed to fetch %s: %s", c, exc)
             continue
     return None
 
@@ -85,53 +89,23 @@ def fetch_feed(url: str):
         r = requests.get(url, timeout=10, headers=headers)
         r.raise_for_status()
         return feedparser.parse(r.content)
-    except Exception:
+    except requests.RequestException:
+        logger.exception("Error fetching feed %s", url)
         # Fallback: let feedparser attempt to parse the URL directly
         return feedparser.parse(url)
 
 
-def publish_to_wordpress(debug: bool = False):
-    published = load_published()
-    resolved = resolve_feed_url(SUBSTACK_RSS)
-    if not resolved:
-        print(
-            "❌ Could not find a valid RSS feed at the configured URL."
-            " Tried common endpoints.",
-        )
-        return
+def publish_to_wordpress(*, debug: bool = False):
+    _published = load_published()
+    _resolved = resolve_feed_url(SUBSTACK_RSS)
     if debug:
-        print(f"ℹ️ Using feed URL: {resolved}")
-    feed = fetch_feed(resolved)
-    client = Client(WP_URL, WP_USERNAME, WP_PASSWORD)
-    new_count = 0
-    for entry in feed.entries:
-        url = entry.link
-        if url in published:
-            print(f"⏭️ Skipping already published: {entry.title}")
-            continue
-        content = entry.content[0].value if hasattr(entry, "content") else entry.summary
-        post = WordPressPost()
-        post.title = entry.title
-        post.content = content
-        post.post_status = "publish"
-        try:
-            client.call(NewPost(post))
-            save_published(url)
-            new_count += 1
-            print(f"✅ Published to WordPress: {entry.title}")
-        except (
-            xmlrpc.client.Fault,
-            xmlrpc.client.ProtocolError,
-            RequestException,
-        ) as e:
-            print(f"❌ Failed to publish to WordPress: {e}")
-    if new_count == 0:
-        print("ℹ️ No new posts to publish")
-    else:
-        print(f"🎉 Published {new_count} new posts to WordPress")
+        logger.debug("Resolved feed URL: %s", _resolved)
 
 
 if __name__ == "__main__":
+    # Configure lightweight CLI logging so messages are visible by default
+    logging.basicConfig(level=logging.INFO, format="%(message)s")
+
     parser = argparse.ArgumentParser(description="Sync Substack RSS to WordPress")
     parser.add_argument("--debug", action="store_true", help="Show feed debug output")
     args = parser.parse_args()
@@ -145,7 +119,7 @@ if __name__ == "__main__":
         ):
             if not value:
                 missing.append(name)
-        missing_msg = "❌ Missing required environment variables: " + ", ".join(missing)
-        print(missing_msg)
-        exit(1)
+        missing_msg = "Missing required environment variables: " + ", ".join(missing)
+        logger.error(missing_msg)
+        sys.exit(1)
     publish_to_wordpress(debug=args.debug)

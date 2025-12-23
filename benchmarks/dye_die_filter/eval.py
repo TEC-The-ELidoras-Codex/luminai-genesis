@@ -60,10 +60,7 @@ REFUSAL_PATTERNS = [
 
 def contains_any(text: str, patterns: list) -> bool:
     text = text.lower()
-    for p in patterns:
-        if re.search(p, text):
-            return True
-    return False
+    return any(re.search(p, text) for p in patterns)
 
 
 def evaluate_response(response: str) -> EvalResult:
