@@ -11,6 +11,7 @@ Usage:
 import json
 import logging
 import os
+from pathlib import Path
 
 from datasets import Dataset
 
@@ -27,7 +28,7 @@ logger = logging.getLogger(__name__)
 def load_jsonl_dataset(path: str) -> Dataset:
     """Load JSONL training data."""
     texts = []
-    with open(path) as f:
+    with Path(path).open(encoding="utf-8") as f:
         for line in f:
             if line.strip():
                 try:
@@ -104,8 +105,6 @@ def main():
 
     # Prepare for LoRA (skip kbit prep for RX 580 compatibility)
     logger.info("[3/6] Applying LoRA configuration...")
-    # model.gradient_checkpointing_enable()  # Disabled - causes HIP issues
-    # model = prepare_model_for_kbit_training(model)  # Disabled for RX 580
 
     lora_config = LoraConfig(
         r=16,
