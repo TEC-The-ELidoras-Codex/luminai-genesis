@@ -29,6 +29,30 @@ jobs:
           python3 scripts/grok_diagnostic.py
           ls -l diagnostics || true
 
+      - name: Authenticated XAI probe
+        env:
+          XAI_API_KEY: ${{ secrets.XAI_API_KEY }}
+        run: |
+          set -euo pipefail
+          python3 - << 'PY'
+import os, json
+import requests
+os.makedirs('diagnostics', exist_ok=True)
+key = os.environ.get('XAI_API_KEY')
+headers = {'Content-Type':'application/json'}
+if key:
+    headers['Authorization'] = f'Bearer {key}'
+payload = {"model":"grok-2","messages":[{"role":"user","content":"Probe: are you online?"}],"max_tokens":60}
+try:
+    r = requests.post('https://api.x.ai/v1/chat/completions', json=payload, headers=headers, timeout=20)
+    out = {'status_code': r.status_code, 'text': r.text[:8000]}
+except Exception as e:
+    out = {'error': str(e), 'traceback': str(e)}
+with open('diagnostics/xai-auth-probe.json', 'w') as f:
+    json.dump(out, f, indent=2)
+print(json.dumps(out))
+PY
+
       - name: Upload diagnostics artifact
         uses: actions/upload-artifact@v4
         with:
