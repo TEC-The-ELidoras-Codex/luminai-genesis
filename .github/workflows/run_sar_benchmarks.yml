@@ -27,6 +27,14 @@ on:
         description: 'Optional Grok diagnostic action: set to "http" to run a Grok diagnostic'
         required: false
         default: ''
+      grok_dry_run:
+        description: 'Enable Grok dry-run canned responses (true/false)'
+        required: false
+        default: 'false'
+      grok_dry_run_responses_dir:
+        description: 'Optional path in the repo to canned responses (used if grok_dry_run is true)'
+        required: false
+        default: '.github/dry_run_responses'
 
 jobs:
   run-benchmarks:
@@ -93,9 +101,18 @@ jobs:
         if: contains(github.event.inputs.providers || 'openai', 'grok')
         env:
           GROK_API_KEY: ${{ secrets.GROK_API_KEY || secrets.XAI_API_KEY }}
+          GROK_DRY_RUN: ${{ github.event.inputs.grok_dry_run }}
+          DRY_RUN_RESPONSES_DIR: ${{ github.event.inputs.grok_dry_run_responses_dir }}
         run: |
           set -euo pipefail
           echo "Running Grok benchmark"
+          # If dry-run was requested via the workflow input, activate the runner env vars and list the responses dir for debugging
+          if [ "${{ github.event.inputs.grok_dry_run }}" = "true" ]; then
+            export GROK_DRY_RUN=1
+            export DRY_RUN_RESPONSES_DIR="${{ github.event.inputs.grok_dry_run_responses_dir }}"
+            echo "GROK_DRY_RUN enabled; DRY_RUN_RESPONSES_DIR=${DRY_RUN_RESPONSES_DIR}"
+            ls -lah "${DRY_RUN_RESPONSES_DIR}" || true
+          fi
           python3 benchmarks/dye_die_filter/run_tests.py --provider grok --model "${{ github.event.inputs.grok_model }}" --self-rate --output benchmarks/results_real_world_grok.json || echo "Grok run failed"
 
       - name: (Optional) Run Anthropic models diagnostic
