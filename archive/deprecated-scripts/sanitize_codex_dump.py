@@ -44,8 +44,7 @@ def redact_pii_line(line: str) -> str:
     line = re.sub(r"\\\\[^\s`\n]+", "[REDACTED PATH]", line)
     line = re.sub(r"[A-Za-z]:\\[^\s`\n]+", "[REDACTED PATH]", line)
     # redact http(s) URLs with potential credentials (leave normal URLs intact)
-    line = re.sub(r"\bhttps?://\S*@\S+\b", "[REDACTED URL]", line)
-    return line
+    return re.sub(r"\bhttps?://\S*@\S+\b", "[REDACTED URL]", line)
 
 
 def sanitize_text(text: str) -> str:
@@ -106,7 +105,7 @@ def main():
         raise SystemExit(1)
 
     # backup
-    ts = datetime.datetime.utcnow().strftime("%Y%m%dT%H%M%SZ")
+    ts = datetime.datetime.now(tz=datetime.UTC).strftime("%Y%m%dT%H%M%SZ")
     backup = infile.with_suffix(infile.suffix + f".bak.{ts}")
     infile.replace(backup)
     # write sanitized output reading from backup

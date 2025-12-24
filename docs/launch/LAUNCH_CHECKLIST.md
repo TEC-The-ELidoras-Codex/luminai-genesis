@@ -1,16 +1,8 @@
-# Launch Checklist — Structural Insurrection
+# Launch Checklist — Consolidated
 
-**Goal:** Prepare LuminAI Genesis repository for professional research team review
-**Target:** OpenAI, Anthropic, DeepMind safety/alignment teams
-**Status:** Pre-launch cleanup phase
+**This file has been consolidated into the unified master checklist.**
 
----
-
-## ✅ Completed
-
-- [x] **Public artifact created** — `STRUCTURAL_INSURRECTION_PUBLIC_ARTIFACT.md`
-- [x] **Email templates drafted** — `EMAIL_TEMPLATES.md` (OpenAI, Anthropic, DeepMind, Generic)
-- [x] **Repository audit** — Git status reviewed, uncommitted changes identified
+Please see `docs/launch/UNIFIED_MASTER_CHECKLIST.md` for the authoritative, up-to-date checklist used for launch planning and execution. This file is retained for historical reference.
 
 ---
 

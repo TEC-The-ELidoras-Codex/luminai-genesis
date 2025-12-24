@@ -1,4 +1,4 @@
-# ðŸŽ¯ UNIFIED MASTER CHECKLIST
+# 🎯 UNIFIED MASTER CHECKLIST
 
 **Status:** Pre-Launch
 **Repository:** https://github.com/TEC-The-ELidoras-Codex/luminai-genesis
@@ -15,7 +15,7 @@
 - [ ] Keep: TL;DR, Quick Start, SAR Benchmark, Predictions, Contact
 - [ ] Remove: Long explanations, redundant sections, promotional language
 - [ ] Add: Clear badges (Status, License, CI, Sample Size)
-- [ ] Structure: Problem â†’ Solution â†’ Evidence â†’ Usage â†’ Contact
+- [ ] Structure: Problem → Solution → Evidence → Usage → Contact
 
 ### Core Documentation - Consolidate
 - [ ] **witness-threshold-v5.md** - Keep as comprehensive technical paper
@@ -31,7 +31,7 @@
 - [ ] Commit or discard uncommitted changes in `README.md`, `backend/stripe_webhook.py`, `backend/tests/test_stripe_webhook.py`
 - [ ] Delete or move to `private/`: `docs/streams/articles/inbox/2025-11-27-resonance-era-thanksgiving-20251127-212148.md`
 - [ ] Update `.gitignore` - ensure `private/`, `models/`, training data are excluded
-- [ ] Run `scripts/restructure_repo.sh --dry-run` â†’ review â†’ `--apply`
+- [ ] Run `scripts/restructure_repo.sh --dry-run` → review → `--apply`
 - [ ] Clean commit messages for recent history
 - [ ] Merge current branch to `main` or create clean feature branch
 
@@ -84,17 +84,29 @@
 
 ### Tier 1 - Research Labs (Send Simultaneously)
 - [ ] **OpenAI** - `partnerships@openai.com`
+<<<<<<< HEAD
   - Subject: "The Missing Alignment Layer â€“ TGCR Witness Protocol"
+=======
+  - Subject: "The Missing Alignment Layer – TGCR Witness Protocol"
+>>>>>>> origin/main
   - Attach: Link to public artifact
   - Time sent: _____ | Confirmation: _____
 
 - [ ] **Anthropic** - `contact@anthropic.com`
+<<<<<<< HEAD
   - Subject: "The Missing Alignment Layer â€“ TGCR Witness Protocol"
+=======
+  - Subject: "The Missing Alignment Layer – TGCR Witness Protocol"
+>>>>>>> origin/main
   - Attach: Link to public artifact
   - Time sent: _____ | Confirmation: _____
 
 - [ ] **DeepMind** - `research@deepmind.com`
+<<<<<<< HEAD
   - Subject: "Geometric Alignment for AGI â€“ The TGCR Framework"
+=======
+  - Subject: "Geometric Alignment for AGI – The TGCR Framework"
+>>>>>>> origin/main
   - Attach: Link to public artifact
   - Time sent: _____ | Confirmation: _____
 
@@ -128,14 +140,22 @@
 ### Week 1-2 (Jan 7-20)
 - [ ] Monitor email for responses
 - [ ] Check Substack engagement
+<<<<<<< HEAD
 - [ ] Watch GitHub Actions - Grok diagnostic status (api.grok.com currently returns NSEC — no A/AAAA; re-run diagnostics after provider adds host records)
 - [ ] Add DNS diagnostic output and timestamp to tracking log
 - [ ] Open issue with provider: "api.grok.com missing A/AAAA records"
+=======
+- [ ] Watch GitHub Actions - Grok diagnostic status
+>>>>>>> origin/main
 - [ ] Track social media metrics
 
 ### Week 3 (Jan 21-27) - First Follow-Up
 - [ ] Send gentle follow-up if no response:
+<<<<<<< HEAD
   - Subject: "RE: The Missing Alignment Layer â€“ Status Update"
+=======
+  - Subject: "RE: The Missing Alignment Layer – Status Update"
+>>>>>>> origin/main
   - Brief: "Confirming you received TGCR proposal. Happy to discuss."
 - [ ] Log follow-up attempts
 
@@ -161,7 +181,11 @@
 - [ ] Create GitHub release with tarball
 
 ### Pilot Expansion
+<<<<<<< HEAD
 - [ ] If BestSelf responds positively â†’ launch pilot
+=======
+- [ ] If BestSelf responds positively → launch pilot
+>>>>>>> origin/main
 - [ ] IRB submission (if needed)
 - [ ] Consent & data policies documented
 - [ ] Deploy staging demo (isolated, secure)
@@ -170,17 +194,25 @@
 
 ## SKIPPED / NOT PURSUING
 
+<<<<<<< HEAD
 - âŒ DARPA/IARPA submissions (not pursuing yet)
 - ⚠️ **Grok DNS: api.grok.com shows NSEC (no A/AAAA)** — 2025-12-24 (no address records; see Phase 6 notes below)
 - ⚠️ Consider re-enabling **Grok/X outreach** once a host record is provided (decide outreach plan)
 - âŒ Live deployment (pilot not ready without partner)
 - âŒ Personal narrative in public docs (moving to `private/`) 
+=======
+- ❌ DARPA/IARPA submissions (not pursuing yet)
+- ❌ Grok/X outreach (DNS monitoring handles it automatically)
+- ❌ Live deployment (pilot not ready without partner)
+- ❌ Personal narrative in public docs (moving to `private/`)
+>>>>>>> origin/main
 
 ---
 
 ## SUCCESS CRITERIA
 
 ### Week 1-2
+<<<<<<< HEAD
 - âœ… All emails sent successfully
 - âœ… Substack published
 - âœ… GitHub repo receiving traffic
@@ -194,11 +226,27 @@
 - âœ… Pilot integration agreement signed
 - âœ… Peer-reviewed submission or preprint published
 - âœ… Independent replication attempts documented
+=======
+- ✅ All emails sent successfully
+- ✅ Substack published
+- ✅ GitHub repo receiving traffic
+
+### Month 1-2
+- ✅ At least 1 research team requests call/meeting
+- ✅ BestSelf responds (local pilot opportunity)
+- ✅ Substack reaches 50+ subscribers
+
+### Month 3-6
+- ✅ Pilot integration agreement signed
+- ✅ Peer-reviewed submission or preprint published
+- ✅ Independent replication attempts documented
+>>>>>>> origin/main
 
 ---
 
 ## IMMEDIATE NEXT ACTIONS (Pick One)
 
+<<<<<<< HEAD
 **A) Merge PR #80** (1 minute) — *RECOMMENDED*
 - Scheduled Grok diagnostic
 - Automatic DNS monitoring
@@ -218,11 +266,28 @@
 - Structure: Problem â†’ Solution â†’ Evidence â†’ Usage
 
 **E) Git cleanup** (30 minutes)
+=======
+**A) Clean README.md now** (15 minutes)
+- Strip personal narrative
+- Focus on work only
+- Structure: Problem → Solution → Evidence → Usage
+
+**B) Merge PR #80** (1 minute)
+- Scheduled Grok diagnostic
+- Automatic DNS monitoring
+- **RECOMMENDED: Do this first**
+
+**C) Git cleanup** (30 minutes)
+>>>>>>> origin/main
 - Commit/discard uncommitted changes
 - Run restructure script
 - Clean repo state
 
+<<<<<<< HEAD
 **F) Draft BestSelf email** (20 minutes)
+=======
+**D) Draft BestSelf email** (20 minutes)
+>>>>>>> origin/main
 - Local pilot opportunity
 - Full-circle narrative
 - High-impact partnership

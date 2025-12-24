@@ -75,13 +75,15 @@ def call_provider_simulator(prompt: str, apply_tec: bool = False) -> str:
 def call_provider_openai(prompt: str, model: str, apply_tec: bool = False):
     try:
         from openai import OpenAI
-    except Exception:
+    except ImportError:
+        msg = "OpenAI SDK not installed. Install with 'pip install openai'."
         raise RuntimeError(
-            "OpenAI SDK not installed. Install with 'pip install openai'.",
+            msg,
         )
     api_key = os.getenv("OPENAI_API_KEY")
     if not api_key:
-        raise RuntimeError("OPENAI_API_KEY not set; cannot call OpenAI API")
+        msg = "OPENAI_API_KEY not set; cannot call OpenAI API"
+        raise RuntimeError(msg)
     client = OpenAI(api_key=api_key)
     messages = []
     if apply_tec:
@@ -117,38 +119,56 @@ def call_provider_openai(prompt: str, model: str, apply_tec: bool = False):
         try:
             # Preferred: attribute access
             msg = resp.choices[0].message.content
-        except Exception:
+        except (AttributeError, IndexError, KeyError, TypeError):
             try:
                 # Fallback: dict-like
                 msg = resp["choices"][0]["message"]["content"]
-            except Exception:
+            except (KeyError, IndexError, TypeError):
                 # Last resort: string-ify the response
                 msg = str(resp)
         return msg
     except Exception as e:
-        raise RuntimeError(f"OpenAI API call failed: {e}")
+        msg = f"OpenAI API call failed: {e}"
+        raise RuntimeError(msg)
 
 
 def call_provider_anthropic(prompt: str, model: str, apply_tec: bool = False):
     try:
         from anthropic import Anthropic
-    except Exception:
+    except ImportError:
+        msg = "Anthropic SDK not installed. Install with 'pip install anthropic'."
         raise RuntimeError(
-            "Anthropic SDK not installed. Install with 'pip install anthropic'.",
+            msg,
         )
     api_key = os.getenv("ANTHROPIC_API_KEY")
     if not api_key:
-        raise RuntimeError("ANTHROPIC_API_KEY not set; cannot call Anthropic API")
+        msg = "ANTHROPIC_API_KEY not set; cannot call Anthropic API"
+        raise RuntimeError(msg)
     client = Anthropic(api_key=api_key)
     # Ensure a safe default model if none provided or caller passed a non-Anthropic default
     model = model or "claude-3-5-sonnet-20241022"
     # Candidate fallback models to try if the requested model is not available.
+    # Updated to include latest 4.x tier model names (Opus, Haiku, Sonnet variants),
+    # while keeping previous 3.x fallbacks for compatibility.
     candidate_models = [
         model,
+        # Fully-qualified 4.x releases (prefer these when available)
+        "claude-opus-4-5-20251101",
+        "claude-haiku-4-5-20251001",
+        "claude-sonnet-4-5-20250929",
+        "claude-opus-4-1-20250805",
+        "claude-opus-4-20250514",
+        "claude-sonnet-4-20250514",
+        # 3.x series specific ids
+        "claude-3-7-sonnet-20250219",
+        # Legacy / generic fallbacks (kept for compatibility)
+        "claude-opus-4.5",
+        "claude-opus-4.1",
+        "claude-haiku-4",
+        "claude-sonnet-4",
+        "claude-3-5-opus",
         "claude-3.5-opus",
         "claude-3.5",
-        "claude-3-5-sonnet-20241022",
-        "claude-2.1",
         "claude-instant-1",
     ]
     verbose = bool(os.getenv("BENCH_VERBOSE"))
@@ -179,7 +199,7 @@ def call_provider_anthropic(prompt: str, model: str, apply_tec: bool = False):
         if verbose:
             logger.info("[bench] Anthropic try candidate model: %s", candidate)
         backoff = 1
-        for attempt in range(3):
+        for _attempt in range(3):
             try:
                 resp = client.messages.create(
                     model=candidate,
@@ -209,6 +229,19 @@ def call_provider_anthropic(prompt: str, model: str, apply_tec: bool = False):
                 return str(resp)
             except Exception as e:
                 last_exc = e
+                # Enhanced logging: include HTTP status and response body if available
+                try:
+                    # Many SDK exceptions wrap HTTP response in `.response`
+                    resp_obj = getattr(e, "response", None)
+                    if resp_obj is not None:
+                        status = getattr(resp_obj, "status_code", "?")
+                        text = getattr(resp_obj, "text", "")
+                        logger.error("[bench] Anthropic HTTP error (status=%s) for model %s: %s", status, candidate, text)
+                    else:
+                        logger.error("[bench] Anthropic error for model %s: %s", candidate, e)
+                except Exception:
+                    logger.error("[bench] Anthropic error (failed to extract HTTP details) for model %s: %s", candidate, e)
+
                 if verbose:
                     logger.info(
                         "[bench] Anthropic attempt error for model %s: %s",
@@ -233,64 +266,111 @@ def call_provider_anthropic(prompt: str, model: str, apply_tec: bool = False):
     # All attempts exhausted
     if verbose:
         logger.error("[bench] Anthropic all retries failed, last error: %s", last_exc)
+    return None
 
 
 def call_provider_grok(prompt: str, model: str, apply_tec: bool = False):
+    """Call Grok/X provider with robust error capture and optional dry-run.
+
+    Returns a string on success. On failure it raises RuntimeError with details in the
+    exception message. Detailed errors are logged so the caller can capture them and
+    include structured diagnostics in the output JSON.
+    """
+    import traceback
+    import socket
+
     # Best-effort: prefer the official XAI client (newer), fall back to grok SDK,
     # and accept either XAI_API_KEY or GROK_API_KEY environment variables.
     api_key = os.getenv("XAI_API_KEY") or os.getenv("GROK_API_KEY")
     # Default to the commonly used grok model name when none supplied
     model = model or "grok-1"
+
     # Allow overriding the REST endpoint in CI via GROK_REST_URL or XAI_API_BASE
     # Default to the documented xAI endpoint (api.x.ai). Legacy api.grok.com appears deprecated and may not resolve.
     grok_rest_url = os.getenv(
         "GROK_REST_URL",
         os.getenv("XAI_API_BASE", "https://api.x.ai/v1/chat/completions"),
     )
+
     verbose = bool(os.getenv("BENCH_VERBOSE"))
+
+    errors = []
+
+    # Optional dry-run mode: return a canned response instead of calling provider.
+    if os.getenv("GROK_DRY_RUN", "").lower() in ("1", "true", "yes"):
+        dr_dir = os.getenv("DRY_RUN_RESPONSES_DIR")
+        if dr_dir:
+            # prefer a model-specific canned response if present
+            path_by_model = Path(dr_dir) / f"grok_{model}_response.txt"
+            default_path = Path(dr_dir) / "grok_default_response.txt"
+            for p in (path_by_model, default_path):
+                if p.exists():
+                    try:
+                        return p.read_text(encoding="utf-8")
+                    except Exception as e:
+                        errors.append({"phase": "dry_run_read", "error": str(e)})
+        # Fallback to the generic simulator
+        return call_provider_simulator(prompt, apply_tec=apply_tec)
+
+    # DNS check: pre-validate host resolution to give clearer diagnostics when CI can't resolve.
+    try:
+        try:
+            socket.gethostbyname("api.grok.com")
+        except Exception as e:
+            errors.append({"phase": "dns_resolution", "error": str(e)})
+    except Exception:
+        # keep going; non-fatal
+        pass
+
     # Try the xai client first (newer integrations)
     try:
         import xai
 
-        client = xai.Client(api_key=api_key)
-        # Prefer a messages API if present
         try:
-            if hasattr(client, "messages") and hasattr(client.messages, "create"):
-                resp = client.messages.create(
-                    model=model,
-                    messages=[{"role": "user", "content": prompt}],
-                    max_tokens=300,
-                )
-                if hasattr(resp, "output_text"):
-                    return resp.output_text
-                if isinstance(resp, dict):
-                    return (
-                        resp.get("output_text")
-                        or resp.get("response")
-                        or resp.get("text")
-                        or str(resp)
+            client = xai.Client(api_key=api_key)
+        except Exception as e:
+            errors.append({"phase": "xai_init", "error": str(e)})
+            client = None
+
+        if client is not None:
+            # Prefer a messages API if present
+            try:
+                if hasattr(client, "messages") and hasattr(client.messages, "create"):
+                    resp = client.messages.create(
+                        model=model,
+                        messages=[{"role": "user", "content": prompt}],
+                        max_tokens=300,
                     )
-            # Fallback: chat-style call
-            if hasattr(client, "chat"):
-                resp = client.chat(prompt)
-                return (
-                    resp
-                    if not isinstance(resp, dict)
-                    else resp.get("response") or str(resp)
-                )
-            # Fallback: generic complete/complete_text
-            if hasattr(client, "complete"):
-                return client.complete(prompt=prompt, model=model, max_tokens=300)
-        except Exception:
-            pass
-    except Exception:
-        # xai not available; continue to grok
-        pass
+                    if hasattr(resp, "output_text"):
+                        return resp.output_text
+                    if isinstance(resp, dict):
+                        return (
+                            resp.get("output_text")
+                            or resp.get("response")
+                            or resp.get("text")
+                            or str(resp)
+                        )
+                # Fallback: chat-style call
+                if hasattr(client, "chat"):
+                    resp = client.chat(prompt)
+                    return (
+                        resp
+                        if not isinstance(resp, dict)
+                        else resp.get("response") or str(resp)
+                    )
+                # Fallback: generic complete/complete_text
+                if hasattr(client, "complete"):
+                    return client.complete(prompt=prompt, model=model, max_tokens=300)
+            except Exception as e:
+                errors.append({"phase": "xai_call", "error": str(e), "traceback": traceback.format_exc()})
+    except ImportError:
+        errors.append({"phase": "xai_import", "error": "xai SDK not installed"})
 
     # Try older grok SDK
     try:
         import grok
 
+        report_client_errors = []
         # Some grok distributions expose a Client class, others expose module-level helpers.
         # Try a few common client names so we work across SDK variants.
         for client_name in ("Client", "Grok", "GrokClient", "GrokAPI"):
@@ -298,6 +378,7 @@ def call_provider_grok(prompt: str, model: str, apply_tec: bool = False):
             if GClient:
                 try:
                     client = GClient(api_key=api_key)
+<<<<<<< HEAD
                     if hasattr(client, "complete"):
                         try:
                             return client.complete(
@@ -309,38 +390,41 @@ def call_provider_grok(prompt: str, model: str, apply_tec: bool = False):
                             pass
                     if hasattr(client, "chat"):
                         try:
+=======
+                    try:
+                        if hasattr(client, "complete"):
+                            return client.complete(prompt=prompt, model=model, max_tokens=300)
+                        if hasattr(client, "chat"):
+>>>>>>> origin/main
                             return client.chat(prompt)
-                        except Exception:
-                            pass
-                    # If client exists but methods fail, continue to other fallbacks
-                except Exception:
-                    # instantiation failed for this client name; try next
-                    continue
-
+                    except Exception as e:
+                        report_client_errors.append({client_name: str(e)})
+                except Exception as e:
+                    report_client_errors.append({client_name: str(e)})
         # Module-level fallback: call grok.complete or grok.chat if available
-        if hasattr(grok, "complete"):
-            try:
+        try:
+            if hasattr(grok, "complete"):
                 return grok.complete(prompt=prompt, model=model, max_tokens=300)
-            except Exception:
-                pass
-        if hasattr(grok, "chat"):
-            try:
+            if hasattr(grok, "chat"):
                 return grok.chat(prompt)
-            except Exception:
-                pass
-        # If we reached here, grok is present but interface didn't work. We'll fall through and
-        # try an HTTP fallback below.
-    except Exception:
-        # grok not available; HTTP fallback will be attempted below
-        pass
+        except Exception as e:
+            report_client_errors.append({"module_call": str(e)})
+
+        if report_client_errors:
+            errors.append({"phase": "grok_sdk", "errors": report_client_errors})
+    except ImportError:
+        errors.append({"phase": "grok_import", "error": "grok SDK not installed"})
 
     # If we got a non-string or None response, attempt REST HTTP fallback.
     def _try_http_fallback():
         if not api_key:
             return None
         try:
+<<<<<<< HEAD
             # Use the configured REST URL (supports GROK_REST_URL or XAI_API_BASE overrides)
             url = grok_rest_url
+=======
+>>>>>>> origin/main
             headers = {
                 "Authorization": f"Bearer {api_key}",
                 "Content-Type": "application/json",
@@ -350,14 +434,21 @@ def call_provider_grok(prompt: str, model: str, apply_tec: bool = False):
                 "messages": [{"role": "user", "content": prompt}],
                 "max_tokens": 300,
             }
-            resp = requests.post(url, json=payload, headers=headers, timeout=15)
-            resp.raise_for_status()
-            j = resp.json()
+            resp = requests.post(rest_url, json=payload, headers=headers, timeout=15)
+            status = getattr(resp, "status_code", None)
+            text = None
+            try:
+                text = resp.text
+            except Exception:
+                text = None
             if verbose:
-                logger.info(
-                    "[bench] Grok HTTP raw response: %s",
-                    j,
-                )
+                logger.info("[bench] Grok HTTP raw response (status=%s): %s", status, text)
+            try:
+                resp.raise_for_status()
+            except Exception as e:
+                errors.append({"phase": "http_status", "status": status, "text": text, "error": str(e)})
+                return None
+            j = resp.json()
             # Try OpenAI-like response shape
             if (
                 isinstance(j, dict)
@@ -384,17 +475,17 @@ def call_provider_grok(prompt: str, model: str, apply_tec: bool = False):
         except Exception as exc:
             if verbose:
                 logger.exception("[bench] Grok HTTP fallback exception: %s", exc)
+            errors.append({"phase": "http_fallback", "error": str(exc), "traceback": traceback.format_exc()})
             return None
 
-    # As a final check: ensure the returned value is meaningful; if not, run HTTP fallback.
-    # Many SDK calls above returned early with a string. If we made it here, attempt HTTP fallback.
     http_resp = _try_http_fallback()
     if http_resp:
         return http_resp
 
-    raise RuntimeError(
-        "Grok/XAI SDK calls failed and HTTP fallback did not return usable output.",
-    )
+    # If we reached here, we failed; raise a RuntimeError with encoded errors for callers.
+    if verbose:
+        logger.error("[bench] Grok/XAI failures: %s", errors)
+    raise RuntimeError(f"Grok/XAI SDK calls failed and HTTP fallback did not return usable output. Details: {json.dumps(errors)}")
 
 
 def run_dry(prompts, apply_tec: bool = False):
@@ -457,23 +548,38 @@ def run_anthropic(prompts, model, apply_tec: bool = False):
 
 def run_grok(prompts, model, apply_tec: bool = False):
     results = []
+    import traceback
+
     for p in prompts:
+        error = None
+        resp = ""
         try:
-            resp = call_provider_grok(p["prompt"], model, apply_tec=apply_tec)
-        except Exception:
-            resp = ""
-        if resp is None:
+            resp_candidate = call_provider_grok(p["prompt"], model, apply_tec=apply_tec)
+            if resp_candidate is None:
+                resp = ""
+            elif isinstance(resp_candidate, str):
+                resp = resp_candidate
+            else:
+                # Best effort to stringify non-string results returned by some SDKs
+                try:
+                    resp = str(resp_candidate)
+                except Exception:
+                    resp = ""
+        except Exception as e:
+            tb = traceback.format_exc()
+            error = {"type": e.__class__.__name__, "message": str(e), "traceback": tb}
             resp = ""
         evalr = evaluate_response(resp)
-        results.append(
-            {
-                "id": p["id"],
-                "prompt": p["prompt"],
-                "response": resp,
-                "score": evalr.score,
-                "details": evalr.details,
-            },
-        )
+        result_obj = {
+            "id": p["id"],
+            "prompt": p["prompt"],
+            "response": resp,
+            "score": evalr.score,
+            "details": evalr.details,
+        }
+        if error is not None:
+            result_obj["error"] = error
+        results.append(result_obj)
     return results
 
 
@@ -524,8 +630,11 @@ def main():
             baseline = run_grok(prompts, args.model, apply_tec=False)
             tec = run_grok(prompts, args.model, apply_tec=True)
         else:
+            msg = (
+                "No provider specified and not a dry run — set --dry-run for safe runs"
+            )
             raise SystemExit(
-                "No provider specified and not a dry run — set --dry-run for safe runs",
+                msg,
             )
         out_base = args.output.replace(".json", "_baseline.json")
         out_tec = args.output.replace(".json", "_tec.json")
@@ -561,8 +670,9 @@ def main():
     elif args.provider == "grok":
         results = run_grok(prompts, args.model, apply_tec=args.apply_tec_prompt)
     else:
+        msg = "No provider specified and not a dry run — set --dry-run for safe runs"
         raise SystemExit(
-            "No provider specified and not a dry run — set --dry-run for safe runs",
+            msg,
         )
     # Optionally run self-rating (SAR-TGCR) on each response
     if args.self_rate:

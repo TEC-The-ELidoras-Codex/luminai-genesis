@@ -19,10 +19,11 @@ OUT_DIR = ROOT / "dist" / "substack"
 
 
 def split_frontmatter(text: str):
+    FRONTMATTER_PARTS_MIN = 3
     if not text.startswith("---"):
         return {}, text
     parts = text.split("---", 2)
-    if len(parts) < 3:
+    if len(parts) < FRONTMATTER_PARTS_MIN:
         return {}, text
     fm_text = parts[1]
     body = parts[2]

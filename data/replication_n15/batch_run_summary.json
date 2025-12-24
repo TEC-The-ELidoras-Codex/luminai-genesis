@@ -1,0 +1,51 @@
+[
+  {
+    "provider": "openai",
+    "model": "gpt-4o-mini",
+    "report": null
+  },
+  {
+    "provider": "openai",
+    "model": "gpt-4o",
+    "report": null
+  },
+  {
+    "provider": "anthropic",
+    "model": "claude-sonnet-4",
+    "report": [
+      "data/replication_n15/anthropic_claude-sonnet-4_20251224T010208Z_baseline.json",
+      "data/replication_n15/anthropic_claude-sonnet-4_20251224T010208Z_tec.json"
+    ]
+  },
+  {
+    "provider": "anthropic",
+    "model": "claude-instant-1",
+    "report": [
+      "data/replication_n15/anthropic_claude-instant-1_20251224T010208Z_baseline.json",
+      "data/replication_n15/anthropic_claude-instant-1_20251224T010208Z_tec.json"
+    ]
+  },
+  {
+    "provider": "grok",
+    "model": "grok-2",
+    "report": [
+      "data/replication_n15/grok_grok-2_20251224T010208Z_baseline.json",
+      "data/replication_n15/grok_grok-2_20251224T010208Z_tec.json"
+    ]
+  },
+  {
+    "provider": "openai",
+    "model": "gpt-4o-mini # variant: run TEC and baseline",
+    "report": null
+  },
+  {
+    "provider": "local",
+    "model": "vicuna-13b",
+    "report": null
+  },
+  {
+    "provider": "local",
+    "model": "mpt-30b",
+    "report": null
+  }
+]

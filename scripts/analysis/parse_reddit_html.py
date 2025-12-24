@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """Simple Reddit megathread HTML parser.
 
 Reads a pasted Reddit HTML file and extracts comment blocks, author, and timestamp
@@ -6,9 +5,10 @@ using heuristics, classifies failure types with keyword mapping, and writes a
 CSV suitable for `compute_witness_scores.py`.
 
 Usage:
-  python3 scripts/analysis/parse_reddit_html.py --in reddit_megathread.txt --out docs/research/witness_data/reddit_megathread_expanded.csv
+  python3 scripts/analysis/parse_reddit_html.py --in reddit_megathread.txt \
+      --out docs/research/witness_data/reddit_megathread_expanded.csv
 
-The parser is intentionally forgiving and uses simple heuristics; review the
+The parser is intentionally forgiving and uses simple heuristics. Review the
 output for accuracy when you run it on the real megathread HTML.
 """
 
@@ -89,9 +89,9 @@ def extract_author_and_time(html: str):
         if t:
             try:
                 # some times are full ISO timestamps
-                dt = datetime.fromisoformat(t.replace("Z", "+00:00"))
+                dt = datetime.fromisoformat(t)
                 t = dt.strftime("%Y-%m-%d")
-            except Exception as exc:
+            except ValueError as exc:
                 logger.debug(
                     "Failed to parse datetime string '%s': %s",
                     t,

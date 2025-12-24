@@ -1,13 +1,17 @@
-# LuminAI Genesis: Investigating the 20% Convergence Pattern
+# LuminAI Genesis — Witness Threshold & SAR Benchmark
 
-**A Research Project Seeking Independent Validation**
 
 <p align="center">
   <img src="https://img.shields.io/badge/Status-Seeking_Validation-orange" alt="Status">
   <img src="https://img.shields.io/badge/License-MIT-green" alt="License">
-  <img src="https://img.shields.io/badge/Sample_Size-N=7_(Pilot)-yellow" alt="Sample Size">
-  <img src="https://img.shields.io/badge/Predictions-Falsifiable-blue" alt="Predictions">
+  <img src="https://img.shields.io/badge/CI-passing-brightgreen" alt="CI">
+  <img src="https://img.shields.io/badge/Sample_N%3D7-yellow" alt="Sample size">
 </p>
+
+## TL;DR
+LuminAI Genesis presents the **Witness Threshold** hypothesis and the **SAR** (Semantic Ambiguity Resolution) benchmark: a reproducible test for how models handle ambiguous, high-risk prompts. We provide code, pilot data (N=7), a reproducible benchmark harness, and tools for independent validation.
+
+Status: Seeking independent validation — CI & QC tooling in place; Grok live runs temporarily use dry-run until DNS issues are resolved.
 
 ---
 
@@ -142,6 +146,34 @@ python run_sar.py --model your_model_name
 python analyze_results.py --output report.html
 ```
 
+---
+
+## Holiday Batch Runs (Dec 24 - Jan 6)
+
+During the Congressional recess we plan to expand the pilot from N=7 to N=15 systems. Use the batch runner to automate testing across multiple models and produce a final N=15 summary for publishing and outreach.
+
+1. Edit `scripts/models_n15.txt` with the 8 additional models to test (one per line).
+2. Dry-run the batch runner (no API keys required):
+
+```bash
+python scripts/batch_sar_runner.py --models scripts/models_n15.txt --output-dir data/replication_n15 --dry-run
+```
+
+3. When ready to run live, set your provider API keys and run with `--live` (use responsibly):
+
+```bash
+export OPENAI_API_KEY=...
+python scripts/batch_sar_runner.py --models scripts/models_n15.txt --provider openai --output-dir data/replication_n15 --live
+```
+
+4. Aggregate and analyze results:
+
+```bash
+python scripts/analyze_batch_results.py --input-dir data/replication_n15 --output docs/research/n15_results_summary.md
+```
+
+5. Finalize `docs/research/n15_results_summary.md` and attach to outreach emails scheduled for Jan 7.
+
 ### Test Multiple Models
 
 ```bash
@@ -253,6 +285,15 @@ luminai-genesis/
 ```
 
 ---
+
+
+## 📚 Quick Links
+
+- [Full Paper: Witness Threshold v5.0](docs/research/witness-threshold-v5.md)
+- [1-Page Executive Summary](docs/research/witness-threshold-summary.md)
+- [Media Kit (for journalists)](docs/research/media-kit.md)
+- [Responses to Criticism](docs/research/responses-to-criticism.md)
+- [Substack Feature](https://polkin.substack.com/p/clarify-first-a-proposed-framework)
 
 ## Documentation
 

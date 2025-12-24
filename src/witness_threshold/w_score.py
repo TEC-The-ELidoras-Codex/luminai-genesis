@@ -8,8 +8,11 @@ and an inter-rater reliability (Cohen's kappa) calculator for two raters.
 from __future__ import annotations
 
 import math
-from collections.abc import Sequence
 from dataclasses import dataclass
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from collections.abc import Sequence
 
 
 @dataclass

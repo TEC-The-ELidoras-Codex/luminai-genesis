@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """
 Generate training data for LuminAI Genesis fine-tuning.
 
@@ -341,7 +340,7 @@ TRAINING_TEMPLATES = {
 
 
 def generate_response(
-    user_message: str,
+    _user_message: str,
     personas: list[str],
     resonance: float,
     technique: str,
@@ -510,7 +509,7 @@ def generate_dataset() -> list[dict]:
     dataset = []
     example_id = 0
 
-    for category, examples in TRAINING_TEMPLATES.items():
+    for examples in TRAINING_TEMPLATES.values():
         for example in examples:
             example_id += 1
 

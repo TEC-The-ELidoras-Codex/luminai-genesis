@@ -37,7 +37,8 @@ def load_w_scores(path: Path) -> list[float]:
         msg = f"Pilot data not found: {path}"
         raise FileNotFoundError(msg)
     data = json.loads(path.read_text(encoding="utf-8"))
-    # Expecting either {"w_scores": [...]} or results list of objects with "score" or a top-level w_score.mean_normalized
+    # Expecting either {"w_scores": [...]} or a results list of objects with "score",
+    # or a top-level w_score.mean_normalized
     if isinstance(data, dict):
         if "w_scores" in data:
             return list(map(float, data["w_scores"]))
@@ -69,7 +70,7 @@ def plot_bimodal(w_scores: list[float], out_path: Path, bins: int = 10) -> None:
         ax2 = ax.twinx()
         ax2.plot(xs, ys, color="#dd8452", lw=1.5)
         ax2.set_ylabel("Density")
-    except Exception as exc:
+    except (np.linalg.LinAlgError, ValueError) as exc:
         logger = logging.getLogger(__name__)
         logger.debug(
             "Failed to compute Gaussian KDE for plotting: %s",

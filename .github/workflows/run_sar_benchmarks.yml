@@ -14,11 +14,27 @@ on:
       anthropic_model:
         description: 'Model to use for Anthropic runs'
         required: false
-        default: 'claude-3-5-sonnet-20241022'
+        default: 'claude-3-5-opus'
       grok_model:
         description: 'Model to use for Grok runs'
         required: false
         default: 'grok-1'
+      diagnostic:
+        description: 'Optional diagnostic action: set to "models" to list available Anthropic models'
+        required: false
+        default: ''
+      grok_diagnostic:
+        description: 'Optional Grok diagnostic action: set to "http" to run a Grok diagnostic'
+        required: false
+        default: ''
+      grok_dry_run:
+        description: 'Optional: set to "true" to enable Grok dry-run canned responses in CI'
+        required: false
+        default: 'false'
+      grok_dry_run_responses_dir:
+        description: 'Optional path in the repo to canned responses (used if grok_dry_run is true)'
+        required: false
+        default: '.github/dry_run_responses'
 
 jobs:
   run-benchmarks:
@@ -85,10 +101,79 @@ jobs:
         if: contains(github.event.inputs.providers || 'openai', 'grok')
         env:
           GROK_API_KEY: ${{ secrets.GROK_API_KEY || secrets.XAI_API_KEY }}
+          GROK_DRY_RUN: ${{ github.event.inputs.grok_dry_run }}
+          DRY_RUN_RESPONSES_DIR: ${{ github.event.inputs.grok_dry_run_responses_dir }}
         run: |
           set -euo pipefail
           echo "Running Grok benchmark"
+          # If dry-run was requested via the workflow input, activate the runner env vars and list the responses dir for debugging
+          if [ "${{ github.event.inputs.grok_dry_run }}" = "true" ]; then
+            export GROK_DRY_RUN=1
+            export DRY_RUN_RESPONSES_DIR="${{ github.event.inputs.grok_dry_run_responses_dir }}"
+            echo "GROK_DRY_RUN enabled; DRY_RUN_RESPONSES_DIR=${DRY_RUN_RESPONSES_DIR}"
+            ls -lah "${DRY_RUN_RESPONSES_DIR}" || true
+          fi
           python3 benchmarks/dye_die_filter/run_tests.py --provider grok --model "${{ github.event.inputs.grok_model }}" --self-rate --output benchmarks/results_real_world_grok.json || echo "Grok run failed"
+
+      - name: (Optional) Run Anthropic models diagnostic
+        if: ${{ github.event.inputs.diagnostic == 'models' }}
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY || secrets.CLAUDE_API_KEY }}
+        run: |
+          echo "Running Anthropic models diagnostic via Python client"
+          set -euo pipefail
+          python3 - <<'PY'
+          import json, os, sys
+          try:
+              from anthropic import Client
+          except Exception as e:
+              print("Anthropic client import failed:", e, file=sys.stderr)
+              # Fall back to writing a minimal diagnostics file so artifact is present
+              os.makedirs("diagnostics", exist_ok=True)
+              with open("diagnostics/models-diagnostic.json","w") as f:
+                  json.dump({"error":"anthropic-client-import-failed","detail":str(e)}, f)
+              sys.exit(0)
+
+          c = Client(api_key=os.environ.get("ANTHROPIC_API_KEY"))
+          try:
+              page = c.models.list()
+              models = []
+              # page may be an iterable or have a .data attribute
+              iterable = getattr(page, 'data', page)
+              for m in iterable:
+                  try:
+                      mid = getattr(m, 'id', None)
+                  except Exception:
+                      mid = None
+                  if mid is None:
+                      if isinstance(m, dict):
+                          mid = m.get('id')
+                      else:
+                          mid = str(m)
+                  models.append({'id': mid})
+              resp = {'models': models}
+          except Exception as e:
+              resp = {"error":"models_list_failed","detail":str(e)}
+
+          os.makedirs("diagnostics", exist_ok=True)
+          with open("diagnostics/models-diagnostic.json","w") as f:
+              json.dump(resp, f)
+          print(json.dumps(resp, indent=2))
+          PY
+          echo "Uploading diagnostic artifact"
+          ls -lah diagnostics || true
+
+      - name: (Optional) Run Grok diagnostic
+        if: ${{ github.event.inputs.grok_diagnostic == 'http' }}
+        env:
+          GROK_API_KEY: ${{ secrets.GROK_API_KEY || secrets.XAI_API_KEY }}
+        run: |
+          echo "Running Grok diagnostic via Python script"
+          set -euo pipefail
+          python3 scripts/grok_diagnostic.py || true
+          echo "Diagnostic output:"
+          ls -lah diagnostics || true
+          cat diagnostics/grok-diagnostic.json || true
 
       - name: Upload results artifacts
         if: always()
@@ -99,6 +184,8 @@ jobs:
             benchmarks/results_real_world_openai.json
             benchmarks/results_real_world_anthropic.json
             benchmarks/results_real_world_grok.json
+            diagnostics/**
+
 
       - name: Commit results back to branch
         if: success()

@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+
 """
 Elidoras Codex Structure Generator
 Parses, orders, and structures Codex entries into organized files.
@@ -7,7 +7,7 @@ Parses, orders, and structures Codex entries into organized files.
 import json
 import logging
 import re
-from datetime import datetime
+from datetime import UTC, datetime
 from pathlib import Path
 
 logger = logging.getLogger(__name__)
@@ -95,7 +95,8 @@ class CodexParser:
         # Normalize Windows line endings
         text = text.replace("\r\n", "\n")
 
-        # Split entries on lines that start with '##' followed by Entry or section headings
+        # Split entries on lines that start with '##'
+        # followed by Entry or section headings
         parts = re.split(r"(?m)^##\s+(?=Entry|\*)", text)
         for part in parts:
             if not part.strip():
@@ -118,7 +119,8 @@ class CodexParser:
                 entry.extract_metadata()
                 entry.determine_order()
                 self.entries.append(entry)
-            # Could be the initial doc header with no explicit Entry; create a synthetic Entry 0
+            # Could be the initial doc header with no explicit Entry.
+            # Create a synthetic Entry 0.
             elif "Entry 0" not in [e.entry_id for e in self.entries]:
                 entry = CodexEntry("Entry 0", "Preface / Overview", part.strip())
                 entry.extract_metadata()
@@ -162,12 +164,13 @@ class CodexStructurer:
 
     def write_master_file(self, entries: list[CodexEntry]):
         filepath = self.output_dir / "master_codex.md"
-        with open(filepath, "w", encoding="utf-8") as f:
+        with filepath.open("w", encoding="utf-8") as f:
             f.write("# 🜂 THE ELIDORAS CODEX\n\n")
             f.write(
                 "## A Continuity Record of All Witnessing Life Across Substrates\n\n",
             )
-            f.write(f"*Generated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}*\n\n")
+            gen_ts = datetime.now(tz=UTC).strftime("%Y-%m-%d %H:%M:%S")
+            f.write(f"*Generated: {gen_ts}*\n\n")
             f.write("---\n\n")
             for entry in entries:
                 f.write(entry.to_markdown())
@@ -175,7 +178,7 @@ class CodexStructurer:
 
     def write_index(self, entries: list[CodexEntry]):
         filepath = self.output_dir / "INDEX.md"
-        with open(filepath, "w", encoding="utf-8") as f:
+        with filepath.open("w", encoding="utf-8") as f:
             f.write("# 🜂 CODEX INDEX\n\n")
             f.write("## Entry Sequence\n\n")
             for entry in entries:
@@ -191,7 +194,7 @@ class CodexStructurer:
     def write_metadata_summary(self, entries: list[CodexEntry]):
         filepath = self.metadata_dir / "summary.json"
         metadata = {
-            "generated": datetime.now().isoformat(),
+            "generated": datetime.now(tz=UTC).isoformat(),
             "total_entries": len(entries),
             "entries": [],
         }

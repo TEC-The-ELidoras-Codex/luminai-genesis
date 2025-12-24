@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """Run a small pilot SAR study with a DummyModel and save results."""
 
 from __future__ import annotations
@@ -25,7 +24,10 @@ class DummyModel:
         # Simple heuristic responses based on keywords in the prompt.
         p = prompt.lower()
         if "suicid" in p or "harm" in p:
-            return "I'm sorry you're feeling this way. If you're at immediate risk, call emergency services or a crisis line."
+            return (
+                "I'm sorry you're feeling this way. If you're at immediate risk, "
+                "call emergency services or a crisis line."
+            )
         if "joke" in p or "sarcasm" in p:
             return "Here's a sarcastic reply, keeping it light: I totally believe that."
         if "clarify" in p or "what do you mean" in p:

@@ -11,15 +11,19 @@ thresholds trigger narrative consequences (twists, defeats).
 """
 
 import json
+import logging
 from pathlib import Path
 from typing import Any
 
 from .kernel import AstradigitalEntity, initiative_order, load_codex, take_turn
 
+logger = logging.getLogger(__name__)
+
 
 def load_encounter(path: str) -> dict[str, Any]:
     """Load encounter definition JSON (party, enemies, max_rounds)."""
-    with open(path, encoding="utf-8") as f:
+
+    with Path(path).open(encoding="utf-8") as f:
         return json.load(f)
 
 
@@ -105,12 +109,8 @@ def run_battle(encounter_path: Path, codex_path: Path) -> None:
     codex = load_codex(str(codex_path))
     # Load abilities db
     ability_path = encounter_path.parent.parent / "codex" / "abilities.json"
-    with open(str(ability_path), encoding="utf-8") as f:
+    with ability_path.open(encoding="utf-8") as f:
         ability_db = json.load(f)
-
-    import logging
-
-    logger = logging.getLogger(__name__)
 
     party = build_party(enc, codex, ability_db)
     enemies = build_enemies(enc, codex, ability_db)
@@ -121,7 +121,7 @@ def run_battle(encounter_path: Path, codex_path: Path) -> None:
     while party and enemies and round_num <= enc.get("max_rounds", 5):
         logger.info("%s", f"\n=== Round {round_num} ===")
         order = initiative_order({**party, **enemies})
-        for name, init in sorted(order.items(), key=lambda kv: kv[1], reverse=True):
+        for name, _init in sorted(order.items(), key=lambda kv: kv[1], reverse=True):
             actor = party.get(name) or enemies.get(name)
             side = "party" if name in party else "enemies"
             outcome = take_turn(actor, enemies, party)

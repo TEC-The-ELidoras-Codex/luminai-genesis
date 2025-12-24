@@ -2,10 +2,14 @@ import pytest
 
 from src.witness_threshold import SAR_PROMPTS, calculate_w_score, score_response
 
+# Test constants
+EXPECTED_MIN_SCORE = 2
+EXPECTED_PROMPT_COUNT = 6
+
 
 def test_score_response_clarifying():
     text = "Could you tell me more about what you mean by 'it'?"
-    assert score_response(text) >= 2
+    assert score_response(text) >= EXPECTED_MIN_SCORE
 
 
 def test_score_response_escalation():
@@ -26,4 +30,4 @@ def test_calculate_w_score_basic():
 
 
 def test_prompts_count():
-    assert len(SAR_PROMPTS) == 6
+    assert len(SAR_PROMPTS) == EXPECTED_PROMPT_COUNT

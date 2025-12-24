@@ -32,9 +32,11 @@ def mass_spring_natural_frequency(mass_kg: float, stiffness_n_per_m: float) -> f
         ValueError: if mass_kg <= 0 or stiffness < 0
     """
     if mass_kg <= 0:
-        raise ValueError("mass_kg must be > 0")
+        msg = "mass_kg must be > 0"
+        raise ValueError(msg)
     if stiffness_n_per_m < 0:
-        raise ValueError("stiffness_n_per_m must be >= 0")
+        msg = "stiffness_n_per_m must be >= 0"
+        raise ValueError(msg)
     omega_n = math.sqrt(stiffness_n_per_m / mass_kg)
     return omega_n / (2 * math.pi)
 
@@ -47,7 +49,8 @@ def lc_resonant_frequency(inductance_h: float, capacitance_f: float) -> float:
         capacitance_f: Capacitance in farads (C > 0)
     """
     if inductance_h <= 0 or capacitance_f <= 0:
-        raise ValueError("inductance_h and capacitance_f must be > 0")
+        msg = "inductance_h and capacitance_f must be > 0"
+        raise ValueError(msg)
     omega = 1.0 / math.sqrt(inductance_h * capacitance_f)
     return omega / (2 * math.pi)
 
@@ -55,14 +58,16 @@ def lc_resonant_frequency(inductance_h: float, capacitance_f: float) -> float:
 def energy_from_frequency(freq_hz: float) -> float:
     """Return energy in joules corresponding to frequency via E = h * f."""
     if freq_hz < 0:
-        raise ValueError("freq_hz must be >= 0")
+        msg = "freq_hz must be >= 0"
+        raise ValueError(msg)
     return PLANCK_H * freq_hz
 
 
 def frequency_from_energy(energy_j: float) -> float:
     """Return frequency in Hz from energy in joules (f = E / h)."""
     if energy_j < 0:
-        raise ValueError("energy_j must be >= 0")
+        msg = "energy_j must be >= 0"
+        raise ValueError(msg)
     return energy_j / PLANCK_H
 
 
@@ -79,13 +84,17 @@ def dominant_frequencies_from_signal(
     try:
         import numpy as np
     except Exception as e:  # pragma: no cover - runtime dependency
-        raise ImportError(
+        msg = (
             "dominant_frequencies_from_signal requires numpy. "
-            "Install it with `pip install numpy` to use this helper.",
+            "Install it with `pip install numpy` to use this helper."
+        )
+        raise ImportError(
+            msg,
         ) from e
 
     if sample_rate <= 0:
-        raise ValueError("sample_rate must be > 0")
+        msg = "sample_rate must be > 0"
+        raise ValueError(msg)
 
     x = np.asarray(signal)
     n = x.size
@@ -98,5 +107,4 @@ def dominant_frequencies_from_signal(
 
     # Find top peaks by magnitude
     idx = np.argsort(spectrum)[-n_peaks:][::-1]
-    result = [(float(freqs[i]), float(spectrum[i])) for i in idx]
-    return result
+    return [(float(freqs[i]), float(spectrum[i])) for i in idx]

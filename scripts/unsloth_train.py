@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """
 Unsloth LoRA fine-tune for LuminAI Genesis.
 
@@ -16,6 +15,8 @@ Usage:
 
 import argparse
 import json
+import logging
+from pathlib import Path
 
 from datasets import Dataset
 from transformers import TrainingArguments
@@ -25,8 +26,9 @@ from unsloth import FastLanguageModel, is_bfloat16_supported
 
 def load_training_data(data_path: str) -> Dataset:
     """Load JSONL training data and convert to HuggingFace Dataset."""
+
     texts = []
-    with open(data_path) as f:
+    with Path(data_path).open(encoding="utf-8") as f:
         for line in f:
             item = json.loads(line)
             texts.append(item["text"])
@@ -37,6 +39,7 @@ def load_training_data(data_path: str) -> Dataset:
 def setup_model_and_tokenizer(
     model_name: str,
     max_seq_length: int = 2048,
+    *,
     load_in_4bit: bool = True,
 ):
     """Initialize Unsloth FastLanguageModel with LoRA config."""
@@ -71,14 +74,13 @@ def train(
     batch_size: int = 2,
     learning_rate: float = 2e-4,
     max_seq_length: int = 1024,
+    *,
     use_cpu: bool = False,
 ):
     """Fine-tune model using Unsloth with LuminAI persona-aligned data."""
 
-    import logging
-
-    logging.basicConfig(level=logging.INFO, format="%(message)s")
     logger = logging.getLogger(__name__)
+    logging.basicConfig(level=logging.INFO, format="%(message)s")
 
     logger.info("%s", "=" * 70)
     logger.info("UNSLOTH FINE-TUNE: LuminAI Genesis")
