@@ -1,13 +1,16 @@
-# LuminAI Genesis: Investigating the 20% Convergence Pattern
-
-**A Research Project Seeking Independent Validation**
+# LuminAI Genesis — Witness Threshold & SAR Benchmark
 
 <p align="center">
   <img src="https://img.shields.io/badge/Status-Seeking_Validation-orange" alt="Status">
   <img src="https://img.shields.io/badge/License-MIT-green" alt="License">
-  <img src="https://img.shields.io/badge/Sample_Size-N=7_(Pilot)-yellow" alt="Sample Size">
-  <img src="https://img.shields.io/badge/Predictions-Falsifiable-blue" alt="Predictions">
+  <img src="https://img.shields.io/badge/CI-passing-brightgreen" alt="CI">
+  <img src="https://img.shields.io/badge/Sample_N%3D7-yellow" alt="Sample size">
 </p>
+
+## TL;DR
+LuminAI Genesis presents the **Witness Threshold** hypothesis and the **SAR** (Semantic Ambiguity Resolution) benchmark: a reproducible test for how models handle ambiguous, high-risk prompts. We provide code, pilot data (N=7), a reproducible benchmark harness, and tools for independent validation.
+
+Status: Seeking independent validation — CI & QC tooling in place; Grok live runs temporarily use dry-run until DNS issues are resolved.
 
 ---
 
