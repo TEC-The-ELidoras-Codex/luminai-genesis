@@ -1,0 +1,63 @@
+name: Grok Diagnostic Schedule
+
+on:
+  schedule:
+    # Daily at 08:00 UTC
+    - cron: '0 8 * * *'
+  workflow_dispatch: {}
+
+jobs:
+  diagnostic:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      issues: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install minimal deps
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install requests || true
+
+      - name: Run Grok diagnostic
+        env:
+          GROK_API_KEY: ${{ secrets.GROK_API_KEY || secrets.XAI_API_KEY }}
+        run: |
+          set -euo pipefail
+          python3 scripts/grok_diagnostic.py || true
+
+      - name: Upload diagnostic artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: grok-diagnostic
+          path: diagnostics/grok-diagnostic.json
+
+      - name: Create issue if DNS resolved
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const fs = require('fs');
+            if (!fs.existsSync('diagnostics/grok-diagnostic.json')) {
+              core.info('No diagnostics file found');
+              return;
+            }
+            const data = JSON.parse(fs.readFileSync('diagnostics/grok-diagnostic.json', 'utf8'));
+            const dns = data.dns && data.dns['api.grok.com'];
+            if (dns && dns.resolved) {
+              const body = `Automated check detected that api.grok.com is resolving again.\n\nDiagnostics:\n\n\`\`\`json\n${JSON.stringify(data, null, 2)}\n\`\`\``;
+              await github.issues.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title: 'Grok DNS resolved: api.grok.com',
+                body: body,
+              });
+            } else {
+              console.log('api.grok.com still not resolving');
+            }
