@@ -23,6 +23,10 @@ on:
         description: 'Optional diagnostic action: set to "models" to list available Anthropic models'
         required: false
         default: ''
+      grok_diagnostic:
+        description: 'Optional Grok diagnostic action: set to "http" to run a Grok diagnostic'
+        required: false
+        default: ''
 
 jobs:
   run-benchmarks:
@@ -141,6 +145,18 @@ jobs:
           PY
           echo "Uploading diagnostic artifact"
           ls -lah diagnostics || true
+
+      - name: (Optional) Run Grok diagnostic
+        if: ${{ github.event.inputs.grok_diagnostic == 'http' }}
+        env:
+          GROK_API_KEY: ${{ secrets.GROK_API_KEY || secrets.XAI_API_KEY }}
+        run: |
+          echo "Running Grok diagnostic via Python script"
+          set -euo pipefail
+          python3 scripts/grok_diagnostic.py || true
+          echo "Diagnostic output:"
+          ls -lah diagnostics || true
+          cat diagnostics/grok-diagnostic.json || true
 
       - name: Upload results artifacts
         if: always()
