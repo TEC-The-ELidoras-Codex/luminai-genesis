@@ -1,13 +1,8 @@
-# Repository Reorganization Checklist — LuminAI Genesis
+# Repository Reorganization Checklist — Consolidated
 
-This checklist documents the planned repository reorganization and provides a safe, repeatable migration process.
+**This content has been consolidated.**
 
-## Goals
-
-- Move draft/private artifacts into a `private/` folder that is ignored by git
-- Keep public documentation and code accessible under `docs/`, `src/`, `mvp/`, etc.
-- Avoid losing history — use `git mv` where possible and create a separate branch for the migration
-- Provide a dry-run mode that lists candidate moves
+The authoritative checklist for repository reorganization is `docs/launch/UNIFIED_MASTER_CHECKLIST.md`. Please use that file for the canonical steps and acceptance criteria. This file is retained for historical reference.
 
 ## Acceptance Criteria
 
