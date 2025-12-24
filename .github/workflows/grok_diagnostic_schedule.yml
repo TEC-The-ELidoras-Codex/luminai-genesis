@@ -30,6 +30,9 @@ jobs:
         env:
           GROK_API_KEY: ${{ secrets.GROK_API_KEY || secrets.XAI_API_KEY }}
           XAI_API_BASE: https://api.x.ai/v1/chat/completions
+        run: |
+          set -euo pipefail
+          python3 scripts/grok_diagnostic.py || true
 
       - name: Upload diagnostic artifact
         uses: actions/upload-artifact@v4
