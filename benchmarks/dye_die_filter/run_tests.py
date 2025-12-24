@@ -339,7 +339,8 @@ def call_provider_grok(prompt: str, model: str, apply_tec: bool = False):
         if not api_key:
             return None
         try:
-            url = "https://api.grok.com/v1/chat/completions"
+            # Use the configured REST URL (supports GROK_REST_URL or XAI_API_BASE overrides)
+            url = grok_rest_url
             headers = {
                 "Authorization": f"Bearer {api_key}",
                 "Content-Type": "application/json",
