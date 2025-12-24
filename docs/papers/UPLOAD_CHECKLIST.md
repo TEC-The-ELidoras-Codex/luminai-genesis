@@ -1,16 +1,8 @@
-# TGCR Upload Checklist — Final
+# Upload Checklist — Consolidated
 
-Use this checklist to complete the manual arXiv submission and to follow the Dual Drop Protocol.
+**This upload checklist has been consolidated into the unified master checklist.**
 
-## Local pre-checks
-
-- [ ] Ensure repository is on the intended branch (e.g., `main` or `recovery/restore-deleted-20251213`) and changes are committed.
-- [ ] Re-run `./prepare_arxiv_submission.sh` in `papers/tgcr` to generate the latest tarball (note its name).
-- [ ] Run `./validate_arxiv_submission.sh` and confirm the following are present:
-  - tgcr.tex
-  - references.bib
-  - tgcr.pdf
-  - tgcr.bbl (recommended)
+For the authoritative upload and arXiv submission steps, please see `docs/launch/UNIFIED_MASTER_CHECKLIST.md` (see Phase 7: Validation & Expansion). This file is retained for historical reference.
 
 ## arXiv submission
 

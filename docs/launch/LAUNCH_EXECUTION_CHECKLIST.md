@@ -1,13 +1,8 @@
-# 🚀 TGCR LAUNCH EXECUTION CHECKLIST
+# Launch Execution Checklist — Consolidated
 
-**Status:** READY TO EXECUTE
-**Date Started:** December 9, 2025
-**Campaign Manager:** Angelo Hurley
-**Contact:** KaznakAlpha@elidoracodex.com
+**This file has been consolidated into the unified master checklist.**
 
----
-
-## PHASE 1: IMMEDIATE ACTIONS (Today - Dec 9)
+Please see `docs/launch/UNIFIED_MASTER_CHECKLIST.md` for the authoritative, up-to-date checklist used for launch planning and execution. This file is retained for historical reference.
 
 ### Documentation & Repository
 
