@@ -99,17 +99,33 @@ jobs:
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY || secrets.CLAUDE_API_KEY }}
         run: |
-          echo "Running Anthropic models diagnostic"
+          echo "Running Anthropic models diagnostic via Python client"
           set -euo pipefail
-          resp=models-diagnostic.json
-          curl -s -H "x-api-key: $ANTHROPIC_API_KEY" https://api.anthropic.com/v1/models -o "$resp" || true
-          echo "--- RAW RESPONSE ---"
-          cat "$resp" || true
-          echo "--- PARSED IDs ---"
-          jq -r '.models[]?.id // .[]?.id // empty' "$resp" || true
+          python3 - <<'PY'
+          import json, os, sys
+          try:
+              from anthropic import Client
+          except Exception as e:
+              print("Anthropic client import failed:", e, file=sys.stderr)
+              # Fall back to writing a minimal diagnostics file so artifact is present
+              os.makedirs("diagnostics", exist_ok=True)
+              with open("diagnostics/models-diagnostic.json","w") as f:
+                  json.dump({"error":"anthropic-client-import-failed","detail":str(e)}, f)
+              sys.exit(0)
+
+          c = Client(api_key=os.environ.get("ANTHROPIC_API_KEY"))
+          try:
+              resp = c.models.list()
+          except Exception as e:
+              resp = {"error":"models_list_failed","detail":str(e)}
+
+          os.makedirs("diagnostics", exist_ok=True)
+          with open("diagnostics/models-diagnostic.json","w") as f:
+              json.dump(resp, f)
+          print(json.dumps(resp, indent=2))
+          PY
           echo "Uploading diagnostic artifact"
-          mkdir -p diagnostics
-          mv "$resp" diagnostics/
+          ls -lah diagnostics || true
 
       - name: Upload results artifacts
         if: always()
