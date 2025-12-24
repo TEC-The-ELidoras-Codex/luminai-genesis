@@ -28,7 +28,7 @@ on:
         required: false
         default: ''
       grok_dry_run:
-        description: 'Enable Grok dry-run canned responses (true/false)'
+        description: 'Optional: set to "true" to enable Grok dry-run canned responses in CI'
         required: false
         default: 'false'
       grok_dry_run_responses_dir:
