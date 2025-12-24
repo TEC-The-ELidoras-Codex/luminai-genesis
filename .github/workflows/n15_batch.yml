@@ -1,0 +1,57 @@
+name: N15 SAR Batch Run
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 12 6 1 *' # Run on Jan 6 at 12:00 UTC (pre-launch prep)
+
+jobs:
+  run-n15:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt || true
+          pip install openai anthropic || true
+
+      - name: Run batch SAR (N=15)
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          GROK_API_KEY: ${{ secrets.GROK_API_KEY }}
+          XAI_API_KEY: ${{ secrets.XAI_API_KEY }}
+        run: |
+          mkdir -p data/replication_n15
+          python scripts/batch_sar_runner.py --models scripts/models_n15_live.txt --output-dir data/replication_n15 --live --compare-tec --self-rate
+
+      - name: Run analysis
+        run: |
+          python scripts/analyze_batch_results.py --input-dir data/replication_n15 --output docs/research/n15_results_summary.md
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: n15-artifacts
+          path: data/replication_n15/**
+
+      - name: Create release notes (draft)
+        run: |
+          echo "N=15 SAR run completed. See attached artifacts." > release_notes.txt
+          cat docs/research/n15_results_summary.md >> release_notes.txt
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Upload release notes
+        uses: actions/upload-artifact@v4
+        with:
+          name: n15-release-notes
+          path: release_notes.txt
