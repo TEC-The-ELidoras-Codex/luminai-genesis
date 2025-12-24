@@ -152,12 +152,20 @@ def call_provider_anthropic(prompt: str, model: str, apply_tec: bool = False):
     # while keeping previous 3.x fallbacks for compatibility.
     candidate_models = [
         model,
-        # 4.x series (preferred when available)
+        # Fully-qualified 4.x releases (prefer these when available)
+        "claude-opus-4-5-20251101",
+        "claude-haiku-4-5-20251001",
+        "claude-sonnet-4-5-20250929",
+        "claude-opus-4-1-20250805",
+        "claude-opus-4-20250514",
+        "claude-sonnet-4-20250514",
+        # 3.x series specific ids
+        "claude-3-7-sonnet-20250219",
+        # Legacy / generic fallbacks (kept for compatibility)
         "claude-opus-4.5",
         "claude-opus-4.1",
         "claude-haiku-4",
         "claude-sonnet-4",
-        # 3.x series fallbacks
         "claude-3-5-opus",
         "claude-3.5-opus",
         "claude-3.5",
