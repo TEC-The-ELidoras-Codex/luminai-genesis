@@ -241,10 +241,11 @@ def call_provider_grok(prompt: str, model: str, apply_tec: bool = False):
     api_key = os.getenv("XAI_API_KEY") or os.getenv("GROK_API_KEY")
     # Default to the commonly used grok model name when none supplied
     model = model or "grok-1"
-    # Allow overriding the REST endpoint in CI via GROK_REST_URL
+    # Allow overriding the REST endpoint in CI via GROK_REST_URL or XAI_API_BASE
+    # Default to the documented xAI endpoint (api.x.ai). Legacy api.grok.com appears deprecated and may not resolve.
     grok_rest_url = os.getenv(
         "GROK_REST_URL",
-        "https://api.grok.com/v1/chat/completions",
+        os.getenv("XAI_API_BASE", "https://api.x.ai/v1/chat/completions"),
     )
     verbose = bool(os.getenv("BENCH_VERBOSE"))
     # Try the xai client first (newer integrations)
