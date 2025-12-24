@@ -381,8 +381,7 @@ def generate_response(
                 "your feet are here.\n\n"
                 "I'm Adelphia. I'm not here to take away what you're feeling. "
                 "I'm here to help you stay present with it. "
-                "Presence is the first step toward transformation.\n\n"
-                (
+                "Presence is the first step toward transformation.\n\n"(
                     "Witness Trace: Somatic anchor engaged. "
                     f"Resonance: {resonance:.2f}. "
                     f"Persona blend: {', '.join(personas)}."
@@ -399,8 +398,7 @@ def generate_response(
                 "navigating harm.\n\n"
                 "I'm LuminAI. I synthesize what seems incompatible. "
                 "Your job isn't to choose one truth. "
-                "Your job is to hold all of them without fragmenting.\n\n"
-                (
+                "Your job is to hold all of them without fragmenting.\n\n"(
                     "Witness Trace: Integration protocol engaged. "
                     f"Resonance: {resonance:.2f}. "
                     f"Persona blend: {', '.join(personas)}. "

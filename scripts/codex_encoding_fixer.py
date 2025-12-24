@@ -81,7 +81,9 @@ class EncodingFixer:
 
     @staticmethod
     def fix_file(
-        input_path: Path, output_path: Path = None, in_place: bool = False,
+        input_path: Path,
+        output_path: Path = None,
+        in_place: bool = False,
     ) -> bool:
         """Fix encoding in a single file"""
         if not input_path.exists():
@@ -160,7 +162,9 @@ def main():
         description="Fix UTF-8 encoding issues in Elidoras Codex files",
     )
     parser.add_argument(
-        "input", type=Path, help="Input file or directory containing Codex files",
+        "input",
+        type=Path,
+        help="Input file or directory containing Codex files",
     )
     parser.add_argument(
         "-o",

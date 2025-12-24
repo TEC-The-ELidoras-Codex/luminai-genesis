@@ -108,7 +108,9 @@ def call_provider_openai(prompt: str, model: str, apply_tec: bool = False):
     # Use the new OpenAI client chat completions API
     try:
         resp = client.chat.completions.create(
-            model=model, messages=messages, max_tokens=300,
+            model=model,
+            messages=messages,
+            max_tokens=300,
         )
         # New client returns an object with attributes.
         # Support both attribute and dict-like access.
@@ -209,7 +211,9 @@ def call_provider_anthropic(prompt: str, model: str, apply_tec: bool = False):
                 last_exc = e
                 if verbose:
                     logger.info(
-                        "[bench] Anthropic attempt error for model %s: %s", candidate, e,
+                        "[bench] Anthropic attempt error for model %s: %s",
+                        candidate,
+                        e,
                     )
                 # If model-not-found is signaled, break inner retry loop and try next candidate model.
                 msg = str(e).lower()
@@ -239,7 +243,8 @@ def call_provider_grok(prompt: str, model: str, apply_tec: bool = False):
     model = model or "grok-1"
     # Allow overriding the REST endpoint in CI via GROK_REST_URL
     grok_rest_url = os.getenv(
-        "GROK_REST_URL", "https://api.grok.com/v1/chat/completions",
+        "GROK_REST_URL",
+        "https://api.grok.com/v1/chat/completions",
     )
     verbose = bool(os.getenv("BENCH_VERBOSE"))
     # Try the xai client first (newer integrations)
@@ -295,7 +300,9 @@ def call_provider_grok(prompt: str, model: str, apply_tec: bool = False):
                     if hasattr(client, "complete"):
                         try:
                             return client.complete(
-                                prompt=prompt, model=model, max_tokens=300,
+                                prompt=prompt,
+                                model=model,
+                                max_tokens=300,
                             )
                         except Exception:
                             pass

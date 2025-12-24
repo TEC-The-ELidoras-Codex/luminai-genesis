@@ -73,7 +73,9 @@ def load_comments_from_json(path: str) -> list[dict]:
                 return comments
             except Exception as exc:
                 logger.debug(
-                    "Failed to parse Reddit JSON export children: %s", exc, exc_info=exc,
+                    "Failed to parse Reddit JSON export children: %s",
+                    exc,
+                    exc_info=exc,
                 )
 
         # Otherwise assume it's a list of comment objects
@@ -111,7 +113,9 @@ def to_witness_rows(comments: list[dict]) -> list[dict]:
                 )
             except Exception as exc:
                 logger.debug(
-                    "Failed to parse created_utc timestamp: %s", exc, exc_info=exc,
+                    "Failed to parse created_utc timestamp: %s",
+                    exc,
+                    exc_info=exc,
                 )
                 created = None
         if not created and c.get("created"):
@@ -125,7 +129,9 @@ def to_witness_rows(comments: list[dict]) -> list[dict]:
         # Heuristics: attempt to detect reported model or trigger phrases in the body
         model_reported = ""
         m = re.search(
-            r"GPT-?([0-9.]+)|gpt[ -]?([0-9.]+)|4o|4\.1|5", body, flags=re.IGNORECASE,
+            r"GPT-?([0-9.]+)|gpt[ -]?([0-9.]+)|4o|4\.1|5",
+            body,
+            flags=re.IGNORECASE,
         )
         if m:
             model_reported = (m.group(1) or m.group(2) or "").strip()
@@ -155,10 +161,12 @@ def write_csv(path: str, rows: list[dict]):
 def main():
     p = argparse.ArgumentParser()
     p.add_argument(
-        "--url", help="Reddit thread URL (comments/...) to fetch via Pushshift",
+        "--url",
+        help="Reddit thread URL (comments/...) to fetch via Pushshift",
     )
     p.add_argument(
-        "--json", help="Local exported Reddit JSON file (comments page or comment list)",
+        "--json",
+        help="Local exported Reddit JSON file (comments page or comment list)",
     )
     p.add_argument(
         "--out",
@@ -166,7 +174,10 @@ def main():
         help="Output CSV path",
     )
     p.add_argument(
-        "--size", type=int, default=2000, help="Max comments to fetch from Pushshift",
+        "--size",
+        type=int,
+        default=2000,
+        help="Max comments to fetch from Pushshift",
     )
     args = p.parse_args()
 

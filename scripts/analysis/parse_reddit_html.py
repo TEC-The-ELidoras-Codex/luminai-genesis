@@ -55,7 +55,10 @@ def extract_comments_from_html(html: str):
     for i, b in enumerate(blocks):
         # strip tags to plain text (very small sanitizer)
         text = re.sub(
-            r"<script.*?>.*?</script>", "", b, flags=re.DOTALL | re.IGNORECASE,
+            r"<script.*?>.*?</script>",
+            "",
+            b,
+            flags=re.DOTALL | re.IGNORECASE,
         )
         text = re.sub(r"<[^>]+>", "", text)
         text = re.sub(r"\s+", " ", text).strip()
@@ -90,7 +93,10 @@ def extract_author_and_time(html: str):
                 t = dt.strftime("%Y-%m-%d")
             except Exception as exc:
                 logger.debug(
-                    "Failed to parse datetime string '%s': %s", t, exc, exc_info=exc,
+                    "Failed to parse datetime string '%s': %s",
+                    t,
+                    exc,
+                    exc_info=exc,
                 )
                 # fallback: keep raw
         pairs.append((a, t))

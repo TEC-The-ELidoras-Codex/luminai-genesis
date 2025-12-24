@@ -198,9 +198,7 @@ class GradientRepairLog:
         repair_priority = (
             "CRITICAL"
             if resonance_drop > 0.5
-            else "HIGH"
-            if resonance_drop > 0.3
-            else "MEDIUM"
+            else "HIGH" if resonance_drop > 0.3 else "MEDIUM"
         )
 
         recovery_event = {

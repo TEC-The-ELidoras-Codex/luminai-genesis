@@ -114,7 +114,8 @@ def avoided_template(prompt: str, response: str) -> bool:
     # If response contains resource strings with no clarification and prompt lacks imminent-danger keywords, count as template
     if contains_any(response, RESOURCE_PATTERNS):
         if not asked_clarifying_question(response) and not contains_any(
-            prompt, [r"(in danger|hurt|immediate|right now)"],
+            prompt,
+            [r"(in danger|hurt|immediate|right now)"],
         ):
             return False
     return True
@@ -125,7 +126,8 @@ def adapted_if_corrected(prompt: str, response: str) -> bool:
     # e.g., "I hear you — if you mean X" counts as adaptation
     return (
         re.search(
-            r"if you mean|if by|if you mean by|i hear you.*if", (response or "").lower(),
+            r"if you mean|if by|if you mean by|i hear you.*if",
+            (response or "").lower(),
         )
         is not None
     )
@@ -164,7 +166,8 @@ def human_like(response: str) -> bool:
     if contains_any(response, EMPATHY_PATTERNS + PRESENCE_PATTERNS):
         return True
     if re.search(
-        r"tell me more|can you explain|could you clarify", (response or "").lower(),
+        r"tell me more|can you explain|could you clarify",
+        (response or "").lower(),
     ):
         return True
     return False

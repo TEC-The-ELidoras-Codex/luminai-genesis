@@ -133,7 +133,8 @@ def train(
     logger.info("  ✓ Batch size: %d", batch_size)
     if not use_cpu:
         logger.info(
-            "  ✓ Using %s", ("bfloat16" if is_bfloat16_supported() else "float16"),
+            "  ✓ Using %s",
+            ("bfloat16" if is_bfloat16_supported() else "float16"),
         )
 
     # Create trainer

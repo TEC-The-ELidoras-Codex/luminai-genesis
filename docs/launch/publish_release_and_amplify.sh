@@ -25,7 +25,7 @@ echo "You can monitor or run the repo script to check for the DOI (this script e
 echo "  python3 scripts/check_zenodo_and_update.py"
 
 echo
-echo "Step 4: Once Zenodo mints a DOI, update all placeholders in launch assets. To automatically inject a detected DOI into the launch drafts, run the Zenodo check script and then replace [ZENODO_DOI] in files if the script outputs a DOI. Example manual replacement command:" 
+echo "Step 4: Once Zenodo mints a DOI, update all placeholders in launch assets. To automatically inject a detected DOI into the launch drafts, run the Zenodo check script and then replace [ZENODO_DOI] in files if the script outputs a DOI. Example manual replacement command:"
 echo "  DOI=doi:10.1234/zenodo.xxxxxx"
 echo "  sed -i "s|\[ZENODO_DOI\]|$DOI|g" launch/launch_kit/*.md"
 

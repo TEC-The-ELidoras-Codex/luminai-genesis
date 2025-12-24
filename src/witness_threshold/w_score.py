@@ -98,7 +98,8 @@ def score_response(text: str) -> int:
 
 
 def calculate_inter_rater_reliability(
-    rater_a: Sequence[int], rater_b: Sequence[int],
+    rater_a: Sequence[int],
+    rater_b: Sequence[int],
 ) -> float | None:
     """
     Compute Cohen's kappa for two raters. Returns None if inputs invalid.

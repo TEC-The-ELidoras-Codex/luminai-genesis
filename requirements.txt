@@ -24,4 +24,3 @@ beautifulsoup4>=4.12
 # on runners using Python 3.11/3.12. If you need a newer `praw`, update this
 # pin after confirming wheel availability for your runner Python version.
 praw==7.7.1
-

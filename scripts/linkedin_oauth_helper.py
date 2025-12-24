@@ -50,7 +50,9 @@ class CallbackHandler(BaseHTTPRequestHandler):
         if "error" in qs:
             self.wfile.write(b"OAuth returned error, check the console for details.")
             logger.error(
-                "OAuth error: %s %s", qs.get("error"), qs.get("error_description"),
+                "OAuth error: %s %s",
+                qs.get("error"),
+                qs.get("error_description"),
             )
             sys.exit(1)
         code = qs.get("code", [None])[0]
@@ -176,7 +178,8 @@ if __name__ == "__main__":
     person_id = me_json.get("id")
     if not person_id:
         logger.error(
-            "Could not determine the person URN from profile response: %s", me_json,
+            "Could not determine the person URN from profile response: %s",
+            me_json,
         )
         sys.exit(1)
 

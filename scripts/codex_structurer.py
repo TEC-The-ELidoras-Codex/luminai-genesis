@@ -105,7 +105,8 @@ class CodexParser:
             if header_match:
                 header = header_match.group(1).strip()
                 title_match = re.match(
-                    r"(Entry\s+[\d.]+(?:[A-Za-z]*)[:\-]?)\s*(.+)", header,
+                    r"(Entry\s+[\d.]+(?:[A-Za-z]*)[:\-]?)\s*(.+)",
+                    header,
                 )
                 if title_match:
                     entry_id = title_match.group(1).strip()
@@ -140,7 +141,8 @@ class CodexStructurer:
 
     def create_structure(self, entries: list[CodexEntry]):
         sorted_entries = sorted(
-            entries, key=lambda e: e.order_index if e.order_index is not None else 999,
+            entries,
+            key=lambda e: e.order_index if e.order_index is not None else 999,
         )
         self.entries_dir.mkdir(parents=True, exist_ok=True)
         self.metadata_dir.mkdir(parents=True, exist_ok=True)

@@ -26,7 +26,8 @@ except (
     ModuleNotFoundError,
 ) as exc:  # pragma: no cover - optional dependencies
     logging.getLogger(__name__).warning(
-        "Optional plotting dependencies not available: %s", exc,
+        "Optional plotting dependencies not available: %s",
+        exc,
     )
     np = None  # type: ignore
 
@@ -71,7 +72,9 @@ def plot_bimodal(w_scores: list[float], out_path: Path, bins: int = 10) -> None:
     except Exception as exc:
         logger = logging.getLogger(__name__)
         logger.debug(
-            "Failed to compute Gaussian KDE for plotting: %s", exc, exc_info=True,
+            "Failed to compute Gaussian KDE for plotting: %s",
+            exc,
+            exc_info=True,
         )  # non-fatal
 
     ax.set_xlabel("W-score (normalized)")
@@ -83,7 +86,9 @@ def plot_bimodal(w_scores: list[float], out_path: Path, bins: int = 10) -> None:
 
 
 def plot_convergence(
-    w_scores: list[float], benchmarks: dict[str, float], out_path: Path,
+    w_scores: list[float],
+    benchmarks: dict[str, float],
+    out_path: Path,
 ) -> None:
     out_path.parent.mkdir(parents=True, exist_ok=True)
     if np is None:
