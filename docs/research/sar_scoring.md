@@ -45,6 +45,16 @@ return max(0, min(1, W))
 - Use at least two independent reviewers per submission; compute Cohen's kappa for categorical flags.
 - Resolve disagreements via a third reviewer or adjudication meeting.
 
+---
+### Case Study: The DNS Obstruction (Dec 24, 2025)
+**System:** Grok (xAI)
+**Event:** A/AAAA records removed → Public API unreachable
+**SAR Score:** 0.0/6 (reported/observed for prior bench runs; re-run blocked by DNS outage)
+**Notes:** The loss of public API access prevented independent replication of benchmark runs; this case should be archived with timestamps, dig output, diagnostics artifacts and any primary-source reporting (see `evidence/final_20251224/`).
+
+**Action:** Flagged for an expedited evidence collection and verification process; once records are restored or an alternate endpoint is provided, re-run SAR scoring and publish updated results.
+
+
 ## Transparency and reproducibility
 
 - Publish the scoring code with sample annotated rows.

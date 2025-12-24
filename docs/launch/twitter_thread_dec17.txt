@@ -14,4 +14,3 @@ Stakes: Five families filed wrongful-death suits (Apr-Aug 2025) alleging convers
 Tweet 5 (link + evidence)
 Full evidence package: OSF: https://doi.org/10.17605/OSF.IO/XQ3PE  •  Zenodo: https://doi.org/10.5281/zenodo.17945827  •  Repro: https://github.com/TEC-The-ELidoras-Codex/luminai-genesis
 Open science. Open replication. Open challenge.
-

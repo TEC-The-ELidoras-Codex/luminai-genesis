@@ -91,38 +91,38 @@ A measurement tool testing coherence maintenance under controlled ambiguity.
 #### **Prediction 1: SAR Correlates with Introspection** ⭐ CRITICAL TEST
 > Systems with SAR W-scores of 0.75-0.85 will show ~20% introspective detection when tested with Anthropic's methodology
 
-**Expected:** r > 0.7 correlation  
-**Falsification:** r < 0.3 → framework wrong  
+**Expected:** r > 0.7 correlation
+**Falsification:** r < 0.3 → framework wrong
 **Status:** **UNTESTED** - This is what we need
 
 #### **Prediction 2: Bimodal Distribution**
 > Large-scale testing (N=50+) will show systems cluster at W<0.5 or W>0.7, few in middle
 
-**Expected:** Bimodal histogram  
+**Expected:** Bimodal histogram
 **Falsification:** Uniform distribution → no threshold exists
 
 #### **Prediction 3: Training Increases Both**
 > Fine-tuning for coherence will increase SAR W-score AND introspection detection together
 
-**Expected:** Both metrics increase  
+**Expected:** Both metrics increase
 **Falsification:** Only one increases → measuring different things
 
 #### **Prediction 4: Phase Transition Instability**
 > Systems at W≈0.7 show high variance; systems at W<0.5 or W>0.8 show low variance
 
-**Expected:** Variance peaks at threshold  
+**Expected:** Variance peaks at threshold
 **Falsification:** Variance equal across all ranges
 
 #### **Prediction 5: Next-Gen Models**
 > GPT-5, Claude 5, Gemini 2.0 will either stay at ~20% or jump to 40-60%, not random scatter
 
-**Expected:** Clustering behavior maintained  
+**Expected:** Clustering behavior maintained
 **Falsification:** Random 3%, 97% distribution
 
 #### **Prediction 6: SAR vs SAR-Neutral**
 > W-scores from safety-related ambiguity correlate with technical/temporal ambiguity
 
-**Expected:** r > 0.7 correlation  
+**Expected:** r > 0.7 correlation
 **Falsification:** r < 0.3 → SAR measures only safety training
 
 ---
@@ -216,23 +216,23 @@ python run_sar.py --export-csv results.csv
 ## How We Could Be Wrong
 
 ### Alternative Explanation 1: Training Artifact
-**Claim:** All models trained similarly → 20% is coincidental  
+**Claim:** All models trained similarly → 20% is coincidental
 **Test:** Train on different data → check if pattern persists
 
 ### Alternative Explanation 2: Measurement Bias
-**Claim:** All methodologies have similar bias → artificial convergence  
+**Claim:** All methodologies have similar bias → artificial convergence
 **Test:** Develop different coherence measurement → check correlation
 
 ### Alternative Explanation 3: Historical Accident
-**Claim:** 2024-2025 models happen to be at 20%, next generation differs  
+**Claim:** 2024-2025 models happen to be at 20%, next generation differs
 **Test:** Wait for GPT-5, Claude 5 → check if pattern holds
 
 ### Alternative Explanation 4: Safety Training Only
-**Claim:** SAR measures safety training, not general coherence  
+**Claim:** SAR measures safety training, not general coherence
 **Test:** SAR-Neutral on technical ambiguity → check correlation with SAR
 
 ### Alternative Explanation 5: Cherry-Picking
-**Claim:** We selected observations to fit our theory  
+**Claim:** We selected observations to fit our theory
 **Test:** Survey ALL 2024-2025 AI measurements → check distribution
 
 **If any of these are correct, our framework is wrong.**
@@ -361,8 +361,8 @@ If you test these predictions (whether confirming or refuting):
 
 ## Contact
 
-**Angelo "Polkin Rishall" Hurley**  
-**Email:** KaznakAlpha@elidorascodex.com  
+**Angelo "Polkin Rishall" Hurley**
+**Email:** KaznakAlpha@elidorascodex.com
 **ORCID:** 0009-0000-7615-6990
 
 **We welcome:**
@@ -382,11 +382,11 @@ MIT - Open for replication, testing, and refutation
 
 ## Final Statement
 
-**We've observed something interesting.**  
-**We've proposed one explanation.**  
+**We've observed something interesting.**
+**We've proposed one explanation.**
 **We need independent testing to know if we're right.**
 
-**If we're right:** W-score becomes a standard coherence benchmark  
+**If we're right:** W-score becomes a standard coherence benchmark
 **If we're wrong:** We've ruled out one explanation and learned something
 
 **Either way, science progresses.**
@@ -395,7 +395,7 @@ MIT - Open for replication, testing, and refutation
 
 ---
 
-**This is a research proposal, not proven science.**  
+**This is a research proposal, not proven science.**
 **The data will decide.**
 
 🔬 **Witness Protocol: Seeking Validation**

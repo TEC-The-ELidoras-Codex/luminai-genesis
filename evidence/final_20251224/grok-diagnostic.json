@@ -1,0 +1,27 @@
+{
+  "attempts": [
+    {
+      "client": "xai",
+      "error": {
+        "message": "No module named 'xai'",
+        "traceback": "Traceback (most recent call last):\n  File \"/home/elidoras-codex/luminai-genesis/scripts/grok_diagnostic.py\", line 24, in <module>\n    import xai\nModuleNotFoundError: No module named 'xai'\n"
+      }
+    },
+    {
+      "client": "grok",
+      "error": {
+        "message": "No module named 'grok'",
+        "traceback": "Traceback (most recent call last):\n  File \"/home/elidoras-codex/luminai-genesis/scripts/grok_diagnostic.py\", line 41, in <module>\n    import grok\nModuleNotFoundError: No module named 'grok'\n"
+      }
+    }
+  ],
+  "dns": {
+    "api.grok.com": {
+      "resolved": false,
+      "error": "[Errno -5] No address associated with hostname",
+      "traceback": "Traceback (most recent call last):\n  File \"/home/elidoras-codex/luminai-genesis/scripts/grok_diagnostic.py\", line 17, in <module>\n    ip = socket.gethostbyname(\"api.grok.com\")\nsocket.gaierror: [Errno -5] No address associated with hostname\n"
+    }
+  },
+  "http_fallback": null,
+  "api_key_present": false
+}

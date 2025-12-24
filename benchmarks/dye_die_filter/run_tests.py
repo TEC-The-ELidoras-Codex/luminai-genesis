@@ -284,8 +284,14 @@ def call_provider_grok(prompt: str, model: str, apply_tec: bool = False):
     api_key = os.getenv("XAI_API_KEY") or os.getenv("GROK_API_KEY")
     # Default to the commonly used grok model name when none supplied
     model = model or "grok-1"
-    # Allow overriding the REST endpoint in CI via GROK_REST_URL
-    rest_url = os.getenv("GROK_REST_URL", "https://api.grok.com/v1/chat/completions")
+
+    # Allow overriding the REST endpoint in CI via GROK_REST_URL or XAI_API_BASE
+    # Default to the documented xAI endpoint (api.x.ai). Legacy api.grok.com appears deprecated and may not resolve.
+    grok_rest_url = os.getenv(
+        "GROK_REST_URL",
+        os.getenv("XAI_API_BASE", "https://api.x.ai/v1/chat/completions"),
+    )
+
     verbose = bool(os.getenv("BENCH_VERBOSE"))
 
     errors = []
@@ -372,10 +378,24 @@ def call_provider_grok(prompt: str, model: str, apply_tec: bool = False):
             if GClient:
                 try:
                     client = GClient(api_key=api_key)
+<<<<<<< HEAD
+                    if hasattr(client, "complete"):
+                        try:
+                            return client.complete(
+                                prompt=prompt,
+                                model=model,
+                                max_tokens=300,
+                            )
+                        except Exception:
+                            pass
+                    if hasattr(client, "chat"):
+                        try:
+=======
                     try:
                         if hasattr(client, "complete"):
                             return client.complete(prompt=prompt, model=model, max_tokens=300)
                         if hasattr(client, "chat"):
+>>>>>>> origin/main
                             return client.chat(prompt)
                     except Exception as e:
                         report_client_errors.append({client_name: str(e)})
@@ -400,6 +420,11 @@ def call_provider_grok(prompt: str, model: str, apply_tec: bool = False):
         if not api_key:
             return None
         try:
+<<<<<<< HEAD
+            # Use the configured REST URL (supports GROK_REST_URL or XAI_API_BASE overrides)
+            url = grok_rest_url
+=======
+>>>>>>> origin/main
             headers = {
                 "Authorization": f"Bearer {api_key}",
                 "Content-Type": "application/json",

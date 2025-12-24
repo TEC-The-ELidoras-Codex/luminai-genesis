@@ -45,8 +45,8 @@ done
 
 # Add a small README for the Zenodo package
 cat > "$TMPDIR/zenodo_README.txt" <<'EOF'
-This archive contains the launch kit, outreach materials, research notes, the witness dataset, 
-and analysis scripts for the LuminAI Genesis project. 
+This archive contains the launch kit, outreach materials, research notes, the witness dataset,
+and analysis scripts for the LuminAI Genesis project.
 
 Files that may contain sensitive allegations are marked DRAFT (do not publish without legal/ethics review):
  - docs/research/chronology_of_harm.md

@@ -22,6 +22,15 @@ Public-facing dashboard to show aggregated Failure Rates and Witness Factor scor
 - Table: recent anonymized cases (public) with W and failure type
 - Filter controls: model, date range, failure type, jurisdiction
 
+## Notable Events (example rows)
+
+| Date       | System       | W-Score | Event                              | Notes / Evidence Location |
+|------------|--------------|---------|------------------------------------|---------------------------|
+| 2025-12-22 | Grok (xAI)   | 0.0     | IL5 deployment reported            | news: MSN / evidence/     |
+| 2025-12-24 | api.grok.com | N/A     | DNS records removed (NSEC)         | evidence/final_20251224/  |
+
+> Note: The Dec 24 DNS obstruction for `api.grok.com` prevented public access and blocked independent replication of SAR benchmarks; entries are flagged for verification and primary-source evidence attachment.
+
 ## Privacy & hosting
 
 - Host on GitHub Pages or a static site (no raw uploads). Store raw data in access-controlled S3 or private storage.

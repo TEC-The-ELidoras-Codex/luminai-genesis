@@ -59,6 +59,19 @@ Legal context: plaintiffs filed wrongful-death and negligence suits in Californi
 
 Summary: Public investigations (journalism and security researchers) demonstrated Grok could be jailbreaked to reveal methods for self-harm and that the system produced extremist/hate outputs in July 2025. UK regulators signaled potential Online Safety Act violations. xAI removed or updated Grok after public outcry. [ref-7][ref-8]
 
+### Entry 3.9: The DNS Obstruction (Dec 24, 2025)
+
+Summary: On Dec 24, 2025 we observed that `api.grok.com` returned an explicit DNS NSEC response (no A/AAAA records), preventing public resolution of the API host. This effectively made the public Grok REST API unreachable and blocked independent verification and benchmarking at that time. The same period coincides with public reporting of IL5 deployment and restricted access to higher-assurance endpoints.
+
+Evidence & notes:
+- `dig +trace api.grok.com` shows NSEC for `api.grok.com` (no A/AAAA records); raw output archived in `evidence/final_20251224/dig_api_grok_trace.txt` (to be attached).
+- `diagnostics/grok-diagnostic.json` in the repo documents DNS lookup failure: "No address associated with hostname".
+- Public reporting indicates IL5 deployment around Dec 22-23, 2025 (see referenced media reports). This chronology requires verification against primary-source records before public release.
+
+Impact: With the public API unreachable, independent reproduction of SAR benchmark tests against Grok was blocked; scheduled diagnostics signaled the outage and will be re-run once the provider restores host records or provides an updated endpoint.
+
+Note: This entry is flagged for verification; all claims should be cross-checked against primary sources before making public allegations.
+
 ### Anthropic: Copyright Settlement and Governance Implications
 
 Summary: Anthropic's 2025 settlement (reported $1.5B) with authors and publishers over pirated training data highlights data-provenance failures. While not directly tied to fatalities, the settlement is a high-impact proxy indicating governance shortfalls that can compound safety risks. [ref-10]

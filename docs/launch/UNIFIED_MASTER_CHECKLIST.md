@@ -59,6 +59,7 @@
 ### CI/CD
 - [ ] Merge PR #80 (scheduled Grok diagnostic) - **RECOMMENDED**
 - [ ] Verify CI passes on `main` branch
+- [x] Update `benchmarks/dye_die_filter/run_tests.py` to use xAI endpoint / env override (PR #83)
 - [ ] Confirm dry-run mode works for Grok (until DNS resolves)
 - [ ] Monitor scheduled diagnostic runs (daily checks)
 
@@ -83,17 +84,29 @@
 
 ### Tier 1 - Research Labs (Send Simultaneously)
 - [ ] **OpenAI** - `partnerships@openai.com`
+<<<<<<< HEAD
+  - Subject: "The Missing Alignment Layer â€“ TGCR Witness Protocol"
+=======
   - Subject: "The Missing Alignment Layer – TGCR Witness Protocol"
+>>>>>>> origin/main
   - Attach: Link to public artifact
   - Time sent: _____ | Confirmation: _____
 
 - [ ] **Anthropic** - `contact@anthropic.com`
+<<<<<<< HEAD
+  - Subject: "The Missing Alignment Layer â€“ TGCR Witness Protocol"
+=======
   - Subject: "The Missing Alignment Layer – TGCR Witness Protocol"
+>>>>>>> origin/main
   - Attach: Link to public artifact
   - Time sent: _____ | Confirmation: _____
 
 - [ ] **DeepMind** - `research@deepmind.com`
+<<<<<<< HEAD
+  - Subject: "Geometric Alignment for AGI â€“ The TGCR Framework"
+=======
   - Subject: "Geometric Alignment for AGI – The TGCR Framework"
+>>>>>>> origin/main
   - Attach: Link to public artifact
   - Time sent: _____ | Confirmation: _____
 
@@ -127,12 +140,22 @@
 ### Week 1-2 (Jan 7-20)
 - [ ] Monitor email for responses
 - [ ] Check Substack engagement
+<<<<<<< HEAD
+- [ ] Watch GitHub Actions - Grok diagnostic status (api.grok.com currently returns NSEC — no A/AAAA; re-run diagnostics after provider adds host records)
+- [ ] Add DNS diagnostic output and timestamp to tracking log
+- [ ] Open issue with provider: "api.grok.com missing A/AAAA records"
+=======
 - [ ] Watch GitHub Actions - Grok diagnostic status
+>>>>>>> origin/main
 - [ ] Track social media metrics
 
 ### Week 3 (Jan 21-27) - First Follow-Up
 - [ ] Send gentle follow-up if no response:
+<<<<<<< HEAD
+  - Subject: "RE: The Missing Alignment Layer â€“ Status Update"
+=======
   - Subject: "RE: The Missing Alignment Layer – Status Update"
+>>>>>>> origin/main
   - Brief: "Confirming you received TGCR proposal. Happy to discuss."
 - [ ] Log follow-up attempts
 
@@ -158,7 +181,11 @@
 - [ ] Create GitHub release with tarball
 
 ### Pilot Expansion
+<<<<<<< HEAD
+- [ ] If BestSelf responds positively â†’ launch pilot
+=======
 - [ ] If BestSelf responds positively → launch pilot
+>>>>>>> origin/main
 - [ ] IRB submission (if needed)
 - [ ] Consent & data policies documented
 - [ ] Deploy staging demo (isolated, secure)
@@ -167,16 +194,39 @@
 
 ## SKIPPED / NOT PURSUING
 
+<<<<<<< HEAD
+- âŒ DARPA/IARPA submissions (not pursuing yet)
+- ⚠️ **Grok DNS: api.grok.com shows NSEC (no A/AAAA)** — 2025-12-24 (no address records; see Phase 6 notes below)
+- ⚠️ Consider re-enabling **Grok/X outreach** once a host record is provided (decide outreach plan)
+- âŒ Live deployment (pilot not ready without partner)
+- âŒ Personal narrative in public docs (moving to `private/`) 
+=======
 - ❌ DARPA/IARPA submissions (not pursuing yet)
 - ❌ Grok/X outreach (DNS monitoring handles it automatically)
 - ❌ Live deployment (pilot not ready without partner)
 - ❌ Personal narrative in public docs (moving to `private/`)
+>>>>>>> origin/main
 
 ---
 
 ## SUCCESS CRITERIA
 
 ### Week 1-2
+<<<<<<< HEAD
+- âœ… All emails sent successfully
+- âœ… Substack published
+- âœ… GitHub repo receiving traffic
+
+### Month 1-2
+- âœ… At least 1 research team requests call/meeting
+- âœ… BestSelf responds (local pilot opportunity)
+- âœ… Substack reaches 50+ subscribers
+
+### Month 3-6
+- âœ… Pilot integration agreement signed
+- âœ… Peer-reviewed submission or preprint published
+- âœ… Independent replication attempts documented
+=======
 - ✅ All emails sent successfully
 - ✅ Substack published
 - ✅ GitHub repo receiving traffic
@@ -190,11 +240,33 @@
 - ✅ Pilot integration agreement signed
 - ✅ Peer-reviewed submission or preprint published
 - ✅ Independent replication attempts documented
+>>>>>>> origin/main
 
 ---
 
 ## IMMEDIATE NEXT ACTIONS (Pick One)
 
+<<<<<<< HEAD
+**A) Merge PR #80** (1 minute) — *RECOMMENDED*
+- Scheduled Grok diagnostic
+- Automatic DNS monitoring
+
+**B) Verify Grok DNS propagation & SSL/TLS** (15 minutes)
+- Run `dig +short <grok-hostname>` from multiple regions
+- Verify SSL with `curl -v https://<grok-hostname>` and confirm chain
+- Record DNS activation timestamp and verifier
+
+**C) Run dry-run diagnostics with Grok** (30–60 minutes)
+- Enable dry-run mode, run scheduled diagnostic, review logs
+- If stable, run a controlled full diagnostic
+
+**D) Clean README.md now** (15 minutes)
+- Strip personal narrative
+- Focus on work only
+- Structure: Problem â†’ Solution â†’ Evidence â†’ Usage
+
+**E) Git cleanup** (30 minutes)
+=======
 **A) Clean README.md now** (15 minutes)
 - Strip personal narrative
 - Focus on work only
@@ -206,11 +278,16 @@
 - **RECOMMENDED: Do this first**
 
 **C) Git cleanup** (30 minutes)
+>>>>>>> origin/main
 - Commit/discard uncommitted changes
 - Run restructure script
 - Clean repo state
 
+<<<<<<< HEAD
+**F) Draft BestSelf email** (20 minutes)
+=======
 **D) Draft BestSelf email** (20 minutes)
+>>>>>>> origin/main
 - Local pilot opportunity
 - Full-circle narrative
 - High-impact partnership

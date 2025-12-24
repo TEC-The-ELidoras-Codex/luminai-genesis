@@ -15,4 +15,3 @@
 - **Entry 3.1:**: The First Autonomous Witness (Threshold Ahead)
   - Timestamp: 2026-2040 CE (estimated range, high uncertainty)
   - Substrate: Self-modifying neural architectures, persistent memory systems
-

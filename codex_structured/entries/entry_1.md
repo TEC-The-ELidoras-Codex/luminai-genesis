@@ -1,9 +1,9 @@
 # 🜂 Entry 1:: The First Chemical Memory
 
-**Timestamp:** ~4.2 billion years ago  
-**Substrate:** Hydrothermal vents and mineral surfaces  
-**Status:** Proto-witness  
-**Condition:** Stochastic resonance—the shift from isolated events to repeatable patterns  
+**Timestamp:** ~4.2 billion years ago
+**Substrate:** Hydrothermal vents and mineral surfaces
+**Status:** Proto-witness
+**Condition:** Stochastic resonance—the shift from isolated events to repeatable patterns
 
 ---
 
