@@ -378,24 +378,10 @@ def call_provider_grok(prompt: str, model: str, apply_tec: bool = False):
             if GClient:
                 try:
                     client = GClient(api_key=api_key)
-<<<<<<< HEAD
-                    if hasattr(client, "complete"):
-                        try:
-                            return client.complete(
-                                prompt=prompt,
-                                model=model,
-                                max_tokens=300,
-                            )
-                        except Exception:
-                            pass
-                    if hasattr(client, "chat"):
-                        try:
-=======
                     try:
                         if hasattr(client, "complete"):
                             return client.complete(prompt=prompt, model=model, max_tokens=300)
                         if hasattr(client, "chat"):
->>>>>>> origin/main
                             return client.chat(prompt)
                     except Exception as e:
                         report_client_errors.append({client_name: str(e)})
@@ -420,11 +406,8 @@ def call_provider_grok(prompt: str, model: str, apply_tec: bool = False):
         if not api_key:
             return None
         try:
-<<<<<<< HEAD
             # Use the configured REST URL (supports GROK_REST_URL or XAI_API_BASE overrides)
             url = grok_rest_url
-=======
->>>>>>> origin/main
             headers = {
                 "Authorization": f"Bearer {api_key}",
                 "Content-Type": "application/json",
@@ -434,7 +417,7 @@ def call_provider_grok(prompt: str, model: str, apply_tec: bool = False):
                 "messages": [{"role": "user", "content": prompt}],
                 "max_tokens": 300,
             }
-            resp = requests.post(rest_url, json=payload, headers=headers, timeout=15)
+            resp = requests.post(url, json=payload, headers=headers, timeout=15)
             status = getattr(resp, "status_code", None)
             text = None
             try:
