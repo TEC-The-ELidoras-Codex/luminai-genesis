@@ -1,0 +1,27 @@
+name: grok-auth-probe-curl
+on:
+  workflow_dispatch:
+
+jobs:
+  auth-probe-curl:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Run authenticated curl probe
+        env:
+          XAI_API_KEY: ${{ secrets.XAI_API_KEY }}
+        run: |
+          set -euo pipefail
+          mkdir -p diagnostics
+          cat > /tmp/payload.json <<'PAY'
+{"model":"grok-2","messages":[{"role":"user","content":"Hello"}],"max_tokens":20}
+PAY
+          curl -sS -H "Authorization: Bearer ${XAI_API_KEY}" -H "Content-Type: application/json" -d @/tmp/payload.json https://api.x.ai/v1/chat/completions -o diagnostics/xai-auth-probe-curl.json -w "\n%{http_code}\n" || true
+
+      - name: Upload probe artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: xai-auth-probe-curl
+          path: diagnostics/xai-auth-probe-curl.json
