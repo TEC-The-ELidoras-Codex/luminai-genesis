@@ -12,14 +12,15 @@ report = {"attempts": [], "dns": {}, "http_fallback": None}
 api_key = os.environ.get("GROK_API_KEY") or os.environ.get("XAI_API_KEY")
 report["api_key_present"] = bool(api_key)
 
-# DNS resolution check
-try:
-    ip = socket.gethostbyname("api.grok.com")
-    report["dns"]["api.grok.com"] = {"resolved": True, "ip": ip}
-except Exception as e:
-    report["dns"]["api.grok.com"] = {"resolved": False, "error": str(e), "traceback": traceback.format_exc()}
+# DNS resolution check (check both legacy and current endpoints)
+for host in ("api.grok.com", "api.x.ai"):
+    try:
+        ip = socket.gethostbyname(host)
+        report["dns"][host] = {"resolved": True, "ip": ip}
+    except Exception as e:
+        report["dns"][host] = {"resolved": False, "error": str(e), "traceback": traceback.format_exc()}
 
-# Try xai client first
+# Try xai client first (if available)
 try:
     import xai
     try:
@@ -66,22 +67,52 @@ try:
 except Exception as e:
     report["attempts"].append({"client": "grok", "error": {"message": str(e), "traceback": traceback.format_exc()}})
 
-# HTTP fallback test to Grok REST endpoint (if API key present)
-if api_key:
-    import requests
+# HTTP fallback test to Grok/XAI REST endpoint(s)
+import requests
 
+def _http_probe(url: str, api_key: str | None):
     try:
-        url = os.getenv("GROK_REST_URL", "https://api.grok.com/v1/chat/completions")
-        headers = {"Authorization": f"Bearer {api_key}", "Content-Type": "application/json"}
+        headers = {"Content-Type": "application/json"}
+        if api_key:
+            headers["Authorization"] = f"Bearer {api_key}"
         payload = {"model": "grok-2", "messages": [{"role": "user", "content": "Hello"}], "max_tokens": 20}
         r = requests.post(url, json=payload, headers=headers, timeout=20)
         try:
             txt = r.text
         except Exception:
             txt = None
-        report["http_fallback"] = {"status": getattr(r, "status_code", None), "text": (txt[:2000] if isinstance(txt, str) else txt)}
+        return {"url": url, "status": getattr(r, "status_code", None), "text": (txt[:2000] if isinstance(txt, str) else txt)}
     except Exception as e:
-        report["http_fallback"] = {"error": str(e), "traceback": traceback.format_exc()}
+        return {"url": url, "error": str(e), "traceback": traceback.format_exc()}
+
+# Probe in order: explicit GROK_REST_URL, XAI_API_BASE, api.x.ai default
+probe_urls = []
+probe_urls.append(os.getenv("GROK_REST_URL"))
+probe_urls.append(os.getenv("XAI_API_BASE"))
+probe_urls.append("https://api.x.ai/v1/chat/completions")
+probe_urls = [u for u in probe_urls if u]
+
+report["http_fallback"] = []
+for url in probe_urls:
+    report["http_fallback"].append(_http_probe(url, api_key))
+
+# If an API key is present, perform an authenticated XAI probe and save result separately
+if api_key:
+    try:
+        headers = {"Content-Type": "application/json", "Authorization": f"Bearer {api_key}"}
+        payload = {"model": "grok-2", "messages": [{"role": "user", "content": "Automated probe: are you online?"}], "max_tokens": 60}
+        try:
+            r = requests.post("https://api.x.ai/v1/chat/completions", json=payload, headers=headers, timeout=20)
+            auth_probe = {"status_code": getattr(r, "status_code", None), "text": (r.text[:8000] if isinstance(r.text, str) else None)}
+        except Exception as e:
+            auth_probe = {"error": str(e), "traceback": traceback.format_exc()}
+    except Exception as e:
+        auth_probe = {"error": str(e), "traceback": traceback.format_exc()}
+    try:
+        with open("diagnostics/xai-auth-probe.json", "w") as f:
+            json.dump(auth_probe, f, indent=2)
+    except Exception:
+        pass
 
 with open(outf, "w") as f:
     json.dump(report, f, indent=2)
