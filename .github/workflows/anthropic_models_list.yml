@@ -1,0 +1,32 @@
+name: Anthropic - List Available Models
+
+on:
+  workflow_dispatch:
+
+jobs:
+  list-models:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Debug env
+        run: |
+          echo "Checking ANTHROPIC_API_KEY presence"
+          if [ -z "${{ secrets.ANTHROPIC_API_KEY }}" ]; then echo "ANTHROPIC_API_KEY not set"; else echo "ANTHROPIC_API_KEY set"; fi
+
+      - name: Query Anthropic models
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          echo "Requesting list of models from Anthropic API..."
+          set -eou pipefail
+          resp_file=models.json
+          curl -s -H "x-api-key: $ANTHROPIC_API_KEY" https://api.anthropic.com/v1/models -o "$resp_file" || true
+          echo "--- RAW RESPONSE ---"
+          cat "$resp_file" || true
+          echo "--- PARSED NAMES ---"
+          jq -r '.models[]?.id // .[]?.id // empty' "$resp_file" || true
+
+      - name: Upload models list
+        uses: actions/upload-artifact@v4
+        with:
+          name: anthropic-models
+          path: models.json

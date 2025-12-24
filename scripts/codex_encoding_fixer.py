@@ -6,6 +6,7 @@ Repairs corrupted UTF-8 encoding in Codex markdown files
 
 import logging
 import re
+import sys
 from pathlib import Path
 
 logger = logging.getLogger(__name__)
@@ -75,13 +76,14 @@ class EncodingFixer:
         text = text.replace("â€°", "‰")
 
         # Trim trailing whitespace on lines
-        text = "\n".join(line.rstrip() for line in text.splitlines())
-
-        return text
+        return "\n".join(line.rstrip() for line in text.splitlines())
 
     @staticmethod
     def fix_file(
-        input_path: Path, output_path: Path = None, in_place: bool = False,
+        input_path: Path,
+        output_path: Path | None = None,
+        *,
+        in_place: bool = False,
     ) -> bool:
         """Fix encoding in a single file"""
         if not input_path.exists():
@@ -106,20 +108,25 @@ class EncodingFixer:
 
             if original_text != fixed_text:
                 changes = sum(
-                    1 for a, b in zip(original_text, fixed_text) if a != b
+                    1 for a, b in zip(original_text, fixed_text, strict=False) if a != b
                 ) + abs(len(original_text) - len(fixed_text))
                 logger.info("Fixed %s: ~%d character changes", input_path.name, changes)
             else:
                 logger.info("%s: No changes needed", input_path.name)
 
-            return True
-
-        except Exception as exc:
-            logger.exception("Error processing %s: %s", input_path.name, exc)
+        except OSError:
+            logger.exception("Error processing %s", input_path.name)
             return False
 
+        return True
+
     @staticmethod
-    def fix_directory(input_dir: Path, output_dir: Path = None, in_place: bool = False):
+    def fix_directory(
+        input_dir: Path,
+        output_dir: Path | None = None,
+        *,
+        in_place: bool = False,
+    ):
         """Fix all markdown and text files in a directory"""
         if not input_dir.exists():
             logger.error("Directory not found: %s", input_dir)
@@ -160,7 +167,9 @@ def main():
         description="Fix UTF-8 encoding issues in Elidoras Codex files",
     )
     parser.add_argument(
-        "input", type=Path, help="Input file or directory containing Codex files",
+        "input",
+        type=Path,
+        help="Input file or directory containing Codex files",
     )
     parser.add_argument(
         "-o",
@@ -188,4 +197,4 @@ def main():
 
 
 if __name__ == "__main__":
-    exit(main())
+    sys.exit(main())

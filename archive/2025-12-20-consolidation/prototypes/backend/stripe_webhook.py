@@ -81,7 +81,6 @@ Session ID: {session.get("id")}
             )
             sg = SendGridAPIClient(sendgrid_api_key)
             sg.send(message)
-            print(f"[Webhook] Sent confirmation email to {email} via SendGrid")
         elif email_backend == "smtp" and email_host and email_user and email_pass:
             # SMTP integration
             msg = MIMEMultipart()
@@ -94,12 +93,11 @@ Session ID: {session.get("id")}
                 server.starttls()
                 server.login(email_user, email_pass)
                 server.send_message(msg)
-            print(f"[Webhook] Sent confirmation email to {email} via SMTP")
         else:
             # Fallback: print to log (development)
-            print(f"[Webhook] (DEV MODE) Would send email to {email}: {subject}")
-    except Exception as e:
-        print(f"[Webhook] Error sending email to {email}: {e}")
+            pass
+    except Exception:
+        pass
 
 
 def save_session_info(session: dict):

@@ -1,8 +1,10 @@
 import logging
 import os
+import sys
+from pathlib import Path
 
 import yaml
-from github import Github
+from github import Github, GithubException
 
 logger = logging.getLogger(__name__)
 logging.basicConfig(level=logging.INFO, format="%(message)s")
@@ -11,7 +13,7 @@ logging.basicConfig(level=logging.INFO, format="%(message)s")
 token = os.getenv("GITHUB_TOKEN")
 if not token:
     logger.error("GITHUB_TOKEN not set")
-    exit(1)
+    sys.exit(1)
 
 # Initialize GitHub client
 g = Github(token)
@@ -20,7 +22,7 @@ g = Github(token)
 repo = g.get_repo("TEC-The-ELidoras-Codex/luminai-genesis")
 
 # Load labels from YAML
-with open(".github/labels.yml") as f:
+with Path(".github/labels.yml").open(encoding="utf-8") as f:
     labels_data = yaml.safe_load(f)
 
 # Import labels
@@ -35,7 +37,7 @@ for label in labels_data:
         # Update if exists
         existing.edit(name, color, description)
         logger.info("Updated label: %s", name)
-    except Exception as exc:
+    except GithubException as exc:
         logger.debug("Label update failed for %s: %s", name, exc, exc_info=exc)
         # Create if not exists
         repo.create_label(name, color, description)

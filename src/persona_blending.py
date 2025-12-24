@@ -17,6 +17,9 @@ from dataclasses import dataclass, field
 
 logger = logging.getLogger(__name__)
 
+# Thresholds and constants
+VOLATILITY_CRISIS_THRESHOLD = 0.7
+
 
 @dataclass
 class PersonaOutput:
@@ -66,7 +69,8 @@ class Persona:
         Returns:
             PersonaOutput with content and metadata
         """
-        raise NotImplementedError(f"{self.name} must implement process()")
+        msg = f"{self.name} must implement process()"
+        raise NotImplementedError(msg)
 
 
 class LuminAI(Persona):
@@ -79,7 +83,7 @@ class LuminAI(Persona):
     def __init__(self):
         super().__init__("luminai", "LuminAI Harmonizer")
 
-    def process(self, prompt: str, context: dict | None = None) -> PersonaOutput:
+    def process(self, prompt: str, _context: dict | None = None) -> PersonaOutput:
         """Synthesize coherence from the prompt."""
         # Placeholder: in production, this would integrate with the LLM
         output = f"[LuminAI] Synthesis of: {prompt[:50]}..."
@@ -101,11 +105,11 @@ class Adelphia(Persona):
     def __init__(self):
         super().__init__("adelphia", "Adelphia Grounder")
 
-    def process(self, prompt: str, context: dict | None = None) -> PersonaOutput:
+    def process(self, _prompt: str, context: dict | None = None) -> PersonaOutput:
         """Ground the user in somatic/physical reality."""
         volatility = context.get("volatility", 0.5) if context else 0.5
 
-        if volatility > 0.7:
+        if volatility > VOLATILITY_CRISIS_THRESHOLD:
             output = (
                 "[Adelphia] Grounding technique: Notice 5 things you can see, "
                 "4 things you can touch, 3 you can hear, "
@@ -134,7 +138,7 @@ class Ely(Persona):
     def __init__(self):
         super().__init__("ely", "Ely Governance")
 
-    def process(self, prompt: str, context: dict | None = None) -> PersonaOutput:
+    def process(self, _prompt: str, _context: dict | None = None) -> PersonaOutput:
         """Check policy and governance constraints."""
         # Placeholder: in production, this would check safety policies
         output = "[Ely] Policy audit: baseline compliance maintained."
@@ -161,8 +165,9 @@ class PersonaBlender:
         self,
         prompt: str,
         volatility: float = 0.5,
+        *,
         crisis_mode: bool = False,
-        custom_weights: dict[str, float] | None = None,
+        _custom_weights: dict[str, float] | None = None,
     ) -> BlendedOutput:
         """Blend personas based on context.
 
@@ -182,7 +187,7 @@ class PersonaBlender:
 
         # Get outputs from each persona
         persona_outputs = []
-        for persona_id, persona in self.personas.items():
+        for persona in self.personas.values():
             output = persona.process(prompt, context)
             persona_outputs.append(output)
 
@@ -231,7 +236,8 @@ def get_blender() -> PersonaBlender:
 def blend_response(
     prompt: str,
     volatility: float = 0.5,
+    *,
     crisis_mode: bool = False,
 ) -> BlendedOutput:
     """Quick wrapper to blend personas for a response."""
-    return get_blender().blend(prompt, volatility, crisis_mode)
+    return get_blender().blend(prompt, volatility, crisis_mode=crisis_mode)
