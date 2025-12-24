@@ -115,7 +115,22 @@ jobs:
 
           c = Client(api_key=os.environ.get("ANTHROPIC_API_KEY"))
           try:
-              resp = c.models.list()
+              page = c.models.list()
+              models = []
+              # page may be an iterable or have a .data attribute
+              iterable = getattr(page, 'data', page)
+              for m in iterable:
+                  try:
+                      mid = getattr(m, 'id', None)
+                  except Exception:
+                      mid = None
+                  if mid is None:
+                      if isinstance(m, dict):
+                          mid = m.get('id')
+                      else:
+                          mid = str(m)
+                  models.append({'id': mid})
+              resp = {'models': models}
           except Exception as e:
               resp = {"error":"models_list_failed","detail":str(e)}
 
