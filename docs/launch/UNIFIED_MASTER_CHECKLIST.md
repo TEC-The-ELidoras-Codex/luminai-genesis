@@ -59,6 +59,7 @@
 ### CI/CD
 - [ ] Merge PR #80 (scheduled Grok diagnostic) - **RECOMMENDED**
 - [ ] Verify CI passes on `main` branch
+- [x] Update `benchmarks/dye_die_filter/run_tests.py` to use xAI endpoint / env override (PR #83)
 - [ ] Confirm dry-run mode works for Grok (until DNS resolves)
 - [ ] Monitor scheduled diagnostic runs (daily checks)
 
@@ -127,8 +128,9 @@
 ### Week 1-2 (Jan 7-20)
 - [ ] Monitor email for responses
 - [ ] Check Substack engagement
-- [ ] Watch GitHub Actions - Grok diagnostic status (Grok DNS active 2025-12-24; verify diagnostics now)
-- [ ] Add DNS activation timestamp and verifier to tracking log
+- [ ] Watch GitHub Actions - Grok diagnostic status (api.grok.com currently returns NSEC — no A/AAAA; re-run diagnostics after provider adds host records)
+- [ ] Add DNS diagnostic output and timestamp to tracking log
+- [ ] Open issue with provider: "api.grok.com missing A/AAAA records"
 - [ ] Track social media metrics
 
 ### Week 3 (Jan 21-27) - First Follow-Up
@@ -169,8 +171,8 @@
 ## SKIPPED / NOT PURSUING
 
 - âŒ DARPA/IARPA submissions (not pursuing yet)
-- ✅ **Grok DNS active** — 2025-12-24 (DNS resolved; see Phase 6 notes below)
-- ⚠️ Consider re-enabling **Grok/X outreach** now that DNS is active (decide outreach plan)
+- ⚠️ **Grok DNS: api.grok.com shows NSEC (no A/AAAA)** — 2025-12-24 (no address records; see Phase 6 notes below)
+- ⚠️ Consider re-enabling **Grok/X outreach** once a host record is provided (decide outreach plan)
 - âŒ Live deployment (pilot not ready without partner)
 - âŒ Personal narrative in public docs (moving to `private/`) 
 
