@@ -29,15 +29,56 @@ jobs:
       - name: Run Grok diagnostic
         env:
           GROK_API_KEY: ${{ secrets.GROK_API_KEY || secrets.XAI_API_KEY }}
+          XAI_API_BASE: https://api.x.ai/v1/chat/completions
         run: |
           set -euo pipefail
           python3 scripts/grok_diagnostic.py || true
+
+      - name: Authenticated XAI probe (python)
+        env:
+          GROK_API_KEY: ${{ secrets.GROK_API_KEY || secrets.XAI_API_KEY }}
+        run: |
+          set -euo pipefail
+          python3 - << 'PY'
+import os, json
+try:
+    import requests
+except Exception:
+    import sys
+    sys.exit(0)
+
+os.makedirs('diagnostics', exist_ok=True)
+key = os.environ.get('GROK_API_KEY') or os.environ.get('XAI_API_KEY')
+headers = {'Content-Type':'application/json'}
+if key:
+    headers['Authorization'] = f'Bearer {key}'
+payload = {"model":"grok-2","messages":[{"role":"user","content":"Hello"}],"max_tokens":20}
+try:
+    r = requests.post('https://api.x.ai/v1/chat/completions', json=payload, headers=headers, timeout=20)
+    out = {'status_code': r.status_code, 'text': r.text[:2000]}
+except Exception as e:
+    out = {'error': str(e)}
+with open('diagnostics/xai-auth-probe.json', 'w') as f:
+    json.dump(out, f, indent=2)
+print(json.dumps(out))
+PY
+
+      - name: Authenticated XAI probe (curl fallback)
+        env:
+          XAI_API_KEY: ${{ secrets.XAI_API_KEY }}
+        run: |
+          set -euo pipefail
+          mkdir -p diagnostics
+          cat > /tmp/payload.json <<'PAY'
+{"model":"grok-2","messages":[{"role":"user","content":"Hello"}],"max_tokens":20}
+PAY
+          curl -sS -H "Authorization: Bearer ${XAI_API_KEY}" -H "Content-Type: application/json" -d @/tmp/payload.json https://api.x.ai/v1/chat/completions -o diagnostics/xai-auth-probe-curl.json -w "\n%{http_code}\n" || true
 
       - name: Upload diagnostic artifact
         uses: actions/upload-artifact@v4
         with:
           name: grok-diagnostic
-          path: diagnostics/grok-diagnostic.json
+          path: diagnostics/
 
       - name: Create issue if DNS resolved
         uses: actions/github-script@v6

@@ -50,12 +50,8 @@ license: CC-BY-SA-4.0
       alias: Polkin Rishall
       orcid: "https://orcid.org/0009-0000-7615-6990"
   date-released: "2025-12-21"
-<<<<<<< HEAD
-  doi: "10.5281/zenodo.18012290"
-  repository-code: "https://zenodo.org/records/18012290"
-=======
   repository-code: "https://github.com/TEC-The-ELidoras-Codex/luminai-genesis/tree/main/docs/witness-threshold"
->>>>>>> origin/main
+  doi: "10.5281/zenodo.18012290"
   keywords:
     - AI coherence
     - semantic ambiguity

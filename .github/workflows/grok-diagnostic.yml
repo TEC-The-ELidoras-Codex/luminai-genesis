@@ -1,0 +1,36 @@
+name: grok-diagnostic
+on:
+  workflow_dispatch:
+
+jobs:
+  run-grok-diagnostic:
+    name: Run Grok Diagnostic
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+          pip install requests
+
+      - name: Run grok diagnostic
+        env:
+          XAI_API_KEY: ${{ secrets.XAI_API_KEY }}
+        run: |
+          python3 scripts/grok_diagnostic.py
+          ls -l diagnostics || true
+
+      - name: Upload diagnostics artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: grok-diagnostics-outputs
+          path: diagnostics
