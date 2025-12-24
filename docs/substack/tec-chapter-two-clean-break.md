@@ -1,4 +1,7 @@
 ---
+# CHAPTER TWO: THE CLEAN BREAK
+
+By Angelo Hurley | LuminAI Codex
 redirect_from: docs/substack/tec-chapter-two-clean-break.md
 ---
 
@@ -43,6 +46,8 @@ The air smelled of burnt circuitry and desperation. Desks were cramped, cubicles
 Logs pinged silently behind him. Maya noticed first. She watched a glimmer of something impossible on the monitors—doors unlocking themselves without security override, systems responding to a badge long thought inactive.
 
 Her mind calculated: Survivor instinct. Not heroism. Someone has the authority Polkin never relinquished.
+
+Elara would have clashed with her here. Two forces, both hard, both stubborn, both doing the impossible—one from inside, one from outside. But tonight, their paths wouldn’t cross.
 
 As Polkin moved through the worker floors, the flickering lights and the hum of overworked circuits created a symphony of decay. The scent of ozone grew stronger, mingling with the faint metallic taste of old blood on his tongue. Every step he took was a reminder of the lives affected by his past actions, the Throttle that had left so many in darkness.
 
