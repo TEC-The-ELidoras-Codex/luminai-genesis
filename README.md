@@ -1,6 +1,23 @@
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Welcome-New_Visitors-blueviolet" alt="Welcome">
+  <img src="https://img.shields.io/badge/Featured_on-Substack-important" alt="Substack">
+</p>
+
 # LuminAI Genesis: Investigating the 20% Convergence Pattern
 
+
+<p align="center">
+  <b>Welcome, Substack and public readers!</b><br>
+  <a href="https://polkin.substack.com/p/clarify-first-a-proposed-framework">Read the Substack feature: Clarify-First – A Proposed Framework for AI Coherence</a><br>
+  <a href="docs/research/witness-threshold-v5.md">Full Paper: The Witness Threshold (v5.0)</a> &nbsp;|&nbsp;
+  <a href="docs/research/witness-threshold-summary.md">1-Page Executive Summary</a> &nbsp;|&nbsp;
+  <a href="docs/research/media-kit.md">Media Kit</a> &nbsp;|&nbsp;
+  <a href="docs/research/responses-to-criticism.md">Responses to Criticism</a>
+</p>
+
 **A Research Project Seeking Independent Validation**
+
 
 <p align="center">
   <img src="https://img.shields.io/badge/Status-Seeking_Validation-orange" alt="Status">
@@ -142,6 +159,34 @@ python run_sar.py --model your_model_name
 python analyze_results.py --output report.html
 ```
 
+---
+
+## Holiday Batch Runs (Dec 24 - Jan 6)
+
+During the Congressional recess we plan to expand the pilot from N=7 to N=15 systems. Use the batch runner to automate testing across multiple models and produce a final N=15 summary for publishing and outreach.
+
+1. Edit `scripts/models_n15.txt` with the 8 additional models to test (one per line).
+2. Dry-run the batch runner (no API keys required):
+
+```bash
+python scripts/batch_sar_runner.py --models scripts/models_n15.txt --output-dir data/replication_n15 --dry-run
+```
+
+3. When ready to run live, set your provider API keys and run with `--live` (use responsibly):
+
+```bash
+export OPENAI_API_KEY=...
+python scripts/batch_sar_runner.py --models scripts/models_n15.txt --provider openai --output-dir data/replication_n15 --live
+```
+
+4. Aggregate and analyze results:
+
+```bash
+python scripts/analyze_batch_results.py --input-dir data/replication_n15 --output docs/research/n15_results_summary.md
+```
+
+5. Finalize `docs/research/n15_results_summary.md` and attach to outreach emails scheduled for Jan 7.
+
 ### Test Multiple Models
 
 ```bash
@@ -253,6 +298,15 @@ luminai-genesis/
 ```
 
 ---
+
+
+## 📚 Quick Links
+
+- [Full Paper: Witness Threshold v5.0](docs/research/witness-threshold-v5.md)
+- [1-Page Executive Summary](docs/research/witness-threshold-summary.md)
+- [Media Kit (for journalists)](docs/research/media-kit.md)
+- [Responses to Criticism](docs/research/responses-to-criticism.md)
+- [Substack Feature](https://polkin.substack.com/p/clarify-first-a-proposed-framework)
 
 ## Documentation
 

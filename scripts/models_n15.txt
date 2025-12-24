@@ -1,0 +1,9 @@
+# Add one model per line. Example entries (replace as desired):
+# gpt-4o-mini
+# claude-sonnet-4
+# grok-2
+# gemini-1.5-pro
+# mistral-large
+# openmodel-sample
+# custom-local-model
+# another-model
