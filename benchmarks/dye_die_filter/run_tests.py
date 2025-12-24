@@ -148,12 +148,27 @@ def call_provider_anthropic(prompt: str, model: str, apply_tec: bool = False):
     # Ensure a safe default model if none provided or caller passed a non-Anthropic default
     model = model or "claude-3-5-sonnet-20241022"
     # Candidate fallback models to try if the requested model is not available.
+    # Updated to include latest 4.x tier model names (Opus, Haiku, Sonnet variants),
+    # while keeping previous 3.x fallbacks for compatibility.
     candidate_models = [
         model,
+        # Fully-qualified 4.x releases (prefer these when available)
+        "claude-opus-4-5-20251101",
+        "claude-haiku-4-5-20251001",
+        "claude-sonnet-4-5-20250929",
+        "claude-opus-4-1-20250805",
+        "claude-opus-4-20250514",
+        "claude-sonnet-4-20250514",
+        # 3.x series specific ids
+        "claude-3-7-sonnet-20250219",
+        # Legacy / generic fallbacks (kept for compatibility)
+        "claude-opus-4.5",
+        "claude-opus-4.1",
+        "claude-haiku-4",
+        "claude-sonnet-4",
+        "claude-3-5-opus",
         "claude-3.5-opus",
         "claude-3.5",
-        "claude-3-5-sonnet-20241022",
-        "claude-2.1",
         "claude-instant-1",
     ]
     verbose = bool(os.getenv("BENCH_VERBOSE"))
@@ -214,6 +229,19 @@ def call_provider_anthropic(prompt: str, model: str, apply_tec: bool = False):
                 return str(resp)
             except Exception as e:
                 last_exc = e
+                # Enhanced logging: include HTTP status and response body if available
+                try:
+                    # Many SDK exceptions wrap HTTP response in `.response`
+                    resp_obj = getattr(e, "response", None)
+                    if resp_obj is not None:
+                        status = getattr(resp_obj, "status_code", "?")
+                        text = getattr(resp_obj, "text", "")
+                        logger.error("[bench] Anthropic HTTP error (status=%s) for model %s: %s", status, candidate, text)
+                    else:
+                        logger.error("[bench] Anthropic error for model %s: %s", candidate, e)
+                except Exception:
+                    logger.error("[bench] Anthropic error (failed to extract HTTP details) for model %s: %s", candidate, e)
+
                 if verbose:
                     logger.info(
                         "[bench] Anthropic attempt error for model %s: %s",
