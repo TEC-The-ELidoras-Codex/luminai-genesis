@@ -31,6 +31,12 @@ def load_scores_from_report(report_path):
     # Try JSON first
     try:
         data = json.loads(txt)
+        # If this is a benchmark report with 'results' entries and 'score' per prompt,
+        # compute the mean score as the W-score proxy.
+        if 'results' in data and isinstance(data['results'], list):
+            scores = [r.get('score') for r in data['results'] if isinstance(r.get('score'), (int, float))]
+            if scores:
+                return float(sum(scores) / len(scores))
         # heuristics: search for 'w_score' or 'mean_w' keys
         if 'summary' in data and isinstance(data['summary'], dict):
             s = data['summary']
@@ -122,8 +128,18 @@ def main():
         print("No scores found in", input_dir)
         return
 
-    mean = float(np.mean(scores))
-    med = float(np.median(scores))
+    if not scores:
+        print("No numeric scores found in reports; no analysis produced.")
+        return
+    # Use numpy if available, otherwise statistics
+    try:
+        mean = float(np.mean(scores)) if np is not None else float(statistics.mean(scores))
+    except Exception:
+        mean = float(statistics.mean(scores))
+    try:
+        med = float(np.median(scores)) if np is not None else float(statistics.median(scores))
+    except Exception:
+        med = float(statistics.median(scores))
     lo, hi = bootstrap_ci(scores)
 
     # bimodality test (simple heuristic)

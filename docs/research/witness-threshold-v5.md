@@ -1,4 +1,63 @@
+
+---
+**PREPRINT - NOT PEER REVIEWED**
+
+**Title:** The Witness Threshold: A Proposed Framework for AI Coherence  
+**Author:** Angelo "Polkin Rishall" Hurley  
+**Affiliation:** The Elidoras Codex (Independent Research Institute)  
+**ORCID:** 0009-0000-7615-6990  
+**Correspondence:** KaznakAlpha@elidorascodex.com  
+
+**DOI:** 10.17605/OSF.IO/XQ3PE (OSF Preprints)  
+**Version:** 5.0 (Radical Honesty Edition)  
+**Date:** December 21, 2025  
+**License:** MIT (Open for replication, testing, and refutation)  
+
+**Keywords:** AI safety, coherence measurement, phase transitions, 
+introspection, interpretability, semantic ambiguity resolution, 
+crisis-safe AI systems
+
+**Funding:** None (independent research)  
+**Conflicts of Interest:** None declared  
+**Data Availability:** All data, code, and materials are publicly 
+available at https://github.com/TEC-The-ELidoras-Codex/luminai-genesis
+
+**Preprint Servers:**  
+- OSF Preprints: https://doi.org/10.17605/OSF.IO/XQ3PE  
+- Zenodo: https://doi.org/10.5281/zenodo.17926294  
+---
+
 # The Witness Threshold: A Proposed Framework for AI Coherence
+---
+
+## **How to Cite This Work**
+
+**APA Format:**
+```
+Hurley, A. (2025). The Witness Threshold: A Proposed Framework for 
+AI Coherence - Seeking Independent Validation (Version 5.0). 
+OSF Preprints. https://doi.org/10.17605/OSF.IO/XQ3PE
+```
+
+**BibTeX:**
+```bibtex
+@article{hurley2025witness,
+   title={The Witness Threshold: A Proposed Framework for AI Coherence},
+   author={Hurley, Angelo},
+   journal={OSF Preprints},
+   year={2025},
+   doi={10.17605/OSF.IO/XQ3PE},
+   url={https://github.com/TEC-The-ELidoras-Codex/luminai-genesis}
+}
+```
+
+**Chicago Format:**
+```
+Hurley, Angelo. 2025. "The Witness Threshold: A Proposed Framework 
+for AI Coherence - Seeking Independent Validation." OSF Preprints. 
+https://doi.org/10.17605/OSF.IO/XQ3PE.
+```
+
 
 **Seeking Independent Validation**
 
