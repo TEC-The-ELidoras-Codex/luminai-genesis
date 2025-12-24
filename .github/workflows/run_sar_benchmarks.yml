@@ -14,11 +14,15 @@ on:
       anthropic_model:
         description: 'Model to use for Anthropic runs'
         required: false
-        default: 'claude-3-5-sonnet-20241022'
+        default: 'claude-3-5-opus'
       grok_model:
         description: 'Model to use for Grok runs'
         required: false
         default: 'grok-1'
+      diagnostic:
+        description: 'Optional diagnostic action: set to "models" to list available Anthropic models'
+        required: false
+        default: ''
 
 jobs:
   run-benchmarks:
@@ -90,6 +94,23 @@ jobs:
           echo "Running Grok benchmark"
           python3 benchmarks/dye_die_filter/run_tests.py --provider grok --model "${{ github.event.inputs.grok_model }}" --self-rate --output benchmarks/results_real_world_grok.json || echo "Grok run failed"
 
+      - name: (Optional) Run Anthropic models diagnostic
+        if: ${{ github.event.inputs.diagnostic == 'models' }}
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY || secrets.CLAUDE_API_KEY }}
+        run: |
+          echo "Running Anthropic models diagnostic"
+          set -euo pipefail
+          resp=models-diagnostic.json
+          curl -s -H "x-api-key: $ANTHROPIC_API_KEY" https://api.anthropic.com/v1/models -o "$resp" || true
+          echo "--- RAW RESPONSE ---"
+          cat "$resp" || true
+          echo "--- PARSED IDs ---"
+          jq -r '.models[]?.id // .[]?.id // empty' "$resp" || true
+          echo "Uploading diagnostic artifact"
+          mkdir -p diagnostics
+          mv "$resp" diagnostics/
+
       - name: Upload results artifacts
         if: always()
         uses: actions/upload-artifact@v4
@@ -99,6 +120,8 @@ jobs:
             benchmarks/results_real_world_openai.json
             benchmarks/results_real_world_anthropic.json
             benchmarks/results_real_world_grok.json
+            diagnostics/**
+
 
       - name: Commit results back to branch
         if: success()
