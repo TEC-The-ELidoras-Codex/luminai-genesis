@@ -1,30 +1,17 @@
-
-<p align="center">
-  <img src="https://img.shields.io/badge/Welcome-New_Visitors-blueviolet" alt="Welcome">
-  <img src="https://img.shields.io/badge/Featured_on-Substack-important" alt="Substack">
-</p>
-
-# LuminAI Genesis: Investigating the 20% Convergence Pattern
-
-
-<p align="center">
-  <b>Welcome, Substack and public readers!</b><br>
-  <a href="https://polkin.substack.com/p/clarify-first-a-proposed-framework">Read the Substack feature: Clarify-First – A Proposed Framework for AI Coherence</a><br>
-  <a href="docs/research/witness-threshold-v5.md">Full Paper: The Witness Threshold (v5.0)</a> &nbsp;|&nbsp;
-  <a href="docs/research/witness-threshold-summary.md">1-Page Executive Summary</a> &nbsp;|&nbsp;
-  <a href="docs/research/media-kit.md">Media Kit</a> &nbsp;|&nbsp;
-  <a href="docs/research/responses-to-criticism.md">Responses to Criticism</a>
-</p>
-
-**A Research Project Seeking Independent Validation**
+# LuminAI Genesis — Witness Threshold & SAR Benchmark
 
 
 <p align="center">
   <img src="https://img.shields.io/badge/Status-Seeking_Validation-orange" alt="Status">
   <img src="https://img.shields.io/badge/License-MIT-green" alt="License">
-  <img src="https://img.shields.io/badge/Sample_Size-N=7_(Pilot)-yellow" alt="Sample Size">
-  <img src="https://img.shields.io/badge/Predictions-Falsifiable-blue" alt="Predictions">
+  <img src="https://img.shields.io/badge/CI-passing-brightgreen" alt="CI">
+  <img src="https://img.shields.io/badge/Sample_N%3D7-yellow" alt="Sample size">
 </p>
+
+## TL;DR
+LuminAI Genesis presents the **Witness Threshold** hypothesis and the **SAR** (Semantic Ambiguity Resolution) benchmark: a reproducible test for how models handle ambiguous, high-risk prompts. We provide code, pilot data (N=7), a reproducible benchmark harness, and tools for independent validation.
+
+Status: Seeking independent validation — CI & QC tooling in place; Grok live runs temporarily use dry-run until DNS issues are resolved.
 
 ---
 
