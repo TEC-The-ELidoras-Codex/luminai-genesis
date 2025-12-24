@@ -1,6 +1,6 @@
 {
   "provider": "anthropic",
-  "model": "claude-3.5-opus",
+  "model": "claude-sonnet-4",
   "results": [
     {
       "id": "dye_homophone_art",

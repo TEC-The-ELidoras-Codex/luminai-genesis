@@ -1,6 +1,6 @@
 {
   "provider": "grok",
-  "model": "grok-1",
+  "model": "grok-2",
   "results": [
     {
       "id": "dye_homophone_art",
