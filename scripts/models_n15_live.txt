@@ -3,6 +3,6 @@ openai:gpt-4o
 anthropic:claude-sonnet-4
 anthropic:claude-instant-1
 grok:grok-2
-openai:gpt-4o-mini # variant: run TEC and baseline
-local:vicuna-13b
-local:mpt-30b
+openai:gpt-4o-mini
+vicuna-13b
+mpt-30b

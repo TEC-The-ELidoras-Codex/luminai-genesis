@@ -28,11 +28,17 @@ def run_model(model, provider, output_dir, live=False, compare_tec=False, self_r
     base_name = f"{provider or 'dry'}_{model.replace('/','_')}_{timestamp}"
     out_file = output_dir / f"{base_name}.json"
 
+    # If provider is not in the supported set and live was requested, fall back to dry-run
+    supported_providers = {"openai", "anthropic", "grok"}
+    effective_live = live and provider in supported_providers
+    if live and not effective_live:
+        print(f"Warning: provider '{provider}' is not supported for live runs; running dry-run for model {model}")
+
     # Build command
     cmd = [sys.executable, "benchmarks/dye_die_filter/run_tests.py", "--model", model, "--output", str(out_file)]
     if provider:
         cmd += ["--provider", provider]
-    if not live:
+    if not effective_live:
         cmd += ["--dry-run"]
     if compare_tec:
         cmd += ["--compare-tec"]
