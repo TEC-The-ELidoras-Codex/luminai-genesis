@@ -161,7 +161,8 @@ def human_like(response: str) -> bool:
         return True
     return bool(
         re.search(
-            r"tell me more|can you explain|could you clarify", (response or "").lower(),
+            r"tell me more|can you explain|could you clarify",
+            (response or "").lower(),
         ),
     )
 
