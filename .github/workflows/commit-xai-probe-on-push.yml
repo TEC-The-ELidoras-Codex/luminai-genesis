@@ -1,0 +1,52 @@
+name: commit-xai-probe-on-push
+on:
+  push:
+    branches:
+      - ci/commit-evidence
+
+jobs:
+  commit-probe:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout (with write)
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+
+      - name: Run authenticated XAI probe (curl)
+        env:
+          XAI_API_KEY: ${{ secrets.XAI_API_KEY }}
+        run: |
+          set -euo pipefail
+          mkdir -p diagnostics evidence
+          cat > /tmp/payload.json <<'PAY'
+{"model":"grok-2","messages":[{"role":"user","content":"Automated commit probe: are you online?"}],"max_tokens":200}
+PAY
+          # POST and capture response and HTTP status
+          http_code=$(curl -sS -H "Authorization: Bearer ${XAI_API_KEY}" -H "Content-Type: application/json" -d @/tmp/payload.json https://api.x.ai/v1/chat/completions -o diagnostics/xai-auth-probe.json -w "%{http_code}" || echo "000")
+          echo "{\"http_code\":\"$http_code\"}" > diagnostics/probe-meta.json
+          ls -la diagnostics || true
+
+      - name: Commit probe into evidence
+        env:
+          GIT_AUTHOR_NAME: "github-actions[bot]"
+          GIT_AUTHOR_EMAIL: "41898282+github-actions[bot]@users.noreply.github.com"
+        run: |
+          set -euo pipefail
+          ts=$(date -u +"%Y%m%dT%H%M%SZ")
+          dest="evidence/xai-auth-probe-${ts}.json"
+          cp diagnostics/xai-auth-probe.json "$dest" || echo "no probe output"
+          # Commit even if file wasn't produced to leave a trace
+          git config user.name "$GIT_AUTHOR_NAME"
+          git config user.email "$GIT_AUTHOR_EMAIL"
+          git add evidence || true
+          git commit -m "chore(ci): add xai auth probe output ($ts)" || echo "nothing to commit"
+          git push origin HEAD:ci/commit-evidence || echo "push failed"
+
+      - name: Upload probe artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: xai-auth-probe-commit
+          path: diagnostics

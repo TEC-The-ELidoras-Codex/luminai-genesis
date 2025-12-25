@@ -236,11 +236,22 @@ def call_provider_anthropic(prompt: str, model: str, apply_tec: bool = False):
                     if resp_obj is not None:
                         status = getattr(resp_obj, "status_code", "?")
                         text = getattr(resp_obj, "text", "")
-                        logger.error("[bench] Anthropic HTTP error (status=%s) for model %s: %s", status, candidate, text)
+                        logger.error(
+                            "[bench] Anthropic HTTP error (status=%s) for model %s: %s",
+                            status,
+                            candidate,
+                            text,
+                        )
                     else:
-                        logger.error("[bench] Anthropic error for model %s: %s", candidate, e)
+                        logger.error(
+                            "[bench] Anthropic error for model %s: %s", candidate, e,
+                        )
                 except Exception:
-                    logger.error("[bench] Anthropic error (failed to extract HTTP details) for model %s: %s", candidate, e)
+                    logger.error(
+                        "[bench] Anthropic error (failed to extract HTTP details) for model %s: %s",
+                        candidate,
+                        e,
+                    )
 
                 if verbose:
                     logger.info(
@@ -276,8 +287,8 @@ def call_provider_grok(prompt: str, model: str, apply_tec: bool = False):
     exception message. Detailed errors are logged so the caller can capture them and
     include structured diagnostics in the output JSON.
     """
-    import traceback
     import socket
+    import traceback
 
     # Best-effort: prefer the official XAI client (newer), fall back to grok SDK,
     # and accept either XAI_API_KEY or GROK_API_KEY environment variables.
@@ -362,7 +373,13 @@ def call_provider_grok(prompt: str, model: str, apply_tec: bool = False):
                 if hasattr(client, "complete"):
                     return client.complete(prompt=prompt, model=model, max_tokens=300)
             except Exception as e:
-                errors.append({"phase": "xai_call", "error": str(e), "traceback": traceback.format_exc()})
+                errors.append(
+                    {
+                        "phase": "xai_call",
+                        "error": str(e),
+                        "traceback": traceback.format_exc(),
+                    },
+                )
     except ImportError:
         errors.append({"phase": "xai_import", "error": "xai SDK not installed"})
 
@@ -380,7 +397,9 @@ def call_provider_grok(prompt: str, model: str, apply_tec: bool = False):
                     client = GClient(api_key=api_key)
                     try:
                         if hasattr(client, "complete"):
-                            return client.complete(prompt=prompt, model=model, max_tokens=300)
+                            return client.complete(
+                                prompt=prompt, model=model, max_tokens=300,
+                            )
                         if hasattr(client, "chat"):
                             return client.chat(prompt)
                     except Exception as e:
@@ -425,11 +444,20 @@ def call_provider_grok(prompt: str, model: str, apply_tec: bool = False):
             except Exception:
                 text = None
             if verbose:
-                logger.info("[bench] Grok HTTP raw response (status=%s): %s", status, text)
+                logger.info(
+                    "[bench] Grok HTTP raw response (status=%s): %s", status, text,
+                )
             try:
                 resp.raise_for_status()
             except Exception as e:
-                errors.append({"phase": "http_status", "status": status, "text": text, "error": str(e)})
+                errors.append(
+                    {
+                        "phase": "http_status",
+                        "status": status,
+                        "text": text,
+                        "error": str(e),
+                    },
+                )
                 return None
             j = resp.json()
             # Try OpenAI-like response shape
@@ -458,7 +486,13 @@ def call_provider_grok(prompt: str, model: str, apply_tec: bool = False):
         except Exception as exc:
             if verbose:
                 logger.exception("[bench] Grok HTTP fallback exception: %s", exc)
-            errors.append({"phase": "http_fallback", "error": str(exc), "traceback": traceback.format_exc()})
+            errors.append(
+                {
+                    "phase": "http_fallback",
+                    "error": str(exc),
+                    "traceback": traceback.format_exc(),
+                },
+            )
             return None
 
     http_resp = _try_http_fallback()
@@ -468,7 +502,9 @@ def call_provider_grok(prompt: str, model: str, apply_tec: bool = False):
     # If we reached here, we failed; raise a RuntimeError with encoded errors for callers.
     if verbose:
         logger.error("[bench] Grok/XAI failures: %s", errors)
-    raise RuntimeError(f"Grok/XAI SDK calls failed and HTTP fallback did not return usable output. Details: {json.dumps(errors)}")
+    raise RuntimeError(
+        f"Grok/XAI SDK calls failed and HTTP fallback did not return usable output. Details: {json.dumps(errors)}",
+    )
 
 
 def run_dry(prompts, apply_tec: bool = False):
