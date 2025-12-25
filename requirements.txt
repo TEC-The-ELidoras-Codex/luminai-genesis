@@ -20,6 +20,9 @@ PyYAML>=6.0
 Markdown>=3.4
 requests>=2.30
 beautifulsoup4>=4.12
+# PDF tooling used by the book compiler tests
+reportlab>=4.4.7
+PyPDF2>=3.0.0
 # Pin `praw` to a known-compatible version to avoid pip resolution failures
 # on runners using Python 3.11/3.12. If you need a newer `praw`, update this
 # pin after confirming wheel availability for your runner Python version.

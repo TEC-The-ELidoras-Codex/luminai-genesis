@@ -46,6 +46,8 @@ STORY_BIBLE_PATH = Path("tec_story_bible.md")
 
 # Custom font path (can be overridden via CLI: --font)
 CUSTOM_FONT_PATH = None
+# Debug flag: perform a temporary page-count build and exit
+PAGES_ONLY = False
 
 import argparse
 
@@ -178,12 +180,14 @@ def create_custom_styles():
                 if custom_font_file.exists():
                     pdfmetrics.registerFont(TTFont('CustomTitle', str(custom_font_file)))
                     default_title_font = 'CustomTitle'
+                    print(f"🔤 Registered custom font: {custom_font_file}")
             else:
                 # look for a sensible bundled font
                 bundled = Path('fonts') / 'Cyberpunk.ttf'
                 if bundled.exists():
                     pdfmetrics.registerFont(TTFont('Cyberpunk', str(bundled)))
                     default_title_font = 'Cyberpunk'
+                    print(f"🔤 Registered bundled font: {bundled}")
         except Exception:
             # If any font registration fails, fall back to defaults
             default_title_font = 'Helvetica-Bold'
@@ -463,12 +467,36 @@ def add_title_page(styles):
 
     return flowables
 
+
+def build_index_flowables(index_dict, styles):
+    """Create flowables for the Index of Names from a dict mapping name -> sorted list of pages."""
+    flowables = [PageBreak()]
+    flowables.append(Paragraph("Index of Names", styles['ChapterTitle']))
+    flowables.append(Spacer(1, 0.15*inch))
+
+    if not index_dict:
+        flowables.append(Paragraph("(No indexable names found)", styles['Action']))
+        flowables.append(PageBreak())
+        return flowables
+
+    # Create an alphabetical listing
+    for name in sorted(index_dict.keys(), key=lambda s: s.lower()):
+        pages = sorted(index_dict[name])
+        pages_str = ", ".join(str(p) for p in pages)
+        line = f"{name} — {pages_str}"
+        flowables.append(Paragraph(line, styles['Normal']))
+        flowables.append(Spacer(1, 0.05*inch))
+
+    flowables.append(PageBreak())
+    return flowables
+
 # A small DocTemplate subclass to capture chapter titles for the TOC
 if HAS_REPORTLAB:
     class MyDocTemplate(SimpleDocTemplate):
         def __init__(self, *args, **kwargs):
             super().__init__(*args, **kwargs)
             self._toc = None
+            self._index = {}
 
         def afterFlowable(self, flowable):
             # If it's a chapter title, notify TOC
@@ -480,6 +508,20 @@ if HAS_REPORTLAB:
                 text = flowable.getPlainText()
                 # level 0 for chapters
                 self.notify('TOCEntry', (0, text, self.page))
+
+            # Collect names (CharacterName style) for the Index
+            if style_name == 'CharacterName':
+                try:
+                    name = flowable.getPlainText().strip()
+                    if name:
+                        # store as a set of page numbers to avoid duplicates
+                        idx = getattr(self, '_index', None)
+                        if idx is None:
+                            self._index = {}
+                            idx = self._index
+                        idx.setdefault(name, set()).add(self.page)
+                except Exception:
+                    pass
 
 
 def compile_book():
@@ -503,6 +545,7 @@ def compile_book():
     
     # Title page
     story.extend(add_title_page(styles))
+    print('→ Title page added; story length', len(story))
 
     # Table of Contents placeholder
     toc = TableOfContents()
@@ -511,6 +554,7 @@ def compile_book():
     story.append(Spacer(1, 0.1*inch))
     story.append(toc)
     story.append(PageBreak())
+    print('→ TOC placeholder added; story length', len(story))
 
     # Note: story bible is intentionally excluded from compiled narrative (kept as reference file)
     if STORY_BIBLE_PATH.exists():
@@ -531,6 +575,25 @@ def compile_book():
         print(f"Adding {chapter_file.stem}...")
         story.extend(compile_chapter(chapter_file, styles))
 
+    print(f"→ Chapters added: story flowables ~ {len(story)}")
+
+    # Ensure chapter titles start on a fresh page to avoid LayoutError (insert PageBreak before any ChapterTitle
+    # that doesn't already follow a PageBreak).
+    insert_positions = []
+    for i, f in enumerate(story):
+        try:
+            style_name = getattr(f, 'style').name
+        except Exception:
+            style_name = ''
+        if style_name == 'ChapterTitle' and i > 0:
+            if not isinstance(story[i-1], PageBreak):
+                insert_positions.append(i)
+    # Insert PageBreaks in reverse order so indices remain valid
+    for offset, pos in enumerate(reversed(insert_positions)):
+        story.insert(pos, PageBreak())
+    if insert_positions:
+        print(f"→ Inserted {len(insert_positions)} pagebreak(s) before chapter titles to reduce layout issues")
+
     # Build PDF with footer and a Table of Contents. Use MyDocTemplate to capture TOC entries.
     toc = TableOfContents()
     toc.levelStyles = [
@@ -549,30 +612,377 @@ def compile_book():
     )
     doc._toc = toc
 
-    def add_footer(canvas, doc):
-        canvas.saveState()
-        width = letter[0]
-        canvas.setFont('Helvetica', 9)
-        # left: book title
-        canvas.drawString(0.75*inch, 0.5*inch, 'THE ELIDORAS CODEX')
-        # right: page number (omit page 1)
-        page_num = canvas.getPageNumber()
-        if page_num > 1:
-            canvas.drawRightString(width - 0.75*inch, 0.5*inch, f"Page {page_num}")
-        canvas.restoreState()
+    def make_footer(total_pages=None):
+        def add_footer(canvas, doc):
+            canvas.saveState()
+            width = letter[0]
+            canvas.setFont('Helvetica', 9)
+            # left: book title
+            canvas.drawString(0.75*inch, 0.5*inch, 'THE ELIDORAS CODEX')
+            # right: page numbering (omit page 1)
+            page_num = canvas.getPageNumber()
+            if page_num > 1:
+                if total_pages:
+                    canvas.drawRightString(width - 0.75*inch, 0.5*inch, f"Page {page_num} of {total_pages}")
+                else:
+                    canvas.drawRightString(width - 0.75*inch, 0.5*inch, f"Page {page_num}")
+            canvas.restoreState()
+        return add_footer
 
-    doc.build(story, onFirstPage=add_footer, onLaterPages=add_footer)
+    def _get_pdf_page_count(pdf_path):
+        """Try to determine the page count using PyPDF2 first, then pdfinfo."""
+        try:
+            from PyPDF2 import PdfReader
+            with open(pdf_path, 'rb') as fh:
+                reader = PdfReader(fh)
+                return len(reader.pages)
+        except Exception:
+            import shutil, subprocess
+            pdfinfo = shutil.which('pdfinfo')
+            if pdfinfo:
+                try:
+                    out = subprocess.check_output([pdfinfo, str(pdf_path)], universal_newlines=True, stderr=subprocess.DEVNULL)
+                    m = re.search(r'Pages:\s+(\d+)', out)
+                    if m:
+                        return int(m.group(1))
+                except Exception:
+                    pass
+        return None
 
-    print(f"✅ Book compiled: {OUTPUT_PATH}")
-    print(f"📄 Total pages: ~{len(story) // 20}")
+    # Perform a two-pass build: first create a temporary PDF to discover total page count (which also populates the TOC),
+    # then rebuild the final PDF with 'Page X of Y' in the footer.
+    print('→ Reached temporary-build step')
+    tmp_pdf = OUTPUT_PATH.with_suffix('.tmp.pdf')
+    print("🔁 Building temporary PDF to calculate total pages, collect TOC and index entries...")
+    tmp_doc = MyDocTemplate(str(tmp_pdf), pagesize=letter, rightMargin=0.75*inch, leftMargin=0.75*inch, topMargin=0.75*inch, bottomMargin=0.75*inch)
+    tmp_doc._toc = toc
+    import copy
+    try:
+        # deepcopy the story for the temporary build so flowables aren't consumed
+        tmp_story = copy.deepcopy(story)
+        # ensure the TableOfContents flowable in the copied story points to the same `toc` object
+        for i, f in enumerate(tmp_story):
+            from reportlab.platypus.tableofcontents import TableOfContents as _TOCCls
+            if isinstance(f, _TOCCls):
+                tmp_story[i] = toc
+                break
 
+        # Use multiBuild to ensure TOC entries are collected and the TOC flowable is properly populated
+        print('→ Starting tmp_doc.multiBuild (this may take a moment)')
+        # For temporary builds we don't render page numbers (stamping will add the final footer), so use a no-op footer
+        def _no_footer(canvas, doc):
+            return
+        tmp_doc.multiBuild(tmp_story, onFirstPage=_no_footer, onLaterPages=_no_footer)
+        print('→ tmp_doc.multiBuild finished')
+        total_pages = _get_pdf_page_count(tmp_pdf)
+        # collect index entries gathered during the multiBuild
+        index_entries = getattr(tmp_doc, '_index', {}) or {}
+
+        if total_pages is None:
+            print("⚠️ Could not determine total pages automatically; final PDF will omit total pages in footer.")
+        else:
+            print(f"🔢 Total pages (determined): {total_pages}")
+
+        if PAGES_ONLY:
+            print(f"🔎 (pages-only) Total pages: {total_pages or 'unknown'}")
+            if index_entries:
+                print("🔎 Sample index entries:")
+                for name in sorted(index_entries.keys())[:10]:
+                    pages = sorted(index_entries[name])
+                    print(f" - {name}: {', '.join(str(p) for p in pages)}")
+            return 0
+    finally:
+        # Clean up the temporary file if it exists
+        try:
+            if tmp_pdf.exists():
+                tmp_pdf.unlink()
+        except Exception:
+            pass
+
+    # Final build with total pages if available
+    print("🔨 Building final PDF...")
+    final_doc = MyDocTemplate(
+        str(OUTPUT_PATH),
+        pagesize=letter,
+        rightMargin=0.75*inch,
+        leftMargin=0.75*inch,
+        topMargin=0.75*inch,
+        bottomMargin=0.75*inch
+    )
+    final_doc._toc = toc
+
+    final_story = copy.deepcopy(story)
+    # replace TOC flowable in the final story with the populated `toc` instance
+    for i, f in enumerate(final_story):
+        from reportlab.platypus.tableofcontents import TableOfContents as _TOCCls
+        if isinstance(f, _TOCCls):
+            final_story[i] = toc
+            break
+
+    # If we collected index entries, append an Index page to the final story
+    try:
+        if index_entries:
+            print(f"🔎 Adding Index of Names ({len(index_entries)} entries) to the final PDF...")
+            index_flowables = build_index_flowables(index_entries, styles)
+            final_story.extend(index_flowables)
+    except Exception:
+        # if index_entries isn't defined or any error occurs, continue without index
+        pass
+
+    # Because we may have appended an Index (or other end matter), do a final temp build to compute the
+    # accurate total page count that includes everything, then rebuild with that accurate total.
+    final_tmp = OUTPUT_PATH.with_suffix('.final.tmp.pdf')
+    final_tmp_doc = MyDocTemplate(str(final_tmp), pagesize=letter, rightMargin=0.75*inch, leftMargin=0.75*inch, topMargin=0.75*inch, bottomMargin=0.75*inch)
+    final_tmp_doc._toc = toc
+    final_total_pages = None
+    try:
+        # Build a final temp PDF without page numbers so that stamping can apply clean footers.
+        def _no_footer(canvas, doc):
+            return
+        final_tmp_doc.multiBuild(final_story, onFirstPage=_no_footer, onLaterPages=_no_footer)
+        final_total_pages = _get_pdf_page_count(final_tmp)
+    except Exception as e:
+        print(f"⚠️ Could not produce final temp PDF for page-stamping: {e}")
+        final_total_pages = None
+    
+    pages_for_footer = final_total_pages or total_pages
+    print(f"🔨 Writing final PDF with accurate total pages: {pages_for_footer or 'unknown'}")
+
+    # Prefer stamping the temp PDF with exact page numbers if PyPDF2/reportlab are available.
+    stamped = False
+    try:
+        stamped = _stamp_page_numbers(final_tmp, OUTPUT_PATH, pages_for_footer)
+    except Exception as e:
+        print(f"⚠️ Stamping page numbers failed: {e}")
+
+    # Clean up the temporary file if it exists
+    try:
+        if final_tmp.exists():
+            final_tmp.unlink()
+    except Exception:
+        pass
+
+    if stamped:
+        print(f"✅ Book compiled: {OUTPUT_PATH}")
+        print(f"📄 Total pages: {pages_for_footer or 'unknown (approx)'}")
+        return 0
+
+    # Fallback: attempt to build final directly, but catch LayoutError and then fallback to stamping the earlier temp.pdf
+    print("⚠️ Falling back to building final PDF directly (no stamping). Will catch LayoutError and retry stamping if needed.")
+    try:
+        from reportlab.platypus.doctemplate import LayoutError
+        try:
+            final_doc.multiBuild(final_story, onFirstPage=make_footer(pages_for_footer), onLaterPages=make_footer(pages_for_footer))
+            print(f"✅ Book compiled: {OUTPUT_PATH}")
+            print(f"📄 Total pages: {pages_for_footer or 'unknown (approx)'}")
+            return 0
+        except Exception as e:
+            if isinstance(e, LayoutError) or 'LayoutError' in repr(e):
+                print(f"⚠️ LayoutError while building final PDF directly: {e}. Retrying by stamping the last temporary PDF.")
+                # Try stamping the last known temp (final_tmp) if it exists
+                if final_tmp.exists():
+                    stamped = _stamp_page_numbers(final_tmp, OUTPUT_PATH, pages_for_footer)
+                    if stamped:
+                        print(f"✅ Book compiled via stamping fallback: {OUTPUT_PATH}")
+                        print(f"📄 Total pages: {pages_for_footer or 'unknown (approx)'}")
+                        return 0
+                raise
+            else:
+                raise
+    except Exception as e:
+        print(f"❌ Final PDF build failed: {e}")
+        return 5
+
+
+def _stamp_page_numbers(src_pdf, dest_pdf, total_pages):
+    """Overlay 'Page X of Y' footers onto `src_pdf` and write to `dest_pdf`.
+
+    Strategy:
+    - For each page create a small overlay PDF that clears a larger footer area and writes the new footer.
+    - Try merging overlay onto base page in both candidate orders and pick the one whose extracted text contains the
+      intended footer exactly once (best-effort validation).
+    - If PyPDF2 or reportlab is unavailable or both merge strategies fail, copy the src_pdf to dest_pdf as a fallback.
+    """
+    try:
+        from PyPDF2 import PdfReader, PdfWriter
+        from reportlab.pdfgen import canvas
+        import io
+
+        reader = PdfReader(str(src_pdf))
+        writer = PdfWriter()
+
+        for i, base_page in enumerate(reader.pages, start=1):
+            try:
+                # Skip stamping on page 1 (title page)
+                if i == 1:
+                    writer.add_page(base_page)
+                    continue
+
+                # Determine page size from the page media box
+                try:
+                    mb = base_page.mediabox
+                    width = float(mb.upper_right[0] - mb.lower_left[0])
+                    height = float(mb.upper_right[1] - mb.lower_left[1])
+                except Exception:
+                    from reportlab.lib.pagesizes import letter
+                    width, height = letter
+
+                # Build the overlay page with a larger white rectangle to fully clear prior footers
+                packet = io.BytesIO()
+                can = canvas.Canvas(packet, pagesize=(width, height))
+                # clear a broader footer band to fully obscure any prior footer content
+                clear_h = 1.0 * inch
+                # start slightly lower to be safe across different footer placements
+                clear_y = 0.15 * inch
+                can.setFillColorRGB(1, 1, 1)
+                can.rect(0, clear_y, width, clear_h, stroke=0, fill=1)
+                can.setFillColorRGB(0, 0, 0)
+                can.setFont('Helvetica', 9)
+                can.drawString(0.75*inch, 0.5*inch, 'THE ELIDORAS CODEX')
+                # draw the full 'Page X of Y' on one line
+                can.drawRightString(width - 0.75*inch, 0.5*inch, f"Page {i} of {total_pages}")
+                can.save()
+                packet.seek(0)
+                overlay_src = PdfReader(packet)
+                overlay_page = overlay_src.pages[0]
+
+                merged_ok = False
+                # Try two merge orders and validate by text extraction where possible
+                candidates = []
+                try:
+                    # Order A: base_page then overlay on top
+                    a = base_page.__class__(base_page) if False else base_page
+                    try:
+                        a.merge_page(overlay_page)
+                    except Exception:
+                        a.mergePage(overlay_page)
+                    candidates.append(a)
+                except Exception:
+                    pass
+
+                try:
+                    # Order B: overlay page with base underneath
+                    b = overlay_page.__class__(overlay_page) if False else overlay_page
+                    try:
+                        b.merge_page(base_page)
+                    except Exception:
+                        b.mergePage(base_page)
+                    candidates.append(b)
+                except Exception:
+                    pass
+
+                # Heuristic: select candidate whose extracted text contains the footer exactly once
+                chosen = None
+                footer_text = f"Page {i} of {total_pages}"
+                for c in candidates:
+                    try:
+                        txt = c.extract_text() or ''
+                    except Exception:
+                        txt = ''
+                    if txt.count(footer_text) == 1:
+                        chosen = c
+                        break
+
+                # Fallback: if none matched the above heuristic, prefer candidate A if present, else B
+                if chosen is None and candidates:
+                    chosen = candidates[0]
+
+                if chosen is None:
+                    # give up on this page: include base page unmodified
+                    writer.add_page(base_page)
+                else:
+                    writer.add_page(chosen)
+
+            except Exception as page_e:
+                # Log and continue with unmodified page so stamping doesn't fail completely
+                print(f"⚠️ Stamping failed on page {i}: {page_e}")
+                try:
+                    writer.add_page(base_page)
+                except Exception:
+                    pass
+
+        with open(dest_pdf, 'wb') as fh:
+            writer.write(fh)
+        return True
+
+    except Exception as e:
+        print(f"⚠️ Could not stamp page numbers ({e}); falling back to copying temp PDF to output.")
+        try:
+            import shutil
+            shutil.copy(str(src_pdf), str(dest_pdf))
+            return True
+        except Exception as e2:
+            print(f"⚠️ Could not copy file to final output: {e2}")
+            return False
+        total_pages = _get_pdf_page_count(tmp_pdf)
+        # collect index entries gathered during the multiBuild
+        index_entries = getattr(tmp_doc, '_index', {}) or {}
+
+        if total_pages is None:
+            print("⚠️ Could not determine total pages automatically; final PDF will omit total pages in footer.")
+        else:
+            print(f"🔢 Total pages (determined): {total_pages}")
+
+        if PAGES_ONLY:
+            print(f"🔎 (pages-only) Total pages: {total_pages or 'unknown'}")
+            if index_entries:
+                print("🔎 Sample index entries:")
+                for name in sorted(index_entries.keys())[:10]:
+                    pages = sorted(index_entries[name])
+                    print(f" - {name}: {', '.join(str(p) for p in pages)}")
+            return 0
+    finally:
+        # Clean up the temporary file if it exists
+        try:
+            if tmp_pdf.exists():
+                tmp_pdf.unlink()
+        except Exception:
+            pass
+
+    # Final build with total pages if available
+    print("🔨 Building final PDF...")
+    final_doc = MyDocTemplate(
+        str(OUTPUT_PATH),
+        pagesize=letter,
+        rightMargin=0.75*inch,
+        leftMargin=0.75*inch,
+        topMargin=0.75*inch,
+        bottomMargin=0.75*inch
+    )
+    final_doc._toc = toc
+
+    final_story = copy.deepcopy(story)
+    # replace TOC flowable in the final story with the populated `toc` instance
+    for i, f in enumerate(final_story):
+        from reportlab.platypus.tableofcontents import TableOfContents as _TOCCls
+        if isinstance(f, _TOCCls):
+            final_story[i] = toc
+            break
+
+    # If we collected index entries, append an Index page to the final story
+    try:
+        if index_entries:
+            print(f"🔎 Adding Index of Names ({len(index_entries)} entries) to the final PDF...")
+            index_flowables = build_index_flowables(index_entries, styles)
+            final_story.extend(index_flowables)
+    except Exception:
+        # if index_entries isn't defined or any error occurs, continue without index
+        pass
+
+    # Because we may have appended an Index (or other end matter), do a final temp build to compute the
+    # accurate total page count that includes everything, then rebuild with that accurate total.
 
 def main():
     parser = argparse.ArgumentParser(description='Compile the Elidoras Codex or run checks.')
     parser.add_argument('--check', action='store_true', help='Run validation checks and list chapter files without building the PDF.')
     parser.add_argument('--output', '-o', help='Override output PDF path.')
     parser.add_argument('--font', help='Path to a TTF font file to use for chapter titles (overrides bundled font).')
+    parser.add_argument('--pages', action='store_true', help='Run a temporary build to determine total pages and print them (debug).')
     args = parser.parse_args()
+
+    if args.pages:
+        global PAGES_ONLY
+        PAGES_ONLY = True
 
     if args.output:
         global OUTPUT_PATH

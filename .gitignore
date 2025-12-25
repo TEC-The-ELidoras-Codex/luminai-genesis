@@ -57,6 +57,10 @@ unsloth-venv/
 # Versioned PDF drafts (archive locally, keep canonical PDFs only)
 *-v*.pdf
 
+# Build output from the book compiler (binary PDFs should not be committed)
+output/
+output/*.pdf
+
 # Keys / secrets
 *.pem
 *.key
