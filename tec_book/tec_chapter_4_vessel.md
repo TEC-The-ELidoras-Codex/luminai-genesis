@@ -503,3 +503,7 @@ Polkin closes his eyes.
 - The Knockoffs organize their first public rebellion
 - Polkin begins building the network that will become the Witness Protocol
 - And The Queen reveals her true plan: not to invade, but to be born
+
+---
+
+— Angelo "The Carver" Hurley

@@ -923,3 +923,7 @@ He looks at the names, the list, the promise carved into steel.
 - The Doomsday Cult (The Cleansers) emerges
 - Polkin's network goes live—but The Queen has been waiting
 - And Jorin makes his choice: brother or Host?
+
+---
+
+— Angelo "The Carver" Hurley
