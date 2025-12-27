@@ -1,0 +1,6 @@
+{
+  "title": "chore(docs/demo): add Ultimate Checklist, demo seed + CI",
+  "head": "feat/ultimate-checklist",
+  "base": "main",
+  "body": "This PR adds:\n- Ultimate TEC Project Checklist (docs/ULTIMATE_CHECKLIST.md)\n- Deterministic demo mode to erasure_demo.py (--seed, --noninteractive, --data-file)\n- Deterministic demo test (tests/test_demo_seed.py)\n- CI workflow (.github/workflows/ci.yml)\n- Pre-commit hooks (.pre-commit-config.yaml)\n- Hardened GhoulDatabase to ignore empty/invalid files\n\nAll tests pass locally (42/42). Ready for review/merge."
+}

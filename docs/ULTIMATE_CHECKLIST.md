@@ -7,6 +7,15 @@
 ---
 
 ### 📋 WHAT’S DONE (COMPLETED TASKS)
+Settings Developer settings GitHub Apps LuminAI-Codex
+About
+Owned by: @Elidorascodex
+
+App ID: 2186310
+
+Using your App ID to get installation tokens? You can now use your Client ID instead.
+
+Client ID: Iv23liuCJbwDvim9WppS
 
 *(Check off as you go — proof of progress.)*
 

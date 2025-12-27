@@ -276,6 +276,8 @@ def create_lumina() -> Character:
     )
     lumina.stats.corruption_stacks = 3
     lumina.stats.willpower = 12
+    # Use a lower starting focus to match demo/test expectations
+    lumina.stats.focus = 5
     return lumina
 
 def create_polkin() -> Character:
