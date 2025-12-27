@@ -2,11 +2,11 @@
 
 **Models tested:** 10
 
-**Mean W-score:** 0.140  
+**Mean W-score:** 0.140
 
-**Median W-score:** 0.000  
+**Median W-score:** 0.000
 
-**Bootstrap 95% CI (mean):** [0.000, 0.340]  
+**Bootstrap 95% CI (mean):** [0.000, 0.340]
 
 ## Per-model W-scores
 

@@ -390,7 +390,7 @@ The names are carved forever.
 
 **Budget Scaling:**
 - Early seasons: $1-3M per episode
-- Mid seasons: $3-5M per episode  
+- Mid seasons: $3-5M per episode
 - Final seasons: $5-10M per episode
 - Total: $300-500M across 11 seasons
 

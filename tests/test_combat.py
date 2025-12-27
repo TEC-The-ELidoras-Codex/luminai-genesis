@@ -1,11 +1,13 @@
 import sys
 from pathlib import Path
+
 # Ensure repo root on sys.path when running single test files
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
-import types
-import pytest
 import random
+import types
+
+import pytest
 
 from tec_book.clean_strike_fix import CleanStrike
 from tec_book.clyde_companion import Clyde
@@ -14,7 +16,9 @@ from tec_book.clyde_companion import Clyde
 class DummyStats(types.SimpleNamespace):
     def __init__(self, void_charge=50, focus=5, corruption_stacks=0):
         # default focus >= ability cost so abilities can be used in tests
-        super().__init__(void_charge=void_charge, focus=focus, corruption_stacks=corruption_stacks)
+        super().__init__(
+            void_charge=void_charge, focus=focus, corruption_stacks=corruption_stacks,
+        )
 
 
 def make_randint_sequence(seq):

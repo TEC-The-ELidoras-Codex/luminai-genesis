@@ -4,17 +4,17 @@ This module provides `resolve_encounter` which runs a single dead-ghoul
 choice (erase/consume) and returns a structured result for assertions
 and CLI printing.
 """
-from typing import Optional
+
 
 from tec_book.clean_strike_fix import CleanStrike
-from tec_book.tec_litrpg_system import Character, KaznakGhoul
 from tec_book.clyde_companion import Clyde
+from tec_book.tec_litrpg_system import Character, KaznakGhoul
 
 
 def resolve_encounter(
     character: Character,
     ghoul: KaznakGhoul,
-    clyde: Optional[Clyde] = None,
+    clyde: Clyde | None = None,
     choice: str = "erase",
 ) -> dict:
     """Resolve an encounter programmatically.
@@ -53,6 +53,7 @@ def resolve_encounter(
             # a successful honor when CleanStrike indicates `can_honor`).
             fragment.honored_by = character.name
             from datetime import datetime
+
             fragment.honored_at = datetime.now().isoformat()
             character.honored_dead.append(fragment)
             # Grant XP directly (simple, deterministic award for demo)
@@ -69,8 +70,8 @@ def resolve_encounter(
 
         return summary
 
-    else:
-        consume_result = character.consume(ghoul)
-        summary.update({"path": "consume", "consume_result": consume_result, "consumed": True})
-        return summary
-
+    consume_result = character.consume(ghoul)
+    summary.update(
+        {"path": "consume", "consume_result": consume_result, "consumed": True},
+    )
+    return summary

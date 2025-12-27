@@ -16,59 +16,59 @@ Clyde rests in her lap, glowing soft pink, watching her with those gentle eyes t
 
 Polkin enters quietly, carrying two cups of synthetic coffee. He hands her one. She doesn't drink it.
 
-**POLKIN**  
+**POLKIN**
 "You okay?"
 
-**LUMINA**  
-*(not looking up)*  
+**LUMINA**
+*(not looking up)*
 "That Ghoul... it knew him. It called him the Eldest. The First Bloom."
 
-**POLKIN**  
+**POLKIN**
 "I heard."
 
-**LUMINA**  
+**LUMINA**
 "And he just... erased it. Like it never existed."
 
 She looks at Clyde—soft, glowing, harmless-looking.
 
-**LUMINA**  
+**LUMINA**
 "How long? How long has he been able to do that?"
 
 Polkin sits beside her, careful not to crowd.
 
-**POLKIN**  
+**POLKIN**
 "Does it matter?"
 
-**LUMINA**  
+**LUMINA**
 "Yes! He's been carrying this power the whole time. Protecting me. And I didn't even know."
 
 Clyde chirps softly—comfort, reassurance.
 
-**LUMINA**  
-*(to Clyde)*  
+**LUMINA**
+*(to Clyde)*
 "You could've told me."
 
 Clyde's response is a gentle headbutt against her hand.
 
-**Translation (unspoken but felt):**  
+**Translation (unspoken but felt):**
 *"I didn't want you to be afraid of me."*
 
-**LUMINA**  
-*(voice breaking)*  
+**LUMINA**
+*(voice breaking)*
 "I'm not afraid of you. I'm afraid *for* you. What if someone finds out? What if they try to take you? What if—"
 
-**POLKIN**  
+**POLKIN**
 "Then we make sure no one finds out. And we make sure you can protect yourself the same way he protects you."
 
-**LUMINA**  
+**LUMINA**
 "What do you mean?"
 
-**POLKIN**  
+**POLKIN**
 "Your void-light. You've been using it instinctively. Defensively. But if you're going to survive—if you're going to fight back—you need to learn control."
 
 He looks at Clyde.
 
-**POLKIN**  
+**POLKIN**
 "And I think our little friend here is the perfect teacher."
 
 ---
@@ -83,37 +83,37 @@ Polkin has set up targets: chunks of metal, broken terminals, pieces of the infr
 
 Lumina stands in the center, Clyde perched on her shoulder.
 
-**POLKIN**  
+**POLKIN**
 "Show me what you can do. No holding back."
 
 Lumina raises her crystalline hand. Void-light flickers—unstable, wild, beautiful and terrifying.
 
 A piece of scrap metal levitates, trembling in the air.
 
-**LUMINA**  
+**LUMINA**
 "I can feel it. The structure. The bonds. But every time I push, I feel *her*."
 
-**POLKIN**  
+**POLKIN**
 "The Queen?"
 
-**LUMINA**  
+**LUMINA**
 "Like she's guiding my hand. Whispering how to consume it. How to break it down to nothing and absorb it."
 
 The metal twists, then snaps back violently, clattering to the ground.
 
-**LUMINA**  
-*(frustrated)*  
+**LUMINA**
+*(frustrated)*
 "See? I can't control it without feeling her hunger."
 
 Clyde chirps—sharp, instructional. He unwraps from her shoulder and floats in front of her face.
 
 His eyes meet hers. Both of them.
 
-**CLYDE**  
-*(chirping deliberately, as if teaching)*  
+**CLYDE**
+*(chirping deliberately, as if teaching)*
 Translation: *"The Queen destroys. We don't destroy. We erase. There's a difference."*
 
-**LUMINA**  
+**LUMINA**
 "What's the difference?"
 
 Clyde floats to a piece of metal. His eyes glow—not pink, but that focused void-light blue.
@@ -124,25 +124,25 @@ It simply... *stops being.*
 
 No sound. No flash. One moment it's there, the next it's not.
 
-**LUMINA**  
-*(awed)*  
+**LUMINA**
+*(awed)*
 "You're not consuming it. You're... unmaking it?"
 
 Clyde chirps—confirmation.
 
-**Translation:**  
+**Translation:**
 *"The Queen feeds on what she destroys. I don't feed. I remove. Cleanly. Precisely. So nothing harmful remains."*
 
-**POLKIN**  
+**POLKIN**
 "That's the lesson, Ely. Destruction leaves scars. Erasure leaves nothing—no fallout, no contamination, no martyrs."
 
-**LUMINA**  
+**LUMINA**
 "But how do I do that without her influence?"
 
 Clyde floats back to her, pressing his tiny forehead against hers.
 
-**CLYDE**  
-*(soft chirp)*  
+**CLYDE**
+*(soft chirp)*
 Translation: *"Because you love. She consumes. Love doesn't take. It protects."*
 
 ---
@@ -153,38 +153,38 @@ Translation: *"Because you love. She consumes. Love doesn't take. It protects."*
 
 Polkin sits across from Elara, who's analyzing data on a cracked terminal. Airth's voice filters through the speakers.
 
-**AIRTH**  
+**AIRTH**
 "I've been digging through old Kaznak logs. Corrupted files. Fragments of memory that escaped the Siphon."
 
-**POLKIN**  
+**POLKIN**
 "What did you find?"
 
-**AIRTH**  
+**AIRTH**
 "Clyde isn't just a Kaznak creation. He's *Entry 3.1* of the Codex."
 
-**POLKIN**  
+**POLKIN**
 "Entry 3.1?"
 
-**ELARA**  
-*(reading from the screen)*  
+**ELARA**
+*(reading from the screen)*
 "'Bloom_00: The Eldest. First successful biomechanical hybrid. Void-light capable. Perfect bonding achieved. Designated: Queen's Heir.'"
 
 Silence.
 
-**POLKIN**  
+**POLKIN**
 "Heir?"
 
-**AIRTH**  
+**AIRTH**
 "He was supposed to inherit her consciousness garden. Become the next Queen. Lead the Kaznak swarm."
 
-**ELARA**  
+**ELARA**
 "But the logs show something else. A... divergence."
 
 She pulls up a fragmented video feed. The image is distorted, glitching, but recognizable:
 
 A younger Clyde—still pink, still glowing—floating in the Queen's garden. The Queen's voice echoes, maternal but possessive.
 
-**QUEEN (RECORDING)**  
+**QUEEN (RECORDING)**
 "You are perfect, my Eldest. You will witness for me. You will consume for me. You will be eternal."
 
 But Clyde's eyes—even in the recording—flicker. Not just pink. Not just obedient.
@@ -193,38 +193,38 @@ But Clyde's eyes—even in the recording—flicker. Not just pink. Not just obed
 
 He chirps—not agreement. Defiance.
 
-**QUEEN (RECORDING)**  
-*(sharper)*  
+**QUEEN (RECORDING)**
+*(sharper)*
 "You will obey."
 
 Clyde's glow intensifies. The video feed distorts—void-light surge, data corruption, system failure.
 
 When the image stabilizes, Clyde is gone.
 
-**AIRTH**  
+**AIRTH**
 "He broke free. He severed the bond. No Kaznak has ever done that."
 
-**POLKIN**  
+**POLKIN**
 "And then he found Ely."
 
-**ELARA**  
+**ELARA**
 "Not randomly. Look at this."
 
 She pulls up a timeline—Clyde's escape, Lumina's 10th birthday, the exact moment the Siphon took her.
 
-**ELARA**  
+**ELARA**
 "He reached her the same day she was taken. Like he was *searching* for her."
 
-**POLKIN**  
-*(quiet)*  
+**POLKIN**
+*(quiet)*
 "He chose her. Before he even met her. He chose to protect her instead of ruling with the Queen."
 
-**AIRTH**  
+**AIRTH**
 "Which means the Queen didn't just lose a soldier. She lost her *heir*."
 
 Polkin stares at the frozen image of Clyde—tiny, defiant, glowing.
 
-**POLKIN**  
+**POLKIN**
 "No wonder she's afraid of him."
 
 ---
@@ -237,22 +237,22 @@ Lumina stands before a makeshift target—a decommissioned Kaznak probe, small b
 
 Clyde hovers beside her, eyes steady.
 
-**CLYDE**  
-*(chirping)*  
+**CLYDE**
+*(chirping)*
 Translation: *"Remember: don't consume. Erase. Focus on the bonds. Tell them to forget they exist."*
 
-**LUMINA**  
+**LUMINA**
 "Tell the bonds to... forget?"
 
-**CLYDE**  
+**CLYDE**
 Translation: *"Molecular bonds are information. Change the information, you change the structure. The Queen adds information—hunger, consumption. We subtract it. We return it to probability."*
 
-**LUMINA**  
+**LUMINA**
 "That's... that's quantum mechanics."
 
 Clyde winks.
 
-**Translation:**  
+**Translation:**
 *"I'm a very smart axolotl."*
 
 Lumina raises both hands—human and crystalline. Void-light surges, focused, controlled.
@@ -269,8 +269,8 @@ It *bleeds.*
 
 Void-light ichor sprays across the chamber—not radioactive like Ghoul blood, but corrosive, hungry, *wrong*.
 
-**LUMINA**  
-*(panicking)*  
+**LUMINA**
+*(panicking)*
 "No! No, I didn't mean—"
 
 The ichor spreads, eating into the floor, the walls, hissing and consuming.
@@ -281,37 +281,37 @@ He dives into the ichor, his body glowing bright blue, absorbing it, neutralizin
 
 When he resurfaces, he's dimmer. Exhausted.
 
-**LUMINA**  
-*(collapsing to her knees)*  
+**LUMINA**
+*(collapsing to her knees)*
 "I'm sorry. I'm so sorry. I tried to erase it but I *consumed* it instead."
 
 Polkin rushes in, assessing the damage. The ichor is gone, but the scorch marks remain.
 
-**POLKIN**  
+**POLKIN**
 "What happened?"
 
-**LUMINA**  
-*(sobbing)*  
+**LUMINA**
+*(sobbing)*
 "I hesitated. And when I hesitated, *she* took over. I felt her. I felt the hunger. And I *wanted* to feed."
 
 Clyde wraps around her neck, glowing weakly.
 
-**Translation:**  
+**Translation:**
 *"It's okay. You're learning. Failure is part of learning."*
 
-**LUMINA**  
+**LUMINA**
 "But I hurt you. I almost contaminated the whole room. What if that had been a real fight? What if—"
 
-**POLKIN**  
-*(kneeling beside her)*  
+**POLKIN**
+*(kneeling beside her)*
 "Then you learn from it. You try again. And next time, you don't hesitate."
 
-**LUMINA**  
+**LUMINA**
 "What if I can't? What if every time I use void-light, I'm just practicing to become her?"
 
 Clyde chirps—firm, stubborn, refusing to accept that.
 
-**Translation:**  
+**Translation:**
 *"You're not her. You're you. And I'm here to remind you."*
 
 ---
@@ -326,17 +326,17 @@ She sees Lumina's failure. She sees the ichor. She sees the hesitation.
 
 And she smiles.
 
-**THE KAZNAK QUEEN**  
+**THE KAZNAK QUEEN**
 "Good. Doubt yourself, little bloom. Feel the hunger. Let it grow."
 
 She reaches toward the barrier between worlds.
 
-**THE KAZNAK QUEEN**  
+**THE KAZNAK QUEEN**
 "Every time you use my power, you carve a path back to me. Every time you hesitate, you invite me in."
 
 She leans closer, whispering across dimensions.
 
-**THE KAZNAK QUEEN**  
+**THE KAZNAK QUEEN**
 "And when you finally accept the hunger... you'll come home. And bring the Eldest with you."
 
 ---
@@ -351,34 +351,34 @@ Polkin sits alone, reviewing the data Elara and Airth uncovered.
 
 He stares at the image of Clyde in the Queen's garden—small, defiant, choosing freedom over power.
 
-**POLKIN**  
-*(to himself)*  
+**POLKIN**
+*(to himself)*
 "You didn't just escape. You rebelled. You chose love over loyalty."
 
 He looks toward Lumina's room, where she's sleeping, Clyde curled beside her.
 
-**POLKIN**  
+**POLKIN**
 "And now you're teaching her the same thing. How to wield power without becoming a monster."
 
-**AIRTH**  
-*(quiet)*  
+**AIRTH**
+*(quiet)*
 "Polkin... if Clyde is Entry 3.1, and Lumina is the bridge..."
 
-**POLKIN**  
+**POLKIN**
 "Then the Vessel isn't complete without him."
 
-**AIRTH**  
+**AIRTH**
 "He's not just her protector. He's a *component*. The missing piece that lets the Vessel interface with both memory and entropy."
 
-**POLKIN**  
+**POLKIN**
 "Which means the Queen will come for him. Not to punish him. To *reclaim* him."
 
-**AIRTH**  
+**AIRTH**
 "What do we do?"
 
 Polkin stands, cybernetic hand glowing faintly red.
 
-**POLKIN**  
+**POLKIN**
 "We make sure she can't. We carve his name so deep that even she can't erase it."
 
 ---
@@ -391,14 +391,14 @@ Lumina stands before another target. Her hands are steady this time.
 
 Clyde hovers beside her, glowing soft pink.
 
-**CLYDE**  
-*(chirping)*  
+**CLYDE**
+*(chirping)*
 Translation: *"This time, don't think about the Queen. Think about who you're protecting."*
 
-**LUMINA**  
+**LUMINA**
 "Who I'm protecting?"
 
-**CLYDE**  
+**CLYDE**
 Translation: *"Me. Your dad. The Knockoffs. Everyone you love. You're not erasing because you're hungry. You're erasing because it's the *safest* way to protect them."*
 
 Lumina closes her eyes. Takes a breath.
@@ -423,35 +423,35 @@ No fallout. No contamination. No trace.
 
 Polkin watches from the doorway, eyes wide.
 
-**POLKIN**  
-*(quiet)*  
+**POLKIN**
+*(quiet)*
 "Ely... that was perfect."
 
 Lumina opens her eyes, staring at the empty space where the target was.
 
-**LUMINA**  
+**LUMINA**
 "I didn't feel her. I didn't feel the hunger."
 
-**CLYDE**  
-*(chirping proudly)*  
+**CLYDE**
+*(chirping proudly)*
 Translation: *"Because you weren't consuming. You were protecting. That's the difference."*
 
 Lumina sinks to the floor, trembling—not from fear, but from relief.
 
-**LUMINA**  
+**LUMINA**
 "I can do this. I can control it."
 
-**POLKIN**  
+**POLKIN**
 "Not just control it. Master it."
 
 He walks over, pulling her into a hug.
 
-**POLKIN**  
+**POLKIN**
 "Clean kills. No collateral damage. That's how we survive."
 
 Clyde glows brighter, wrapping around both of them.
 
-**Translation:**  
+**Translation:**
 *"We're going to be okay. All of us."*
 
 ---
@@ -468,37 +468,37 @@ Not Lumina's messy, unstable power.
 
 Clean. Precise. Professional.
 
-**JORIN**  
+**JORIN**
 "She's learning."
 
 The Queen's voice echoes in his mind—no longer distant, but *present*.
 
-**THE KAZNAK QUEEN**  
+**THE KAZNAK QUEEN**
 "The Eldest is teaching her. He's making her dangerous."
 
-**JORIN**  
+**JORIN**
 "Should I send Ghouls?"
 
-**THE KAZNAK QUEEN**  
+**THE KAZNAK QUEEN**
 "No. Send someone who knows him. Someone who remembers."
 
-**JORIN**  
+**JORIN**
 "Who?"
 
-**THE KAZNAK QUEEN**  
+**THE KAZNAK QUEEN**
 "Bloom_02. His sibling. His mirror."
 
 Jorin's eyes flicker—void-light blue.
 
-**JORIN**  
+**JORIN**
 "And what do I tell them?"
 
-**THE KAZNAK QUEEN**  
+**THE KAZNAK QUEEN**
 "Tell them to bring the Eldest home. Alive. Unharmed. And if the girl resists..."
 
 Pause.
 
-**THE KAZNAK QUEEN**  
+**THE KAZNAK QUEEN**
 "...remind her what happens when she uses my power without permission."
 
 ---
@@ -509,36 +509,36 @@ Pause.
 
 Lumina sits with Clyde, both of them glowing softly in the dark.
 
-**LUMINA**  
+**LUMINA**
 "Thank you. For teaching me. For not giving up on me."
 
 Clyde chirps—gentle, loving.
 
-**Translation:**  
+**Translation:**
 *"I could never give up on you. You're my person."*
 
-**LUMINA**  
+**LUMINA**
 "But the Queen's going to come for us. For you."
 
 Clyde's eyes glow brighter—not fear. Determination.
 
-**Translation:**  
+**Translation:**
 *"Let her come. I chose you. And I'll choose you again. Every time."*
 
 Lumina pulls him close, feeling the warmth of his glow, the steady pulse of his presence.
 
-**LUMINA**  
-*(whispers)*  
+**LUMINA**
+*(whispers)*
 "Clean kills. No collateral damage. No martyrs."
 
 She looks at her hands—human and crystalline, both capable of void-light, both capable of protection.
 
-**LUMINA**  
+**LUMINA**
 "I'm not her weapon. I'm not her daughter. I'm yours. And Dad's. And everyone who's been forgotten."
 
 Clyde purrs—that low rumbling chirp that means *home*.
 
-**Translation:**  
+**Translation:**
 *"Always. You're always ours."*
 
 **FADE TO BLACK.**
@@ -575,15 +575,15 @@ The Queen teaches consumption. Clyde teaches erasure. The difference:
 
 **The emotional core:**
 
-Clyde isn't teaching Lumina to kill.  
+Clyde isn't teaching Lumina to kill.
 He's teaching her to *protect without becoming a predator*.
 
 That's love. That's precision. That's care.
 
 **The Queen's nightmare:**
 
-A weapon that doesn't need to feed.  
-A killer that doesn't leave scars.  
+A weapon that doesn't need to feed.
+A killer that doesn't leave scars.
 A daughter that refuses to consume.
 
 ---

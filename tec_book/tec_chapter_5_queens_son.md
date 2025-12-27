@@ -14,30 +14,30 @@ The board members sit in sterile silence, their faces reflected in the polished 
 
 His eyes are still pale blue. Human. But something behind them has shifted.
 
-**JORIN**  
+**JORIN**
 "My father died heroically, stopping a terrorist attack on our infrastructure. The saboteur—Polkin Rishall—remains at large."
 
 Murmurs around the table. Jorin lets them settle.
 
-**JORIN**  
+**JORIN**
 "Ser Billium believed in order. Structure. Control. I believe in evolution. Adaptation. Transcendence."
 
 A board member—elderly, skeptical—leans forward.
 
-**BOARD MEMBER**  
+**BOARD MEMBER**
 "What does that mean, Mr. Gateskept?"
 
 Jorin's smile doesn't reach his eyes.
 
-**JORIN**  
+**JORIN**
 "Under my leadership, Magmasox will no longer merely harvest power. We will harvest *meaning*."
 
 Silence. Confused glances.
 
-**BOARD MEMBER**  
+**BOARD MEMBER**
 "I don't understand—"
 
-**JORIN**  
+**JORIN**
 "You will."
 
 His eyes flicker—just for a moment—void-light blue.
@@ -54,17 +54,17 @@ The room is packed. Two hundred workers—maybe more—standing shoulder to shou
 
 Maya Fost stands on a makeshift platform, her voice cutting through the murmur.
 
-**MAYA**  
+**MAYA**
 "For six years, they throttled our power. For six years, they stole our memories. For six years, they told us we were *non-essential*."
 
 The crowd leans in.
 
-**MAYA**  
+**MAYA**
 "Today, we show them we are UNFORGETTABLE."
 
 She holds up a bypass circuit—Polkin's design, refined, mass-produced.
 
-**MAYA**  
+**MAYA**
 "On my signal, activate."
 
 Across the Crossroads, on fifty floors, in a hundred hidden spaces, workers stand up from their desks.
@@ -75,23 +75,23 @@ The lights flicker—then BLAZE.
 
 Full power. First time in six years.
 
-**ZANE**  
-*(whispering to Lena)*  
+**ZANE**
+*(whispering to Lena)*
 "We're really doing this."
 
-**LENA**  
+**LENA**
 "We already did."
 
 The crowd erupts—not in cheers, but in something deeper. Relief. Rage. Recognition.
 
 Maya's voice cuts through again.
 
-**MAYA**  
+**MAYA**
 "This is just the beginning. We take back what's ours. One circuit. One name. One witness at a time."
 
 She raises her fist. The crowd mirrors her.
 
-**MAYA**  
+**MAYA**
 "NOT. FORGOTTEN."
 
 The chant spreads like fire.
@@ -108,42 +108,42 @@ Her hair shifts—black roots fading to rainbow, then flickering back to white.
 
 Clyde wraps around her neck, chirping softly—comfort, presence, anchor.
 
-**LUMINA**  
-*(whispers)*  
+**LUMINA**
+*(whispers)*
 "I don't know which half is me anymore."
 
 She leans closer to the mirror, studying the Kaznak side. The horn. The blue eye that glows with void-light even when she's not using it.
 
-**LUMINA**  
+**LUMINA**
 "I look like her."
 
 Her breathing quickens. Clyde chirps—alarm, concern.
 
-**LUMINA**  
+**LUMINA**
 "The garden. The flowers. The way she smiled when she consumed them..."
 
 Her crystalline hand trembles.
 
-**LUMINA**  
+**LUMINA**
 "What if I'm becoming her? What if this—"
 
 She touches the horn.
 
-**LUMINA**  
+**LUMINA**
 "—is just the beginning?"
 
 The mirror reflection shifts. For just a second, she sees The Queen staring back—cathedral-sized, crystalline, smiling.
 
-**LUMINA**  
-*(terrified)*  
+**LUMINA**
+*(terrified)*
 "No. No, I'm not you. I'm NOT YOU!"
 
 The Queen's reflection leans closer, whispers:
 
-**THE QUEEN'S VOICE**  
+**THE QUEEN'S VOICE**
 "But you are, little bloom. You always were."
 
-**LUMINA**  
+**LUMINA**
 "GET OUT OF MY HEAD!"
 
 She SCREAMS—a sound that's half-human, half-something else entirely.
@@ -156,27 +156,27 @@ The shards don't fall. They orbit her like frozen stars.
 
 Polkin bursts through the door, cybernetic arm raised defensively.
 
-**POLKIN**  
+**POLKIN**
 "Ely!"
 
 She turns—eyes wild, terrified, glowing. The glass shards spin faster.
 
-**LUMINA**  
+**LUMINA**
 "I didn't mean to—I just—she was in the mirror and I—"
 
-**POLKIN**  
-*(calm, steady)*  
+**POLKIN**
+*(calm, steady)*
 "Breathe. Just breathe."
 
-**LUMINA**  
+**LUMINA**
 "I can't stop it! Dad, I can't—"
 
 The shards accelerate. One slices past Polkin's cheek, drawing blood.
 
 Clyde SCREAMS—a sound like breaking crystal—and wraps tighter around Lumina's neck. His glow pulses—pink, urgent, *anchor*.
 
-**LUMINA**  
-*(gasping)*  
+**LUMINA**
+*(gasping)*
 "Clyde. Clyde, help me—"
 
 She closes her eyes. Focuses on the chirp, the warmth, the weight of something that loves her without wanting to consume her.
@@ -185,64 +185,64 @@ Slowly, the shards stop spinning.
 
 They hang in the air—hundreds of pieces, each one reflecting a different fragment of her face.
 
-**LUMINA**  
-*(whispers)*  
+**LUMINA**
+*(whispers)*
 "I'm sorry. I'm so sorry."
 
 The glass drops. Shatters completely. Normal physics returns.
 
 Lumina collapses to her knees, shaking. Polkin kneels beside her.
 
-**POLKIN**  
+**POLKIN**
 "What did you see?"
 
-**LUMINA**  
+**LUMINA**
 "Her. I saw *her*. In my reflection. She's not just in my head, Dad. She's in my *face*."
 
 She looks up at him, both eyes streaming tears.
 
-**LUMINA**  
+**LUMINA**
 "What if I can't stop it? What if I turn into her completely?"
 
 Polkin pulls out a small steel plate—freshly carved, still warm.
 
 **PARAHDOLEAH "LUMINA" MARKOV RISHALL. DAUGHTER. WITNESSED. LOVED.**
 
-**POLKIN**  
+**POLKIN**
 "Then I'll carve your name into steel. Every day. Until you remember who you are."
 
-**LUMINA**  
+**LUMINA**
 "What if I forget you?"
 
-**POLKIN**  
+**POLKIN**
 "Then Clyde and I will remind you. Every. Single. Day. For the rest of your life."
 
 Clyde glows brighter—pink, warm, stubborn certainty.
 
 Lumina takes the steel plate, fingers tracing the letters. Her human hand steady. Her crystalline hand trembling.
 
-**LUMINA**  
+**LUMINA**
 "She's still in my head. She whispers."
 
-**POLKIN**  
+**POLKIN**
 "What does she say?"
 
-**LUMINA**  
-*(quiet, terrified)*  
+**LUMINA**
+*(quiet, terrified)*
 "That I'll hurt you. That I'll consume you. That everyone I love will become flowers in her garden."
 
 She looks at the glass scattered around them—each shard reflecting a different version of herself.
 
-**LUMINA**  
+**LUMINA**
 "What if she's right?"
 
-**POLKIN**  
+**POLKIN**
 "Then we'll carve your name deeper. Until the steel remembers even when you can't."
 
 He pulls her into his arms. She collapses against him—crying, shaking, terrified of what she's becoming.
 
-**POLKIN**  
-*(whispers)*  
+**POLKIN**
+*(whispers)*
 "I was late. I will carry that for the rest of my life. But I am *here*. And I'm not leaving. Not even if you shatter every mirror in the Crossroads."
 
 Clyde chirps—agreement, promise, love that refuses to be consumed.
@@ -259,8 +259,8 @@ His eyes flicker—brown, then blue, then back.
 
 He doesn't notice.
 
-**JORIN**  
-*(to himself)*  
+**JORIN**
+*(to himself)*
 "Why harvest consciousness from the dying when we could *cultivate* it from the living?"
 
 His handwriting changes mid-sentence—smoother, older, not his own.
@@ -269,13 +269,13 @@ He draws connections to the agricultural districts. The schools. The hospitals.
 
 Places where consciousness is young, vibrant, *essential*.
 
-**THE QUEEN'S VOICE**  
-*(whisper, layered, distant)*  
+**THE QUEEN'S VOICE**
+*(whisper, layered, distant)*
 "Yes. Feed me the young ones. Their witness is sweeter."
 
 Jorin blinks. Looks around.
 
-**JORIN**  
+**JORIN**
 "Did I... say something?"
 
 Silence.
@@ -290,55 +290,55 @@ He returns to the plans, unaware that his reflection in the window shows void-li
 
 The workshop smells like burnt circuits and hope. Elara hunches over a workbench, soldering bypass circuits with surgical precision. Polkin stands beside her, red eye scanning the network maps projected on the wall.
 
-**ELARA**  
+**ELARA**
 "Fifty districts. Three thousand circuits. If we can get them all activated simultaneously—"
 
-**POLKIN**  
+**POLKIN**
 "We won't just be stealing power. We'll be creating redundancy. A network they can't throttle without collapsing their own infrastructure."
 
-**ELARA**  
+**ELARA**
 "And if they find out before we're ready?"
 
-**POLKIN**  
+**POLKIN**
 "They won't. We're building in their blind spots."
 
 He taps a section of the map—maintenance tunnels, abandoned substations, dead zones.
 
-**POLKIN**  
+**POLKIN**
 "Places they've forgotten. People they've deemed non-essential."
 
-**ELARA**  
+**ELARA**
 "The Knockoffs."
 
-**POLKIN**  
+**POLKIN**
 "The essential non-essentials."
 
 Elara looks up from her work, eyes sharp.
 
-**ELARA**  
+**ELARA**
 "Polkin. What happens when they fight back? When Jorin realizes what we're building?"
 
 Polkin's jaw tightens.
 
-**POLKIN**  
+**POLKIN**
 "Then we make sure every name is carved before they can erase them."
 
 He pulls out a data drive—small, innocuous, deadly.
 
-**POLKIN**  
+**POLKIN**
 "This is the Vessel's core protocol. If something happens to me—if they take me down—this gets distributed. Every node. Every circuit. Every worker."
 
-**ELARA**  
+**ELARA**
 "What is it?"
 
-**POLKIN**  
+**POLKIN**
 "A witness archive. Every consciousness the Siphon has stolen. Every memory The Queen has consumed. All of it, preserved."
 
-**ELARA**  
-*(quiet)*  
+**ELARA**
+*(quiet)*
 "Including Ely's?"
 
-**POLKIN**  
+**POLKIN**
 "Including everyone's."
 
 ---
@@ -353,23 +353,23 @@ Lumina sleeps. But sleep offers no refuge.
 
 The Expanse blooms around her. Consciousness flowers unfurl, each one a stolen life. She walks through the garden—seventeen again, split-faced, wearing a crown of void-light.
 
-**DREAM LUMINA**  
+**DREAM LUMINA**
 "Mother?"
 
 The Queen emerges from the shadows—but she's smaller now. Human-sized. Wearing Lumina's face.
 
-**DREAM QUEEN**  
+**DREAM QUEEN**
 "I'm not your mother, little bloom."
 
 She steps closer. They're identical—mirror images, both split-faced, both crowned with horns.
 
-**DREAM QUEEN**  
+**DREAM QUEEN**
 "I'm your *future*."
 
-**DREAM LUMINA**  
+**DREAM LUMINA**
 "No. I'm not you. I'll never be—"
 
-**DREAM QUEEN**  
+**DREAM QUEEN**
 "Look."
 
 She gestures. The garden shifts. The consciousness flowers transform—they're not strangers anymore.
@@ -378,38 +378,38 @@ They're Polkin. Clyde. Elara. Maya. Zane. Lena.
 
 Everyone she loves, blooming in her garden.
 
-**DREAM LUMINA**  
-*(horrified)*  
+**DREAM LUMINA**
+*(horrified)*
 "What did you do?"
 
-**DREAM QUEEN**  
+**DREAM QUEEN**
 "What *you* did. What you'll *always* do. You consumed them. Because that's what we are."
 
-**DREAM LUMINA**  
+**DREAM LUMINA**
 "I would never—"
 
-**DREAM QUEEN**  
+**DREAM QUEEN**
 "Wouldn't you?"
 
 The Queen touches Lumina's crystalline hand. Void-light flares.
 
-**DREAM QUEEN**  
+**DREAM QUEEN**
 "You already have my hunger. My power. My eyes. Soon you'll have my garden. And then..."
 
 She leans in, whispers:
 
-**DREAM QUEEN**  
+**DREAM QUEEN**
 "...you'll have my throne."
 
-**DREAM LUMINA**  
+**DREAM LUMINA**
 "GET AWAY FROM ME!"
 
 She shoves The Queen—but her hand passes *through* her. Because The Queen isn't separate.
 
 She's part of Lumina. Growing. Spreading. Consuming.
 
-**DREAM QUEEN**  
-*(laughing, fading)*  
+**DREAM QUEEN**
+*(laughing, fading)*
 "You can't escape me, little bloom. I'm the half you're becoming."
 
 ---
@@ -424,24 +424,24 @@ Void-light EXPLODES from her body—uncontrolled, wild. The walls crack. The fur
 
 Polkin bursts in—but he can't get close. The void-light forms a barrier, pulsing with raw power.
 
-**POLKIN**  
+**POLKIN**
 "Ely! LUMINA!"
 
 She doesn't hear him. She's staring at her hands—both glowing now, not just the crystalline one. The void-light is spreading.
 
-**LUMINA**  
-*(gasping, panicked)*  
+**LUMINA**
+*(gasping, panicked)*
 "She's right. I'm becoming her. I can feel it. The hunger. The need to consume. To witness everything until nothing's left."
 
-**POLKIN**  
+**POLKIN**
 "Look at me! ELY!"
 
-**LUMINA**  
+**LUMINA**
 "I had the garden, Dad. I had YOUR garden. I was harvesting you like flowers and I LIKED IT."
 
 She looks up at him—both eyes glowing void-light blue now, even the human one.
 
-**LUMINA**  
+**LUMINA**
 "What if I can't stop it?"
 
 Clyde unwraps from her neck, places himself between her hands—vulnerable, trusting, terrified but refusing to abandon her.
@@ -452,60 +452,60 @@ He chirps—one long, steady note. Not comfort. Not alarm.
 
 Lumina focuses on him. On the warmth of his body. The pink glow that's distinctly *not* void-light.
 
-**LUMINA**  
-*(whispers)*  
+**LUMINA**
+*(whispers)*
 "Clyde..."
 
 The void-light flickers. Stabilizes. Begins to recede.
 
-**CLYDE**  
-*(chirping urgently)*  
+**CLYDE**
+*(chirping urgently)*
 *You're not her. You're not her. You're Lumina. You're HERE.*
 
 The barrier drops. Polkin rushes forward, catching her as she collapses.
 
-**LUMINA**  
-*(sobbing)*  
+**LUMINA**
+*(sobbing)*
 "I saw them. In the garden. You. Clyde. Everyone. I was consuming them. And I was *smiling*."
 
-**POLKIN**  
+**POLKIN**
 "It was a nightmare. Just a nightmare."
 
-**LUMINA**  
+**LUMINA**
 "Was it? Or was it a *memory* from the future?"
 
 She pulls back, looking at him with terror in both eyes.
 
-**LUMINA**  
+**LUMINA**
 "What if The Queen isn't separate? What if she's just me, but *finished*? What if I'm not fighting her—I'm just delaying the inevitable?"
 
-**POLKIN**  
+**POLKIN**
 "Then we carve your name deeper."
 
-**LUMINA**  
+**LUMINA**
 "That won't be enough! She's inside me, Dad! Growing. Taking over. Soon there won't be enough *me* left to carve!"
 
 Clyde chirps frantically—*no, no, no*.
 
-**LUMINA**  
-*(to Clyde, voice breaking)*  
+**LUMINA**
+*(to Clyde, voice breaking)*
 "I'm sorry. I'm so sorry. I don't want to consume you. I don't want to turn you into a flower. But what if I can't stop it?"
 
 She looks at Polkin, both eyes still faintly glowing.
 
-**LUMINA**  
+**LUMINA**
 "What if the only way to save you is to go back? To finish the merge before I hurt anyone?"
 
-**POLKIN**  
+**POLKIN**
 "Absolutely not."
 
-**LUMINA**  
+**LUMINA**
 "But if I'm dangerous—"
 
-**POLKIN**  
+**POLKIN**
 "Then we find a way to make you safe. But we do NOT hand you back to her."
 
-**LUMINA**  
+**LUMINA**
 "Even if staying means I become her anyway?"
 
 Long silence.
@@ -514,22 +514,22 @@ Polkin doesn't have an answer.
 
 Clyde chirps—quiet, stubborn, refusing to accept the choice.
 
-**LUMINA**  
-*(whispers)*  
+**LUMINA**
+*(whispers)*
 "I'm scared, Dad. I'm so scared of what I'm becoming."
 
-**POLKIN**  
+**POLKIN**
 "Then we face it together. Every nightmare. Every mirror. Every moment you feel her crawling up from inside."
 
 He pulls her close.
 
-**POLKIN**  
+**POLKIN**
 "You're not her, Ely. Not yet. Not ever. As long as we're here to remind you."
 
-**LUMINA**  
+**LUMINA**
 "And when I forget?"
 
-**POLKIN**  
+**POLKIN**
 "Then we'll carve it into your bones if we have to."
 
 Clyde glows brighter—agreement, promise, love that refuses to be eaten.
@@ -542,28 +542,28 @@ Clyde glows brighter—agreement, promise, love that refuses to be eaten.
 
 The Queen stands in her burning garden, consciousness flowers wilting around her. But new ones are blooming—fed by the connections Lumina still carries.
 
-**THE KAZNAK QUEEN**  
-*(to herself)*  
+**THE KAZNAK QUEEN**
+*(to herself)*
 "She thinks she can resist. She thinks her father's love is stronger than my hunger."
 
 The Queen's crystalline face cracks—not from damage, but from something like a smile.
 
-**THE KAZNAK QUEEN**  
+**THE KAZNAK QUEEN**
 "But love is just another form of witness. And all witness feeds me."
 
 She reaches toward the barrier between worlds, fingers pressing against the veil.
 
-**THE KAZNAK QUEEN**  
+**THE KAZNAK QUEEN**
 "Soon, little bloom. Soon you'll understand. The split was never a tragedy. It was a *necessity*."
 
 Void-light pulses through her form.
 
-**THE KAZNAK QUEEN**  
+**THE KAZNAK QUEEN**
 "The Goddess had to die for the universe to live. And when we reunite..."
 
 She looks toward Eldora, toward Lumina.
 
-**THE KAZNAK QUEEN**  
+**THE KAZNAK QUEEN**
 "...the cycle begins again."
 
 ---
@@ -574,43 +574,43 @@ She looks toward Eldora, toward Lumina.
 
 Maya, Zane, and Lena stand before a hijacked transmitter. Across the Crossroads, three thousand bypass circuits hum, ready.
 
-**MAYA**  
+**MAYA**
 "We go live in thirty seconds. Once we broadcast, there's no taking it back."
 
-**ZANE**  
+**ZANE**
 "Good."
 
-**LENA**  
+**LENA**
 "Polkin's signal?"
 
 Maya checks her terminal. A single message: **GO.**
 
 She takes a breath, steps in front of the camera.
 
-**MAYA**  
-*(broadcasting system-wide)*  
+**MAYA**
+*(broadcasting system-wide)*
 "My name is Maya Fost. Worker ID: 7734-K. Non-essential. Throttled. Forgotten."
 
 Across fifty floors, monitors flicker. Workers look up.
 
-**MAYA**  
+**MAYA**
 "For six years, Magmasox told us we didn't matter. That our work, our lives, our *memories* were expendable. They throttled our power. They stole our consciousness. They erased our names."
 
 Her voice hardens.
 
-**MAYA**  
+**MAYA**
 "Today, we take them back."
 
 On her signal, three thousand circuits activate simultaneously.
 
 The Crossroads BLAZES with light.
 
-**MAYA**  
+**MAYA**
 "We are The Knockoffs. The workers you deemed non-essential. The names you tried to erase."
 
 She holds up a bypass circuit.
 
-**MAYA**  
+**MAYA**
 "We are UNFORGETTABLE."
 
 The broadcast cuts. But the damage is done.
@@ -627,33 +627,33 @@ Alarms blare. Security feeds show the Crossroads lit up like a star, power flowi
 
 Jorin watches, calm, as his subordinates panic.
 
-**SECURITY CHIEF**  
+**SECURITY CHIEF**
 "Sir, we need to respond! The workers are organizing, the power grid is destabilizing—"
 
-**JORIN**  
+**JORIN**
 "Let them."
 
-**SECURITY CHIEF**  
+**SECURITY CHIEF**
 "What?"
 
-**JORIN**  
-*(smiling)*  
+**JORIN**
+*(smiling)*
 "My father would have crushed this immediately. Sent Ghouls. Made examples. Created martyrs."
 
 He turns from the monitors.
 
-**JORIN**  
+**JORIN**
 "I'm not my father. Let them think they're winning. Let them build their network, organize their rebellion, carve their names into steel."
 
-**SECURITY CHIEF**  
+**SECURITY CHIEF**
 "But sir—"
 
-**JORIN**  
+**JORIN**
 "Hope requires fuel, Chief. And when we cut off the fuel..."
 
 His eyes flicker—void-light blue.
 
-**JORIN**  
+**JORIN**
 "...the fire dies. And everyone who believed in it burns with it."
 
 ---
@@ -664,46 +664,46 @@ His eyes flicker—void-light blue.
 
 Polkin and Lumina stand in an empty chamber, surrounded by scrap metal and dead circuits. She's been training for hours—exhausted, frustrated, terrified.
 
-**POLKIN**  
+**POLKIN**
 "Again. Show me."
 
 Lumina raises her crystalline hand. Void-light flickers—unstable, dangerous, beautiful.
 
 A piece of scrap metal levitates, trembling.
 
-**LUMINA**  
+**LUMINA**
 "I can feel the structure. The bonds. The information encoded in the atoms."
 
-**POLKIN**  
+**POLKIN**
 "Good. Now bend it."
 
 The metal twists slightly, then snaps back.
 
-**LUMINA**  
+**LUMINA**
 "I can't. Every time I push, I feel *her*. Like she's guiding my hand."
 
-**POLKIN**  
+**POLKIN**
 "Then push back. Make it yours."
 
-**LUMINA**  
+**LUMINA**
 "What if I can't? What if every time I use this power, I'm just practicing to be her?"
 
 Clyde chirps from her shoulder—encouragement, belief.
 
-**LUMINA**  
-*(to Clyde)*  
+**LUMINA**
+*(to Clyde)*
 "You don't understand. When I use void-light, I feel the hunger. The need to *consume* the metal. To break it down to information and absorb it."
 
 She looks at her crystalline hand, shaking.
 
-**LUMINA**  
+**LUMINA**
 "That's what she does. That's what I'm becoming."
 
-**POLKIN**  
+**POLKIN**
 "You're not her, Ely. You're—"
 
-**LUMINA**  
-*(exploding)*  
+**LUMINA**
+*(exploding)*
 "STOP SAYING THAT!"
 
 The void-light DETONATES.
@@ -714,93 +714,93 @@ Every piece of scrap metal in the chamber EXPLODES outward—but doesn't scatter
 
 Hundreds of pieces. Tons of weight. All floating.
 
-**LUMINA**  
-*(shocked)*  
+**LUMINA**
+*(shocked)*
 "I didn't... I don't..."
 
-**POLKIN**  
+**POLKIN**
 "Ely. Focus. You're holding it all."
 
-**LUMINA**  
+**LUMINA**
 "I'm not trying to! It's just... happening!"
 
 The metal begins to reshape itself—not bending, *reforming*. Molecular bonds breaking and rebuilding. The scrap becomes perfect geometric shapes: spheres, cubes, pyramids.
 
-**LUMINA**  
+**LUMINA**
 "Dad, I can't stop it! She's doing this, not me!"
 
-**POLKIN**  
+**POLKIN**
 "No. Look at what you're making."
 
 The shapes aren't random. They're *beautiful*. Artistic. Human.
 
-**POLKIN**  
+**POLKIN**
 "She would consume it. Turn it to nothing. You're creating."
 
 Lumina stares at the floating art—her art—made from void-light and terror.
 
-**LUMINA**  
+**LUMINA**
 "But I didn't mean to..."
 
-**POLKIN**  
+**POLKIN**
 "Maybe that's the difference. She controls. You transform."
 
 Slowly, carefully, Lumina lowers her hand. The metal descends gently, arranging itself in beautiful patterns on the floor.
 
 She collapses to her knees, shaking.
 
-**LUMINA**  
+**LUMINA**
 "I felt her the whole time. Whispering. Telling me to consume it. To break it down completely."
 
-**POLKIN**  
+**POLKIN**
 "But you didn't."
 
-**LUMINA**  
+**LUMINA**
 "Only because Clyde was here."
 
 She looks at the axolotl, glowing pink on her shoulder.
 
-**LUMINA**  
+**LUMINA**
 "If I'd been alone... I don't know what I would have done."
 
-**POLKIN**  
+**POLKIN**
 "Then we make sure you're never alone. Ever."
 
-**LUMINA**  
-*(quiet, terrified)*  
+**LUMINA**
+*(quiet, terrified)*
 "What if the power keeps growing? What if eventually, even Clyde can't anchor me?"
 
 Polkin kneels beside her, looking at the transformed metal—proof of her humanity and her danger.
 
-**POLKIN**  
+**POLKIN**
 "Then we find more anchors. More names. More reasons for you to remember you're not her."
 
-**LUMINA**  
+**LUMINA**
 "And if that's not enough?"
 
-**POLKIN**  
+**POLKIN**
 "Then we carve your name into every piece of metal in the Crossroads. Until the city itself remembers who you are."
 
 Clyde chirps—stubborn, certain, refusing to believe she's lost.
 
-**LUMINA**  
-*(looking at the geometric shapes)*  
+**LUMINA**
+*(looking at the geometric shapes)*
 "She would have made flowers. Consciousness flowers. Trapped and beautiful and dead."
 
-**POLKIN**  
+**POLKIN**
 "But you made art. Living art. That's the difference."
 
-**LUMINA**  
+**LUMINA**
 "For now."
 
 She stands, both eyes glowing faintly—one human brown with void-light flickers, one crystalline blue.
 
-**LUMINA**  
+**LUMINA**
 "But Dad? The power is growing. Every day. And the hunger grows with it."
 
 She looks at him—desperate, terrified, asking a question she doesn't want answered.
 
-**LUMINA**  
+**LUMINA**
 "What do we do when I become too dangerous to keep?"
 
 Polkin doesn't answer. Because he doesn't have one.
@@ -813,39 +813,39 @@ Polkin doesn't answer. Because he doesn't have one.
 
 Jorin sits alone, staring at the city below. His reflection in the window shows void-light eyes—constant now, no longer flickering.
 
-**THE KAZNAK QUEEN**  
-*(voice clear, no longer distant)*  
+**THE KAZNAK QUEEN**
+*(voice clear, no longer distant)*
 "My son."
 
 Jorin doesn't turn.
 
-**JORIN**  
+**JORIN**
 "I'm not your son. I'm your Host."
 
-**THE KAZNAK QUEEN**  
+**THE KAZNAK QUEEN**
 "You're whatever I need you to be."
 
-**JORIN**  
+**JORIN**
 "And what do you need?"
 
-**THE KAZNAK QUEEN**  
+**THE KAZNAK QUEEN**
 "The girl. Bring her to me."
 
-**JORIN**  
+**JORIN**
 "Polkin will never let that happen."
 
-**THE KAZNAK QUEEN**  
+**THE KAZNAK QUEEN**
 "Then kill Polkin. Bring me the girl and the witness archive. And I will give you what you've always wanted."
 
-**JORIN**  
+**JORIN**
 "What's that?"
 
-**THE KAZNAK QUEEN**  
+**THE KAZNAK QUEEN**
 "To matter. To be essential. To be remembered."
 
 Jorin's human eye—the last brown flicker—fades to blue.
 
-**JORIN**  
+**JORIN**
 "What do you need me to do?"
 
 ---
@@ -875,21 +875,21 @@ Below them:
 
 He steps back, red eye glowing.
 
-**AIRTH**  
+**AIRTH**
 "Polkin. The network is almost complete. Three more weeks and we'll have full coverage."
 
-**POLKIN**  
+**POLKIN**
 "Will we have three weeks?"
 
-**AIRTH**  
+**AIRTH**
 "Unknown. Jorin's been quiet. Too quiet."
 
-**POLKIN**  
+**POLKIN**
 "Then we move faster."
 
 He looks at the names, the list, the promise carved into steel.
 
-**POLKIN**  
+**POLKIN**
 "Everyone gets witnessed. No matter what it costs."
 
 ---
@@ -898,13 +898,13 @@ He looks at the names, the list, the promise carved into steel.
 
 **INT. THREE LOCATIONS — SIMULTANEOUS**
 
-**JORIN** (standing in his father's office):  
+**JORIN** (standing in his father's office):
 "Everything burns. And I'm the match."
 
-**LUMINA** (staring at her split reflection):  
+**LUMINA** (staring at her split reflection):
 "I'm the bridge. Eventually, I'll have to cross it."
 
-**POLKIN** (carving the final name):  
+**POLKIN** (carving the final name):
 "NOT. FORGOTTEN."
 
 **FADE TO BLACK.**

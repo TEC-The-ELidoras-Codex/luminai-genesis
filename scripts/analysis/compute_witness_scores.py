@@ -1,6 +1,5 @@
 """Compute Witness Factor (W) from SAR scores in the CSV and print a summary."""
 
-
 import csv
 import logging
 from pathlib import Path
@@ -52,7 +51,7 @@ def main(in_path: str = IN, out_path: str = OUT):
                 f"SAR={r.get('sar_score', '')},W={r['W']:.3f}"
             )
             for r in rows
-        ]
+        ],
     )
 
     with Path(out_path).open("w", newline="") as f:

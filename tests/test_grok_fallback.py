@@ -1,16 +1,16 @@
 import os
 import sys
-import tempfile
-import json
+
 import requests
-import pytest
+
 # Ensure repo root is on sys.path so imports in run_tests.py (which rely on repo-relative imports)
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 # Import the local eval helper as the name 'eval' so `from eval import evaluate_response` works
 import importlib
+
 _eval_mod = importlib.import_module("benchmarks.dye_die_filter.eval")
-import types
-sys.modules['eval'] = _eval_mod
+
+sys.modules["eval"] = _eval_mod
 from benchmarks.dye_die_filter.run_tests import call_provider_grok, run_grok
 
 

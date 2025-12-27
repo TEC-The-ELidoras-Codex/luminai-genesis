@@ -244,7 +244,9 @@ def call_provider_anthropic(prompt: str, model: str, apply_tec: bool = False):
                         )
                     else:
                         logger.error(
-                            "[bench] Anthropic error for model %s: %s", candidate, e,
+                            "[bench] Anthropic error for model %s: %s",
+                            candidate,
+                            e,
                         )
                 except Exception:
                     logger.error(
@@ -398,7 +400,9 @@ def call_provider_grok(prompt: str, model: str, apply_tec: bool = False):
                     try:
                         if hasattr(client, "complete"):
                             return client.complete(
-                                prompt=prompt, model=model, max_tokens=300,
+                                prompt=prompt,
+                                model=model,
+                                max_tokens=300,
                             )
                         if hasattr(client, "chat"):
                             return client.chat(prompt)
@@ -445,7 +449,9 @@ def call_provider_grok(prompt: str, model: str, apply_tec: bool = False):
                 text = None
             if verbose:
                 logger.info(
-                    "[bench] Grok HTTP raw response (status=%s): %s", status, text,
+                    "[bench] Grok HTTP raw response (status=%s): %s",
+                    status,
+                    text,
                 )
             try:
                 resp.raise_for_status()

@@ -14,7 +14,7 @@ His board-level badge—etched in his grandfather's antique font—still command
 
 Airth's voice crackled in his ear, laced with doubt:
 
-**AIRTH**  
+**AIRTH**
 "You know this is madness, right? Stalking through the beast you helped create?"
 
 Polkin stayed silent, shoving the mop cart ahead, eyes scanning sterile floors, glowing monitors, patrolling drones. But inside, the grief clawed—
@@ -23,28 +23,28 @@ Ely's voice echoing in his auditory implant, a ghost loop from six years ago: *D
 
 The same ache that had hollowed him when the call came, five planets away, silence on the line where her laughter should have been.
 
-**POLKIN**  
-*(whispers, half to himself)*  
+**POLKIN**
+*(whispers, half to himself)*
 "Seeds."
 
 His cybernetic fingers twitched as if carving her name anew.
 
-**AIRTH**  
+**AIRTH**
 "Seeds for what?"
 
 He halted, his cybernetic eye flaring faintly.
 
-**POLKIN**  
+**POLKIN**
 "Something Grandfather always said. 'Seeding the pond.'"
 
 Airth paused, then deadpanned:
 
-**AIRTH**  
+**AIRTH**
 "You're not seeding, Polkin. You're baiting a revolution."
 
 Polkin's mouth twitched.
 
-**POLKIN**  
+**POLKIN**
 "Maybe."
 
 ---
@@ -127,12 +127,12 @@ A Bento box, steaming fresh. Truffle mac & cheese.
 
 He left it untouched, eyes dropping to the worker levels below. A subtle shift—a murmur of unrest.
 
-**JORIN**  
+**JORIN**
 "Seal the building. Now."
 
 Security faltered:
 
-**SECURITY**  
+**SECURITY**
 "Sir... no intrusion logged. Floors scrubbed, air systems refreshed. Workers... aligned."
 
 He eyed the Bento box again.
@@ -161,7 +161,7 @@ Polkin balanced on a ledge across from HQ. Below, fifteen souls clustered in a b
 
 Airth's tone was wry:
 
-**AIRTH**  
+**AIRTH**
 "So, we infiltrated the monster hunting you. Scrubbed floors. Delivered lunch. What's next?"
 
 Polkin smiled thinly, but it didn't reach his eyes—eyes haunted by Ely's final silence, by Timothy's limp form.
@@ -172,7 +172,7 @@ He'd built the Throttle. He'd signed the orders. And now he was tearing it down,
 
 But redemption wasn't a ledger he could balance. Not with Ely's silence screaming in his skull.
 
-**POLKIN**  
+**POLKIN**
 "We wait for ripples in the pond."
 
 He melted into the night. The spark of rebellion ignited.
@@ -197,11 +197,11 @@ Polkin's red eye pulsed.
 
 The initial names, etched in steel, stood as vows—each stroke a penance, his cybernetic hand trembling as if reliving the carve:
 
-**TIMOTHY SOL WEERAN**  
+**TIMOTHY SOL WEERAN**
 Age seven, monster drawings clutched in small fists, "bye mister" echoing like an accusation Polkin couldn't delete.
 
-**ZANE MERRICK**  
-**MAYA FOST**  
+**ZANE MERRICK**
+**MAYA FOST**
 **Others to follow**
 
 He wielded the access. The insight. And, for the first time post-Throttle, redemption beckoned—
@@ -234,8 +234,8 @@ The reaping had only dawned.
 
 ## Author's Note: On Knockoffs and Sources
 
-**"Seeding the pond"** — My grandfather's phrase, reimagined  
-**"Murder hobo"** — D&D slang, repurposed for a grief-driven saboteur  
+**"Seeding the pond"** — My grandfather's phrase, reimagined
+**"Murder hobo"** — D&D slang, repurposed for a grief-driven saboteur
 **"NOT FORGOTTEN"** — Every punk song, every protest chant, every name carved in concrete
 
 This chapter is built from tropes I love and cite:

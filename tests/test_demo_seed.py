@@ -1,5 +1,5 @@
-import sys
 import subprocess
+import sys
 
 PY = sys.executable
 
@@ -7,10 +7,19 @@ PY = sys.executable
 def run_demo(seed):
     # Use a temporary data file per run to avoid state carryover from file-based DB
     import tempfile
+
     with tempfile.NamedTemporaryFile() as tf:
         p = subprocess.run(
-            [PY, "tec_book/erasure_demo.py", "--seed", str(seed), "--noninteractive", "--data-file", tf.name],
-            capture_output=True,
+            [
+                PY,
+                "tec_book/erasure_demo.py",
+                "--seed",
+                str(seed),
+                "--noninteractive",
+                "--data-file",
+                tf.name,
+            ],
+            check=False, capture_output=True,
             text=True,
             timeout=20,
         )

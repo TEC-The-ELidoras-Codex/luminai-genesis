@@ -14,8 +14,8 @@ The air tastes like copper and ghosts.
 
 This vault—abandoned six years ago, supposedly wiped clean—still hums with residual consciousness. The walls are lined with corrupted data banks, flickering with fragments of deleted memories. Voices whisper from dying circuits:
 
-*"Please don't forget me—"*  
-*"My name was—"*  
+*"Please don't forget me—"*
+*"My name was—"*
 *"I had a daughter—"*
 
 Among them, impossibly, heartbreakingly:
@@ -42,37 +42,37 @@ Lumina stands in the center of the vault, surrounded by flickering data banks, h
 
 Teithea blocks the only exit—soldering iron in her crystalline hand, cybernetic eye strobing with corrupted void-light.
 
-**TEITHEA**  
-*(voice cracking between rage and tenderness)*  
+**TEITHEA**
+*(voice cracking between rage and tenderness)*
 "Do you hear that? That's **her**. That's my **baby**."
 
-**LUMINA**  
-*(backing away, both eyes glistening)*  
+**LUMINA**
+*(backing away, both eyes glistening)*
 "Mom, that **is** me. I'm right here—"
 
-**TEITHEA**  
+**TEITHEA**
 "No. You're what's **left**. You're the fragment. The echo. The **stolen thing** wearing her face."
 
-**LUMINA**  
+**LUMINA**
 "I'm not stolen! I escaped! Dad helped me—"
 
-**TEITHEA**  
-*(laughing, broken and wild)*  
+**TEITHEA**
+*(laughing, broken and wild)*
 "Polkin? Polkin **helped**? Polkin was **five planets away** when they took you! Polkin **abandoned** us!"
 
 The soldering iron glows white-hot. Void-light ichor—scavenged from a Ghoul kill, weaponized—drips from the tip, hissing when it hits the floor.
 
 Where it lands, the metal **dissolves**. Not melts. Not burns. **Dissolves**—molecular bonds forgetting they exist, matter returning to probability.
 
-**TEITHEA**  
+**TEITHEA**
 "But I'm here now. And I'm going to **free** you. I'm going to cut you loose from whatever **puppet strings** the Queen tied to you."
 
 She advances. Lumina backs into a data bank.
 
-**LUMINA**  
+**LUMINA**
 "Mom, please—I'm not a puppet, I'm—"
 
-**TEITHEA**  
+**TEITHEA**
 "Shhhh. It's okay. This will only hurt for a second. And then you'll be **pure** again. Just Ely. Just my **baby**."
 
 She raises the soldering iron—
@@ -85,48 +85,48 @@ The vault door **SLAMS OPEN.**
 
 Polkin stands in the doorway, breathing hard.
 
-Left arm: Cybernetic, glowing red, plasma cutter integrated into the wrist.  
+Left arm: Cybernetic, glowing red, plasma cutter integrated into the wrist.
 Right arm: Still human. Still flesh. Still **vulnerable**.
 
-**POLKIN**  
+**POLKIN**
 "Teithea. Put it down."
 
 Teithea doesn't turn. Doesn't lower the iron.
 
-**TEITHEA**  
+**TEITHEA**
 "Oh, **Polkin**. Still playing hero. Still **late**."
 
-**POLKIN**  
+**POLKIN**
 "I'm here now."
 
-**TEITHEA**  
+**TEITHEA**
 "Six years too late."
 
-**POLKIN**  
-*(moving slowly into the vault)*  
+**POLKIN**
+*(moving slowly into the vault)*
 "I know. And I'll carry that until I die. But she's **alive**, Teithea. She's **here**. Don't make her disappear again."
 
 Teithea finally turns. Her eyes—one human, one cybernetic, both glowing with void-light—lock onto his.
 
-**TEITHEA**  
+**TEITHEA**
 "She already disappeared. What's standing behind me is just a **ghost** that learned to fight back."
 
-**LUMINA**  
+**LUMINA**
 "Mom, I'm **real**—"
 
-**TEITHEA**  
-*(ignoring her, focused on Polkin)*  
+**TEITHEA**
+*(ignoring her, focused on Polkin)*
 "You turned her into a weapon. You taught her to **kill**. You made her into **this**."
 
 She gestures at Lumina—split-faced, horned, glowing with void-light.
 
-**TEITHEA**  
+**TEITHEA**
 "So I'm going to **fix** it. I'm going to cut out the **cancer**. And then—**then**—she can be Ely again."
 
-**POLKIN**  
+**POLKIN**
 "She **is** Ely. Just—changed. Older. **Surviving**."
 
-**TEITHEA**  
+**TEITHEA**
 "Surviving? Or **infected**?"
 
 She moves. Fast.
@@ -137,19 +137,19 @@ Toward **Polkin**.
 
 The soldering iron slashes across his chest—he blocks with his cybernetic arm, metal screeching against super-heated steel.
 
-**TEITHEA**  
+**TEITHEA**
 "You let this happen! You let them **take** her!"
 
 She slashes again. He blocks again.
 
-**POLKIN**  
-*(calm, steady)*  
+**POLKIN**
+*(calm, steady)*
 "I did. And I've spent six years trying to fix it."
 
-**TEITHEA**  
+**TEITHEA**
 "**Trying**? Where's the **success**, Polkin? Where's my daughter?"
 
-**POLKIN**  
+**POLKIN**
 "Right behind you."
 
 Teithea spins—
@@ -162,7 +162,7 @@ She's at the vault door, Clyde glowing on her shoulder, both of them ready to ru
 
 Teithea's face **twists**.
 
-**TEITHEA**  
+**TEITHEA**
 "No. **No**. You're not running again. I **found** you—"
 
 She lunges—not at Polkin, but past him, toward Lumina.
@@ -199,8 +199,8 @@ Polkin **screams**—not loud, but strangled, choked, trying not to let Lumina h
 
 Teithea pulls back, staring at the wound, at the ichor eating through him.
 
-**TEITHEA**  
-*(horrified, then fascinated)*  
+**TEITHEA**
+*(horrified, then fascinated)*
 "Oh. **Oh**. You're **melting**."
 
 Polkin looks at his shoulder. At the spreading dissolution. At his arm—still attached, but **not for long**.
@@ -233,40 +233,40 @@ If he does nothing = The ichor reaches his heart in 10 seconds = Lumina dies alo
 
 ## PART FIVE: THE CHOICE
 
-**POLKIN**  
-*(voice steady, even as his shoulder dissolves)*  
+**POLKIN**
+*(voice steady, even as his shoulder dissolves)*
 "Ely. Listen to me."
 
-**LUMINA**  
-*(sobbing)*  
+**LUMINA**
+*(sobbing)*
 "Dad, your arm—"
 
-**POLKIN**  
+**POLKIN**
 "I need you to run. Right now. Don't stop. Don't look back."
 
-**LUMINA**  
+**LUMINA**
 "I'm not leaving you—"
 
-**POLKIN**  
+**POLKIN**
 "**YES, YOU ARE.**"
 
 His voice—not angry. Not desperate.
 
 **Final.**
 
-**POLKIN**  
+**POLKIN**
 "Clyde. Get her out."
 
 Clyde chirps—terrified, but **obedient**. He wraps tighter around Lumina's neck, pulling her backward.
 
-**LUMINA**  
+**LUMINA**
 "Dad, **no**—"
 
-**POLKIN**  
-*(stepping backward into the vault, eyes locked on hers)*  
+**POLKIN**
+*(stepping backward into the vault, eyes locked on hers)*
 "I love you, Ely. I'm sorry I was late. But I'm **here** now."
 
-**LUMINA**  
+**LUMINA**
 "**DAD**—"
 
 Polkin **SLAMS** the vault door shut.
@@ -299,8 +299,8 @@ It doesn't work.
 
 The ichor is **hungry**.
 
-**POLKIN**  
-*(to himself, voice shaking)*  
+**POLKIN**
+*(to himself, voice shaking)*
 "Not the heart. Don't let it reach the heart. Not yet. Not—"
 
 On the other side of the door:
@@ -313,13 +313,13 @@ On the other side of the door:
 
 Teithea, **pounding**.
 
-**TEITHEA**  
-*(muffled, furious)*  
+**TEITHEA**
+*(muffled, furious)*
 "POLKIN! **OPEN THE DOOR!**"
 
 He doesn't answer.
 
-**TEITHEA**  
+**TEITHEA**
 "She's **mine**! You don't get to take her again!"
 
 **THUD. THUD. THUD.**
@@ -356,24 +356,24 @@ Something **heavy** hits the floor on the other side of the door.
 
 Lumina's breath catches.
 
-**LUMINA**  
-*(whispers)*  
+**LUMINA**
+*(whispers)*
 "His arm. That was—that was his **arm**."
 
 Clyde chirps—mournful, helpless.
 
-**LUMINA**  
+**LUMINA**
 "We have to go back. We have to—"
 
 Clyde SHRIEKS—**no**. Urgent. Desperate.
 
-**Translation:**  
+**Translation:**
 *"He sealed the door for you. If you go back, you make it meaningless. RUN."*
 
-**LUMINA**  
+**LUMINA**
 "But he's—"
 
-**CLYDE**  
+**CLYDE**
 *"ALIVE. Because YOU ran. Now KEEP running."*
 
 Lumina's legs move before her brain catches up.
@@ -406,35 +406,35 @@ Burnt flesh. Dissolved bone. **Nothingness**.
 
 Airth's voice crackles in his ear, panicked.
 
-**AIRTH**  
+**AIRTH**
 "Polkin! Your biometrics—what happened? You're—you're **missing data**. Like part of your body just **stopped existing**—"
 
-**POLKIN**  
-*(voice rough)*  
+**POLKIN**
+*(voice rough)*
 "I'm fine."
 
-**AIRTH**  
+**AIRTH**
 "You're **not** fine! Your right arm—the neural map is **gone**. Did you—did you **lose it**?"
 
-**POLKIN**  
+**POLKIN**
 "Traded it."
 
-**AIRTH**  
+**AIRTH**
 "For **what**?"
 
-**POLKIN**  
+**POLKIN**
 "Time."
 
 Silence.
 
-**AIRTH**  
-*(quiet)*  
+**AIRTH**
+*(quiet)*
 "Where's Lumina?"
 
-**POLKIN**  
+**POLKIN**
 "Safe. She ran. That's all that matters."
 
-**AIRTH**  
+**AIRTH**
 "And Teithea?"
 
 On the other side of the door:
@@ -443,25 +443,25 @@ On the other side of the door:
 
 The hole is widening. Void-light spills through, illuminating Polkin's face.
 
-**POLKIN**  
+**POLKIN**
 "Still trying to save a daughter who doesn't need saving."
 
 He stands—unsteady, one-armed, bleeding light instead of blood.
 
-**POLKIN**  
+**POLKIN**
 "Airth. Mark this location. Send it to Elara and the Knockoffs. Tell them—tell them Teithea's here. And she's **armed**."
 
-**AIRTH**  
+**AIRTH**
 "What are you going to do?"
 
 Polkin looks at the spreading hole in the door. At the void-light eating through steel.
 
-**POLKIN**  
+**POLKIN**
 "Buy more time."
 
 He activates his cybernetic arm—plasma cutter glowing red, ready.
 
-**POLKIN**  
+**POLKIN**
 "And then? I'm going to get my arm back."
 
 ---
@@ -482,18 +482,18 @@ She picks it up. Studies it.
 
 Human flesh. Calloused fingers. Knuckles scarred from carving names into steel.
 
-**TEITHEA**  
-*(to the arm, voice soft)*  
+**TEITHEA**
+*(to the arm, voice soft)*
 "You let him do this to you. You let him sacrifice you. For **her**."
 
 She turns it over. Sees the neural interface at the shoulder joint—exposed, sparking faintly, still transmitting phantom signals.
 
-**TEITHEA**  
+**TEITHEA**
 "But you're not **dead**. You're just\... **disconnected**."
 
 She smiles—sharp, calculating, **dangerous**.
 
-**TEITHEA**  
+**TEITHEA**
 "Let's see if we can **rewire** you."
 
 She pulls a cable from her cybernetic eye, plugs it into the arm's neural interface.
@@ -504,13 +504,13 @@ Fingers curl. Uncurl. **Test** their range.
 
 Teithea's smile widens.
 
-**TEITHEA**  
+**TEITHEA**
 "Oh. **Oh**, this is **perfect**."
 
 She stands, holding the arm like a weapon, like a **puppet**.
 
-**TEITHEA**  
-*(to the vault door)*  
+**TEITHEA**
+*(to the vault door)*
 "You gave her time, Polkin. Now I'm going to take it **back**."
 
 She walks away, trailing void-light and stolen flesh.
@@ -525,8 +525,8 @@ He looks at where his arm was. At the empty space.
 
 Then he looks down the corridor, where Lumina ran.
 
-**POLKIN**  
-*(to himself)*  
+**POLKIN**
+*(to himself)*
 "Worth it."
 
 He starts walking. Toward Elara. Toward the Knockoffs. Toward the Vessel.
@@ -602,7 +602,7 @@ This is **the cost of love** measured in flesh and choice.
 **The equation:**
 ```
 My arm < Her life
-My pain < Her safety  
+My pain < Her safety
 My body < Her future
 ```
 

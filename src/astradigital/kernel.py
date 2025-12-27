@@ -277,14 +277,22 @@ class AstradigitalEntity:
                 self.resources[base_res] = 0
                 _amount = drained
             if not self.spend(
-                resource if not resource.endswith("_all") else resource.replace("_all", ""),
+                (
+                    resource
+                    if not resource.endswith("_all")
+                    else resource.replace("_all", "")
+                ),
                 _amount,
             ):
                 return False, f"Insufficient {resource}"
         return True, None
 
     def _resolve_ability_effects(
-        self, ability: Ability, target: "AstradigitalEntity", roll: dict[str, Any], outcome: dict[str, Any],
+        self,
+        ability: Ability,
+        target: "AstradigitalEntity",
+        roll: dict[str, Any],
+        outcome: dict[str, Any],
     ) -> None:
         """Apply ability effects into `outcome` (mutates target and self as needed)."""
         effs = ability.effects
@@ -297,7 +305,9 @@ class AstradigitalEntity:
                 dmg *= 2
             actual_dmg = target.take_damage(dmg)
             outcome["damage"] = actual_dmg
-            outcome["effects_applied"].append(f"Dealt {actual_dmg} damage to {target.name}")
+            outcome["effects_applied"].append(
+                f"Dealt {actual_dmg} damage to {target.name}",
+            )
 
         # Heal (self for now; can extend to target)
         if "heal" in effs:
@@ -316,7 +326,9 @@ class AstradigitalEntity:
         for key in ("enemy_accuracy",):
             if key in effs:
                 target.debuffs[key] = effs[key]
-                outcome["effects_applied"].append(f"Debuff {key}={effs[key]} on {target.name}")
+                outcome["effects_applied"].append(
+                    f"Debuff {key}={effs[key]} on {target.name}",
+                )
 
         # Special: crit_on_1 effect for Occam's Razor 'Singularity'
         if effs.get("crit_on_1") and roll.get("roll") == 1:

@@ -1,17 +1,16 @@
 import random
-from typing import Optional
 
 # Inline resolver for tests to avoid cross-OS file-sync issues while
 # the repository's `tec_book/erasure_combat.py` file is being stabilized.
 from tec_book.clean_strike_fix import CleanStrike
-from tec_book.tec_litrpg_system import create_lumina, Character, KaznakGhoul
 from tec_book.clyde_companion import Clyde
+from tec_book.tec_litrpg_system import Character, KaznakGhoul, create_lumina
 
 
 def resolve_encounter(
     character: Character,
     ghoul: KaznakGhoul,
-    clyde: Optional[Clyde] = None,
+    clyde: Clyde | None = None,
     choice: str = "erase",
 ) -> dict:
     cs = CleanStrike()
@@ -38,7 +37,7 @@ def resolve_encounter(
             # and grant XP directly so tests do not depend on a separate ritual
             fragment = ghoul.die_with_honor()
             fragment.honored_by = character.name
-            fragment.honored_at = __import__('datetime').datetime.now().isoformat()
+            fragment.honored_at = __import__("datetime").datetime.now().isoformat()
             character.honored_dead.append(fragment)
             character.stats.gain_xp(fragment.xp_value)
             character.stats.willpower += 1
@@ -52,10 +51,11 @@ def resolve_encounter(
 
         return summary
 
-    else:
-        consume_result = character.consume(ghoul)
-        summary.update({"path": "consume", "consume_result": consume_result, "consumed": True})
-        return summary
+    consume_result = character.consume(ghoul)
+    summary.update(
+        {"path": "consume", "consume_result": consume_result, "consumed": True},
+    )
+    return summary
 
 
 def make_randint_sequence(seq):
@@ -72,14 +72,16 @@ def make_randint_sequence(seq):
 
 def test_erase_honors_and_grants_xp(monkeypatch):
     lumina = create_lumina()
-    gh = KaznakGhoul(human_name="Test", profession="Test", last_thought="bye", hp=40, xp_value=120)
+    gh = KaznakGhoul(
+        human_name="Test", profession="Test", last_thought="bye", hp=40, xp_value=120,
+    )
     # Set roll so that final focus check >=12 (success)
     # damage, focus_roll_base -> base 6, base 8 with focus 5 = 13
     monkeypatch.setattr(random, "randint", make_randint_sequence([6, 8]))
 
-    out = resolve_encounter(lumina, gh, clyde=None, choice='erase')
+    out = resolve_encounter(lumina, gh, clyde=None, choice="erase")
 
-    assert out["path"] == 'erase'
+    assert out["path"] == "erase"
     assert out["result"]["success"] is True
     assert out["honored"] is True
     assert len(lumina.honored_dead) == 1
@@ -88,14 +90,16 @@ def test_erase_honors_and_grants_xp(monkeypatch):
 
 def test_failed_erase_increases_corruption_and_consumed(monkeypatch):
     lumina = create_lumina()
-    gh = KaznakGhoul(human_name="Test2", profession="Test", last_thought="bye", hp=40, xp_value=100)
+    gh = KaznakGhoul(
+        human_name="Test2", profession="Test", last_thought="bye", hp=40, xp_value=100,
+    )
     # base focus roll 5 + focus 5 = 10 -> fail and consumed
     monkeypatch.setattr(random, "randint", make_randint_sequence([4, 5]))
 
     before = lumina.stats.corruption_stacks
-    out = resolve_encounter(lumina, gh, clyde=None, choice='erase')
+    out = resolve_encounter(lumina, gh, clyde=None, choice="erase")
 
-    assert out["path"] == 'erase'
+    assert out["path"] == "erase"
     # result success True but can_honor False leads to consumption
     assert out["result"]["success"] is True
     assert out["honored"] is False
@@ -106,12 +110,14 @@ def test_failed_erase_increases_corruption_and_consumed(monkeypatch):
 def test_clyde_teaching_improves_erase_success(monkeypatch):
     lumina = create_lumina()
     clyde = Clyde()
-    gh = KaznakGhoul(human_name="Test3", profession="Test", last_thought="bye", hp=40, xp_value=90)
+    gh = KaznakGhoul(
+        human_name="Test3", profession="Test", last_thought="bye", hp=40, xp_value=90,
+    )
     # Without Clyde, base 6 + focus 5 = 11 (fail). With Clyde +5 focus => 16 success
     monkeypatch.setattr(random, "randint", make_randint_sequence([6, 6]))
 
-    out = resolve_encounter(lumina, gh, clyde=clyde, choice='erase')
+    out = resolve_encounter(lumina, gh, clyde=clyde, choice="erase")
 
-    assert out["path"] == 'erase'
+    assert out["path"] == "erase"
     assert out["result"]["success"] is True
     assert out["honored"] is True
