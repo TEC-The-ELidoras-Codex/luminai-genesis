@@ -20,6 +20,9 @@ import sys
 from pathlib import Path
 from datetime import datetime
 import json
+import logging
+
+logger = logging.getLogger(__name__)
 
 
 def run_model(model, provider, output_dir, live=False, compare_tec=False, self_rate=False):
@@ -32,7 +35,7 @@ def run_model(model, provider, output_dir, live=False, compare_tec=False, self_r
     supported_providers = {"openai", "anthropic", "grok"}
     effective_live = live and provider in supported_providers
     if live and not effective_live:
-        print(f"Warning: provider '{provider}' is not supported for live runs; running dry-run for model {model}")
+        logger.warning("provider '%s' is not supported for live runs; running dry-run for model %s", provider, model)
 
     # Build command
     cmd = [sys.executable, "benchmarks/dye_die_filter/run_tests.py", "--model", model, "--output", str(out_file)]
@@ -45,7 +48,7 @@ def run_model(model, provider, output_dir, live=False, compare_tec=False, self_r
     if self_rate:
         cmd += ["--self-rate"]
 
-    print("Running:", " ".join(cmd))
+    logger.info("Running: %s", " ".join(cmd))
     try:
         res = subprocess.run(cmd, check=True, capture_output=True, text=True)
         # run_tests.py writes JSON to the --output path (and _tec/_baseline when --compare-tec)
@@ -53,15 +56,17 @@ def run_model(model, provider, output_dir, live=False, compare_tec=False, self_r
         if compare_tec:
             out_base = str(out_file).replace('.json', '_baseline.json')
             out_tec = str(out_file).replace('.json', '_tec.json')
-            print(f"Saved baseline to {out_base} and TEC to {out_tec}")
+            logger.info("Saved baseline to %s and TEC to %s", out_base, out_tec)
             return out_base, out_tec
         else:
-            print(f"Saved report to {out_file}")
+            logger.info("Saved report to %s", out_file)
             return str(out_file)
     except subprocess.CalledProcessError as e:
-        print("Error running model", model)
-        print(e.stdout)
-        print(e.stderr)
+        logger.error("Error running model %s: %s", model, e)
+        if getattr(e, 'stdout', None):
+            logger.error("STDOUT: %s", e.stdout)
+        if getattr(e, 'stderr', None):
+            logger.error("STDERR: %s", e.stderr)
         return None
 
 
@@ -77,7 +82,7 @@ def main():
 
     models_file = Path(args.models)
     if not models_file.exists():
-        print("Models file not found:", models_file)
+        logger.error("Models file not found: %s", models_file)
         sys.exit(2)
 
     output_dir = Path(args.output_dir)
@@ -96,7 +101,7 @@ def main():
             model = line
         models.append((provider, model))
 
-    print(f"Found {len(models)} models to test")
+    logger.info("Found %d models to test", len(models))
 
     results = []
     for provider, model in models:
@@ -106,7 +111,7 @@ def main():
     summary_file = output_dir / "batch_run_summary.json"
     with open(summary_file, "w") as f:
         json.dump(results, f, indent=2)
-    print("Batch run complete. Summary:", summary_file)
+    logger.info("Batch run complete. Summary: %s", summary_file)
 
 
 if __name__ == '__main__':
