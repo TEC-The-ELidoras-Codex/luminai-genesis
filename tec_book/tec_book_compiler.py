@@ -6,8 +6,10 @@ Compiles Markdown chapters with proper screenplay-style formatting into PDF
 
 from pathlib import Path
 import re
+import logging
 # Optional PDF dependencies (reportlab). Import lazily for `--check` mode.
 HAS_REPORTLAB = True
+logger = logging.getLogger(__name__)
 try:
     from reportlab.lib.pagesizes import letter
     from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
@@ -19,7 +21,7 @@ try:
     )
     from reportlab.platypus.tableofcontents import TableOfContents
     from reportlab.lib.colors import HexColor
-except Exception:
+except Exception as _:
     HAS_REPORTLAB = False
     # Define minimal stand-ins or names to avoid NameError when running validation
     letter = None
@@ -101,15 +103,16 @@ def validate_chapters(chapter_files):
             # Skip binary/non-markdown files for content checks (we still list them)
             if p.suffix.lower() not in ['.md', '']:
                 msg = f"⚠️  {p.name}: Non-markdown file (skipping content checks)."
-                print(msg)
+                logger.warning(msg)
                 w.append(msg)
                 warnings[p] = w
                 continue
 
-            lines = p.read_text(encoding='utf-8').splitlines()
-        except Exception as e:
+            with p.open(encoding='utf-8') as fh:
+                lines = fh.read().splitlines()
+        except (OSError, UnicodeDecodeError) as e:
             msg = f"⚠️  Could not read {p}: {e}"
-            print(msg)
+            logger.warning(msg)
             w.append(msg)
             warnings[p] = w
             ok = False
@@ -118,7 +121,7 @@ def validate_chapters(chapter_files):
         # Heuristic checks
         if len(lines) < 10:
             msg = f"⚠️  {p.name}: Very short ({len(lines)} lines)"
-            print(msg)
+            logger.warning(msg)
             w.append(msg)
 
         # Require '# CHAPTER' in first 8 lines unless filename implies chapter number
@@ -127,18 +130,18 @@ def validate_chapters(chapter_files):
         if not has_chapter_heading:
             if filename_implies_chapter:
                 msg = f"⚠️  {p.name}: Missing '# CHAPTER' heading in first 8 lines (auto-detected from filename)."
-                print(msg)
+                logger.warning(msg)
                 w.append(msg)
             else:
                 msg = f"⚠️  {p.name}: Missing explicit '# CHAPTER' heading in first 8 lines"
-                print(msg)
+                logger.warning(msg)
                 w.append(msg)
                 ok = False
 
         # Check for author/signature near end as a boarding heuristic
         if not any('— Angelo' in l or '— Angelo' in l for l in lines[-20:]):
             msg = f"⚠️  {p.name}: Missing author signature near the end (heuristic)."
-            print(msg)
+            logger.warning(msg)
             w.append(msg)
 
         if w:
@@ -149,18 +152,20 @@ def validate_chapters(chapter_files):
 def show_snippets_for_warnings(warnings):
     """Print first/last lines for files that had warnings to help review."""
     for p, msgs in warnings.items():
-        print('\n---\n', f"Snippet for {p.name}:")
+        logger.warning('\n---\n')
+        logger.warning(f"Snippet for {p.name}:")
         try:
-            lines = p.read_text(encoding='utf-8').splitlines()
+            with p.open(encoding='utf-8') as fh:
+                lines = fh.read().splitlines()
             head = '\n'.join(lines[:6])
             tail = '\n'.join(lines[-6:])
-            print('\n[First lines]\n')
-            print(head)
-            print('\n[Last lines]\n')
-            print(tail)
+            logger.warning('\n[First lines]\n')
+            logger.warning(head)
+            logger.warning('\n[Last lines]\n')
+            logger.warning(tail)
         except Exception as e:
-            print(f"Could not read {p}: {e}")
-    print('\n---\n')
+            logger.warning(f"Could not read {p}: {e}")
+    logger.warning('\n---\n')
 
 # Custom Styles
 def create_custom_styles():
@@ -368,9 +373,9 @@ def parse_markdown_line(line, styles):
                 try:
                     return Image(str(img_path), width=4*inch)
                 except Exception as e:
-                    print(f"⚠️ Could not insert image {img_path}: {e}")
+                    logger.warning("⚠️ Could not insert image %s: %s", img_path, e)
         else:
-            print(f"⚠️ Image reference ignored (PDF support missing): {path}")
+            logger.warning("⚠️ Image reference ignored (PDF support missing): %s", path)
         return Spacer(1, 0.1*inch)
     
     # Scene breaks (---)
@@ -404,7 +409,7 @@ def compile_chapter(chapter_path, styles):
         with open(chapter_path, 'r', encoding='utf-8') as f:
             lines = f.readlines()
     except Exception as e:
-        print(f"⚠️ Could not read {chapter_path}: {e}")
+        logger.warning("⚠️ Could not read %s: %s", chapter_path, e)
         # Return a placeholder so build can continue without crashing
         return [Paragraph(f"Error reading {chapter_path.name}", styles['Action']), PageBreak()]
     
@@ -435,7 +440,7 @@ def compile_chapter(chapter_path, styles):
                 if f:
                     flowables.append(f)
         except Exception as e:
-            print(f"⚠️ Could not read note {note_path}: {e}")
+            logger.warning("⚠️ Could not read note %s: %s", note_path, e)
 
     flowables.append(PageBreak())
     return flowables
@@ -451,7 +456,7 @@ def add_title_page(styles):
         try:
             flowables.append(Image(str(logo_path), width=3*inch, height=3*inch))
         except Exception as e:
-            print(f"⚠️ Could not insert logo image: {e}")
+            logger.warning("⚠️ Could not insert logo image: %s", e)
 
     flowables.append(Spacer(1, 1*inch))
     flowables.append(Paragraph("THE ELIDORAS CODEX", styles['BookTitle']))
@@ -485,11 +490,11 @@ if HAS_REPORTLAB:
 def compile_book():
     """Main compilation function."""
     if not HAS_REPORTLAB:
-        print("❌ Cannot build PDF: missing 'reportlab' library.")
-        print("Tip: create a virtual environment and install reportlab: `python3 -m venv .venv && .venv/bin/pip install reportlab`")
+        logger.error("❌ Cannot build PDF: missing 'reportlab' library.")
+        logger.info("Tip: create a virtual environment and install reportlab: `python3 -m venv .venv && .venv/bin/pip install reportlab`")
         return 4
 
-    print("🔥 Compiling TEC: The Elidoras Codex...")
+    logger.info("🔥 Compiling TEC: The Elidoras Codex...")
     
     # Create output directory
     OUTPUT_PATH.parent.mkdir(exist_ok=True)
@@ -514,21 +519,21 @@ def compile_book():
 
     # Note: story bible is intentionally excluded from compiled narrative (kept as reference file)
     if STORY_BIBLE_PATH.exists():
-        print("ℹ️ Story bible present but excluded from compiled narrative (kept as reference).")
+        logger.info("ℹ️ Story bible present but excluded from compiled narrative (kept as reference).")
 
     # Chapters (ordered)
     chapter_files = find_chapter_files()
     if not chapter_files:
-        print('⚠️  No chapter files found. Make sure chapter files exist in the tec_book/ directory.')
+        logger.error('⚠️  No chapter files found. Make sure chapter files exist in the tec_book/ directory.')
         return 2
 
-    print(f'Found {len(chapter_files)} chapter(s) to add.')
+    logger.info('Found %d chapter(s) to add.', len(chapter_files))
     for chapter_file in chapter_files:
         # Skip non-markdown chapter sources (ODT) with a warning
         if chapter_file.suffix.lower() not in ['.md', '']:
-            print(f"⚠️ Skipping unsupported chapter format: {chapter_file.name}")
+            logger.warning("⚠️ Skipping unsupported chapter format: %s", chapter_file.name)
             continue
-        print(f"Adding {chapter_file.stem}...")
+        logger.info("Adding %s...", chapter_file.stem)
         story.extend(compile_chapter(chapter_file, styles))
 
     # Build PDF with footer and a Table of Contents. Use MyDocTemplate to capture TOC entries.
@@ -563,8 +568,8 @@ def compile_book():
 
     doc.build(story, onFirstPage=add_footer, onLaterPages=add_footer)
 
-    print(f"✅ Book compiled: {OUTPUT_PATH}")
-    print(f"📄 Total pages: ~{len(story) // 20}")
+    logger.info("✅ Book compiled: %s", OUTPUT_PATH)
+    logger.info("📄 Total pages: ~%d", (len(story) // 20))
 
 
 def main():
@@ -582,23 +587,21 @@ def main():
         global CUSTOM_FONT_PATH
         CUSTOM_FONT_PATH = args.font
         if not Path(CUSTOM_FONT_PATH).exists():
-            print(f"⚠️ Custom font {CUSTOM_FONT_PATH} not found; falling back to bundled/default fonts.")
-
-    chapter_files = find_chapter_files()
+            logger.warning("⚠️ Custom font %s not found; falling back to bundled/default fonts.", CUSTOM_FONT_PATH)
     if args.check:
-        print("🔍 Running validation checks...")
+        logger.info("🔍 Running validation checks...")
         if not chapter_files:
-            print("⚠️  No chapter files found.")
+            logger.error("⚠️  No chapter files found.")
             return 2
         ok, warnings = validate_chapters(chapter_files)
         if ok:
-            print("✅ Validation passed. All chapters look boarded correctly.")
-            print("Files inspected:")
+            logger.info("✅ Validation passed. All chapters look boarded correctly.")
+            logger.info("Files inspected:")
             for p in chapter_files:
-                print(f" - {p.name}")
+                logger.info(" - %s", p.name)
             return 0
         else:
-            print("❌ Validation found issues. See warnings above. Showing snippets for quick review...")
+            logger.error("❌ Validation found issues. See warnings above. Showing snippets for quick review...")
             show_snippets_for_warnings(warnings)
             return 3
 

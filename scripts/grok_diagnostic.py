@@ -5,9 +5,13 @@ import os
 import sys
 import socket
 import traceback
+import logging
+from pathlib import Path
 
-outf = "diagnostics/grok-diagnostic.json"
-os.makedirs("diagnostics", exist_ok=True)
+logger = logging.getLogger(__name__)
+
+outf = Path("diagnostics") / "grok-diagnostic.json"
+Path("diagnostics").mkdir(parents=True, exist_ok=True)
 report = {"attempts": [], "dns": {}, "http_fallback": None}
 api_key = os.environ.get("GROK_API_KEY") or os.environ.get("XAI_API_KEY")
 report["api_key_present"] = bool(api_key)
@@ -17,8 +21,10 @@ for host in ("api.grok.com", "api.x.ai"):
     try:
         ip = socket.gethostbyname(host)
         report["dns"][host] = {"resolved": True, "ip": ip}
-    except Exception as e:
+    except socket.gaierror as e:
         report["dns"][host] = {"resolved": False, "error": str(e), "traceback": traceback.format_exc()}
+    except Exception as _:
+        report["dns"][host] = {"resolved": False, "error": "unknown error", "traceback": traceback.format_exc()}
 
 # Try xai client first (if available)
 try:
@@ -30,12 +36,12 @@ try:
         try:
             resp = client.messages.create(model="grok-2", messages=[{"role": "user", "content": "Hello"}], max_tokens=20)
             report["attempts"][-1]["response"] = str(getattr(resp, "output_text", repr(resp)))
-        except Exception as e:
-            report["attempts"][-1]["error"] = {"message": str(e), "traceback": traceback.format_exc()}
-    except Exception as e:
-        report["attempts"].append({"client": "xai", "error": {"message": str(e), "traceback": traceback.format_exc()}})
-except Exception as e:
-    report["attempts"].append({"client": "xai", "error": {"message": str(e), "traceback": traceback.format_exc()}})
+        except Exception as _:
+            report["attempts"][-1]["error"] = {"message": "call failed", "traceback": traceback.format_exc()}
+    except Exception as _:
+        report["attempts"].append({"client": "xai", "error": {"message": "init failed", "traceback": traceback.format_exc()}})
+except Exception as _:
+    report["attempts"].append({"client": "xai", "error": {"message": "module import failed", "traceback": traceback.format_exc()}})
 
 # Then try grok SDK
 try:
@@ -109,11 +115,16 @@ if api_key:
     except Exception as e:
         auth_probe = {"error": str(e), "traceback": traceback.format_exc()}
     try:
-        with open("diagnostics/xai-auth-probe.json", "w") as f:
+        p = Path("diagnostics") / "xai-auth-probe.json"
+        with p.open("w") as f:
             json.dump(auth_probe, f, indent=2)
-    except Exception:
-        pass
+    except OSError as _:
+        logger.warning("Could not write xai auth probe file")
 
-with open(outf, "w") as f:
-    json.dump(report, f, indent=2)
-print(json.dumps(report, indent=2))
+try:
+    with outf.open("w") as f:
+        json.dump(report, f, indent=2)
+    logger.info("Grok diagnostic written to %s", outf)
+except OSError as _:
+    logger.exception("Failed to write grok diagnostic file")
+logger.info(json.dumps(report, indent=2))

@@ -15,11 +15,14 @@ from collections import defaultdict
 import statistics
 import re
 import random
+import logging
+
+logger = logging.getLogger(__name__)
 
 # Optional performance libs; fallback to stdlib when missing
 try:
     import numpy as np
-except Exception:
+except ImportError:
     np = None
 
 
@@ -46,7 +49,8 @@ def load_scores_from_report(report_path):
                 return float(s['mean_w'])
         if 'w_score' in data:
             return float(data['w_score'])
-    except Exception:
+    except json.JSONDecodeError:
+        # Not a JSON report; fall back to plaintext parsing below
         pass
 
     # Fallback: search for W-score patterns in plaintext
@@ -125,27 +129,27 @@ def main():
             model_scores.append((r.name, s))
 
     if not scores:
-        print("No scores found in", input_dir)
+        logger.warning("No scores found in %s", input_dir)
         return
 
     if not scores:
-        print("No numeric scores found in reports; no analysis produced.")
+        logger.warning("No numeric scores found in reports; no analysis produced.")
         return
     # Use numpy if available, otherwise statistics
     try:
         mean = float(np.mean(scores)) if np is not None else float(statistics.mean(scores))
-    except Exception:
+    except Exception as _:
         mean = float(statistics.mean(scores))
     try:
         med = float(np.median(scores)) if np is not None else float(statistics.median(scores))
-    except Exception:
+    except Exception as _:
         med = float(statistics.median(scores))
     lo, hi = bootstrap_ci(scores)
 
     # bimodality test (simple heuristic)
     try:
         bc = bimodality_coefficient(scores)
-    except Exception:
+    except Exception as _:
         bc = None
 
     # Write markdown summary
@@ -162,7 +166,7 @@ def main():
         for name, s in sorted(model_scores, key=lambda x: x[1], reverse=True):
             f.write(f"- **{name}**: {s:.3f}\n")
 
-    print("Analysis complete. Summary written to", out_file)
+    logger.info("Analysis complete. Summary written to %s", out_file)
 
 
 if __name__ == '__main__':

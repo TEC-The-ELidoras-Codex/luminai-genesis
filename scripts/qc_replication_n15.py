@@ -9,13 +9,16 @@ import argparse
 from pathlib import Path
 import json
 import re
+import logging
+
+logger = logging.getLogger(__name__)
 
 
 def load_scores_from_report_text(txt):
     """Extract numeric scores using simple heuristics (mirrors analyzer)."""
     try:
         data = json.loads(txt)
-    except Exception:
+    except json.JSONDecodeError:
         # not JSON
         return None
     scores = []
@@ -28,7 +31,7 @@ def load_scores_from_report_text(txt):
         if 'w_score' in data:
             try:
                 scores.append(float(data['w_score']))
-            except Exception:
+            except (ValueError, TypeError):
                 pass
         if 'summary' in data and isinstance(data['summary'], dict):
             s = data['summary'].get('w_score')
@@ -114,8 +117,9 @@ def main():
 
             data = yaml.safe_load(prompts_file.read_text())
             expected_n = len(data.get('prompts', []))
-        except Exception:
+        except Exception as _:
             # Fallback: count '- id:' occurrences in the prompts file
+            logger.warning("Failed to read prompts.yaml; falling back to heuristic count: %s", _)
             txt = prompts_file.read_text()
             expected_n = txt.count('- id:')
 
@@ -153,7 +157,7 @@ def main():
         json.dump(summary, fh, indent=2)
         fh.write('\n```\n')
 
-    print('QC complete. Report written to', out)
+    logger.info('QC complete. Report written to %s', out)
 
 if __name__ == '__main__':
     main()
