@@ -158,8 +158,12 @@ class GhoulDatabase:
         """Load from JSON"""
         if self.db_path.exists():
             with open(self.db_path, 'r') as f:
-                data = json.load(f)
-                self.ghouls = [GhoulRecord.from_dict(g) for g in data]
+                try:
+                    data = json.load(f)
+                    self.ghouls = [GhoulRecord.from_dict(g) for g in data]
+                except (json.JSONDecodeError, ValueError):
+                    # Empty or invalid JSON -> treat as empty database
+                    self.ghouls = []
     
     def save(self):
         """Save to JSON"""

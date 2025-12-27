@@ -15,23 +15,38 @@ except ImportError:
     print("⚠️  Import error - make sure files are in same directory")
     sys.exit(1)
 
-def main():
-    print("╔═══════════════════════════════════════════╗")
-    print("  THE ELIDORAS CODEX: ERASURE VS CONSUMPTION")
-    print("╚═══════════════════════════════════════════╝\n")
-    
+def main(args=None):
+    import argparse
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--seed", type=int, default=None, help="Seed RNG for deterministic demo")
+    parser.add_argument("--noninteractive", action="store_true", help="Run a single non-interactive demo encounter and exit")
+    parser.add_argument("--data-file", default="data/ghouls.json", help="Path to ghoul data file (use temp file for tests)")
+    parsed = parser.parse_args(args)
+
+    # Seed RNG for deterministic runs when requested
+    if parsed.seed is not None:
+        import random as _random
+        _random.seed(parsed.seed)
+        print(f"[demo] Using seed {parsed.seed}\n")
+
     lumina = create_lumina()
     print(lumina.status_report())
-    
-    input("Press Enter to begin...\n")
+
+    if not parsed.noninteractive:
+        input("Press Enter to begin...\n")
+
+    auto_run_once = parsed.noninteractive
     
     # Initialize database
-    db = GhoulDatabase(Path("data/ghouls.json"))
+    data_fp = parsed.data_file if hasattr(parsed, 'data_file') else "data/ghouls.json"
+    db = GhoulDatabase(Path(data_fp))
     if not db.ghouls:
         print("Generating Ghouls...")
         canonical = create_canonical_ghouls()
         db.add_batch(canonical)
-        generator = GhoulGenerator(seed=42)
+        # Use demo seed for procedural generation when provided
+        gen_seed = parsed.seed if getattr(parsed, 'seed', None) is not None else 42
+        generator = GhoulGenerator(seed=gen_seed)
         procedural = generator.generate_batch(10, tier_range=(1, 2))
         db.add_batch(procedural)
         print(f"✅ Generated {len(db.ghouls)} Ghouls\n")
@@ -73,11 +88,15 @@ def main():
         print(f"[1] ERASE - Honor {ghoul.human_name}")
         print(f"[2] CONSUME - Feed the Queen")
         
-        while True:
-            choice = input("\nChoice (1 or 2): ").strip()
-            if choice in ["1", "2"]:
-                break
-            print("Invalid. Enter 1 or 2.")
+        if auto_run_once:
+            # Deterministic non-interactive run: prefer Erase
+            choice = "1"
+        else:
+            while True:
+                choice = input("\nChoice (1 or 2): ").strip()
+                if choice in ["1", "2"]:
+                    break
+                print("Invalid. Enter 1 or 2.")
         
         print()
         
@@ -105,6 +124,9 @@ def main():
             print("\n💀 GAME OVER: Full Kaznak conversion")
             break
         
+        if auto_run_once:
+            break
+
         print("\n" + "─"*60)
         choice = input("Continue? [y/n]: ").strip().lower()
         if choice != 'y':
