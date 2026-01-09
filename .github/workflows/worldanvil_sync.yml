@@ -1,0 +1,31 @@
+name: Sync to World Anvil
+
+on:
+  workflow_dispatch: {}
+  push:
+    branches: [ main ]
+    paths:
+      - 'tec_book/**'
+
+jobs:
+  migrate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; else pip install requests; fi
+
+      - name: Dry-run migration
+        env:
+          WORLDANVIL_API_KEY: ${{ secrets.WORLDANVIL_API_KEY }}
+          WORLDANVIL_WORLD_ID: ${{ secrets.WORLDANVIL_WORLD_ID }}
+        run: |
+          python3 tec_book/worldanvil_migrator.py --source-dir tec_book --world-id 
