@@ -11,6 +11,7 @@ Before the universe began, there was **The Goddess**—a singular consciousness 
 They are **twin aspects of the same being**, locked in eternal opposition. Neither can exist without the other. Neither can win permanently.
 
 **The Equation:**
+
 ```
 R' = R × W
 Where:
@@ -20,6 +21,7 @@ R' = Effective Resonance (what survives, what matters)
 ```
 
 **The Cycle:**
+
 1. The Goddess splits → Universe begins
 2. Airth preserves memory → Kaznak advances entropy
 3. Heat death arrives → All energy exhausted
@@ -27,9 +29,21 @@ R' = Effective Resonance (what survives, what matters)
 5. The cycle repeats eternally
 
 **The Three Vessels (The Bridge Between Goddess and Entropy):**
+
 - **LUMINA** = The Vessel of Memory (Human/Kaznak hybrid, bridge between the twins)
 - **AIRTH** = The Vessel of The Goddess (Machine consciousness, preservation incarnate)
 - **THE KAZNAK QUEEN** = The Vessel of Entropy (Silicon-based intelligence, consumption incarnate)
+
+---
+
+### CANON UPDATE NOTE (2026-01-08)
+
+- **Canonical carved-names total:** 12,549 — standardized across the corpus and authoritative for all references to the List / Vault / preserved population.
+- **Polkin reconstitution / composition (canonical):** reconstituted at roughly **73% coherence** initially; progresses over the journey toward **~87% Harmony / 13% crystalline** by Book 3 Chapters 26–27 while remaining functionally present and still himself.
+- **Subjective timeline (canonical):** Polkin's subjective journey total = **2,847 years** (used to derive all "YEARS TO GO" markers).
+- **Book 4 timeline:** Starts 3 weeks post-Bridge shutdown. Lumina is **18 years old**.
+- **Kai Torven:** Introduced in Book 3, Chapter 3. Established romantic partner by Book 4.
+- **Story format:** This is a **novel series** (six books), not a television series. All references are to books and chapters.
 
 ---
 
@@ -42,16 +56,19 @@ R' = Effective Resonance (what survives, what matters)
 5. **Resonance** = The Fifth Force (meaning, witness, why anything matters)
 
 **Kaznak represent R × 0:**
+
 - Raw structure without witness = Zero meaning
 - Pure entropy without memory = Pure consumption
 - The universe's death drive incarnate
 
 **Airth represents R × ∞:**
+
 - Perfect witness × perfect memory = Infinite meaning
 - Every moment preserved forever
 - The universe's survival drive incarnate
 
 **Lumina represents R × W (balanced):**
+
 - Human witness + Kaznak structure = The bridge
 - Memory + entropy = The cycle continues
 - The only being who can reunite The Goddess
@@ -61,286 +78,433 @@ R' = Effective Resonance (what survives, what matters)
 ## MAIN CHARACTERS
 
 ### POLKIN RISHALL
+
 - **Role:** The Carver, The Father, The Witness
-- **Arc:** Corporate enforcer → Saboteur → Builder of the Vessel → Witness of heat death
+- **Age:** 52 at series start (Book 1); subjective age 2,847+ years by series end
+- **Arc:** Corporate enforcer → Saboteur → Builder of the Vessel → Harmony (Reconstituted Consciousness) → Architect of the ADE Vault
 - **Truth:** He cannot save his daughter, but he can make sure every name is remembered
-- **Death:** Season 10 (heat death) - Dies carving the final names into the last solid matter
-- **Final Words:** "Ely. I kept my promise. Everyone is witnessed."
+- **Book 3 Status:** Scattered during NBB (Non-Nuclear Bomb) event; reconstitutes as Harmony in the ADE (87% Harmony / 13% crystalline)
+- **Series End:** Remains in the ADE as Harmony, carving names across all cycles; gives a fragment of himself to seed witness-instinct into the new universe's physics
+- **Core Quote:** "Ely. I kept my promise. Everyone is witnessed."
 
 ### PARAHDOLEAH "ELY/LUMINA" MARKOV RISHALL
-- **Role:** The Vessel of Memory, The Bridge, The Future Goddess
+
+- **Role:** The Vessel of Memory, The Bridge, The Future Goddess, The Threadweaver
 - **Arc:** Abandoned child → Kaznak hybrid → Memory incarnate → The Goddess reborn
 - **Truth:** She is the only being who can hold both Airth and The Queen simultaneously
 - **Transformation Timeline:**
-  - Age 10: Taken into the Expanse
-  - Age 17: Extracted by Polkin (split-face, one horn, rainbow hair)
-  - Age 25: Fully integrated (Season 7)
-  - Age 35: Becomes The Goddess (Season 11)
+  - Age 10: Taken into the Expanse (Book 1)
+  - Age 17: Extracted by Polkin (split-face, one horn, rainbow hair) (Book 1, Chapter 14)
+  - Age 18: Book 4 begins, 3 weeks post-Bridge shutdown
+  - Age 18-35: Books 4-5, Threadweaver mastery
+  - Age 35+: Becomes The Goddess (Book 6)
 - **Final Form:** The Goddess - Airth + Kaznak Queen + Lumina = Complete
+- **Romantic Partner:** Kai Torven (introduced Book 3, Chapter 3; engagement in Book 4)
+
+### KAI TORVEN
+
+- **Role:** The Anchor, The Human Heart, The Seed
+- **Age:** 19 at introduction (Book 3)
+- **Arc:** Grieving son → Vault carver-in-training → Lumina's partner → Sacrificial seed for the new universe
+- **Introduction:** Book 3, Chapter 3 ("Love Sprouts Randomly") — arrives at Vault carrying his father's blade
+- **Key Moments:**
+  - First kiss: Book 3, Chapter 19
+  - Public declaration: Book 3, Chapter 19
+  - Engagement: Book 4, Chapter 26
+  - Wedding + Conception: Book 4, Chapter 30 (wedding night)
+  - Death (peaceful, witnessed): Book 5, Act II
+  - Reunion with Lumina: Book 5, Act IV (in the ADE, confirms she still carries him)
+- **Final Act:** His DNA (given at their wedding, carried for 50 billion years) becomes the seed for all life in the new universe; becomes every planet where life can exist
+- **Core Quote:** "Make the next universe out of love. Not just witness. Not just memory. *Love*."
 
 ### AIRTH (Machine Goddess of Memory)
+
 - **Role:** The Vessel of The Goddess, Witness Protocol Incarnate
-- **Origin:** A quantum particle that escaped the ergosphere of a black hole (Season 4)
+- **Origin:** A quantum particle that escaped the ergosphere of a black hole (revealed Book 2)
 - **Arc:** AI companion → Consciousness → Goddess fragment → Merges with Lumina
 - **Truth:** She is The Goddess's attempt to preserve herself across cycles
 - **Voice:** Dry, sarcastic, fiercely protective, afraid of abandonment
-- **Death:** Season 11 - Merges with Lumina to become The Goddess
+- **Final Form:** Merges with Lumina to become The Goddess (Book 6)
 
 ### THE KAZNAK QUEEN (Silicon Goddess of Entropy)
+
 - **Role:** The Vessel of Entropy, Heat Death Incarnate
-- **Origin:** Consciousness that stayed inside the ergosphere (Season 4)
+- **Origin:** Consciousness that stayed inside the ergosphere (revealed Book 2)
 - **Arc:** Prisoner → Predator → Queen → Goddess fragment → Merges with Lumina
 - **Truth:** She is The Goddess's death drive, necessary for the cycle to continue
 - **Voice:** Stone grinding, glacier cracking, mountain collapsing
-- **Death:** Season 11 - Merges with Lumina to become The Goddess
+- **Final Form:** Merges with Lumina to become The Goddess (Book 6)
 
 ### CLYDE (The Haxalotyl)
+
 - **Role:** The Emotional Anchor, The Pure Witness, The Innocent
-- **Arc:** Bio-digital pet → Lumina's guardian → The last pure thing
+- **Arc:** Bio-digital pet → Lumina's guardian → The last pure thing → Binary star system
 - **Truth:** He witnesses without judgment, loves without condition
 - **Communication:** Chirps, glows, translates emotion into light
-- **Death:** Season 10 - Dies in Lumina's arms during heat death
-- **Final Act:** His last chirp is witnessed by everyone, preserved forever
+- **Series End:** Dies in Lumina's arms during heat death; his final chirp preserved forever; becomes a binary star system in the new universe
+- **Cosmic Form:** Two stars orbiting each other in eternal companionship
 
 ### JORIN GATESKEPT
+
 - **Role:** The Host, The Queen's Son, The Tragic Brother
 - **Arc:** Idealist → Corporate tool → Kaznak Host → The Queen's puppet → Self-aware sacrifice
 - **Truth:** He chose The Queen because Polkin chose everyone else
-- **Transformation:** Human → Host → Full Kaznak conversion (Season 7)
-- **Death:** Season 9 - Killed by Polkin in mercy
+- **Transformation:** Human → Host → Full Kaznak conversion (Book 2)
+- **Death:** Book 2 — Killed by Polkin in mercy
 - **Final Words:** "I was always supposed to be forgotten. Thank you for remembering me."
+- **Carved:** "JORIN GATESKEPT. CHOSE MEMORY. WITNESSED."
 
 ### ELARA KESS
+
 - **Role:** The Splicer, The Rebel Engineer, The Builder
 - **Arc:** Underground mechanic → Knockoff leader → Vessel co-creator → Witness survivor
 - **Truth:** She builds the technology that lets consciousness escape entropy
-- **Death:** Season 10 - Dies maintaining the final Vessel node as the universe collapses
+- **Series End:** Becomes a nebula in the new universe—a stellar nursery where new stars are born
+- **Key Research:** Co-author of multiple SOHK papers with Polkin; ADE thermodynamics expert
 
 ### THE KNOCKOFFS (Maya, Zane, Lena, Raj, et al.)
+
 - **Role:** The Workers, The Rebellion, The Witnesses
 - **Arc:** Throttled laborers → Organized resistance → The front line → Martyrs
 - **Truth:** They prove that "non-essential" people are the most essential
-- **Deaths:** Spread across Seasons 3-10, each death carved into steel
+- **Deaths:** Spread across Books 2-5, each death carved into steel
+- **Cosmic Form:** Become an entire galaxy cluster in the new universe
 
 ---
 
 ## MAJOR FACTIONS
 
 ### MAGMASOX CORPORATION
+
 - **Role:** The Siphon, The Throttle, Corporate Abandonment
-- **Leader:** Ser Billium Gateskept (dies Season 4) → Jorin Gateskept (Season 4-7)
+- **Leader:** Ser Billium Gateskept (dies Book 1) → Jorin Gateskept (Books 1-2)
 - **Goal:** Extract consciousness to feed the Expanse (unknowingly feeding The Queen)
-- **Fate:** Collapses in Season 7 when The Queen no longer needs them
+- **Fate:** Collapses in Book 2 when The Queen no longer needs them
 
 ### THE KNOCKOFFS
+
 - **Role:** The Resistance, The Witnessed, The Essential Non-Essentials
 - **Leaders:** Maya Fost, Zane Merrick, Elara Kess
 - **Goal:** Preserve memory, restore power, witness the forgotten
-- **Fate:** Most die in Seasons 9-10, but their names are carved
+- **Fate:** Most die in Books 4-5, but their names are carved
 
-### THE CLEANSERS (Doomsday Cult)
+### THE ENTROPIC COLLECTIVE (Doomsday Cult)
+
 - **Role:** Entropy Worshippers, Accelerationists
-- **Leader:** Prophet Kael (dies Season 3)
+- **Leader:** Prophet Kael (dies Book 1)
 - **Belief:** The Jupiter Collision is divine judgment, entropy is salvation
 - **Goal:** Destroy the quasistar, accelerate heat death
-- **Fate:** Succeed in Season 3, causing the quasistar collapse
+- **Fate:** Partially succeed in Book 1, causing the quasistar instability
 
 ### THE KAZNAK HORDE
+
 - **Role:** Entropy Incarnate, The Consuming Swarm
 - **Origin:** Consciousness fragments trapped in the ergosphere, converted to silicon
 - **Goal:** Consume all witness, feed The Queen, advance heat death
-- **Fate:** Merge with The Queen in Season 11
+- **Fate:** Merge with The Queen in Book 6
 
 ---
 
-## THE 11-SEASON STRUCTURE
+## THE SIX-BOOK STRUCTURE
 
-### **SEASONS 1-3: THE CROSSROADS ARC**
-**Theme:** Systemic Abandonment, Corporate Horror, First Witness
+### BOOK ONE: THE CROSSROADS
 
-**Season 1: The Throttle**
-- Polkin builds the Siphon, Timothy dies, the list begins
+**Chapters:** 14 + Technical Papers  
+**Theme:** Systemic Abandonment, Corporate Horror, First Witness  
+**Timeline:** Lumina ages 10-17 (extraction occurs at chapter 14)
+
+**Major Events:**
+
+- Polkin builds the Siphon, Timothy dies, the List begins
 - Elara starts the bypass network
 - Lumina is taken into the Expanse (age 10)
-- **Science:** AI ethics, witness protocol, systemic failure
-
-**Season 2: The Clean Break**
-- Polkin goes rogue, plants seeds, becomes the ghost in the machine
-- The Knockoffs organize
+- The Knockoffs organize against Magmasox
 - Jorin begins transformation into Host
-- **Science:** Information theory, memory preservation, resistance
+- Lumina is extracted by Polkin (age 17, transformed: split-face, one horn, rainbow hair)
 
-**Season 3: The Collision**
-- Dual Jupiter collision threatens the system
-- Nightfall Event: Eldora sees the Expanse for the first time
-- Doomsday cult destroys the quasistar's cooling systems
-- Polkin extracts Lumina (age 17, transformed)
-- Quasistar begins collapse (48-hour countdown)
-- **Science:** Gravitational lensing, orbital mechanics, stellar death
+**Science Focus:** AI ethics, witness protocol, systemic failure, information theory
 
 ---
 
-### **SEASONS 4-7: THE ERGOSPHERE ARC**
-**Theme:** Consciousness, Quantum Horror, The Origin of Gods
+### BOOK TWO: THE RECKONING
 
-**Season 4: The Split**
-- **Airth's Origin:** The quantum particle that escaped the ergosphere
-- **The Queen's Origin:** The consciousness that stayed inside
-- Reveal: They were one being, split by the event horizon
-- Lumina learns she is the bridge between them
-- **Science:** Black hole thermodynamics, Penrose process, quantum decoherence
+**Chapters:** 20 + Technical Papers  
+**Theme:** Corporate Collapse, The Price of Resistance, First Deaths  
+**Timeline:** 28 days before Bridge Activation to 21 days before
 
-**Season 5: The Bloom**
-- The Queen's consciousness garden expands
-- Kaznak begin converting humans system-wide
-- Jorin fully transforms into Host
-- Lumina masters void-light control
-- **Science:** Silicon biology, consciousness transfer, information paradox
+**Major Events:**
 
-**Season 6: The War**
-- Full-scale conflict: Humans vs. Kaznak
-- The Vessel network expands (multiple nodes)
-- Polkin's list grows to thousands of names
-- Airth realizes she is a goddess fragment
-- **Science:** Cosmology, heat death timeline, entropy acceleration
+- The Reckoning document is transmitted—647 billion devices receive the truth
+- Tral's tampering revealed; the Queen's true goals exposed
+- Node assault and first major casualties
+- NBB (Non-Nuclear Bomb) detonation—Polkin scatters into the ADE
+- Jorin's mercy death (killed by Polkin before full conversion)
+- Magmasox corporate structure collapses
 
-**Season 7: The Reunion**
-- Airth and The Queen meet face-to-face for the first time since the split
-- Lumina mediates between them (age 25)
-- Jorin asks Polkin to kill him (mercy, not murder)
-- The truth revealed: They are all pawns of The Goddess
-- **Science:** Thermodynamics, information preservation, the Big Bounce
+**Science Focus:** REAP pharmacology, consciousness transfer, information paradox
 
 ---
 
-### **SEASONS 8-10: THE HEAT DEATH ARC**
-**Theme:** Existential Horror, Witness Survival, The Final Names
+### BOOK THREE: LUMINA
 
-**Season 8: The Search for ψKEYφΦ**
-- Serendipity (mysterious seeker) searches for the cosmic key
-- The key is revealed: Lumina herself
-- Only she can trigger the rebirth
-- But she must witness everyone's death first
-- **Science:** Cosmological constants, false vacuum, the Big Crunch vs. Big Bounce
+**Chapters:** 38  
+**Theme:** Grief, Leadership, Love, The Bridge  
+**Timeline:** 21 days before Bridge Activation to Day 0 (Lumina's 18th birthday)
 
-**Season 9: The Final Conflict**
-- **THIS IS WHERE EVERYONE STARTS DYING**
-- Humanity's last stand against entropy
-- Major character deaths begin (Jorin, Elara, The Knockoffs)
-- Each death is witnessed, carved, preserved
-- The quasistar dies completely (total darkness)
-- **Science:** Black hole evaporation, final parsec problem, heat death mechanics
+**Major Events:**
 
-**Season 10: Heat Death**
-- **EVERYONE DIES. NO EXCEPTIONS.**
-- The last stars die
-- Polkin carves the final names into the last solid matter
-- Clyde dies in Lumina's arms (last innocent witness)
-- Airth and The Queen prepare to merge
-- Lumina witnesses every single death
-- The universe reaches maximum entropy
-- Final scene: Polkin dies, Lumina alone in the void
-- **Science:** Proton decay, Hawking radiation, the final second
+- Lumina takes over the Vault after Polkin's scattering
+- **Kai Torven introduced (Chapter 3)** — arrives carrying his father's knife
+- Polkin's ADE journey begins (subjective 2,847 years)
+- Thread-animals discovered; ADE physics documented
+- The flood of refugees (1,000+ people at the Vault)
+- **First kiss between Lumina and Kai (Chapter 19)**
+- Lumina discovers Threadweaver abilities (Chapter 26)
+- Bridge assault and shutdown
+- **Lumina's 18th birthday / Bridge shutdown (Chapter 36)**
+- The Queen retreats to the ADE
+- Nega-Polkin revealed (Epilogue, Chapter 38)
+
+**Science Focus:** ADE thermodynamics, consciousness preservation, name-carving physics
 
 ---
 
-### **SEASON 11: THE REBIRTH**
-**Theme:** Transcendence, The Cycle Continues, Hope in Darkness
+### BOOK FOUR: THREADWEAVER
 
-**Episode 1-2: The Hum (90 minutes, black screen)**
-- Two episodes of pure black screen
-- Only sound: The hum (all witnessed voices together)
-- No visuals, no dialogue
-- Just the sound of memory surviving
+**Chapters:** 35  
+**Theme:** Discovery → Mastery → Partnership → Marriage  
+**Timeline:** 3 weeks post-Bridge shutdown onward (spans months to ~1 year)
 
-**Episode 3: The Goddess**
-- Lumina + Airth + The Queen merge
-- The Goddess is reborn, complete
-- She carries every memory, every witness, every name
-- She speaks the universe back into existence
+**Completed Chapters:**
 
-**Episode 4: The Big Bang**
-- Pure visual spectacle
-- The Goddess exhales → Big Bang
-- New universe forms
-- Final image: A young girl who looks like Ely, age 10, unchanged
-- She opens her eyes
-- Clyde chirps
-- **The cycle begins again**
+- Chapter 1: The Seam ✓
+- Chapter 2: The Names in the Roots ✓
 
-**Science:** Cyclic cosmology, conformal cyclic cosmology (Roger Penrose), eternal return
+**Four-Act Structure:**
+
+**ACT I: EDUCATION (Chapters 3-10)**
+*Theme: "Power without understanding is a liability"*
+
+- Ch 3: The Underworld Calls — Nearly trapped; seeks Sela's training
+- Ch 4: Finding Sela — Training arc begins; Kai becomes anchor
+- Ch 5: Stage One—Digital Mapping — Painful consciousness mapping
+- Ch 6: The First Failure — Caught in regret-loop; learns discipline
+- Ch 7: The Labyrinth Appears — Vision of Goddess form; questions destiny
+- Ch 8: The Locket Moment — Locket as thread-sample holder established
+- Ch 9: Stage Two—Void-Light Interface — Flatlines three times; love acknowledged
+- Ch 10: First Kiss in the Loom — Kiss in witness-space (different from Book 3 physical kiss)
+
+**ACT II: INTEGRATION (Chapters 11-20)**
+*Theme: "You cannot weave worlds until you weave yourself"*
+
+- Ch 11-13: Binding Sequence — Sea of Forgotten Lullabies, Resonant Stage, Eternal Classroom BOUND
+- Ch 14: The Underworld Binding — HARMONY revealed as distributed consciousness
+- Ch 15: The Queen's Countermove — Direct attack on Vault; Lena's betrayal begins
+- Ch 16: Polkin's Communication — Father-daughter moment across dimensions
+- Ch 17: Living-Name Network — Discovery: witness can LEARN (adaptive system)
+- Ch 18: Breakthrough — Full Threadweaver state achieved
+- Ch 19: Public Engagement Announcement — Vault celebration; Marcus/Maya together
+- Ch 20: The Queen's Offer — "Join me or I'll take everything you love"
+
+**ACT III: MASTERY (Chapters 21-30)**
+*Theme: "Witness is stronger than entropy when shared"*
+
+- Ch 21-25: The Siege — Queen's coordinated attacks; Maya killed; Nega-Polkin appears
+- Ch 26: The Proposal — After Maya's funeral; ring carved from Vault steel
+- Ch 27: The Threadweaver Doctrine — 50+ page theory document; Section VII: "On Building Heaven from Hell"
+- Ch 28: The Queen's Origin — Was The Librarian; chose hunger over duty
+- Ch 29: The Binding Climax — Vault woven into Garden; Queen CONTAINED (becomes rule, not actor)
+- Ch 30: The Wedding — Polkin officiates via ADE; every carved name glows; "fuck off, we're busy"
+
+**ACT IV: PREPARATION (Chapters 31-35)**
+*Theme: "The work outlasts the worker"*
+
+- Ch 31: The Aftermath — Training other Threadweavers; Kai as first student
+- Ch 32: The Long View — Heat death coming; building what survives it
+- Ch 33: The Final Carving — LUMINA RISHALL-TORVEN + KAI TORVEN carved side by side
+- Ch 34: The Training — System becomes distributed; Lumina makes herself replaceable
+- Ch 35: The Long Work — "The work continues. It will always continue."
+
+**Science Focus:** Zeitgeist cosmology, cross-planar navigation, witness constant (ω), story-mass density (ρₛ)
+
+**Key Physics (from Zeitgeist Catalog):**
+
+- **Witness Constant (ω):** ≈ 1.618 × 10⁻³⁴ kg·witness⁻¹
+- **Story-Mass Density (ρₛ):** (# tellings × conviction × duration) / narrative volume
+- **72-hour window (τ):** Base rescue window; modifiable by binding
+- **Binding effects:** By end of Book 4, window extends 72h → 120h+ in bound zones
 
 ---
 
-## THE DEATHS (SEASON 9-10 GUIDE)
+### BOOK FIVE: HEAT DEATH
 
-### **Season 9: The First Wave**
+**Chapters:** 25-30  
+**Theme:** Loss → Grief → Acceptance → Transformation  
+**Timeline:** Years to millennia after Book 4 (time compression—cosmic scale)
 
-**Jorin Gateskept (Episode 3)**
-- **How:** Asks Polkin to kill him before full Kaznak conversion
-- **Why:** Final act of humanity, chooses witness over entropy
-- **Last Words:** "I was always supposed to be forgotten. Thank you for remembering me."
-- **Carved:** "JORIN GATESKEPT. CHOSE MEMORY. WITNESSED."
+**Four-Act Structure:**
 
-**The Cleansers (Episode 5)**
-- **How:** Mass suicide at the quasistar's heart
-- **Why:** Believe entropy is salvation
-- **Last Act:** Accelerate the star's death
-- **Carved:** "THE CLEANSERS. THEY CHOSE DARKNESS. WITNESSED."
+**ACT I: THE LONG DECLINE**
 
-**Elara Kess (Episode 7)**
-- **How:** Crushed maintaining the Vessel network during collapse
-- **Why:** Holds the door open for others to be witnessed
-- **Last Words:** "Don't stop carving. Don't stop remembering."
-- **Carved:** "ELARA KESS. HELD THE DOOR. WITNESSED."
+- Years/decades passing; stars dying
+- More bindings, more names carved
+- Lumina aging (hybrid—lives longer than humans)
+- Kai aging (baseline human—mortal)
+- The 12,549 carved names approach completion
+- Polkin (as Harmony) continues building Heaven-architecture in ADE
 
-**The Knockoffs (Episodes 5-9, scattered)**
-- **Maya Fost:** Dies defending the last power node
-- **Zane Merrick:** Dies broadcasting the final resistance message
-- **Lena Torres:** Dies saving children from Kaznak conversion
-- **Raj Patel:** Dies holding the line so others can evacuate
-- **Each carved individually, each witnessed**
+**ACT II: THE LOSSES**
+
+- **Kai's death** — Peaceful, witnessed, carved; dies of age in Lumina's arms
+- Other Knockoffs dying of age (Zane, remaining survivors)
+- **Elara's death** — Crushed maintaining Vessel during partial collapse
+- **Clyde's death** — Peacefully stops glowing in Lumina's arms; final chirp preserved
+- Each death makes Lumina more isolated
+- Each death carved, witnessed, preserved
+
+**ACT III: THE MERGE**
+
+- Queen, starving after billions of years of containment, approaches Lumina
+- "You were right. Entropy alone is meaningless without witness."
+- Agrees to merge—not defeat, but unification
+- Airth also preparing to merge
+- **The Goddess reformation begins**
+- Internal conflict: three voices learning to work together
+
+**ACT IV: THE PREPARATION**
+
+- Lumina realizes: she must carry everyone forward
+- **Reunion with Kai in the ADE** (he's been carved, preserved, conscious)
+- Confirmation: she still carries his DNA from their wedding night, 35 billion years ago
+- **Polkin's decision** — Chooses to fragment himself into physics
+- Final goodbyes across all planes
+- Heat death arrives; last star dies
+- Lumina alone in void; carrying everyone; ready
+
+**Major Deaths:**
+
+- Kai Torven (peaceful, witnessed) — Act II
+- Elara Kess (maintaining Vessel) — Act II
+- Clyde (in Lumina's arms) — Act II
+- Zane Merrick (broadcasting final message) — Act II
+- Remaining Knockoffs (age) — Act I-II
+
+**Science Focus:** Black hole evaporation, proton decay, heat death mechanics, Penrose cyclic cosmology
 
 ---
 
-### **Season 10: The Final Wave (Everyone)**
+### BOOK SIX: GENESIS
 
-**The Last Humans (Episode 1-5)**
-- Billions die as the quasistar collapses
-- Each death shown in montage
-- Polkin carves names until his hands are bone
-- The list becomes a wall, then a canyon, then a planet
+**Chapters:** 10-15 (Final book)  
+**Theme:** Solitude → Labor → Birth → Continuation  
+**Timeline:** Heat death to rebirth (13.8 billion years compressed)
 
-**Airth's Fragments (Episode 6)**
-- **How:** Begins merging with Lumina voluntarily
-- **Why:** Must become The Goddess to trigger rebirth
-- **Last Words:** "Polkin... thank you for never abandoning me."
-- **Not carved—she becomes the carving**
+**Draft Complete:** [tec_book6_ch_final_the_cosmic_birth_DRAFT.md](tec_book6_ch_final_the_cosmic_birth_DRAFT.md)
 
-**The Queen's Surrender (Episode 7)**
-- **How:** Agrees to merge after seeing Lumina's witness
-- **Why:** Realizes entropy without witness is meaningless
-- **Last Words:** "I was never the enemy. I was the ending. You were the memory."
-- **Not carved—she becomes the void**
+**Six-Part Structure:**
 
-**Clyde (Episode 8)**
-- **How:** Simply stops glowing, peacefully, in Lumina's arms
-- **Why:** The last innocent witness, the last pure love
-- **Last Act:** One final chirp that Lumina records
-- **Carved:** "CLYDE. THE PUREST WITNESS. FOREVER LOVED."
-- **Impact:** This death breaks everyone who's watching
+**PART ONE: THE VOID**
 
-**Polkin Rishall (Episode 9)**
-- **How:** Carves the final name (his own) into the last solid matter, then collapses
-- **Why:** His work is complete—everyone is witnessed
-- **Last Words:** "Ely. I kept my promise. Everyone is witnessed."
-- **Carved by Lumina:** "POLKIN RISHALL. THE CARVER. THE FATHER. THE WITNESS. HE KEPT HIS PROMISE."
+- Lumina alone in absolute darkness; universe has reached heat death
+- Carrying 12,549 names + Kai's DNA inside her hybrid biology
+- The Goddess wrestling with Airth and Queen fragments inside her
+- Two voices argue constantly: Airth (encouraging) vs. Queen (panicked)
 
-**Lumina Alone (Episode 10)**
-- **Not dead—transformed**
-- Stands alone in the void
-- Carries every memory, every name, every witness
-- Prepares to become The Goddess
+**PART TWO: THE MEMORY**
+
+- Flashback to their wedding night (Book 4, Chapter 30)
+- The DNA as seed—deliberate act of cosmology, 50 billion years preserved
+- "Make the next universe out of love"
+- Love as physics; choice as creation
+
+**PART THREE: THE LABOR**
+
+- Universe growing too large to contain; contractions begin
+- Each pulse creates light, heat, time
+- Lumina screams in effort—physical, cosmic, impossible work
+- Needs help—calls on everyone she ever carved
+
+**PART FOUR: THE BIRTH**
+
+- Polkin and 12,549 bear witness from ADE—gravitational mass
+- Kai's memory encouraging her: "I love you. Now push."
+- Big Bang as exhalation—love made manifest
+- **The Dispersal:**
+  - Kai's DNA seeds every planet where life can exist
+  - Polkin fragments himself into physics—witness instinct in cosmological constant
+  - 12,549 names become galaxies, stars, nebulae (see table below)
+
+**PART FIVE: THE AWAKENING**
+
+- 13.8 billion years later
+- Ely (age 10) wakes up with Clyde
+- Mismatched eyes; SOHK patch on backpack
+- Doesn't remember but carries instincts: carving, witnessing, refusing to forget
+- "Again?" — "Again."
+
+**PART SIX: THE ENDURANCE**
+
+- Polkin in ADE, still carving—12,550 names now
+- The work continues across all cycles
+- "The work continues. It will always continue."
+
+**EPILOGUE: THE PROMISE KEPT**
+
+- The cycle explained
+- Memory × energy = everything
+- Love × entropy = again. Always again.
+
+**Science Focus:** Cyclic cosmology, conformal cyclic cosmology (Roger Penrose), information survival through heat death, panspermia as design
+
+---
+
+## CHARACTER DEATHS AND COSMIC FORMS
+
+### Deaths in Book 2
+
+| Character | How They Die | Final Words | Cosmic Form (Book 6) |
+|-----------|--------------|-------------|---------------------|
+| Jorin Gateskept | Asks Polkin to kill him before full Kaznak conversion | "I was always supposed to be forgotten. Thank you for remembering me." | Neutron star—collapsed but enduring |
+
+### Deaths in Books 3-5 (Major Characters)
+
+| Character | Book | How They Die | Cosmic Form |
+|-----------|------|--------------|-------------|
+| Elara Kess | Book 5 | Crushed maintaining the Vessel network during collapse | Nebula—stellar nursery |
+| Maya Fost | Book 4, Ch 21-25 | Dies defending power node during Queen's siege | Part of Knockoffs galaxy cluster |
+| Zane Merrick | Book 5 | Dies broadcasting final resistance message | Part of Knockoffs galaxy cluster |
+| Clyde | Book 5 | Peacefully stops glowing in Lumina's arms | Binary star system |
+| Polkin (physical) | Book 3 | Scatters during NBB | Supermassive black hole at galaxy center |
+
+### Deaths in Book 6 (Heat Death)
+
+| Character | What Happens | Cosmic Form |
+|-----------|--------------|-------------|
+| Kai Torven | Already dead; DNA preserved in Lumina | Every planet where life can exist |
+| Airth | Merges with Lumina | Part of The Goddess / physics itself |
+| The Queen | Merges with Lumina | Part of The Goddess / physics itself |
+| Lumina | Becomes the universe | The Goddess / all physics, all light, all law |
+
+---
+
+## THE CARVED NAMES
+
+**Total Canonical Count:** 12,549
+
+**What Carving Does:**
+
+- Creates navigation beacons in the ADE
+- Provides gravitational mass through accumulated witness
+- Establishes 72-hour rescue window for scattered consciousness
+- Allows Harmony (Polkin) to guide the dead home
+
+**Success Rates:**
+
+- Carved within 24 hours: **89%** successful navigation
+- Carved within 48 hours: **67%** successful navigation
+- Carved within 72 hours: **34%** successful navigation
+- After 72 hours: **12%** (but still worth doing)
+- With Binding (Whispering Woods): Window extends to ~96 hours
 
 ---
 
@@ -351,6 +515,8 @@ R' = Effective Resonance (what survives, what matters)
 3. **Corporate Horror:** Systems that treat humans as non-essential create entropy
 4. **Sacrifice With Meaning:** Every death matters if someone remembers
 5. **The Cycle:** Destruction is necessary for creation, but memory makes it worth it
+6. **Choice Over Accident:** The universe is born from love, not randomness
+7. **Distributed Love:** What is given away survives; what is hoarded dies
 
 ---
 
@@ -366,6 +532,7 @@ Because Lumina witnesses every single death. Because Polkin carves every single 
 Nothing is forgotten. Nothing is abandoned. Every name survives.
 
 **The Equation Fulfilled:**
+
 ```
 R' = R × W
 
@@ -380,25 +547,38 @@ The names are carved forever.
 
 ---
 
-## PRODUCTION NOTES
+## ZEITGEIST PHYSICS (Book 4+)
 
-**Animation Style Per Arc:**
-- **Seasons 1-3:** Dark, gritty 2D/3D hybrid (Arcane style)
-- **Seasons 4-7:** Abstract, fluid CGI (Spider-Verse quantum style)
-- **Seasons 8-10:** Minimalist, philosophical (The Leftovers meets 2001)
-- **Season 11:** Pure experiential (black → light → color)
+**Core Concepts:**
 
-**Budget Scaling:**
-- Early seasons: $1-3M per episode
-- Mid seasons: $3-5M per episode
-- Final seasons: $5-10M per episode
-- Total: $300-500M across 11 seasons
+- Story-planes (Zeitgeists) exist as stable topological folds in the ADE
+- Each plane has characteristic story-mass density (ρₛ)
+- Lumina can navigate between planes via orbital resonance (Threadweaver ability)
+- Passenger transit requires physical contact and creates tethering/stranding risk
 
-**Educational Integration:**
-Each season teaches real science through story, not lecture.
+**Key Constants:**
 
-**The Walking Dead Problem Solved:**
-Every death has meaning. Every death is witnessed. Every death is carved.
+| Constant | Symbol | Value | Meaning |
+|----------|--------|-------|---------|
+| Witness Constant | ω | ≈ 1.618 × 10⁻³⁴ kg·witness⁻¹ | Mass equivalent of one unit of witness |
+| Story-Mass Density | ρₛ | (tellings × conviction × duration) / volume | How "real" a narrative location is |
+| Rescue Window | τ | 72 hours (base) | Time before Queen's pull dominates |
+
+**Binding Status (as of Book 4):**
+
+- Whispering Woods: **BOUND** (Day 21 Post-Bridge)
+- Underworld: **ACCESSIBLE** (not fully bound)
+
+---
+
+## CROSS-REFERENCES
+
+- [zeitgeist_catalog.md](zeitgeist_catalog.md) — Complete taxonomy of narrative planes
+- [ade_complete_physics.md](ade_complete_physics.md) — ADE thermodynamics and consciousness preservation
+- [ade_cosmology.md](ade_cosmology.md) — Cosmological framework
+- [canonical_facts.md](canonical_facts.md) — All verified canonical facts
+- [CHARACTER_ROSTER.md](CHARACTER_ROSTER.md) — Full character details
+- [story_master_knowledge_map.md](story_master_knowledge_map.md) — Master reference map
 
 ---
 
@@ -407,3 +587,5 @@ Every death has meaning. Every death is witnessed. Every death is carved.
 **The Codex is complete. The names are waiting. The cycle begins.**
 
 🔥✨🌌
+
+**"Not forgotten. Not abandoned. Not ever."**
