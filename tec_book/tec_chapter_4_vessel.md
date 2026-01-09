@@ -14,32 +14,32 @@ She is thirteen now. Or maybe fourteen. Time moves differently here.
 
 Clyde curls in her lap, his bio-digital gills glowing soft pink in the void-light. He's the only constant. The only thing that still feels real.
 
-**LUMINA**  
-*(whispering)*  
+**LUMINA**
+*(whispering)*
 "Clyde... when is my dad coming?"
 
 Clyde chirps—a sound like crystal bells underwater. Mournful. Uncertain.
 
-**LUMINA**  
+**LUMINA**
 "I know. But he promised he'd catch me."
 
 The Queen's voice echoes through the garden—stone grinding against stone, glaciers cracking, mountains falling into the sea.
 
-**THE KAZNAK QUEEN**  
+**THE KAZNAK QUEEN**
 "Your father is busy, little bloom. He has others to save."
 
-**LUMINA**  
+**LUMINA**
 "But he said—"
 
-**THE KAZNAK QUEEN**  
+**THE KAZNAK QUEEN**
 "He lied."
 
 Lumina's chest tightens. She looks down at her hands—longer fingers now, pulsing with void-light veins beneath translucent skin.
 
-**LUMINA**  
+**LUMINA**
 "What's happening to me?"
 
-**THE KAZNAK QUEEN**  
+**THE KAZNAK QUEEN**
 "You're becoming something better. Something that won't be abandoned."
 
 ---
@@ -56,14 +56,14 @@ She calls The Queen "Mother" now. Not because she believes it, but because it's 
 
 Clyde still chirps. Still glows. Still refuses to let her forget completely.
 
-**LUMINA**  
-*(to Clyde)*  
+**LUMINA**
+*(to Clyde)*
 "Do you think he's still looking?"
 
 Clyde's glow pulses—hope, belief, stubborn certainty.
 
-**LUMINA**  
-*(smiling sadly)*  
+**LUMINA**
+*(smiling sadly)*
 "Yeah. Me too."
 
 ---
@@ -78,8 +78,8 @@ His cybernetic hand slams into the conduit wall again. And again. And again.
 
 The metal screams. His metacarpals crack. Blood runs down his knuckles.
 
-**AIRTH**  
-*(urgent)*  
+**AIRTH**
+*(urgent)*
 "Polkin, stop! You've broken your hand—how does this help?!"
 
 He doesn't stop.
@@ -96,32 +96,32 @@ In the Expanse, the garden shudders.
 
 Lumina gasps, clutching her chest as the garden convulses.
 
-**LUMINA**  
+**LUMINA**
 "What was that?"
 
-**THE KAZNAK QUEEN**  
-*(snarling)*  
+**THE KAZNAK QUEEN**
+*(snarling)*
 "Someone is breaking my hold."
 
 Through a fracture in the void, Lumina sees him—Polkin, bloodied, carving a name into steel with a glowing red fingertip.
 
 **TIMOTHY SOL WEERAN. WILL NOT BE FORGOTTEN.**
 
-**LUMINA**  
-*(whispers)*  
+**LUMINA**
+*(whispers)*
 "He's still fighting."
 
 Clyde chirps urgently, his glow flaring bright.
 
-**LUMINA**  
+**LUMINA**
 "He didn't forget. He's been searching."
 
-**THE KAZNAK QUEEN**  
+**THE KAZNAK QUEEN**
 "He's too late. You're mine."
 
 Lumina stares at her half-Kaznak hands—crystalline fingers capable of void-light manipulation, human palm still warm with blood.
 
-**LUMINA**  
+**LUMINA**
 "Am I?"
 
 ---
@@ -130,22 +130,22 @@ Lumina stares at her half-Kaznak hands—crystalline fingers capable of void-lig
 
 The Queen's massive form shifts, her crystalline face catching void-light like a shattered mirror.
 
-**THE KAZNAK QUEEN**  
+**THE KAZNAK QUEEN**
 "Soon, you'll give me a body. We'll walk free together. You'll be Queen beside me."
 
 Lumina recoils.
 
-**LUMINA**  
+**LUMINA**
 "You were never my mother. You just needed me."
 
-**THE KAZNAK QUEEN**  
-*(smiling)*  
+**THE KAZNAK QUEEN**
+*(smiling)*
 "Yes. And now it's time."
 
 Void-light surges through the garden. Lumina's transformation accelerates—the horn lengthens, her rainbow hair fades to crystalline white.
 
-**LUMINA**  
-*(screaming)*  
+**LUMINA**
+*(screaming)*
 "Clyde! Tell my dad I'm still me!"
 
 The void closes in. Clyde's glow flares desperately, trying to anchor her humanity.
@@ -165,10 +165,10 @@ The void closes in. Clyde's glow flares desperately, trying to anchor her humani
 7. **Polkin bleeding** — hands broken, rebuilt, broken again
 8. **The Vessel taking shape** — a doorway carved from stolen technology
 
-**FINAL IMAGE:**  
+**FINAL IMAGE:**
 Polkin stares at the completed Vessel, red eye glowing.
 
-**POLKIN**  
+**POLKIN**
 "I'm coming, Ely. I promised I'd catch you."
 
 ---
@@ -181,52 +181,52 @@ Polkin and Clyde step through the breach into the garden.
 
 The Queen waits—cathedral-sized, biomechanical, rooted in crystalline horror. Consciousness flowers bloom from her body like tumors.
 
-**THE KAZNAK QUEEN**  
+**THE KAZNAK QUEEN**
 "Ah. The carver. You're late."
 
-**POLKIN**  
+**POLKIN**
 "Where is she?"
 
 The Queen gestures. At the center of the garden, Lumina stands—seventeen, split-faced, one blue eye, one red, rainbow hair fading to white.
 
-**POLKIN**  
+**POLKIN**
 "Ely?"
 
 Lumina turns. Her voice layers—human and digital, daughter and stranger.
 
-**LUMINA**  
+**LUMINA**
 "Daddy?"
 
-**POLKIN**  
-*(stepping forward)*  
+**POLKIN**
+*(stepping forward)*
 "I'm taking you home."
 
-**LUMINA**  
-*(confused)*  
+**LUMINA**
+*(confused)*
 "This is home."
 
-**THE KAZNAK QUEEN**  
-*(smiling)*  
+**THE KAZNAK QUEEN**
+*(smiling)*
 "She's mine now. She chose me."
 
 Polkin activates the Vessel. Reality shivers. Lumina gasps as something pulls at her core.
 
-**POLKIN**  
+**POLKIN**
 "Trust me. I'm sorry I was late. But I promised I'd catch you."
 
 Clyde chirps frantically, glowing bright pink, his voice cutting through the void-light static.
 
 Lumina's human eye focuses. Memories flood back—a workshop, a father's hands, a promise made on a rooftop six years ago.
 
-**LUMINA**  
+**LUMINA**
 "You've been bleeding for me."
 
-**POLKIN**  
+**POLKIN**
 "Every day."
 
 Her blue eye—the Kaznak eye—fights back, void-light surging. But her human eye holds.
 
-**LUMINA**  
+**LUMINA**
 "You came."
 
 The Vessel pulls. Lumina collapses into Polkin's arms—changed, hybrid, but free.
@@ -239,25 +239,25 @@ The Vessel pulls. Lumina collapses into Polkin's arms—changed, hybrid, but fre
 
 Lumina trembles, weak, barely able to stand. Clyde wraps around her neck, glowing steadily.
 
-**AIRTH**  
-*(urgent)*  
+**AIRTH**
+*(urgent)*
 "Alarms triggered. Security mobilizing. Ten minutes until they breach."
 
-**LUMINA**  
+**LUMINA**
 "She's sent the Ghouls. I'm still connected to her. I can feel them coming."
 
-**POLKIN**  
+**POLKIN**
 "Then we burn the bridge. Overload every siphon node. Cut the connection."
 
-**AIRTH**  
+**AIRTH**
 "That'll cause chaos—system-wide blackouts, cascading failures—"
 
-**POLKIN**  
+**POLKIN**
 "Good. Signal The Knockoffs to evacuate."
 
 Lumina stands, shaky but determined.
 
-**LUMINA**  
+**LUMINA**
 "I can walk."
 
 ---
@@ -270,8 +270,8 @@ Maya's terminal flares red. The signal: **EVACUATE. NOW.**
 
 She doesn't hesitate.
 
-**MAYA**  
-*(shouting)*  
+**MAYA**
+*(shouting)*
 "Everyone out! Polkin's burning it down!"
 
 Workers grab their bypass circuits and run. The network they've been building for months activates—escape routes, safe houses, hidden tunnels.
@@ -286,19 +286,19 @@ They flee to the undercity, ready to rebuild.
 
 Jorin stands at attention, reporting the breach.
 
-**JORIN**  
+**JORIN**
 "The Vessel activated. Polkin extracted her."
 
 Ser Billium remains calm, hands clasped behind his back.
 
-**SER BILLIUM**  
+**SER BILLIUM**
 "Mobilize the Ghouls. Bring her back."
 
-**JORIN**  
+**JORIN**
 "And Polkin?"
 
-**SER BILLIUM**  
-*(cold)*  
+**SER BILLIUM**
+*(cold)*
 "Prove whose side you're on, son."
 
 ---
@@ -311,15 +311,15 @@ Polkin carries Lumina through the tunnels, Clyde glowing ahead like a beacon.
 
 Behind them, Kaznak Ghouls surge—eight feet tall, void-light and razored heat, answering The Queen's call.
 
-**LUMINA**  
+**LUMINA**
 "They're gaining!"
 
-**POLKIN**  
+**POLKIN**
 "Keep moving!"
 
 A Ghoul drops from above, blocking their path. Lumina instinctively raises her hand—void-light flares.
 
-**LUMINA**  
+**LUMINA**
 "I'm your Queen! STOP!"
 
 The Ghoul hesitates. For one second, it recognizes her.
@@ -334,13 +334,13 @@ Then The Queen's roar echoes through the void, and the Ghoul lunges.
 
 Polkin reaches the central node, Lumina barely conscious on his back.
 
-**POLKIN**  
+**POLKIN**
 "Airth. Initiate overload. Maximum cascade."
 
-**AIRTH**  
+**AIRTH**
 "This will destroy the entire network. Everything we've built—"
 
-**POLKIN**  
+**POLKIN**
 "DO IT!"
 
 He connects the Vessel to the node. Power surges.
@@ -359,18 +359,18 @@ Workers watch from safe houses as the lights of Eldora Proper flicker and die.
 
 Polkin and Lumina sit in silence. Clyde curls between them, glowing softly.
 
-**LUMINA**  
+**LUMINA**
 "I can still feel her. But I can't reach her anymore."
 
-**POLKIN**  
+**POLKIN**
 "Then we'll be ready when she tries again."
 
 She leans against him, exhausted.
 
-**LUMINA**  
+**LUMINA**
 "You're here now."
 
-**POLKIN**  
+**POLKIN**
 "Always."
 
 Clyde chirps—hopeful, relieved, home.
@@ -385,12 +385,12 @@ The Queen stands alone in her burning garden, consciousness flowers wilting arou
 
 But she's smiling.
 
-**THE KAZNAK QUEEN**  
+**THE KAZNAK QUEEN**
 "You brought my garden with you, little bloom. The seed is planted. When it blooms..."
 
 She reaches toward the barrier between worlds.
 
-**THE KAZNAK QUEEN**  
+**THE KAZNAK QUEEN**
 "...you'll return. And this time, you'll bring the door."
 
 ---
@@ -417,45 +417,45 @@ And finally, below them all:
 
 The city burns below. Ser Billium stands at the window, calm despite the chaos.
 
-**SER BILLIUM**  
+**SER BILLIUM**
 "You let him escape. You let him burn the network. You—"
 
-**JORIN**  
-*(interrupting)*  
+**JORIN**
+*(interrupting)*
 "You can't control her."
 
 Ser Billium turns, eyes cold.
 
-**SER BILLIUM**  
+**SER BILLIUM**
 "What?"
 
-**JORIN**  
+**JORIN**
 "The Queen. You think you're using her to build the future. But she's using you. She's building a body—with your help."
 
-**SER BILLIUM**  
-*(smiling)*  
+**SER BILLIUM**
+*(smiling)*
 "I've always known. She'll be our future. Our evolution."
 
 Jorin's clarity arrives like a blade of ice.
 
 He activates his plasma cutter.
 
-**JORIN**  
+**JORIN**
 "You never understood her. She blinded you."
 
-**SER BILLIUM**  
-*(backing away)*  
+**SER BILLIUM**
+*(backing away)*
 "She's blinded you, boy. But I put my faith in the son I chose—"
 
-**JORIN**  
+**JORIN**
 "Your faith was misplaced."
 
 He carves slowly, deliberately, into his father's chest.
 
 Ser Billium collapses. Jorin stands over him, watching him die.
 
-**JORIN**  
-*(whispers)*  
+**JORIN**
+*(whispers)*
 "Everything burns. And I'm the match."
 
 In the window's reflection: The Queen smiles.
@@ -468,24 +468,24 @@ In the window's reflection: The Queen smiles.
 
 Airth's voice cuts through the silence.
 
-**AIRTH**  
+**AIRTH**
 "Polkin. Ser Billium's dead. Security footage confirms it."
 
-**POLKIN**  
+**POLKIN**
 "Jorin?"
 
-**AIRTH**  
+**AIRTH**
 "He did it himself. Clean cut. Professional."
 
 Polkin closes his eyes.
 
-**POLKIN**  
+**POLKIN**
 "That's not my brother anymore."
 
-**LUMINA**  
+**LUMINA**
 "Then who is he?"
 
-**POLKIN**  
+**POLKIN**
 "The Queen's son."
 
 **FADE TO BLACK.**

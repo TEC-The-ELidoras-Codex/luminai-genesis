@@ -181,8 +181,8 @@ _(sliding a data chip across the table, watching her augmented fingers twitch to
 
 **SELA**
 _(chip clicks between her metal knuckles, analyzing)_
-"You know what you're asking? That's not data. That's _grave dirt_."  
-_(beat)_  
+"You know what you're asking? That's not data. That's _grave dirt_."
+_(beat)_
 "And you're not the type to play in cemeteries, Rishall."
 
 **POLKIN**
@@ -194,8 +194,8 @@ The name hung between them like a live wire.
 Sela's visor dimmed. For a second, the machine receded, and something human flickered in her gaze.
 
 **SELA**
-"Ah. The girl."  
-_(soft, almost regretful)_  
+"Ah. The girl."
+_(soft, almost regretful)_
 "Polkin, the ADE doesn't work like you think. It's not storage. It's not a vault. The Kaznak—they're _consuming_ it. What goes in doesn't stay intact. It gets... _digested_."
 
 **POLKIN**
@@ -214,8 +214,8 @@ She cuts herself off, but the implication lingers. Polkin's grin returns, sharpe
 
 **SELA**
 _(leaning back, considering)_
-"I know where the _ledger_ keeps them."  
-_(pause)_  
+"I know where the _ledger_ keeps them."
+_(pause)_
 "Three days' access. Then the backdoor burns itself. And Polkin?"
 
 Her visor glows brighter, locking onto his face.
@@ -255,41 +255,41 @@ And there, at the center of the void, _she_ waited.
 
 Massive. Silicon-based. Crystalline intelligence wrapped in void-light. Her voice was the sound of grinding stone, of glaciers cracking, of mountains collapsing into the sea.
 
-**QUEEN**  
+**QUEEN**
 "The old one returns. You bring more?"
 
 Jorin stepped forward, his body trembling—not from fear, but from the resonance. The Queen's presence pulled at him, tugging at the edges of his consciousness like fingers in a wound.
 
-**JORIN**  
+**JORIN**
 "The siphon is feeding you. But there's resistance. Polkin is—"
 
-**QUEEN**  
-_(interrupting, amused)_  
+**QUEEN**
+_(interrupting, amused)_
 "Polkin. The name _echoes_. The one who _carves_. The one who _remembers_."
 
-**JORIN**  
-_(frustrated)_  
+**JORIN**
+_(frustrated)_
 "He's trying to stop the flow. He's planting bypass circuits. He's organizing the workers. He's building something—a Vessel."
 
 The Queen's crystalline face flickered with what might have been amusement.
 
-**QUEEN**  
-"Ah. The Vessel. The key. The door."  
-_(pause)_  
+**QUEEN**
+"Ah. The Vessel. The key. The door."
+_(pause)_
 "Tell me, little Host... do you know what happens when doors open?"
 
 Jorin didn't answer.
 
-**QUEEN**  
-"Things come through. Things go out."  
-_(beat)_  
+**QUEEN**
+"Things come through. Things go out."
+_(beat)_
 "Things that were never meant to be freed."
 
 Jorin swallowed hard.
 
-**QUEEN**  
-"Your brother builds his key. Your father sharpens his knife."  
-_(softly)_  
+**QUEEN**
+"Your brother builds his key. Your father sharpens his knife."
+_(softly)_
 "Who will you choose to wield, Jorin?"
 
 ---
@@ -321,39 +321,39 @@ The name that started this. The name that drove him.
 
 Airth's voice was quiet in his ear.
 
-**AIRTH**  
+**AIRTH**
 "Polkin... you don't know if she's—"
 
-**POLKIN**  
-_(carving deeper, the metal screeching)_  
+**POLKIN**
+_(carving deeper, the metal screeching)_
 "I don't care."
 
-**AIRTH**  
+**AIRTH**
 "This isn't about saving her anymore, is it?"
 
-**POLKIN**  
-_(pauses, looks at the name)_  
+**POLKIN**
+_(pauses, looks at the name)_
 "No."
 
-**AIRTH**  
+**AIRTH**
 "Then what's the Vessel for?"
 
 Polkin looked up, toward the ceiling, toward Eldora Proper glowing somewhere above.
 
-**POLKIN**  
+**POLKIN**
 "To make sure no one else gets taken."
 
 He stepped back, looking at the panel. His cybernetic eye flickered red, casting shadows on the letters.
 
-**POLKIN**  
+**POLKIN**
 "Everything burns, Airth."
 
-**AIRTH**  
+**AIRTH**
 "And you?"
 
 Polkin smiled—cold, tired, and utterly certain.
 
-**POLKIN**  
+**POLKIN**
 "I'm the match."
 
 ---
@@ -398,9 +398,9 @@ _"Everything burns. But some things—some people—burn brightest before they'r
 
 The steel panel, glowing faintly in the dark:
 
-**TIMOTHY SOL WEERAN. WILL NOT BE FORGOTTEN.**  
-**THE KNOCKOFFS. WITNESSED.**  
-**PARAHDOLEAH "ELY" MARKOV RISHALL. AGE 10.**  
+**TIMOTHY SOL WEERAN. WILL NOT BE FORGOTTEN.**
+**THE KNOCKOFFS. WITNESSED.**
+**PARAHDOLEAH "ELY" MARKOV RISHALL. AGE 10.**
 **JORIN GATESKEPT. I LOOK FORWARD TO COLLECTING, BROTHER.**
 
 The camera pulls back. The tunnel fades into shadow.

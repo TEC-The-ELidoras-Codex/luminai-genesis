@@ -15,6 +15,7 @@ Notes:
     later auto-scorer).
   - If using the Pushshift fetch, results depend on Pushshift availability.
 """
+
 import argparse
 import csv
 import datetime
@@ -111,7 +112,7 @@ def to_witness_rows(comments: list[dict]) -> list[dict]:
             try:
                 created = (
                     datetime.datetime.fromtimestamp(
-                        int(c.get("created_utc")), tz=datetime.timezone.utc
+                        int(c.get("created_utc")), tz=datetime.UTC,
                     )
                     .date()
                     .isoformat()

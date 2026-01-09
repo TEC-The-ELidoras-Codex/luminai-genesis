@@ -1,23 +1,32 @@
 # ULTIMATE TEC PROJECT CHECKLIST
 
-**Author:** Angelo Hurley  
-**Last Updated:** 2025-12-26  
+**Author:** Angelo Hurley
+**Last Updated:** 2025-12-26
 **Usage:** A living document to track progress, priorities, backups, and emergency recovery.
 
 ---
 
 ### 📋 WHAT’S DONE (COMPLETED TASKS)
+Settings Developer settings GitHub Apps LuminAI-Codex
+About
+Owned by: @Elidorascodex
+
+App ID: 2186310
+
+Using your App ID to get installation tokens? You can now use your Client ID instead.
+
+Client ID: Iv23liuCJbwDvim9WppS
 
 *(Check off as you go — proof of progress.)*
 
 #### Core Systems
 
-- [x] Deterministic Honoring in `erasure_combat.py`  
-  - Set `fragment.honored_by` and `fragment.honored_at`.  
-  - Append fragment to `character.honored_dead`.  
-  - Grant XP via `character.stats.gain_xp(fragment.xp_value)`.  
-  - Add willpower gain (+1).  
-  - Add fragment’s `human_name` to `character.carved_names`.  
+- [x] Deterministic Honoring in `erasure_combat.py`
+  - Set `fragment.honored_by` and `fragment.honored_at`.
+  - Append fragment to `character.honored_dead`.
+  - Grant XP via `character.stats.gain_xp(fragment.xp_value)`.
+  - Add willpower gain (+1).
+  - Add fragment’s `human_name` to `character.carved_names`.
   - **Tests:** 41/41 passed.
 
 - [x] Unity Prototype Scene (Junction 5‑C cutscene)

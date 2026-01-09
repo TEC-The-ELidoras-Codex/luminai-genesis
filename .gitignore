@@ -65,3 +65,9 @@ unsloth-venv/
 config/secrets.yml
 // Local archive snapshot created by cleanup script
 archive/2025-12-20-pre-consolidation/
+
+# Private compiled books and local archives (do NOT commit compiled PDFs or final compiled markdowns)
+output/TEC_Book2_The_Vessel.pdf
+output/book3_compiled.pdf
+tec_book/*compiled.final.md
+archive/private-removed-books-*/

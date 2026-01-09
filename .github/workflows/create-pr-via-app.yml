@@ -1,0 +1,70 @@
+name: Create PR via GitHub App
+
+on:
+    workflow_dispatch:
+
+permissions:
+    contents: write
+    pull-requests: write
+
+jobs:
+    create-pr:
+        runs-on: ubuntu-latest
+        env:
+            APP_ID: ${{ secrets.LUMINAI_APP_ID }}
+            BODY_FILE: pr_body.json
+            HEAD: feat/ultimate-checklist
+            BASE: main
+            OWNER: Elidorascodex
+            REPO: luminai-genesis
+        steps:
+            - uses: actions/checkout@v4
+
+            - name: Install deps
+              run: sudo apt-get update && sudo apt-get install -y jq openssl
+
+            - name: Write private key (secure)
+              run: |
+                  printf '%s\n' "${{ secrets.LUMINAI_PRIVATE_KEY }}" > /tmp/luminai-key.pem
+                  chmod 600 /tmp/luminai-key.pem
+
+            - name: Create PR via GitHub App JWT (no secrets leaked)
+              run: |
+                  set -euo pipefail
+                  now=$(date +%s)
+                  iat=$((now - 60)); exp=$((now + 600))
+                  header_b64=$(printf '%s' '{"alg":"RS256","typ":"JWT"}' | openssl base64 -A | tr '+/' '-_' | tr -d '=')
+                  payload_b64=$(printf '%s' "{\"iat\":$iat,\"exp\":$exp,\"iss\":$APP_ID}" | openssl base64 -A | tr '+/' '-_' | tr -d '=')
+                  unsigned="${header_b64}.${payload_b64}"
+                  sig=$(printf '%s' "$unsigned" | openssl dgst -sha256 -sign /tmp/luminai-key.pem | openssl base64 -A | tr '+/' '-_' | tr -d '=')
+                  JWT="${unsigned}.${sig}"
+                  INSTALL_INFO=$(curl -s -H "Authorization: Bearer $JWT" -H "Accept: application/vnd.github+json" \
+                    "https://api.github.com/repos/$OWNER/$REPO/installation")
+                  INSTALL_ID=$(echo "$INSTALL_INFO" | jq -r '.id // empty')
+                  if [ -z "$INSTALL_ID" ]; then
+                    echo "ERROR: Could not find installation id for repo. Response:"
+                    echo "$INSTALL_INFO" | jq
+                    exit 1
+                  fi
+                  TOKEN_JSON=$(curl -s -X POST -H "Authorization: Bearer $JWT" -H "Accept: application/vnd.github+json" \
+                    "https://api.github.com/app/installations/$INSTALL_ID/access_tokens")
+                  INSTALL_TOKEN=$(echo "$TOKEN_JSON" | jq -r '.token // empty')
+                  if [ -z "$INSTALL_TOKEN" ]; then
+                    echo "ERROR: Could not create installation token. Response:"
+                    echo "$TOKEN_JSON" | jq
+                    exit 1
+                  fi
+                  existing=$(curl -s -H "Authorization: token $INSTALL_TOKEN" \
+                    "https://api.github.com/repos/$OWNER/$REPO/pulls?head=$OWNER:$HEAD&base=$BASE")
+                  if [ "$(echo "$existing" | jq 'length')" != "0" ]; then
+                    echo "PR already exists: $(echo "$existing" | jq -r '.[0].html_url')"
+                    exit 0
+                  fi
+                  PR_JSON=$(curl -s -X POST -H "Authorization: token $INSTALL_TOKEN" \
+                    -H "Accept: application/vnd.github+json" \
+                    "https://api.github.com/repos/$OWNER/$REPO/pulls" -d @"$BODY_FILE")
+                  echo "PR URL / info:"
+                  echo "$PR_JSON" | jq -r '.html_url, .number, .message'
+
+            - name: Cleanup
+              run: shred -u /tmp/luminai-key.pem || rm -f /tmp/luminai-key.pem

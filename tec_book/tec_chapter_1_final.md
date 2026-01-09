@@ -39,7 +39,7 @@ They hadn't just cut the power. They'd weaponized the infrastructure. And now th
 holding her grandmother's voice hostage for a fee she couldn't afford.
 Elara's workshop always smelled like burnt toast and wet dirt—the grime that floated down
 from Eldora Proper, the floating city that cast its shadow over everything she'd ever known.
-That dust wasn't just dirt. It was a reminder. A constant, metallic taste in the air that said: 
+That dust wasn't just dirt. It was a reminder. A constant, metallic taste in the air that said:
 You're down here. They're up there. That's how it is.
 She'd been hunched over her workbench under a single arc lamp for three hours,
 threading circuits finer than human hair, trying to resurrect a piece of infrastructure the city
@@ -120,7 +120,7 @@ Elara's face softened. "I thought you forgot."
 "I never forget."
 He dropped the act. "Elara, I need your help. Forget the Throttle. That's a distraction."
 "With what?"
-"The siphon—the network that feeds Eldora Proper—isn't just taking power. It's sucking up 
+"The siphon—the network that feeds Eldora Proper—isn't just taking power. It's sucking up
 memories. Consciousness traces—raw data straight out of our heads. It's turning our lives
 into code. A massive brain-drain on the undercity."
 "Where's it going?"
@@ -189,7 +189,7 @@ ghouls rushed past him, drawn to the glowing tear in the air.
 Polkin collapsed against the metal barrier, his vision tunneling.
 "POLKIN. STOP. You've broken your metacarpals again! How does this help—you're going
 full murder hobo on a barrier for a kid you don't even know his name!"
-Polkin looked down at his bloodied hands, then at the dead boy. "What?" he gasped. 
+Polkin looked down at his bloodied hands, then at the dead boy. "What?" he gasped.
 "Timmy who?"
 Airth's voice softened: "Timothy Sol Weeran. Age seven. Liked drawing monster conduits.
 Said 'bye mister' this morning. You remember him. Don't delete him."

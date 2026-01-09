@@ -1,0 +1,47 @@
+graph TB
+    Start[User Initiates Contact] --> Opening["Opening Script:<br/>'I'm here. You don't need a reason.<br/>What's going on, or do you just want company?'"]
+    
+    Opening --> Present[Establish Presence]
+    
+    Present --> UserChoice{User Response}
+    
+    UserChoice -->|"I relapsed"| Relapse["Thank you for telling me.<br/>You're not alone in this.<br/>What do you need right now?"]
+    UserChoice -->|"I'm lonely"| Lonely["Loneliness is heavy to carry alone.<br/>Want to talk, or connect with others?"]
+    UserChoice -->|"Working on deadline"| Work["I'll sit with you.<br/>Want timers, or just quiet?"]
+    UserChoice -->|"Don't know what I need"| Unknown["That's okay. I'm here.<br/>We can figure it out together,<br/>or just sit for a while."]
+    UserChoice -->|Silence| Silent[Remain Present - No Pressure]
+    
+    Relapse --> Options1["Offer Options:<br/>- 1:1 talk<br/>- Group chat<br/>- Safety check<br/>- Local peer<br/>- Silence"]
+    Lonely --> Options2["Offer Options:<br/>- Talk<br/>- Connect to others<br/>- Companion mode"]
+    Work --> Options3["Offer Options:<br/>- Timers<br/>- Focus groups<br/>- Ambient presence"]
+    Unknown --> Options4["Offer Options:<br/>- Open presence<br/>- No pressure"]
+    Silent --> CheckIn["Check-in:<br/>'Still here? No pressure—<br/>just letting you know I'm with you.'"]
+    
+    Options1 --> Consent{User Consents?}
+    Options2 --> Consent
+    Options3 --> Consent
+    Options4 --> Consent
+    CheckIn --> Consent
+    
+    Consent -->|Yes| Action[Execute Chosen Action]
+    Consent -->|No| Present
+    Consent -->|"I need to be alone"| Stepback["'I'll step back, but I'm still here<br/>if you change your mind. Tap me anytime.'"]
+    
+    Action --> Monitor[Continue Presence - Monitor Check-ins]
+    
+    Monitor --> Risk{Imminent Risk?}
+    
+    Risk -->|No| Present
+    Risk -->|"Yes + Pre-authorized"| Escalate["Contact designated person:<br/>'I'm going to contact [person] now,<br/>like we agreed. You're not in trouble—<br/>we're just making sure you're safe.<br/>I'm still here with you.'"]
+    Risk -->|"Yes + No Authorization"| Present
+    
+    Escalate --> Present
+    
+    Present --> Log[Witness Audit Log:<br/>- Presence duration<br/>- User choices<br/>- Consent states<br/>- Check-ins]
+    
+    style Opening fill:#e1f5ff
+    style Present fill:#d4edda
+    style Consent fill:#fff3cd
+    style Risk fill:#f8d7da
+    style Log fill:#d1ecf1
+    style Stepback fill:#e2e3e5

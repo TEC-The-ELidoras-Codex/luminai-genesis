@@ -7,6 +7,7 @@ from pathlib import Path
 def load_module():
     # Insert minimal stubs for optional third-party deps so module can import
     if "markdown" not in sys.modules:
+
         class _md:
             @staticmethod
             def markdown(text, **kwargs):
@@ -15,6 +16,7 @@ def load_module():
         sys.modules["markdown"] = _md()
 
     if "weasyprint" not in sys.modules:
+
         class _CSS:
             def __init__(self, *args, **kwargs):
                 pass

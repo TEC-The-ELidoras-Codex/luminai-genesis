@@ -1,0 +1,46 @@
+name: Create PR for checklist
+
+on:
+  workflow_dispatch:
+
+jobs:
+  create-pr:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup jq
+        run: sudo apt-get update && sudo apt-get install -y jq
+
+      - name: Create PR if missing
+        env:
+          GITHUB_API_TOKEN: ${{ secrets.PROJECT_PAT }}
+          OWNER: Elidorascodex
+          REPO: luminai-genesis
+          HEAD: feat/ultimate-checklist
+          BASE: main
+          TITLE: chore(docs/demo): add Ultimate Checklist, demo seed + CI
+          BODY: |
+            This PR adds:
+            - Ultimate TEC Project Checklist (docs/ULTIMATE_CHECKLIST.md)
+            - Deterministic demo mode to erasure_demo.py (--seed, --noninteractive, --data-file)
+            - Deterministic demo test (tests/test_demo_seed.py)
+            - CI workflow (.github/workflows/ci.yml)
+            - Pre-commit hooks (.pre-commit-config.yaml)
+            - Hardened GhoulDatabase to ignore empty/invalid files
+
+            All tests pass locally (42/42). Ready for review/merge.
+        run: |
+          # Check for existing PR
+          existing=$(curl -s -H "Authorization: token $GITHUB_API_TOKEN" \
+            "https://api.github.com/repos/$OWNER/$REPO/pulls?head=$OWNER:$HEAD&base=$BASE")
+          if echo "$existing" | jq -e '(. | length) > 0' >/dev/null 2>&1; then
+            echo "PR already exists:" $(echo "$existing" | jq -r '.[0].html_url')
+            exit 0
+          fi
+
+          # Create PR
+          body_json=$(jq -n --arg title "$TITLE" --arg head "$HEAD" --arg base "$BASE" --arg body "$BODY" \
+            '{title: $title, head: $head, base: $base, body: $body}')
+          resp=$(curl -s -H "Authorization: token $GITHUB_API_TOKEN" -H "Accept: application/vnd.github+json" \
+            -X POST "https://api.github.com/repos/$OWNER/$REPO/pulls" -d "$body_json")
+          echo "Response:" "$resp"
+          echo "$resp" | jq -r '.html_url, .number'

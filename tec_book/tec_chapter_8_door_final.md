@@ -14,8 +14,8 @@ The air tastes like copper and ghosts.
 
 This vault—abandoned six years ago, supposedly wiped clean—still hums with residual consciousness. The walls are lined with corrupted data banks, flickering with fragments of deleted memories. Voices whisper from dying circuits:
 
-*"Please don't forget me—"*  
-*"My name was—"*  
+*"Please don't forget me—"*
+*"My name was—"*
 *"I had a daughter—"*
 
 Among them, impossibly, heartbreakingly:
@@ -42,37 +42,37 @@ Lumina stands in the center of the vault, surrounded by flickering data banks, h
 
 Teithea blocks the only exit—soldering iron in her crystalline hand, cybernetic eye strobing with corrupted void-light.
 
-**TEITHEA**  
-*(voice cracking between rage and tenderness)*  
+**TEITHEA**
+*(voice cracking between rage and tenderness)*
 "Do you hear that? That's **her**. That's my **baby**."
 
-**LUMINA**  
-*(backing away, both eyes glistening)*  
+**LUMINA**
+*(backing away, both eyes glistening)*
 "Mom, that **is** me. I'm right here—"
 
-**TEITHEA**  
+**TEITHEA**
 "No. You're what's **left**. You're the fragment. The echo. The **stolen thing** wearing her face."
 
-**LUMINA**  
+**LUMINA**
 "I'm not stolen! I escaped! Dad helped me—"
 
-**TEITHEA**  
-*(laughing, broken and wild)*  
+**TEITHEA**
+*(laughing, broken and wild)*
 "Polkin? Polkin **helped**? Polkin was **five planets away** when they took you! Polkin **abandoned** us!"
 
 The soldering iron glows white-hot. Void-light ichor—scavenged from a Ghoul kill, weaponized—drips from the tip, hissing when it hits the floor.
 
 Where it lands, the metal **dissolves**. Not melts. Not burns. **Dissolves**—molecular bonds forgetting they exist, matter returning to probability.
 
-**TEITHEA**  
+**TEITHEA**
 "But I'm here now. And I'm going to **free** you. I'm going to cut you loose from whatever **puppet strings** the Queen tied to you."
 
 She advances. Lumina backs into a data bank.
 
-**LUMINA**  
+**LUMINA**
 "Mom, please—I'm not a puppet, I'm—"
 
-**TEITHEA**  
+**TEITHEA**
 "Shhhh. It's okay. This will only hurt for a second. And then you'll be **pure** again. Just Ely. Just my **baby**."
 
 She raises the soldering iron—
@@ -85,48 +85,48 @@ The vault door **SLAMS OPEN.**
 
 Polkin stands in the doorway, breathing hard.
 
-Left arm: Cybernetic, glowing red, plasma cutter integrated into the wrist.  
+Left arm: Cybernetic, glowing red, plasma cutter integrated into the wrist.
 Right arm: Still human. Still flesh. Still **vulnerable**.
 
-**POLKIN**  
+**POLKIN**
 "Teithea. Put it down."
 
 Teithea doesn't turn. Doesn't lower the iron.
 
-**TEITHEA**  
+**TEITHEA**
 "Oh, **Polkin**. Still playing hero. Still **late**."
 
-**POLKIN**  
+**POLKIN**
 "I'm here now."
 
-**TEITHEA**  
+**TEITHEA**
 "Six years too late."
 
-**POLKIN**  
-*(moving slowly into the vault)*  
+**POLKIN**
+*(moving slowly into the vault)*
 "I know. And I'll carry that until I die. But she's **alive**, Teithea. She's **here**. Don't make her disappear again."
 
 Teithea finally turns. Her eyes—one human, one cybernetic, both glowing with void-light—lock onto his.
 
-**TEITHEA**  
+**TEITHEA**
 "She already disappeared. What's standing behind me is just a **ghost** that learned to fight back."
 
-**LUMINA**  
+**LUMINA**
 "Mom, I'm **real**—"
 
-**TEITHEA**  
-*(ignoring her, focused on Polkin)*  
+**TEITHEA**
+*(ignoring her, focused on Polkin)*
 "You turned her into a weapon. You taught her to **kill**. You made her into **this**."
 
 She gestures at Lumina—split-faced, horned, glowing with void-light.
 
-**TEITHEA**  
+**TEITHEA**
 "So I'm going to **fix** it. I'm going to cut out the **cancer**. And then—**then**—she can be Ely again."
 
-**POLKIN**  
+**POLKIN**
 "She **is** Ely. Just—changed. Older. **Surviving**."
 
-**TEITHEA**  
+**TEITHEA**
 "Surviving? Or **infected**?"
 
 She moves. Fast.
@@ -137,19 +137,19 @@ Toward **Polkin**.
 
 The soldering iron slashes across his chest—he blocks with his cybernetic arm, metal screeching against super-heated steel.
 
-**TEITHEA**  
+**TEITHEA**
 "You let this happen! You let them **take** her!"
 
 She slashes again. He blocks again.
 
-**POLKIN**  
-*(calm, steady)*  
+**POLKIN**
+*(calm, steady)*
 "I did. And I've spent six years trying to fix it."
 
-**TEITHEA**  
+**TEITHEA**
 "**Trying**? Where's the **success**, Polkin? Where's my daughter?"
 
-**POLKIN**  
+**POLKIN**
 "Right behind you."
 
 Teithea spins—
@@ -162,7 +162,7 @@ She's at the vault door, Clyde glowing on her shoulder, both of them ready to ru
 
 Teithea's face **twists**.
 
-**TEITHEA**  
+**TEITHEA**
 "No. **No**. You're not running again. I **found** you—"
 
 She lunges—not at Polkin, but past him, toward Lumina.
@@ -199,8 +199,8 @@ Polkin **screams**—not loud, but strangled, choked, trying not to let Lumina h
 
 Teithea pulls back, staring at the wound, at the ichor eating through him.
 
-**TEITHEA**  
-*(horrified, then fascinated)*  
+**TEITHEA**
+*(horrified, then fascinated)*
 "Oh. **Oh**. You're **melting**."
 
 Polkin looks at his shoulder. At the spreading dissolution. At his arm—still attached, but **not for long**.
@@ -233,40 +233,40 @@ If he does nothing = The ichor reaches his heart in 10 seconds = Lumina dies alo
 
 ## PART FIVE: THE CHOICE
 
-**POLKIN**  
-*(voice steady, even as his shoulder dissolves)*  
+**POLKIN**
+*(voice steady, even as his shoulder dissolves)*
 "Ely. Listen to me."
 
-**LUMINA**  
-*(sobbing)*  
+**LUMINA**
+*(sobbing)*
 "Dad, your arm—"
 
-**POLKIN**  
+**POLKIN**
 "I need you to run. Right now. Don't stop. Don't look back."
 
-**LUMINA**  
+**LUMINA**
 "I'm not leaving you—"
 
-**POLKIN**  
+**POLKIN**
 "**YES, YOU ARE.**"
 
 His voice—not angry. Not desperate.
 
 **Final.**
 
-**POLKIN**  
+**POLKIN**
 "Clyde. Get her out."
 
 Clyde chirps—terrified, but **obedient**. He wraps tighter around Lumina's neck, pulling her backward.
 
-**LUMINA**  
+**LUMINA**
 "Dad, **no**—"
 
-**POLKIN**  
-*(stepping backward into the vault, eyes locked on hers)*  
+**POLKIN**
+*(stepping backward into the vault, eyes locked on hers)*
 "I love you, Ely. I'm sorry I was late. But I'm **here** now."
 
-**LUMINA**  
+**LUMINA**
 "**DAD**—"
 
 Polkin **SLAMS** the vault door shut.
@@ -299,8 +299,8 @@ It doesn't work.
 
 The ichor is **hungry**.
 
-**POLKIN**  
-*(to himself, voice shaking)*  
+**POLKIN**
+*(to himself, voice shaking)*
 "Not the heart. Don't let it reach the heart. Not yet. Not—"
 
 On the other side of the door:
@@ -313,13 +313,13 @@ On the other side of the door:
 
 Teithea, **pounding**.
 
-**TEITHEA**  
-*(muffled, furious)*  
+**TEITHEA**
+*(muffled, furious)*
 "POLKIN! **OPEN THE DOOR!**"
 
 He doesn't answer.
 
-**TEITHEA**  
+**TEITHEA**
 "She's **mine**! You don't get to take her again!"
 
 **THUD. THUD. THUD.**
@@ -334,8 +334,8 @@ He feels it. The phantom weight. The absence.
 
 **Gone.**
 
-**POLKIN**  
-*(coughs, ichor-flecked blood on his lips)*  
+**POLKIN**
+*(coughs, ichor-flecked blood on his lips)*
 "Worth it."
 
 ---
@@ -360,34 +360,34 @@ Something **heavy** hits the floor on the other side of the door.
 
 Lumina's breath catches.
 
-**LUMINA**  
-*(whispers)*  
+**LUMINA**
+*(whispers)*
 "His arm. That was—that was his **arm**."
 
 Clyde chirps—mournful, helpless.
 
-**LUMINA**  
+**LUMINA**
 "We have to go back. We have to—"
 
-**AIRTH**  
-*(through comms, urgent)*  
+**AIRTH**
+*(through comms, urgent)*
 "Lumina. **NO.** He sealed the door for you. If you go back, you make it meaningless."
 
-**LUMINA**  
+**LUMINA**
 "But he's dying—"
 
-**AIRTH**  
+**AIRTH**
 "He's **alive**. Because YOU ran. Now listen to me. Your mother is coming through that door. And she's covered in Kaznak ichor."
 
 Lumina looks down at the puddle spreading under the door—black, radioactive, hungry.
 
-**AIRTH**  
+**AIRTH**
 "The ichor will kill him if it reaches his heart. You have maybe thirty seconds."
 
-**LUMINA**  
+**LUMINA**
 "What do I do?"
 
-**AIRTH**  
+**AIRTH**
 "What Clyde taught you. You **absorb it**."
 
 ---
@@ -396,14 +396,14 @@ Lumina looks down at the puddle spreading under the door—black, radioactive, h
 
 Lumina stares at her hands—human and crystalline. Both capable of void-light.
 
-**LUMINA**  
-*(to Clyde)*  
+**LUMINA**
+*(to Clyde)*
 "Can I do this?"
 
 Clyde unwraps from her neck, floating in front of her face. His eyes glow—not pink, but void-light blue.
 
-**CLYDE**  
-*(chirping urgently)*  
+**CLYDE**
+*(chirping urgently)*
 Translation: *"You've been training for this. You can control it. You can make it clean."*
 
 Lumina nods. Takes a breath.
@@ -418,12 +418,12 @@ It **streams**—like liquid metal, like living smoke—into her palms.
 
 She gasps as it enters her. Cold. Burning. Hungry.
 
-**LUMINA**  
-*(gritted teeth)*  
+**LUMINA**
+*(gritted teeth)*
 "It wants to consume. It wants to—"
 
-**CLYDE**  
-*(chirping frantically)*  
+**CLYDE**
+*(chirping frantically)*
 Translation: *"Don't let it! YOU control it! Turn the hunger into power!"*
 
 Lumina closes her eyes. Focuses.
@@ -440,13 +440,13 @@ Taking the corruption. The hunger. The dissolution.
 
 And transforming it into controlled energy.
 
-**LUMINA**  
-*(gasping)*  
+**LUMINA**
+*(gasping)*
 "I've got it. I've got all of it."
 
 She opens her eyes—both glowing now. One brown with void-light flickers. One crystalline blue.
 
-**LUMINA**  
+**LUMINA**
 "And now... **MOM!**"
 
 ---
@@ -459,7 +459,7 @@ Teithea's soldering iron punches through the vault door. The metal around it dis
 
 She steps through—eyes wild, hair singed, face twisted with grief and rage.
 
-**TEITHEA**  
+**TEITHEA**
 "Where is she? Where's my—"
 
 She stops.
@@ -468,75 +468,75 @@ Lumina stands in the corridor, both hands raised, void-light crackling between h
 
 Ichor—**her** ichor, Teithea's weapon—now glowing in Lumina's palms.
 
-**LUMINA**  
+**LUMINA**
 "I took your poison, Mom."
 
-**TEITHEA**  
-*(backing away, confused)*  
+**TEITHEA**
+*(backing away, confused)*
 "What did you—"
 
-**LUMINA**  
+**LUMINA**
 "I absorbed it. Every drop. So Dad wouldn't die from it."
 
 She steps forward. Teithea steps back.
 
-**LUMINA**  
+**LUMINA**
 "You tried to save me by cutting me open. But I'm not broken, Mom. I'm **evolved**."
 
 Behind Lumina, the vault door groans. Polkin appears—one-armed, bleeding light instead of blood, but **alive**.
 
-**POLKIN**  
-*(voice rough)*  
+**POLKIN**
+*(voice rough)*
 "Ely. Don't—"
 
-**LUMINA**  
-*(not taking her eyes off Teithea)*  
+**LUMINA**
+*(not taking her eyes off Teithea)*
 "Stay back, Dad. This is between me and her."
 
-**TEITHEA**  
-*(voice breaking)*  
+**TEITHEA**
+*(voice breaking)*
 "I was trying to help you. I was trying to—"
 
-**LUMINA**  
+**LUMINA**
 "You were trying to turn me back into something I'm not. Into the girl you lost."
 
 Tears stream down her face—human and ichor-laced.
 
-**LUMINA**  
+**LUMINA**
 "But I'm not that girl anymore, Mom. I'm **this**."
 
 She gestures to herself—split-faced, horned, glowing with absorbed power.
 
-**LUMINA**  
+**LUMINA**
 "And you need to accept that. Or you need to leave."
 
-**TEITHEA**  
+**TEITHEA**
 "I can't lose you again—"
 
-**LUMINA**  
+**LUMINA**
 "Then **STOP TRYING TO CUT ME APART!**"
 
 The void-light flares. The corridor shakes.
 
-**LUMINA**  
-*(voice dropping to cold certainty)*  
+**LUMINA**
+*(voice dropping to cold certainty)*
 "I don't want to hurt you, Mom. But I will protect Dad. I will protect Clyde. I will protect everyone I love."
 
 She raises her hands higher. The absorbed ichor swirls between them—a miniature storm of controlled destruction.
 
-**LUMINA**  
+**LUMINA**
 "So you have one choice. You walk away. Now."
 
-**TEITHEA**  
+**TEITHEA**
 "And if I don't?"
 
-**LUMINA**  
-*(voice breaking but steady)*  
+**LUMINA**
+*(voice breaking but steady)*
 "Then I'll do what Dad taught me. Clean kill. No contamination. No fallout."
 
 She meets her mother's eyes—one to one, human to human, despite the crystalline halves.
 
-**LUMINA**  
+**LUMINA**
 "I love you, Mom. But I **will** stop you."
 
 ---
@@ -545,10 +545,10 @@ She meets her mother's eyes—one to one, human to human, despite the crystallin
 
 Teithea raises the soldering iron—not to strike, but in defiance.
 
-**TEITHEA**  
+**TEITHEA**
 "You think you can—"
 
-**LUMINA**  
+**LUMINA**
 "**MOM. STAY. DOWN.**"
 
 The ichor-charged void-light ERUPTS from her hands.
@@ -571,73 +571,73 @@ Clyde floats beside her, glowing pink again—pride, fear, relief.
 
 Behind her, Polkin leans against the wall, one-armed, watching.
 
-**POLKIN**  
-*(quiet)*  
+**POLKIN**
+*(quiet)*
 "Ely..."
 
-**LUMINA**  
-*(not turning)*  
+**LUMINA**
+*(not turning)*
 "Is she alive?"
 
-**AIRTH**  
-*(scanning)*  
+**AIRTH**
+*(scanning)*
 "Yes. Unconscious. Severe trauma but stable."
 
-**LUMINA**  
+**LUMINA**
 "Good."
 
 She lowers her hands. The ichor-light fades.
 
-**LUMINA**  
-*(whispers)*  
+**LUMINA**
+*(whispers)*
 "I didn't kill her."
 
-**POLKIN**  
+**POLKIN**
 "No. You didn't."
 
-**LUMINA**  
+**LUMINA**
 "But I would have. If she'd kept coming."
 
 She finally turns, looking at her father—one-armed, bleeding, **alive**.
 
-**LUMINA**  
+**LUMINA**
 "You're dying."
 
-**POLKIN**  
-*(grinning despite the pain)*  
+**POLKIN**
+*(grinning despite the pain)*
 "You fool."
 
-**LUMINA**  
-*(tears streaming)*  
+**LUMINA**
+*(tears streaming)*
 "No. NO. I won't lose you too. I **can't**."
 
 She rushes to him, Clyde chirping urgently.
 
-**AIRTH**  
-*(through comms)*  
+**AIRTH**
+*(through comms)*
 "Polkin, your biometrics—the ichor's still in your system. It's spreading toward your heart."
 
-**LUMINA**  
-*(looking at the stump, the glowing wound)*  
+**LUMINA**
+*(looking at the stump, the glowing wound)*
 "There's still ichor in him?"
 
-**CLYDE**  
-*(chirping frantically)*  
+**CLYDE**
+*(chirping frantically)*
 Translation: *"Your tears! The absorption! You can take it from him!"*
 
 Lumina stares at Clyde.
 
-**LUMINA**  
+**LUMINA**
 "My tears?"
 
 She touches her face—both eyes wet. And where her crystalline tears fall, the ichor on the floor **absorbs** into them.
 
-**LUMINA**  
+**LUMINA**
 "Oh my god."
 
 She kneels beside Polkin, pressing her hands to his shoulder.
 
-**LUMINA**  
+**LUMINA**
 "Hold still, Dad. This is going to feel weird."
 
 Her tears fall onto his wound—and the ichor inside him **responds**.
@@ -650,15 +650,15 @@ She's not just absorbing the corruption.
 
 She's **extracting** it.
 
-**POLKIN**  
-*(gasping)*  
+**POLKIN**
+*(gasping)*
 "That's... that's actually kind of amazing."
 
-**LUMINA**  
-*(sobbing and laughing)*  
+**LUMINA**
+*(sobbing and laughing)*
 "Shut up. You're dying."
 
-**POLKIN**  
+**POLKIN**
 "Worth it."
 
 ---
@@ -669,11 +669,11 @@ The last of the ichor leaves Polkin's body. Lumina holds it—contained, control
 
 She looks at it. The weapon that almost killed her father.
 
-**LUMINA**  
+**LUMINA**
 "What do I do with it?"
 
-**CLYDE**  
-*(chirping)*  
+**CLYDE**
+*(chirping)*
 Translation: *"Make it useful."*
 
 Lumina stands. Walks to the crumbled wall where Teithea lies unconscious.
@@ -686,13 +686,13 @@ At the **wall behind her**.
 
 The ichor hits the metal, eating through it instantly, creating an exit.
 
-**LUMINA**  
-*(to the unconscious Teithea)*  
+**LUMINA**
+*(to the unconscious Teithea)*
 "When you wake up, you leave. You don't come back. You don't look for me."
 
 She turns away, Clyde glowing on her shoulder.
 
-**LUMINA**  
+**LUMINA**
 "And if you do..."
 
 She doesn't finish. She doesn't need to.
@@ -703,76 +703,76 @@ She doesn't finish. She doesn't need to.
 
 Lumina returns to Polkin. He's barely conscious, leaning against the wall.
 
-**POLKIN**  
+**POLKIN**
 "Can you walk?"
 
-**LUMINA**  
+**LUMINA**
 "Can **you**?"
 
-**POLKIN**  
+**POLKIN**
 "...Not really."
 
-**LUMINA**  
+**LUMINA**
 "Then I'm carrying you."
 
 She lifts him—not gently, not gracefully, but effectively. One arm under his shoulders, the other supporting his weight.
 
 Clyde glows brighter, helping stabilize her balance with void-light.
 
-**POLKIN**  
+**POLKIN**
 "Ely, you don't have to—"
 
-**LUMINA**  
+**LUMINA**
 "Yes. I do."
 
 She starts walking, carrying her one-armed father through the corridor.
 
 Behind them, Teithea groans—waking up.
 
-**TEITHEA**  
-*(weak)*  
+**TEITHEA**
+*(weak)*
 "Ely...?"
 
 Lumina stops. Doesn't turn around.
 
-**LUMINA**  
-*(voice cold, final)*  
+**LUMINA**
+*(voice cold, final)*
 "Stay down, Mom."
 
 Beat.
 
-**LUMINA**  
+**LUMINA**
 "I don't want to have to kill you."
 
 She keeps walking.
 
 Teithea tries to stand. Falls.
 
-**TEITHEA**  
-*(calling after them)*  
+**TEITHEA**
+*(calling after them)*
 "I was trying to save you!"
 
-**LUMINA**  
-*(not stopping)*  
+**LUMINA**
+*(not stopping)*
 "I know."
 
-**TEITHEA**  
+**TEITHEA**
 "Then why—"
 
-**LUMINA**  
-*(finally turning, both eyes glowing)*  
+**LUMINA**
+*(finally turning, both eyes glowing)*
 "Because you don't get to decide what I need saving from."
 
 She shifts Polkin's weight, Clyde glowing steady on her shoulder.
 
-**LUMINA**  
+**LUMINA**
 "I'm not your baby anymore. I'm not your possession. I'm not your **project**."
 
-**TEITHEA**  
+**TEITHEA**
 "Then what are you?"
 
-**LUMINA**  
-*(quiet, certain)*  
+**LUMINA**
+*(quiet, certain)*
 "I'm the thing that survives you both."
 
 She turns and walks away, carrying her father, leaving her mother in the rubble.
@@ -791,73 +791,73 @@ Polkin sits on a cot while Elara fits his new arm.
 
 Radiation-resistant plating. Ghoul-crystal blade. And a cylindrical attachment she's very proud of.
 
-**ELARA**  
+**ELARA**
 "I call it the 'Fuck You' Cannon."
 
-**POLKIN**  
-*(flexing the new arm)*  
+**POLKIN**
+*(flexing the new arm)*
 "Perfect."
 
 Lumina enters, Clyde on her shoulder. She looks exhausted but steady.
 
-**LUMINA**  
+**LUMINA**
 "How's the arm?"
 
-**POLKIN**  
+**POLKIN**
 "Better than the old one."
 
-**LUMINA**  
+**LUMINA**
 "You lost it saving me."
 
-**POLKIN**  
+**POLKIN**
 "And I'd do it a thousand times."
 
 He stands, testing the new arm's weight.
 
-**POLKIN**  
+**POLKIN**
 "Legs. Head. Everything. Nothing stops me, Ely. Not your mother. Not the Queen. Not **gravity**."
 
-**LUMINA**  
-*(smiling despite herself)*  
+**LUMINA**
+*(smiling despite herself)*
 "You're insane."
 
-**POLKIN**  
+**POLKIN**
 "Runs in the family."
 
 He looks at her—both eyes, human and crystalline.
 
-**POLKIN**  
+**POLKIN**
 "You saved my life. You absorbed the ichor. You stopped your mother without killing her."
 
-**LUMINA**  
+**LUMINA**
 "I almost killed her."
 
-**POLKIN**  
+**POLKIN**
 "But you didn't. That's the difference."
 
-**LUMINA**  
+**LUMINA**
 "Between what?"
 
-**POLKIN**  
+**POLKIN**
 "Between you and the Queen. She consumes. You **protect**."
 
 Clyde chirps—agreement, pride, love.
 
-**LUMINA**  
+**LUMINA**
 "What if next time I can't stop?"
 
-**POLKIN**  
+**POLKIN**
 "Then Clyde and I remind you. Every day. For the rest of your life."
 
 He taps his new arm.
 
-**POLKIN**  
+**POLKIN**
 "Clean kills. No contamination. No collateral damage."
 
-**LUMINA**  
+**LUMINA**
 "That's how we survive."
 
-**POLKIN**  
+**POLKIN**
 "That's how we **win**."
 
 ---
@@ -872,27 +872,27 @@ She saw everything. The door. The sacrifice. The absorption.
 
 And she's **smiling**.
 
-**THE KAZNAK QUEEN**  
+**THE KAZNAK QUEEN**
 "Oh, little bloom. You're learning."
 
 She reaches toward the barrier between worlds.
 
-**THE KAZNAK QUEEN**  
+**THE KAZNAK QUEEN**
 "You absorbed my power. You wielded it without consuming. You protected without feeding."
 
 Beat.
 
-**THE KAZNAK QUEEN**  
+**THE KAZNAK QUEEN**
 "You're becoming what I could never be. A weapon with **mercy**."
 
 Her crystalline face cracks—not from rage, but from something almost like pride.
 
-**THE KAZNAK QUEEN**  
+**THE KAZNAK QUEEN**
 "When we reunite, you'll teach me that trick."
 
 She pulls back her hand.
 
-**THE KAZNAK QUEEN**  
+**THE KAZNAK QUEEN**
 "But first... let's see how you handle your mother's grief."
 
 In the distance, a figure approaches the garden.
@@ -914,7 +914,7 @@ Teithea. Alone. Broken.
 **Coming in Chapter Nine: "The Alliance"**
 
 - Teithea makes a deal with The Queen
-- Polkin's new arm gets its first field test  
+- Polkin's new arm gets its first field test
 - Lumina trains to master ichor absorption
 - The Knockoffs face their first major loss
 - And The Queen reveals her endgame: not invasion, but **evolution**
@@ -934,7 +934,7 @@ That's power. That's control. That's the difference between consumption and prot
 **The Equation:**
 ```
 Power + Mercy = Strength
-Power + Hunger = Consumption  
+Power + Hunger = Consumption
 Power + Love = Protection
 ```
 

@@ -1,4 +1,3 @@
-
 from src.astradigital.kernel import Ability, AstradigitalEntity
 
 
@@ -26,7 +25,9 @@ def test_use_ability_damage_and_heal_and_crit():
     target = make_entity("target")
     # give resource so cost passes
     a.resources["pp"] = 10
-    ability = Ability(name="Smite", cost={"pp": 5}, type="attack", effects={"damage": 5, "heal": 3})
+    ability = Ability(
+        name="Smite", cost={"pp": 5}, type="attack", effects={"damage": 5, "heal": 3},
+    )
     a.known_abilities[ability.name] = ability
 
     # deterministic roll: not a fail, non-crit
@@ -42,7 +43,12 @@ def test_use_ability_singularity_crit_on_1():
     a = make_entity("attacker")
     target = make_entity("target")
     a.resources["pp"] = 10
-    ability = Ability(name="Singularity", cost={"pp": 1}, type="attack", effects={"damage": 2, "crit_on_1": True})
+    ability = Ability(
+        name="Singularity",
+        cost={"pp": 1},
+        type="attack",
+        effects={"damage": 2, "crit_on_1": True},
+    )
     a.known_abilities[ability.name] = ability
 
     # make roll be 1 and set golf-rule so 1 is a success

@@ -35,7 +35,7 @@ def query_zenodo(term: str):
             "User-Agent": "luminai-zenodo-check/1.0",
         },
     )
-    # Using the fixed Zenodo API URL; only http(s) expected.  # noqa: S310
+    # Using the fixed Zenodo API URL; only http(s) expected.
     with urllib.request.urlopen(req, timeout=30) as resp:  # noqa: S310
         return json.load(resp)
 

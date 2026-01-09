@@ -63,7 +63,8 @@ def add_http_constants():
                 constants = "\n# HTTP status constants\nHTTP_BAD_REQUEST = 400\n\n"
                 content = content[:insert_at] + constants + content[insert_at:]
                 content = content.replace(
-                    "if r.status_code >= 400:", "if r.status_code >= HTTP_BAD_REQUEST:",
+                    "if r.status_code >= 400:",
+                    "if r.status_code >= HTTP_BAD_REQUEST:",
                 )
                 zenodo_path.write_text(content, encoding="utf-8")
 
@@ -84,10 +85,12 @@ def add_http_constants():
                 constants = "\n# HTTP status constants\nHTTP_OK = 200\n"
                 content = content[: line_end + 1] + constants + content[line_end + 1 :]
                 content = content.replace(
-                    "if r.status_code != 200:", "if r.status_code != HTTP_OK:",
+                    "if r.status_code != 200:",
+                    "if r.status_code != HTTP_OK:",
                 )
                 content = content.replace(
-                    "if me.status_code != 200:", "if me.status_code != HTTP_OK:",
+                    "if me.status_code != 200:",
+                    "if me.status_code != HTTP_OK:",
                 )
                 path.write_text(content, encoding="utf-8")
 
@@ -102,7 +105,9 @@ def fix_logging_exception():
         content = path.read_text(encoding="utf-8")
         original = content
         content = re.sub(
-            r"logger\.exception\((.*?),\s*exc\s*\)", r"logger.exception(\1)", content,
+            r"logger\.exception\((.*?),\s*exc\s*\)",
+            r"logger.exception(\1)",
+            content,
         )
         # Also fix patterns that pass getattr(e,...) usage in post_linkedin
         content = content.replace(
@@ -126,7 +131,8 @@ def fix_sanitize_bundles():
             'BACKUP_SUFFIX = datetime.now(tz=UTC).strftime("bak.%Y%m%dT%H%M%SZ")\n\nMAX_CONSECUTIVE_BLANK_LINES = 2\n\nMARKERS',
         )
         content = content.replace(
-            "if blank_count <= 2:", "if blank_count <= MAX_CONSECUTIVE_BLANK_LINES:",
+            "if blank_count <= 2:",
+            "if blank_count <= MAX_CONSECUTIVE_BLANK_LINES:",
         )
         content = content.replace(
             'line = PATH_RE.sub("[REDACTED_PATH]", line)\n        line = EMAIL_RE.sub("[REDACTED_EMAIL]", line)\n        out_lines.append(line)',

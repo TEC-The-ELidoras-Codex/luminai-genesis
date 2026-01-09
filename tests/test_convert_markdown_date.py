@@ -8,22 +8,29 @@ MODULE_PATH = Path("scripts/convert_markdown_to_pdf.py")
 
 def load_module():
     import sys
+
     # Insert light-weight stubs for optional dependencies to allow importing module
     if "markdown" not in sys.modules:
+
         class _md:
             @staticmethod
             def markdown(text, **kwargs):
                 return text
+
         sys.modules["markdown"] = _md()
     if "weasyprint" not in sys.modules:
+
         class _CSS:
             def __init__(self, *args, **kwargs):
                 pass
+
         class _HTML:
             def __init__(self, *args, **kwargs):
                 pass
+
             def write_pdf(self, *args, **kwargs):
                 return None
+
         weasy = type("weasy", (), {"CSS": _CSS, "HTML": _HTML})
         sys.modules["weasyprint"] = weasy
 

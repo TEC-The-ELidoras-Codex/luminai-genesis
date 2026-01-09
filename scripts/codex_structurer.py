@@ -1,4 +1,3 @@
-
 """
 Elidoras Codex Structure Generator
 Parses, orders, and structures Codex entries into organized files.

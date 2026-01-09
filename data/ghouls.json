@@ -1,0 +1,172 @@
+[
+  {
+    "id": "ghoul_timothy_sol_weeran",
+    "human_name": "Timothy Sol Weeran",
+    "profession": "Child (age 7)",
+    "last_thought": "bye mister",
+    "loved_ones": [
+      "His mother",
+      "His teacher Mrs. Kell"
+    ],
+    "hp": 40,
+    "void_damage": 8,
+    "xp_value": 150,
+    "created_at": "2174-03-12T07:13:00",
+    "location": "Crossroads, Junction 4-B"
+  },
+  {
+    "id": "ghoul_marcus_thane",
+    "human_name": "Marcus Thane",
+    "profession": "Maintenance Tech, Sublevel 4",
+    "last_thought": "I was just trying to fix the lights...",
+    "loved_ones": [
+      "His daughter Aria",
+      "His partner Joss"
+    ],
+    "hp": 80,
+    "void_damage": 15,
+    "xp_value": 130,
+    "created_at": "2174-03-12T06:45:00",
+    "location": "Crossroads, Maintenance Sublevel 4"
+  },
+  {
+    "id": "ghoul_0001",
+    "human_name": "Marcus Weeran",
+    "profession": "Child (age 7)",
+    "last_thought": "Did I remember to call home?",
+    "loved_ones": [
+      "His son Marcus"
+    ],
+    "hp": 80,
+    "void_damage": 10,
+    "xp_value": 95,
+    "created_at": "2025-12-26T23:15:52.773212",
+    "location": "Crossroads, Sublevel Unknown"
+  },
+  {
+    "id": "ghoul_0002",
+    "human_name": "Rishall Singh",
+    "profession": "Maintenance Tech, Sublevel 4",
+    "last_thought": "I was just trying to fix the lights...",
+    "loved_ones": [
+      "Her mother Elena"
+    ],
+    "hp": 80,
+    "void_damage": 10,
+    "xp_value": 95,
+    "created_at": "2025-12-26T23:15:52.773244",
+    "location": "Crossroads, Sublevel Unknown"
+  },
+  {
+    "id": "ghoul_0003",
+    "human_name": "Fost Sol",
+    "profession": "Shop Owner",
+    "last_thought": "Someone will remember me, right?",
+    "loved_ones": [
+      "The neighborhood kids",
+      "Her mother Elena"
+    ],
+    "hp": 80,
+    "void_damage": 9,
+    "xp_value": 110,
+    "created_at": "2025-12-26T23:15:52.773257",
+    "location": "Crossroads, Sublevel Unknown"
+  },
+  {
+    "id": "ghoul_0004",
+    "human_name": "Marcus Fost",
+    "profession": "Shop Owner",
+    "last_thought": "Why is it so cold?",
+    "loved_ones": [
+      "Her partner Joss"
+    ],
+    "hp": 100,
+    "void_damage": 10,
+    "xp_value": 175,
+    "created_at": "2025-12-26T23:15:52.773265",
+    "location": "Crossroads, Sublevel Unknown"
+  },
+  {
+    "id": "ghoul_0005",
+    "human_name": "Lena Merrick",
+    "profession": "Food Service Worker",
+    "last_thought": "My shift ends in an hour...",
+    "loved_ones": [
+      "Their children (2)"
+    ],
+    "hp": 100,
+    "void_damage": 12,
+    "xp_value": 175,
+    "created_at": "2025-12-26T23:15:52.773273",
+    "location": "Crossroads, Sublevel Unknown"
+  },
+  {
+    "id": "ghoul_0006",
+    "human_name": "Sol Kowalski",
+    "profession": "Power Grid Monitor",
+    "last_thought": "Why is it so cold?",
+    "loved_ones": [],
+    "hp": 80,
+    "void_damage": 6,
+    "xp_value": 80,
+    "created_at": "2025-12-26T23:15:52.773280",
+    "location": "Crossroads, Sublevel Unknown"
+  },
+  {
+    "id": "ghoul_0007",
+    "human_name": "Rishall Sol",
+    "profession": "Shop Owner",
+    "last_thought": "My shift ends in an hour...",
+    "loved_ones": [],
+    "hp": 100,
+    "void_damage": 11,
+    "xp_value": 160,
+    "created_at": "2025-12-26T23:15:52.773285",
+    "location": "Crossroads, Sublevel Unknown"
+  },
+  {
+    "id": "ghoul_0008",
+    "human_name": "Zane Rishall",
+    "profession": "Waste Recycler",
+    "last_thought": "My shift ends in an hour...",
+    "loved_ones": [
+      "His coworkers",
+      "Their children (2)"
+    ],
+    "hp": 100,
+    "void_damage": 9,
+    "xp_value": 190,
+    "created_at": "2025-12-26T23:15:52.773292",
+    "location": "Crossroads, Sublevel Unknown"
+  },
+  {
+    "id": "ghoul_0009",
+    "human_name": "Thane Sol",
+    "profession": "School Teacher",
+    "last_thought": "The power spike wasn't my fault",
+    "loved_ones": [
+      "His son Marcus",
+      "Her partner Joss"
+    ],
+    "hp": 100,
+    "void_damage": 11,
+    "xp_value": 190,
+    "created_at": "2025-12-26T23:15:52.773298",
+    "location": "Crossroads, Sublevel Unknown"
+  },
+  {
+    "id": "ghoul_0010",
+    "human_name": "Sol Novak",
+    "profession": "Child (age 9)",
+    "last_thought": "Someone will remember me, right?",
+    "loved_ones": [
+      "Her mother Elena",
+      "Their children (2)"
+    ],
+    "hp": 80,
+    "void_damage": 2,
+    "xp_value": 110,
+    "created_at": "2025-12-26T23:15:52.773304",
+    "location": "Crossroads, Sublevel Unknown"
+  }
+]

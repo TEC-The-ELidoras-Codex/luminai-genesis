@@ -1,26 +1,30 @@
 """
 Fixed CleanStrike ability that matches demo expectations
 """
-from dataclasses import dataclass
+
 import random
+from dataclasses import dataclass
 
 
 @dataclass
 class CleanStrike:
     """VoidMancer Erasure ability - Clyde's signature technique"""
+
     name: str = "Clean Strike"
     cost: dict = None
     description: str = "Erase target without blood or fallout"
-    
+
     def __post_init__(self):
         if self.cost is None:
             self.cost = {"void_charge": 10, "focus": 5}
-    
+
     def can_use(self, stats) -> bool:
         """Check if character has resources"""
-        return (stats.void_charge >= self.cost["void_charge"] and 
-                stats.focus >= self.cost["focus"])
-    
+        return (
+            stats.void_charge >= self.cost["void_charge"]
+            and stats.focus >= self.cost["focus"]
+        )
+
     def use(self, stats, target=None):
         """Execute ability and apply costs"""
         if not self.can_use(stats):
@@ -28,77 +32,72 @@ class CleanStrike:
                 "success": False,
                 "message": "Insufficient resources!",
                 "damage": 0,
-                "can_honor": False
+                "can_honor": False,
             }
-        
+
         # Apply costs
         stats.void_charge -= self.cost["void_charge"]
-        
+
         return self._effect(stats, target)
-    
+
     def _effect(self, stats, target=None):
         """Core mechanic: Clean kill check"""
         # Roll for damage
         damage = random.randint(1, 20) + (stats.void_charge // 10)
-        
+
         # Focus check for clean kill (DC 12)
         focus_roll = random.randint(1, 20) + stats.focus
-        
+
         # Critical failure (1) - contaminated kill
         if focus_roll == 1:
             stats.corruption_stacks += 2
             return {
                 "success": True,
-                "message": f"CRITICAL FAILURE! Messy kill. Ichor everywhere.",
+                "message": "CRITICAL FAILURE! Messy kill. Ichor everywhere.",
                 "damage": damage // 2,  # Reduced damage
                 "can_honor": False,
-                "corruption_gained": 2
+                "corruption_gained": 2,
             }
-        
+
         # Critical success (20) - perfect erasure
-        elif focus_roll == 20:
+        if focus_roll == 20:
             return {
                 "success": True,
-                "message": f"CRITICAL SUCCESS! Perfect molecular dissolution.",
+                "message": "CRITICAL SUCCESS! Perfect molecular dissolution.",
                 "damage": damage * 2,  # Bonus damage
                 "can_honor": True,
-                "bonus_xp": True  # Flag for honoring ritual
+                "bonus_xp": True,  # Flag for honoring ritual
             }
-        
+
         # Failed clean kill - consumption instead
-        elif focus_roll < 12:
+        if focus_roll < 12:
             stats.corruption_stacks += 1
             return {
                 "success": True,
-                "message": f"Consumed instead of erased! The hunger took over.",
+                "message": "Consumed instead of erased! The hunger took over.",
                 "damage": damage,
                 "can_honor": False,
-                "corruption_gained": 1
+                "corruption_gained": 1,
             }
-        
+
         # Successful clean kill
-        else:
-            return {
-                "success": True,
-                "message": f"Clean erasure. No blood. No contamination.",
-                "damage": damage,
-                "can_honor": True
-            }
+        return {
+            "success": True,
+            "message": "Clean erasure. No blood. No contamination.",
+            "damage": damage,
+            "can_honor": True,
+        }
 
 
 # Example usage
 if __name__ == "__main__":
     from types import SimpleNamespace
-    
+
     # Mock stats
-    stats = SimpleNamespace(
-        void_charge=50,
-        focus=10,
-        corruption_stacks=0
-    )
-    
+    stats = SimpleNamespace(void_charge=50, focus=10, corruption_stacks=0)
+
     ability = CleanStrike()
-    
+
     # Test 5 strikes
     print("=== TESTING CLEAN STRIKE ===\n")
     for i in range(5):
