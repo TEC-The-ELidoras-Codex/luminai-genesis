@@ -71,3 +71,9 @@ output/TEC_Book2_The_Vessel.pdf
 output/book3_compiled.pdf
 tec_book/*compiled.final.md
 archive/private-removed-books-*/
+
+# Book content - DO NOT COMMIT
+output/
+outreach/
+tec_book/
+# If you have book-only markdown, consider prefixing names: book-*.md
